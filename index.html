@@ -2,22 +2,50 @@
 	<head>
 		<title>Portofolio</title>
 		<link rel="stylesheet" href="./index_page_resources/index.css"> <!-- This is an external CSS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 	</head>
 	<body>
-		<div id ="pagination_div">
-			<h2>Portofolio</h2>
-			<h4>Browse:</h4>
-			<table id = "pagination_table">
-				<tr><a href = "https://dragos-vacariu.github.io/Unity-Csharp-Projects/">Unity & C#</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Cpp-OpenGL-Projects/">C++ & OpenGL</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Html-Projects/">HTML & CSS</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Javascript-Projects/">JavaScript</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/AngularJS/">Angular</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/CSharp-Projects/">C# .NET</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Cpp-Projects/">C++ .NET</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Java-Projects/">Java</a href><br></tr>
-				<tr><a href = "https://dragos-vacariu.github.io/Python-Projects/">Python</a href><br></tr>
-			</table>
+	
+		<div id = "pagination_div" ng-app="myApplication" ng-controller="Controller">
+			<ul>
+				<li><a href="" ng-click="page=1;">Music</a></li>
+				<li><a href="" ng-click="page=2;">Portofolio</a></li>
+				<li><a href="" ng-click="page=3;">Forum</a></li>
+				<li><a href="" ng-click="page=4;">Blog</a></li>
+			</ul>
+			<div ng-switch="page"> <!--Adding a variable to the form-->
+			  <div ng-switch-when="1"> <!--Adding a switch to the form-->
+				 <h1>Music</h1>	
+				 <p>Welcome to a world of music.</p>
+			  </div>
+			  <div ng-switch-when="2"> <!--Adding a switch to the form-->
+
+				 	<div id ="content_div">
+						<h2>Portofolio</h2>
+						<table id = "content_table">
+							<tr><a href = "https://dragos-vacariu.github.io/Unity-Csharp-Projects/">Unity & C#</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Cpp-OpenGL-Projects/">C++ & OpenGL</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Html-Projects/">HTML & CSS</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Javascript-Projects/">JavaScript</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/AngularJS/">Angular</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/CSharp-Projects/">C# .NET</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Cpp-Projects/">C++ .NET</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Java-Projects/">Java</a href><br></tr>
+							<tr><a href = "https://dragos-vacariu.github.io/Python-Projects/">Python</a href><br></tr>
+						</table>
+					</div>
+			  </div>
+			  <div ng-switch-when="3"> <!--Adding a switch to the form-->
+				 <h1>Forum</h1>
+				 <p>Feel free to ask anything.</p>
+			  </div>
+				<div ng-switch-when="4"> <!--Adding a switch to the form-->
+				 <h1>Blog</h1>
+				 <p>Enjoy the lecture.</p>
+			  </div>
+			</div>
 		</div>
 	</body>
+	<script src="./index_page_resources/script.js"></script>
+	
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Web Page</title>
+	<meta charset = "UTF-8">
+	<link rel="stylesheet" href="./css/externalcss.css">
+</head>
+<body>
+	<header>
+		<div id="header_title">
+			<h2>My Web Page</h2>
+		</div>
+		<div id="navigation"> <!-- A class should be used when elements of same class would share the same
+style, an id is used as an unique identifier, for a particular object.		-->
+		<nav>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li id="selected_webpage"><a href="contact.html">Contact</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+		</div>
+	</header>
+		<article>
+			<table>
+			<th><h2>Contact Information:</h2></th>
+			<tr>
+				<td>
+				<h3>Use this form to write me a message:</h3>
+				<form>
+				<textarea type="text" placeholder="Enter your message!" cols="10" rows="10"></textarea>
+				</form>
+				<form>
+					<button>Send!</button>
+				</form>
+				</td>
+			</tr>
+			<th><h2>Other Contact Informations:</h2></th>
+			<tr>
+				<td>
+				<h2>Email Address: <a href="MAILTO:dragos.vacariu@mail.com">dragos.vacariu@mail.com</a></h2>
+				<h2>GitHub: <a href="https://github.com/dragos-vacariu">Dragos Vacariu</a></h2>
+				<h2>LinkedIn: <a href="https://www.linkedin.com/in/dragos-vacariu-em/">Dragos Vacariu</a></h2>
+				<h2>Phone: 0000000000</h2>
+				<h2>Location: Romania</h2>
+				<img src="./images/romania.png" alt="romania flag">
+				</td>
+			</tr>
+			</table>
+			<aside>
+				<h4 id="thank">Greetings:</h4>
+				<h3>Suscribe for Newsletter:</h3>
+				<form>
+					Name:
+					<input type="text" value="Enter your name:" width="200"></br>
+					E-mail:
+					<input type="text" value="Enter your e-mail address:" width="200"></br>
+					<button>Suscribe!</button>
+				</form>
+				<img id="anim" src="./images/square.jpg">
+				<img src="./images/drv logo.jpg" alt="drv logo">
+			</aside>
+		</article>
+	<footer>
+		<h4>My Web Page. No Copyright &copy; 2017</h4>
+		<h5>I will do better next time ☺</h5>
+		<table>
+			<th>Template Info:</th>
+			<th>Connections: </th>
+			<th>Tools:</th>
+			<tr>
+				<td><p>Author: Dragos Vacariu</p>
+					<p>Started: 1 april 2017</p>
+					<p>Ended: 3 april 2017</p>
+				</td>
+				<td><p><a href="http://www.tutorialpoint.com">tutorial-point.com</a></p>
+				</td>
+				<td><p>HTML5</p>
+					<p>HTML4</p>
+					<p>CSS</p>
+					<p>CSS3</p>
+				</td>
+			</tr>
+		</table>
+	</footer>
+</body>
+</html>
