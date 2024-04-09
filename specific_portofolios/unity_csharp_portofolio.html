@@ -3,8 +3,9 @@
 <head>
 	<title>Portofolio</title>
 	<meta charset = "UTF-8">
-	<link rel="stylesheet" href="../css/externalcss.css">
+	<link rel="stylesheet" href="../css/global.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="./scripts/global_script.js"></script>
 </head>
 <body  ng-app="myApplication" ng-controller="Controller">
 	<header>
@@ -16,8 +17,8 @@ style, an id is used as an unique identifier, for a particular object.		-->
 		<nav>
 			<ul>
 				<li><a href="../index.html">Home</a></li>
+				<li id="selected_webpage"><a href="catalogue.html">Catalogue</a></li>
 				<li><a href="../contact.html">Contact</a></li>
-				<li><a href="../about.html">About</a></li>
 			</ul>
 		</nav>
 		</div>
@@ -28,13 +29,13 @@ style, an id is used as an unique identifier, for a particular object.		-->
 			<tr>
 				<th>
 					<div id ="specific_catalogue_div_right">
-						<table id = "content_table">
-							<tr><a href = "" ng-click="page = 1;" >Java Drag Racing Simulator Presentation Video</a><br></tr>
-							<tr><a href = "" ng-click="page = 2;" >Java MP3 Player Presentation Video</a><br></tr>
-						</table>
+						<ul class = "content_list">
+							<li><a href = "" ng-click="page = 1;" >Java Drag Racing Simulator Presentation Video</a></li>
+							<li><a href = "" ng-click="page = 2;" >Java MP3 Player Presentation Video</a></li>
+						</ul>
 					</div>
 				</th>
-				<th >
+				<th style="width:25%;">
 					<div id="specific_catalogue_div_left" ng-switch="page">
 						<div ng-switch-when="1">
 							<video controls autoplay muted style="width: 100%; height:100%;">
@@ -71,15 +72,20 @@ style, an id is used as an unique identifier, for a particular object.		-->
 			<th>Connections: </th>
 			<th>Tools Used:</th>
 			<tr>
-				<td><p>Author: Dragos Vacariu</p>
-					<p>Design: 2017</p>
+				<td>
+					<ul class="footer_list">
+						<li ng-repeat="x in template_info">{{x}}</li>
+					</ul>
 				</td>
-				<td><p><a href="http://www.tutorialpoint.com">tutorial-point.com</a></p>
+				<td>
+					<ul class="footer_list">
+						<li ng-repeat="x in connections_list"><a href="https://www.{{x}}">{{x}}</a></li>
+					</ul>
 				</td>
-				<td><p>HTML5</p>
-					<p>HTML4</p>
-					<p>CSS</p>
-					<p>CSS3</p>
+				<td>
+					<ul class="footer_list">
+						<li ng-repeat="x in tools_used">{{x}}</li>
+					</ul>
 				</td>
 			</tr>
 		</table>

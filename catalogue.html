@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Portofolio</title>
-	<meta charset = "UTF-8">
-	<link rel="stylesheet" href="./css/externalcss.css">
-</head>
-<body>
-	<header>
-		<div id="header_title">
-			<h2>Portofolio</h2>
+	<head>
+		<title>Portofolio</title>
+		<meta charset = "UTF-8">
+		<link rel="stylesheet" href="./css/global.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="./scripts/global_script.js"></script>
+	</head>
+	<body ng-app="myApplication" ng-controller="Controller">
+		<header>
+			<div id="header_title">
+				<h2>Portofolio</h2>
+			</div>
+			<div id="navigation"> <!-- A class should be used when elements of same class would share the same
+	style, an id is used as an unique identifier, for a particular object.		-->
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li id="selected_webpage"><a href="catalogue.html">Catalogue</a></li>
+					<li><a href="contact.html">Contact</a></li>
+				</ul>
+			</nav>
+			</div>
+		</header>
+		<div id="page_block">
+			<h2>Catalogue:</h2>
+			<table>
+				<th>
+					<div id ="catalogue_div_right">
+						<ul class = "content_list">
+							<li><a href = "./specific_portofolios/unity_csharp_portofolio.html">Unity & C#</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Cpp-OpenGL-Projects/">C++ & OpenGL</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Html-Projects/">HTML & CSS</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Javascript-Projects/">JavaScript</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/AngularJS/">Angular</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/CSharp-Projects/">C# .NET</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Cpp-Projects/">C++ .NET</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Java-Projects/">Java</a><br></li>
+							<li><a href = "https://dragos-vacariu.github.io/Python-Projects/">Python</a><br></li>
+						</ul>
+					</div>
+				</th>
+				<th>
+					<div id="catalogue_div_left">
+						<img src="mario.gif" alt="mario gif">
+					</div>
+				</th>
+			</table>
 		</div>
-		<div id="navigation"> <!-- A class should be used when elements of same class would share the same
-style, an id is used as an unique identifier, for a particular object.		-->
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li id="selected_webpage"><a href="catalogue.html">Catalogue</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-		</nav>
-		</div>
-	</header>
-	<div id="page_block">
-		<h2>Catalogue:</h2>
-		<table>
-			<th>
-				<div id ="catalogue_div_right">
-					<table id = "content_table">
-						<tr><a href = "./specific_portofolios/unity_csharp_portofolio.html">Unity & C#</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Cpp-OpenGL-Projects/">C++ & OpenGL</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Html-Projects/">HTML & CSS</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Javascript-Projects/">JavaScript</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/AngularJS/">Angular</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/CSharp-Projects/">C# .NET</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Cpp-Projects/">C++ .NET</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Java-Projects/">Java</a><br></tr>
-						<tr><a href = "https://dragos-vacariu.github.io/Python-Projects/">Python</a><br></tr>
-					</table>
-				</div>
-			</th>
-			<th>
-				<div id="catalogue_div_left">
-					<img src="mario.gif" alt="mario gif">
-				</div>
-			</th>
-		</table>
-	</div>
-	<footer>
-		<h4>Dragos Vacariu &copy; 2017</h4>
-		<h5>Portofolio</h5>
-		<table>
-			<th>Template:</th>
-			<th>Connections: </th>
-			<th>Tools Used:</th>
-			<tr>
-				<td><p>Author: Dragos Vacariu</p>
-					<p>Design: 2017</p>
-				</td>
-				<td><p><a href="http://www.tutorialpoint.com">tutorial-point.com</a></p>
-				</td>
-				<td><p>HTML5</p>
-					<p>HTML4</p>
-					<p>CSS</p>
-					<p>CSS3</p>
-				</td>
-			</tr>
-		</table>
-	</footer>
-</body>
+		<footer>
+			<h4>Dragos Vacariu &copy; 2017</h4>
+			<h5>Portofolio</h5>
+			<table>
+				<th>Template:</th>
+				<th>Connections: </th>
+				<th>Tools Used:</th>
+				<tr>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in template_info">{{x}}</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in connections_list"><a href="https://www.{{x}}">{{x}}</a></li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in tools_used">{{x}}</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</footer>
+	</body>
 </html>
