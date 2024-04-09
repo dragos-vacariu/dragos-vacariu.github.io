@@ -493,15 +493,14 @@ aside img{
 	width:400px;
 }
 
-
-
+/*Portofolio Page styles*/
 
 #content_table{
 	margin:0vw;
 	width:100%;
 }
 
-#content_div_right{
+#catalogue_div_right{
     width:100%; 
 	font-family: Arial;
 	font-size: 1.3vw;
@@ -517,20 +516,21 @@ aside img{
 	border-color:black;
 	border-width:0.2vw;
 	opacity:0.7;
+	height:23em;
 }
 
-#content_div_right h2{
+#catalogue_div_right h2{
 	font-family: Arial;
 	color: blue;
     font-size: 2.0vw;
 	font-variant: small-caps;
 }
 
-#content_div_right h2 b{
+#catalogue_div_right h2 b{
 	color: pink;
 }
 
-#content_div_right a{
+#catalogue_div_right a{
 	color: red;
 	font-family: Arial;
 	letter-spacing: 0.2vw;
@@ -542,7 +542,7 @@ aside img{
 	font-size: 2vw;
 	text-decoration: none;
 }
-#content_div_right a:hover{
+#catalogue_div_right a:hover{
 	color: blue;
 	font-family: Arial;
 	letter-spacing: 0.2vw;
@@ -555,7 +555,7 @@ aside img{
 	text-decoration: none;
 }
 
-#content_div_left{
+#catalogue_div_left{
     width:100%; 
 	position:relative;
 	font-family: Arial;
@@ -570,7 +570,88 @@ aside img{
 	border-color:black;
 	border-width:0.2vw;
 	opacity:0.7;
+	background-image: url(keyboard.jpg);
+	height:23em;
 }
-#content_div_left img{
+#catalogue_div_left img{
+	width:63%;
+}
+
+/*Specific Portofolio Page styles*/
+
+#specific_catalogue_div_right{
+    width:100%; 
+	font-family: Arial;
+	font-size: 1.3vw;
+	border-style: none;
+	border-width: 1.2vw;
+	border-color: black;
+    margin:1%; 
+	padding:1%;
+	position: relative;
+	left:0%;
+	background-color:silver;
+	border-style:solid;
+	border-color:black;
+	border-width:0.2vw;
+	opacity:0.7;
+	height:23em;
+}
+
+#specific_catalogue_div_right h2{
+	font-family: Arial;
+	color: blue;
+    font-size: 2.0vw;
+	font-variant: small-caps;
+}
+
+#specific_catalogue_div_right h2 b{
+	color: pink;
+}
+
+#specific_catalogue_div_right a{
+	color: red;
+	font-family: Arial;
+	letter-spacing: 0.2vw;
+	margin: 0vw;
+	padding: 2vw;
+	font-weight: bold;
+	line-height: 1.6;
+	font-variant: small-caps;
+	font-size: 2vw;
+	text-decoration: none;
+}
+#specific_catalogue_div_right a:hover{
+	color: blue;
+	font-family: Arial;
+	letter-spacing: 0.2vw;
+	margin: 0vw;
+	padding: 2vw;
+	font-weight: bold;
+	line-height: 1.6;
+	font-variant: small-caps;
+	font-size: 2vw;
+	text-decoration: none;
+}
+
+#specific_catalogue_div_left{
+    width:100%; 
+	position:relative;
+	font-family: Arial;
+	font-size: 1.3vw;
+	border-style: none;
+	border-width: 1.2vw;
+	border-color: black;
+    margin-right:3%; 
+	padding:1%;
+	background-color:silver;
+	border-style:solid;
+	border-color:black;
+	border-width:0.2vw;
+	opacity:0.7;
+	background-image: url(keyboard.jpg);
+	height:23em;
+}
+#specific_catalogue_div_left img{
 	width:63%;
 }
