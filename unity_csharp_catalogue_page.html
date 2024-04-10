@@ -8,27 +8,19 @@
 		<script src="./scripts/global_script.js"></script>
 	</head>
 	<body>
-		<nav>
-			<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
-			<div class="dropdown_menu">
-				<button id="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
-				<div class="dropdown_content">
-					<a href="{pageObject.page_navigation[1].value}}">Link 1</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 2</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
-				</div>
-			</div>
-			<a class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
-		</nav>
 		<header>
 			<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
-			</div>				
+			</div>
+			<div id="navigation">
+				<nav>
+					<ul>
+						<li><a href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a></li>
+						<li  id="selected_webpage"><a href={{pageObject.page_navigation[1].value}}>{{pageObject.page_navigation[1].name}}</a></li>
+						<li><a href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 		<div id="page_block">
 			<h2>Catalogue:</h2>
