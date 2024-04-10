@@ -10,11 +10,11 @@
 	</head>
 	<body>
 		<nav>
-			<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+			<a id = "selected_webpage" class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
 			<div class="dropdown_menu">
-				<button id="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
+				<button class="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
 				<div class="dropdown_content">
-					<a href="{pageObject.page_navigation[1].value}}">Link 1</a>
+					<a href={{pageObject.page_navigation_dropdown[0].value}}>{{pageObject.page_navigation_dropdown[0].name}}</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 2</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
@@ -131,7 +131,7 @@
 					</td>
 					<td>
 						<ul class="footer_list">
-							<li ng-repeat="x in pageObject.connections_list"><a href="https://www.{{x}}">{{x}}</a></li>
+							<li ng-repeat="x in pageObject.connections_list"><a class = "outer_href" href="https://www.{{x}}">{{x}}</a></li>
 						</ul>
 					</td>
 					<td>

@@ -13,7 +13,10 @@
 				{name: "Home", value : "./index.html"},
 				{name: "Catalogue", value : "./catalogue.html"},
 				{name: "Contact", value : "./contact.html"},
-			]
+			],
+			page_navigation_dropdown : [
+				{name: "Java Apps", value : "./java_apps.html"},
+			],
 		}
 
 	});

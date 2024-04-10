@@ -8,19 +8,27 @@
 		<script src="./scripts/global_script.js"></script>
 	</head>
 	<body>
+		<nav>
+			<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+			<div class="dropdown_menu">
+				<button class="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
+				<div id = "selected_dropdown_button"  class="dropdown_content">
+					<a id = "selected_webpage" href={{pageObject.page_navigation_dropdown[0].value}}>{{pageObject.page_navigation_dropdown[0].name}}</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 2</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
+				</div>
+			</div>
+			<a class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+		</nav>
 		<header>
 			<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
-			</div>
-			<div id="navigation">
-				<nav>
-					<ul>
-						<li><a href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a></li>
-						<li  id="selected_webpage"><a href={{pageObject.page_navigation[1].value}}>{{pageObject.page_navigation[1].name}}</a></li>
-						<li><a href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a></li>
-					</ul>
-				</nav>
-			</div>
+			</div>				
 		</header>
 		<div id="page_block">
 			<h2>Catalogue:</h2>
@@ -67,7 +75,7 @@
 					<td>
 						<ul class="footer_list">
 							<li ng-repeat="x in pageObject.connections_list">
-								<a href="https://www.{{x}}">{{x}}
+								<a class = "outer_href" href="https://www.{{x}}">{{x}}
 								</a>
 							</li>
 						</ul>
