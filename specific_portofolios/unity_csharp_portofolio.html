@@ -1,94 +1,96 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Portofolio</title>
-	<meta charset = "UTF-8">
-	<link rel="stylesheet" href="../css/global.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="./scripts/global_script.js"></script>
-</head>
-<body  ng-app="myApplication" ng-controller="Controller">
-	<header>
-		<div id="header_title">
-			<h2>Portofolio</h2>
+<html  ng-app="myApplication" ng-controller="Controller">
+	<head>
+		<title>{{pageObject.page_title}}</title>
+		<meta charset = "UTF-8">
+		<link rel="stylesheet" href="../css/global.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="./scripts/global_script.js"></script>
+	</head>
+	<body>
+		<header>
+			<div id="header_title">
+				<h2>{{pageObject.page_title}}</h2>
+			</div>
+			<div id="navigation"> <!-- A class should be used when elements of same class would share the same
+	style, an id is used as an unique identifier, for a particular object.		-->
+			<nav>
+				<ul>
+					<li><a href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a></li>
+					<li id="selected_webpage"><a href={{pageObject.page_navigation[1].value}}>{{pageObject.page_navigation[1].name}}</a></li>
+					<li><a href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a></li>
+				</ul>
+			</nav>
+			</div>
+		</header>
+		<div id="page_block">
+			<h2><a href = "../catalogue.html">Catalogue</a> : Unity & C#</h2>
+			<table>
+				<tr>
+					<th>
+						<div id ="specific_catalogue_div_right">
+							<ul class = "content_list">
+								<li><a href = "" ng-click="page = 1;" >Java Drag Racing Simulator Presentation Video</a></li>
+								<li><a href = "" ng-click="page = 2;" >Java MP3 Player Presentation Video</a></li>
+							</ul>
+						</div>
+					</th>
+					<th style="width:25%;">
+						<div id="specific_catalogue_div_left" ng-switch="page">
+							<div ng-switch-when="1">
+								<video controls autoplay muted style="width: 100%; height:100%;">
+									  <source src="Java Drag Racing Simulator.mp4" type="video/mp4">
+									  <source src="Java Drag Racing Simulator.ogg" type="video/ogg">
+								Your browser does not support the video tag.
+								</video>
+							</div>
+							<div ng-switch-when="2">
+								<video controls autoplay muted style="width: 100%; height:100%;">
+									  <source src="Java MP3 Player.mp4" type="video/mp4">
+									  <source src="Java MP3 Player.ogg" type="video/ogg">
+								Your browser does not support the video tag.
+								</video>
+							</div>
+						</div>
+					</th>
+				</tr>
+			</table>
 		</div>
-		<div id="navigation"> <!-- A class should be used when elements of same class would share the same
-style, an id is used as an unique identifier, for a particular object.		-->
-		<nav>
-			<ul>
-				<li><a href="../index.html">Home</a></li>
-				<li id="selected_webpage"><a href="catalogue.html">Catalogue</a></li>
-				<li><a href="../contact.html">Contact</a></li>
-			</ul>
-		</nav>
-		</div>
-	</header>
-	<div id="page_block">
-		<h2><a href = "../catalogue.html">Catalogue</a> : Unity & C#</h2>
-		<table>
-			<tr>
-				<th>
-					<div id ="specific_catalogue_div_right">
-						<ul class = "content_list">
-							<li><a href = "" ng-click="page = 1;" >Java Drag Racing Simulator Presentation Video</a></li>
-							<li><a href = "" ng-click="page = 2;" >Java MP3 Player Presentation Video</a></li>
+		<script>
+		var app = angular.module('myApplication', []);
+		var number1;
+		app.controller('Controller', function($scope) {
+			//Initializing the models;
+			$scope.page=0;
+		});
+		</script>
+		<footer>
+			<h4>{{pageObject.footer_copyright}}</h4>
+			<h5>{{pageObject.footer_paragraph}}</h5>
+			<table>
+				<tr>
+					<th>{{pageObject.footer_table_headers[0]}}</th>
+					<th>{{pageObject.footer_table_headers[1]}}</th>
+					<th>{{pageObject.footer_table_headers[2]}}</th>
+				</tr>
+				<tr>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.template_info">{{x}}</li>
 						</ul>
-					</div>
-				</th>
-				<th style="width:25%;">
-					<div id="specific_catalogue_div_left" ng-switch="page">
-						<div ng-switch-when="1">
-							<video controls autoplay muted style="width: 100%; height:100%;">
-								  <source src="Java Drag Racing Simulator.mp4" type="video/mp4">
-								  <source src="Java Drag Racing Simulator.ogg" type="video/ogg">
-							Your browser does not support the video tag.
-							</video>
-						</div>
-						<div ng-switch-when="2">
-							<video controls autoplay muted style="width: 100%; height:100%;">
-								  <source src="Java MP3 Player.mp4" type="video/mp4">
-								  <source src="Java MP3 Player.ogg" type="video/ogg">
-							Your browser does not support the video tag.
-							</video>
-						</div>
-					</div>
-				</th>
-			</tr>
-		</table>
-	</div>
-	<script>
-	var app = angular.module('myApplication', []);
-	var number1;
-	app.controller('Controller', function($scope) {
-		//Initializing the models;
-		$scope.page=0;
-	});
-	</script>
-	<footer>
-		<h4>Dragos Vacariu &copy; 2017</h4>
-		<h5>Portofolio</h5>
-		<table>
-			<th>Template:</th>
-			<th>Connections: </th>
-			<th>Tools Used:</th>
-			<tr>
-				<td>
-					<ul class="footer_list">
-						<li ng-repeat="x in template_info">{{x}}</li>
-					</ul>
-				</td>
-				<td>
-					<ul class="footer_list">
-						<li ng-repeat="x in connections_list"><a href="https://www.{{x}}">{{x}}</a></li>
-					</ul>
-				</td>
-				<td>
-					<ul class="footer_list">
-						<li ng-repeat="x in tools_used">{{x}}</li>
-					</ul>
-				</td>
-			</tr>
-		</table>
-	</footer>
-</body>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.connections_list"><a href="https://www.{{x}}">{{x}}</a></li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.tools_used">{{x}}</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</footer>
+	</body>
 </html>
