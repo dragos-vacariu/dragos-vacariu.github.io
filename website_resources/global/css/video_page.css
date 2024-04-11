@@ -1,0 +1,57 @@
+#page_block table
+{
+	border-style:solid;
+	border-color:black;
+	border-width: 1vw;
+}
+
+#page_block h3 {
+	position:relative;
+	width:80%;
+	left:10%;
+	top:0vw;
+	border-style:solid;
+	border-width:0.2vw;
+	border-color:black;
+	font-family:Verdana;
+	font-size:1.3vw;
+	padding:1vw;
+	margin-top:1vw;
+	color:white;
+	background-color:#995500;
+	text-shadow: 0.2vw 0.3vw black;
+	text-align: center;
+}
+#page_block video
+{
+	position:relative;
+	width:80%;
+	left:10%;
+	top:0vw;
+	padding:1vw;
+	margin-top:1vw;
+	padding-top:1vw;
+	padding-bottom:1vw;
+	border-style:solid;
+	border-width:0.2vw;
+	border-color:black;
+}
+#page_block h4{
+	position:relative;
+	width:80%;
+	left:10%;
+	top:0vw;
+	border-style:solid;
+	border-width:0.2vw;
+	border-color:black;
+	font-family:Verdana;
+	font-size:1.3vw;
+	padding:1vw;
+	margin-top:1vw;
+	color:#663300;
+	background-color: rgba(153,85,00, 0.1);
+	text-shadow: 0.1vw 0.1vw white;
+}
+#page_block h2 a{
+	color: lightblue;
+}
