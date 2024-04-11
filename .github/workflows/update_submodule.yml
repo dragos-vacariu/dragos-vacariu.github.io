@@ -1,27 +1,43 @@
-name: Update Submodule
+name: Submodule Updates
+
+#############################
+# Start the job on all push #
+#############################
 on:
-  repository_dispatch:
-    types:
-      - update-submodule
+  push:
+    branches-ignore: [master, main]
+  pull_request:
+    branches: [master, main]
+
+###############
+# Set the Job #
+###############
 jobs:
-  update-submodule:
-    permissions:
-      contents: write
-      pull-requests: write
+  build:
+    name: Submodule update
+    runs-on: ubuntu-latest
+    env:
+      PARENT_REPOSITORY: 'dragos-vacariu/Javascript-Projects'
+      CHECKOUT_BRANCH: 'main'
+      PR_AGAINST_BRANCH: 'main'
+      OWNER: 'Dragos Vacariu'
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      ##########################
+      # Checkout the code base #
+      ##########################
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      ####################################
+      # Run the action against code base #
+      ####################################
+      - name: run action
+        id: run_action
+        uses: releasehub-com/github-action-create-pr-parent-submodule@v1
         with:
-          submodules: recursive
-      - name: Authorize Git
-        run: |
-          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
-      - name: Update submodule
-        run: |
-          git submodule update  --init --recursive --remote -f
-      - name: Commit changes
-        run: |
-          git add writings
-          git commit -m "Update submodule to latest commit"
-          git push origin master
+          github_token: ${{ secrets.RELEASE_HUB_SECRET }}
+          parent_repository: ${{ env.PARENT_REPOSITORY }}
+          checkout_branch: ${{ env.CHECKOUT_BRANCH}}
+          pr_against_branch: ${{ env.PR_AGAINST_BRANCH }}
+          owner: ${{ env.OWNER }}
