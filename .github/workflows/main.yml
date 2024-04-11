@@ -1,33 +1,16 @@
-name: Update Submodule
-on:
-  repository_dispatch:
-    types:
-      - update-submodule
+name: Dispatch to repo
+on: [push, workflow_dispatch]
 jobs:
-  update-submodule:
+  dispatch:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
+    strategy:
+      matrix:
+        repo: ["owner/repo"]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Push to repo
+        uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.PAT }}
-          submodules: recursive
-      - name: Authorize Git
-        run: |
-          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git config --global user.name "$GITHUB_ACTOR"
-      - name: Update submodule
-        run: |
-          git submodule update  --init --recursive --remote -f
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-      - name: Commit changes
-        run: |
-          git add writings
-          git commit -m "Update submodule to latest commit"
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ matrix.repo }}
+          event-type: update
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "module": "owner/submodule", "branch": "master"}'
