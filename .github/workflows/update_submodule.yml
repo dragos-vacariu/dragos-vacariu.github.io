@@ -5,7 +5,6 @@ on:
       - update-submodule
 jobs:
   update-submodule:
-    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
@@ -13,7 +12,6 @@ jobs:
       - name: Checkout repository
         uses: dragos.vacariu/portofolio
         with:
-          token:
           submodules: recursive
       - name: Authorize Git
         run: |
@@ -28,6 +26,6 @@ jobs:
         run: |
           git add writings
           git commit -m "Update submodule to latest commit"
-          git push origin main
+          git push origin master
         env:
           GITHUB_TOKEN:
