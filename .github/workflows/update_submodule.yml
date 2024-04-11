@@ -20,12 +20,8 @@ jobs:
       - name: Update submodule
         run: |
           git submodule update  --init --recursive --remote -f
-        env:
-          GITHUB_TOKEN:
       - name: Commit changes
         run: |
           git add writings
           git commit -m "Update submodule to latest commit"
           git push origin master
-        env:
-          GITHUB_TOKEN:
