@@ -1,0 +1,3 @@
+[submodule "Javascript-Projects"]
+	path = Javascript-Projects
+	url = ../Javascript-Projects.git
