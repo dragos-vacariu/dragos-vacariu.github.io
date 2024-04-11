@@ -17,6 +17,7 @@
 			page_navigation_dropdown : [
 				{name: "Java Apps", value : "./java_apps.html"},
 			],
+			
 		}
 
 	});
