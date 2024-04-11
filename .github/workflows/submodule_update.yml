@@ -1,0 +1,14 @@
+name: Dispatch Update Submodule
+on:
+  push:
+    branches:
+      - main
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch update
+        uses: dragos.vacariu/Javascript-Projects@v1
+        with:
+          repository: dragos.vacariu/portfolio
+          event-type: update-submodule
