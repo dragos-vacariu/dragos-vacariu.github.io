@@ -10,7 +10,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout repository
-        uses: dragos.vacariu/portofolio
+        uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Authorize Git
