@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: run action
         id: run_action
-        uses: dragos.vacariu/portfolio@v1
+        uses: dragos.vacariu/Javascript-Projects@v1
         with:
           github_token: ${{ secrets.GH_ACTIONS_TOKEN }}
-          parent_repository: dragos.vacariu/Javascript-Projects
+          parent_repository: dragos.vacariu/portfolio
           parent_branch: main
