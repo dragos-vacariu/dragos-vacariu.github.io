@@ -1,7 +1,6 @@
 name: Automatic Submodule Update
 on:
-  schedule:
-    - cron: '8 14 * * *'
+  push
 
 jobs:
   auto-update-submodules:
