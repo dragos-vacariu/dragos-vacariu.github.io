@@ -4,8 +4,7 @@ name: Submodule Updates
 #############################
 # Start the job on all push #
 #############################
-on:
-  main
+on: main.yml
  
 ###############
 # Set the Job #
