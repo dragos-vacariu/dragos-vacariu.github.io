@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch update
-        uses: dragos-vacariu/Javascript-Projects/action@v1
+        uses: dragos-vacariu/Javascript-Projects@v0
         with:
           repository: dragos-vacariu/portfolio
           event-type: update-submodule
