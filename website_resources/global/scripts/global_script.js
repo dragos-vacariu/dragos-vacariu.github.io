@@ -15,7 +15,7 @@
 				{name: "Contact", value : "./contact.html"},
 			],
 			page_navigation_dropdown : [
-				{name: "Java Apps", value : "./java_apps.html"},
+				{name: "Java Apps", value : "./Java-Projects/index.html"},
 			],
 			
 		}

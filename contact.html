@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html  ng-app="myApplication" ng-controller="Controller">
 	<head>
-		<title>{{pageObject.page_title}}</title>
+		<title>{{pageObject.page_title}} Contact</title>
 		<meta charset = "UTF-8">
 		<!--Global resources-->
 		<link rel="stylesheet" href="./website_resources/global/css/global.css">
@@ -16,7 +16,7 @@
 			<div class="dropdown_menu">
 				<button class="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
 				<div class="dropdown_content">
-					<a href={{pageObject.page_navigation_dropdown[0].value}}>{{pageObject.page_navigation_dropdown[0].name}}</a>
+					<a href=../{{pageObject.page_navigation_dropdown[0].value}}>{{pageObject.page_navigation_dropdown[0].name}}</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 2</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
 					<a href="{pageObject.page_navigation[1].value}}">Link 3</a>
