@@ -4,7 +4,7 @@ name: Submodule Updates
 #############################
 # Start the job on all push #
 #############################
-on: main.yml
+on: Send submodule updates to parent repo
  
 ###############
 # Set the Job #
