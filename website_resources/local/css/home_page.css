@@ -100,3 +100,14 @@
 	text-align: center;
 	font-family:Georgia;
 }
+
+#content_title p {
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+}
+
+#reference p 
+{
+	font-size: 1.3vw;
+}

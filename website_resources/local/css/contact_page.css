@@ -59,6 +59,15 @@ article td img{
 	width: 5vw;
 }
 
+article audio{
+	width: 15vw;
+	height: 1vw;
+	border-style: solid;
+	border-color: black;
+	border-width: 0.1vw;
+	padding: 0.2vw;
+}
+
 aside{
 	width: 25%;
 	margin-left:2vw;
