@@ -27,6 +27,7 @@ function Controller_Function($scope, $location)
 			{name: "C++ OpenGL Projects", value : "./Cpp-OpenGL-Projects/index.html"},
 			{name: "AngularJS", value : "./AngularJS/index.html"},
 			{name: "JavaScript Games", value : "./Javascript-Projects/index.html"},
+			{name: "JavaScript WebApps", value : "./Javascript-Projects/webapps.html"},
 		],
 		
 	};
@@ -89,5 +90,11 @@ function Controller_Function($scope, $location)
 			{name: "Tetris Game Video", value : "./tetris_resources/tetris_video_page.html"},
 			{name: "TowerBlocks Game Video", value : "./towerblocks_resources/towerblocks_video_page.html"},
 			{name: "Canvas Snake Game Video", value : "./canvas_snake/canvas_snake_video_page.html"},
+	];
+	$scope.javascript_webapps_catalogue = [
+			{name: "Message Encoder", value : "./encoder_decoder_resources/message_encoder.html"},
+			{name: "Message Decoder", value : "./encoder_decoder_resources/message_decoder.html"},
+			{name: "RandomORG", value : "./random_resources/random_org.html"},
+			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
 	];
 }
