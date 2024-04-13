@@ -11,21 +11,35 @@
 		<link rel="stylesheet" href="./website_resources/local/css/home_page.css">
 	</head>
 	<body>
-		<nav>
-			<a id = "selected_webpage" class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
-			<div class="dropdown_menu">
-				<button class="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
-				<div class="dropdown_content">
-					<a ng-repeat="page in pageObject.page_navigation_dropdown" href=../{{page.value}}>{{page.name}}</a>
-				</div>
-			</div>
-			<a class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
-		</nav>
 		<header>
 			<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
 			</div>				
 		</header>
+		<nav>
+			<table>
+				<tr>
+					<td id = "selected_webpage" >
+						<div>
+							<a class = "outer_href" href=./{{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+						</div>
+					</td>
+					<td>
+						<div class="dropdown_menu">
+							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+							<div class="dropdown_content">
+								<a ng-repeat="page in pageObject.page_navigation_dropdown" href=../{{page.value}}>{{page.name}}</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div>
+							<a class = "outer_href"  href=./{{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</nav>
 		<div id="container">
 			<img src="./website_resources/local/images/computer.jpg" alt="background image">
 			<div id="saying">

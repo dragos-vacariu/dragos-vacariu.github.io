@@ -3,29 +3,31 @@
 	border-style:solid;
 	border-color:black;
 	border-width: 1vw;
+	
 }
 
 #page_block h3 {
 	position:relative;
-	width:80%;
+	width:80vw;
 	left:10%;
 	top:0vw;
 	border-style:solid;
 	border-width:0.2vw;
 	border-color:black;
 	font-family:Verdana;
-	font-size:1.3vw;
+	font-size:17px;
 	padding:1vw;
 	margin-top:1vw;
 	color:white;
 	background-color:#995500;
 	text-shadow: 0.2vw 0.3vw black;
 	text-align: center;
+	box-shadow:1vw 1vw 0.5vw lightgray;
 }
 #page_block video
 {
 	position:relative;
-	width:80%;
+	width:80vw;
 	left:10%;
 	top:0vw;
 	padding:1vw;
@@ -35,22 +37,44 @@
 	border-style:solid;
 	border-width:0.2vw;
 	border-color:black;
+	box-shadow:1vw 1vw 0.5vw lightgray;
 }
 #page_block h4{
 	position:relative;
-	width:80%;
+	width:80vw;
+	height: auto;
 	left:10%;
 	top:0vw;
 	border-style:solid;
 	border-width:0.2vw;
 	border-color:black;
 	font-family:Verdana;
-	font-size:1.3vw;
-	padding:1vw;
+	font-size:13px;
+	padding:7px;
 	margin-top:1vw;
 	color:#663300;
 	background-color: rgba(153,85,00, 0.1);
 	text-shadow: 0.1vw 0.1vw white;
+	box-shadow:1vw 1vw 0.5vw lightgray;
+}
+#page_block h4 p{
+	font-family:Verdana;
+	font-size:15px;
+	border-style: none;
+	margin: 0%;
+	padding: 10px;
+	text-shadow: 0.1vw 0.1vw white;
+}
+
+#page_block h4 code, #page_block h4 p code{
+	font-family:Courier New;
+	font-size:14px;
+	border-style: none;
+	text-shadow: 0.2px 0.2px red;
+	color: black;
+	font-weight: bold;
+	padding: 2px;
+	background-color: rgba(255,255,255, 0.7);
 }
 
 #page_block h2 a{

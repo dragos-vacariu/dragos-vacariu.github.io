@@ -10,17 +10,16 @@
 
 #container #saying{
 	position: relative;
-	top:21vw;
 	font-family: Verdana;
 	font-size: 1.5vw;
 	text-transform: uppercase;
 	letter-spacing:0.2vw;
-	text-shadow: -0.2vw 0,2vw #555555;
+	text-shadow: -0.2vw 0,2vw #000000;
 	color: #ff0000;
 	text-align:right;
-	left:58%;
+	right:18%;
+	bottom:98%;
 	opacity:1.0;
-	position:absolute; /*This will make the element overlap over the other div element, used as background.*/
 }
 
 #container #code{

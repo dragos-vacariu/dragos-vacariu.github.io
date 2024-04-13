@@ -11,52 +11,66 @@
 		<link rel="stylesheet" href="./website_resources/local/css/contact_page.css">
 	</head>
 	<body>
-		<nav>
-			<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
-			<div class="dropdown_menu">
-				<button class="dropdown_button">{{pageObject.page_navigation[1].name}}</button>
-				<div class="dropdown_content">
-					<a ng-repeat="page in pageObject.page_navigation_dropdown" href=../{{page.value}}>{{page.name}}</a>
-				</div>
-			</div>
-			<a id = "selected_webpage"  class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
-		</nav>
 		<header>
 			<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
 			</div>				
 		</header>
-			<article>
-				<table>
-					<tr><th><h2>Contact Information:</h2></th></tr>
-					<tr>
-						<td>
-							<h2>System pronouns: He / Him</h2>
-							<h2>Languages: Romanian, English</h2>
-							<h2>Name: Dragos Vacariu</h2>
-							<h2>Name pronunciation: DRA-Gosh VA-KA-RI-U</h2>
-							<h2>Listen Name pronunciation: 
-								<audio controls>
-								  <source src="./website_resources/local/audio/dragos_vacariu.ogg" type="audio/ogg">
-								  <source src="./website_resources/local/audio/dragos_vacariu.mp3" type="audio/mpeg">
-								Your browser does not support the audio element.
-								</audio>		
-							</h2>
-							<h2>Email Address: <a href="MAILTO:dragos.vacariu@mail.com">dragos.vacariu@mail.com</a></h2>
-							<h2>GitHub: <a href="https://github.com/dragos-vacariu">Dragos Vacariu</a></h2>
-							<h2>LinkedIn: <a href="https://www.linkedin.com/in/dragos-vacariu-em/">Dragos Vacariu</a></h2>
-							<h2>Phone: 0000000000</h2>
-							<h2>Location: Iasi, Romania</h2>
-							<img src="./website_resources/local/images/romania.png" alt="romania flag">
-						</td>
-					</tr>
-				</table>
-				<aside>
-					<h4 id="thank">Greetings</h4>
-					<img id="anim" src="./website_resources/local/images/square.jpg">
-					<img src="./website_resources/local/images/drv_logo.jpg" alt="drv logo">
-				</aside>
-			</article>
+		<nav>
+			<table>
+				<tr>
+					<td>
+						<div>
+							<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+						</div>
+					</td>
+					<td>
+						<div class="dropdown_menu">
+							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+							<div class="dropdown_content">
+								<a ng-repeat="page in pageObject.page_navigation_dropdown" href=../{{page.value}}>{{page.name}}</a>
+							</div>
+						</div>
+					</td>
+					<td id = "selected_webpage" >
+						<div>
+							<a class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</nav>
+		<article>
+			<table>
+				<tr><th><h2>Contact Information:</h2></th></tr>
+				<tr>
+					<td>
+						<h2>System pronouns: He / Him</h2>
+						<h2>Languages: Romanian, English</h2>
+						<h2>Name: Dragos Vacariu</h2>
+						<h2>Name pronunciation: DRA-Gosh VA-KA-RI-U</h2>
+						<h2>Listen Name pronunciation: 
+							<audio controls>
+							  <source src="./website_resources/local/audio/dragos_vacariu.ogg" type="audio/ogg">
+							  <source src="./website_resources/local/audio/dragos_vacariu.mp3" type="audio/mpeg">
+							Your browser does not support the audio element.
+							</audio>		
+						</h2>
+						<h2>Email Address: <a href="MAILTO:dragos.vacariu@mail.com">dragos.vacariu@mail.com</a></h2>
+						<h2>GitHub: <a href="https://github.com/dragos-vacariu">Dragos Vacariu</a></h2>
+						<h2>LinkedIn: <a href="https://www.linkedin.com/in/dragos-vacariu-em/">Dragos Vacariu</a></h2>
+						<h2>Phone: 0000000000</h2>
+						<h2>Location: Iasi, Romania</h2>
+						<img src="./website_resources/local/images/romania.png" alt="romania flag">
+					</td>
+				</tr>
+			</table>
+			<aside>
+				<h4 id="thank">Greetings</h4>
+				<img id="anim" src="./website_resources/local/images/square.jpg">
+				<img src="./website_resources/local/images/drv_logo.jpg" alt="drv logo">
+			</aside>
+		</article>
 		<footer>
 			<h4>{{pageObject.footer_copyright}}</h4>
 			<h5>{{pageObject.footer_paragraph}}</h5>

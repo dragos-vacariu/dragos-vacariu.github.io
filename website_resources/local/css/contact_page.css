@@ -17,7 +17,8 @@ article{
 
 article table{
 	float:left;
-	width:70%;	
+	width:70%;
+	height: 40vw;
 }
 
 article th, td, tr{
