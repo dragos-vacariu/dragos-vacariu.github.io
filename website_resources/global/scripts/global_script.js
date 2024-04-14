@@ -4,6 +4,8 @@ app.controller('Controller', Controller_Function);
 function Controller_Function($scope, $location)
 {
 	//Initializing the models;
+	$scope.dotSlash ="./";
+	$scope.portfolio ="portfolio/";
 	$scope.pageObject = {
 		footer_table_headers : ["Template Info:", "Connections:", "Tools Used:"],				
 		template_info : ["Author: Dragos Vacariu", "Design: 2017 rev 2024", "Title: Portfolio", "Hosted by: GitHub"],
@@ -13,21 +15,21 @@ function Controller_Function($scope, $location)
 		footer_paragraph : "Porfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		page_title : "Portfolio",
 		page_navigation : [
-			{name: "Home", value : "./index.html"},
+			{name: "Home", value : "../portfolio/index.html"},
 			{name: "Catalogue", value : "#"},
-			{name: "Contact", value : "./contact.html"},
+			{name: "Contact", value : "../portfolio/contact.html"},
 		],
 		page_navigation_dropdown : [
-			{name: "Java Projects", value : "./Java-Projects/index.html"},
-			{name: "Unity C# Projects", value : "./Unity-Csharp-Projects/index.html"},
-			{name: "Python Projects", value : "./Python-Projects/index.html"},
-			{name: "Html Projects", value : "./Html-Projects/index.html"},
-			{name: "C# Projects", value : "./CSharp-Projects/index.html"},
-			{name: "C++ Projects", value : "./Cpp-Projects/index.html"},
-			{name: "C++ OpenGL Projects", value : "./Cpp-OpenGL-Projects/index.html"},
-			{name: "AngularJS", value : "./AngularJS/index.html"},
-			{name: "JavaScript Games", value : "./Javascript-Projects/index.html"},
-			{name: "JavaScript WebApps", value : "./Javascript-Projects/webapps.html"},
+			{name: "Java Projects", value : "../Java-Projects/index.html"},
+			{name: "Unity C# Projects", value : "../Unity-Csharp-Projects/index.html"},
+			{name: "Python Projects", value : "../Python-Projects/index.html"},
+			{name: "Html Projects", value : "../Html-Projects/index.html"},
+			{name: "C# Projects", value : "../CSharp-Projects/index.html"},
+			{name: "C++ Projects", value : "../Cpp-Projects/index.html"},
+			{name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"},
+			{name: "AngularJS", value : "../AngularJS/index.html"},
+			{name: "JavaScript Games", value : "../Javascript-Projects/index.html"},
+			{name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"},
 		],
 		
 	};
@@ -97,4 +99,7 @@ function Controller_Function($scope, $location)
 			{name: "RandomORG", value : "./random_resources/random_org.html"},
 			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
 	];
+	$scope.Concatetate = function (str, source){
+		return str + source;
+	};
 }
