@@ -1,7 +1,7 @@
 var app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
-function Controller_Function($scope, $location)
+function Controller_Function($scope)
 {
 	//Initializing the models;
 	$scope.dotSlash ="./";
@@ -99,7 +99,5 @@ function Controller_Function($scope, $location)
 			{name: "RandomORG", value : "./random_resources/random_org.html"},
 			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
 	];
-	$scope.Concatetate = function (str, source){
-		return str + source;
-	};
+	$scope.exitDir = "../"
 }
