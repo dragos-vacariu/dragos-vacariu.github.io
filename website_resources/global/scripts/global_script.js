@@ -30,6 +30,7 @@ function Controller_Function($scope)
 			{name: "AngularJS", value : "../AngularJS/index.html"},
 			{name: "JavaScript Games", value : "../Javascript-Projects/index.html"},
 			{name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"},
+			{name: "Portable Downloads", value : "../Portable-Downloads/index.html"},
 		],
 		
 	};
@@ -99,5 +100,16 @@ function Controller_Function($scope)
 			{name: "RandomORG", value : "./random_resources/random_org.html"},
 			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
 	];
+	$scope.portable_downloads = [
+			{name: "Python MP3 Player - Runnable Script", value : "./PyPlay MP3 Player/Python MP3 Player - Runnable Script.rar"},
+			{name: "Python MP3 Player - Windows Executable", value : "./PyPlay MP3 Player/Python MP3 Player - Windows Executable.7z"},
+			{name: "Unity TowerBlocks", value : "./TowerBlocks Game/TowerBlocks Game.7z"},
+			{name: "Unity 3D Racing Environment", value : "./Unity 3D Drag Racing Environment/Unity 3D Drag Racing Environment.7z"},
+			{name: "WWBM Quizz Game", value : "./WWBM Quizz Game/WWBM Quizz Game.rar"},
+			{name: "Traffic Simulator 2D", value : "./Traffic Simulator 2D/Traffic Simulator 2D.rar"},
+			{name: "Java 2D Racing Environment", value : "./Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.rar"},
+			{name: "JavaScript Games Portable", value : "./JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
+	];
+	
 	$scope.exitDir = "../"
 }
