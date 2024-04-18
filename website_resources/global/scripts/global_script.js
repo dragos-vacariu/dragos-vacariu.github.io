@@ -6,6 +6,20 @@ function Controller_Function($scope)
 	//Initializing the models;
 	$scope.dotSlash ="./";
 	$scope.portfolio ="portfolio/";
+	
+	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"};
+	$scope.unity_page = {name: "Unity C# Projects", value: "../Unity-Csharp-Projects/index.html"};
+	$scope.python_page = {name: "Python Projects", value: "../Python-Projects/index.html"};
+	$scope.html_page = {name: "Html Projects", value : "../Html-Projects/index.html"},
+	$scope.c_sharp_page = {name: "C# Projects", value : "../CSharp-Projects/index.html"},
+	$scope.cpp_page = {name: "C++ Projects", value : "../Cpp-Projects/index.html"},
+	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"},
+	$scope.angularjs_page = {name: "AngularJS", value : "../AngularJS/index.html"},
+	$scope.javascript_games_page = {name: "JavaScript Games", value : "../Javascript-Projects/index.html"},
+	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"},
+	$scope.portable_downloads_page = {name: "Portable Downloads", value : "../Portable-Downloads/index.html"},
+	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"},
+
 	$scope.pageObject = {
 		footer_table_headers : ["Template Info:", "Connections:", "Tools Used:"],				
 		template_info : ["Author: Dragos Vacariu", "Design: 2017 rev 2024", "Title: Portfolio", "Hosted by: GitHub"],
@@ -20,17 +34,17 @@ function Controller_Function($scope)
 			{name: "Contact", value : "../portfolio/contact.html"},
 		],
 		page_navigation_dropdown : [
-			{name: "Java Projects", value : "../Java-Projects/index.html"},
-			{name: "Unity C# Projects", value : "../Unity-Csharp-Projects/index.html"},
-			{name: "Python Projects", value : "../Python-Projects/index.html"},
-			{name: "Html Projects", value : "../Html-Projects/index.html"},
-			{name: "C# Projects", value : "../CSharp-Projects/index.html"},
-			{name: "C++ Projects", value : "../Cpp-Projects/index.html"},
-			{name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"},
-			{name: "AngularJS", value : "../AngularJS/index.html"},
-			{name: "JavaScript Games", value : "../Javascript-Projects/index.html"},
-			{name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"},
-			{name: "Portable Downloads", value : "../Portable-Downloads/index.html"},
+			$scope.unity_page,
+			$scope.python_page,
+			$scope.html_page,
+			$scope.c_sharp_page,
+			$scope.cpp_page,
+			$scope.cpp_opengl_page,
+			$scope.angularjs_page,
+			$scope.javascript_games_page,
+			$scope.javascript_webapps_page,
+			$scope.portable_downloads_page,
+			$scope.github_repository_page,
 		],
 		
 	};

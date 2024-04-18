@@ -284,6 +284,8 @@ footer th{
 
 #page_block h2 a{
 	text-decoration:none;
+	text-shadow: none;
+	color: lightblue;
 }
 
 #page_block h2{
