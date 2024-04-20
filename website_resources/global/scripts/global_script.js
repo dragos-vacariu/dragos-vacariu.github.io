@@ -7,18 +7,18 @@ function Controller_Function($scope)
 	$scope.dotSlash ="./";
 	$scope.portfolio ="portfolio/";
 	
-	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"};
+	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"}; /*currently not indexed*/
 	$scope.unity_page = {name: "Unity C# Projects", value: "../Unity-Csharp-Projects/index.html"};
 	$scope.python_page = {name: "Python Projects", value: "../Python-Projects/index.html"};
-	$scope.html_page = {name: "Html Projects", value : "../Html-Projects/index.html"},
-	$scope.c_sharp_page = {name: "C# Projects", value : "../CSharp-Projects/index.html"},
-	$scope.cpp_page = {name: "C++ Projects", value : "../Cpp-Projects/index.html"},
-	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"},
-	$scope.angularjs_page = {name: "AngularJS", value : "../AngularJS/index.html"},
-	$scope.javascript_games_page = {name: "JavaScript Games", value : "../Javascript-Projects/index.html"},
-	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"},
-	$scope.portable_downloads_page = {name: "Portable Downloads", value : "../Portable-Downloads/index.html"},
-	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"},
+	$scope.html_page = {name: "Html Projects", value : "../Html-Projects/index.html"};
+	$scope.c_sharp_page = {name: "C# Projects", value : "../CSharp-Projects/index.html"};
+	$scope.cpp_page = {name: "C++ Projects", value : "../Cpp-Projects/index.html"};
+	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"};
+	$scope.angularjs_page = {name: "AngularJS", value : "../AngularJS/index.html"};
+	$scope.javascript_games_page = {name: "JavaScript Games", value : "../Javascript-Projects/index.html"};
+	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"}; /*currently not indexed*/
+	$scope.portable_downloads_page = {name: "Portable Downloads", value : "../Portable-Downloads/index.html"};
+	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
 
 	$scope.pageObject = {
 		footer_table_headers : ["Template Info:", "Connections:", "Tools Used:"],				
@@ -34,6 +34,7 @@ function Controller_Function($scope)
 			{name: "Contact", value : "../portfolio/contact.html"},
 		],
 		page_navigation_dropdown : [
+			/*$scope.java,*/
 			$scope.unity_page,
 			$scope.python_page,
 			$scope.html_page,
@@ -42,7 +43,7 @@ function Controller_Function($scope)
 			$scope.cpp_opengl_page,
 			$scope.angularjs_page,
 			$scope.javascript_games_page,
-			$scope.javascript_webapps_page,
+			/*$scope.javascript_webapps_page,*/
 			$scope.portable_downloads_page,
 			$scope.github_repository_page,
 		],
@@ -109,9 +110,9 @@ function Controller_Function($scope)
 			{name: "Canvas Snake Game Video", value : "./canvas_snake/canvas_snake_video_page.html"},
 	];
 	$scope.javascript_webapps_catalogue = [
-			{name: "Message Encoder", value : "./encoder_decoder_resources/message_encoder.html"},
-			{name: "Message Decoder", value : "./encoder_decoder_resources/message_decoder.html"},
-			{name: "RandomORG", value : "./random_resources/random_org.html"},
+			{name: "Message Encoder", value : "./webapps_resources/message_encoder.html"},
+			{name: "Message Decoder", value : "./webapps_resources/message_decoder.html"},
+			{name: "RandomORG", value : "./webapps_resources/random_org.html"},
 			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
 	];
 	$scope.portable_downloads = [

@@ -1,14 +1,6 @@
-#page_block table
-{
-	border-style:solid;
-	border-color:black;
-	border-width: 1vw;
-	
-}
-
 #page_block h3 {
 	position:relative;
-	width:80vw;
+	width:80%;
 	left:10%;
 	top:0vw;
 	border-style:solid;
@@ -27,7 +19,7 @@
 #page_block video
 {
 	position:relative;
-	width:80vw;
+	width:80%;
 	left:10%;
 	top:0vw;
 	padding:1vw;
@@ -41,7 +33,7 @@
 }
 #page_block h4{
 	position:relative;
-	width:80vw;
+	width:80%;
 	height: auto;
 	left:10%;
 	top:0vw;
@@ -75,8 +67,4 @@
 	font-weight: bold;
 	padding: 2px;
 	background-color: rgba(255,255,255, 0.7);
-}
-
-#page_block h2 a{
-	color: lightblue;
 }

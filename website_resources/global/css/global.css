@@ -261,7 +261,6 @@ footer th{
 
 /*This is for Catalogue page*/
 #page_block{
-	padding-top:10px;
 	padding-bottom:10px;
 	margin-left:10px;
 	margin-top:10px;
@@ -290,7 +289,7 @@ footer th{
 
 #page_block h2{
 	border-bottom-style:solid;
-	border-width:1px;
+	border-width:2px;
 	border-color:black;
 	font-family:Verdana;
 	font-size: 20px;
@@ -303,8 +302,12 @@ footer th{
 	color:white;
 	background-color:#995500;
 	text-shadow: 0.2vw 0.3vw black;
-	box-shadow:0vw -1vw 0.3vw #995500;
-	height: 30px;
+	height: 80%;
+}
+
+#page_block h2 a{
+	color: lightblue;
+	text-shadow: 0.2vw 0.3vw black;
 }
 
 #page_block #content_table
