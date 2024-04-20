@@ -14,7 +14,7 @@ function Controller_Function($scope)
 	$scope.c_sharp_page = {name: "C# Projects", value : "../CSharp-Projects/index.html"};
 	$scope.cpp_page = {name: "C++ Projects", value : "../Cpp-Projects/index.html"};
 	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"};
-	$scope.angularjs_page = {name: "AngularJS", value : "../AngularJS/index.html"};
+	$scope.angularjs_page = {name: "AngularJS Exercises", value : "../AngularJS/index.html"};
 	$scope.javascript_games_page = {name: "JavaScript Games", value : "../Javascript-Projects/index.html"};
 	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"}; /*currently not indexed*/
 	$scope.portable_downloads_page = {name: "Portable Downloads", value : "../Portable-Downloads/index.html"};
@@ -36,13 +36,13 @@ function Controller_Function($scope)
 		page_navigation_dropdown : [
 			/*$scope.java,*/
 			$scope.unity_page,
-			$scope.python_page,
-			$scope.html_page,
-			$scope.c_sharp_page,
-			$scope.cpp_page,
-			$scope.cpp_opengl_page,
-			$scope.angularjs_page,
 			$scope.javascript_games_page,
+			$scope.python_page,
+			$scope.c_sharp_page,
+			$scope.cpp_opengl_page,
+			$scope.html_page,
+			$scope.angularjs_page,
+			$scope.cpp_page,
 			/*$scope.javascript_webapps_page,*/
 			$scope.portable_downloads_page,
 			$scope.github_repository_page,
@@ -77,22 +77,22 @@ function Controller_Function($scope)
 			{name: "Traffic Simulator 2D", value : "./Traffic Simulator 2D/Traffic Simulator 2D.html"},
 	];
 	$scope.angularjs_projects_catalogue = [
-			{value: "./Applications/project28 checkerboard.html" , name : "Checkerboard"},
+			{value: "./Applications/project26-27 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
+			{value: "./Applications/project26-27 car shop catalogue/project27 car shop catalogue new template.html" , name : "Car Shop New"},
+			{value: "./Applications/project24 customized tables.html" , name : "Customized Tables"},
+			{value: "./Applications/project25 shopping cart.html" , name : "Shopping Cart"},
+			{value: "./Applications/project22 color picker, decimal to hex.html" , name : "Color Picker"},
+			{value: "./Applications/project23 border picker.html" , name : "Border Picker"},
+			{value: "./Applications/project17 matrix determinant calculator ng-change.html" , name : "Matrix determinant calculator"},
+			{value: "./Applications/project18 decimal to binary converter, loops in angularjs.html" , name : "Decimal to Binary Converter"},
+			{value: "./Applications/project21 bitwise operations calculator.html" , name : "Bitwise operations"},
+			{value: "./Applications/project20 age computer.html" , name : "Age computer"},
 			{value: "./Applications/project13 simple calculator.html" , name : "Simple Calculator"},
 			{value: "./Applications/project14 item list.html" , name : "Item List"},
 			{value: "./Applications/project15 add items to cart using angular.foreach.html" , name : "Add items to Cart"},
 			{value: "./Applications/project16 display content according to href.html" , name : "Display HREF Content"},
-			{value: "./Applications/project17 matrix determinant calculator ng-change.html" , name : "Matrix determinant calculator"},
-			{value: "./Applications/project18 decimal to binary converter, loops in angularjs.html" , name : "Decimal to Binary Converter"},
 			{value: "./Applications/project19 letter to symbol replacer.html" , name : "Letter to symbol replacer"},
-			{value: "./Applications/project20 age computer.html" , name : "Age computer"},
-			{value: "./Applications/project21 bitwise operations calculator.html" , name : "Bitwise operations"},
-			{value: "./Applications/project22 color picker, decimal to hex.html" , name : "Color Picker"},
-			{value: "./Applications/project23 border picker.html" , name : "Border Picker"},
-			{value: "./Applications/project24 customized tables.html" , name : "Customized Tables"},
-			{value: "./Applications/project25 shopping cart.html" , name : "Shopping Cart"},
-			{value: "./Applications/project26 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
-			{value: "./Applications/project27 car shop catalogue new template/project27 car shop catalogue new template.html" , name : "Car Shop New"},
+			{value: "./Applications/project28 checkerboard.html" , name : "Checkerboard"},
 	];
 	$scope.javascript_games_catalogue = [
 			{name: "Knight Chess Game", value : "./knight_chess_resources/knight_chess_game.html"},
