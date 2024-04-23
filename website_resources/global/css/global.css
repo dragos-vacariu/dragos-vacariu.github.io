@@ -61,19 +61,17 @@ nav table{
 	position: relative;
 	width: 20%;
 	height:auto;
-	left: 30%;
+	left: 30vw;
 }
 
 nav table tr td{
 	margin: 0%;
-	padding: 1vw;
+	font-family:Verdana;
+	font-size: 15px;
+	padding: 1vw 1vw;
 }
 nav table tr td a{
 	height: auto;
-	width: auto;
-	font-family:Verdana;
-	font-size: 100%;
-	padding: 1vw 1vw;
 	text-decoration:none;
 	letter-spacing: 1px;
 	color: white;
