@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html  ng-app="myApplication" ng-controller="Controller">
+	<head>
+		<title>{{pageObject.page_title}} About</title>
+		<meta charset = "UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
+		<!--Global resources-->
+		<link rel="stylesheet" href="./website_resources/global/css/global.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="./website_resources/global/scripts/global_script.js"></script>
+		
+		<!--Local resources-->
+		<link rel="stylesheet" href="./website_resources/local/css/about_page.css">
+	</head>
+	<body>
+		<header>
+			<div id="header_title">
+				<h2>{{pageObject.page_title}}</h2>
+			</div>				
+		</header>
+		<nav>
+			<table>
+				<tr>
+					<td>
+						<div>
+							<a class = "outer_href" href={{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
+						</div>
+					</td>
+					<td>
+						<div class="dropdown_menu">
+							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+							<div class="dropdown_content">
+								<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div>
+							<a class = "outer_href"  href={{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
+						</div>
+					</td>
+					<td  id = "selected_webpage" >
+						<div>
+							<a class = "outer_href"  href={{pageObject.page_navigation[3].value}}>{{pageObject.page_navigation[3].name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</nav>
+		<div id="page_block">
+			<h2>About:</h2>
+			<h3>Self Assessment Standings: </h3>
+			<p id="html_css_info">
+				<code>HTML & CSS</code> <br><br>
+				Hands-on Experience: < 2 years; <br>
+				- can design decent looking web templates;<br>
+				- can handle the responsiveness of the web page; <br>
+				- basic knowledge of photo editing; <br>
+				- basic knowledge of color wheels for creating complementary colors & contrasts; <br>
+			</p>
+			
+			<p id="javascript_info">
+				<code>JavaScript</code> <br><br>
+				Hands-on Experience: < 2 years; <br>
+				- can design / implement basic client web-based applications; <br>
+				- can design / implement low-medium complexity solutions; <br>
+				- can make use of object oriented programming concepts; <br>
+				- can make use of basic Angular functions and directives; <br>
+			</p>
+			
+			<p id="c_language_info">
+				<code>C Language</code> <br><br>
+				Hands-on Experience: > 4 years; <br>
+				- can design / implement low-medium complexity solutions;<br>
+				- familiar with modular programming; <br>
+			</p>
+			
+						
+			<p id="python_info">
+				<code>Python</code> <br><br>
+				Hands-on Experience: < 2 years; <br>
+				- can design / implement low-medium complexity solutions;<br>
+				- familiar with modular programming;<br>
+				- familiar with object oriented programming concepts;<br>
+				- familiar with tkinter interface;<br>
+				- familiar with exception handling & debugging;<br>
+			</p>
+			
+			<p id="cpp_info">
+				<code>C++</code> <br><br>
+				Hands-on Experience: < 2 years; <br>
+				- can design / implement low-medium complexity solutions; <br>
+				- familiar with modular programming; <br>
+				- familiar with object oriented programming concepts; <br>
+				- basic knowledge and understanding of generic programming; <br>
+				- familiar with .NET Windows Forms; <br>
+			</p>
+			
+			<p id="csharp_info">
+				<code>C#</code> <br><br>
+				Hands-on Experience: < 1 years; <br>
+				- can design / implement low-medium complexity solutions; <br>
+				- familiar with modular programming; <br>
+				- familiar with object oriented programming concepts; <br>
+				- familiar with .NET Windows Forms; <br>
+			</p>
+			
+			<p id="unity_info">
+				<code>Unity</code> <br><br>
+				Hands-on Experience: < 1 year; <br>
+				- familiarity with the 2D & 3D development; <br>
+				- familiarity with Unity datatypes; <br>
+				- familiarity with Unity game engine physics; <br>
+			</p>
+			
+			<p id="java_info">
+				<code>Java</code> <br><br>
+				Hands-on Experience: < 6 months; <br>
+				- can design / implement low-medium complexity solutions; <br>
+				- familiar with object oriented programming concepts; <br>
+				- some familiarity with java.Swing library; <br>
+			</p>
+
+
+		</div>
+		<footer>
+			<h4>{{pageObject.footer_copyright}}</h4>
+			<h5>{{pageObject.footer_paragraph}}</h5>
+			<table>
+				<tr>
+					<th>{{pageObject.footer_table_headers[0]}}</th>
+					<th>{{pageObject.footer_table_headers[1]}}</th>
+					<th>{{pageObject.footer_table_headers[2]}}</th>
+				</tr>
+				<tr>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.template_info">{{x}}</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.connections_list">
+								<a class = "outer_href" href="https://www.{{x}}">{{x}}
+								</a>
+							</li>
+						</ul>
+					</td>
+					<td>
+						<ul class="footer_list">
+							<li ng-repeat="x in pageObject.tools_used">{{x}}</li>
+						</ul>
+					</td>
+				</tr>
+			</table>
+		</footer>
+	</body>
+</html>

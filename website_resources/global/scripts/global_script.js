@@ -32,6 +32,7 @@ function Controller_Function($scope)
 			{name: "Home", value : "../portfolio/index.html"},
 			{name: "Catalogue", value : "#"},
 			{name: "Contact", value : "../portfolio/contact.html"},
+			{name: "About", value : "../portfolio/about.html"},
 		],
 		page_navigation_dropdown : [
 			/*$scope.java,*/
