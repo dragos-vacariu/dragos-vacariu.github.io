@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<programming_language>
+	<name>C Language</name>
+	<description>Description</description>
+	<oop>OOP</oop>
+	<encapsulation>Encapsulation</encapsulation>
+	<polymorphism>Polymorphism</polymorphism>
+	<abstraction>Abstraction</abstraction>
+</programming_language>
+
+<programming_language>
+	<name>C++</name>
+	<description>C++ Description</description>
+	<oop>C++ OOP</oop>
+	<encapsulation>C++ Encapsulation</encapsulation>
+	<polymorphism>C++ Polymorphism</polymorphism>
+	<abstraction>C++ Abstraction</abstraction>
+</programming_language>
+
+<programming_language>
+	<name>C#</name>
+	<description>C# Description</description>
+	<oop>C# OOP</oop>
+	<encapsulation>C# Encapsulation</encapsulation>
+	<polymorphism>C# Polymorphism</polymorphism>
+	<abstraction>C# Abstraction</abstraction>
+</programming_language>
