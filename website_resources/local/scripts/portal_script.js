@@ -2,7 +2,8 @@ var online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfoli
 var programming_languages = [];
 var concept_selection = document.getElementById("concept_selection");
 var programming_language_selection = document.getElementById("programming_language_selection");
-var selection_functions = document.getElementById("selection_functions");
+var overall_concept_selection = document.getElementById("overall_concept_selection");
+var overall_language_selection = document.getElementById("overall_language_selection");
 
 
 class Programming_Language
@@ -65,9 +66,13 @@ function loadXMLDoc(xml_file)
 				}
 				programming_languages.push(Programming_Lang);
 			}
-			/*Adding the selection functions*/
-			selection_functions.appendChild( createLiElement("deselect all", deselectionOfElement) );
-			selection_functions.appendChild( createLiElement("select all", selectionOfElement) );
+			/*Adding the overall language selection functions*/
+			overall_language_selection.appendChild( createLiElement("deselect all", deselectionOfAllLanguageElements) );
+			overall_language_selection.appendChild( createLiElement("select all", selectionOfAllLanguageElements) );
+			
+			/*Adding the overall concept selection functions*/
+			overall_concept_selection.appendChild( createLiElement("deselect all", deselectionOfAllConceptElements) );
+			overall_concept_selection.appendChild( createLiElement("select all", selectionOfAllConceptElements) );
 			
 			/*Adding the concept selection*/
 			for(var i=0; i< programming_languages[0].concepts.length; i++)
@@ -197,7 +202,7 @@ function createLiElement(string_value, function_behaviour)
 	return li;
 }
 
-function deselectionOfElement() 
+function deselectionOfAllConceptElements() 
 {
 	for(var i = 0; i < concept_selection.children.length; i++)
 	{
@@ -210,7 +215,7 @@ function deselectionOfElement()
 	showTable();
 }
 
-function selectionOfElement() 
+function selectionOfAllConceptElements() 
 {
 	for(var i = 0; i < concept_selection.children.length; i++)
 	{
@@ -218,6 +223,32 @@ function selectionOfElement()
 		{
 			concept_selection.children[i].value = true;
 			concept_selection.children[i].style.opacity = 1;
+		}
+	}
+	showTable();
+}
+
+function deselectionOfAllLanguageElements() 
+{
+	for(var i = 0; i < programming_language_selection.children.length; i++)
+	{
+		if (programming_language_selection.children[i] != this)
+		{
+			programming_language_selection.children[i].value = false;
+			programming_language_selection.children[i].style.opacity = 0.3;
+		}
+	}
+	showTable();
+}
+
+function selectionOfAllLanguageElements() 
+{
+	for(var i = 0; i < programming_language_selection.children.length; i++)
+	{
+		if (programming_language_selection.children[i] != this)
+		{
+			programming_language_selection.children[i].value = true;
+			programming_language_selection.children[i].style.opacity = 1;
 		}
 	}
 	showTable();
