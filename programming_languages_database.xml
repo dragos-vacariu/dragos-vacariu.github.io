@@ -5,15 +5,15 @@
 		<name>C</name>
 		<description>C is a general-purpose computer programming language. 
 		It was created in the 1970s by Dennis Ritchie, and remains very widely used and 
-		influential. By design, <red>C's</red> features cleanly reflect the capabilities of the 
+		influential. By design, <b><i>C's</i></b> features cleanly reflect the capabilities of the 
 		targeted CPUs. It has found lasting use in operating systems, device drivers, 
 		and protocol stacks, but its use in application software has been decreasing. 
 		C is commonly used on computer architectures that range from the largest 
 		supercomputers to the smallest microcontrollers and embedded systems.</description>
-		<oop>OOP</oop>
-		<encapsulation>Encapsulation</encapsulation>
-		<polymorphism>Polymorphism</polymorphism>
-		<abstraction>Abstraction</abstraction>
+		<oop>Not present</oop>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<abstraction>Not <code>present</code></abstraction>
 	</programming_language>
 	
 	<programming_language>
