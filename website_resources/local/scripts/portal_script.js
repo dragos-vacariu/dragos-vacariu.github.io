@@ -5,6 +5,8 @@ var programming_language_selection = document.getElementById("programming_langua
 var overall_concept_selection = document.getElementById("overall_concept_selection");
 var overall_language_selection = document.getElementById("overall_language_selection");
 
+var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
+
 
 class Programming_Language
 {
@@ -66,17 +68,31 @@ function loadXMLDoc(xml_file)
 				}
 				programming_languages.push(Programming_Lang);
 			}
-
+			/*Adding the overall language selection functions*/
+			overall_language_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllLanguageElements) );
+			overall_language_selection.appendChild( createLiElement("select all", true, selectionOfAllLanguageElements) );
+			
+			/*Adding the overall concept selection functions*/
+			overall_concept_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllConceptElements) );
+			overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
+			
 			/*Adding the concept selection*/
 			for(var i=0; i< programming_languages[0].concepts.length; i++)
 			{
-				concept_selection.appendChild(createLiElement(programming_languages[0].concepts[i].concept_name));
+				concept_selection.appendChild(createLiElement(programming_languages[0].concepts[i].concept_name, true));
 			}
 			
 			/*Adding the programming language selection*/
 			for(var i=0; i< programming_languages.length; i++)
 			{
-				programming_language_selection.appendChild(createLiElement(programming_languages[i].name));
+				if(i<3)
+				{
+					programming_language_selection.appendChild(createLiElement(programming_languages[i].name, true));
+				}
+				else
+				{
+					programming_language_selection.appendChild(createLiElement(programming_languages[i].name, false));
+				}
 			}
 			showTable();
 		}
@@ -120,7 +136,7 @@ function fillTable(table)
 {
 	var row = table.insertRow();
 	var cell = row.insertCell(); //empty cell
-	
+	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
 	var active_columns = 0; 
 	for(var j=0; j<programming_language_selection.children.length; j++)
 	{
@@ -137,7 +153,9 @@ function fillTable(table)
 			{
 				cell = row.insertCell();
 				cell.innerHTML = language.name;
-				cell.style.fontWeight = "bold";
+				cell.style.fontSize = "150%";
+				cell.style.textTransform = "uppercase";
+				cell.style.backgroundColor = defaultTableHeaderStyleBackground;
 				cell.width = String(100 / active_columns) + "%";
 			}
 		}
@@ -152,7 +170,9 @@ function fillTable(table)
 			row = table.insertRow();
 			cell = row.insertCell(); //empty cell
 			cell.innerHTML = programming_languages[0].concepts[j].concept_name;
-			
+			cell.style.backgroundColor = defaultTableHeaderStyleBackground;
+			cell.style.textTransform = "uppercase";
+			cell.style.fontSize = "150%";
 			for(var i=0; i < programming_languages.length; i++)
 			{
 
@@ -166,11 +186,19 @@ function fillTable(table)
 	}
 }
 
-function createLiElement(string_value, function_behaviour)
+function createLiElement(string_value, enablingStatus, function_behaviour)
 {
 	var li = document.createElement("li");
 	li.appendChild(document.createTextNode(string_value));
-	li.value = true;
+	li.value = enablingStatus;
+	if (li.value == true)
+	{
+		li.style.opacity = 1;
+	}
+	else
+	{
+		li.style.opacity = 0.3;
+	}
 	if(function_behaviour == undefined)
 	{
 		li.onclick = function () 
