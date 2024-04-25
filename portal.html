@@ -1,7 +1,7 @@
 <!DOCTYPE html >
 <html  ng-app="myApplication" ng-controller="Controller">
 	<head>
-		<title>{{pageObject.page_title}} Portal</title>
+		<title>Portal</title>
 		<meta charset = "UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
 		<!--Global resources-->
@@ -17,36 +17,19 @@
 	<header>
 		<div id="header_title">
 				<h2>{{pageObject.page_title}}</h2>
-			</div>				
+		</div>				
 		</header>
 		<nav>
-			<table>
-				<tr>
-					<td>
-						<div>
-							<a class = "outer_href" href={{exitDir}}{{pageObject.page_navigation[0].value}}>{{pageObject.page_navigation[0].name}}</a>
-						</div>
-					</td>
-					<td id = "selected_webpage" >
-						<div class="dropdown_menu">
-							<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
-							<div class="dropdown_content">
-								<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{exitDir}}{{page.value}}>{{page.name}}</a>
-							</div>
-						</div>
-					</td>
-					<td>
-						<div>
-							<a class = "outer_href"  href={{exitDir}}{{pageObject.page_navigation[2].value}}>{{pageObject.page_navigation[2].name}}</a>
-						</div>
-					</td>
-					<td>
-						<div>
-							<a class = "outer_href"  href={{exitDir}}{{pageObject.page_navigation[3].value}}>{{pageObject.page_navigation[3].name}}</a>
-						</div>
-					</td>
-				</tr>
-			</table>
+			<div ng-repeat="page in pageObject.page_navigation" ng-style="{'background-color': (page.name == 'Home') ? '#aa4400' : rgba(255,255,255,0.0),}">
+				<a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
+				
+				<div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
+					<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+					<div class="dropdown_content">
+						<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{exitDir}}{{page.value}}>{{page.name}}</a>
+					</div>
+				</div>	
+			</div>
 		</nav>
 		<div id="page_block">
 			<h2>Portal</h2>

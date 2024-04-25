@@ -128,4 +128,6 @@ function Controller_Function($scope)
 	];
 	
 	$scope.exitDir = "../"
+	
+	document.title = $scope.pageObject.page_title + " " + document.title;
 }
