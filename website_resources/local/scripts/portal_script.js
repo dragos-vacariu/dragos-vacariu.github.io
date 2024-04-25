@@ -180,6 +180,7 @@ function fillTable(table)
 				{
 					cell = row.insertCell(); //empty cell
 					cell.innerHTML = programming_languages[i].concepts[j].concept_value;
+					cell.style.textAlign = "left";
 				}
 			}
 		}
