@@ -66,14 +66,7 @@ function loadXMLDoc(xml_file)
 				}
 				programming_languages.push(Programming_Lang);
 			}
-			/*Adding the overall language selection functions*/
-			overall_language_selection.appendChild( createLiElement("deselect all", deselectionOfAllLanguageElements) );
-			overall_language_selection.appendChild( createLiElement("select all", selectionOfAllLanguageElements) );
-			
-			/*Adding the overall concept selection functions*/
-			overall_concept_selection.appendChild( createLiElement("deselect all", deselectionOfAllConceptElements) );
-			overall_concept_selection.appendChild( createLiElement("select all", selectionOfAllConceptElements) );
-			
+
 			/*Adding the concept selection*/
 			for(var i=0; i< programming_languages[0].concepts.length; i++)
 			{
@@ -144,7 +137,7 @@ function fillTable(table)
 			{
 				cell = row.insertCell();
 				cell.innerHTML = language.name;
-				
+				cell.style.fontWeight = "bold";
 				cell.width = String(100 / active_columns) + "%";
 			}
 		}
