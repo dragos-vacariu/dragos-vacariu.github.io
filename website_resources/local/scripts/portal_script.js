@@ -62,7 +62,7 @@ function loadXMLDoc(xml_file)
 						}
 						else
 						{
-							Programming_Lang.addConcept( String(xml_tag_content[i].childNodes[j].tagName) , String("<code>" + xml_tag_content[i].childNodes[j].innerHTML) + "</code>");
+							Programming_Lang.addConcept( String(xml_tag_content[i].childNodes[j].tagName) , String(xml_tag_content[i].childNodes[j].innerHTML));
 						}
 					}
 				}
