@@ -90,16 +90,5 @@
 #page_block #table_content tr td{
 	border: solid 2px black; 
 	padding: 0.5vw 1vw;
-}
-
-
-#page_block h4 code, #page_block h4 p code{
-	font-family:Courier New;
-	font-size:14px;
-	border-style: none;
-	text-shadow: 0.2px 0.2px red;
-	color: black;
-	font-weight: bold;
-	padding: 2px;
-	background-color: rgba(255,255,255, 0.7);
+	font-family: Consolas;
 }
