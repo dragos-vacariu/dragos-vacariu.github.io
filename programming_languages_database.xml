@@ -27,4 +27,31 @@
 		<polymorphism>C# Polymorphism</polymorphism>
 		<abstraction>C# Abstraction</abstraction>
 	</programming_language>
+	
+	<programming_language>
+		<name>JavaScript</name>
+		<description>JavaScript Description</description>
+		<oop>JavaScript OOP</oop>
+		<encapsulation>JavaScript Encapsulation</encapsulation>
+		<polymorphism>JavaScript Polymorphism</polymorphism>
+		<abstraction>JavaScript Abstraction</abstraction>
+	</programming_language>
+	
+	<programming_language>
+		<name>Java</name>
+		<description>Java Description</description>
+		<oop>Java OOP</oop>
+		<encapsulation>Java Encapsulation</encapsulation>
+		<polymorphism>Java Polymorphism</polymorphism>
+		<abstraction>Java Abstraction</abstraction>
+	</programming_language>
+	
+	<programming_language>
+		<name>Python</name>
+		<description>Python Description</description>
+		<oop>Python OOP</oop>
+		<encapsulation>Python Encapsulation</encapsulation>
+		<polymorphism>Python Polymorphism</polymorphism>
+		<abstraction>Python Abstraction</abstraction>
+	</programming_language>
 </content>
