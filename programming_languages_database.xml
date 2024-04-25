@@ -14,13 +14,15 @@
 		<encapsulation>Not present</encapsulation>
 		<polymorphism>Not present</polymorphism>
 		<abstraction>
-					Not <code>present
-					int main()
-					{
-						/*multi comment line*/
-						return 0;
-					}
-					</code>
+			Not present
+<code>
+int main()
+{
+	/*multi comment line*/
+	return 0;
+}
+</code>
+
 		</abstraction>
 	</programming_language>
 	
