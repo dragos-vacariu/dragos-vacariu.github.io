@@ -13,10 +13,7 @@
 	<programming_language>
 		<name>C++</name>
 		<description>C++ Description</description>
-		<oop>"<code>C++ 
-		
-		
-		OOP<code>"</oop>
+		<oop>C++ OOP</oop>
 		<encapsulation>C++ Encapsulation</encapsulation>
 		<polymorphism>C++ Polymorphism</polymorphism>
 		<abstraction>C++ Abstraction</abstraction>
