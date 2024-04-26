@@ -13,64 +13,292 @@
 		<oop>Not present</oop>
 		<encapsulation>Not present</encapsulation>
 		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
 		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
 		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
 		<read-from-file>Not present</read-from-file>
 		<write-to-file>Not present</write-to-file>
 		<serialization>Not present</serialization>
 		<deserialization>Not present</deserialization>
 		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
 		<destructors>Not present</destructors>
 		<function-overloading>Not present</function-overloading>
 		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
 		<name>C++</name>
 		<description>C++ Description</description>
 		<oop>C++ OOP</oop>
-		<encapsulation>C++ Encapsulation</encapsulation>
-		<polymorphism>C++ Polymorphism</polymorphism>
-		<abstraction>C++ Abstraction</abstraction>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
+		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
 		<name>C#</name>
 		<description>C# Description</description>
 		<oop>C# OOP</oop>
-		<encapsulation>C# Encapsulation</encapsulation>
-		<polymorphism>C# Polymorphism</polymorphism>
-		<abstraction>C# Abstraction</abstraction>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
+		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
 		<name>JavaScript</name>
 		<description>JavaScript Description</description>
 		<oop>JavaScript OOP</oop>
-		<encapsulation>JavaScript Encapsulation</encapsulation>
-		<polymorphism>JavaScript Polymorphism</polymorphism>
-		<abstraction>JavaScript Abstraction</abstraction>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
+		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
 		<name>Java</name>
 		<description>Java Description</description>
 		<oop>Java OOP</oop>
-		<encapsulation>Java Encapsulation</encapsulation>
-		<polymorphism>Java Polymorphism</polymorphism>
-		<abstraction>Java Abstraction</abstraction>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
+		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
 		<name>Python</name>
 		<description>Python Description</description>
 		<oop>Python OOP</oop>
-		<encapsulation>Python Encapsulation</encapsulation>
-		<polymorphism>Python Polymorphism</polymorphism>
-		<abstraction>Python Abstraction</abstraction>
+		<encapsulation>Not present</encapsulation>
+		<polymorphism>Not present</polymorphism>
+		<inheritance>Not present</inheritance>
+		<abstraction>Not present</abstraction>
+		<generic-programming>Not present</generic-programming>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<collection-methods>Not present</collection-methods>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<instantiation>Not present</instantiation>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
+		<enums>Not present</enums>
+		<multi-threading>Not present</multi-threading>
+		<namespaces>Not present</namespaces>
+		<exception-handling>Not present</exception-handling>
+		<bitwise-operators>Not present</bitwise-operators>
+		<default-parameters>Not present</default-parameters>
+		<interfaces>Not present</interfaces>
+		<macros>Not present</macros>
+		<defines>Not present</defines>
+		<random-generators>Not present</random-generators>
+		<command-line-arguments>Not present</command-line-arguments>
+		<ternary-operator>Not present</ternary-operator>
+		<ternary-operator>Not present</ternary-operator>
+		<modular-programming>Not present</modular-programming>
+		<string-methods>Not present</string-methods>
+		<datatyoe-conversions>Not present</datatyoe-conversions>
+		<optional-parameters>Not present</optional-parameters>
+		<partial-classes>Not present</partial-classes>
+		<decorators>Not present</decorators>
+		<operators>Not present</operators>
+		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<datatypes-sizing>Not present</datatypes-sizing>
+		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
+	
 </content>
