@@ -62,7 +62,7 @@ nav {
 }
 
 nav div{
-	padding: 5px;
+	padding: 7px;
 	display: inline-block;
 }
 
@@ -71,20 +71,6 @@ nav table{
 	width: 20%;
 	height:auto;
 	left: 30vw;
-}
-
-/*remove*/
-nav table tr td{
-	margin: 0%;
-	font-family:Verdana;
-	font-size: 15px;
-	padding: 1vw 1vw;
-}
-nav table tr td a{
-	height: auto;
-	text-decoration:none;
-	letter-spacing: 1px;
-	color: white;
 }
 
 .outer_href{
@@ -133,13 +119,6 @@ nav table tr td a{
 
 .dropdown_menu:hover .dropdown_content {display: block;}
 
-
-#selected_webpage{
-	background-color: #aa4400;
-	border-style:solid;
-	border-color: #442200;
-	border-width: 2px;
-}
 
 #reference{
 	display: inline;

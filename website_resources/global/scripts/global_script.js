@@ -130,4 +130,26 @@ function Controller_Function($scope)
 	$scope.exitDir = "../"
 	
 	document.title = $scope.pageObject.page_title + " " + document.title;
+	
+	$scope.selectedWebPageStyle = function (pageElement, activePageTitle)
+	{
+		var style = "";
+		if(pageElement.name == activePageTitle)
+		{
+			style = {
+				"background-color": "#aa4400", 
+				"border-style": "solid", 
+				"border-color": "#442200", 
+				"border-width": "2px", 
+			};
+		}
+		else
+		{
+			style = {
+				"background-color": "rgba(0,0,0,0.0)", /*tranparent*/
+				"border-style": "none", 
+			};
+		}
+		return style;
+	}
 }
