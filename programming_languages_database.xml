@@ -13,17 +13,20 @@
 		<oop>Not present</oop>
 		<encapsulation>Not present</encapsulation>
 		<polymorphism>Not present</polymorphism>
-		<abstraction>
-			Not present
-			<code>
-			int main()
-			{
-				/*multi comment line*/
-				return 0;
-			}
-			</code>
-
-		</abstraction>
+		<abstraction>Not present</abstraction>
+		<simple-data-types>Not present</simple-data-types>
+		<complex-data-types>Not present</complex-data-types>
+		<loops>Not present</loops>
+		<collections>Not present</collections>
+		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<read-from-file>Not present</read-from-file>
+		<write-to-file>Not present</write-to-file>
+		<serialization>Not present</serialization>
+		<deserialization>Not present</deserialization>
+		<constructors>Not present</constructors>
+		<destructors>Not present</destructors>
+		<function-overloading>Not present</function-overloading>
+		<operator-overloading>Not present</operator-overloading>
 	</programming_language>
 	
 	<programming_language>
