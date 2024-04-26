@@ -15,13 +15,13 @@
 		<polymorphism>Not present</polymorphism>
 		<abstraction>
 			Not present
-<code>
-int main()
-{
-	/*multi comment line*/
-	return 0;
-}
-</code>
+			<code>
+			int main()
+			{
+				/*multi comment line*/
+				return 0;
+			}
+			</code>
 
 		</abstraction>
 	</programming_language>

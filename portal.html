@@ -20,7 +20,7 @@
 		</div>				
 		</header>
 		<nav>
-			<div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'Catalogue')">
+			<div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'Learning Portal')">
 				<a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
 				
 				<div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">

@@ -55,13 +55,11 @@ nav{
 	border-top-style: none;
 	border-width:1px;
 	border-color:black;
-}
-
-nav {
 	text-align: center;
 }
 
 nav div{
+	width: 130px;
 	padding: 7px;
 	display: inline-block;
 }
