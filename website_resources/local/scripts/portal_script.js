@@ -5,6 +5,17 @@ var programming_language_selection = document.getElementById("programming_langua
 var overall_concept_selection = document.getElementById("overall_concept_selection");
 var overall_language_selection = document.getElementById("overall_language_selection");
 
+var view_selection = document.getElementById("view_selection");
+
+view_selection.appendChild(createLiElement("table view", true, switchToTableView));
+view_selection.appendChild(createLiElement("paragraph view", true, switchToParagraphView));
+view_selection.children[0].value = false;
+view_selection.children[1].value = true;
+
+
+var paragraph_content = document.getElementById("paragraph_content");
+var table_content = document.getElementById("table_content");
+
 var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
 
@@ -94,7 +105,7 @@ function loadXMLDoc(xml_file)
 					programming_language_selection.appendChild(createLiElement(programming_languages[i].name, false));
 				}
 			}
-			showTable();
+			setView();
 		}
 	};
 	
@@ -109,32 +120,32 @@ function loadXMLDoc(xml_file)
 
 function showTable()
 {
-	var table = document.getElementById("table_content");
-	var hidden = table.getAttribute("hidden");
+	
+	var hidden = table_content.getAttribute("hidden");
 	if (hidden) 
 	{
-		fillTable(table);
-		table.removeAttribute("hidden");
+		fillTable();
+		table_content.removeAttribute("hidden");
     }
 	else
 	{
-		removeTable(table);
-		fillTable(table);
+		removeTable();
+		fillTable();
 	}
 }
 
-function removeTable(table)
+function removeTable()
 {
 	var tableHeaderRowCount = 0;
-	var rowCount = table.rows.length;
+	var rowCount = table_content.rows.length;
 	for (var i = tableHeaderRowCount; i < rowCount; i++) {
-		table.deleteRow(tableHeaderRowCount);
+		table_content.deleteRow(tableHeaderRowCount);
 	}
 }
 
-function fillTable(table)
+function fillTable()
 {
-	var row = table.insertRow();
+	var row = table_content.insertRow();
 	var cell = row.insertCell(); //empty cell
 	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
 	var active_columns = 0; 
@@ -167,7 +178,7 @@ function fillTable(table)
 		if(programming_languages[0].concepts[j].concept_name == concept_selection.children[j].innerHTML &&
 			concept_selection.children[j].value == true)
 		{
-			row = table.insertRow();
+			row = table_content.insertRow();
 			cell = row.insertCell(); //empty cell
 			cell.innerHTML = programming_languages[0].concepts[j].concept_name;
 			cell.style.backgroundColor = defaultTableHeaderStyleBackground;
@@ -234,7 +245,7 @@ function deselectionOfAllConceptElements()
 			concept_selection.children[i].style.opacity = 0.3;
 		}
 	}
-	showTable();
+	setView();
 }
 
 function selectionOfAllConceptElements() 
@@ -247,7 +258,7 @@ function selectionOfAllConceptElements()
 			concept_selection.children[i].style.opacity = 1;
 		}
 	}
-	showTable();
+	setView();
 }
 
 function deselectionOfAllLanguageElements() 
@@ -260,7 +271,7 @@ function deselectionOfAllLanguageElements()
 			programming_language_selection.children[i].style.opacity = 0.3;
 		}
 	}
-	showTable();
+	setView();
 }
 
 function selectionOfAllLanguageElements() 
@@ -273,8 +284,146 @@ function selectionOfAllLanguageElements()
 			programming_language_selection.children[i].style.opacity = 1;
 		}
 	}
-	showTable();
+	setView();
+}
+
+function switchToTableView()
+{
+	if(view_selection.children[1].value == true)
+	{
+		for(var i = 0; i < view_selection.children.length; i++)
+		{
+			if (view_selection.children[i] != this)
+			{
+				view_selection.children[i].value = false;
+				view_selection.children[i].style.opacity = 0.3;
+			}
+			else
+			{
+				view_selection.children[i].value = true;
+				view_selection.children[i].style.opacity = 1;
+			}
+		}
+		showTable();
+		var hidden = paragraph_content.getAttribute("hidden");
+		if (!hidden) 
+		{
+			paragraph_content.setAttribute("hidden", "hidden");
+		}
+	}
+}
+
+function switchToParagraphView()
+{
+	if(view_selection.children[0].value == true)
+	{
+		for(var i = 0; i < view_selection.children.length; i++)
+		{
+			if (view_selection.children[i] != this)
+			{
+				view_selection.children[i].value = false;
+				view_selection.children[i].style.opacity = 0.3;
+			}
+			else
+			{
+				view_selection.children[i].value = true;
+				view_selection.children[i].style.opacity = 1;
+			}
+		}
+		showParagraph();
+		var hidden = table_content.getAttribute("hidden");
+		if (!hidden) 
+		{
+			table_content.setAttribute("hidden", "hidden");
+		}
+	}
 }
 
 loadXMLDoc(online_xml_file);
 
+function showParagraph()
+{
+	var hidden = paragraph_content.getAttribute("hidden");
+	if (hidden) 
+	{
+		fillParagraph();
+		paragraph_content.removeAttribute("hidden");
+    }
+	else
+	{
+		removeParagraph();
+		fillParagraph();
+	}
+}
+
+function removeParagraph()
+{
+	for (var i = 0; i < paragraph_content.children.length; i++) {
+		paragraph_content.removeChild(i);
+	}
+}
+
+function setView()
+{
+	for(var i=0; i< view_selection.children.length; i++)
+	{
+		if(view_selection.children[i].value == true)
+		{
+			view_selection.children[i].style.opacity = 1;
+		}
+		else
+		{
+			view_selection.children[i].style.opacity = 0.3;
+		}
+	}
+	if(view_selection.children[1].value == true)
+	{
+		showParagraph();
+	}
+	else
+	{
+		showTable();
+	}
+}
+
+function fillParagraph()
+{
+	programming_languages.forEach(async (language) => {
+		for(var i=0; i<programming_language_selection.children.length; i++)
+		{
+			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
+			{
+				var p = document.createElement("p")
+				p.innerHTML = language.name
+				p.style.fontSize = "150%";
+				p.style.textTransform = "uppercase";
+				p.style.backgroundColor = defaultTableHeaderStyleBackground;
+				paragraph_content.appendChild(p);
+				for(var j=0; j < programming_languages[0].concepts.length; j++)
+				{
+					if(programming_languages[0].concepts[j].concept_name == concept_selection.children[j].innerHTML &&
+						concept_selection.children[j].value == true)
+					{
+						if(programming_language_selection.children[i].innerHTML == programming_languages[i].name && programming_language_selection.children[i].value==true)
+						{	
+							var p = document.createElement("p")
+							p.innerHTML = programming_languages[0].concepts[j].concept_name +"<br><br>"
+							p.style.fontSize = "90%";
+							p.style.textAlign = "left";
+							p.style.textTransform = "uppercase";
+							p.style.backgroundColor = defaultTableHeaderStyleBackground;
+							paragraph_content.appendChild(p);
+							
+							
+							p = document.createElement("p")
+							p.innerHTML += programming_languages[i].concepts[j].concept_value;
+							p.style.fontSize = "79%";
+							p.style.textAlign = "left";
+							paragraph_content.appendChild(p);
+						}
+					}
+				}
+			}
+		}
+	});
+}
