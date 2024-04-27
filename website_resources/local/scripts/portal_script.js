@@ -5,19 +5,23 @@ var programming_language_selection = document.getElementById("programming_langua
 var overall_concept_selection = document.getElementById("overall_concept_selection");
 var overall_language_selection = document.getElementById("overall_language_selection");
 
+var paragraph_view_value = "paragraph view";
+var table_view_value = "table view";
+
+var programming_language_div_colors = ["rgba(255,0,0,0.1)", "rgba(255,255,0,0.1)", "rgba(255,0,255,0.1)",
+	"rgba(0,255,0,0.1)", "rgba(0,0,255,0.1)", "rgba(0,255,255,0.1)"]
+
 var view_selection = document.getElementById("view_selection");
 
-view_selection.appendChild(createLiElement("table view", true, switchToTableView));
-view_selection.appendChild(createLiElement("paragraph view", true, switchToParagraphView));
-view_selection.children[0].value = false;
-view_selection.children[1].value = true;
-
+view_selection.appendChild(createLiElement(table_view_value, false, switchToTableView));
+view_selection.appendChild(createLiElement(paragraph_view_value, true, switchToParagraphView));
 
 var paragraph_content = document.getElementById("paragraph_content");
 var table_content = document.getElementById("table_content");
 
 var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
+loadXMLDoc(online_xml_file);
 
 class Programming_Language
 {
@@ -114,8 +118,6 @@ function loadXMLDoc(xml_file)
 	
 	//send the request to the server
 	xml_http_request.send();
-	
-	
 }
 
 function showTable()
@@ -225,7 +227,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 				this.value = true;
 				this.style.opacity = 1;
 			}
-			showTable();
+			setView();
 		}
 	}
 	else
@@ -339,8 +341,6 @@ function switchToParagraphView()
 	}
 }
 
-loadXMLDoc(online_xml_file);
-
 function showParagraph()
 {
 	var hidden = paragraph_content.getAttribute("hidden");
@@ -358,9 +358,11 @@ function showParagraph()
 
 function removeParagraph()
 {
-	for (var i = 0; i < paragraph_content.children.length; i++) {
-		paragraph_content.removeChild(i);
+	while (paragraph_content.children[0] != null) {
+		paragraph_content.removeChild(paragraph_content.children[0]); // always remove the first element in the collection
+		//removing element at index 0 will make the next one index 0
 	}
+
 }
 
 function setView()
@@ -369,36 +371,33 @@ function setView()
 	{
 		if(view_selection.children[i].value == true)
 		{
-			view_selection.children[i].style.opacity = 1;
+			
+			if(view_selection.children[i].innerHTML == paragraph_view_value)
+			{
+				showParagraph();
+			}
+			else if (view_selection.children[i].innerHTML == table_view_value)
+			{
+				showTable();
+			}
 		}
-		else
-		{
-			view_selection.children[i].style.opacity = 0.3;
-		}
-	}
-	if(view_selection.children[1].value == true)
-	{
-		showParagraph();
-	}
-	else
-	{
-		showTable();
 	}
 }
 
 function fillParagraph()
 {
+	var index = 0;
 	programming_languages.forEach(async (language) => {
 		for(var i=0; i<programming_language_selection.children.length; i++)
 		{
 			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
 			{
+				var div = document.createElement("div")
 				var p = document.createElement("p")
-				p.innerHTML = language.name
-				p.style.fontSize = "150%";
-				p.style.textTransform = "uppercase";
+				p.innerHTML = "Language: " + language.name
+				p.style.fontSize = "120%";				p.style.textTransform = "uppercase";
 				p.style.backgroundColor = defaultTableHeaderStyleBackground;
-				paragraph_content.appendChild(p);
+				div.appendChild(p);
 				for(var j=0; j < programming_languages[0].concepts.length; j++)
 				{
 					if(programming_languages[0].concepts[j].concept_name == concept_selection.children[j].innerHTML &&
@@ -412,18 +411,23 @@ function fillParagraph()
 							p.style.textAlign = "left";
 							p.style.textTransform = "uppercase";
 							p.style.backgroundColor = defaultTableHeaderStyleBackground;
-							paragraph_content.appendChild(p);
+							div.appendChild(p);
 							
 							
 							p = document.createElement("p")
 							p.innerHTML += programming_languages[i].concepts[j].concept_value;
-							p.style.fontSize = "79%";
+							p.style.fontSize = "70%";
 							p.style.textAlign = "left";
-							paragraph_content.appendChild(p);
+							div.appendChild(p);
 						}
 					}
 				}
+				div.style.margin = "1vw";
+				div.style.padding = "1vw";
+				div.style.backgroundColor = programming_language_div_colors[index];
+				paragraph_content.appendChild(div);
 			}
 		}
+		index++;
 	});
 }

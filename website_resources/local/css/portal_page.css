@@ -1,11 +1,10 @@
 #page_block h4{
 	position:relative;
-	width:96%;
+	width:98%;
 	height: auto;
-	left:1%;
 	top:0%;
-	padding:1%;
-	margin-top:1vw;
+	margin-left:1%;
+	margin-top:1%;
 	text-align: center;
 	border-style:solid;
 	border-width:0.2vw;
@@ -47,26 +46,29 @@
 }
 
 #page_block #menu {
+	position: relative;
+	width: 98%;
 	font-family:Verdana;
 	font-size:16px;
 	color: #005500;
 	margin: 0%;
+	margin-left: 1%;
 	text-shadow: 0.1vw 0.1vw white;
 	list-style: none;
 	padding: 0%;
 }
 
 #page_block #menu li{
-	margin:0%;
+	margin:1px;
 	padding: 1%;
 	text-align: left;
 }
 
 .selection_list {
 	position: relative;
-	width: 80%;
+	width: 100%;
 	padding: 0%;
-	margin: 0%;
+	margin-left: 1%;
 	list-style: none;
 }
 
@@ -94,7 +96,24 @@
 	font-size: 120%;
 }
 
-#page_block #table_content tr td code{
+#page_block #paragraph_content{
+	background-color: rgba(255,255,255, 0.3);
+	position: relative;
+	width: 98%; 
+	margin-right: 0%;
+	margin-left: 1%;
+	margin-bottom: 1%;
+	margin-top: 1%;
+	padding: 0%;
+	border: solid 1px white;
+}
+
+#page_block #paragraph_content p{
+	position: relative;
+	width: 98%; 
+}
+
+#page_block code{
 	padding: 0.5vw 1vw;
 	font-family: Courier New;
 	font-size: 120%;
@@ -102,15 +121,15 @@
 	color: black;
 }
 
-#page_block #table_content tr td red{
+#page_block red{
 	color: red;
 }
 
-#page_block #table_content tr td bold{
+#page_block bold{
 	font-weight: bold;
 }
 
-#page_block #table_content tr td highlight{
+#page_block highlight{
 	font-weight: bold;
 	color: blue;
 	font-size: 120%;
