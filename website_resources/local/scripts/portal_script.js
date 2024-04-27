@@ -53,14 +53,14 @@ function cookieHandling()
 
 function setCookie()
 {
-	var cookies = document.cookie.split(";");
-	for(var i=0; i<cookies.length; i++)
+	var cookie_elements = document.cookie.split(";");
+	for(var i=0; i<cookie_elements.length; i++)
 	{
-		var element_property = cookies[i].split("=")[0];
-		var element_value = cookies[i].split("=")[1];
-		if(element_property == "view")
+		var pairs = cookie_elements[i].split("=")
+
+		if(pairs[0] == "view")
 		{
-			if(element_value == "paragraph")
+			if(pairs[1] == "paragraph")
 			{
 				//Set paragraph view to true
 				view_selection.children(1).value = true;
