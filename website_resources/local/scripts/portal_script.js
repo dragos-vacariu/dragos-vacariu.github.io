@@ -89,12 +89,12 @@ function updateCookie(property, value)
 			{
 				element_value = value;
 			}
-			document.cookie += (element_property + "=" + element_value + ";");
+			document.cookie += String(element_property + "=" + element_value + ";");
 		}
 	}
 	else
 	{
-		document.cookie += (property + "=" + value + ";");
+		document.cookie += String(property + "=" + value + ";");
 	}
 	alert(document.cookie );
 }
