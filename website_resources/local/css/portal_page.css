@@ -132,7 +132,7 @@
 
 
 #page_block green{
-	color: darkgreen;
+	color: #006300;
 	font-family: Courier New;
 	font-size: 14px;
 	text-shadow: 0.1vw 0.1vw white;
@@ -140,7 +140,7 @@
 }
 
 #page_block blue{
-	color: darkblue;
+	color: #000063;
 	font-family: Courier New;
 	font-size: 14px;
 	text-shadow: 0.1vw 0.1vw white;
