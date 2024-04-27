@@ -1,6 +1,7 @@
 var online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
 var programming_languages = [];
 var concept_selection = document.getElementById("concept_selection");
+var concept_collection = [];
 var programming_language_selection = document.getElementById("programming_language_selection");
 var overall_concept_selection = document.getElementById("overall_concept_selection");
 var overall_language_selection = document.getElementById("overall_language_selection");
@@ -100,24 +101,32 @@ function loadXMLDoc(xml_file)
 			/*Adding the overall concept selection functions*/
 			overall_concept_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllConceptElements) );
 			overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
-			
-			/*Adding the concept selection*/
-			for(var i=0; i< programming_languages[0].concepts.length; i++)
+						
+			for(var index=0; index< programming_languages.length; index++)
 			{
-				concept_selection.appendChild(createLiElement(programming_languages[0].concepts[i].concept_name, true));
-			}
-			
-			/*Adding the programming language selection*/
-			for(var i=0; i< programming_languages.length; i++)
-			{
-				if(i<3)
+				/*Grabbing all concepts available*/
+				for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
 				{
-					programming_language_selection.appendChild(createLiElement(programming_languages[i].name, true));
+					if(concept_collection.includes(programming_languages[index].concepts[concept_index].concept_name) == false)
+					{
+						concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
+					}
+				}
+				/*Adding the programming language selection*/
+				if(index<3) //display only 3 columns in the table by default
+				{
+					programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true));
 				}
 				else
 				{
-					programming_language_selection.appendChild(createLiElement(programming_languages[i].name, false));
+					programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false));
 				}
+			}
+			
+			/*Adding the concept collection to selection*/
+			for(var i=0; i< concept_collection.length; i++)
+			{
+				concept_selection.appendChild(createLiElement(concept_collection[i], true));
 			}
 			setView();
 		}
@@ -170,38 +179,65 @@ function fillTable()
 		}
 	}
 	//draw the first raw in the table (also known as table header)
-	programming_languages.forEach(async (language) => {
-		for(var i=0; i<programming_language_selection.children.length; i++)
+	
+	for(var index=0; index < programming_languages.length; index++)
+	{		
+		/*check if language is selected to be displayed*/
+		for(var i=0; i < programming_language_selection.children.length; i++)
 		{
-			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
+			if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
+				programming_language_selection.children[i].value==true)
 			{
 				cell.style.width = String(100 / active_columns) + "%";
 				cell = row.insertCell();
-				cell.innerHTML = language.name;
-				cell.style = language_title_style;
+				cell.innerHTML = programming_languages[index].name;
+				cell.style = language_title_style + programming_language_div_style[index];
 				
 			}
 		}
-	});
+	}
 	
 	//draw the rest of the table
-	for(var j=0; j < programming_languages[0].concepts.length; j++)
+	for(var concept_index=0; concept_index < concept_collection.length; concept_index++)
 	{
-		if(programming_languages[0].concepts[j].concept_name == concept_selection.children[j].innerHTML &&
-			concept_selection.children[j].value == true)
+		if(concept_collection[concept_index] == concept_selection.children[concept_index].innerHTML &&
+			concept_selection.children[concept_index].value == true)
 		{
+			/*Insert a new row for each concept selected to be displayed*/
 			row = table_content.insertRow();
 			cell = row.insertCell(); //empty cell
-			cell.innerHTML = programming_languages[0].concepts[j].concept_name;
+			
+			/*Insert the concept name in the first column*/
+			cell.innerHTML = concept_collection[concept_index];
 			cell.style = concept_title_style;
-			for(var i=0; i < programming_languages.length; i++)
+			
+			/*For each language in the table selected to be displayed - insert a column*/
+			for(var index=0; index < programming_languages.length; index++)
 			{
-
-				if(programming_language_selection.children[i].innerHTML == programming_languages[i].name && programming_language_selection.children[i].value==true)
+				/*check if the language is selected to be displayed*/ 
+				if(programming_language_selection.children[index].innerHTML == programming_languages[index].name && programming_language_selection.children[index].value==true)
 				{
+					var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+					
+					//var index = concept_collection.findIndex(element => element == language.concepts[concept_index].concept_name);
+					/*
+					The findIndex() method of Array instances returns the index of the first element in an 
+					array that satisfies the provided testing function. If no elements satisfy the testing 
+					function, -1 is returned.
+					*/
+				
 					cell = row.insertCell(); //empty cell
-					cell.innerHTML = programming_languages[i].concepts[j].concept_value;
-					cell.style = concept_value_style;
+					cell.style = concept_value_style + programming_language_div_style[index];
+											
+					/*If the concept exists for this language*/
+					if(found_element_index >= 0) 
+					{
+						cell.innerHTML = programming_languages[index].concepts[concept_index].concept_value;
+					}
+					else
+					{
+						cell.innerHTML = "NA";
+					}
 				}
 			}
 		}
@@ -396,9 +432,9 @@ function fillParagraph()
 {
 	var index = 0;
 	programming_languages.forEach(async (language) => {
-		for(var i=0; i<programming_language_selection.children.length; i++)
+		for(var lang_selection_index=0; lang_selection_index<programming_language_selection.children.length; lang_selection_index++)
 		{
-			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
+			if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
 			{
 				var div = document.createElement("div");
 				div.style = programming_language_div_style[index];
@@ -406,21 +442,26 @@ function fillParagraph()
 				p.innerHTML = language.name;
 				p.style = language_title_style;
 				div.appendChild(p);
-				for(var j=0; j < language.concepts.length; j++)
+				for(var concept_index=0; concept_index < language.concepts.length; concept_index++)
 				{
-					if(language.concepts[j].concept_name == concept_selection.children[j].innerHTML &&
-						concept_selection.children[j].value == true)
+					var found_element_index = concept_collection.findIndex(element => element == language.concepts[concept_index].concept_name);
+					/*
+					The findIndex() method of Array instances returns the index of the first element in an 
+					array that satisfies the provided testing function. If no elements satisfy the testing 
+					function, -1 is returned.
+					*/
+					if(found_element_index >= 0  && concept_selection.children[found_element_index].value == true)
 					{
-						if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
+						if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
 						{	
 							var p = document.createElement("p")
-							p.innerHTML = language.concepts[j].concept_name + ":"
+							p.innerHTML = language.concepts[concept_index].concept_name + ":"
 							p.style = concept_title_style;
 							div.appendChild(p);
 							
 							
 							p = document.createElement("p")
-							p.innerHTML += language.concepts[j].concept_value;
+							p.innerHTML += language.concepts[concept_index].concept_value;
 							p.style = concept_value_style;
 							div.appendChild(p);
 						}
