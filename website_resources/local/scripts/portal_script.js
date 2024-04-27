@@ -37,6 +37,7 @@ var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px 
 
 window.onload  = function () {
 	cookieHandling();
+	setView();
 }
 
 function cookieHandling()
@@ -199,7 +200,6 @@ function loadXMLDoc(xml_file)
 			{
 				concept_selection.appendChild(createLiElement(concept_collection[i], true));
 			}
-			setView();
 		}
 	};
 	
@@ -492,7 +492,7 @@ function setView()
 		{
 			if(view_selection.children[i].innerHTML == paragraph_view_value)
 			{
-							alert("paragraph view");
+				alert("paragraph view");
 				showParagraph();
 			}
 			else if (view_selection.children[i].innerHTML == table_view_value)

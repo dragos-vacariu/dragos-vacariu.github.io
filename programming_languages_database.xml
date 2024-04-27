@@ -75,22 +75,29 @@
 			occupies 16 byte memory
 		</simple-data-types>
 		<complex-data-types>
-			Derived Data Types<br></br><br></br>
-			Data types that are derived from fundamental data types are derived types. For example: arrays, pointers, function types, structures, etc.
-			<br></br><br></br>
-			We will learn about these derived data types in later tutorials.
+			Data types that are derived from fundamental data types:<br></br><br></br>
+
 			<br></br><br></br>
 			<code>bool type</code><br></br>
-			<code>Enumerated type / Enums</code><br></br>
-			<code>Complex types</code><br></br>
-			<code>Arrays: A collection of elements of the same data type.</code><br></br>
-			<code>Pointers: A variable that stores the memory address of another variable.</code><br></br>
-			<code>Structures: A collection of variables of different data types grouped 
-			together under a single name.</code><br></br>
-			<code>Unions: A special type of structure that can store only one value at a time.</code><br></br>
-			<code>Typedefs: A way to create a new name for an existing data type to improve code 
+			<code>Enumerated type / Enums</code>An enum is a special type that represents a group of constants (unchangeable values).<br></br>
+			<code>Complex types</code>The C programming language, as of C99, supports complex number math with the three built-in types 
+			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code> . When the header <code>complex.h</code> is 
+			included, the three complex number types are also accessible as double complex, 
+			float complex, long double complex<br></br>
+			<code>Arrays</code>: A collection of elements of the same data type. Array in C can be defined as a method of 
+			clubbing multiple entities of similar type into a larger group. These entities or elements 
+			can be of int, float, char, or double data type or can be of user-defined data types too 
+			like structures.<br></br>
+			<code>Pointers</code>: A variable that stores the memory address of another variable. The size of a pointer in C 
+			programming language varies depending on factors such as the operating system and CPU 
+			architecture. Typically, on a 32-bit computer system, the size of pointer is 4 bytes, 
+			while on a 64-bit computer system, it is 8 bytes<br></br>
+			<code>Structures</code>: A collection of variables of different data types grouped 
+			together under a single name. <br></br>
+			<code>Unions</code>: A special type of structure that can store only one value at a time.<br></br>
+			<code>Typedefs</code>: A way to create a new name for an existing data type to improve code 
 			readability and maintainability.</code><br></br>
-			<code>void - used to indicate an empty data type, usually used with pointers</code><br></br>
+			<code>void</code> - used to indicate an empty data type, usually used with pointers<br></br>
 		</complex-data-types>
 		<loops>Not present</loops>
 		<collections>Not present</collections>
