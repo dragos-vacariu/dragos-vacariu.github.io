@@ -22,6 +22,18 @@
 			Using libraries to reuse code without copying and recompiling;<br></br>
 			Using plugins to get run-time overriding and more;
 		</generic-programming>
+		<variable-arguments-lists>
+			C allows a function call to have a variable number of
+			arguments with the variable argument list mechanism.<br></br>
+			Use ellipsis ... to denote a variable number of arguments to
+			the compiler. the ellipsis can only occur at the end of an
+			argument list.<br></br>
+			Here are some standard function calls that use variable
+			argument lists.<br></br>
+			<code>int printf(const char *format, ...);<code>
+			<code>int scanf(const char *format, ...);<code>
+			<code>int execlp(const char *file, const char *arg, ...);<code>
+		</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
@@ -82,6 +94,7 @@
 		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
+		<variable-arguments-lists>Not present</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
@@ -151,6 +164,7 @@
 		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
+		<variable-arguments-lists>Not present</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
@@ -215,6 +229,7 @@
 		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
+		<variable-arguments-lists>Not present</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
@@ -276,6 +291,7 @@
 		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
+		<variable-arguments-lists>Not present</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
@@ -334,6 +350,7 @@
 		<inheritance>Not present</inheritance>
 		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
+		<variable-arguments-lists>Not present</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
