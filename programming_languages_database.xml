@@ -98,18 +98,24 @@
 			<code>void</code> - used to indicate an empty data type, usually used with pointers.<br></br>
 		</complex-data-types>
 		<loops>
-			For, while, do-while, goto loops:<br></br>
-			<code>int counter = 0;<br></br>
+			For, while, do-while loops:<br></br><br></br>
+<code>
+/*While loop syntax: */
+int counter = 0;
 while(counter &lt; 5)
 {
 	/*code goes here*/
 	 counter++;
 }
+
+/*For loop syntax: */
 for(int counter = 0; counter &lt; 5; counter++)<br></br>
 {
 	/*code goes here*/
 	 counter++;
 }
+
+/*Do while loop syntax: */
 do
 {
 	/*code goes here*/
