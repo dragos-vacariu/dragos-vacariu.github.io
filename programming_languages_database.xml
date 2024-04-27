@@ -35,46 +35,63 @@
 			<code>int execlp(const char *file, const char *arg, ...);</code><br></br>
 		</variable-arguments-lists>
 		<simple-data-types>
-		<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
-		occupies 2 bytes memory
-		<br></br><br></br>
-		<code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
-		occupies 2 bytes memory
-		<br></br><br></br>
-		<code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
-		occupies 4 bytes memory
-		<br></br><br></br>
-		<code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
-		occupies 4 bytes memory
-		<br></br><br></br>
-		<code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
-		format specifier <code>%ld</code> - occupies 4 bytes memory
-		<br></br><br></br>
-		<code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
-		occupies 4 bytes memory
-		<br></br><br></br>
-		<code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
-		occupies 8 bytes memory
-		<br></br><br></br>
-		<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
-		format specifier <code>%llu</code>  - occupies 8 bytes memory
-		<br></br><br></br>
-		<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 1 
-		byte memory
-		<br></br><br></br>
-		<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 1 
-		byte memory
-		<br></br><br></br>
-		<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
-		4 byte memory
-		<br></br><br></br>
-		<code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
-		occupies 8 byte memory
-		<br></br><br></br>
-		<code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
-		occupies 16 byte memory
+			<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
+			occupies 2 bytes memory
+			<br></br><br></br>
+			<code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
+			occupies 2 bytes memory
+			<br></br><br></br>
+			<code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
+			occupies 4 bytes memory
+			<br></br><br></br>
+			<code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
+			occupies 4 bytes memory
+			<br></br><br></br>
+			<code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
+			format specifier <code>%ld</code> - occupies 4 bytes memory
+			<br></br><br></br>
+			<code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
+			occupies 4 bytes memory
+			<br></br><br></br>
+			<code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
+			occupies 8 bytes memory
+			<br></br><br></br>
+			<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
+			format specifier <code>%llu</code>  - occupies 8 bytes memory
+			<br></br><br></br>
+			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 1 
+			byte memory
+			<br></br><br></br>
+			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 1 
+			byte memory
+			<br></br><br></br>
+			<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
+			4 byte memory
+			<br></br><br></br>
+			<code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
+			occupies 8 byte memory
+			<br></br><br></br>
+			<code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
+			occupies 16 byte memory
 		</simple-data-types>
-		<complex-data-types>Not present</complex-data-types>
+		<complex-data-types>
+			Derived Data Types<br></br><br></br>
+			Data types that are derived from fundamental data types are derived types. For example: arrays, pointers, function types, structures, etc.
+			<br></br><br></br>
+			We will learn about these derived data types in later tutorials.
+			<br></br><br></br>
+			<code>bool type</code><br></br>
+			<code>Enumerated type / Enums</code><br></br>
+			<code>Complex types</code><br></br>
+			<code>Arrays: A collection of elements of the same data type.</code><br></br>
+			<code>Pointers: A variable that stores the memory address of another variable.</code><br></br>
+			<code>Structures: A collection of variables of different data types grouped 
+			together under a single name.</code><br></br>
+			<code>Unions: A special type of structure that can store only one value at a time.</code><br></br>
+			<code>Typedefs: A way to create a new name for an existing data type to improve code 
+			readability and maintainability.</code><br></br>
+			<code>void - used to indicate an empty data type, usually used with pointers</code><br></br>
+		</complex-data-types>
 		<loops>Not present</loops>
 		<collections>Not present</collections>
 		<collection-methods>Not present</collection-methods>
