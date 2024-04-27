@@ -76,8 +76,6 @@
 		</simple-data-types>
 		<complex-data-types>
 			Data types that are derived from fundamental data types:<br></br><br></br>
-
-			<br></br><br></br>
 			<code>bool type</code><br></br>
 			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants (unchangeable values).<br></br>
 			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
