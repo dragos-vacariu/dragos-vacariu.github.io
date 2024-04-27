@@ -56,9 +56,9 @@ function setCookie()
 	{
 		var pairs = cookie_elements[i].split("=");
 		alert("pairs: " + pairs[0] + " = " + pairs[1]);
-		if(pairs[0] == "view")
+		if(pairs[0].includes("view"))
 		{
-			if(pairs[1] == "paragraph")
+			if(pairs[1].includes("paragraph"))
 			{
 				//Set paragraph view to true
 				view_selection.children(1).value = true;
