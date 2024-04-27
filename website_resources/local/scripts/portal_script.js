@@ -54,8 +54,8 @@ function setCookie()
 	var cookie_elements = document.cookie.split(";");
 	for(var i=0; i<cookie_elements.length; i++)
 	{
-		var pairs = cookie_elements[i].split("=")
-		alert("pairs: " + pairs[0] + " - " + pairs[1]);
+		var pairs = cookie_elements[i].split("=");
+		alert("pairs: " + pairs[0] + " = " + pairs[1]);
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
@@ -68,7 +68,7 @@ function setCookie()
 			{
 				//Set table view to true
 				view_selection.children(0).value = true;
-				alert("Setting paragraph view");
+				alert("Setting table view");
 			}
 		}
 	}
@@ -83,7 +83,7 @@ function updateCookie(property, value)
 		document.cookie = "";
 		for(var i=0; i<cookie_elements.length; i++)
 		{
-			var pairs = cookie_elements[i].split("=")
+			var pairs = cookie_elements[i].split("=");
 			
 			if(pairs[0] == property)
 			{
@@ -93,13 +93,13 @@ function updateCookie(property, value)
 			cookies += element;
 		}
 		document.cookie = cookies;
-		alert("This: " + document.cookie);
+		alert("Changed: " + document.cookie);
 	}
 	else
 	{
 		var element = String(property + "=" + value + ";");
 		document.cookie += element;
-		alert("That: " + document.cookie);
+		alert("Added: " + document.cookie);
 	}
 }
 
