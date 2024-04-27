@@ -95,7 +95,7 @@
 	border: solid 2px black; 
 	padding: 0.5vw 1vw;
 	font-family: Consolas;
-	font-size: 120%;
+	font-size: 12px;
 }
 
 #page_block #paragraph_content{
@@ -134,6 +134,5 @@
 #page_block highlight{
 	font-weight: bold;
 	color: blue;
-	font-size: 120%;
 	font-family: Verdana;
 }
