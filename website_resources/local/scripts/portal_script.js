@@ -95,8 +95,8 @@ function updateCookie(property, value)
 			var element = String(element_property + "=" + element_value + ";");
 			alert(element);
 			document.cookie += element;
-			alert(document.cookie);
 		}
+		alert(document.cookie);
 	}
 	else
 	{
@@ -104,7 +104,7 @@ function updateCookie(property, value)
 		alert(element);
 		document.cookie += element;
 	}
-	alert(document.cookie);
+
 }
 
 class Programming_Language
