@@ -62,14 +62,14 @@ function setCookie()
 			if(pairs[1].includes("paragraph"))
 			{
 				//Set paragraph view to true
-				view_selection.children(1).value = true;
 				alert("Setting paragraph view");
+				view_selection.children(1).value = true;
 			}
 			else
 			{
 				//Set table view to true
-				view_selection.children(0).value = true;
 				alert("Setting table view");
+				view_selection.children(0).value = true;
 			}
 		}
 	}
