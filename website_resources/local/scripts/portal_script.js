@@ -85,6 +85,9 @@ function updateCookie(property, value)
 		{
 			var element_property = cookies[i].split("=")[0];
 			var element_value = cookies[i].split("=")[1];
+			alert("element_property = " + element_property);
+			alert("element_value = " + element_value);
+			
 			if(element_property == property)
 			{
 				element_value = value;
