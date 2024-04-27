@@ -98,7 +98,7 @@ function updateCookie(property, value)
 	}
 	else
 	{
-		var element = pairs[0] + "=" + pairs[1] + ";";
+		var element =  property + "=" + value + ";";
 		document.cookie += element;
 		alert("Added: " + document.cookie);
 	}
