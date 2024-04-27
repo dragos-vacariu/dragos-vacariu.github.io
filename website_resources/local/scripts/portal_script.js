@@ -95,6 +95,7 @@ function updateCookie(property, value)
 			var element = String(element_property + "=" + element_value + ";");
 			alert(element);
 			document.cookie += element;
+			alert(document.cookie);
 		}
 	}
 	else
