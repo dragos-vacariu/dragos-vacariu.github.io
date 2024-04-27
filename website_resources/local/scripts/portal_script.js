@@ -58,6 +58,7 @@ function setCookie()
 		alert("pairs: " + pairs[0] + " = " + pairs[1]);
 		if(pairs[0].includes("view"))
 		{
+			alert("Here");
 			if(pairs[1].includes("paragraph"))
 			{
 				//Set paragraph view to true
