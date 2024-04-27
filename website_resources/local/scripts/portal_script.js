@@ -96,6 +96,7 @@ function updateCookie(property, value)
 	{
 		document.cookie += property + "=" + value + ";"
 	}
+	alert(document.cookie );
 }
 
 class Programming_Language
