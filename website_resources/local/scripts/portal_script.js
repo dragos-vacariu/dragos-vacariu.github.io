@@ -84,16 +84,15 @@ function updateCookie(property, value)
 		document.cookie = "";
 		for(var i=0; i<cookie_elements.length; i++)
 		{
-			var element_property = cookie_elements[i].split("=")[0];
-			var element_value = cookie_elements[i].split("=")[1];
-			alert("element_property = " + element_property);
-			alert("element_value = " + element_value);
+			var pairs = cookie_elements[i].split("=")
+			alert("element_property = " + pairs[0]);
+			alert("element_value = " + pairs[1]);
 			
-			if(element_property == property)
+			if(pairs[0] == property)
 			{
 				element_value = value;
 			}
-			var element = String(element_property + "=" + element_value + ";");
+			var element = String(pairs[0] + "=" + pairs[1] + ";");
 			alert(element);
 			cookies += element;
 		}
