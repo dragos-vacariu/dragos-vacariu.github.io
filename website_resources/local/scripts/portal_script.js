@@ -76,6 +76,7 @@ function setCookie()
 
 function updateCookie(property, value)
 {
+	alert(document.cookie + " - " + property + " -> " + document.cookie.includes(property))
 	if(document.cookie.includes(property))
 	{
 		var cookies = document.cookie.split(";");
