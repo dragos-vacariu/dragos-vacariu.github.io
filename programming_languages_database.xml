@@ -99,7 +99,20 @@
 			readability and maintainability.<br></br>
 			<code>void</code> - used to indicate an empty data type, usually used with pointers.<br></br>
 		</complex-data-types>
-		<loops>Not present</loops>
+		<loops>
+			For, while, do-while, goto<br></br>
+			<code>int counter = 0;<br></br><br></br>
+			while(counter<5)<br></br>
+			{
+				/*code goes here*/
+			     counter++;
+			}
+			for(int counter = 0; counter < 5; counter++)<br></br>
+			{
+				/*code goes here*/
+			     counter++;
+			}</code>
+		</loops>
 		<collections>Not present</collections>
 		<collection-methods>Not present</collection-methods>
 		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
