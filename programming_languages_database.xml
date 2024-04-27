@@ -27,12 +27,12 @@
 			arguments with the variable argument list mechanism.<br></br>
 			Use ellipsis ... to denote a variable number of arguments to
 			the compiler. the ellipsis can only occur at the end of an
-			argument list.<br></br>
+			argument list.<br></br><br></br>
 			Here are some standard function calls that use variable
-			argument lists.<br></br>
-			<code>int printf(const char *format, ...);</code>
-			<code>int scanf(const char *format, ...);</code>
-			<code>int execlp(const char *file, const char *arg, ...);</code>
+			argument lists:<br></br>
+			int printf(const char *format, ...);<br></br>
+			int scanf(const char *format, ...);<br></br>
+			int execlp(const char *file, const char *arg, ...);<br></br>
 		</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
