@@ -130,6 +130,23 @@
 	font-weight: bold;
 }
 
+
+#page_block green{
+	color: darkgreen;
+	font-family: Courier New;
+	font-size: 14px;
+	text-shadow: 0.1vw 0.1vw white;
+	font-weight: bold;
+}
+
+#page_block blue{
+	color: darkblue;
+	font-family: Courier New;
+	font-size: 14px;
+	text-shadow: 0.1vw 0.1vw white;
+	font-weight: bold;
+}
+
 #page_block bold{
 	font-weight: bold;
 }

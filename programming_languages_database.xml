@@ -106,34 +106,36 @@
 			<br></br><br></br>
 			For, while, do-while loops:<br></br><br></br>
 			
-			While loop does not depend upon the number of iterations. In for loop the number 
+			<red>While loop does not depend upon the number of iterations. In for loop the number 
 			of iterations was previously known to us but in the While loop, the execution 
 			is terminated on the basis of the test condition. If the test condition will 
 			become false then it will break from the while loop else body will be executed.<br></br><br></br>
+			<br></br><br></br></red>	
 			
-			
-			In for loop, a loop variable is used to control the loop. Firstly we initialize 
+			<green>In for loop, a loop variable is used to control the loop. Firstly we initialize 
 			the loop variable with some value, then check its test condition. If the 
 			statement is true then control will move to the body and the body of for 
 			loop will be executed. Steps will be repeated till the exit condition 
-			becomes true. If the test condition will be false then it will stop.<br></br><br></br>
-
+			becomes true. If the test condition will be false then it will stop.
+			<br></br><br></br>
+			
 			Initialization Expression: In this expression, we assign a loop variable 
 			or loop counter to some value. for example: int i=1;
 			Test Expression: In this expression, test conditions are performed. 
 			If the condition evaluates to true then the loop body will be executed and 
 			then an update of the loop variable is done. If the test expression becomes 
-			false then the control will exit from the loop. for example, counter&lt;5;<br></br><br></br>
+			false then the control will exit from the loop. for example, counter&lt;5;
+			<br></br><br></br>
 			
 			Update Expression: After execution of the loop body loop variable is updated 
 			by some value it could be incremented, decremented, multiplied, or divided by 
-			any value.<br></br><br></br>
+			any value.<br></br><br></br></green>
 			
-			<br></br><br></br>			
+			<blue><br></br><br></br>			
 			The do-while loop is similar to a while loop but the only difference 
 			lies in the do-while loop test condition which is tested at the end of 
 			the body. In the do-while loop, the loop body will execute at least once 
-			irrespective of the test condition.<br></br><br></br>
+			irrespective of the test condition.<br></br><br></br></blue>
 <code>
 /*While loop syntax: */
 int counter = 0;
