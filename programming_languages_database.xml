@@ -15,7 +15,13 @@
 			supercomputers to the smallest microcontrollers 
 			and embedded systems.
 		</description>
-		<generic-programming>Not present</generic-programming>
+		<generic-programming>
+			In C Language generic programming can be achieved using:<br></br>
+			Variable argument lists;<br></br>
+			Using void * and function pointers to write generic code;<br></br>
+			Using libraries to reuse code without copying and recompiling;<br></br>
+			Using plugins to get run-time overriding and more;
+		</generic-programming>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
 		<loops>Not present</loops>
