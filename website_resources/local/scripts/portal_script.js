@@ -28,9 +28,9 @@ var table_content = document.getElementById("table_content");
 
 var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 120%; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
-var concept_title_style = "color: darkred; font-size: 90%; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
-var concept_value_style = "font-size: 70%; text-align: left; border: solid 1px white;";
+var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
+var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
+var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
 
 loadXMLDoc(online_xml_file);
 
@@ -188,7 +188,7 @@ function fillTable()
 			if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
 				programming_language_selection.children[i].value==true)
 			{
-				cell.style.width = String(100 / active_columns) + "%";
+				cell.style.width = String(100 / active_columns);
 				cell = row.insertCell();
 				cell.innerHTML = programming_languages[index].name;
 				cell.style = language_title_style + programming_language_div_style[index];
