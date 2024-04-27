@@ -492,10 +492,12 @@ function setView()
 		{
 			if(view_selection.children[i].innerHTML == paragraph_view_value)
 			{
+							alert("paragraph view");
 				showParagraph();
 			}
 			else if (view_selection.children[i].innerHTML == table_view_value)
 			{
+				alert("table view");
 				showTable();
 			}
 			break;
