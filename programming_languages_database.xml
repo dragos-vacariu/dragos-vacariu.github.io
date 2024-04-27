@@ -30,9 +30,9 @@
 			argument list.<br></br>
 			Here are some standard function calls that use variable
 			argument lists.<br></br>
-			<code>int printf(const char *format, ...);<code>
-			<code>int scanf(const char *format, ...);<code>
-			<code>int execlp(const char *file, const char *arg, ...);<code>
+			<code>int printf(const char *format, ...);</code>
+			<code>int scanf(const char *format, ...);</code>
+			<code>int execlp(const char *file, const char *arg, ...);</code>
 		</variable-arguments-lists>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
