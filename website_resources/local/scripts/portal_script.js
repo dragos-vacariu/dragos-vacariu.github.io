@@ -89,14 +89,18 @@ function updateCookie(property, value)
 			{
 				element_value = value;
 			}
-			document.cookie += String(element_property + "=" + element_value + ";");
+			var element = String(element_property + "=" + element_value + ";");
+			alert(element);
+			document.cookie += element;
 		}
 	}
 	else
 	{
-		document.cookie += String(property + "=" + value + ";");
+		var element = String(element_property + "=" + value + ";");
+		alert(element);
+		document.cookie += element;
 	}
-	alert(document.cookie );
+	alert(document.cookie);
 }
 
 class Programming_Language
