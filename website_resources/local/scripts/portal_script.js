@@ -9,6 +9,29 @@ var overall_language_selection = document.getElementById("overall_language_selec
 var paragraph_view_value = "paragraph view";
 var table_view_value = "table view";
 
+//Creating the cookie document
+
+window.onload  = function () {
+	//reading from the cookie file:
+	alert(document.cookie)
+	if(document.cookie.length == 0)
+	{
+		setCookie();
+	}
+	else
+	{
+		getCookie();
+	}
+}
+
+
+function setCookie(){
+	document.cookie = 'cookie2=test; expires=Sun, 1 Jan 2025 00:00:00 UTC; path='
+}
+
+function getCookie(){
+    alert(document.cookie);
+}
 var programming_language_div_style = [
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
