@@ -55,7 +55,7 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=")
-
+		alert("pairs: " + pairs[0] + " - " + pairs[1]);
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
@@ -87,19 +87,20 @@ function updateCookie(property, value)
 			
 			if(pairs[0] == property)
 			{
-				element_value = value;
+				pairs[1] = value;
 			}
 			var element = String(pairs[0] + "=" + pairs[1] + ";");
 			cookies += element;
 		}
 		document.cookie = cookies;
+		alert("This: " + document.cookie);
 	}
 	else
 	{
 		var element = String(property + "=" + value + ";");
 		document.cookie += element;
+		alert("That: " + document.cookie);
 	}
-	alert(document.cookie);
 }
 
 class Programming_Language
