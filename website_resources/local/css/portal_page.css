@@ -118,7 +118,7 @@
 #page_block code{
 	font-family: Courier New;
 	font-size: 14px;
-	/*white-space: pre;*/
+	white-space: pre-wrap;
 	color: blue;
 }
 
