@@ -96,7 +96,7 @@
 			together under a single name. <br></br>
 			<code>Unions</code>: A special type of structure that can store only one value at a time.<br></br>
 			<code>Typedefs</code>: A way to create a new name for an existing data type to improve code 
-			readability and maintainability.</code><br></br>
+			readability and maintainability.<br></br>
 			<code>void</code> - used to indicate an empty data type, usually used with pointers<br></br>
 		</complex-data-types>
 		<loops>Not present</loops>

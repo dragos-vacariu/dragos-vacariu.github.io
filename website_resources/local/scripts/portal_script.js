@@ -37,7 +37,6 @@ var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px 
 
 window.onload  = function () {
 	cookieHandling();
-	setView();
 }
 
 function cookieHandling()
@@ -72,6 +71,7 @@ function setCookie()
 				alert("Setting table view");
 				view_selection.children(0).value = true;
 			}
+			setView();
 		}
 	}
 }
@@ -200,6 +200,7 @@ function loadXMLDoc(xml_file)
 			{
 				concept_selection.appendChild(createLiElement(concept_collection[i], true));
 			}
+			setView();
 		}
 	};
 	
