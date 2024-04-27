@@ -12,6 +12,31 @@ var table_view_value = "table view";
 var cookieExpirationDate = "expires=Sun, 1 Jan 2099 00:00:00 UTC; path="
 //Creating the cookie document
 
+var programming_language_div_style = [
+	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
+	"background-color: rgba(0,255,255,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,0,255,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,255,0,0.1);  padding: 1vw; margin: 1vw;"
+]
+
+var view_selection = document.getElementById("view_selection");
+
+view_selection.appendChild(createLiElement(table_view_value, false, switchToTableView));
+view_selection.appendChild(createLiElement(paragraph_view_value, true, switchToParagraphView));
+
+var paragraph_content = document.getElementById("paragraph_content");
+var table_content = document.getElementById("table_content");
+
+var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
+
+var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
+var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
+var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
+
+loadXMLDoc(online_xml_file);
+
 window.onload  = function () {
 	cookieHandling();
 }
@@ -36,11 +61,13 @@ function setCookie()
 		{
 			if(element_value == "paragraph")
 			{
-				switchToParagraphView();
+				//Set paragraph view to true
+				view_selection.children(1).value = true;
 			}
 			else
 			{
-				switchToTableView();
+				//Set table view to true
+				view_selection.children(0).value = true;
 			}
 		}
 	}
@@ -68,31 +95,6 @@ function updateCookie(property, value)
 		document.cookie += property + "=" + value + ";"
 	}
 }
-
-var programming_language_div_style = [
-	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
-	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
-	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
-	"background-color: rgba(0,255,255,0.1);  padding: 1vw; margin: 1vw;", 
-	"background-color: rgba(255,0,255,0.1);  padding: 1vw; margin: 1vw;", 
-	"background-color: rgba(255,255,0,0.1);  padding: 1vw; margin: 1vw;"
-]
-
-var view_selection = document.getElementById("view_selection");
-
-view_selection.appendChild(createLiElement(table_view_value, false, switchToTableView));
-view_selection.appendChild(createLiElement(paragraph_view_value, true, switchToParagraphView));
-
-var paragraph_content = document.getElementById("paragraph_content");
-var table_content = document.getElementById("table_content");
-
-var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
-
-var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
-var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
-var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
-
-loadXMLDoc(online_xml_file);
 
 class Programming_Language
 {
@@ -395,6 +397,7 @@ function selectionOfAllLanguageElements()
 
 function switchToTableView()
 {
+	//Check if paragraph view is true
 	if(view_selection.children[1].value == true)
 	{
 		for(var i = 0; i < view_selection.children.length; i++)
@@ -422,6 +425,7 @@ function switchToTableView()
 
 function switchToParagraphView()
 {
+	//Check if table view is true
 	if(view_selection.children[0].value == true)
 	{
 		for(var i = 0; i < view_selection.children.length; i++)
