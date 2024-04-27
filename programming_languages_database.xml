@@ -3,13 +3,16 @@
 <content>
 	<programming_language>
 		<name>C</name>
-		<description>C is a general-purpose computer programming language. 
+		<description>C is a general-purpose computer programming language.<br><br>
 		It was created in the 1970s by Dennis Ritchie, and remains very widely used and 
-		influential. By design, <red>C's</red> features cleanly reflect the capabilities of the 
-		targeted CPUs. It has found lasting use in operating systems, device drivers, 
-		and protocol stacks, but its use in application software has been decreasing. 
+		influential. <br><br>
+		By design, C's features cleanly reflect the 
+		capabilities of the targeted CPUs. It has found lasting use in operating 
+		systems, device drivers, and protocol stacks, but its use in application 
+		software has been decreasing. <br><br>
 		C is commonly used on computer architectures that range from the largest 
-		supercomputers to the smallest <highlight>microcontrollers</highlight> and embedded systems.</description>
+		supercomputers to the smallest microcontrollers 
+		and embedded systems.</description>
 		<generic-programming>Not present</generic-programming>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
@@ -52,7 +55,19 @@
 	
 	<programming_language>
 		<name>C++</name>
-		<description>C++ Description</description>
+		<description>
+		C++ is a high-level, general-purpose programming language created by 
+		Danish computer scientist Bjarne Stroustrup. <br><br>
+		First released in 1985 as an extension of the C programming language, 
+		it has since expanded significantly over time; as of 1997, C++ has object-oriented, 
+		generic, and functional features, in addition to facilities for low-level memory 
+		manipulation for making things like microcomputers or to make operating systems 
+		like Linux or Windows. <br><br>
+		
+		It is almost always implemented as a compiled language, 
+		and many vendors provide C++ compilers, including the Free Software Foundation, 
+		LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
+		</description>
 		<oop>C++ OOP</oop>
 		<encapsulation>Not present</encapsulation>
 		<polymorphism>Not present</polymorphism>
@@ -100,7 +115,27 @@
 	
 	<programming_language>
 		<name>C#</name>
-		<description>C# Description</description>
+		<description>
+		C# is a general-purpose high-level programming language supporting multiple 
+		paradigms. C# encompasses static typing, strong typing, lexically scoped, 
+		imperative, declarative, functional, generic, object-oriented (class-based), 
+		and component-oriented programming disciplines.<br><br>
+
+		The C# programming language was designed by Anders Hejlsberg from Microsoft in 
+		2000. <br><br>
+
+		Microsoft introduced C# along with .NET Framework and Visual Studio, both of 
+		which were closed-source. At the time, Microsoft had no open-source products.<br><br>
+
+		Four years later, in 2004, a free and open-source project called Mono began, 
+		providing a cross-platform compiler and runtime environment for the C# 
+		programming language. <br><br>
+
+		A decade later, Microsoft released Visual Studio Code (code editor), 
+		Roslyn (compiler), and the unified .NET platform (software framework), 
+		all of which support C# and are free, open-source, and cross-platform. 
+		Mono also joined Microsoft but was not merged into .NET.<br><br>
+		</description>
 		<oop>C# OOP</oop>
 		<encapsulation>Not present</encapsulation>
 		<polymorphism>Not present</polymorphism>

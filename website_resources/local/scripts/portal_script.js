@@ -9,29 +9,67 @@ var overall_language_selection = document.getElementById("overall_language_selec
 var paragraph_view_value = "paragraph view";
 var table_view_value = "table view";
 
+var cookieExpirationDate = "expires=Sun, 1 Jan 2099 00:00:00 UTC; path="
 //Creating the cookie document
 
 window.onload  = function () {
+	cookieHandling();
+}
+
+function cookieHandling()
+{
 	//reading from the cookie file:
 	alert(document.cookie)
-	if(document.cookie.length == 0)
+	if(document.cookie.length > 0)
 	{
 		setCookie();
 	}
-	else
+}
+
+function setCookie()
+{
+	var cookies = document.cookie.split(";");
+	for(var i=0; i<cookies.length; i++)
 	{
-		getCookie();
+		var element_property = cookies[i].split("=")[0];
+		var element_value = cookies[i].split("=")[1];
+		if(element_property == "view")
+		{
+			if(element_value == "paragraph")
+			{
+				switchToParagraphView();
+			}
+			else
+			{
+				switchToTableView();
+			}
+		}
 	}
 }
 
-
-function setCookie(){
-	document.cookie = 'cookie2=test; expires=Sun, 1 Jan 2025 00:00:00 UTC; path='
+function updateCookie(property, value)
+{
+	if(document.cookie.includes(property))
+	{
+		var cookies = document.cookie.split(";");
+		document.cookie = "";
+		for(var i=0; i<cookies.length; i++)
+		{
+			var element_property = cookies[i].split("=")[0];
+			var element_value = cookies[i].split("=")[1];
+			if(element_property == property)
+			{
+				element_value = value;
+			}
+			document.cookie += element_property + "=" + element_value + ";";
+		}
+	}
+	else
+	{
+		document.cookie += property + "=" + value + ";"
+	}
 }
 
-function getCookie(){
-    alert(document.cookie);
-}
 var programming_language_div_style = [
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
@@ -374,6 +412,7 @@ function switchToTableView()
 			}
 		}
 		showTable();
+		updateCookie("view", "table");
 		var hidden = paragraph_content.getAttribute("hidden");
 		if (!hidden) 
 		{
@@ -400,6 +439,7 @@ function switchToParagraphView()
 			}
 		}
 		showParagraph();
+		updateCookie("view", "paragraph");
 		var hidden = table_content.getAttribute("hidden");
 		if (!hidden) 
 		{
