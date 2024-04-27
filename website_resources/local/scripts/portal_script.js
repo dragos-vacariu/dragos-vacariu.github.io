@@ -90,7 +90,7 @@ function updateCookie(property, value)
 			{
 				pairs[1] = value;
 			}
-			var element = String(pairs[0] + "=" + pairs[1] + ";");
+			var element = pairs[0] + "=" + pairs[1] + ";";
 			cookies += element;
 		}
 		document.cookie = cookies;
@@ -98,7 +98,7 @@ function updateCookie(property, value)
 	}
 	else
 	{
-		var element = String(property + "=" + value + ";");
+		var element = pairs[0] + "=" + pairs[1] + ";";
 		document.cookie += element;
 		alert("Added: " + document.cookie);
 	}
