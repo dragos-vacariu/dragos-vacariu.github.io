@@ -101,7 +101,7 @@ function updateCookie(property, value)
 	}
 	else
 	{
-		var element = String(element_property + "=" + value + ";");
+		var element = String(property + "=" + value + ";");
 		alert(element);
 		document.cookie += element;
 	}
