@@ -124,7 +124,7 @@
 }
 
 #page_block red{
-	color: red;
+	color: darkred;
 }
 
 #page_block bold{
@@ -133,6 +133,6 @@
 
 #page_block highlight{
 	font-weight: bold;
-	color: blue;
+	color: red;
 	font-family: Verdana;
 }

@@ -18,14 +18,14 @@
 		<generic-programming>
 			In C Language generic programming can be achieved using:<br></br><br></br>
 			Variable argument lists;<br></br>
-			Using void * and function pointers to write generic code;<br></br>
+			Using <code>void *</code> and function pointers to write generic code;<br></br>
 			Using libraries to reuse code without copying and recompiling;<br></br>
 			Using plugins to get run-time overriding and more;
 		</generic-programming>
 		<variable-arguments-lists>
 			C allows a function call to have a variable number of
 			arguments with the variable argument list mechanism.<br></br>
-			Use ellipsis ... to denote a variable number of arguments to
+			Use ellipsis <code>...</code> to denote a variable number of arguments to
 			the compiler. the ellipsis can only occur at the end of an
 			argument list.<br></br><br></br>
 			Here are some standard function calls that use variable
@@ -35,43 +35,43 @@
 			<code>int execlp(const char *file, const char *arg, ...);</code><br></br>
 		</variable-arguments-lists>
 		<simple-data-types>
-		<code>short int</code> - has value range [-32,768 to 32,767] - format specifier <code>%hd</code> - 
+		<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
 		occupies 2 bytes memory
 		<br></br><br></br>
-		<code>unsigned short int</code> - has value range [-32,768 to 65,535] - format specifier <code>%hu</code> - 
+		<code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
 		occupies 2 bytes memory
 		<br></br><br></br>
-		<code>unsigned int</code> - has value range [0 to 4,294,967,295] - format specifier <code>%u</code> - 
+		<code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
 		occupies 4 bytes memory
 		<br></br><br></br>
-		<code>int</code> - has value range [-2,147,483,648 to 2,147,483,647] - format specifier <code>%d</code> - 
+		<code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
 		occupies 4 bytes memory
 		<br></br><br></br>
-		<code>long int</code> - has value range [-2,147,483,648 to 2,147,483,647] - 
+		<code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
 		format specifier <code>%ld</code> - occupies 4 bytes memory
 		<br></br><br></br>
-		<code>unsigned long int</code> - has value range [0 to 4,294,967,295 ] - format specifier <code>%lu</code> -
+		<code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
 		occupies 4 bytes memory
 		<br></br><br></br>
-		<code>long long int</code> - has value range [-(2^63) to (2^63)-1] - format specifier <code>%lld</code> - 
+		<code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
 		occupies 8 bytes memory
 		<br></br><br></br>
-		<code>unsigned long long int</code> - has value range [-(2^63) to 18,446,744,073,709,551,615 ] - 
+		<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
 		format specifier <code>%llu</code>  - occupies 8 bytes memory
 		<br></br><br></br>
-		<code>signed char</code> - has value range [-128 to 127] - format specifier <code>%c</code> - occupies 1 
+		<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 1 
 		byte memory
 		<br></br><br></br>
-		<code>unsigned char</code> - has value range [0 to 255] - format specifier <code>%c</code> - occupies 1 
+		<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 1 
 		byte memory
 		<br></br><br></br>
-		<code>float</code> - has value range [1.2E-38 to 3.4E+38] - format specifier <code>%f</code> - occupies 
+		<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
 		4 byte memory
 		<br></br><br></br>
-		<code>double</code> - has value range [1.7E-308 to 1.7E+308] - format specifier <code>%lf</code> - 
+		<code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
 		occupies 8 byte memory
 		<br></br><br></br>
-		<code>long double</code> - has value range [3.4E-4932 to 1.1E+4932] - format specifier <code>%Lf</code>  - 
+		<code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
 		occupies 16 byte memory
 		</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>
