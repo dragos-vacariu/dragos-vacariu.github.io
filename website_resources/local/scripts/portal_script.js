@@ -42,7 +42,7 @@ window.onload  = function () {
 function cookieHandling()
 {
 	//reading from the cookie file:
-	alert(document.cookie)
+	console.log(document.cookie)
 	if(document.cookie.length > 0)
 	{
 		setCookie();
@@ -62,13 +62,13 @@ function setCookie()
 			{
 				//Set paragraph view to true
 				view_selection.children(1).value = true;
-				alert("Setting paragraph view");
+				console.log("Setting paragraph view");
 			}
 			else
 			{
 				//Set table view to true
 				view_selection.children(0).value = true;
-				alert("Setting paragraph view");
+				console.log("Setting paragraph view");
 			}
 		}
 	}
@@ -99,7 +99,7 @@ function updateCookie(property, value)
 		var element = String(property + "=" + value + ";");
 		document.cookie += element;
 	}
-	alert(document.cookie);
+	console.log(document.cookie);
 }
 
 class Programming_Language
