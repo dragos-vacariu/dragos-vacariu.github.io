@@ -125,6 +125,8 @@
 
 #page_block red{
 	color: darkred;
+	font-family: Courier New;
+	font-size: 12px;
 }
 
 #page_block bold{
