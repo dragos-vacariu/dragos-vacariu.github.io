@@ -10,11 +10,6 @@
 		and protocol stacks, but its use in application software has been decreasing. 
 		C is commonly used on computer architectures that range from the largest 
 		supercomputers to the smallest <highlight>microcontrollers</highlight> and embedded systems.</description>
-		<oop>Not present</oop>
-		<encapsulation>Not present</encapsulation>
-		<polymorphism>Not present</polymorphism>
-		<inheritance>Not present</inheritance>
-		<abstraction>Not present</abstraction>
 		<generic-programming>Not present</generic-programming>
 		<simple-data-types>Not present</simple-data-types>
 		<complex-data-types>Not present</complex-data-types>

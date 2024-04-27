@@ -27,8 +27,8 @@ var table_content = document.getElementById("table_content");
 
 var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 120%; text-transform: uppercase; background-color: " + defaultTableHeaderStyleBackground + ";";
-var concept_title_style = "color: darkred; font-size: 90%; text-transform: capitalize; letter-spacing: 1px; text-align: left; background-color: rgba(255,255,255,0.2)";
+var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 120%; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
+var concept_title_style = "color: darkred; font-size: 90%; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
 var concept_value_style = "font-size: 70%; text-align: left; border: solid 1px white;";
 
 loadXMLDoc(online_xml_file);
@@ -160,6 +160,7 @@ function fillTable()
 	var row = table_content.insertRow();
 	var cell = row.insertCell(); //empty cell
 	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
+	cell.style.border = "none 0px white";
 	var active_columns = 0; 
 	for(var j=0; j<programming_language_selection.children.length; j++)
 	{
@@ -174,12 +175,11 @@ function fillTable()
 		{
 			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
 			{
+				cell.style.width = String(100 / active_columns) + "%";
 				cell = row.insertCell();
 				cell.innerHTML = language.name;
-				cell.style.fontSize = "150%";
-				cell.style.textTransform = "uppercase";
-				cell.style.backgroundColor = defaultTableHeaderStyleBackground;
-				cell.width = String(100 / active_columns) + "%";
+				cell.style = language_title_style;
+				
 			}
 		}
 	});
@@ -193,9 +193,7 @@ function fillTable()
 			row = table_content.insertRow();
 			cell = row.insertCell(); //empty cell
 			cell.innerHTML = programming_languages[0].concepts[j].concept_name;
-			cell.style.backgroundColor = defaultTableHeaderStyleBackground;
-			cell.style.textTransform = "uppercase";
-			cell.style.fontSize = "150%";
+			cell.style = concept_title_style;
 			for(var i=0; i < programming_languages.length; i++)
 			{
 
@@ -203,7 +201,7 @@ function fillTable()
 				{
 					cell = row.insertCell(); //empty cell
 					cell.innerHTML = programming_languages[i].concepts[j].concept_value;
-					cell.style.textAlign = "left";
+					cell.style = concept_value_style;
 				}
 			}
 		}
@@ -408,21 +406,21 @@ function fillParagraph()
 				p.innerHTML = language.name;
 				p.style = language_title_style;
 				div.appendChild(p);
-				for(var j=0; j < programming_languages[0].concepts.length; j++)
+				for(var j=0; j < language.concepts.length; j++)
 				{
-					if(programming_languages[0].concepts[j].concept_name == concept_selection.children[j].innerHTML &&
+					if(language.concepts[j].concept_name == concept_selection.children[j].innerHTML &&
 						concept_selection.children[j].value == true)
 					{
-						if(programming_language_selection.children[i].innerHTML == programming_languages[i].name && programming_language_selection.children[i].value==true)
+						if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
 						{	
 							var p = document.createElement("p")
-							p.innerHTML = programming_languages[0].concepts[j].concept_name + ":"
+							p.innerHTML = language.concepts[j].concept_name + ":"
 							p.style = concept_title_style;
 							div.appendChild(p);
 							
 							
 							p = document.createElement("p")
-							p.innerHTML += programming_languages[i].concepts[j].concept_value;
+							p.innerHTML += language.concepts[j].concept_value;
 							p.style = concept_value_style;
 							div.appendChild(p);
 						}
