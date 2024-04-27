@@ -35,8 +35,6 @@ var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgree
 var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
 var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
 
-loadXMLDoc(online_xml_file);
-
 window.onload  = function () {
 	cookieHandling();
 }
@@ -76,7 +74,6 @@ function setCookie()
 
 function updateCookie(property, value)
 {
-	alert(document.cookie + " - " + property + " -> " + document.cookie.includes(property))
 	if(document.cookie.includes(property))
 	{
 		var cookie_elements = document.cookie.split(";");
@@ -85,27 +82,22 @@ function updateCookie(property, value)
 		for(var i=0; i<cookie_elements.length; i++)
 		{
 			var pairs = cookie_elements[i].split("=")
-			alert("element_property = " + pairs[0]);
-			alert("element_value = " + pairs[1]);
 			
 			if(pairs[0] == property)
 			{
 				element_value = value;
 			}
 			var element = String(pairs[0] + "=" + pairs[1] + ";");
-			alert(element);
 			cookies += element;
 		}
 		document.cookie = cookies;
-		alert(document.cookie);
 	}
 	else
 	{
 		var element = String(property + "=" + value + ";");
-		alert(element);
 		document.cookie += element;
 	}
-
+	alert(document.cookie);
 }
 
 class Programming_Language
@@ -552,3 +544,5 @@ function fillParagraph()
 		index++;
 	});
 }
+
+loadXMLDoc(online_xml_file);
