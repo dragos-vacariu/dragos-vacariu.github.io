@@ -19,7 +19,6 @@ window.onload  = function () {
 function cookieHandling()
 {
 	//reading from the cookie file:
-	alert(document.cookie)
 	if(document.cookie.length > 0)
 	{
 		setCookie();
