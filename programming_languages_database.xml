@@ -102,16 +102,23 @@
 		<loops>
 			For, while, do-while, goto<br></br>
 			<code>int counter = 0;<br></br><br></br>
-			while(counter<5)<br></br>
+			while(counter&lt;5)<br></br>
 			{
 				/*code goes here*/
 			     counter++;
 			}
-			for(int counter = 0; counter < 5; counter++)<br></br>
+			for(int counter = 0; counter &lt; 5; counter++)<br></br>
 			{
 				/*code goes here*/
 			     counter++;
-			}</code>
+			}
+			do<br></br>
+			{
+				/*code goes here*/
+			     counter++;
+			}
+			while(counter &lt; 5)
+			</code>
 		</loops>
 		<collections>Not present</collections>
 		<collection-methods>Not present</collection-methods>
