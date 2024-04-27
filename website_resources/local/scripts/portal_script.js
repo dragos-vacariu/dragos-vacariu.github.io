@@ -62,15 +62,13 @@ function setCookie()
 			{
 				//Set paragraph view to true
 				alert("Setting paragraph view");
-				view_selection.children(0).value = false;
-				view_selection.children(1).value = true;
+				switchToParagraphView()
 			}
 			else
 			{
 				//Set table view to true
 				alert("Setting table view");
-				view_selection.children(0).value = true;
-				view_selection.children(1).value = false;
+				switchToTableView()
 			}
 			setView();
 		}
