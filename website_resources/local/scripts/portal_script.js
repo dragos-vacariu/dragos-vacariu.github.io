@@ -79,12 +79,13 @@ function updateCookie(property, value)
 	alert(document.cookie + " - " + property + " -> " + document.cookie.includes(property))
 	if(document.cookie.includes(property))
 	{
-		var cookies = document.cookie.split(";");
+		var cookie_elements = document.cookie.split(";");
+		var cookies = "";
 		document.cookie = "";
-		for(var i=0; i<cookies.length; i++)
+		for(var i=0; i<cookie_elements.length; i++)
 		{
-			var element_property = cookies[i].split("=")[0];
-			var element_value = cookies[i].split("=")[1];
+			var element_property = cookie_elements[i].split("=")[0];
+			var element_value = cookie_elements[i].split("=")[1];
 			alert("element_property = " + element_property);
 			alert("element_value = " + element_value);
 			
@@ -94,8 +95,9 @@ function updateCookie(property, value)
 			}
 			var element = String(element_property + "=" + element_value + ";");
 			alert(element);
-			document.cookie += element;
+			cookies += element;
 		}
+		document.cookie = cookies;
 		alert(document.cookie);
 	}
 	else
