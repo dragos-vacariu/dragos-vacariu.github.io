@@ -110,7 +110,7 @@
 
 #page_block #paragraph_content p{
 	position: relative;
-	width: 98%; 
+	width: auto; 
 }
 
 #page_block code{

@@ -8,8 +8,14 @@ var overall_language_selection = document.getElementById("overall_language_selec
 var paragraph_view_value = "paragraph view";
 var table_view_value = "table view";
 
-var programming_language_div_colors = ["rgba(255,0,0,0.1)", "rgba(255,255,0,0.1)", "rgba(255,0,255,0.1)",
-	"rgba(0,255,0,0.1)", "rgba(0,0,255,0.1)", "rgba(0,255,255,0.1)"]
+var programming_language_div_style = [
+	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
+	"background-color: rgba(0,255,255,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,0,255,0.1);  padding: 1vw; margin: 1vw;", 
+	"background-color: rgba(255,255,0,0.1);  padding: 1vw; margin: 1vw;"
+]
 
 var view_selection = document.getElementById("view_selection");
 
@@ -20,6 +26,10 @@ var paragraph_content = document.getElementById("paragraph_content");
 var table_content = document.getElementById("table_content");
 
 var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
+
+var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 120%; text-transform: uppercase; background-color: " + defaultTableHeaderStyleBackground + ";";
+var concept_title_style = "color: darkred; font-size: 90%; text-transform: capitalize; letter-spacing: 1px; text-align: left; background-color: rgba(255,255,255,0.2)";
+var concept_value_style = "font-size: 70%; text-align: left; border: solid 1px white;";
 
 loadXMLDoc(online_xml_file);
 
@@ -392,11 +402,11 @@ function fillParagraph()
 		{
 			if(programming_language_selection.children[i].innerHTML == language.name && programming_language_selection.children[i].value==true)
 			{
-				var div = document.createElement("div")
-				var p = document.createElement("p")
-				p.innerHTML = "Language: " + language.name
-				p.style.fontSize = "120%";				p.style.textTransform = "uppercase";
-				p.style.backgroundColor = defaultTableHeaderStyleBackground;
+				var div = document.createElement("div");
+				div.style = programming_language_div_style[index];
+				var p = document.createElement("p");
+				p.innerHTML = language.name;
+				p.style = language_title_style;
 				div.appendChild(p);
 				for(var j=0; j < programming_languages[0].concepts.length; j++)
 				{
@@ -406,25 +416,18 @@ function fillParagraph()
 						if(programming_language_selection.children[i].innerHTML == programming_languages[i].name && programming_language_selection.children[i].value==true)
 						{	
 							var p = document.createElement("p")
-							p.innerHTML = programming_languages[0].concepts[j].concept_name +"<br><br>"
-							p.style.fontSize = "90%";
-							p.style.textAlign = "left";
-							p.style.textTransform = "uppercase";
-							p.style.backgroundColor = defaultTableHeaderStyleBackground;
+							p.innerHTML = programming_languages[0].concepts[j].concept_name + ":"
+							p.style = concept_title_style;
 							div.appendChild(p);
 							
 							
 							p = document.createElement("p")
 							p.innerHTML += programming_languages[i].concepts[j].concept_value;
-							p.style.fontSize = "70%";
-							p.style.textAlign = "left";
+							p.style = concept_value_style;
 							div.appendChild(p);
 						}
 					}
 				}
-				div.style.margin = "1vw";
-				div.style.padding = "1vw";
-				div.style.backgroundColor = programming_language_div_colors[index];
 				paragraph_content.appendChild(div);
 			}
 		}
