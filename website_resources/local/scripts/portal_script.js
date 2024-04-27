@@ -411,7 +411,7 @@ function switchToTableView()
 	{
 		for(var i = 0; i < view_selection.children.length; i++)
 		{
-			if (view_selection.children[i] != this)
+			if (view_selection.children[i].innerHTML == table_view_value)
 			{
 				view_selection.children[i].value = false;
 				view_selection.children[i].style.opacity = 0.3;
@@ -439,7 +439,7 @@ function switchToParagraphView()
 	{
 		for(var i = 0; i < view_selection.children.length; i++)
 		{
-			if (view_selection.children[i] != this)
+			if (view_selection.children[i].innerHTML == paragraph_view_value)
 			{
 				view_selection.children[i].value = false;
 				view_selection.children[i].style.opacity = 0.3;
