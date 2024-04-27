@@ -44,6 +44,7 @@ window.onload  = function () {
 function cookieHandling()
 {
 	//reading from the cookie file:
+	alert(document.cookie)
 	if(document.cookie.length > 0)
 	{
 		setCookie();
@@ -113,6 +114,7 @@ class Programming_Language
 		this.name = name;
 	}
 }
+
 class Programming_Concept
 {
 	constructor(concept_name, value)
@@ -481,7 +483,6 @@ function setView()
 	{
 		if(view_selection.children[i].value == true)
 		{
-			
 			if(view_selection.children[i].innerHTML == paragraph_view_value)
 			{
 				showParagraph();
@@ -490,6 +491,7 @@ function setView()
 			{
 				showTable();
 			}
+			break;
 		}
 	}
 }
