@@ -54,9 +54,17 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
-		if(pairs[0].includes("view"))
+		
+		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
+		var language_index = programming_languages.findIndex(element => element.name. == pairs[0]);
+		/*
+		The findIndex() method of Array instances returns the index of the first element in an 
+		array that satisfies the provided testing function. If no elements satisfy the testing 
+		function, -1 is returned.
+		*/
+		if(pairs[0] == "view")
 		{
-			if(pairs[1].includes("paragraph"))
+			if(pairs[1] == "paragraph")
 			{
 				//Set paragraph view to true
 				switchToParagraphView();
@@ -67,7 +75,7 @@ function setCookie()
 				switchToTableView();
 			}
 		}
-		else if( (var index = concept_collection.findIndex(element => element == pairs[0])) >= 0)
+		else if(concept_index >= 0)
 		{
 			/*The concept_selection.children were added based on concept_collection array. 
 			So they wear same index.
@@ -83,22 +91,18 @@ function setCookie()
 				concept_selection.children[index].style.opacity = 0.3;
 			}
 		}
-		else
+		else if( language_index >= 0 )
 		{
-			var language_index = programming_languages.findIndex(element => element.name.includes(pairs[0]))
-			if(language_index >= 0 )
+			if(pairs[1]=="1")
 			{
-				if(pairs[1]=="1")
-				{
-					programming_language_selection.children[language_index].value = true;
-					programming_language_selection.children[language_index].style.opacity = 1.0;
-				}
-				else
-				{
-					programming_language_selection.children[language_index].value = false;
-					programming_language_selection.children[language_index].style.opacity = 0.3;
-				}				
+				programming_language_selection.children[language_index].value = true;
+				programming_language_selection.children[language_index].style.opacity = 1.0;
 			}
+			else
+			{
+				programming_language_selection.children[language_index].value = false;
+				programming_language_selection.children[language_index].style.opacity = 0.3;
+			}				
 		}
 	}
 	setView();
@@ -331,7 +335,6 @@ function fillTable()
 				{
 					var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
 					
-					//var index = concept_collection.findIndex(element => element == language.concepts[concept_index].concept_name);
 					/*
 					The findIndex() method of Array instances returns the index of the first element in an 
 					array that satisfies the provided testing function. If no elements satisfy the testing 
