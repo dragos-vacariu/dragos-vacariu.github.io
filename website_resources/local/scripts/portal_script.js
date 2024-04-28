@@ -5,7 +5,7 @@ var concept_collection = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
-const cookie_element_separator = "<br>";
+const cookie_element_separator = "<br>"; 
 
 const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
@@ -52,56 +52,45 @@ function cookieHandling()
 function setCookie()
 {
 	var cookie_elements = document.cookie.split(cookie_element_separator);
-	alert("Split elements: " + cookie_elements)
 	for(var i=0; i<cookie_elements.length; i++)
 	{
-		alert("Iteration: " + i + " of " + String(cookie_elements.length-1));
 		var pairs = cookie_elements[i].split("=");
-		alert("pairs: " + pairs[0] + " = " + pairs[1]);
 		if(pairs[0].includes("view"))
 		{
 			if(pairs[1].includes("paragraph"))
 			{
 				//Set paragraph view to true
-				//alert("Setting paragraph view");
 				switchToParagraphView();
 			}
 			else
 			{
 				//Set table view to true
-				//alert("Setting table view");
 				switchToTableView();
 			}
 		}
 		else if(concept_collection.includes(pairs[0]))
 		{
-			//alert("before loop");
 			for(var index=0; index<concept_selection.children.length; index++)
 			{
-				//alert(concept_selection.children[index].innerHTML + " == " + pairs[0]);
 				if(concept_selection.children[index].innerHTML.includes(pairs[0]))
 				{
 					if(pairs[1]=="1")
 					{
 						concept_selection.children[index].value = true;
 						concept_selection.children[index].style.opacity = 1.0;
-						//alert("Element true");
 					}
 					else
 					{
 						concept_selection.children[index].value = false;
 						concept_selection.children[index].style.opacity = 0.3;
-						//alert("Element true");
 					}
 					/*if the element is found then break*/
 					break;
 				}
 			}
-			//alert("after loop");
 		}
 		else
 		{
-			alert("Finding language index");
 			var language_index = programming_languages.findIndex(element => element.name.includes(pairs[0]))
 			if(language_index >= 0 )
 			{
@@ -119,7 +108,6 @@ function setCookie()
 			}
 		}
 	}
-	alert("Out the loop");
 	setView();
 }
 
@@ -148,7 +136,6 @@ function updateCookie(property, value)
 				
 		}
 		document.cookie = cookies;
-		//alert("Changed: " + document.cookie);
 	}
 	else
 	{
@@ -159,7 +146,6 @@ function updateCookie(property, value)
 			element = cookie_element_separator + element;  
 		}
 		document.cookie += element;
-		//alert("Added: " + document.cookie);
 	}
 }
 
@@ -557,12 +543,10 @@ function setView()
 		{
 			if(view_selection.children[i].innerHTML == paragraph_view_value)
 			{
-				alert("paragraph view");
 				showParagraph();
 			}
 			else if (view_selection.children[i].innerHTML == table_view_value)
 			{
-				alert("table view");
 				showTable();
 			}
 			break;
