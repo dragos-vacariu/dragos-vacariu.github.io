@@ -80,6 +80,7 @@ function setCookie()
 			alert("before loop");
 			for(var index=0; index<concept_selection.children.length; index++)
 			{
+				alert(concept_selection.children[i].innerHTML + " == " + pairs[0]);
 				if(concept_selection.children[i].innerHTML.includes(pairs[0]))
 				{
 					alert("Element found.");
