@@ -114,7 +114,8 @@ function setCookie()
 function updateCookie(property, value)
 {
 	var cookie_elements = document.cookie.split(cookie_element_separator);
-	if(cookie_elements.findIndex(property+"="+value)>=0)
+	var matchIndex = cookie_elements.findIndex(String(property+"="+value) );
+	if(matchIndex >= 0)
 	{
 		var cookies = "";
 		document.cookie = "";
