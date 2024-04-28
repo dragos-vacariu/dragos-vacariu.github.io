@@ -51,7 +51,7 @@ function cookieHandling()
 
 function setCookie()
 {
-	var cookie_elements = document.cookie.split(";");
+	var cookie_elements = document.cookie.split("<br>");
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
@@ -98,7 +98,7 @@ function updateCookie(property, value)
 {
 	if(document.cookie.includes(property))
 	{
-		var cookie_elements = document.cookie.split(";");
+		var cookie_elements = document.cookie.split("<br>");
 		var cookies = "";
 		document.cookie = "";
 		for(var i=0; i<cookie_elements.length; i++)
@@ -109,7 +109,7 @@ function updateCookie(property, value)
 			{
 				pairs[1] = value;
 			}
-			var element = pairs[0] + "=" + pairs[1] + ";";
+			var element = pairs[0] + "=" + pairs[1] + "<br>";
 			cookies += element;
 		}
 		document.cookie = cookies;
@@ -117,7 +117,7 @@ function updateCookie(property, value)
 	}
 	else
 	{
-		var element =  property + "=" + value + ";";
+		var element =  property + "=" + value + "<br>";
 		document.cookie += element;
 		alert("Added: " + document.cookie);
 	}
