@@ -438,11 +438,76 @@ fclose(fptr);
 		of bytes or a string in order to instantiate the object for consumption. This is the 
 		reverse process of serialization, i.e., converting a data structure or object into a 
 		series of bytes for storage or transmission across devices.<br></br><br></br>
-		
 		</deserialization>
-		<enums>Not present</enums>
-		<multi-threading>Not present</multi-threading>
-		<namespaces>Not present</namespaces>
+		<enums>
+		Enumeration (or enum) is a user defined data type in C. It is mainly used to 
+		assign names to integral constants, the names make a program easy to read and maintain.
+		<br></br><br></br>
+<code>
+/*Examples*/
+//Syntax: enum flag{constant1, constant2, constant3, ....... };
+
+// An example program to demonstrate working
+// of enum in C
+#include &lt;stdio.h&gt;
+ 
+enum week{Mon, Tue, Wed, Thur, Fri, Sat, Sun};
+ 
+int main()
+{
+    enum week day;
+    day = Wed;
+    printf("%d",day);
+    return 0;
+} 
+</code>
+		</enums>
+		<multi-threading>
+		A thread is a single sequence stream within a process. Because threads have some of 
+		the properties of processes, they are sometimes called lightweight processes. 
+		<br></br><br></br>
+		Threads are not independent from each other unlike processes. As a result, 
+		threads shares with other threads their code section, data section and OS resources 
+		like open files and signals. But, like processes, a thread has its own program 
+		counter (PC), a register set, and a stack space. 
+		<br></br><br></br>
+		Why Multithreading? Threads are popular way to improve application through parallelism. 
+		For example, in a browser, multiple tabs can be different threads. MS word uses 
+		multiple threads, one thread to format the text, other thread to process inputs, etc. 
+		<br></br><br></br>
+		Threads operate faster than processes due to following reasons: <br></br>
+		1) Thread creation is much faster. <br></br>
+		2) Context switching between threads is much faster. <br></br>
+		3) Threads can be terminated easily <br></br>
+		4) Communication between threads is faster.<br></br>
+<code>
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;unistd.h&gt; //Header file for sleep(). man 3 sleep for details. 
+#include &lt;pthread.h&gt;
+  
+// A normal C function that is executed as a thread  
+// when its name is specified in pthread_create() 
+
+void *myThreadFun(void *vargp) 
+{ 
+    sleep(1); 
+    printf("Printing GeeksQuiz from Thread \n"); 
+    return NULL; 
+} 
+   
+int main() 
+{ 
+    pthread_t thread_id; 
+    printf("Before Thread\n"); 
+    pthread_create(&#38;thread_id, NULL, myThreadFun, NULL); 
+    pthread_join(thread_id, NULL); 
+    printf("After Thread\n"); 
+    exit(0); 
+}
+</code>
+		</multi-threading>
 		<exception-handling>Not present</exception-handling>
 		<bitwise-operators>Not present</bitwise-operators>
 		<default-parameters>Not present</default-parameters>
@@ -501,7 +566,12 @@ fclose(fptr);
 		<operator-overloading>Not present</operator-overloading>
 		<enums>Not present</enums>
 		<multi-threading>Not present</multi-threading>
-		<namespaces>Not present</namespaces>
+		<namespaces>
+		A namespace is a feature added in C++ and is not present in C. A namespace is a 
+		declarative region that provides a scope to the identifiers (names of functions, 
+		variables or other user-defined data types) inside it. Multiple namespace blocks 
+		with the same name are allowed.
+		</namespaces>
 		<exception-handling>Not present</exception-handling>
 		<bitwise-operators>Not present</bitwise-operators>
 		<default-parameters>Not present</default-parameters>
