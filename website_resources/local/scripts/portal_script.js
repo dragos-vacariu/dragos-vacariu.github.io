@@ -54,7 +54,7 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
-		if(pairs[0].includes("view"))
+		if(pairs[0] == "view")
 		{
 			if(pairs[1].includes("paragraph"))
 			{
@@ -67,7 +67,7 @@ function setCookie()
 				switchToTableView();
 			}
 		}
-		else if(concept_collection.includes(pairs[0]))
+		else if(concept_collection == pairs[0])
 		{
 			for(var index=0; index<concept_selection.children.length; index++)
 			{
@@ -126,7 +126,7 @@ function updateCookie(property, value)
 			}
 			var element = pairs[0] + "=" + pairs[1];
 			cookies += element;
-			if(i<cookie_elements.length-1)
+			if(i < cookie_elements.length-1)
 			{
 				/*cookie_element_separator = <br> is used as separator. There is no need adding separator after the last item*/
 				cookies+= cookie_element_separator;
@@ -407,6 +407,7 @@ function deselectionOfAllConceptElements()
 		{
 			concept_selection.children[i].value = false;
 			concept_selection.children[i].style.opacity = 0.3;
+			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
 		}
 	}
 	setView();
@@ -448,6 +449,7 @@ function selectionOfAllLanguageElements()
 		{
 			programming_language_selection.children[i].value = true;
 			programming_language_selection.children[i].style.opacity = 1;
+			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
 		}
 	}
 	setView();
