@@ -433,7 +433,7 @@ function deselectionOfAllLanguageElements()
 		{
 			programming_language_selection.children[i].value = false;
 			programming_language_selection.children[i].style.opacity = 0.3;
-			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
+			updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
 		}
 	}
 	setView();
@@ -447,7 +447,7 @@ function selectionOfAllLanguageElements()
 		{
 			programming_language_selection.children[i].value = true;
 			programming_language_selection.children[i].style.opacity = 1;
-			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
+			updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
 		}
 	}
 	setView();

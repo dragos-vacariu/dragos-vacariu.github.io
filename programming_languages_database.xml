@@ -161,7 +161,60 @@ do
 while(counter &lt; 5)
 </code>
 		</loops>
-		<collections>Not present</collections>
+		<collections>
+			<code>Arrays</code>: Are collections of elements of the same data type with fixed size. 
+			Once the array is defined its size cannot be changed.<br></br><br></br>
+			
+			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
+			to the next element. Memory will be allocated dynamically for each element added to the list. The main benefit of a linked-list
+			consists in the possibility of adding a variable number of elements, being able to delete or add an element without making copies
+			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
+			KNOWLEDGE REQUIRED: STRUCTURES, POINTERS, LOOPS, DYNAMIC ALLOCATION, VARIABLES
+			<br></br><br></br>
+			
+<code>
+/*Declaring arrays*/
+
+int arr[5];
+int array_initialized[7] = [1,2,3,4,5,6,7];
+float array_floats[3] = [2.0f, 3.0f, 2.11f];
+
+//Linked list definition:
+struct LinkedList{
+	int value; // this will store the value
+	struct LinkedList * previous; // this will store the address of the previous block of memory
+	struct LinkedList * next; // this will store the address of the next block of memory
+};
+
+struct LinkedList* list = NULL; // creating a linked list
+
+if(list == NULL) // if this is the first element to be introduced on the linked list
+{
+	list = (struct LinkedList* )malloc(sizeof(struct LinkedList)); // allocate memory.
+	list->value = convertStringToInt(&#38;userInput[0]); // convert string value to integer.
+	list->previous = NULL; // there is no previous element.
+	list->next = NULL; // we don't know if there will be a next element.
+}
+
+else //enter here after the first element was added.
+{
+
+	list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); // allocate space for the next element
+	list->next->previous = list; // we're still on the previous element, so assign the link to the next element.previous
+	list = list->next; // next element become current element
+	list->value = convertStringToInt(&userInput[0]); // convert the string value to integer
+	list->next = NULL;  // we don't know if there will be a next element.
+}
+
+//printing the linked list
+while(list != NULL) // list is currently pointing to the last element. So we will display it from last to first.
+{
+	printf("%d ", list->value);
+	list = list->previous; // go to the previous
+}
+
+</code>
+		</collections>
 		<collection-methods>Not present</collection-methods>
 		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
 		<read-from-file>Not present</read-from-file>
