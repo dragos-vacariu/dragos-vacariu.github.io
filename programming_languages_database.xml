@@ -224,6 +224,11 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		</collections>
 		<collection-methods>There are no built in functions for working with collections.</collection-methods>
 		<dynamic-memory-allocation>
+		Dynamic memory is allocated from the heap using some standard library functions. 
+		The two dynamic memory key functions are malloc() and free(). 
+		The malloc() function takes a single parameter, which is the size of the requested memory 
+		area in bytes. It returns a pointer to the allocated memory.
+		
 		C malloc() method<br></br><br></br>
 		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
 		large block of memory with the specified size. It returns a pointer of type void which 
@@ -238,31 +243,118 @@ int main()
 {
 	int *A;
 	int i;
+	
+	/*
+	Prototype: void *malloc(size_t size);
+	*/
 
 	A=(int *)malloc(20*sizeof(int)); // malloc return a void pointer that needs to be converted
 	//into a pointer to however the type of the variable that uses it has. (int *) - is the type of pointer A
 	//20 = the number of memory cells allocated;
 	
 	for (i=0;i&lt;20;i++)
-		printf("A[%d]=%d\n", i, A[i]);
+		printf("A[%d]=%d\n", i, A[i]); //the value in each memory cell can be anything
 	free(A);
 }
 </code>
+			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
 			The Malloc () and calloc() functions differ in how the functions are used when allocating 
 			memory at runtime. The Malloc () function only returns the starting address, it doesn't 
 			zero it. On the other hand, the calloc() function returns the starting address, zeroing it.
 <code>
 
+/*Prototype void *calloc(size_t nitems, size_t size)*/
+
 A=(int *)calloc(20, sizeof(int)); //calloc does the same as malloc while initializing all elements to 0:
 	
 for (i=0;i&lt;20;i++)
-	printf("A[%d]=%d\n", i ,A[i]);
-free(A);
+	printf("A[%d]=%d\n", i ,A[i]); //the value in each memory cell is 0
+	
+free(A); //free is used to free the allocated memory. There is no delete() in C language.
 	
 </code>
 		
 		</dynamic-memory-allocation>
-		<read-from-file>Not present</read-from-file>
+		<read-from-file>
+		C programming language supports four pre-defined functions to read contents from a file, defined in stdio.h header file:
+		<br></br><br></br>
+		fgetc()– This function is used to read a single character from the file.<br></br>
+		fgets()– This function is used to read strings from files.<br></br>
+		fscanf()– This function is used to read formatted input from a file.<br></br>
+		fread()– This function is used to read the block of raw bytes from files. This is used to read binary files.
+<code>
+
+/*Read file char by char*/
+
+FILE* ptr;
+char ch;
+
+// Opening file in reading mode
+ptr = fopen("test.txt", "r");
+
+if (NULL == ptr) {
+	printf("file can't be opened \n");
+}
+
+printf("content of this file are \n");
+
+// Printing what is written in file
+// character by character using loop.
+do {
+	ch = fgetc(ptr);
+	printf("%c", ch);
+
+	// Checking if character is not EOF.
+	// If it is EOF stop reading.
+} while (ch != EOF); 
+
+
+//---------------------------------
+
+/*
+
+Alternatively feof function can be used
+feof() function takes file pointer as argument and returns true if pointer reaches the end of the file. 
+
+while (!feof(ptr)) {
+	ch = fgetc(ptr);
+	printf("%c", ch);
+}
+
+*/
+//---------------------------------
+
+//Reading whole content of the file as string
+
+//fgets() reads one string at a time from the file. fgets() returns a string if it is
+//successfully read by function or returns NULL if can not read. 
+
+//Prototype: char * fgets(char *str, int size, FILE * ptr);
+
+while (fgets(str, 50, ptr) != NULL) {
+	printf("%s", str);
+}
+
+//---------------------------------
+
+
+/*
+fscanf() reads formatted input from a stream.
+
+Approach:
+
+fscanf reads formatted data from the files and stores it in variables.
+The data in the buffer is printed on the console till the end of the file is reached.
+
+*/
+
+char buf[100];
+while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
+	printf("%s\n", buf);
+
+</code>
+		
+		</read-from-file>
 		<write-to-file>Not present</write-to-file>
 		<serialization>Not present</serialization>
 		<deserialization>Not present</deserialization>
