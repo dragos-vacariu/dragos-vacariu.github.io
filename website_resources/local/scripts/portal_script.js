@@ -52,6 +52,7 @@ function cookieHandling()
 function setCookie()
 {
 	var cookie_elements = document.cookie.split("<br>");
+	alert("Split elements: " + cookie_elements)
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
