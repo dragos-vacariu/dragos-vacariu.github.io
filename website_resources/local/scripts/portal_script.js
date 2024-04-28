@@ -87,10 +87,13 @@ function setCookie()
 						concept_selection.children[i].value = false;
 						concept_selection.children[i].style.opacity = 0.3;
 					}
+					/*Once the element is found the loop can be ended*/
+					break;
 				}
 			}
 		}
 	}
+	alert("Out the loop");
 	setView();
 }
 
