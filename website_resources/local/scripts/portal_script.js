@@ -9,9 +9,6 @@ var overall_language_selection = document.getElementById("overall_language_selec
 var paragraph_view_value = "paragraph view";
 var table_view_value = "table view";
 
-var cookieExpirationDate = "expires=Sun, 1 Jan 2099 00:00:00 UTC; path="
-//Creating the cookie document
-
 var programming_language_div_style = [
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
@@ -87,7 +84,7 @@ function setCookie()
 					{
 						concept_selection.children[index].value = true;
 						concept_selection.children[index].style.opacity = 1.0;
-						alert("Element true");
+						//alert("Element true");
 					}
 					else
 					{
@@ -103,6 +100,7 @@ function setCookie()
 		}
 		else
 		{
+			alert("Finding language index");
 			var language_index = programming_language.findIndex(element => element.name == pair[0])
 			if(language_index >= 0 )
 			{
@@ -110,7 +108,7 @@ function setCookie()
 			}
 		}
 	}
-	//alert("Out the loop");
+	alert("Out the loop");
 	setView();
 }
 
