@@ -256,6 +256,7 @@ int main()
 		printf("A[%d]=%d\n", i, A[i]); //the value in each memory cell can be anything
 	free(A);
 }
+
 </code>
 			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
 			The Malloc () and calloc() functions differ in how the functions are used when allocating 
@@ -293,6 +294,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		w - Writes to a file<br></br>
 		a - Appends new data to a file<br></br>
 		r - Reads from a file<br></br>
+	
 <code>
 
 /*Read file char by char*/
@@ -384,6 +386,7 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		If you write to a file that already exists, the old content is deleted, and the new content 
 		is inserted. This is important to know, as you might accidentally erase existing content.
 <code>
+
 FILE *fptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
 
 // Open a file in writing mode
@@ -397,6 +400,7 @@ fputs("Line wrote with fputs.", fp);
 
 // Close the file
 fclose(fptr); // this will close the file when we are done with it.
+
 </code>		
 		Closing the file:
 		<br></br><br></br>
@@ -409,6 +413,7 @@ fclose(fptr); // this will close the file when we are done with it.
 		If you want to add content to a file without deleting the old content, 
 		you can use the a mode. <br></br>
 		The a mode appends content at the end of the file:<br></br>
+		
 <code>
 /*Example*/
 
@@ -443,6 +448,7 @@ fclose(fptr);
 		Enumeration (or enum) is a user defined data type in C. It is mainly used to 
 		assign names to integral constants, the names make a program easy to read and maintain.
 		<br></br><br></br>
+		
 <code>
 /*Examples*/
 //Syntax: enum flag{constant1, constant2, constant3, ....... };
@@ -460,6 +466,7 @@ int main()
     printf("%d",day);
     return 0;
 } 
+
 </code>
 		</enums>
 		<multi-threading>
@@ -506,15 +513,160 @@ int main()
     printf("After Thread\n"); 
     exit(0); 
 }
+
 </code>
 		</multi-threading>
-		<exception-handling>Not present</exception-handling>
+		<exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
 		<bitwise-operators>Not present</bitwise-operators>
 		<default-parameters>Not present</default-parameters>
-		<interfaces>Not present</interfaces>
-		<macros>Not present</macros>
-		<defines>Not present</defines>
-		<random-generators>Not present</random-generators>
+		<interfaces>
+		In C, an interface is a set of function declarations without any implementation 
+		details. It defines a contract that concrete implementations must adhere to by providing 
+		definitions for all the functions declared in the interface.
+<code>
+
+// Declare an interface for a shape
+struct shape_interface {
+  // Function pointers for the interface functions
+  double (*area)(void*);
+  double (*perimeter)(void*);
+}; 
+
+/*
+In OOP there are classes that store to both variables and methods of an object.
+
+In C we can have structs that store variables and structs that hold function pointers to defined behaviours
+Both of them are close to forming a class.
+
+*/
+
+</code>
+		</interfaces>
+		<macros>
+		Macros in C are powerful tools that allow developers to define reusable code snippets. 
+		They are defined using preprocessor directives and primarily used for code substitution 
+		and generation. Macros provide a convenient way to write concise and efficient code, 
+		improving the readability and maintainability of C programs.<br></br>
+<code>
+
+// C program to illustrate macros
+#include &lt;stdio.h&gt;
+ 
+// Macro definition
+#define AREA(l, b) (l * b)
+ 
+// Driver Code
+int main()
+{
+    // Given lengths l1 and l2
+    int l1 = 10, l2 = 5, area;
+ 
+    // Find the area using macros
+    area = AREA(l1, l2);
+ 
+    // Print the area
+    printf("Area of rectangle"
+           " is: %d",
+           area);
+ 
+    return 0;
+}
+</code>		
+		<br></br><br></br>
+		Object-Like Macros
+		An object-like macro is a simple identifier that will be replaced by a code fragment. 
+		It is called object-like because it looks like an object in code that uses it. It is 
+		popularly used to replace a symbolic name with a numerical/variable represented 
+		as a constant.<br></br>
+<code>
+//Chain Macros
+  
+// Macro definition
+#define INSTAGRAM FOLLOWERS
+#define FOLLOWERS 138 
+
+/*
+Both macros INSTAGRAM and FOLLOWERS have same value - 138
+*/
+
+
+Multi-line macros
+#include &lt;stdio.h&gt;
+ 
+// Multi-line Macro definition
+#define ELE 1, \
+            2, \
+            3
+ 
+// Driver Code
+int main()
+{
+ 
+    // Array arr[] with elements
+    // defined in macros
+    int arr[] = { ELE };
+ 
+    // Print elements
+    printf("Elements of Array are:\n");
+ 
+    for (int i = 0; i &lt; 3; i++) {
+        printf("%d  ", arr[i]);
+    }
+    return 0;
+}
+  
+</code>
+		</macros>
+		<defines>
+		In C programming, #define is a preprocessor directive that is used to define macros. 
+		The macros are the identifiers defined by #define which are replaced by their value before 
+		compilation. We can define constants and functions like macros using #define.
+		</defines>
+		<random-generators>
+		The rand() function returns the random integers whose range from 0 to RAND_MAX. 
+		The RAND_MAX is a symbolic constant that defines in stdlib.h header file, whose value 
+		is greater but less than 32767 depending on the C libraries.<br></br><br></br>
+<code>
+#include &lt;stdio.h&gt;    
+#include &lt;conio.h&gt;  
+#include &lt;stdlib.h&gt;  
+void main()  
+{     
+    // use rand() function to generate the number  
+    printf (" The random number is: %d", rand());  
+    printf ("\n The random number is: %d", rand());  
+      
+    printf (" \n The random number is: %d", rand());  
+    printf ("\n The random number is: %d", rand());  
+    getch();  
+}  		
+
+</code>
+		The srand() function is a C library function that determines the initial point to generate 
+		different series of pseudo-random numbers. A srand() function cannot be used without 
+		using a rand() function. The srand() function is required to set the value of the seed 
+		only once in a program to generate the different results of random integers before 
+		calling the rand() function. <br></br><br></br>
+<code>
+#include &lt;stdio.h&gt;  
+#include &lt;stdlib.h&gt;  
+#include &lt;time.h&gt;  // use time.h header file to use time  
+      
+int main()  
+{  
+    int num, i;  
+    time_t t1; // declare time variable  
+      
+    printf(" Enter a number to set the limit for a random number \n");  
+    scanf (" %d", &#38;num);  
+      
+    /* define the random number generator */  
+    srand ( (unsigned) time (&#38;t1)); // pass the srand() parameter  
+    printf("\n"); // print the space
+    /* generate random number between 0 to 50 */  
+}  
+</code>
+		</random-generators>
 		<command-line-arguments>Not present</command-line-arguments>
 		<ternary-operator>Not present</ternary-operator>
 		<modular-programming>Not present</modular-programming>
