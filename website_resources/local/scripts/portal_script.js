@@ -52,8 +52,10 @@ function cookieHandling()
 function setCookie()
 {
 	var cookie_elements = document.cookie.split(cookie_element_separator);
+	alert("Split elements: " + cookie_elements)
 	for(var i=0; i<cookie_elements.length; i++)
 	{
+		alert("Iteration: " + i + " of " + String(cookie_elements.length-1));
 		var pairs = cookie_elements[i].split("=");
 		if(pairs[0].includes("view"))
 		{
@@ -91,6 +93,7 @@ function setCookie()
 		}
 		else
 		{
+			alert("Finding language index");
 			var language_index = programming_languages.findIndex(element => element.name.includes(pairs[0]))
 			if(language_index >= 0 )
 			{
@@ -108,6 +111,7 @@ function setCookie()
 			}
 		}
 	}
+	alert("Out the loop");
 	setView();
 }
 
@@ -136,6 +140,7 @@ function updateCookie(property, value)
 				
 		}
 		document.cookie = cookies;
+		//alert("Changed: " + document.cookie);
 	}
 	else
 	{
@@ -146,6 +151,7 @@ function updateCookie(property, value)
 			element = cookie_element_separator + element;  
 		}
 		document.cookie += element;
+		//alert("Added: " + document.cookie);
 	}
 }
 
@@ -543,10 +549,12 @@ function setView()
 		{
 			if(view_selection.children[i].innerHTML == paragraph_view_value)
 			{
+				alert("paragraph view");
 				showParagraph();
 			}
 			else if (view_selection.children[i].innerHTML == table_view_value)
 			{
+				alert("table view");
 				showTable();
 			}
 			break;
