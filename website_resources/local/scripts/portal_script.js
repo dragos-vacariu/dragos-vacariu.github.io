@@ -100,9 +100,13 @@ function setCookie()
 			}
 			alert("after loop");
 		}
-		else if(programming_language.findIndex(element => element.name == pair[0]) >= 0)
+		else
 		{
-			alert("Language found")
+			var language_index = programming_language.findIndex(element => element.name == pair[0])
+			if(language_index >= 0 )
+			{
+				alert("Language found")
+			}
 		}
 	}
 	alert("Out the loop");
