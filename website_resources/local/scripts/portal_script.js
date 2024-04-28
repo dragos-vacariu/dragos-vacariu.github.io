@@ -55,6 +55,7 @@ function setCookie()
 	alert("Split elements: " + cookie_elements)
 	for(var i=0; i<cookie_elements.length; i++)
 	{
+		alert("Iteration: " + i + " of " + String(cookie_elements.length-1));
 		var pairs = cookie_elements[i].split("=");
 		alert("pairs: " + pairs[0] + " = " + pairs[1]);
 		if(pairs[0].includes("view"))
@@ -63,13 +64,13 @@ function setCookie()
 			{
 				//Set paragraph view to true
 				alert("Setting paragraph view");
-				switchToParagraphView()
+				switchToParagraphView();
 			}
 			else
 			{
 				//Set table view to true
 				alert("Setting table view");
-				switchToTableView()
+				switchToTableView();
 			}
 		}
 		else
