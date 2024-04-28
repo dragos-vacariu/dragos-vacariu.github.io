@@ -53,15 +53,10 @@
 	color: #005500;
 	margin: 0%;
 	margin-left: 1%;
+	margin-top: 3%;
 	text-shadow: 0.1vw 0.1vw white;
 	list-style: none;
 	padding: 0%;
-}
-
-#page_block #menu li{
-	margin:1px;
-	padding: 1%;
-	text-align: left;
 }
 
 .selection_list {
@@ -70,6 +65,9 @@
 	padding: 0%;
 	margin-left: 1%;
 	list-style: none;
+	margin:1px;
+	padding: 2px;
+	text-align: left;
 }
 
 .selection_list li{
@@ -77,10 +75,14 @@
 	width: auto; 
 	list-style: none;
 	text-align: left;
-	margin-right: 1%;
+	margin-right: 2px;
 	border: solid 1px black;
-	padding: 2px;
+	padding: 5px;
 	background-color: white;
+	font-size: 13px;
+	font-family:Georgia;
+	color: darkred;
+	font-weight: bold;
 }
 
 #page_block #table_content{

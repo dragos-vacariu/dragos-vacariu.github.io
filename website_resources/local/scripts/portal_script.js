@@ -70,8 +70,27 @@ function setCookie()
 				alert("Setting table view");
 				switchToTableView()
 			}
-			setView();
 		}
+		else
+		{
+			for(var i = 0; i < concept_selection.children.length; i++)
+			{
+				if (pairs[0].includes(concept_selection.children[i].innerHTML))
+				{
+					if(pairs[1]=="true")
+					{
+						concept_selection.children[i].value = true;
+						concept_selection.children[i].style.opacity = 1.0;
+					}
+					else
+					{
+						concept_selection.children[i].value = false;
+						concept_selection.children[i].style.opacity = 0.3;
+					}
+				}
+			}
+		}
+		setView();
 	}
 }
 
@@ -239,8 +258,10 @@ function fillTable()
 {
 	var row = table_content.insertRow();
 	var cell = row.insertCell(); //empty cell
+	var firstColumnWidth = 30;
 	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
 	cell.style.border = "none 0px white";
+	cell.style.width = String(firstColumnWidth) + "%";
 	var active_columns = 0; 
 	for(var j=0; j<programming_language_selection.children.length; j++)
 	{
@@ -259,10 +280,10 @@ function fillTable()
 			if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
 				programming_language_selection.children[i].value==true)
 			{
-				cell.style.width = String(100 / active_columns);
 				cell = row.insertCell();
 				cell.innerHTML = programming_languages[index].name;
 				cell.style = language_title_style + programming_language_div_style[index];
+				cell.style.width = String(100 - firstColumnWidth / active_columns + "%");
 				
 			}
 		}
@@ -342,6 +363,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 				this.value = true;
 				this.style.opacity = 1;
 			}
+			updateCookie(this.innerHTML, this.value);
 			setView();
 		}
 	}
@@ -373,6 +395,7 @@ function selectionOfAllConceptElements()
 		{
 			concept_selection.children[i].value = true;
 			concept_selection.children[i].style.opacity = 1;
+			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
 		}
 	}
 	setView();
@@ -386,6 +409,7 @@ function deselectionOfAllLanguageElements()
 		{
 			programming_language_selection.children[i].value = false;
 			programming_language_selection.children[i].style.opacity = 0.3;
+			updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
 		}
 	}
 	setView();
