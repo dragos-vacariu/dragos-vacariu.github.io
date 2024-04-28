@@ -120,11 +120,11 @@
 			<br></br><br></br>
 			
 			Initialization Expression: In this expression, we assign a loop variable 
-			or loop counter to some value. for example: int i=1;
+			or loop counter to some value. for example: <code>int i=1;</code>
 			Test Expression: In this expression, test conditions are performed. 
 			If the condition evaluates to true then the loop body will be executed and 
 			then an update of the loop variable is done. If the test expression becomes 
-			false then the control will exit from the loop. for example, counter&lt;5;
+			false then the control will exit from the loop. for example, <code>counter&lt;5;</code>
 			<br></br><br></br>
 			
 			Update Expression: After execution of the loop body loop variable is updated 
