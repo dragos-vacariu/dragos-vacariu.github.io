@@ -101,7 +101,7 @@ function setCookie()
 		else
 		{
 			alert("Finding language index");
-			var language_index = programming_languages.findIndex(element => element.name == pair[0])
+			var language_index = programming_languages.findIndex(element => element.name == pairs[0])
 			if(language_index >= 0 )
 			{
 				if(pairs[1]=="1")
