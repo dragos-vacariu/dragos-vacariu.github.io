@@ -281,12 +281,23 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		fgetc()– This function is used to read a single character from the file.<br></br>
 		fgets()– This function is used to read strings from files.<br></br>
 		fscanf()– This function is used to read formatted input from a file.<br></br>
-		fread()– This function is used to read the block of raw bytes from files. This is used to read binary files.
+		fread()– This function is used to read the block of raw bytes from files. This is used 
+		to read binary files.
+		<br></br><br></br>
+		To open a file use: fopen(filename, mode);
+		<br></br><br></br>
+		Where:<br></br><br></br>
+		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
+		mode	A single character, which represents what you want to do with the file 
+		(read, write or append):<br></br><br></br>
+		w - Writes to a file<br></br>
+		a - Appends new data to a file<br></br>
+		r - Reads from a file<br></br>
 <code>
 
 /*Read file char by char*/
 
-FILE* ptr;
+FILE* ptr; FILE is basically a data type, and we need to create a pointer variable to work with it 
 char ch;
 
 // Opening file in reading mode
@@ -355,14 +366,80 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 </code>
 		
 		</read-from-file>
-		<write-to-file>Not present</write-to-file>
-		<serialization>Not present</serialization>
-		<deserialization>Not present</deserialization>
-		<constructors>Not present</constructors>
-		<instantiation>Not present</instantiation>
-		<destructors>Not present</destructors>
-		<function-overloading>Not present</function-overloading>
-		<operator-overloading>Not present</operator-overloading>
+		<write-to-file>
+		To create a file, or write to a file you can use the w mode inside the fopen() function.<br></br>
+		Function Prototype: fopen(filename, mode);
+		<br></br><br></br>
+		Where:<br></br><br></br>
+		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
+		mode	A single character, which represents what you want to do with the file 
+		(read, write or append):<br></br><br></br>
+		w - Writes to a file<br></br>
+		a - Appends new data to a file<br></br>
+		r - Reads from a file<br></br><br></br>
+		
+		The w mode means that the file is opened for writing. To insert content to it, you can 
+		use the fprintf() function and add the pointer variable (fptr in our example) and some text:
+		<br></br><br></br>
+		If you write to a file that already exists, the old content is deleted, and the new content 
+		is inserted. This is important to know, as you might accidentally erase existing content.
+<code>
+FILE *fptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
+
+// Open a file in writing mode
+fptr = fopen("filename.txt", "w");
+
+// Write some text to the file using fprintf
+fprintf(fptr, "Some text");
+
+// Write some other text to the file fputs
+fputs("Line wrote with fputs.", fp); 
+
+// Close the file
+fclose(fptr); // this will close the file when we are done with it.
+</code>		
+		Closing the file:
+		<br></br><br></br>
+		It is considered as good practice, because it makes sure that:
+		<br></br><br></br>
+		Changes are saved properly. <br></br>
+		Other programs can use the file (if you want). <br></br>
+		Clean up unnecessary memory space. <br></br><br></br>
+		
+		If you want to add content to a file without deleting the old content, 
+		you can use the a mode. <br></br>
+		The a mode appends content at the end of the file:<br></br>
+<code>
+/*Example*/
+
+FILE *fptr;
+
+// Open a file in append mode
+fptr = fopen("filename.txt", "a"); 
+
+/*Just like with the w mode; if the file does not exist, the a mode will create a 
+new file with the "appended" content.*/
+
+// Append some text to the file
+fprintf(fptr, "\nHi everybody!");
+
+// Close the file
+fclose(fptr);
+
+</code>
+		</write-to-file>
+		<serialization>
+		Serialization is the process of converting a data object—a combination of code and data 
+		represented within a region of data storage—into a series of bytes that saves the state 
+		of the object in an easily transmittable form.<br></br><br></br>
+		</serialization>
+		<deserialization>
+		Deserialization is the process of reconstructing a data structure or object from a series 
+		of bytes or a string in order to instantiate the object for consumption. This is the 
+		reverse process of serialization, i.e., converting a data structure or object into a 
+		series of bytes for storage or transmission across devices.<br></br><br></br>
+		
+		</deserialization>
 		<enums>Not present</enums>
 		<multi-threading>Not present</multi-threading>
 		<namespaces>Not present</namespaces>
@@ -379,11 +456,9 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		<string-methods>Not present</string-methods>
 		<datatype-conversions>Not present</datatype-conversions>
 		<optional-parameters>Not present</optional-parameters>
-		<partial-classes>Not present</partial-classes>
 		<decorators>Not present</decorators>
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<datatypes-sizing>Not present</datatypes-sizing>
 		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
