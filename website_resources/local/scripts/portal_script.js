@@ -54,7 +54,7 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
-		if(pairs[0] == "view")
+		if(pairs[0].includes("view"))
 		{
 			if(pairs[1].includes("paragraph"))
 			{
@@ -67,25 +67,20 @@ function setCookie()
 				switchToTableView();
 			}
 		}
-		else if(concept_collection == pairs[0])
+		else if( (var index = concept_collection.findIndex(element => element == pairs[0])) >= 0)
 		{
-			for(var index=0; index<concept_selection.children.length; index++)
+			/*The concept_selection.children were added based on concept_collection array. 
+			So they wear same index.
+			*/
+			if(pairs[1]=="1")
 			{
-				if(concept_selection.children[index].innerHTML.includes(pairs[0]))
-				{
-					if(pairs[1]=="1")
-					{
-						concept_selection.children[index].value = true;
-						concept_selection.children[index].style.opacity = 1.0;
-					}
-					else
-					{
-						concept_selection.children[index].value = false;
-						concept_selection.children[index].style.opacity = 0.3;
-					}
-					/*if the element is found then break*/
-					break;
-				}
+				concept_selection.children[index].value = true;
+				concept_selection.children[index].style.opacity = 1.0;
+			}
+			else
+			{
+				concept_selection.children[index].value = false;
+				concept_selection.children[index].style.opacity = 0.3;
 			}
 		}
 		else
