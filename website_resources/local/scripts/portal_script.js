@@ -104,6 +104,16 @@ function setCookie()
 			var language_index = programming_language.findIndex(element => element.name == pair[0])
 			if(language_index >= 0 )
 			{
+				if(pairs[1]=="1")
+				{
+					programming_language_selection.children[language_index].value == true;
+					programming_language_selection.children[language_index].style.opacity = 1.0;
+				}
+				else
+				{
+					programming_language_selection.children[language_index].value == false;
+					programming_language_selection.children[language_index].style.opacity = 0.3;
+				}				
 				alert("Language found")
 			}
 		}
