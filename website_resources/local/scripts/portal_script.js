@@ -56,7 +56,7 @@ function setCookie()
 		var pairs = cookie_elements[i].split("=");
 		
 		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
-		var language_index = programming_languages.findIndex(element => element.name. == pairs[0]);
+		var language_index = programming_languages.findIndex(element => element.name == pairs[0]);
 		/*
 		The findIndex() method of Array instances returns the index of the first element in an 
 		array that satisfies the provided testing function. If no elements satisfy the testing 
