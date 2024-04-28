@@ -62,6 +62,7 @@ function setCookie()
 		array that satisfies the provided testing function. If no elements satisfy the testing 
 		function, -1 is returned.
 		*/
+		alert("pairs: " + pairs[0] + " = " + pairs[1]);
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
@@ -82,11 +83,13 @@ function setCookie()
 			*/
 			if(pairs[1]=="1")
 			{
+				alert("enabling " + pairs[0]);
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
 			}
 			else
 			{
+				alert("disabling " + pairs[0]);
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
 			}
