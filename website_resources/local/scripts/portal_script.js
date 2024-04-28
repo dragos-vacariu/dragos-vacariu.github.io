@@ -77,9 +77,12 @@ function setCookie()
 		}
 		else
 		{
-			var concept_index = concept_selection.children.find(element => element.innerHTML == pairs[0]);
+			alert("before find");
+			var concept_index = concept_selection.children.find(element => element.innerHTML.includes(pairs[0]));
+			alert("after find");
 			if(concept_index >= 0)
 			{
+				alert("Element found.");
 				if(pairs[1]=="1")
 				{
 					concept_selection.children[concept_index].value = true;
