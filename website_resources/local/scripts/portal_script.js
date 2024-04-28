@@ -140,7 +140,7 @@ function updateCookie(property, value)
 				
 		}
 		document.cookie = cookies;
-		//alert("Changed: " + document.cookie);
+		alert("Changed: " + document.cookie);
 	}
 	else
 	{
@@ -151,7 +151,7 @@ function updateCookie(property, value)
 			element = cookie_element_separator + element;  
 		}
 		document.cookie += element;
-		//alert("Added: " + document.cookie);
+		alert("Added: " + document.cookie);
 	}
 }
 
