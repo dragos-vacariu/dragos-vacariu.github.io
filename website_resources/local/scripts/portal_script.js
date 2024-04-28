@@ -130,7 +130,7 @@ function updateCookie(property, value)
 		if(document.cookie.length > 0)
 		{
 			/*<br> is used as separator. There is no need adding separator before the first item*/
-			element += "<br>"  
+			element = "<br>" + element;  
 		}
 		document.cookie += element;
 		alert("Added: " + document.cookie);
