@@ -169,7 +169,6 @@ while(counter &lt; 5)
 			to the next element. Memory will be allocated dynamically for each element added to the list. The main benefit of a linked-list
 			consists in the possibility of adding a variable number of elements, being able to delete or add an element without making copies
 			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
-			KNOWLEDGE REQUIRED: STRUCTURES, POINTERS, LOOPS, DYNAMIC ALLOCATION, VARIABLES
 			<br></br><br></br>
 			
 <code>
@@ -223,8 +222,46 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 
 </code>
 		</collections>
-		<collection-methods>Not present</collection-methods>
-		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
+		<collection-methods>There are no built in functions for working with collections.</collection-methods>
+		<dynamic-memory-allocation>
+		C malloc() method<br></br><br></br>
+		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
+		large block of memory with the specified size. It returns a pointer of type void which 
+		can be cast into a pointer of any form. It doesn’t Initialize memory at execution time 
+		so that it has initialized each block with the default garbage value initially. <br></br><br></br>
+<code>
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;conio.h&gt;
+
+int main()
+{
+	int *A;
+	int i;
+
+	A=(int *)malloc(20*sizeof(int)); // malloc return a void pointer that needs to be converted
+	//into a pointer to however the type of the variable that uses it has. (int *) - is the type of pointer A
+	//20 = the number of memory cells allocated;
+	
+	for (i=0;i&lt;20;i++)
+		printf("A[%d]=%d\n", i, A[i]);
+	free(A);
+}
+</code>
+			The Malloc () and calloc() functions differ in how the functions are used when allocating 
+			memory at runtime. The Malloc () function only returns the starting address, it doesn't 
+			zero it. On the other hand, the calloc() function returns the starting address, zeroing it.
+<code>
+
+A=(int *)calloc(20, sizeof(int)); //calloc does the same as malloc while initializing all elements to 0:
+	
+for (i=0;i&lt;20;i++)
+	printf("A[%d]=%d\n", i ,A[i]);
+free(A);
+	
+</code>
+		
+		</dynamic-memory-allocation>
 		<read-from-file>Not present</read-from-file>
 		<write-to-file>Not present</write-to-file>
 		<serialization>Not present</serialization>

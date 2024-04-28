@@ -544,6 +544,7 @@ function fillParagraph()
 	programming_languages.forEach(async (language) => {
 		for(var lang_selection_index=0; lang_selection_index<programming_language_selection.children.length; lang_selection_index++)
 		{
+			/*if language is selected to be displayed*/
 			if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
 			{
 				var div = document.createElement("div");
