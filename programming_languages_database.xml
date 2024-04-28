@@ -202,7 +202,7 @@ else //enter here after the first element was added.
 	list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); // allocate space for the next element
 	list->next->previous = list; // we're still on the previous element, so assign the link to the next element.previous
 	list = list->next; // next element become current element
-	list->value = convertStringToInt(&userInput[0]); // convert the string value to integer
+	list->value = convertStringToInt(&#38;userInput[0]); // convert the string value to integer
 	list->next = NULL;  // we don't know if there will be a next element.
 }
 
