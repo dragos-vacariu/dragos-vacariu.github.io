@@ -83,13 +83,11 @@ function setCookie()
 			*/
 			if(pairs[1]=="1")
 			{
-				alert("enabling " + pairs[0]);
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
 			}
 			else
 			{
-				alert("disabling " + pairs[0]);
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
 			}
@@ -117,26 +115,10 @@ function updateCookie(property, value)
 	var matchIndex = cookie_elements.findIndex(element => element == String(property + "=" + value) );
 	if(matchIndex >= 0)
 	{
-		var cookies = "";
-		document.cookie = "";
-		for(var i=0; i<cookie_elements.length; i++)
-		{
-			var pairs = cookie_elements[i].split("=");
-			
-			if(pairs[0] == property)
-			{
-				pairs[1] = value;
-			}
-			var element = pairs[0] + "=" + pairs[1];
-			cookies += element;
-			if(i < cookie_elements.length-1)
-			{
-				/*cookie_element_separator = <br> is used as separator. There is no need adding separator after the last item*/
-				cookies+= cookie_element_separator;
-			}
-				
-		}
-		document.cookie = cookies;
+		var pairs = cookie_elements[matchIndex].split("=");
+		pairs[1] = value;
+		cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
+		document.cookie = cookie_elements.join(cookie_element_separator);
 	}
 	else
 	{
