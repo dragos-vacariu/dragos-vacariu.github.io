@@ -74,22 +74,18 @@ function setCookie()
 		}
 		else
 		{
-			for(var i = 0; i < concept_selection.children.length; i++)
+			var concept_index = concept_selection.children.find(element => element.innerHTML == pairs[0]);
+			if(concept_index >= 0)
 			{
-				if (pairs[0].includes(concept_selection.children[i].innerHTML))
+				if(pairs[1]=="1")
 				{
-					if(pairs[1]=="1")
-					{
-						concept_selection.children[i].value = true;
-						concept_selection.children[i].style.opacity = 1.0;
-					}
-					else
-					{
-						concept_selection.children[i].value = false;
-						concept_selection.children[i].style.opacity = 0.3;
-					}
-					/*Once the element is found the loop can be ended*/
-					break;
+					concept_selection.children[concept_index].value = true;
+					concept_selection.children[concept_index].style.opacity = 1.0;
+				}
+				else
+				{
+					concept_selection.children[concept_index].value = false;
+					concept_selection.children[concept_index].style.opacity = 0.3;
 				}
 			}
 		}
