@@ -5,6 +5,7 @@ var concept_collection = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
+const cookie_element_separator = "<br>";
 
 const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
@@ -50,7 +51,7 @@ function cookieHandling()
 
 function setCookie()
 {
-	var cookie_elements = document.cookie.split("<br>");
+	var cookie_elements = document.cookie.split(cookie_element_separator);
 	alert("Split elements: " + cookie_elements)
 	for(var i=0; i<cookie_elements.length; i++)
 	{
@@ -101,7 +102,7 @@ function setCookie()
 		else
 		{
 			alert("Finding language index");
-			var language_index = programming_languages.findIndex(element => element.name == pairs[0])
+			var language_index = programming_languages.findIndex(element => element.name.includes(pairs[0]))
 			if(language_index >= 0 )
 			{
 				if(pairs[1]=="1")
@@ -126,7 +127,7 @@ function updateCookie(property, value)
 {
 	if(document.cookie.includes(property))
 	{
-		var cookie_elements = document.cookie.split("<br>");
+		var cookie_elements = document.cookie.split(cookie_element_separator);
 		var cookies = "";
 		document.cookie = "";
 		for(var i=0; i<cookie_elements.length; i++)
@@ -141,8 +142,8 @@ function updateCookie(property, value)
 			cookies += element;
 			if(i<cookie_elements.length-1)
 			{
-				/*<br> is used as separator. There is no need adding separator after the last item*/
-				cookies+= "<br>";
+				/*cookie_element_separator = <br> is used as separator. There is no need adding separator after the last item*/
+				cookies+= cookie_element_separator;
 			}
 				
 		}
@@ -154,8 +155,8 @@ function updateCookie(property, value)
 		var element =  property + "=" + value;
 		if(document.cookie.length > 0)
 		{
-			/*<br> is used as separator. There is no need adding separator before the first item*/
-			element = "<br>" + element;  
+			/*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
+			element = cookie_element_separator + element;  
 		}
 		document.cookie += element;
 		//alert("Added: " + document.cookie);
