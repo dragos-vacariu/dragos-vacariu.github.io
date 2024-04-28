@@ -100,6 +100,10 @@ function setCookie()
 			}
 			alert("after loop");
 		}
+		else if(programming_language.findIndex(element => element.name == pair[0]) >= 0)
+		{
+			alert("Language found")
+		}
 	}
 	alert("Out the loop");
 	setView();
