@@ -35,17 +35,19 @@ var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgree
 var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
 var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
 
-window.onload  = function () {
-	cookieHandling();
-}
-
 function cookieHandling()
 {
 	//reading from the cookie file:
 	alert(document.cookie)
 	if(document.cookie.length > 0)
 	{
+		/*If cookie -> setCookie will also set the view.*/
 		setCookie();
+	}
+	else
+	{
+		/*set the view with default values*/
+		setView();
 	}
 }
 
@@ -230,7 +232,8 @@ function loadXMLDoc(xml_file)
 			{
 				concept_selection.appendChild(createLiElement(concept_collection[i], true));
 			}
-			setView();
+			/*read cookie and/or hanndle the display of the elements*/
+			cookieHandling();
 		}
 	};
 	
