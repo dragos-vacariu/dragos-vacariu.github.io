@@ -109,15 +109,26 @@ function updateCookie(property, value)
 			{
 				pairs[1] = value;
 			}
-			var element = pairs[0] + "=" + pairs[1] + "<br>";
+			var element = pairs[0] + "=" + pairs[1];
 			cookies += element;
+			if(i<cookie_elements.length-1)
+			{
+				/*<br> is used as separator. There is no need adding separator after the last item*/
+				cookies+= "<br>";
+			}
+				
 		}
 		document.cookie = cookies;
 		alert("Changed: " + document.cookie);
 	}
 	else
 	{
-		var element =  property + "=" + value + "<br>";
+		var element =  property + "=" + value;
+		if(document.cookie.length > 0)
+		{
+			/*<br> is used as separator. There is no need adding separator before the first item*/
+			element += "<br>"  
+		}
 		document.cookie += element;
 		alert("Added: " + document.cookie);
 	}
