@@ -82,13 +82,13 @@ function setCookie()
 			*/
 			if(pairs[1]=="1")
 			{
-				concept_selection.children[index].value = true;
-				concept_selection.children[index].style.opacity = 1.0;
+				concept_selection.children[concept_index].value = true;
+				concept_selection.children[concept_index].style.opacity = 1.0;
 			}
 			else
 			{
-				concept_selection.children[index].value = false;
-				concept_selection.children[index].style.opacity = 0.3;
+				concept_selection.children[concept_index].value = false;
+				concept_selection.children[concept_index].style.opacity = 0.3;
 			}
 		}
 		else if( language_index >= 0 )
