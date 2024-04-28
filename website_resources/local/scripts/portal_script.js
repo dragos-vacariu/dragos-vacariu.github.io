@@ -77,7 +77,7 @@ function setCookie()
 			{
 				if (pairs[0].includes(concept_selection.children[i].innerHTML))
 				{
-					if(pairs[1]=="true")
+					if(pairs[1]=="1")
 					{
 						concept_selection.children[i].value = true;
 						concept_selection.children[i].style.opacity = 1.0;
@@ -90,8 +90,8 @@ function setCookie()
 				}
 			}
 		}
-		setView();
 	}
+	setView();
 }
 
 function updateCookie(property, value)
