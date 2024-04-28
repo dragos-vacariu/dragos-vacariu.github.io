@@ -75,25 +75,29 @@ function setCookie()
 				switchToTableView();
 			}
 		}
-		else
+		else if(concept_collection.includes(pairs[0]))
 		{
-			alert("before find");
-			var concept_index = concept_selection.children.find(element => element.innerHTML.includes(pairs[0]));
-			alert("after find");
-			if(concept_index >= 0)
+			alert("before loop");
+			for(var index=0; index<concept_selection.children.length; index++)
 			{
-				alert("Element found.");
-				if(pairs[1]=="1")
+				if(concept_selection.children[i].innerHTML == pairs[0])
 				{
-					concept_selection.children[concept_index].value = true;
-					concept_selection.children[concept_index].style.opacity = 1.0;
-				}
-				else
-				{
-					concept_selection.children[concept_index].value = false;
-					concept_selection.children[concept_index].style.opacity = 0.3;
+					alert("Element found.");
+					if(pairs[1]=="1")
+					{
+						concept_selection.children[concept_index].value = true;
+						concept_selection.children[concept_index].style.opacity = 1.0;
+					}
+					else
+					{
+						concept_selection.children[concept_index].value = false;
+						concept_selection.children[concept_index].style.opacity = 0.3;
+					}
+					/*if the element is found then break*/
+					break;
 				}
 			}
+			alert("after loop");
 		}
 	}
 	alert("Out the loop");
