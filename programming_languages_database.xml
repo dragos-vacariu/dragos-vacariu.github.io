@@ -566,6 +566,8 @@ int main()
     return 0;
 	
 	/*
+	OUTPUT: 
+	
 	a = 5, b = 9
 	a&#38;b = 1
 	a|b = 13
@@ -573,6 +575,7 @@ int main()
 	~a = 250
 	b&lt;&lt;1 = 18
 	b&gt;&gt;1 = 4
+	
 	*/
 }
 
@@ -594,7 +597,7 @@ int main()
 		This problem can be efficiently solved by doing XOR to all numbers. 
 		<br></br><br></br>
 		
-		The & operator can be used to quickly check if a number is odd or even.<br></br>
+		The &#38; operator can be used to quickly check if a number is odd or even.<br></br>
 
 		The value of the expression (x & 1) would be non-zero only if x is odd, otherwise, 
 		the value would be zero. <br></br><br></br>
