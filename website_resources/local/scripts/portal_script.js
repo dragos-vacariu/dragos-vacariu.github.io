@@ -30,8 +30,8 @@ const table_content = document.getElementById("table_content");
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
 const language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
-const concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
-const concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
+const concept_title_style = "color: darkred; text-shadow: 2px 2px 1px white; font-size: 15px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
+const concept_value_style = "color: black; font-family: Consolas; text-shadow: 2px 1px 1px white; font-size: 15px; text-align: left; border: solid 1px white;";
 
 function cookieHandling()
 {
