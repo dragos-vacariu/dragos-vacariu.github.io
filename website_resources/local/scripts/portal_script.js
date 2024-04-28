@@ -1,15 +1,15 @@
-var online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
+const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
 var programming_languages = [];
-var concept_selection = document.getElementById("concept_selection");
+const concept_selection = document.getElementById("concept_selection");
 var concept_collection = [];
-var programming_language_selection = document.getElementById("programming_language_selection");
-var overall_concept_selection = document.getElementById("overall_concept_selection");
-var overall_language_selection = document.getElementById("overall_language_selection");
+const programming_language_selection = document.getElementById("programming_language_selection");
+const overall_concept_selection = document.getElementById("overall_concept_selection");
+const overall_language_selection = document.getElementById("overall_language_selection");
 
-var paragraph_view_value = "paragraph view";
-var table_view_value = "table view";
+const paragraph_view_value = "paragraph view";
+const table_view_value = "table view";
 
-var programming_language_div_style = [
+const programming_language_div_style = [
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
@@ -18,19 +18,19 @@ var programming_language_div_style = [
 	"background-color: rgba(255,255,0,0.1);  padding: 1vw; margin: 1vw;"
 ]
 
-var view_selection = document.getElementById("view_selection");
+const  view_selection = document.getElementById("view_selection");
 
 view_selection.appendChild(createLiElement(table_view_value, false, switchToTableView));
 view_selection.appendChild(createLiElement(paragraph_view_value, true, switchToParagraphView));
 
-var paragraph_content = document.getElementById("paragraph_content");
-var table_content = document.getElementById("table_content");
+const paragraph_content = document.getElementById("paragraph_content");
+const table_content = document.getElementById("table_content");
 
-var defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
+const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-var language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
-var concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
-var concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
+const language_title_style = "color: darkgreen; text-shadow: 1px 1px 1px lightgreen; font-size: 16px; text-transform: uppercase; border: double 2px white; background-color: " + defaultTableHeaderStyleBackground + ";";
+const concept_title_style = "color: darkred; font-size: 14px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: dotted 1px white; background-color: rgba(255,255,255,0.2)";
+const concept_value_style = "font-size: 12px; text-align: left; border: solid 1px white;";
 
 function cookieHandling()
 {
