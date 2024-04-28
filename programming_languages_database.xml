@@ -599,7 +599,7 @@ int main()
 		
 		The &#38; operator can be used to quickly check if a number is odd or even.<br></br>
 
-		The value of the expression (x & 1) would be non-zero only if x is odd, otherwise, 
+		The value of the expression (x &#38; 1) would be non-zero only if x is odd, otherwise, 
 		the value would be zero. <br></br><br></br>
 		
 		The ~ operator should be used carefully.
