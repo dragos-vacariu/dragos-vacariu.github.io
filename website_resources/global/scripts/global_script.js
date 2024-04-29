@@ -54,8 +54,8 @@ function Controller_Function($scope)
 		
 	};
 	$scope.java_catalogue = [
-			{name: "Java Racing Environment", value : "./Projects GUI/project44 drag racing simulator/Java Racing Environment.html"},
-			{name: "Java MP3 Player", value : "./Projects GUI/project34 java mp3 player application/Java MP3 Player.html"},
+			{name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
+			{name: "Java MP3 Player", value : "Java-Projects/Java MP3 Player.html"},
 	];
 	$scope.unity_csharp_catalogue = [
 			{name: "TowerBlocks Game", value : "Unity-Csharp-Projects/TowerBlocks.html"},
@@ -75,7 +75,7 @@ function Controller_Function($scope)
 			{name: "Basic MP3 Player", value : "CSharp-Projects/MP3Player.html"},
 	];
 	$scope.cpp_projects_catalogue = [
-			{name: "Pocket Calculator", value : "./Projects GUI/Pocket Calculator Project/Pocket Calculator.html"},
+			{name: "Pocket Calculator", value : "Cpp-Projects/Pocket Calculator.html"},
 	];
 	$scope.cpp_opengl_projects_catalogue = [
 			{name: "Traffic Simulator 2D", value : "Cpp-OpenGL-Projects/Traffic Simulator 2D.html"},
