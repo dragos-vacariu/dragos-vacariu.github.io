@@ -5,7 +5,7 @@ function Controller_Function($scope)
 {
 	//Initializing the models;
 	$scope.dotSlash ="./";
-	$scope.portfolio ="portfolio/";
+	$scope.portfolio ="dragos-vacariu.github.io/";
 	
 	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"}; /*currently not indexed*/
 	$scope.unity_page = {name: "Unity C# Projects", value: "../Unity-Csharp-Projects/index.html"};
@@ -29,11 +29,11 @@ function Controller_Function($scope)
 		footer_paragraph : "Porfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		page_title : "Portfolio",
 		page_navigation : [
-			{name: "Home", value : "../portfolio/index.html"},
+			{name: "Home", value : "../dragos-vacariu.github.io/index.html"},
 			{name: "Catalogue", value : "#"},
-			{name: "Contact", value : "../portfolio/contact.html"},
-			{name: "About", value : "../portfolio/about.html"},
-			{name: "Learning Portal", value : "../portfolio/portal.html"},
+			{name: "Contact", value : "../dragos-vacariu.github.io/contact.html"},
+			{name: "About", value : "../dragos-vacariu.github.io/about.html"},
+			{name: "Learning Portal", value : "../dragos-vacariu.github.io/portal.html"},
 		],
 		page_navigation_dropdown : [
 			/*$scope.java,*/
