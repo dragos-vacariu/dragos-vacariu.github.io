@@ -14,7 +14,7 @@
 	color:#663300;
 	background-color: rgba(153,85,00, 0.1);
 	background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 	box-shadow: 0.1vw 1vw 0.5vw lightgray;
 }
 
@@ -26,7 +26,7 @@
 	margin: 0%;
 	margin-bottom: 1%;
 	padding: 10px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 }
 
 #page_block h4 .selection_title{
@@ -36,7 +36,7 @@
 	border-style: none;
 	margin: 0%;
 	padding: 10px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 }
 
 #page_block h4 form{
@@ -54,7 +54,7 @@
 	margin: 0%;
 	margin-left: 1%;
 	margin-top: 3%;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 	list-style: none;
 	padding: 0%;
 }
@@ -123,27 +123,27 @@
 }
 
 #page_block red{
-	color: darkred;
+	color: #550000;
 	font-family: Courier New;
 	font-size: 16px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 	font-weight: bold;
 }
 
 
 #page_block green{
-	color: #006300;
+	color: #005500;
 	font-family: Courier New;
 	font-size: 16px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 	font-weight: bold;
 }
 
 #page_block blue{
-	color: #000063;
+	color: #550055;
 	font-family: Courier New;
 	font-size: 16px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 	font-weight: bold;
 }
 

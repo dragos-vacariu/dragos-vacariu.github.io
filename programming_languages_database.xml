@@ -211,6 +211,7 @@ while(counter &lt; 10)
 		list->value = counter; // add value
 		list->next = NULL;  // we don't know if there will be a next element.
 	}
+	counter++;
 }
 
 //printing the linked list

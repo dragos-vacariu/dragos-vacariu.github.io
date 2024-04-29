@@ -265,14 +265,9 @@ function removeTable()
 }
 
 function fillTable()
-{
-	var row = table_content.insertRow();
-	var cell = row.insertCell(); //empty cell
-	var firstColumnWidth = 30;
-	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
-	cell.style.border = "none 0px white";
-	cell.style.width = String(firstColumnWidth) + "%";
-	var active_columns = 0; 
+{	
+	//Calculate the number of columns to be displayed
+	var active_columns = 1; 
 	for(var j=0; j<programming_language_selection.children.length; j++)
 	{
 		if(programming_language_selection.children[j].value == true)
@@ -280,8 +275,17 @@ function fillTable()
 			active_columns++;
 		}
 	}
-	//draw the first raw in the table (also known as table header)
+	//Draw the first raw in the table (also known as table header)
 	
+	//Draw a column for the concept - the first row cell in the concept column will be empty
+	var row = table_content.insertRow();
+	var cell = row.insertCell(); //empty cell
+	var firstColumnWidth = 16; // start from (16 + active_columns) % for the first column
+	cell.style.backgroundColor = defaultTableHeaderStyleBackground;
+	cell.style.border = "none 0px white";
+	cell.style.width = String(firstColumnWidth + (active_columns*2) ) + "%";
+	
+	//Draw separate column for each programming language selected to be displayed
 	for(var index=0; index < programming_languages.length; index++)
 	{		
 		/*check if language is selected to be displayed*/
