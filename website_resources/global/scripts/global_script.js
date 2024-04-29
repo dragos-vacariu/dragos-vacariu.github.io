@@ -17,6 +17,7 @@ function Controller_Function($scope)
 	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "catalogue/Cpp-OpenGL-Projects.html"};
 	$scope.angularjs_page = {name: "AngularJS Exercises", value : "catalogue/AngularJS.html"};
 	$scope.javascript_games_page = {name: "JavaScript Games", value : "catalogue/Javascript-Games.html"};
+	$scope.javascript_games_presentation_video = {name: "Video Presentation Page", value : "Javascript-Games-Presentation-Video.html"};
 	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "catalogue/Javascript-WebApps.html"}; /*currently not indexed*/
 	$scope.portable_downloads_page = {name: "Portable Downloads", value : "catalogue/Portable-Downloads.html"};
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
@@ -57,8 +58,8 @@ function Controller_Function($scope)
 			{name: "Java MP3 Player", value : "./Projects GUI/project34 java mp3 player application/Java MP3 Player.html"},
 	];
 	$scope.unity_csharp_catalogue = [
-			{name: "TowerBlocks Game", value : "./TowerBlocks/TowerBlocks.html"},
-			{name: "Unity Racing Environment", value : "./Drag Racing/Drag Racing.html"},
+			{name: "TowerBlocks Game", value : "Unity-Csharp-Projects/TowerBlocks.html"},
+			{name: "Unity Racing Environment", value : "Unity-Csharp-Projects/Drag Racing.html"},
 	];
 	$scope.python_projects_catalogue = [
 			{name: "Python MP3 Player", value : "./pyplay mp3 player/PyPlay Mp3 Player.html"},
@@ -103,14 +104,14 @@ function Controller_Function($scope)
 			{name: "Tetris Game", value : "./tetris_resources/tetris_game.html"},
 			{name: "TowerBlocks Game", value : "./towerblocks_resources/tower_blocks_game.html"},
 			{name: "Canvas Snake", value : "./canvas_snake/canvas_snake.html"},
-			{name: "Video Presentation Page", value : "./presentation_video_page.html"},
+			$scope.javascript_games_presentation_video,
 	];
 	$scope.javascript_games_videos_catalogue = [
-			{name: "Knight Chess Game Video", value : "./knight_chess_resources/knight_chess_video_page.html"},
-			{name: "Snake Game Video", value : "./snake_resources/snake_video_page.html"},
-			{name: "Tetris Game Video", value : "./tetris_resources/tetris_video_page.html"},
-			{name: "TowerBlocks Game Video", value : "./towerblocks_resources/towerblocks_video_page.html"},
-			{name: "Canvas Snake Game Video", value : "./canvas_snake/canvas_snake_video_page.html"},
+			{name: "Knight Chess Game Video", value : "./Javascript-Games-Presentation-Video/knight_chess_video_page.html"},
+			{name: "Snake Game Video", value : "./Javascript-Games-Presentation-Video/snake_video_page.html"},
+			{name: "Tetris Game Video", value : "./Javascript-Games-Presentation-Video/tetris_video_page.html"},
+			{name: "TowerBlocks Game Video", value : "./Javascript-Games-Presentation-Video/towerblocks_video_page.html"},
+			{name: "Canvas Snake Game Video", value : "./Javascript-Games-Presentation-Video/canvas_snake_video_page.html"},
 	];
 	$scope.javascript_webapps_catalogue = [
 			{name: "Message Encoder", value : "./webapps_resources/message_encoder.html"},
