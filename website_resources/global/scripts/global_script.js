@@ -65,38 +65,38 @@ function Controller_Function($scope)
 			{name: "Python MP3 Player", value : "Python-Projects/PyPlay Mp3 Player.html"},
 	];
 	$scope.html_projects_catalogue = [
-			{name: "Full Web Page Template", value : "./Web Templates/project38 full web page template/index.html"},
-			{name: "Musician Web Page Template", value : "./Web Templates/project39 musician web page template/index.html"},
-			{name: "Python MP3 Player Webpage", value : "./Web Templates/project40 python mp3 player webpage/index.html"},
-			{name: "Free Sound Effects Web Template", value : "./Web Templates/free sound effects web template/index.html"},
+			{name: "Full Web Page Template", value : "../../Html-Projects/Web Templates/project38 full web page template/index.html"},
+			{name: "Musician Web Page Template", value : "../../Html-Projects/Web Templates/project39 musician web page template/index.html"},
+			{name: "Python MP3 Player Webpage", value : "../../Html-Projects/Web Templates/project40 python mp3 player webpage/index.html"},
+			{name: "Free Sound Effects Web Template", value : "../../Html-Projects/Web Templates/free sound effects web template/index.html"},
 	];
 	$scope.c_sharp_projects_catalogue = [
-			{name: "WWBM Quizz Game", value : "./VS Projects GUI/WWBM Quizz Game/WWBM Quizz Game.html"},
-			{name: "Basic MP3 Player", value : "./VS Projects GUI/Basic MP3Player/MP3Player.html"},
+			{name: "WWBM Quizz Game", value : "CSharp-Projects/WWBM Quizz Game.html"},
+			{name: "Basic MP3 Player", value : "CSharp-Projects/MP3Player.html"},
 	];
 	$scope.cpp_projects_catalogue = [
 			{name: "Pocket Calculator", value : "./Projects GUI/Pocket Calculator Project/Pocket Calculator.html"},
 	];
 	$scope.cpp_opengl_projects_catalogue = [
-			{name: "Traffic Simulator 2D", value : "./Traffic Simulator 2D/Traffic Simulator 2D.html"},
+			{name: "Traffic Simulator 2D", value : "Cpp-OpenGL-Projects/Traffic Simulator 2D.html"},
 	];
 	$scope.angularjs_projects_catalogue = [
-			{value: "./Applications/project26-27 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
-			{value: "./Applications/project26-27 car shop catalogue/project27 car shop catalogue new template.html" , name : "Car Shop New"},
-			{value: "./Applications/project24 customized tables.html" , name : "Customized Tables"},
-			{value: "./Applications/project25 shopping cart.html" , name : "Shopping Cart"},
-			{value: "./Applications/project22 color picker, decimal to hex.html" , name : "Color Picker"},
-			{value: "./Applications/project23 border picker.html" , name : "Border Picker"},
-			{value: "./Applications/project17 matrix determinant calculator ng-change.html" , name : "Matrix Determinant Calculator"},
-			{value: "./Applications/project18 decimal to binary converter, loops in angularjs.html" , name : "Decimal to Binary Converter"},
-			{value: "./Applications/project21 bitwise operations calculator.html" , name : "Bitwise operations"},
-			{value: "./Applications/project20 age calculator.html" , name : "Age Calculator"},
-			{value: "./Applications/project13 simple calculator.html" , name : "Simple Calculator"},
-			{value: "./Applications/project14 item list.html" , name : "Item List"},
-			{value: "./Applications/project15 add items to cart using angular.foreach.html" , name : "Add items to Cart"},
-			{value: "./Applications/project16 display content according to href.html" , name : "Display HREF Content"},
-			{value: "./Applications/project19 letter to symbol replacer.html" , name : "Letter to symbol replacer"},
-			{value: "./Applications/project28 checkerboard.html" , name : "Checkerboard"},
+			{value: "../../AngularJS/Applications/project26-27 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
+			{value: "../../AngularJS/Applications/project26-27 car shop catalogue/project27 car shop catalogue new template.html" , name : "Car Shop New"},
+			{value: "../../AngularJS/Applications/project24 customized tables.html" , name : "Customized Tables"},
+			{value: "../../AngularJS/Applications/project25 shopping cart.html" , name : "Shopping Cart"},
+			{value: "../../AngularJS/Applications/project22 color picker, decimal to hex.html" , name : "Color Picker"},
+			{value: "../../AngularJS/Applications/project23 border picker.html" , name : "Border Picker"},
+			{value: "../../AngularJS/Applications/project17 matrix determinant calculator ng-change.html" , name : "Matrix Determinant Calculator"},
+			{value: "../../AngularJS/Applications/project18 decimal to binary converter, loops in angularjs.html" , name : "Decimal to Binary Converter"},
+			{value: "../../AngularJS/Applications/project21 bitwise operations calculator.html" , name : "Bitwise operations"},
+			{value: "../../AngularJS/Applications/project20 age calculator.html" , name : "Age Calculator"},
+			{value: "../../AngularJS/Applications/project13 simple calculator.html" , name : "Simple Calculator"},
+			{value: "../../AngularJS/Applications/project14 item list.html" , name : "Item List"},
+			{value: "../../AngularJS/Applications/project15 add items to cart using angular.foreach.html" , name : "Add items to Cart"},
+			{value: "../../AngularJS/Applications/project16 display content according to href.html" , name : "Display HREF Content"},
+			{value: "../../AngularJS/Applications/project19 letter to symbol replacer.html" , name : "Letter to symbol replacer"},
+			{value: "../../AngularJS/Applications/project28 checkerboard.html" , name : "Checkerboard"},
 	];
 	$scope.javascript_games_catalogue = [
 			{name: "Knight Chess Game", value : "./knight_chess_resources/knight_chess_game.html"},
