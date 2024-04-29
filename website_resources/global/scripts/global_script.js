@@ -4,8 +4,8 @@ app.controller('Controller', Controller_Function);
 function Controller_Function($scope)
 {
 	//Initializing the models;
-	$scope.dotSlash ="./";
-	$scope.portfolio ="dragos-vacariu.github.io/";
+	$scope.dotSlash = "./";
+	$scope.portfolio = "dragos-vacariu.github.io/";
 	
 	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"}; /*currently not indexed*/
 	$scope.unity_page = {name: "Unity C# Projects", value: "../Unity-Csharp-Projects/index.html"};
