@@ -5,19 +5,20 @@ function Controller_Function($scope)
 {
 	//Initializing the models;
 	$scope.dotSlash = "./";
+	$scope.exitDir = "../"
 	$scope.portfolio = "dragos-vacariu.github.io/";
 	
-	$scope.java_page = {name: "Java Projects", value: "../Java-Projects/index.html"}; /*currently not indexed*/
-	$scope.unity_page = {name: "Unity C# Projects", value: "../Unity-Csharp-Projects/index.html"};
-	$scope.python_page = {name: "Python Projects", value: "../Python-Projects/index.html"};
-	$scope.html_page = {name: "Html Projects", value : "../Html-Projects/index.html"};
-	$scope.c_sharp_page = {name: "C# Projects", value : "../CSharp-Projects/index.html"};
-	$scope.cpp_page = {name: "C++ Projects", value : "../Cpp-Projects/index.html"};
-	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "../Cpp-OpenGL-Projects/index.html"};
-	$scope.angularjs_page = {name: "AngularJS Exercises", value : "../AngularJS/index.html"};
-	$scope.javascript_games_page = {name: "JavaScript Games", value : "../Javascript-Projects/index.html"};
-	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "../Javascript-Projects/webapps.html"}; /*currently not indexed*/
-	$scope.portable_downloads_page = {name: "Portable Downloads", value : "../Portable-Downloads/index.html"};
+	$scope.java_page = {name: "Java Projects", value: "catalogue/Java-Projects.html"}; /*currently not indexed*/
+	$scope.unity_page = {name: "Unity C# Projects", value: "catalogue/Unity-Csharp-Projects.html"};
+	$scope.python_page = {name: "Python Projects", value: "catalogue/Python-Projects.html"};
+	$scope.html_page = {name: "Html Projects", value : "catalogue/Html-Projects.html"};
+	$scope.c_sharp_page = {name: "C# Projects", value : "catalogue/CSharp-Projects.html"};
+	$scope.cpp_page = {name: "C++ Projects", value : "catalogue/Cpp-Projects.html"};
+	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "catalogue/Cpp-OpenGL-Projects.html"};
+	$scope.angularjs_page = {name: "AngularJS Exercises", value : "catalogue/AngularJS.html"};
+	$scope.javascript_games_page = {name: "JavaScript Games", value : "catalogue/Javascript-Games.html"};
+	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "catalogue/Javascript-WebApps.html"}; /*currently not indexed*/
+	$scope.portable_downloads_page = {name: "Portable Downloads", value : "catalogue/Portable-Downloads.html"};
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
 
 	$scope.pageObject = {
@@ -29,11 +30,11 @@ function Controller_Function($scope)
 		footer_paragraph : "Porfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		page_title : "Portfolio",
 		page_navigation : [
-			{name: "Home", value : "../dragos-vacariu.github.io/index.html"},
+			{name: "Home", value : "./"},
 			{name: "Catalogue", value : "#"},
-			{name: "Contact", value : "../dragos-vacariu.github.io/contact.html"},
-			{name: "About", value : "../dragos-vacariu.github.io/about.html"},
-			{name: "Learning Portal", value : "../dragos-vacariu.github.io/portal.html"},
+			{name: "Contact", value : "./contact.html"},
+			{name: "About", value : "./about.html"},
+			{name: "Learning Portal", value : "./portal.html"},
 		],
 		page_navigation_dropdown : [
 			/*$scope.java,*/
@@ -127,8 +128,6 @@ function Controller_Function($scope)
 			{name: "Java 2D Racing Environment", value : "./Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.rar"},
 			{name: "JavaScript Games Portable", value : "./JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
 	];
-	
-	$scope.exitDir = "../"
 	
 	document.title = $scope.pageObject.page_title + " " + document.title;
 	
