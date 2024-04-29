@@ -49,7 +49,7 @@ function Controller_Function($scope)
 			$scope.cpp_page,
 			/*$scope.javascript_webapps_page,*/
 			$scope.portable_downloads_page,
-			$scope.github_repository_page,
+			//$scope.github_repository_page,
 		],
 		
 	};
@@ -114,10 +114,10 @@ function Controller_Function($scope)
 			{name: "Canvas Snake Game Video", value : "./Javascript-Games-Presentation-Video/canvas_snake_video_page.html"},
 	];
 	$scope.javascript_webapps_catalogue = [
-			{name: "Message Encoder", value : "./webapps_resources/message_encoder.html"},
-			{name: "Message Decoder", value : "./webapps_resources/message_decoder.html"},
-			{name: "RandomORG", value : "./webapps_resources/random_org.html"},
-			{name: "Roadcross Game", value : "./roadcross_resources/roadcross_game.html"},
+			{name: "Message Encoder", value : "../../Javascript-Projects/webapps_resources/message_encoder.html"},
+			{name: "Message Decoder", value : "../../Javascript-Projects/webapps_resources/message_decoder.html"},
+			{name: "RandomORG", value : "../../Javascript-Projects/webapps_resources/random_org.html"},
+			{name: "Roadcross Game", value : "../../Javascript-Projects/roadcross_resources/roadcross_game.html"},
 	];
 	$scope.portable_downloads = [
 			{name: "Python MP3 Player - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player - Runnable Script.rar"},
