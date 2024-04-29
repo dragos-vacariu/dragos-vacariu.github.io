@@ -99,11 +99,11 @@ function Controller_Function($scope)
 			{value: "../../AngularJS/Applications/project28 checkerboard.html" , name : "Checkerboard"},
 	];
 	$scope.javascript_games_catalogue = [
-			{name: "Knight Chess Game", value : "./knight_chess_resources/knight_chess_game.html"},
-			{name: "Snake Game", value : "./snake_resources/snake_game.html"},
-			{name: "Tetris Game", value : "./tetris_resources/tetris_game.html"},
-			{name: "TowerBlocks Game", value : "./towerblocks_resources/tower_blocks_game.html"},
-			{name: "Canvas Snake", value : "./canvas_snake/canvas_snake.html"},
+			{name: "Knight Chess Game", value : "../../Javascript-Projects/knight_chess_resources/knight_chess_game.html"},
+			{name: "Snake Game", value : "../../Javascript-Projects/snake_resources/snake_game.html"},
+			{name: "Tetris Game", value : "../../Javascript-Projects/tetris_resources/tetris_game.html"},
+			{name: "TowerBlocks Game", value : "../../Javascript-Projects/towerblocks_resources/tower_blocks_game.html"},
+			{name: "Canvas Snake", value : "../../Javascript-Projects/canvas_snake/canvas_snake.html"},
 			$scope.javascript_games_presentation_video,
 	];
 	$scope.javascript_games_videos_catalogue = [
