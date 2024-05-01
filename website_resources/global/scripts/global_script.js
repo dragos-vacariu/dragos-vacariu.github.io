@@ -6,7 +6,6 @@ function Controller_Function($scope)
 	//Initializing the models;
 	$scope.dotSlash = "./";
 	$scope.exitDir = "../"
-	$scope.portfolio = "dragos-vacariu.github.io/";
 	
 	$scope.java_page = {name: "Java Projects", value: "catalogue/Java-Projects.html"}; /*currently not indexed*/
 	$scope.unity_page = {name: "Unity C# Projects", value: "catalogue/Unity-Csharp-Projects.html"};
@@ -28,14 +27,14 @@ function Controller_Function($scope)
 		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
 		connections_list : ["GitHub.com", "LinkedIn.com",  "w3schools.com"],
 		footer_copyright : "Dragos Vacariu © 2024",
-		footer_paragraph : "Porfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
+		footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		page_title : "Portfolio",
 		page_navigation : [
 			{name: "Home", value : "./"},
 			{name: "Catalogue", value : "#"},
 			{name: "Contact", value : "./contact.html"},
 			{name: "About", value : "./about.html"},
-			{name: "Learning Portal", value : "./portal.html"},
+			{name: "Portal", value : "./portal.html"},
 		],
 		page_navigation_dropdown : [
 			/*$scope.java,*/
