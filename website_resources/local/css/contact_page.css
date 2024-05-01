@@ -22,16 +22,16 @@ article table{
 }
 
 article th, td, tr{
-	padding-top:1vw;
-	padding-left:4vw;
-	padding-bottom:2vw;
+	padding-top:0vw;
+	padding-left:2vw;
+	padding-bottom:0vw;
 	border:none;
 	text-align: left;	/*this is for aligning the items in the table*/
 }
 
 article th{
 	font-family:Verdana;
-	font-size:1.5vw;
+	font-size:1.3vw;
 	text-decoration:none;
 	color:white;
 	letter-spacing: 1px;
@@ -116,8 +116,8 @@ aside #anim{
 }
 
 aside img{
-	width: 10vw;
+	width: 12vw;
 	position: absolute;
 	bottom: 55%;
-	left: 30%;	
+	left: 26%;	
 }
