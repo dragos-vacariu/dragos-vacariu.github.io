@@ -610,7 +610,8 @@ int main()
 		is stored in a signed variable (assuming that the negative numbers are stored in 2’s 
 		complement form where the leftmost bit is the sign bit).<br></br>
 		</bitwise-operators>
-		<default-parameters>Not present</default-parameters>
+		<default-parameters>There are no default parameters in C. One way you can get by this is 
+		to pass in NULL pointers and then set the values to the default if NULL is passed.</default-parameters>
 		<interfaces>
 		In C, an interface is a set of function declarations without any implementation 
 		details. It defines a contract that concrete implementations must adhere to by providing 
@@ -759,13 +760,215 @@ int main()
 }  
 </code>
 		</random-generators>
-		<command-line-arguments>Not present</command-line-arguments>
-		<ternary-operator>Not present</ternary-operator>
-		<modular-programming>Not present</modular-programming>
-		<string-methods>Not present</string-methods>
+		<command-line-arguments>
+		Command line arguments in C are passed to the main function 
+		as argc and argv. Command line arguments are used to control the program from 
+		the outside. argv[argc] is a Null pointer. The name of the program is 
+		stored in argv[0], the first command-line parameter in argv[1], and the 
+		last argument in argv[n]
+<code>
+/*Example*/
+int main(int argc, char *argv[]) { /* ... */ }
+
+//OR
+int main(int argc, char **argv) { /* ... */ }
+</code>
+		argc (ARGument Count) is an integer variable that stores the number of command-line 
+		arguments passed by the user including the name of the program. So if we pass a 
+		value to a program, the value of argc would be 2 (one for argument and one for 
+		program name). <br></br>
+		The value of argc should be non-negative.<br></br>
+		argv (ARGument Vector) is an array of character pointers listing all the arguments.
+		If argc is greater than zero, the array elements from argv[0] to argv[argc-1] will 
+		contain pointers to strings.<br></br>
+		argv[0] is the name of the program , After that till argv[argc-1] every element 
+		is command -line arguments.<br></br><br></br>
+		
+		Properties of Command Line Arguments in C<br></br>
+		They are passed to the main() function.<br></br>
+		They are parameters/arguments supplied to the program when it is invoked.<br></br>
+		They are used to control programs from outside instead of hard coding those values 
+		inside the code.<br></br>
+		argv[argc] is a NULL pointer.<br></br>
+		argv[0] holds the name of the program.<br></br>
+		argv[1] points to the first command line argument and argv[argc-1] points to 
+		the last argument.<br></br>
+		</command-line-arguments>
+		<ternary-operator>
+		Ternary operator is used for decision making instead of placing longer if and else 
+		conditional statements:
+<code>
+/*Using IF ELSE statements:*/
+
+int a = 10, b = 20, c;
+
+if (a &lt; b) 
+{
+    c = a;
+}
+else 
+{
+    c = b;
+}
+
+printf("%d", c);
+
+/*=============================*/
+/*Using TERNARY operator:*/
+
+int a = 10, b = 20, c;
+
+c = (a &lt; b) ? a : b;
+
+printf("%d", c);
+
+/*The output of both samples of code from above will result in: c = 3*/
+
+</code>
+		Syntax
+		condition ? value_if_true : value_if_false
+
+		The statement evaluates to value_if_true if condition is met, and value_if_false 
+		otherwise.
+		The ternary operator take three arguments:
+
+		The first is a comparison argument
+		The second is the result upon a true comparison
+		The third is the result upon a false comparison
+		</ternary-operator>
+		<modular-programming>
+		Modular programming consists of separating implementation from interface and 
+		hiding information in the implementation. In C this is achieved by placing 
+		the interface definition in a header file and the implementation in a source 
+		file. Disciplined use of static is used to hide implementation details.
+		<br></br><br></br>
+		Advantages of modular programming:<br></br><br></br>
+
+		Code is easier to read - Working on modular programming makes code easier to read 
+		because functions perform different tasks as compared to monolithic codes. 
+		Sometimes modular programming can be a bit messy if we pass arguments and 
+		variables in different functions. The use of modules should be done in a 
+		sensible manner so as to avoid any problem. Functions should be neat, clean, 
+		and descriptive.<br></br><br></br>
+		
+		Code is easier to test - In software, some functions perform fewer tasks and 
+		also functions that perform numerous tasks. If the software is easily split 
+		using modules, it becomes easier to test. We can also focus on the riskier 
+		functions during testing and need more test cases to make it bug-free.<br></br><br></br>
+		
+		Reusability - There are times where a piece of code is implemented everywhere in 
+		our program. Instead of copying and pasting it, again and again, modularity 
+		gives us the advantage of reusability so that we can pull our code from 
+		anywhere using interfaces or libraries. The concept of reusability also 
+		reduces the size of our program.<br></br><br></br>
+		
+		Faster fixes - Suppose there is an error in the payment options in any 
+		application, and the bug needs to be removed. Modularity can be a great help 
+		because we know that there will be a separate function that will contain the 
+		code of payments, and only that function will only be rectified. Thus using 
+		modules to find and fixing bugs becomes much more smooth and maintainable.<br></br><br></br>
+		
+		Low-risk update - In modular programming, a defined layer of APIs protects things that 
+		use it from making changes inside the library. Unless there is a change in the API, 
+		there is a low risk for someone's code-breaking. For example, if you didn't have 
+		explicit APIs and someone changed a function they thought was only used within that 
+		same library (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
+		
+		
+		Easy collaboration - Different developers work on a single piece of code in the team. 
+		There are chances of conflicts when there's a git merge. This conflict can be reduced 
+		if the code is split between more functions, files, repos, etc. We can also provide 
+		ownership to specific code modules, where a team member can break them down into 
+		smaller tasks.<br></br><br></br><br></br>
+		
+		Disadvantages of modular programming:
+
+		There is a need for extra time and budget for a product in modular programming.<br></br><br></br>
+		It is a challenging task to combine all the modules.<br></br><br></br>
+		Careful documentation is required so that other program modules are not affected.<br></br><br></br>
+		Some modules may partly repeat the task performed by other modules. Hence, 
+		Modular programs need more memory space and extra time for execution.<br></br><br></br>
+		Integrating various modules into a single program may not be a task because 
+		different people working on the design of different modules may not have the 
+		same style.<br></br><br></br>
+		It reduces the program's efficiency because testing and debugging are 
+		time-consuming, where each function contains a thousand lines of code.<br></br><br></br>
+<code>
+/*FILE module.h*/
+ extern unsigned int Calculate_NoOfChars_In_string(char* str);
+
+/*FILE module.c*/
+unsigned int Calculate_NoOfChars_In_string(char* str)
+{
+	unsigned int counter = 0;
+	while(str[counter]!="\0")
+	{
+		counter++;
+	}
+	return counter;
+}
+
+/*FILE main.c*/
+#include &lt;module.h&gt;  
+#include &lt;stdio.h&gt;  
+
+int main()
+{
+	char strA[10] = "Some text.";
+	unsigned int length = Calculate_NoOfChars_In_string(strA);
+	print("String length is: %d\n", length);
+}
+
+</code>
+		</modular-programming>
+		<string-methods>
+		C has many useful string functions, which can be used to perform certain operations 
+		on strings.<br></br>
+		To use them, you must include the &lt;string.h&gt; header file in your program.<br></br>
+<code>
+/* GET THE SIZE (IN CHARACTERS) OF STRINGS */
+char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+printf("%d", strlen(alphabet));
+
+/* Note that sizeof and strlen behaves differently, as sizeof also includes t
+he \0 character when counting.*/
+
+/* CONCATENATE STRINGS */
+
+char str1[20] = "Hello ";
+char str2[] = "World!";
+
+// Concatenate str2 to str1 (result is stored in str1)
+strcat(str1, str2);
+
+// Print str1
+printf("%s", str1);
+
+/* COPY STRINGS */
+char str1[20] = "Hello World!";
+char str2[20];
+
+// Copy str1 to str2
+strcpy(str2, str1);
+
+// Print str2
+printf("%s", str2);
+
+/*	COMPARE STRINGS */
+
+char str1[] = "Hello";
+char str2[] = "Hello";
+char str3[] = "Hi";
+
+// Compare str1 and str2, and print the result
+printf("%d\n", strcmp(str1, str2));  // Returns 0 (the strings are equal)
+
+// Compare str1 and str3, and print the result
+printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
+</code>
+		</string-methods>
 		<datatype-conversions>Not present</datatype-conversions>
-		<optional-parameters>Not present</optional-parameters>
-		<decorators>Not present</decorators>
+		<optional-parameters>C does not support optional parameters.</optional-parameters>
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
 		<regular-expressions>Not present</regular-expressions>
