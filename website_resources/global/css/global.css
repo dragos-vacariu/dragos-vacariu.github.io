@@ -125,7 +125,7 @@ nav table{
 
 #reference table tr th{
 	text-align:center;
-	border-style: solid;
+	border-style: none;
 	border-color: black;
 	border-width:1px;
 	padding:0%;
@@ -135,7 +135,7 @@ nav table{
 	margin-left:5%;
 	width:90%;
 	padding:0%;
-	border-style: solid;
+	border-style: none;
 }
 
 #reference p 
