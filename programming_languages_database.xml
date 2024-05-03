@@ -988,6 +988,7 @@ int myInt = 9.99;
 printf("%d", myInt); // 9
 
 // the compiler automatically converts the float value of 9.99 to int value 9.
+
 </code>
 		Explicit conversion is done manually by placing the type in parentheses () in front 
 		of the value. Also knows as typecasting. It is one of the important concepts introduced in 'C' 
@@ -1134,7 +1135,56 @@ sizeof()	Returns the size of a variable.	sizeof(a), where a is integer, will ret
 ? :	Conditional Expression.	If Condition is true ? then value X : otherwise value Y
 </code>
 		</operators>
-		<pre-post-incrementation>Not present</pre-post-incrementation>
+		<pre-post-incrementation>
+		
+<code>
+
+
+//pre increment operator
+
+#include &lt;stdio.h&gt;  
+ 
+int main()
+{
+    int x = 10, a;
+ 
+    a = ++x; // x will be incremented to 11 then value of x is assigned to a;
+ 
+    printf("a = %d\n", a);
+ 
+    printf("x = %d\n", x);
+    return 0;
+	
+	/*OUTPUT: 
+		a = 11
+		x = 11
+	*/
+
+/*====================================*/
+
+//post increment operator
+
+#include &lt;stdio.h&gt;  
+ 
+int main()
+{
+    int x = 10, a;
+ 
+    a = x++; // x value is assined to a, then x value gets incremented to 11;
+
+    printf("a = %d\n", a);
+ 
+    printf("x = %d\n", x);
+    return 0;
+	
+	/*OUTPUT: 
+		a = 10
+		x = 11
+	*/
+
+}
+</code>
+		</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
