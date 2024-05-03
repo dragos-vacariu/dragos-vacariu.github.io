@@ -967,11 +967,124 @@ printf("%d\n", strcmp(str1, str2));  // Returns 0 (the strings are equal)
 printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 </code>
 		</string-methods>
-		<datatype-conversions>Not present</datatype-conversions>
+		<datatype-conversions>
+		There are two types of conversion in C:<br></br>
+			Implicit Conversion (automatically)<br></br>
+			Explicit Conversion (manually)<br></br>
+			<br></br><br></br>
+			Implicit conversion is done automatically by the compiler when you assign a value 
+			of one type to another.<br></br><br></br>
+<code>
+// Automatic conversion: int to float
+float myFloat = 9;
+
+printf("%f", myFloat); // 9.000000
+
+// the compiler automatically converts the int value 9 to a float value of 9.000000.
+
+// Automatic conversion: float to int
+int myInt = 9.99;
+
+printf("%d", myInt); // 9
+
+// the compiler automatically converts the float value of 9.99 to int value 9.
+</code>
+		Explicit conversion is done manually by placing the type in parentheses () in front 
+		of the value. Also knows as typecasting. It is one of the important concepts introduced in 'C' 
+		programming.<br></br>
+<code>
+//Calculate the percentage of a user's score in relation to the maximum score in a game:
+
+// Set the maximum possible score in the game to 500
+int maxScore = 500;
+
+// The actual score of the user
+int userScore = 420;
+
+/* Calculate the percantage of the user's score in relation to the maximum available score.
+Convert userScore to float to make sure that the division is accurate */
+float percentage = (float) userScore / maxScore * 100.0;
+
+// Print the percentage
+printf("User's percentage is %.2f", percentage);
+</code>
+		</datatype-conversions>
 		<optional-parameters>C does not support optional parameters.</optional-parameters>
-		<operators>Not present</operators>
+		<operators>
+		An operator is a symbol that tells the compiler to perform specific mathematical or 
+		logical functions. By definition, an operator performs a certain operation on 
+		operands. An operator needs one or more operands for the operation to be performed.<br></br>
+		<br></br>
+		Depending on how many operands are required to perform the operation, operands are called as 
+		unary, binary or ternary operators. They need one, two or three operands respectively.<br></br>
+		<br></br>
+		Unary operators − ++ (increment), -- (decrement), ! (NOT), ~ (compliment), & (address of), * (dereference)
+		<br></br><br></br>
+		Binary operators − arithmetic, logical and relational operators except !
+		<br></br><br></br>
+		Ternary operators − The ? operator.
+		<br></br><br></br>
+		C language is rich in built-in operators and provides the following types of operators −
+		<br></br><br></br>
+		Arithmetic Operators
+<code>
++	Adds two operands.	A + B = 30
+−	Subtracts second operand from the first.	A − B = -10
+*	Multiplies both operands.	A * B = 200
+/	Divides numerator by de-numerator.	B / A = 2
+%	Modulus Operator and remainder of after an integer division.	B % A = 0
+++	Increment operator increases the integer value by one.	A++ = 11
+--	Decrement operator decreases the integer value by one.	A-- = 9
+</code>
+		Relational Operators
+<code>
+==	Checks if the values of two operands are equal or not. If yes, then the condition becomes true.	(A == B) is not true.
+!=	Checks if the values of two operands are equal or not. If the values are not equal, then the condition becomes true.	(A != B) is true.
+&gt; 	Checks if the value of left operand is greater than the value of right operand. If yes, then the condition becomes true.	(A &gt; B) is not true.
+&lt;	Checks if the value of left operand is less than the value of right operand. If yes, then the condition becomes true.	(A &lt; B) is true.
+&gt;=	Checks if the value of left operand is greater than or equal to the value of right operand. If yes, then the condition becomes true.	(A &gt;= B) is not true.
+&lt;=	Checks if the value of left operand is less than or equal to the value of right operand. If yes, then the condition becomes true.	(A &lt;= B) is true.
+</code>
+		Logical Operators
+<code>
+	
+&#38;&#38; 	Called Logical AND operator. If both the operands are non-zero, then the condition becomes true.	(A &#38;&#38; B) is false.
+||	Called Logical OR Operator. If any of the two operands is non-zero, then the condition becomes true.	(A || B) is true.
+!	Called Logical NOT Operator. It is used to reverse the logical state of its operand. If a condition is true, then Logical NOT operator will make it false.	!(A &#38;&#38; B) is true
+</code>
+		Bitwise Operators
+<code>
+&	Binary AND Operator copies a bit to the result if it exists in both operands.	(A & B) = 12, i.e., 0000 1100
+|	Binary OR Operator copies a bit if it exists in either operand.	(A | B) = 61, i.e., 0011 1101
+^	Binary XOR Operator copies the bit if it is set in one operand but not both.	(A ^ B) = 49, i.e., 0011 0001
+~	Binary One's Complement Operator is unary and has the effect of 'flipping' bits.	(~A ) = ~(60), i.e,. -0111101
+&lt;&lt;	Binary Left Shift Operator. The left operands value is moved left by the number of bits specified by the right operand.	A &lt;&lt; 2 = 240 i.e., 1111 0000
+&gt;&gt;	Binary Right Shift Operator. The left operands value is moved right by the number of bits specified by the right operand.	A &gt;&gt; 2 = 15 i.e., 0000 1111
+
+</code>
+		Assignment Operators
+<code>
+=	Simple assignment operator. Assigns values from right side operands to left side operand	C = A + B will assign the value of A + B to C
++=	Add AND assignment operator. It adds the right operand to the left operand and assign the result to the left operand.	C += A is equivalent to C = C + A
+-=	Subtract AND assignment operator. It subtracts the right operand from the left operand and assigns the result to the left operand.	C -= A is equivalent to C = C - A
+*=	Multiply AND assignment operator. It multiplies the right operand with the left operand and assigns the result to the left operand.	C *= A is equivalent to C = C * A
+/=	Divide AND assignment operator. It divides the left operand with the right operand and assigns the result to the left operand.	C /= A is equivalent to C = C / A
+%=	Modulus AND assignment operator. It takes modulus using two operands and assigns the result to the left operand.	C %= A is equivalent to C = C % A
+&lt;&lt;=	Left shift AND assignment operator.	C &lt;&lt;= 2 is same as C = C &lt;&lt; 2
+&gt;&gt;=	Right shift AND assignment operator.	C &gt;&gt;= 2 is same as C = C &gt;&gt; 2
+&=	Bitwise AND assignment operator.	C &= 2 is same as C = C & 2
+^=	Bitwise exclusive OR and assignment operator.	C ^= 2 is same as C = C ^ 2
+|=	Bitwise inclusive OR and assignment operator.	C |= 2 is same as C = C | 2
+</code>
+		Misc Operators
+<code>
+sizeof()	Returns the size of a variable.	sizeof(a), where a is integer, will return 4.
+&#38; 	Returns the address of a variable.	&#38;a; returns the actual address of the variable.
+*	Pointer to a variable.	*a;
+? :	Conditional Expression.	If Condition is true ? then value X : otherwise value Y
+</code>
+		</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
@@ -1037,7 +1150,6 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
 		<datatypes-sizing>Not present</datatypes-sizing>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
@@ -1107,7 +1219,6 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
 		<datatypes-sizing>Not present</datatypes-sizing>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
@@ -1171,8 +1282,6 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		<decorators>Not present</decorators>
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<datatypes-sizing>Not present</datatypes-sizing>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
@@ -1233,8 +1342,6 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		<decorators>Not present</decorators>
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<datatypes-sizing>Not present</datatypes-sizing>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 	<programming_language>
@@ -1292,8 +1399,6 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		<decorators>Not present</decorators>
 		<operators>Not present</operators>
 		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<datatypes-sizing>Not present</datatypes-sizing>
-		<regular-expressions>Not present</regular-expressions>
 	</programming_language>
 	
 </content>
