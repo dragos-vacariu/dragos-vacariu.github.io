@@ -1163,9 +1163,10 @@ int main()
     printf("x = %d\n", x);
     return 0;
 	
-	/*OUTPUT: 
-		a = 11
-		x = 11
+	/*
+	OUTPUT: 
+	a = 11
+	x = 11
 	*/
 
 /*====================================*/
@@ -1185,9 +1186,10 @@ int main()
     printf("x = %d\n", x);
     return 0;
 	
-	/*OUTPUT: 
-		a = 10
-		x = 11
+	/*
+	OUTPUT: 
+	a = 10
+	x = 11
 	*/
 
 }
