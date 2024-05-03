@@ -1002,7 +1002,7 @@ int maxScore = 500;
 // The actual score of the user
 int userScore = 420;
 
-/* Calculate the percantage of the user's score in relation to the maximum available score.
+/* Calculate the percentage of the user's score in relation to the maximum available score.
 Convert userScore to float to make sure that the division is accurate */
 float percentage = (float) userScore / maxScore * 100.0;
 
@@ -1136,7 +1136,15 @@ sizeof()	Returns the size of a variable.	sizeof(a), where a is integer, will ret
 </code>
 		</operators>
 		<pre-post-incrementation>
-		
+		Increment operators are used to increase the value of a variable by 1.<br></br>
+		This operator is represented by the ++ symbol. The increment operator can either
+		increase the value of the variable by 1 before assigning it to the variable or 
+		can increase the value of the variable by 1 after assigning the variable. 
+		Thus it can be classified into two types:
+		<br></br><br></br>
+
+		Pre-Increment Operator<br></br>
+		Post-Increment Operator<br></br>
 <code>
 
 
