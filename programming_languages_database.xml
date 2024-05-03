@@ -954,7 +954,7 @@ strcpy(str2, str1);
 // Print str2
 printf("%s", str2);
 
-/*	COMPARE STRINGS */
+/* COMPARE STRINGS */
 
 char str1[] = "Hello";
 char str2[] = "Hello";
