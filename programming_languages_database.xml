@@ -1018,7 +1018,7 @@ printf("User's percentage is %.2f", percentage);
 		Depending on how many operands are required to perform the operation, operands are called as 
 		unary, binary or ternary operators. They need one, two or three operands respectively.<br></br>
 		<br></br>
-		Unary operators − ++ (increment), -- (decrement), ! (NOT), ~ (compliment), & (address of), * (dereference)
+		Unary operators − ++ (increment), -- (decrement), ! (NOT), ~ (compliment), &#38; (address of), * (dereference)
 		<br></br><br></br>
 		Binary operators − arithmetic, logical and relational operators except !
 		<br></br><br></br>
