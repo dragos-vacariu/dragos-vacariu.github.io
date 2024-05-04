@@ -85,13 +85,13 @@
 			included, the three complex number types are also accessible as double complex, 
 			float complex, long double complex.<br></br><br></br>
 			<code>Arrays</code>: A collection of elements of the same data type. <br></br>
-			Array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
+			An array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
 			These entities or elements can be of int, float, char, or double data type or can be of user-defined data types too
 			like structures.<br></br><br></br>
 			<code>Pointers</code>: A variable that stores the memory address of another variable. 
 			The size of a pointer in C programming language varies depending on factors such as the operating system and CPU 
 			architecture.<br></br>
-			Typically, on a 32-bit computer system, the size of pointer is 4 bytes, <br></br>
+			Typically, on a 32-bit computer system, the size of pointer is 4 bytes,	
 			while on a 64-bit computer system, it is 8 bytes.<br></br><br></br>
 			<code>Structures</code>: A collection of variables of different data types grouped 
 			together under a single name. <br></br><br></br>
@@ -2002,7 +2002,8 @@ int main()
 		</enums>
 		<multi-threading>
 		C++ multithreading involves creating and using thread objects, seen as std::thread 
-		in code, to carry out delegated sub-tasks independently. New threads are passed a 
+		in code, to carry out delegated sub-tasks independently. <br></br>
+		New threads are passed a 
 		function to complete, and optionally some parameters for that function.
 		<br></br>
 <code>
