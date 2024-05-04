@@ -1228,7 +1228,7 @@ C &#38;= 2 is same as C = C &#38; 2
 It takes the value stored in variable C performs bitwise XOR with the value specified after the equal sign and then assigns the result of the operation back to C variable.</red>
 C ^= 2 is same as C = C ^ 2
 
-|= <red>the bitwise inclusive OR and assign operator.</red>
+|= <red>the bitwise inclusive OR and assign operator.
 It takes the value stored in variable C performs bitwise OR with the value specified after the equal sign and then assign the result of the operation back to C variable.</red>
 C |= 2 is same as C = C | 2
 
@@ -1253,7 +1253,6 @@ sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, 
 		Post-Increment Operator<br></br>
 		</blue>
 <code>
-
 
 //pre increment operator
 
@@ -1300,6 +1299,7 @@ int main()
 	*/
 
 }
+
 </code>
 		</pre-post-incrementation>
 	</programming_language>
