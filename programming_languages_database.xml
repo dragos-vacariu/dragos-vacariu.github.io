@@ -103,16 +103,19 @@
 			Typically, a certain process is done, such as getting an item of data 
 			and changing it, and then some condition is checked such as whether a 
 			counter has reached a prescribed number.<br></br><br></br>
-			<br></br><br></br>
+			<br></br>
 			For, while, do-while loops:<br></br><br></br>
 			
-			<red>While loop does not depend upon the number of iterations. In for loop the number 
+			<red>
+			While loop does not depend upon the number of iterations. In for loop the number 
 			of iterations was previously known to us but in the While loop, the execution 
 			is terminated on the basis of the test condition. If the test condition will 
 			become false then it will break from the while loop else body will be executed.<br></br><br></br>
-			<br></br><br></br></red>	
+			<br></br>
+			</red>	
 			
-			<green>In for loop, a loop variable is used to control the loop. Firstly we initialize 
+			<green>
+			In for loop, a loop variable is used to control the loop. Firstly we initialize 
 			the loop variable with some value, then check its test condition. If the 
 			statement is true then control will move to the body and the body of for 
 			loop will be executed. Steps will be repeated till the exit condition 
@@ -129,15 +132,19 @@
 			
 			Update Expression: After execution of the loop body loop variable is updated 
 			by some value it could be incremented, decremented, multiplied, or divided by 
-			any value.<br></br><br></br></green>
+			any value.<br></br><br></br>
+			</green>
 			
-			<blue><br></br><br></br>			
+			<blue>
+			<br></br>		
 			The do-while loop is similar to a while loop but the only difference 
 			lies in the do-while loop test condition which is tested at the end of 
 			the body. In the do-while loop, the loop body will execute at least once 
-			irrespective of the test condition.<br></br><br></br></blue>
+			irrespective of the test condition.<br></br>
+			</blue>
 <code>
-/*While loop syntax: */
+
+<red>/*While loop syntax: */</red>
 int counter = 0;
 while(counter &lt; 5)
 {
@@ -145,14 +152,16 @@ while(counter &lt; 5)
 	 counter++;
 }
 
-/*For loop syntax: */
-for(int counter = 0; counter &lt; 5; counter++)<br></br>
+/*---------------------------------*/
+<red>/*For loop syntax: */</red>
+for(int counter = 0; counter &lt; 5; counter++)
 {
 	/*code goes here*/
 	 counter++;
 }
 
-/*Do while loop syntax: */
+/*---------------------------------*/
+<red>/*Do while loop syntax: */</red>
 do
 {
 	/*code goes here*/
@@ -172,7 +181,7 @@ while(counter &lt; 5)
 			<br></br><br></br>
 			
 <code>
-/*Declaring arrays and initializing arrays*/
+<red>/*Declaring arrays and initializing arrays*/</red>
 
 int arr[5];
 int array_initialized[7] = [1,2,3,4,5,6,7];
@@ -180,7 +189,7 @@ float array_floats[3] = [2.0f, 3.0f, 2.11f];
 
 /*---------------------------------------------*/
 
-//Declaring and initializing a Linked List
+<red>//Declaring and initializing a Linked List</red>
 
 //Linked list definition:
 struct LinkedList{
@@ -230,7 +239,7 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		The malloc() function takes a single parameter, which is the size of the requested memory 
 		area in bytes. It returns a pointer to the allocated memory.
 		
-		C malloc() method<br></br><br></br>
+		C malloc() method:<br></br><br></br>
 		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
 		large block of memory with the specified size. It returns a pointer of type void which 
 		can be cast into a pointer of any form. It doesn’t Initialize memory at execution time 
