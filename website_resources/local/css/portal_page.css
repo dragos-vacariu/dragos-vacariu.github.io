@@ -29,9 +29,32 @@
 	text-shadow: 1px 1px white;
 }
 
+#page_block h4 info{
+	font-family:Tahoma;
+	font-size:14px;
+	color: #221100;
+	border-style: none;
+	margin: 0%;
+	margin-bottom: 1%;
+	padding: 10px;
+	text-shadow: 1px 1px white;
+	text-decoration: none;
+}
+
+#page_block h4 info a{
+	font-family:Tahoma;
+	color: darkgreen;
+	border-style: none;
+	text-decoration: none;
+}
+
+#page_block h4 info a:hover{
+	color: darkblue;
+}
+
 #page_block h4 q{
 	font-family:Calibri;
-	font-size:12px;
+	font-size:15px;
 	color: #221100;
 	border-style: none;
 	margin: 0%;
