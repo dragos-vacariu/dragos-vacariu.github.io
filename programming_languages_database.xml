@@ -240,15 +240,18 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		<collection-methods>There are no built in functions for working with collections.</collection-methods>
 		<dynamic-memory-allocation>
 		Dynamic memory is allocated from the heap using some standard library functions. 
-		The two dynamic memory key functions are malloc() and free(). <br></br>
+		The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. <br></br>
 		The malloc() function takes a single parameter, which is the size of the requested memory 
 		area in bytes. It returns a pointer to the allocated memory.
-		
-		C malloc() method:<br></br><br></br>
+		<br></br><br></br>
+		<red>C malloc() method:</red>
+		<br></br><br></br>
 		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
 		large block of memory with the specified size. <br></br>
 		It returns a pointer of type void which 
-		can be cast into a pointer of any form. It doesn’t Initialize memory at execution time 
+		can be cast into a pointer of any form. 
+		<br></br>
+		It doesn’t Initialize memory at execution time 
 		so that it has initialized each block with the default garbage value initially. <br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;
@@ -276,9 +279,9 @@ int main()
 </code>
 			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
 			<br></br><br></br>
-			The Malloc () and calloc() functions differ in how the functions are used when allocating 
+			The <code>malloc()</code> and <code>calloc()</code> do differentiate in how the functions are used when allocating 
 			memory at runtime. <br></br>
-			The Malloc () function only returns the starting address, it doesn't zero it.
+			The malloc () function only returns the starting address, <red>it doesn't zero it.</red>
 			<br></br>			
 			On the other hand, the calloc() function returns the starting address, zeroing it.
 <code>
@@ -296,7 +299,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		
 		</dynamic-memory-allocation>
 		<read-from-file>
-		C programming language supports four pre-defined functions to read contents from a file, defined in stdio.h header file:
+		C programming language supports four pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
 		<br></br><br></br>
 		<blue>fgetc()</blue>– This function is used to read a single character from the file.<br></br>
 		<blue>fgets()</blue>– This function is used to read strings from files.<br></br>
