@@ -304,7 +304,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		<blue>fread()</blue>– This function is used to read the block of raw bytes from files. This is used 
 		to read binary files.
 		<br></br><br></br>
-		To open a file use: fopen(filename, mode);
+		To open a file use: <code>fopen(filename, mode)</code>;
 		<br></br><br></br>
 		Where:<br></br><br></br>
 		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
@@ -316,7 +316,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 	
 <code>
 
-/*Read file char by char*/
+<red>/*Read file char by char*/</red>
 
 FILE* ptr; FILE is basically a data type, and we need to create a pointer variable to work with it 
 char ch;
@@ -345,7 +345,7 @@ do {
 
 /*
 
-Alternatively feof function can be used
+<red>Alternatively feof function can be used:</red>
 feof() function takes file pointer as argument and returns true if pointer reaches the end of the file. 
 
 while (!feof(ptr)) {
@@ -356,7 +356,7 @@ while (!feof(ptr)) {
 */
 //---------------------------------
 
-//Reading whole content of the file as string
+<red>//Reading whole content of the file as string:</red>
 
 //fgets() reads one string at a time from the file. fgets() returns a string if it is
 //successfully read by function or returns NULL if can not read. 
@@ -425,10 +425,11 @@ fclose(fptr); // this will close the file when we are done with it.
 		<br></br><br></br>
 		It is considered as good practice, because it makes sure that:
 		<br></br><br></br>
+		<blue>
 		Changes are saved properly. <br></br>
 		Other programs can use the file (if you want). <br></br>
 		Clean up unnecessary memory space. <br></br><br></br>
-		
+		</blue>
 		If you want to add content to a file without deleting the old content, 
 		you can use the a mode. <br></br>
 		The a mode appends content at the end of the file:<br></br>
@@ -464,7 +465,8 @@ fclose(fptr);
 		series of bytes for storage or transmission across devices.<br></br><br></br>
 		</deserialization>
 		<enums>
-		Enumeration (or enum) is a user defined data type in C. It is mainly used to 
+		Enumeration (or enum) is a user defined data type in C. <br></br>
+		It is mainly used to 
 		assign names to integral constants, the names make a program easy to read and maintain.
 		<br></br><br></br>
 		
@@ -494,18 +496,23 @@ int main()
 		<br></br><br></br>
 		Threads are not independent from each other unlike processes. As a result, 
 		threads shares with other threads their code section, data section and OS resources 
-		like open files and signals. But, like processes, a thread has its own program 
+		like open files and signals. 
+		<br></br>
+		But, like processes, a thread has its own program 
 		counter (PC), a register set, and a stack space. 
 		<br></br><br></br>
 		Why Multithreading? Threads are popular way to improve application through parallelism. 
+		<br></br>
 		For example, in a browser, multiple tabs can be different threads. MS word uses 
 		multiple threads, one thread to format the text, other thread to process inputs, etc. 
 		<br></br><br></br>
 		Threads operate faster than processes due to following reasons: <br></br>
+		<blue>
 		1) Thread creation is much faster. <br></br>
 		2) Context switching between threads is much faster. <br></br>
 		3) Threads can be terminated easily <br></br>
 		4) Communication between threads is faster.<br></br>
+		</blue>
 <code>
 
 #include &lt;stdio.h&gt;
