@@ -12,6 +12,21 @@
 	background-image: linear-gradient(to right, #aa7700, #995500);
 }
 
+#page_block h4{
+	padding:1%;
+	border-style:solid;
+	border-width: 1px;
+	border-color: black;
+	width:92%;
+	margin-left:2%;
+	font-family: Verdana;
+	font-size:16px;
+	margin-bottom: 2%;
+	color: black;
+	text-shadow: 1px 1px 1px white;
+	background-color: rgba(153,85,00, 0.1);
+}
+
 #page_block p{
 	padding:1%;
 	border-style:solid;
