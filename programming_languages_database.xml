@@ -616,15 +616,17 @@ int main()
 		The bitwise OR of two numbers is just the sum of those two numbers if there is no carry 
 		involved, otherwise, you just add their bitwise AND.
 		<br></br><br></br>
-		Let’s say, we have a=5(101) and b=2(010), since there is no carry involved, 
-		their sum is just a|b. <br></br>
+		Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
+		their sum is just <code>a|b</code>. <br></br>
 		Now, if we change ‘a’ to 6 which is 110 in binary, their sum would change 
-		to a|b + a&#38;b since there is a carry involved. 
+		to <code>a|b + a&#38;b</code> since there is a carry involved. 
 		<br></br><br></br>
 		The bitwise XOR operator is the most useful operator from a technical interview perspective.
 		<br></br><br></br>
-		It is used in many problems. A simple example could be “Given a set of numbers where all 
-		elements occur an even number of times except one number, find the odd occurring number” 
+		It is used in many problems. <br></br>
+		A simple example could be: “Given a set of numbers where all 
+		elements occur an even number of times except one number, find the odd occurring number.”
+		<br></br>
 		This problem can be efficiently solved by doing XOR to all numbers. 
 		<br></br><br></br>
 		
