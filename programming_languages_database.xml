@@ -1764,6 +1764,7 @@ for (int i : myNumbers) {
 		<br></br><br></br>
 		<green>
 		Vector: The C++ Standard Library vector class is a class template for sequence containers.<br></br>
+		<br></br>
 		Vector is a type of dynamic array which has the ability to resize 
 		automatically after insertion or deletion of elements. The elements in vector 
 		are placed in contiguous storage so that they can be accessed and traversed using 
@@ -2021,7 +2022,8 @@ int main()
 </code>
 		</exception-handling>
 		<bitwise-operators>
-		Same as presented in C Language. <br></br>
+		Same as presented in C Language.
+		<br></br><br></br>
 		Bitwise operators in C/C++ are 
 		tools for working with individual bits in data. They might not be as famous as other 
 		operators, but they’re essential for tasks like making code more efficient or 
@@ -2065,57 +2067,44 @@ int main()
 		</default-parameters>
 		<interfaces>Not present</interfaces>
 		<macros>
-		Similar to C Language: A C++ macro is defined as a section of code that that particular macro value can 
-		replace. We can define the macro by using a #define directive. When the compiler 
-		goes to the macros while program compilation, the macro's name is replaced by 
-		the definition of the macro. The termination of the C++ Macros does not need a 
+		Similar to C Language: 
+		<br></br><br></br>
+		A C++ macro is defined as a section of code that that particular macro value can 
+		replace. <br></br>
+		We can define the macro by using a #define directive. 
+		When the compiler goes to the macros while program compilation, 
+		the macro's name is replaced by the definition of the macro. 
+		<br></br>
+		The termination of the C++ Macros does not need a 
 		semi-colon (;).
 		<br></br><br></br>
-		Aditionally: the header file: &lt;limits.h&gt; is defined to find the 
-		range of fundamental data-types. Unsigned modifiers have minimum value is zero. 
-		So, no macro constants are defined for the unsigned minimum value.
+		Aditionally to the C Language: the header file: &lt;limits.h&gt; is defined to help finding 
+		the range of fundamental data-types. <br></br>
+		Unsigned modifiers have minimum value is zero. So, no macro constants are defined for the unsigned minimum value.
 		<br></br><br></br>
 		<red>
 		Macro Constants<br></br><br></br>
 		</red>
 		<green>
-		CHAR_MIN - The minimum value for an object of type char
-		<br></br><br></br>		
-		CHAR_MAX - Maximum value for an object of type char
-		<br></br><br></br>		
-		SCHAR_MIN - The minimum value for an object of type Signed char
-		<br></br><br></br>		
-		SCHAR_MAX - Maximum value for an object of type Signed char
-		<br></br><br></br>		
-		UCHAR_MAX - Maximum value for an object of type Unsigned char
-		<br></br><br></br>		
-		CHAR_BIT - Number of bits in a char object
-		<br></br><br></br>		
-		MB_LEN_MAX - Maximum number of bytes in a multi-byte character
-		<br></br><br></br>		
-		SHRT_MIN - The minimum value for an object of type short int
-		<br></br><br></br>		
-		SHRT_MAX - Maximum value for an object of type short int
-		<br></br><br></br>		
-		USHRT_MAX - Maximum value for an object of type Unsigned short int
-		<br></br><br></br>		
-		INT_MIN - The minimum value for an object of type int
-		<br></br><br></br>		
-		INT_MAX - Maximum value for an object of type int
-		<br></br><br></br>		
-		UINT_MAX - Maximum value for an object of type Unsigned int
-		<br></br><br></br>		
-		LONG_MIN - The minimum value for an object of type long int
-		<br></br><br></br>		
-		LONG_MAX - Maximum value for an object of type long int
-		<br></br><br></br>		
-		ULONG_MAX - Maximum value for an object of type Unsigned long int
-		<br></br><br></br>		
-		LLONG_MIN - The minimum value for an object of type long long int
-		<br></br><br></br>		
-		LLONG_MAX - Maximum value for an object of type long long int
-		<br></br><br></br>		
-		ULLONG_MAX - Maximum value for an object of type Unsigned long long int		
+		<blue>CHAR_MIN</blue>  - The minimum value for an object of type char <br></br><br></br>	
+		<blue>CHAR_MAX</blue>  - Maximum value for an object of type char <br></br><br></br>		
+		<blue>SCHAR_MIN</blue>  - The minimum value for an object of type Signed char <br></br><br></br>	
+		<blue>SCHAR_MAX</blue>  - Maximum value for an object of type Signed char <br></br><br></br>		
+		<blue>UCHAR_MAX</blue>  - Maximum value for an object of type Unsigned char <br></br><br></br>		
+		<blue>CHAR_BIT</blue>  - Number of bits in a char object <br></br><br></br>		
+		<blue>MB_LEN_MAX</blue>  - Maximum number of bytes in a multi-byte character <br></br><br></br>		
+		<blue>SHRT_MIN</blue>  - The minimum value for an object of type short int <br></br><br></br>		
+		<blue>SHRT_MAX</blue>  - Maximum value for an object of type short int <br></br><br></br>		
+		<blue>USHRT_MAX</blue>  - Maximum value for an object of type Unsigned short int <br></br><br></br>		
+		<blue>INT_MIN</blue>  - The minimum value for an object of type int <br></br><br></br>		
+		<blue>INT_MAX</blue>  - Maximum value for an object of type int <br></br><br></br>		
+		<blue>UINT_MAX</blue>  - Maximum value for an object of type Unsigned int <br></br><br></br>	
+		<blue>LONG_MIN</blue>  - The minimum value for an object of type long int <br></br><br></br>		
+		<blue>LONG_MAX</blue>  - Maximum value for an object of type long int <br></br><br></br>		
+		<blue>ULONG_MAX</blue>  - Maximum value for an object of type Unsigned long int <br></br><br></br>		
+		<blue>LLONG_MIN</blue>  - The minimum value for an object of type long long int <br></br><br></br>		
+		<blue>LLONG_MAX</blue>  - Maximum value for an object of type long long int <br></br><br></br>	
+		<blue>ULLONG_MAX</blue> - Maximum value for an object of type Unsigned long long int		
 		</green>
 <code>
 
