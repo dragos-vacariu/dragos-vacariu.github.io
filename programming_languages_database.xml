@@ -1100,25 +1100,25 @@ printf("User's percentage is %.2f", percentage);
 		Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
 		Arithmetic Operators: <br></br>
 <code>
-<red>+	Adds two operands.</red>
++	<red>Adds two operands.</red>
 A + B = 30
 
-<red>−	Subtracts second operand from the first.</red>
+−	<red>Subtracts second operand from the first.</red>
 A − B = -10
 
-<red>*	Multiplies both operands.</red>
+*	<red>Multiplies both operands.</red>
 A * B = 200
 
-<red>/	Divides numerator by de-numerator.</red>
+/	<red>Divides numerator by de-numerator.</red>
 B / A = 2
 
-<red>%	Modulus Operator and remainder of after an integer division.</red>
+%	<red>Modulus Operator and remainder of after an integer division.</red>
 B % A = 0
 
-<red>++	Increment operator increases the integer value by one.</red>
+++	<red>Increment operator increases the integer value by one.</red>
 A++ = 11
 
-<red>--	Decrement operator decreases the integer value by one.</red>
+--	<red>Decrement operator decreases the integer value by one.</red>
 A-- = 9
 
 </code>
@@ -1178,7 +1178,7 @@ If a condition is true, then Logical NOT operator will make it false.</red>
 (~A ) = ~(60), i.e,. -0111101
 
 &lt;&lt;	<red>Binary Left Shift Operator. 
-The left operands value is moved left by the number of bits specified by the right operand.	</red>
+The left operands value is moved left by the number of bits specified by the right operand.</red>
 A &lt;&lt; 2 = 240 i.e., 1111 0000
 
 &gt;&gt;	<red>Binary Right Shift Operator. 
@@ -1189,7 +1189,7 @@ A &gt;&gt; 2 = 15 i.e., 0000 1111
 		<br></br>Assignment Operators<br></br>
 <code>
 =	<red>Simple assignment operator. 
-Assigns values from right side operands to left side operand	</red>
+Assigns values from right side operands to left side operand.</red>
 C = A + B will assign the value of A + B to C
 
 +=	<red>Add AND assignment operator. 
@@ -1205,14 +1205,14 @@ It multiplies the right operand with the left operand and assigns the result to 
 C *= A is equivalent to C = C * A
 
 /=	<red>Divide AND assignment operator. 
-It divides the left operand with the right operand and assigns the result to the left operand.	</red>
+It divides the left operand with the right operand and assigns the result to the left operand.</red>
 C /= A is equivalent to C = C / A
 
 %=	<red>Modulus AND assignment operator. 
 It takes modulus using two operands and assigns the result to the left operand.</red>
 C %= A is equivalent to C = C % A
 
-&lt;&lt;=	<red>Left shift AND assignment operator.	</red>
+&lt;&lt;=	<red>Left shift AND assignment operator.</red>
 C &lt;&lt;= 2 is same as C = C &lt;&lt; 2
 
 &gt;&gt;=	<red>Right shift AND assignment operator.</red>
