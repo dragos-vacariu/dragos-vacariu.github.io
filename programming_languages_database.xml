@@ -1243,16 +1243,477 @@ int main()
 			and many vendors provide C++ compilers, including the Free Software Foundation, 
 			LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
 		</description>
-		<oop>C++ OOP</oop>
-		<encapsulation>Not present</encapsulation>
-		<polymorphism>Not present</polymorphism>
-		<inheritance>Not present</inheritance>
-		<abstraction>Not present</abstraction>
-		<generic-programming>Not present</generic-programming>
-		<variable-arguments-lists>Not present</variable-arguments-lists>
-		<simple-data-types>Not present</simple-data-types>
-		<complex-data-types>Not present</complex-data-types>
-		<loops>Not present</loops>
+		<oop>
+		OOP stands for Object-Oriented Programming.
+		<br></br><br></br>
+		Procedural programming is about writing procedures or functions that perform operations on the data, while object-oriented programming is about creating objects that contain both data and functions.
+		<br></br><br></br>
+		Object-oriented programming has several advantages over procedural programming:
+		<br></br><br></br>
+		OOP is faster and easier to execute<br></br>
+		OOP provides a clear structure for the programs<br></br>
+		OOP helps to keep the C++ code DRY "Don't Repeat Yourself", and makes the code 
+		easier to maintain, modify and debug<br></br>
+		OOP makes it possible to create full reusable applications with less code and 
+		shorter development time<br></br>
+		Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
+		of code. You should extract out the codes that are common for the application, 
+		and place them at a single place and reuse them instead of repeating it.<br></br>
+		</oop>
+		<encapsulation>
+		The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from 
+		users. To achieve this, you must declare class variables/attributes as private 
+		(cannot be accessed from outside the class). If you want others to read or modify 
+		the value of a private member, you can provide public get and set methods.<br></br>
+<code>
+
+#include &lt;iostream&gt;  
+using namespace std;
+
+class Employee {
+  private:
+    // Private attribute
+    int salary;
+
+  public:
+    // Setter
+    void setSalary(int s) {
+      salary = s;
+    }
+    // Getter
+    int getSalary() {
+      return salary;
+    }
+};
+
+int main() {
+  Employee myObj;
+  myObj.setSalary(50000);
+  cout &lt;&lt; myObj.getSalary();
+  return 0;
+}
+
+</code>
+		</encapsulation>
+		<polymorphism>
+		Polymorphism means "many forms", and it occurs when we have many 
+		classes that are related to each other by inheritance<br></br><br></br>
+<code>
+
+#include &lt;iostream&gt;  
+/*
+The word polymorphism means having many forms. Typically, polymorphism occurs when there is a hierarchy of classes
+and they are related by inheritance.
+
+C++ polymorphism means that a call to a member function will cause a different function to be executed depending on
+the type of object that invokes the function. Example if a parent class function is set to be override-able, then a
+parent class pointer can have functionality of the a child class object.
+
+A pure virtual function is a function that is declared in the parent class and it really needs to be defined in
+each one of the child classes.
+Syntax: virtual void DisplayFunction () = 0;
+*/
+using namespace std;
+
+class Shape{
+    //By default a member without access-specifier is set to private.
+protected:
+    int length;
+    int height;
+public:
+    virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
+    {
+        cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
+    }
+};
+class Square: public Shape{
+private:
+    int area;
+    void CalcArea()
+    {
+        area=length*height;
+    }
+
+public:
+    Square (int len, int hg)
+    {
+        length=len;
+        height=hg;
+        CalcArea();
+    };
+    void DisplayArea()
+    {
+        cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
+    }
+    //This function overrides the parent class function
+    void DisplayInfo()
+    {
+        cout &lt;&lt; "This is the child class." &lt;&lt; endl;
+    }
+};
+class Circle: public Shape
+{
+private:
+    int radius;
+public:
+    Circle(int len)
+    {
+        radius=len/2;
+    }
+    void DisplayRadius()
+    {
+        cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
+    }
+};
+
+int main()
+{
+    Shape *p;
+    Circle circle_object(22);
+    Square square_object(4,3);
+    /*
+    The pointer of type Shape can reference any of the Shape class children, but having only the functionality of Shape
+    Class.
+    */
+    p=&#38;circle_object;
+    p-&gt;DisplayInfo();
+    p=&#38;square_object;
+    p-&gt;DisplayInfo();
+    int a;
+    cin &gt;&gt; a;
+    return 0;
+	
+	/*
+	Using same variable we accessed different behaviour for each child class.
+	*/
+}
+</code>	
+		.</polymorphism>
+		<inheritance>
+		In C++, it is possible to inherit attributes and methods from one class to another. 
+		We group the "inheritance concept" into two categories:
+		<br></br><br></br>
+		- derived class (child) - the class that inherits from another class
+		- base class (parent) - the class being inherited from
+		To inherit from a class, use the : symbol.<br></br><br></br>
+<code>
+
+#include &lt;iostream&gt;  
+#include &lt;conio.h&gt;  
+
+using namespace std;
+
+//BASE CLASS
+class Shape{
+
+    protected: //these variables are visible into this class and the other classes that are inherited to this.
+        string name;
+    public:
+        Shape(string newname)
+        {
+            name=newname;
+        }
+        string getName() const
+        {
+            return name;
+        }
+};
+//CHILD CLASS ONE
+class Circle : public Shape //making Circle class derive from the Shape class (setting the inheritance).
+{
+    //inheritance is a way to make 2 classes share the same variables between each other
+
+    double radius; //this variable can be private, or protected or public (anything).
+
+    public:
+        Circle(string inheritedName, double newradius) : Shape (inheritedName)//this will call the Shape constructor
+        //which will set a value into it's string variable called 'name', in this way, a variable will be used in 2 classes.
+        {
+            radius=newradius;
+        }
+        double getCircleRadius() const
+        {
+            return radius;
+        }
+
+};
+//CHILD CLASS TWO
+class Rectangle : public Shape // making the Rectangle class derive from Shape Class, let the Rectangle Class, use the
+//protected variables of the Shape Class.
+{
+    double length, width;
+
+    public:
+        Rectangle (string inheritedName2, double newlength, double newwidth): Shape (inheritedName2)
+        {
+            length=newlength;
+            width=newwidth;
+        }
+        double getRectangleLength() const
+        {
+            return length;
+        }
+        double getRectangleWidth () const
+        {
+            return width;
+        }
+};
+
+int main()
+{
+    Shape object("Shape Class String"); //create object
+    cout &lt;&lt; object.getName() &lt;&lt; endl; //calling a function from the class
+
+    cout &lt;&lt; endl &lt;&lt; "CHILD ONE CLASS: " &lt;&lt; endl;
+    Circle objectchild ("Circle (stored in Shape Class String)", 3.0); //create object
+    cout &lt;&lt; objectchild.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Circle Class.
+    cout &lt;&lt; objectchild.getCircleRadius() &lt;&lt; endl;
+
+    cout &lt;&lt; endl &lt;&lt; "CHILD TWO CLASS: " &lt;&lt; endl;
+    Rectangle objectchild2("Rectangle (stored in Shape Class String)", 20.0, 65.0); //create object
+    cout &lt;&lt; objectchild2.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Rectangle Class.
+    cout &lt;&lt; objectchild2.getRectangleLength() &lt;&lt; endl;
+    cout &lt;&lt; objectchild2.getRectangleWidth() &lt;&lt; endl;
+
+    getch();
+    return 0;
+}
+
+</code>
+		</inheritance>
+		<abstraction>
+		Data abstraction is one of the most essential and important features of object-oriented 
+		programming in C++. Abstraction means displaying only essential information and hiding the 
+		details. Data abstraction refers to providing only essential information about the 
+		data to the outside world, hiding the background details or implementation. 
+		<br></br><br></br>
+
+<code>
+
+#include &lt;iostream&gt;  
+using namespace std;
+ 
+class implementAbstraction {
+private:
+    int a, b;
+ 
+public:
+    // method to set values of
+    // private members
+    void set(int x, int y)
+    {
+        a = x;
+        b = y;
+    }
+ 
+    void display()
+    {
+        cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+        cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
+    }
+};
+ 
+int main()
+{
+    implementAbstraction obj;
+    obj.set(10, 20);
+    obj.display();
+    return 0;
+	
+	/*
+	OUTPUT:
+	a = 10
+	b = 20
+	*/
+}
+
+</code>
+		We are not allowed to access the variables a and b directly, however, one can call 
+		the function set() to set the values in a and b and the function display() to 
+		display the values of a and b. <br></br><br></br>
+		Advantages of Data Abstraction<br></br>
+		Helps the user to avoid writing the low-level code<br></br>
+		Avoids code duplication and increases reusability.<br></br>
+		Can change the internal implementation of the class independently without 
+		affecting the user.<br></br>
+		Helps to increase the security of an application or program as only important 
+		details are provided to the user.<br></br>
+		It reduces the complexity as well as the redundancy of the code, therefore 
+		increasing the readability.<br></br>
+		</abstraction>
+		<generic-programming>
+		In C++ the templates generalize the algorithm to make it data type-independent. 
+		The functions and classes which are data type independent are called generics, 
+		and this concept is called generic programming. Generic Programming reduces code 
+		repetition and in-demand compilation; hence efficient.<br></br><br></br>
+
+<code>
+
+#include &lt;iostream&gt;  
+
+// Template Function with a Type T
+// During instantiation, this T will be replaced by the data type of argument.
+template &lt;class T&gt;  
+T maxNum (T a, T b) {
+ return (a &gt;   b ? a : b); //ternary operator
+}
+
+int main()
+{
+    int x = 5, y = 2;
+    float a = 4.5, b = 1.3;
+    
+    std::cout &lt;&lt; maxNum&lt;int&gt;(x, y) &lt;&lt; "\n";
+    std::cout &lt;&lt; maxNum&lt;float&gt;(a, b);
+    return 0;
+}
+
+</code>
+		</generic-programming>
+		<variable-arguments-lists>
+		The variable number of arguments in C++ is a feature that permits a function to 
+		accept any number of arguments. This type of function is called variadic functions.
+		<br></br><br></br>
+		Functions with a variable number of arguments in C++ can be easily implemented using 
+		a vector or an array if all the arguments are the same type.
+		<br></br><br></br>
+		If all arguments are of different types, then we need to use the cstdarg header file 
+		to implement variadic functions.
+		<br></br><br></br>
+		Variadic functions do not put restrictions on the types of arguments. They also do not perform 
+		integer and floating-point enhancements.
+		<br></br>
+<code>
+
+// Implementation of variable arguments using vector.
+#include &lt;iostream&gt; 
+#include &lt;vector&gt; 
+using namespace std;
+
+// Using vector of string as a parameter to store a variable number of strings.
+void printNames(vector&lt;string&gt;  nameVector) {
+    for (string &#38;name : nameVector) {
+        cout &lt;&lt; name &lt;&lt; " ";
+    }
+    cout &lt;&lt; '\n';
+}
+
+int main() {
+    printNames({"Scaler", "Topics"});
+    printNames({"Technopedia", "for", "your", "mastermind!"});
+    return 0;
+}
+
+
+/*-------------------------------------------------------*/
+
+// Implementation of variable arguments using cstdarg variadic functons.
+#include &lt;iostream&gt; 
+#include &lt;cstdarg&gt; 
+
+using namespace std;
+
+void printDeveloperData(const char* fmt...) {
+    va_list args;
+    va_start(args, fmt);
+ 
+    while (*fmt != '\0') {
+        if (*fmt == 'd') {
+            int version = va_arg(args, int);
+            std::cout &lt;&lt; "C++ Version: " &lt;&lt; version;
+        } else if (*fmt == 'c') {
+            int name = va_arg(args, int);
+            std::cout &lt;&lt; "Name: " &lt;&lt; static_cast&lt;char&gt; (name);
+        } else if (*fmt == 'f') {
+            double stability_percentage = va_arg(args, double);
+            std::cout &lt;&lt; "Stability Percentage: " &lt;&lt; stability_percentage &lt;&lt; "%";
+        }
+        ++fmt;
+        cout &lt;&lt; '\n';
+    }
+ 
+    va_end(args);
+}
+ 
+int main() {
+    printDeveloperData("cdf", 'B', 20, 94.7);
+    
+    return 0;
+
+}
+
+/*-------------------------------------------------*/
+
+// Implementation of variable arguments using variadic templates.
+#include &lt;iostream&gt; 
+using namespace std;
+
+template &lt;typename T&gt; 
+void printDeveloperData(T t) {
+    cout &lt;&lt; t &lt;&lt; '\n' ;
+}
+
+template&lt;typename T, typename... Args&gt; 
+void printDeveloperData(T t, Args... args) {
+    cout &lt;&lt; t &lt;&lt; '\n';
+    printDeveloperData(args...) ;
+}
+
+int main() {
+    printDeveloperData("Bjarne", 20, 94.7);
+}
+
+</code>
+		</variable-arguments-lists>
+		<simple-data-types>
+		All variables use data type during declaration to restrict the type of data to 
+		be stored. Therefore, we can say that data types are used to tell the variables 
+		the type of data they can store. Whenever a variable is defined in C++, 
+		the compiler allocates some memory for that variable based on the data type 
+		with which it is declared. Every data type requires a different amount of memory.
+		<br></br><br></br>
+		The datatypes presented on C Language are still available in C++: <br></br><br></br>
+		<br></br><br></br>
+		Primitive Datatypes: <br></br>
+		Integer<br></br>
+		Character<br></br>
+		Boolean<br></br>
+		Floating Point<br></br>
+		Double Floating Point<br></br>
+		Valueless or Void<br></br>
+		Wide Character<br></br>
+		<br></br>
+		</simple-data-types>
+		<complex-data-types>
+		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
+		<br></br><br></br>
+		Derived Datatypes: <br></br>
+		Function<br></br>
+		Array<br></br>
+		Pointer<br></br>
+		Reference<br></br>
+		<br></br>
+		User-defined Datatypes:<br></br>
+		Class<br></br>
+		Structure<br></br>
+		Union<br></br>
+		Enumeration<br></br>
+		Typedef defined Datatype<br></br>		
+		</complex-data-types>
+		<loops>
+		Additional to the loops presented in C language, there is also a "for-each loop" 
+		(introduced in C++ version 11 (2011), which is used exclusively to loop through 
+		elements in an array (or other data sets):
+<code>
+
+/*Example of foreach loop in C++*/
+
+int myNumbers[5] = {10, 20, 30, 40, 50};
+for (int i : myNumbers) {
+  cout << i << "\n";
+}
+</code>
+		</loops>
 		<collections>Not present</collections>
 		<collection-methods>Not present</collection-methods>
 		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
@@ -1277,7 +1738,78 @@ int main()
 		<bitwise-operators>Not present</bitwise-operators>
 		<default-parameters>Not present</default-parameters>
 		<interfaces>Not present</interfaces>
-		<macros>Not present</macros>
+		<macros>
+		Similar to C Language: A C++ macro is defined as a section of code that that particular macro value can 
+		replace. We can define the macro by using a #define directive. When the compiler 
+		goes to the macros while program compilation, the macro's name is replaced by 
+		the definition of the macro. The termination of the C++ Macros does not need a 
+		semi-colon (;).<br></br><br></br>
+		
+		Aditionally: the header file: &lt;limits.h&gt; is defined to find the 
+		range of fundamental data-types. Unsigned modifiers have minimum value is zero. 
+		So, no macro constants are defined for the unsigned minimum value.
+		<br></br><br></br>
+		Macro Constants<br></br><br></br>
+
+		CHAR_MIN - The minimum value for an object of type char
+		<br></br><br></br>		
+		CHAR_MAX - Maximum value for an object of type char
+		<br></br><br></br>		
+		SCHAR_MIN - The minimum value for an object of type Signed char
+		<br></br><br></br>		
+		SCHAR_MAX - Maximum value for an object of type Signed char
+		<br></br><br></br>		
+		UCHAR_MAX - Maximum value for an object of type Unsigned char
+		<br></br><br></br>		
+		CHAR_BIT - Number of bits in a char object
+		<br></br><br></br>		
+		MB_LEN_MAX - Maximum number of bytes in a multi-byte character
+		<br></br><br></br>		
+		SHRT_MIN - The minimum value for an object of type short int
+		<br></br><br></br>		
+		SHRT_MAX - Maximum value for an object of type short int
+		<br></br><br></br>		
+		USHRT_MAX - Maximum value for an object of type Unsigned short int
+		<br></br><br></br>		
+		INT_MIN - The minimum value for an object of type int
+		<br></br><br></br>		
+		INT_MAX - Maximum value for an object of type int
+		<br></br><br></br>		
+		UINT_MAX - Maximum value for an object of type Unsigned int
+		<br></br><br></br>		
+		LONG_MIN - The minimum value for an object of type long int
+		<br></br><br></br>		
+		LONG_MAX - Maximum value for an object of type long int
+		<br></br><br></br>		
+		ULONG_MAX - Maximum value for an object of type Unsigned long int
+		<br></br><br></br>		
+		LLONG_MIN - The minimum value for an object of type long long int
+		<br></br><br></br>		
+		LLONG_MAX - Maximum value for an object of type long long int
+		<br></br><br></br>		
+		ULLONG_MAX - Maximum value for an object of type Unsigned long long int		
+		
+<code>
+
+/*An example of defining a C++ macro:*/
+
+using namespace std;
+ 
+// Here is the definition of macro.
+#define AREA(l, b) (l * b)
+
+int main() {
+    // The given lengths are l1 and l2.
+    int l1 = 20, l2 = 2, area;
+ 
+    // Here, finding the area using macro.
+    area = AREA(l1, l2);
+ 
+    return 0;
+}
+
+</code>
+		</macros>
 		<defines>Not present</defines>
 		<random-generators>Not present</random-generators>
 		<command-line-arguments>Not present</command-line-arguments>
