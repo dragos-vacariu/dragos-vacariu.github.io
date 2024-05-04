@@ -1486,14 +1486,16 @@ int main()
     cout &lt;&lt; object.getName() &lt;&lt; endl; //calling a function from the class
 
     cout &lt;&lt; endl &lt;&lt; "CHILD ONE CLASS: " &lt;&lt; endl;
+	
     Circle objectchild ("Circle (stored in Shape Class String)", 3.0); //create object
     cout &lt;&lt; objectchild.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Circle Class.
     cout &lt;&lt; objectchild.getCircleRadius() &lt;&lt; endl;
 
     cout &lt;&lt; endl &lt;&lt; "CHILD TWO CLASS: " &lt;&lt; endl;
+	
     Rectangle objectchild2("Rectangle (stored in Shape Class String)", 20.0, 65.0); //create object
     cout &lt;&lt; objectchild2.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Rectangle Class.
-    cout &lt;&lt; objectchild2.getRectangleLength() &lt;&lt; endl;
+	cout &lt;&lt; objectchild2.getRectangleLength() &lt;&lt; endl;
     cout &lt;&lt; objectchild2.getRectangleWidth() &lt;&lt; endl;
 
     getch();
@@ -1554,6 +1556,7 @@ int main()
 		display the values of a and b. <br></br><br></br>
 		
 		Advantages of Data Abstraction<br></br>
+		<green>
 		Helps the user to avoid writing the low-level code<br></br>
 		Avoids code duplication and increases reusability.<br></br>
 		Can change the internal implementation of the class independently without 
@@ -1561,7 +1564,7 @@ int main()
 		Helps to increase the security of an application or program as only important 
 		details are provided to the user.<br></br>
 		It reduces the complexity as well as the redundancy of the code, therefore 
-		increasing the readability.<br></br>
+		increasing the readability.<br></br></green>
 		</abstraction>
 		<generic-programming>
 		In C++ the templates generalize the algorithm to make it data type-independent. 
@@ -1697,6 +1700,7 @@ int main() {
 		The datatypes presented on C Language are still available in C++:
 		<br></br><br></br>
 		<red>Primitive Datatypes:</red><br></br>
+		<blue>
 		Integer<br></br>
 		Character<br></br>
 		Boolean<br></br>
@@ -1704,23 +1708,28 @@ int main() {
 		Double Floating Point<br></br>
 		Valueless or Void<br></br>
 		Wide Character<br></br>
+		</blue>
 		<br></br>
 		</simple-data-types>
 		<complex-data-types>
 		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
 		<br></br><br></br>
 		<red>Derived Datatypes:</red><br></br>
+		<blue>
 		Function<br></br>
 		Array<br></br>
 		Pointer<br></br>
 		Reference<br></br>
+		</blue>
 		<br></br>
 		<red>User-defined Datatypes:</red><br></br>
+		<blue>
 		Class<br></br>
 		Structure<br></br>
 		Union<br></br>
 		Enumeration<br></br>
-		Typedef defined Datatype<br></br>		
+		Typedef defined Datatype<br></br>
+		</blue>
 		</complex-data-types>
 		<loops>
 		Additional to the loops presented in C language, there is also a "for-each loop" 
@@ -1739,11 +1748,13 @@ for (int i : myNumbers) {
 		<collections>
 		Additional to C Language: C++ introduced several new collection classes datatypes:
 		<br></br><br></br>
+		<green>
 		Vector: The C++ Standard Library vector class is a class template for sequence containers.<br></br>
 		Vector is a type of dynamic array which has the ability to resize 
 		automatically after insertion or deletion of elements. The elements in vector 
 		are placed in contiguous storage so that they can be accessed and traversed using 
 		iterators. Element is inserted at the end of the vector.<br></br><br></br>
+		</green>
 <code>
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
@@ -1765,11 +1776,14 @@ int main()
         std::cout &lt;&lt; n &lt;&lt; ' ';
     std::cout &lt;&lt; '\n';
 }
+
 </code>	
+		<green>
 		List: List is a double linked sequence that supports both forward and backward 
 		traversal. The time taken in the insertion and deletion in the beginning, end 
 		and middle is constant. It has the non-contiguous memory and there is no 
-		pre-allocated memory.<br></br><br></br>
+		pre-allocated memory.<br></br>
+		</green>
 <code>
 
 // C++ program to demonstrate the use of list containers
@@ -1834,30 +1848,41 @@ enum GameStates {GamePlay, PauseGame, ExitGame}; //the elements will take as con
 //In this case: GamePlay = 0; PauseGame=1; ExitGame=2;
 
 /*
-ENUM Members cannot be initialized with values: Example GamePlay = 5, this will give compilation error.
+
+ENUM Members cannot be initialized with values: 
+Example GamePlay = 5, this will give compilation error.
+
 Instead the ENUM can be initialized only as follows:
 GameStates=ExitGame;
+
 In this case the active value of the ENUM will be ExitGame;
-SO the synthax is : &lt;enum name&gt; = &lt;enum member&gt;;
+The syntax is : &lt;enum name&gt; = &lt;enum member&gt;;
 
 An ENUM Class is an ENUM that will use the scope resolution and an object of the ENUM class for assignments as above.
+
 Example:
 GameStates gameStates=GameStates::ExitGame;
 
-An ENUM Class will make possible that you can have multiple ENUMS with the same MEMBERS. So we could have for example:
+An ENUM Class will make possible that you can have multiple ENUMS with the same MEMBERS. 
+
+So we could have for example:
 enum class GameState {Exit, MainMenu};
 enum class SoftwareState (Exit, MainMenu);
+
 Without using an ENUM Class this could not be possible because, the TWO MEMBERS will conflict to each other
 (compilation error).
 
-Synthax to create an ENUM Class:
+Syntax to create an ENUM Class:
+
 enum class &lt;name&gt; { member1, member2...}
-An ENUM cannot be forward declared, unless it's an ENUM Class. So only ENUM Classes can be forward declared.
+An ENUM cannot be forward declared, unless it's an ENUM Class. 
+So only ENUM Classes can be forward declared.
 
 To change the default value of an ENUM Member which consist in it's position on the ENUM, you can do as follows:
 
 enum GameState {MainMenu=5, GamePlay=7, GameExit, GamePaused}; //the two uninitialized members follow gets the value of the
 previous member+1; so GameExit will be 8, GamePause will be 9;
+
 */
 
 int main()
@@ -1875,7 +1900,7 @@ int main()
 		C++ multithreading involves creating and using thread objects, seen as std::thread 
 		in code, to carry out delegated sub-tasks independently. New threads are passed a 
 		function to complete, and optionally some parameters for that function.
-		<br></br><br></br>
+		<br></br>
 <code>
 
 #include &lt;iostream&gt; 
@@ -1982,7 +2007,8 @@ int main()
 </code>
 		</exception-handling>
 		<bitwise-operators>
-		Same as presented in C Language. Bitwise operators in C/C++ are 
+		Same as presented in C Language. <br></br>
+		Bitwise operators in C/C++ are 
 		tools for working with individual bits in data. They might not be as famous as other 
 		operators, but they’re essential for tasks like making code more efficient or 
 		controlling hardware.
@@ -1994,19 +2020,20 @@ int main()
 		overridden. <br></br>
 <code>
 
-/ CPP Program to demonstrate Default Arguments
+// Example of Default Parameters/Arguments in C++.
+
 #include &lt;iostream&gt; 
 using namespace std;
  
 // A function with default arguments,
 // it can be called with
 // 2 arguments or 3 arguments or 4 arguments.
+
 int sum(int x, int y, int z = 0, int w = 0) //assigning default values to z,w as 0
 {
     return (x + y + z + w);
 }
  
-// Driver Code
 int main()
 {
     // Statement 1
@@ -2028,14 +2055,16 @@ int main()
 		replace. We can define the macro by using a #define directive. When the compiler 
 		goes to the macros while program compilation, the macro's name is replaced by 
 		the definition of the macro. The termination of the C++ Macros does not need a 
-		semi-colon (;).<br></br><br></br>
-		
+		semi-colon (;).
+		<br></br><br></br>
 		Aditionally: the header file: &lt;limits.h&gt; is defined to find the 
 		range of fundamental data-types. Unsigned modifiers have minimum value is zero. 
 		So, no macro constants are defined for the unsigned minimum value.
 		<br></br><br></br>
+		<red>
 		Macro Constants<br></br><br></br>
-
+		</red>
+		<green>
 		CHAR_MIN - The minimum value for an object of type char
 		<br></br><br></br>		
 		CHAR_MAX - Maximum value for an object of type char
@@ -2073,7 +2102,7 @@ int main()
 		LLONG_MAX - Maximum value for an object of type long long int
 		<br></br><br></br>		
 		ULLONG_MAX - Maximum value for an object of type Unsigned long long int		
-		
+		</green>
 <code>
 
 /*An example of defining a C++ macro:*/
