@@ -1125,7 +1125,7 @@ A-- = 9
 		<br></br>Relational Operators<br></br>
 <code>
 <red>==	Checks if the values of two operands are equal or not. 
-If yes, then the condition becomes true.
+If yes, then the condition becomes true.</red>
 (A == B) is not true.
 
 <red>!=	Checks if the values of two operands are equal or not.
