@@ -1313,7 +1313,8 @@ int main()
 			Danish computer scientist Bjarne Stroustrup. <br></br><br></br>
 			First released in 1985 as an extension of the C programming language, 
 			it has since expanded significantly over time; as of 1997, C++ has object-oriented, 
-			generic, and functional features, in addition to facilities for low-level memory 
+			generic, and functional features. <br></br>
+			In addition to facilities for low-level memory 
 			manipulation for making things like microcomputers or to make operating systems 
 			like Linux or Windows. <br></br><br></br>
 			
