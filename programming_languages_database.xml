@@ -79,16 +79,19 @@
 			<code>bool type</code><br></br><br></br>
 			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants (unchangeable values).<br></br><br></br>
 			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
-			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code> . When the header <code>complex.h</code> is 
+			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code>.
+			<br></br>
+			When the header <code>complex.h</code> is 
 			included, the three complex number types are also accessible as double complex, 
 			float complex, long double complex.<br></br><br></br>
-			<code>Arrays</code>: A collection of elements of the same data type. Array in C can be defined as a method of 
-			clubbing multiple entities of similar type into a larger group. These entities or elements 
-			can be of int, float, char, or double data type or can be of user-defined data types too 
+			<code>Arrays</code>: A collection of elements of the same data type. <br></br>
+			Array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
+			These entities or elements can be of int, float, char, or double data type or can be of user-defined data types too
 			like structures.<br></br><br></br>
-			<code>Pointers</code>: A variable that stores the memory address of another variable. The size of a pointer in C 
-			programming language varies depending on factors such as the operating system and CPU 
-			architecture. Typically, on a 32-bit computer system, the size of pointer is 4 bytes, 
+			<code>Pointers</code>: A variable that stores the memory address of another variable. 
+			The size of a pointer in C programming language varies depending on factors such as the operating system and CPU 
+			architecture.<br></br>
+			Typically, on a 32-bit computer system, the size of pointer is 4 bytes, <br></br>
 			while on a 64-bit computer system, it is 8 bytes.<br></br><br></br>
 			<code>Structures</code>: A collection of variables of different data types grouped 
 			together under a single name. <br></br><br></br>
@@ -172,7 +175,7 @@ while(counter &lt; 5)
 		</loops>
 		<collections>
 			<code>Arrays</code>: Are collections of elements of the same data type with fixed size. 
-			Once the array is defined its size cannot be changed.<br></br><br></br>
+			<br></br>Once the <code>array</code> is defined, its size cannot be changed.<br></br><br></br>
 			
 			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
 			to the next element. <br></br>
@@ -241,13 +244,14 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		<dynamic-memory-allocation>
 		Dynamic memory is allocated from the heap using some standard library functions. 
 		The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. <br></br>
-		The malloc() function takes a single parameter, which is the size of the requested memory 
-		area in bytes. It returns a pointer to the allocated memory.
+		The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
+		area in bytes. <br></br>
+		It returns a pointer to the allocated memory.
 		<br></br><br></br>
 		<red>C malloc() method:</red>
 		<br></br><br></br>
 		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
-		large block of memory with the specified size. <br></br>
+		large block of memory with the specified size. <br></br><br></br>
 		It returns a pointer of type void which 
 		can be cast into a pointer of any form. 
 		<br></br>
@@ -280,10 +284,10 @@ int main()
 			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
 			<br></br><br></br>
 			The <code>malloc()</code> and <code>calloc()</code> do differentiate in how the functions are used when allocating 
-			memory at runtime. <br></br>
-			The malloc () function only returns the starting address, <red>it doesn't zero it.</red>
+			memory at runtime. <br></br><br></br>
+			The <code>malloc()</code> function only returns the starting address, <red>it doesn't zero it.</red>
 			<br></br>			
-			On the other hand, the calloc() function returns the starting address, zeroing it.
+			On the other hand, the <code>calloc()</code> function returns the starting address, <green>zeroing it.</green>
 <code>
 
 /*Prototype void *calloc(size_t nitems, size_t size)*/
@@ -463,7 +467,9 @@ fclose(fptr);
 		</serialization>
 		<deserialization>
 		Deserialization is the process of reconstructing a data structure or object from a series 
-		of bytes or a string in order to instantiate the object for consumption. This is the 
+		of bytes or a string in order to instantiate the object for consumption. 
+		<br></br><br></br>
+		This is the 
 		reverse process of serialization, i.e., converting a data structure or object into a 
 		series of bytes for storage or transmission across devices.<br></br><br></br>
 		</deserialization>
@@ -756,7 +762,7 @@ int main()
 		<defines>
 		In C programming, <code>#define</code> is a preprocessor directive that is used to define macros. 
 		The macros are the identifiers defined by #define which are replaced by their value before 
-		compilation. <br></br>
+		compilation. <br></br><br></br>
 		We can define constants and functions like macros using <code>#define</code>.
 		</defines>
 		<random-generators>
@@ -834,7 +840,7 @@ int main(int argc, char **argv) { /* ... */ }
 		So if we pass a 
 		value to a program, the value of argc would be 2 (one for argument and one for 
 		program name). <br></br>
-		The value of argc should be non-negative.<br></br>
+		The value of argc should be non-negative.<br></br><br></br>
 		<code>argv (ARGument Vector)</code> is an array of character pointers listing all the arguments.
 		<br></br>
 		If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
@@ -850,7 +856,7 @@ int main(int argc, char **argv) { /* ... */ }
 		They are passed to the main() function.<br></br>
 		They are parameters/arguments supplied to the program when it is invoked.<br></br>
 		They are used to control programs from outside instead of hard coding those values 
-		inside the code.<br></br>
+		inside the code.<br></br><br></br>
 		argv[argc] is a NULL pointer.<br></br>
 		argv[0] holds the name of the program.<br></br>
 		argv[1] points to the first command line argument and argv[argc-1] points to 
