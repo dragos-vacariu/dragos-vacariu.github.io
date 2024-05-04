@@ -1255,15 +1255,17 @@ int main()
 		OOP helps to keep the C++ code DRY "Don't Repeat Yourself", and makes the code 
 		easier to maintain, modify and debug<br></br>
 		OOP makes it possible to create full reusable applications with less code and 
-		shorter development time<br></br>
+		shorter development time<br></br><br></br>
 		Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
 		of code. You should extract out the codes that are common for the application, 
 		and place them at a single place and reuse them instead of repeating it.<br></br>
 		</oop>
 		<encapsulation>
 		The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from 
-		users. To achieve this, you must declare class variables/attributes as private 
-		(cannot be accessed from outside the class). If you want others to read or modify 
+		users.<br></br><br></br> 
+		To achieve this, you must declare class variables/attributes as private 
+		(cannot be accessed from outside the class). <br></br><br></br>
+		If you want others to read or modify 
 		the value of a private member, you can provide public get and set methods.<br></br>
 <code>
 
@@ -1297,73 +1299,84 @@ int main() {
 		</encapsulation>
 		<polymorphism>
 		Polymorphism means "many forms", and it occurs when we have many 
-		classes that are related to each other by inheritance<br></br><br></br>
+		classes that are related to each other by inheritance.<br></br>
 <code>
 
 #include &lt;iostream&gt;  
-/*
-The word polymorphism means having many forms. Typically, polymorphism occurs when there is a hierarchy of classes
-and they are related by inheritance.
 
-C++ polymorphism means that a call to a member function will cause a different function to be executed depending on
-the type of object that invokes the function. Example if a parent class function is set to be override-able, then a
-parent class pointer can have functionality of the a child class object.
+/*
+
+The word polymorphism means having many forms. 
+Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance.
+
+C++ polymorphism means that a call to a member function will cause a different function to be executed depending on the type of object that invokes the function. 
+Example if a parent class function is set to be override-able, then a parent class pointer can have functionality of the a child class object.
 
 A pure virtual function is a function that is declared in the parent class and it really needs to be defined in
 each one of the child classes.
+
 Syntax: virtual void DisplayFunction () = 0;
+
 */
 using namespace std;
 
 class Shape{
     //By default a member without access-specifier is set to private.
-protected:
-    int length;
-    int height;
-public:
-    virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
-    {
-        cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
-    }
-};
-class Square: public Shape{
-private:
-    int area;
-    void CalcArea()
-    {
-        area=length*height;
-    }
 
-public:
-    Square (int len, int hg)
-    {
-        length=len;
-        height=hg;
-        CalcArea();
-    };
-    void DisplayArea()
-    {
-        cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
-    }
-    //This function overrides the parent class function
-    void DisplayInfo()
-    {
-        cout &lt;&lt; "This is the child class." &lt;&lt; endl;
-    }
+	protected:
+		int length;
+		int height;
+
+	public:
+		virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
+		{
+			cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
+		}
 };
+
+class Square: public Shape
+{
+
+	private:
+		int area;
+		void CalcArea()
+		{
+			area=length*height;
+		}
+
+	public:
+		Square (int len, int hg)
+		{
+			length=len;
+			height=hg;
+			CalcArea();
+		};
+		void DisplayArea()
+		{
+			cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
+		}
+		
+		//This function overrides the parent class function
+		void DisplayInfo()
+		{
+			cout &lt;&lt; "This is the child class." &lt;&lt; endl;
+		}
+};
+
 class Circle: public Shape
 {
-private:
-    int radius;
-public:
-    Circle(int len)
-    {
-        radius=len/2;
-    }
-    void DisplayRadius()
-    {
-        cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
-    }
+
+	private:
+		int radius;
+	public:
+		Circle(int len)
+		{
+			radius=len/2;
+		}
+		void DisplayRadius()
+		{
+			cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
+		}
 };
 
 int main()
@@ -1371,14 +1384,17 @@ int main()
     Shape *p;
     Circle circle_object(22);
     Square square_object(4,3);
+	
     /*
     The pointer of type Shape can reference any of the Shape class children, but having only the functionality of Shape
     Class.
     */
+	
     p=&#38;circle_object;
     p-&gt;DisplayInfo();
     p=&#38;square_object;
     p-&gt;DisplayInfo();
+	
     int a;
     cin &gt;&gt; a;
     return 0;
@@ -1406,8 +1422,11 @@ using namespace std;
 //BASE CLASS
 class Shape{
 
-    protected: //these variables are visible into this class and the other classes that are inherited to this.
-        string name;
+    protected: 
+		//protected variables are visible into this class and the other classes that are inherited to this.
+        
+		string name;
+		
     public:
         Shape(string newname)
         {
@@ -1418,6 +1437,7 @@ class Shape{
             return name;
         }
 };
+
 //CHILD CLASS ONE
 class Circle : public Shape //making Circle class derive from the Shape class (setting the inheritance).
 {
@@ -1437,6 +1457,7 @@ class Circle : public Shape //making Circle class derive from the Shape class (s
         }
 
 };
+
 //CHILD CLASS TWO
 class Rectangle : public Shape // making the Rectangle class derive from Shape Class, let the Rectangle Class, use the
 //protected variables of the Shape Class.
@@ -1531,6 +1552,7 @@ int main()
 		We are not allowed to access the variables a and b directly, however, one can call 
 		the function set() to set the values in a and b and the function display() to 
 		display the values of a and b. <br></br><br></br>
+		
 		Advantages of Data Abstraction<br></br>
 		Helps the user to avoid writing the low-level code<br></br>
 		Avoids code duplication and increases reusability.<br></br>
