@@ -1829,7 +1829,7 @@ Without using an ENUM Class this could not be possible because, the TWO MEMBERS 
 (compilation error).
 
 Synthax to create an ENUM Class:
-enum class &lt;name&tt; { member1, member2...}
+enum class &lt;name&gt; { member1, member2...}
 An ENUM cannot be forward declared, unless it's an ENUM Class. So only ENUM Classes can be forward declared.
 
 To change the default value of an ENUM Member which consist in it's position on the ENUM, you can do as follows:
