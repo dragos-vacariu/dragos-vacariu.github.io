@@ -1089,36 +1089,36 @@ printf("User's percentage is %.2f", percentage);
 		Depending on how many operands are required to perform the operation, operands are called as 
 		unary, binary or ternary operators. They need one, two or three operands respectively.<br></br>
 		<br></br>
-		Unary operators − ++ (increment), -- (decrement), ! (NOT), ~ (compliment), &#38; (address of), * (dereference)
+		Unary operators − <code>++</code> (increment), <code>--</code> (decrement), <code>!</code> (NOT), <code>~</code> (compliment), <code>&#38;</code> (address of), <code>*</code> (dereference)
 		<br></br><br></br>
 		Binary operators − arithmetic, logical and relational operators except !
 		<br></br><br></br>
-		Ternary operators − The ? operator.
+		Ternary operators − The <code>?</code> operator.
 		<br></br><br></br>
 		C language is rich in built-in operators and provides the following types of operators −
 		<br></br><br></br>
-		Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br>
+		Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
 		Arithmetic Operators: <br></br>
 <code>
-+	Adds two operands.
+<red>+	Adds two operands.</red>
 A + B = 30
 
-−	Subtracts second operand from the first.
+<red>−	Subtracts second operand from the first.</red>
 A − B = -10
 
-*	Multiplies both operands.
+<red>*	Multiplies both operands.</red>
 A * B = 200
 
-/	Divides numerator by de-numerator.
+<red>/	Divides numerator by de-numerator.</red>
 B / A = 2
 
-%	Modulus Operator and remainder of after an integer division.
+<red>%	Modulus Operator and remainder of after an integer division.</red>
 B % A = 0
 
-++	Increment operator increases the integer value by one.
+<red>++	Increment operator increases the integer value by one.</red>
 A++ = 11
 
---	Decrement operator decreases the integer value by one.
+<red>--	Decrement operator decreases the integer value by one.</red>
 A-- = 9
 
 </code>
