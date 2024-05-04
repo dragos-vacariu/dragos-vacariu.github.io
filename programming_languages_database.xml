@@ -1151,89 +1151,89 @@ If yes, then the condition becomes true.</red>
 		<br></br>Logical Operators<br></br>
 <code>
 	
-<red>&#38;&#38; 	Called Logical AND operator. If both the operands are non-zero, 
+&#38;&#38; <red>Called Logical AND operator. If both the operands are non-zero, 
 then the condition becomes true.</red>
 (A &#38;&#38; B) is false.
 
-<red>||	Called Logical OR Operator. If any of the two operands is non-zero, 
+||	<red>Called Logical OR Operator. If any of the two operands is non-zero, 
 then the condition becomes true.</red>
 (A || B) is true.
 
-<red>!	Called Logical NOT Operator. It is used to reverse the logical state of its operand. 
+!	<red>Called Logical NOT Operator. It is used to reverse the logical state of its operand. 
 If a condition is true, then Logical NOT operator will make it false.</red>
 !(A &#38;&#38; B) is true.
 </code>
 		<br></br>Bitwise Operators<br></br>
 <code>
-<red>&#38;	Binary AND Operator copies a bit to the result if it exists in both operands.</red>	
+&#38;	<red>Binary AND Operator copies a bit to the result if it exists in both operands.</red>	
 (A &#38; B) = 12, i.e., 0000 1100
 
-<red>|	Binary OR Operator copies a bit if it exists in either operand.</red>
+|	<red>Binary OR Operator copies a bit if it exists in either operand.</red>
 (A | B) = 61, i.e., 0011 1101
 
-<red>^	Binary XOR Operator copies the bit if it is set in one operand but not both.</red>	
+^	<red>Binary XOR Operator copies the bit if it is set in one operand but not both.</red>	
 (A ^ B) = 49, i.e., 0011 0001
 
-<red>~	Binary One's Complement Operator is unary and has the effect of 'flipping' bits.</red>	
+~	<red>Binary One's Complement Operator is unary and has the effect of 'flipping' bits.</red>	
 (~A ) = ~(60), i.e,. -0111101
 
-<red>&lt;&lt;	Binary Left Shift Operator. 
+&lt;&lt;	<red>Binary Left Shift Operator. 
 The left operands value is moved left by the number of bits specified by the right operand.	</red>
 A &lt;&lt; 2 = 240 i.e., 1111 0000
 
-<red>&gt;&gt;	Binary Right Shift Operator. 
+&gt;&gt;	<red>Binary Right Shift Operator. 
 The left operands value is moved right by the number of bits specified by the right operand.</red>
 A &gt;&gt; 2 = 15 i.e., 0000 1111
 
 </code>
 		<br></br>Assignment Operators<br></br>
 <code>
-<red>=	Simple assignment operator. 
+=	<red>Simple assignment operator. 
 Assigns values from right side operands to left side operand	</red>
 C = A + B will assign the value of A + B to C
 
-<red>+=	Add AND assignment operator. 
++=	<red>Add AND assignment operator. 
 It adds the right operand to the left operand and assign the result to the left operand.</red>	
 C += A is equivalent to C = C + A
 
-<red>-=	Subtract AND assignment operator. 
+-=	<red>Subtract AND assignment operator. 
 It subtracts the right operand from the left operand and assigns the result to the left operand.</red>	
 C -= A is equivalent to C = C - A
 
-<red>*=	Multiply AND assignment operator. 
+*=	<red>Multiply AND assignment operator. 
 It multiplies the right operand with the left operand and assigns the result to the left operand.</red>	
 C *= A is equivalent to C = C * A
 
-<red>/=	Divide AND assignment operator. 
+/=	<red>Divide AND assignment operator. 
 It divides the left operand with the right operand and assigns the result to the left operand.	</red>
 C /= A is equivalent to C = C / A
 
-<red>%=	Modulus AND assignment operator. 
+%=	<red>Modulus AND assignment operator. 
 It takes modulus using two operands and assigns the result to the left operand.</red>
 C %= A is equivalent to C = C % A
 
-<red>&lt;&lt;=	Left shift AND assignment operator.	</red>
+&lt;&lt;=	<red>Left shift AND assignment operator.	</red>
 C &lt;&lt;= 2 is same as C = C &lt;&lt; 2
 
-<red>&gt;&gt;=	Right shift AND assignment operator.</red>
+&gt;&gt;=	<red>Right shift AND assignment operator.</red>
 C &gt;&gt;= 2 is same as C = C &gt;&gt; 2
 
-<red>&#38;=	Bitwise AND assignment operator.</red>
+&#38;=	<red>Bitwise AND assignment operator.</red>
 C &#38;= 2 is same as C = C &#38; 2
 
-<red>^=	Bitwise exclusive OR and assignment operator.</red>
+^=	<red>Bitwise exclusive OR and assignment operator.</red>
 C ^= 2 is same as C = C ^ 2
 
-<red>|=	Bitwise inclusive OR and assignment operator.</red>
+|=	<red>Bitwise inclusive OR and assignment operator.</red>
 C |= 2 is same as C = C | 2
 
 </code>
 		<br></br>Misc Operators<br></br>
 <code>
-sizeof()	Returns the size of a variable.	sizeof(a), where a is integer, will return 4.
-&#38; 	Returns the address of a variable.	&#38;a; returns the actual address of the variable.
-*	Pointer to a variable.	*a;
-? :	Conditional Expression.	If Condition is true ? then value X : otherwise value Y
+sizeof()	<red>Returns the size of a variable.	sizeof(a), where a is integer, will return 4.</red>
+&#38; 	<red>Returns the address of a variable.	&#38;a; returns the actual address of the variable.</red>
+*	<red>Pointer to a variable.	*a;</red>
+? :	<red>Conditional Expression.	If Condition is true ? then value X : otherwise value Y; </red>
 </code>
 		</operators>
 		<pre-post-incrementation>
