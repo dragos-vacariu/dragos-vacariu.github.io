@@ -1250,15 +1250,21 @@ int main()
 		<br></br><br></br>
 		Object-oriented programming has several advantages over procedural programming:
 		<br></br><br></br>
-		OOP is faster and easier to execute<br></br>
-		OOP provides a clear structure for the programs<br></br>
+		<green>
+		OOP is faster and easier to execute;<br></br>
+		OOP provides a clear structure for the programs;<br></br>
 		OOP helps to keep the C++ code DRY "Don't Repeat Yourself", and makes the code 
-		easier to maintain, modify and debug<br></br>
+		easier to maintain, modify and debug;<br></br>
 		OOP makes it possible to create full reusable applications with less code and 
-		shorter development time<br></br><br></br>
+		shorter development time;
+		</green>
+		<br></br><br></br>
+		<red>
 		Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
 		of code. You should extract out the codes that are common for the application, 
-		and place them at a single place and reuse them instead of repeating it.<br></br>
+		and place them at a single place and reuse them instead of repeating it.
+		</red>
+		<br></br>
 		</oop>
 		<encapsulation>
 		The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from 
@@ -1404,14 +1410,16 @@ int main()
 	*/
 }
 </code>	
-		.</polymorphism>
+		</polymorphism>
 		<inheritance>
 		In C++, it is possible to inherit attributes and methods from one class to another. 
 		We group the "inheritance concept" into two categories:
 		<br></br><br></br>
-		- derived class (child) - the class that inherits from another class<br></br>
-		- base class (parent) - the class being inherited from
-		To inherit from a class, use the : symbol.<br></br><br></br>
+		<green>
+		- derived class (child) - the class that inherits from another class;<br></br>
+		- base class (parent) - the class being inherited from;<br></br><br></br>
+		</green>
+		To inherit from a class, use the : symbol.<br></br>
 <code>
 
 #include &lt;iostream&gt;  
@@ -1424,7 +1432,7 @@ class Shape{
 
     protected: 
 		//protected variables are visible into this class and the other classes that are inherited to this.
-        
+
 		string name;
 		
     public:
@@ -1506,7 +1514,8 @@ int main()
 		</inheritance>
 		<abstraction>
 		Data abstraction is one of the most essential and important features of object-oriented 
-		programming in C++. Abstraction means displaying only essential information and hiding the 
+		programming in C++. <br></br><br></br>
+		Abstraction means displaying only essential information and hiding the 
 		details. Data abstraction refers to providing only essential information about the 
 		data to the outside world, hiding the background details or implementation. 
 		<br></br><br></br>
@@ -1553,25 +1562,29 @@ int main()
 </code>
 		We are not allowed to access the variables a and b directly, however, one can call 
 		the function set() to set the values in a and b and the function display() to 
-		display the values of a and b. <br></br><br></br>
+		display the values of a and b. 
+		<br></br><br></br>
 		
-		<red>Advantages of Data Abstraction</red>
-		<br></br>
+		<red>Advantages of Data Abstraction:</red>
+		<br></br><br></br>
 		<green>
-		Helps the user to avoid writing the low-level code<br></br>
+		Helps the user to avoid writing the low-level code;<br></br>
 		Avoids code duplication and increases reusability.<br></br>
 		Can change the internal implementation of the class independently without 
 		affecting the user.<br></br>
 		Helps to increase the security of an application or program as only important 
 		details are provided to the user.<br></br>
 		It reduces the complexity as well as the redundancy of the code, therefore 
-		increasing the readability.<br></br></green>
+		increasing the readability.
+		<br></br>
+		</green>
 		</abstraction>
 		<generic-programming>
 		In C++ the templates generalize the algorithm to make it data type-independent. 
 		The functions and classes which are data type independent are called generics, 
 		and this concept is called generic programming. Generic Programming reduces code 
-		repetition and in-demand compilation; hence efficient.<br></br><br></br>
+		repetition and in-demand compilation; hence efficient.
+		<br></br>
 
 <code>
 
@@ -1611,7 +1624,7 @@ int main()
 		<br></br>
 <code>
 
-// Implementation of variable arguments using vector.
+<red>// Implementation of variable arguments using vector.</red>
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
 using namespace std;
@@ -1633,7 +1646,7 @@ int main() {
 
 /*-------------------------------------------------------*/
 
-// Implementation of variable arguments using cstdarg variadic functons.
+<red>// Implementation of variable arguments using cstdarg variadic functons.</red>
 #include &lt;iostream&gt; 
 #include &lt;cstdarg&gt; 
 
@@ -1670,7 +1683,7 @@ int main() {
 
 /*-------------------------------------------------*/
 
-// Implementation of variable arguments using variadic templates.
+<red>// Implementation of variable arguments using variadic templates. </red>
 #include &lt;iostream&gt; 
 using namespace std;
 
@@ -1715,15 +1728,15 @@ int main() {
 		<complex-data-types>
 		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
 		<br></br><br></br>
-		<green>Derived Datatypes:</green><br></br>
-		<blue>
+		<red>Derived Datatypes:</red><br></br>
+		<green>
 		Function<br></br>
 		Array<br></br>
 		Pointer<br></br>
 		Reference<br></br>
-		</blue>
+		</green>
 		<br></br>
-		<green>User-defined Datatypes:</green><br></br>
+		<red>User-defined Datatypes:</red><br></br>
 		<blue>
 		Class<br></br>
 		Structure<br></br>

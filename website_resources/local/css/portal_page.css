@@ -143,35 +143,30 @@
 }
 
 #page_block code{
-	font-family: Courier New;
+	font-family: Consolas;
 	font-size: 16px;
 	white-space: pre-wrap;
 	color: blue;
+	font-weight: bold;
 }
 
 #page_block red{
-	color: #550000;
-	font-family: Courier New;
-	font-size: 16px;
-	text-shadow: 1px 1px white;
-	font-weight: bold;
+	color: #aa0000;
+	font-family: Tahoma;
+	font-size: 14px;
 }
 
 
 #page_block green{
-	color: #005500;
-	font-family: Courier New;
-	font-size: 16px;
-	text-shadow: 1px 1px white;
-	font-weight: bold;
+	color: #007700;
+	font-family: Tahoma;
+	font-size: 14px;
 }
 
 #page_block blue{
-	color: #550055;
-	font-family: Courier New;
-	font-size: 16px;
-	text-shadow: 1px 1px white;
-	font-weight: bold;
+	color: #aa00aa;
+	font-family: Tahoma;
+	font-size: 14px;
 }
 
 #page_block bold{
