@@ -1672,9 +1672,9 @@ int main() {
 		the compiler allocates some memory for that variable based on the data type 
 		with which it is declared. Every data type requires a different amount of memory.
 		<br></br><br></br>
-		The datatypes presented on C Language are still available in C++: <br></br><br></br>
+		The datatypes presented on C Language are still available in C++:
 		<br></br><br></br>
-		Primitive Datatypes: <br></br>
+		<red>Primitive Datatypes:</red><br></br>
 		Integer<br></br>
 		Character<br></br>
 		Boolean<br></br>
@@ -1687,13 +1687,13 @@ int main() {
 		<complex-data-types>
 		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
 		<br></br><br></br>
-		Derived Datatypes: <br></br>
+		<red>Derived Datatypes:</red><br></br>
 		Function<br></br>
 		Array<br></br>
 		Pointer<br></br>
 		Reference<br></br>
 		<br></br>
-		User-defined Datatypes:<br></br>
+		<red>User-defined Datatypes:</red><br></br>
 		Class<br></br>
 		Structure<br></br>
 		Union<br></br>
