@@ -1658,9 +1658,12 @@ int main()
 		</green>
 		</abstraction>
 		<generic-programming>
-		In C++ the templates generalize the algorithm to make it data type-independent. 
+		In C++ the templates generalize the algorithm to make it data type-independent.
+		<br></br>		
 		The functions and classes which are data type independent are called generics, 
-		and this concept is called generic programming. Generic Programming reduces code 
+		and this concept is called generic programming. 
+		<br></br>
+		Generic Programming reduces code 
 		repetition and in-demand compilation; hence efficient.
 		<br></br>
 
