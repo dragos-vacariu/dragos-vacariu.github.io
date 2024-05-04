@@ -613,7 +613,8 @@ int main()
 		The left-shift and right-shift operators are equivalent to multiplication and division by 
 		2 respectively.<br></br><br></br>
 		
-		The bitwise OR of two numbers is just the sum of those two numbers if there is no carry involved, otherwise, you just add their bitwise AND.
+		The bitwise OR of two numbers is just the sum of those two numbers if there is no carry 
+		involved, otherwise, you just add their bitwise AND.
 		<br></br><br></br>
 		Let’s say, we have a=5(101) and b=2(010), since there is no carry involved, 
 		their sum is just a|b. <br></br>
@@ -632,7 +633,7 @@ int main()
 		The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
 		the value would be zero. <br></br><br></br>
 		
-		The ~ operator should be used carefully.
+		The <code>~</code> operator should be used carefully.
 		<br></br><br></br>
 		The result of the <code>~</code> operator on a small number can be a big number if the result 
 		is stored in an unsigned variable. <br></br>
@@ -706,8 +707,9 @@ int main()
 		Object-Like Macros:<br></br><br></br>
 		An object-like macro is a simple identifier that will be replaced by a code fragment. 
 		<br></br>
-		It is called object-like because it looks like an object in code that uses it. It is 
-		popularly used to replace a symbolic name with a numerical/variable represented 
+		It is called object-like because it looks like an object in code that uses it. 
+		<br></br>
+		It is popularly used to replace a symbolic name with a numerical/variable represented 
 		as a constant.
 		<br></br>
 <code>
@@ -750,9 +752,10 @@ int main()
 </code>
 		</macros>
 		<defines>
-		In C programming, #define is a preprocessor directive that is used to define macros. 
+		In C programming, <code>#define</code> is a preprocessor directive that is used to define macros. 
 		The macros are the identifiers defined by #define which are replaced by their value before 
-		compilation. We can define constants and functions like macros using #define.
+		compilation. <br></br>
+		We can define constants and functions like macros using <code>#define</code>.
 		</defines>
 		<random-generators>
 		The <code>rand()</code> function returns the random integers whose range from <code>0</code> to 
@@ -812,7 +815,9 @@ int main()
 		The name of the program is 
 		stored in <code>argv[0]</code>, the first command-line parameter in <code>argv[1]</code>, 
 		and the	last argument in <code>argv[n]</code>.
+		<br></br>
 <code>
+
 /*Example*/
 int main(int argc, char *argv[]) { /* ... */ }
 
@@ -1056,7 +1061,9 @@ printf("%d", myInt); // 9
 
 </code>
 		Explicit conversion is done manually by placing the type in parentheses () in front 
-		of the value. Also knows as typecasting. It is one of the important concepts introduced in 'C' 
+		of the value. Also knows as typecasting. 
+		<br></br>
+		It is one of the important concepts introduced in 'C' 
 		programming.<br></br>
 <code>
 //Calculate the percentage of a user's score in relation to the maximum score in a game:
