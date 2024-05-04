@@ -2073,19 +2073,17 @@ int main() {
 
 </code>
 		</macros>
-		<defines>Not present</defines>
 		<random-generators>Not present</random-generators>
-		<command-line-arguments>Not present</command-line-arguments>
-		<ternary-operator>Not present</ternary-operator>
-		<modular-programming>Not present</modular-programming>
+		<command-line-arguments>Same as presented in C Language.</command-line-arguments>
+		<ternary-operator>Same as presented in C Language.</ternary-operator>
+		<modular-programming>Same as presented in C Language.</modular-programming>
 		<string-methods>Not present</string-methods>
 		<datatype-conversions>Not present</datatype-conversions>
 		<optional-parameters>Not present</optional-parameters>
 		<partial-classes>Not present</partial-classes>
 		<decorators>Not present</decorators>
-		<operators>Not present</operators>
-		<pre-post-incrementation>Not present</pre-post-incrementation>
-		<datatypes-sizing>Not present</datatypes-sizing>
+		<operators>Same as presented in C Language.</operators>
+		<pre-post-incrementation>Same as presented in C Language.</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
