@@ -1098,7 +1098,7 @@ printf("User's percentage is %.2f", percentage);
 		C language is rich in built-in operators and provides the following types of operators −
 		<br></br><br></br>
 		Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
-		Arithmetic Operators: <br></br>
+		<green>Arithmetic Operators: <br></br></green>
 <code>
 +	<red>Adds two operands.</red>
 A + B = 30
@@ -1122,7 +1122,7 @@ A++ = 11
 A-- = 9
 
 </code>
-		<br></br>Relational Operators<br></br>
+		<green><br></br>Relational Operators<br></br></green>
 <code>
 ==	<red>Checks if the values of two operands are equal or not. 
 If yes, then the condition becomes true.</red>
@@ -1148,7 +1148,7 @@ If yes, then the condition becomes true.</red>
 If yes, then the condition becomes true.</red>
 (A &lt;= B) is true.
 </code>
-		<br></br>Logical Operators<br></br>
+		<green><br></br>Logical Operators<br></br></green>
 <code>
 	
 &#38;&#38; <red>Called Logical AND operator. If both the operands are non-zero, 
@@ -1186,7 +1186,7 @@ The left operands value is moved right by the number of bits specified by the ri
 A &gt;&gt; 2 = 15 i.e., 0000 1111
 
 </code>
-		<br></br>Assignment Operators<br></br>
+		<green><br></br>Assignment Operators<br></br></green>
 <code>
 = <red>Simple assignment operator. 
 Assigns values from right side operands to left side operand.</red>
@@ -1228,7 +1228,7 @@ C ^= 2 is same as C = C ^ 2
 C |= 2 is same as C = C | 2
 
 </code>
-		<br></br>Misc Operators<br></br>
+		<green><br></br>Misc Operators<br></br></green>
 <code>
 sizeof() <red>Returns the size of a variable. sizeof(a), where a is integer, will return 4.</red>
 &#38;  <red>Returns the address of a variable. &#38;a; returns the actual address of the variable.</red>
@@ -1243,9 +1243,10 @@ sizeof() <red>Returns the size of a variable. sizeof(a), where a is integer, wil
 		can increase the value of the variable by 1 after assigning the variable. 
 		Thus it can be classified into two types:
 		<br></br><br></br>
-
+		<blue>
 		Pre-Increment Operator<br></br>
 		Post-Increment Operator<br></br>
+		</blue>
 <code>
 
 
