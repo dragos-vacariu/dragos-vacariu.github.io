@@ -1949,7 +1949,7 @@ int main()
         cout &lt;&lt; "Result after division: " &lt;&lt; res &lt;&lt; endl;
     }
     // catch block to catch the thrown exception
-    catch (const exception& e) {
+    catch (const exception&#38; e) {
         // print the exception
         cout &lt;&lt; "Exception " &lt;&lt; e.what() &lt;&lt; endl;
     }
