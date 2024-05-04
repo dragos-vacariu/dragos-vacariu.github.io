@@ -1785,7 +1785,8 @@ int main() {
 		<simple-data-types>
 		All variables use data type during declaration to restrict the type of data to 
 		be stored. Therefore, we can say that data types are used to tell the variables 
-		the type of data they can store. Whenever a variable is defined in C++, 
+		the type of data they can store. <br></br>
+		Whenever a variable is defined in C++, 
 		the compiler allocates some memory for that variable based on the data type 
 		with which it is declared. Every data type requires a different amount of memory.
 		<br></br><br></br>
@@ -2031,9 +2032,11 @@ int main () {
 </code>
 		</multi-threading>
 		<namespaces>
-		A namespace is a feature added in C++ and is not present in C. A namespace is a 
+		A namespace is a feature added in C++ and is not present in C. <br></br>
+		A namespace is a 
 		declarative region that provides a scope to the identifiers (names of functions, 
-		variables or other user-defined data types) inside it. Multiple namespace blocks 
+		variables or other user-defined data types) inside it. <br></br>
+		Multiple namespace blocks 
 		with the same name are allowed.<br></br>
 <code>
 
@@ -2052,7 +2055,8 @@ namespace Data
 		<exception-handling>
 		In C++, exceptions are runtime anomalies or abnormal conditions that a program 
 		encounters during its execution. The process of handling these exceptions is 
-		called exception handling. Using the exception handling mechanism, the control 
+		called exception handling. <br></br>
+		Using the exception handling mechanism, the control 
 		from one part of the program where the exception occurred can be transferred 
 		to another part of the code.
 		<br></br><br></br>
