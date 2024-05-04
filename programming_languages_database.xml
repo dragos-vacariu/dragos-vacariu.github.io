@@ -515,7 +515,7 @@ int main()
 		For example, in a browser, multiple tabs can be different threads. MS word uses 
 		multiple threads, one thread to format the text, other thread to process inputs, etc. 
 		<br></br><br></br>
-		Threads operate faster than processes due to following reasons: <br></br>
+		Threads operate faster than processes due to following reasons: <br></br><br></br>
 		<blue>
 		1) Thread creation is much faster. <br></br>
 		2) Context switching between threads is much faster. <br></br>
@@ -851,7 +851,7 @@ int main(int argc, char **argv) { /* ... */ }
 		After that until <code>argv[argc-1]</code> every element 
 		is command -line arguments.<br></br><br></br>
 		
-		<red>Properties of Command Line Arguments in C:<br></br></red>
+		<red>Properties of Command Line Arguments in C:<br></br><br></br></red>
 		<green>
 		They are passed to the main() function.<br></br>
 		They are parameters/arguments supplied to the program when it is invoked.<br></br>
@@ -895,14 +895,14 @@ printf("%d", c);
 /*The output of both samples of code from above will result in: c = 3*/
 
 </code>
-		Syntax
+		Syntax:
 		<code>condition ? value_if_true : value_if_false</code>
 		<br></br>
 		The statement evaluates to <code>value_if_true</code> if condition is met, and <code>value_if_false</code> 
 		otherwise.<br></br><br></br>
 		
 		<red>The ternary operator take three arguments:</red>
-		<br></br>
+		<br></br><br></br>
 		<green>
 		The first is a comparison argument;<br></br>
 		The second is the result upon a true comparison;<br></br>
@@ -1817,15 +1817,15 @@ int main() {
 		<complex-data-types>
 		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
 		<br></br><br></br>
-		<red>Derived Datatypes:</red><br></br>
-		<green>
+		<green>Derived Datatypes:</green><br></br>
+		<blue>
 		Function<br></br>
 		Array<br></br>
 		Pointer<br></br>
 		Reference<br></br>
-		</green>
+		</blue>
 		<br></br>
-		<red>User-defined Datatypes:</red><br></br>
+		<green>User-defined Datatypes:</green><br></br>
 		<blue>
 		Class<br></br>
 		Structure<br></br>
@@ -1851,9 +1851,11 @@ for (int i : myNumbers) {
 		<collections>
 		Additional to C Language: C++ introduced several new collection classes datatypes:
 		<br></br><br></br>
-		<green>
+		<blue>
 		Vector: The C++ Standard Library vector class is a class template for sequence containers.<br></br>
+		</blue>
 		<br></br>
+		<green>
 		Vector is a type of dynamic array which has the ability to resize 
 		automatically after insertion or deletion of elements. The elements in vector 
 		are placed in contiguous storage so that they can be accessed and traversed using 
