@@ -1555,7 +1555,8 @@ int main()
 		the function set() to set the values in a and b and the function display() to 
 		display the values of a and b. <br></br><br></br>
 		
-		Advantages of Data Abstraction<br></br>
+		<red>Advantages of Data Abstraction</red>
+		<br></br>
 		<green>
 		Helps the user to avoid writing the low-level code<br></br>
 		Avoids code duplication and increases reusability.<br></br>
@@ -1699,7 +1700,7 @@ int main() {
 		<br></br><br></br>
 		The datatypes presented on C Language are still available in C++:
 		<br></br><br></br>
-		<red>Primitive Datatypes:</red><br></br>
+		<green>Primitive Datatypes:</green><br></br>
 		<blue>
 		Integer<br></br>
 		Character<br></br>
@@ -1714,7 +1715,7 @@ int main() {
 		<complex-data-types>
 		Aditional to the C Language, C++ introduced classes as a user-defined datatype.
 		<br></br><br></br>
-		<red>Derived Datatypes:</red><br></br>
+		<green>Derived Datatypes:</green><br></br>
 		<blue>
 		Function<br></br>
 		Array<br></br>
@@ -1722,7 +1723,7 @@ int main() {
 		Reference<br></br>
 		</blue>
 		<br></br>
-		<red>User-defined Datatypes:</red><br></br>
+		<green>User-defined Datatypes:</green><br></br>
 		<blue>
 		Class<br></br>
 		Structure<br></br>
