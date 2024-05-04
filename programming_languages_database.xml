@@ -1100,99 +1100,99 @@ printf("User's percentage is %.2f", percentage);
 		Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
 		<green>Arithmetic Operators: <br></br></green>
 <code>
-+	<red>Adds two operands.</red>
++ <red>it adds two operands.</red>
 A + B = 30
 
-−	<red>Subtracts second operand from the first.</red>
+− <red>it subtracts second operand from the first.</red>
 A − B = -10
 
-*	<red>Multiplies both operands.</red>
+* <red>it multiplies both operands.</red>
 A * B = 200
 
-/	<red>Divides numerator by de-numerator.</red>
+/ <red>it divides numerator by de-numerator.</red>
 B / A = 2
 
-%	<red>Modulus Operator and remainder of after an integer division.</red>
+% <red>is the Modulus Operator it gives the remainder after an integer division.</red>
 B % A = 0
 
-++	<red>Increment operator increases the integer value by one.</red>
+++ <red>is the Increment operator, it increases the integer value by one.</red>
 A++ = 11
 
---	<red>Decrement operator decreases the integer value by one.</red>
+-- <red>is the Decrement operator, it decreases the integer value by one.</red>
 A-- = 9
 
 </code>
 		<green><br></br>Relational Operators<br></br></green>
 <code>
-==	<red>Checks if the values of two operands are equal or not. 
+== <red>it checks if the values of two operands are equal or not. 
 If yes, then the condition becomes true.</red>
 (A == B) is not true.
 
-!=	<red>Checks if the values of two operands are equal or not.
+!= <red>it checks if the values of two operands are equal or not.
 If the values are not equal, then the condition becomes true.</red>
 (A != B) is true.
 
-&gt; <red>Checks if the value of left operand is greater than the value of right operand.
+&gt; <red>it checks if the value of left operand is greater than the value of right operand.
 If yes, then the condition becomes true.</red>
 (A &gt; B) is not true.
 
-&lt; <red>Checks if the value of left operand is less than the value of right operand.
+&lt; <red>it checks if the value of left operand is less than the value of right operand.
 If yes, then the condition becomes true.</red>
 (A &lt; B) is true.
 
-&gt;= <red>Checks if the value of left operand is greater than or equal to the value of right operand.
+&gt;= <red>it checks if the value of left operand is greater than or equal to the value of right operand.
 If yes, then the condition becomes true.</red>
 (A &gt;= B) is not true.
 
-&lt;= <red>Checks if the value of left operand is less than or equal to the value of right operand. 
+&lt;= <red>it checks if the value of left operand is less than or equal to the value of right operand. 
 If yes, then the condition becomes true.</red>
 (A &lt;= B) is true.
 </code>
 		<green><br></br>Logical Operators<br></br></green>
 <code>
 	
-&#38;&#38; <red>Called Logical AND operator. If both the operands are non-zero, 
+&#38;&#38; <red>it's called Logical AND operator. Results in TRUE if both the operands are non-zero, 
 then the condition becomes true.</red>
 (A &#38;&#38; B) is false.
 
-|| <red>Called Logical OR Operator. If any of the two operands is non-zero, 
+|| <red>it's called Logical OR Operator.  Results in TRUE if any of the two operands is non-zero, 
 then the condition becomes true.</red>
 (A || B) is true.
 
-! <red>Called Logical NOT Operator. It is used to reverse the logical state of its operand. 
+! <red>it's called Logical NOT Operator. It is used to reverse the logical state of its operand. 
 If a condition is true, then Logical NOT operator will make it false.</red>
 !(A &#38;&#38; B) is true.
 </code>
 		<br></br>Bitwise Operators<br></br>
 <code>
-&#38; <red>Binary AND Operator copies a bit to the result if it exists in both operands.</red>	
+&#38; <red>binary AND Operator copies a bit to the result if it exists in both operands.</red>	
 (A &#38; B) = 12, i.e., 0000 1100
 
-| <red>Binary OR Operator copies a bit if it exists in either operand.</red>
+| <red>binary OR Operator copies a bit if it exists in either operand.</red>
 (A | B) = 61, i.e., 0011 1101
 
-^ <red>Binary XOR Operator copies the bit if it is set in one operand but not both.</red>	
+^ <red>binary XOR Operator copies the bit if it is set in one operand but not both.</red>	
 (A ^ B) = 49, i.e., 0011 0001
 
-~ <red>Binary One's Complement Operator is unary and has the effect of 'flipping' bits.</red>	
+~ <red>binary One's Complement Operator is unary and has the effect of 'flipping' bits.</red>	
 (~A ) = ~(60), i.e,. -0111101
 
-&lt;&lt; <red>Binary Left Shift Operator. 
+&lt;&lt; <red>binary Left Shift Operator. 
 The left operands value is moved left by the number of bits specified by the right operand.</red>
 A &lt;&lt; 2 = 240 i.e., 1111 0000
 
-&gt;&gt; <red>Binary Right Shift Operator. 
+&gt;&gt; <red>binary Right Shift Operator. 
 The left operands value is moved right by the number of bits specified by the right operand.</red>
 A &gt;&gt; 2 = 15 i.e., 0000 1111
 
 </code>
 		<green><br></br>Assignment Operators<br></br></green>
 <code>
-= <red>Simple assignment operator. 
+= <red>is the assignment operator. 
 Assigns values from right side operands to left side operand.</red>
 C = A + B will assign the value of A + B to C
 
-+= <red>Add AND assignment operator. 
++= <red>the add AND assign operator. 
 It adds the right operand to the left operand and assign the result to the left operand.</red>	
 C += A is equivalent to C = C + A
 
@@ -1204,34 +1204,34 @@ C -= A is equivalent to C = C - A
 It multiplies the right operand with the left operand and assigns the result to the left operand.</red>	
 C *= A is equivalent to C = C * A
 
-/= <red>Divide AND assignment operator. 
+/= <red>the divide AND assign operator. 
 It divides the left operand with the right operand and assigns the result to the left operand.</red>
 C /= A is equivalent to C = C / A
 
-%= <red>Modulus AND assignment operator. 
+%= <red>the modulus AND assign operator. 
 It takes modulus using two operands and assigns the result to the left operand.</red>
 C %= A is equivalent to C = C % A
 
-&lt;&lt;= <red>Left shift AND assignment operator.</red>
+&lt;&lt;= <red>the Left shift AND assign operator.</red>
 C &lt;&lt;= 2 is same as C = C &lt;&lt; 2
 
-&gt;&gt;= <red>Right shift AND assignment operator.</red>
+&gt;&gt;= <red>the Right shift AND assign operator.</red>
 C &gt;&gt;= 2 is same as C = C &gt;&gt; 2
 
-&#38;= <red>Bitwise AND assignment operator.</red>
+&#38;= <red>the bitwise AND assign operator.</red>
 C &#38;= 2 is same as C = C &#38; 2
 
-^= <red>Bitwise exclusive OR and assignment operator.</red>
+^= <red>the bitwise exclusive OR and assign operator.</red>
 C ^= 2 is same as C = C ^ 2
 
-|= <red>Bitwise inclusive OR and assignment operator.</red>
+|= <red>the bitwise inclusive OR and assign operator.</red>
 C |= 2 is same as C = C | 2
 
 </code>
 		<green><br></br>Misc Operators<br></br></green>
 <code>
-sizeof() <red>Returns the size of a variable. sizeof(a), where a is integer, will return 4.</red>
-&#38;  <red>Returns the address of a variable. &#38;a; returns the actual address of the variable.</red>
+sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, will return 4.</red>
+&#38;  <red>it returns the address of a variable. &#38;a; returns the actual address of the variable.</red>
 * <red>Pointer to a variable. *a;</red>
 ? : <red>Conditional Expression. If Condition is true ? then value X : otherwise value Y; </red>
 </code>
