@@ -820,24 +820,26 @@ int main(int argc, char *argv[]) { /* ... */ }
 int main(int argc, char **argv) { /* ... */ }
 
 </code>
-		argc (ARGument Count) is an integer variable that stores the number of command-line 
+		<code>argc (ARGument Count)</code> is an integer variable that stores the number of 
+		command-line 
 		arguments passed by the user including the name of the program. 
 		<br></br>
 		So if we pass a 
 		value to a program, the value of argc would be 2 (one for argument and one for 
 		program name). <br></br>
 		The value of argc should be non-negative.<br></br>
-		argv (ARGument Vector) is an array of character pointers listing all the arguments.
+		<code>argv (ARGument Vector)</code> is an array of character pointers listing all the arguments.
 		<br></br>
-		If argc is greater than zero, the array elements from argv[0] to argv[argc-1] will 
+		If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
+		to <code>argv[argc-1]</code> will 
 		contain pointers to strings.<br></br>
-		argv[0] is the name of the program. 
+		<code>argv[0]</code> is the name of the program. 
 		<br></br>
-		After that until argv[argc-1] every element 
+		After that until <code>argv[argc-1]</code> every element 
 		is command -line arguments.<br></br><br></br>
 		
 		<red>Properties of Command Line Arguments in C:<br></br></red>
-		<blue>
+		<green>
 		They are passed to the main() function.<br></br>
 		They are parameters/arguments supplied to the program when it is invoked.<br></br>
 		They are used to control programs from outside instead of hard coding those values 
@@ -846,7 +848,7 @@ int main(int argc, char **argv) { /* ... */ }
 		argv[0] holds the name of the program.<br></br>
 		argv[1] points to the first command line argument and argv[argc-1] points to 
 		the last argument.<br></br>
-		</blue>
+		</green>
 		</command-line-arguments>
 		<ternary-operator>
 		Ternary operator is used for decision making instead of placing longer if and else 
@@ -887,11 +889,12 @@ printf("%d", c);
 		otherwise.<br></br><br></br>
 		
 		<red>The ternary operator take three arguments:</red>
-		<blue>
+		<br></br>
+		<green>
 		The first is a comparison argument;<br></br>
 		The second is the result upon a true comparison;<br></br>
 		The third is the result upon a false comparison;<br></br>
-		</blue>
+		</green>
 		</ternary-operator>
 		<modular-programming>
 		Modular programming consists of separating implementation from interface and 
@@ -902,7 +905,7 @@ printf("%d", c);
 		<br></br><br></br>
 		<red>Advantages of modular programming:</red>
 		<br></br><br></br>
-		<blue>
+		<green>
 		Code is easier to read - Working on modular programming makes code easier to read 
 		because functions perform different tasks as compared to monolithic codes. 
 		Sometimes modular programming can be a bit messy if we pass arguments and 
@@ -939,11 +942,11 @@ printf("%d", c);
 		if the code is split between more functions, files, repos, etc. We can also provide 
 		ownership to specific code modules, where a team member can break them down into 
 		smaller tasks.<br></br><br></br><br></br>
-		</blue>
+		</green>
 		
 		<red>Disadvantages of modular programming:</red>
 		<br></br><br></br>
-		<blue>
+		<green>
 		There is a need for extra time and budget for a product in modular programming.<br></br><br></br>
 		It is a challenging task to combine all the modules.<br></br><br></br>
 		Careful documentation is required so that other program modules are not affected.<br></br><br></br>
@@ -954,7 +957,7 @@ printf("%d", c);
 		same style.<br></br><br></br>
 		It reduces the program's efficiency because testing and debugging are 
 		time-consuming, where each function contains a thousand lines of code.<br></br><br></br>
-		</blue>
+		</green>
 <code>
 /*FILE module.h*/
  extern unsigned int Calculate_NoOfChars_In_string(char* str);
