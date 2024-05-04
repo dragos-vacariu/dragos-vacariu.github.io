@@ -398,9 +398,9 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
 		mode	A single character, which represents what you want to do with the file 
 		(read, write or append):<br></br><br></br>
-		w - Writes to a file<br></br>
-		a - Appends new data to a file<br></br>
-		r - Reads from a file<br></br><br></br>
+		<blue>w</blue> - Writes to a file<br></br>
+		<blue>a</blue> - Appends new data to a file<br></br>
+		<blue>r</blue> - Reads from a file<br></br><br></br>
 		
 		The w mode means that the file is opened for writing. To insert content to it, you can 
 		use the fprintf() function and add the pointer variable (fptr in our example) and some text:
@@ -547,26 +547,26 @@ int main()
 		</multi-threading>
 		<exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
 		<bitwise-operators>
-		The &#38; (bitwise AND) in C takes two numbers as operands and does AND on every bit 
+		The <code>&#38;</code> (bitwise AND) in C takes two numbers as operands and does AND on every bit 
 		of two numbers. The result of AND is 1 only if both bits are 1.  
 		<br></br><br></br>
-		The | (bitwise OR) in C takes two numbers as operands and does OR on every bit 
+		The <code>|</code> (bitwise OR) in C takes two numbers as operands and does OR on every bit 
 		of two numbers. The result of OR is 1 if any of the two bits is 1. 
 		<br></br><br></br>
-		The ^ (bitwise XOR) in C takes two numbers as operands and does XOR on every 
+		The <code>^</code> (bitwise XOR) in C takes two numbers as operands and does XOR on every 
 		bit of two numbers. The result of XOR is 1 if the two bits are different. 
 		<br></br><br></br>
-		The &lt;&lt; (left shift) in C takes two numbers, the left shifts the bits of the 
+		The <code>&lt;&lt;</code> (left shift) in C takes two numbers, the left shifts the bits of the 
 		first operand, and the second operand decides the number of places to shift. 
 		<br></br><br></br>
-		The &gt;&gt; (right shift) in C takes two numbers, right shifts the bits of the 
+		The <code>&gt;&gt;</code> (right shift) in C takes two numbers, right shifts the bits of the 
 		first operand, and the second operand decides the number of places to shift.
 		<br></br><br></br>
-		The ~ (bitwise NOT) in C takes one number and inverts all bits of it.
+		The <code>~</code> (bitwise NOT) in C takes one number and inverts all bits of it.
 		
 <code>
 
-// C Program to demonstrate use of bitwise operators
+// Example on how to use the bitwise operators:
 #include &lt;stdio.h&gt;
 int main()
 {
@@ -615,8 +615,9 @@ int main()
 		
 		The bitwise OR of two numbers is just the sum of those two numbers if there is no carry involved, otherwise, you just add their bitwise AND.
 		<br></br><br></br>
-		Let’s say, we have a=5(101) and b=2(010), since there is no carry involved, their sum is 
-		just a|b. Now, if we change ‘a’ to 6 which is 110 in binary, their sum would change 
+		Let’s say, we have a=5(101) and b=2(010), since there is no carry involved, 
+		their sum is just a|b. <br></br>
+		Now, if we change ‘a’ to 6 which is 110 in binary, their sum would change 
 		to a|b + a&#38;b since there is a carry involved. 
 		<br></br><br></br>
 		The bitwise XOR operator is the most useful operator from a technical interview perspective.
@@ -626,23 +627,28 @@ int main()
 		This problem can be efficiently solved by doing XOR to all numbers. 
 		<br></br><br></br>
 		
-		The &#38; operator can be used to quickly check if a number is odd or even.<br></br>
+		The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
 
-		The value of the expression (x &#38; 1) would be non-zero only if x is odd, otherwise, 
+		The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
 		the value would be zero. <br></br><br></br>
 		
 		The ~ operator should be used carefully.
 		<br></br><br></br>
-		The result of the ~ operator on a small number can be a big number if the result 
-		is stored in an unsigned variable. The result may be a negative number if the result 
+		The result of the <code>~</code> operator on a small number can be a big number if the result 
+		is stored in an unsigned variable. <br></br>
+		The result may be a negative number if the result 
 		is stored in a signed variable (assuming that the negative numbers are stored in 2’s 
 		complement form where the leftmost bit is the sign bit).<br></br>
 		</bitwise-operators>
-		<default-parameters>There are no default parameters in C. One way you can get by this is 
-		to pass in NULL pointers and then set the values to the default if NULL is passed.</default-parameters>
+		<default-parameters>
+		There are no default parameters in C. <br></br><br></br>
+		One way to achieve this is by passing NULL pointers and 
+		then set the values to the default if NULL is passed.
+		</default-parameters>
 		<interfaces>
-		In C, an interface is a set of function declarations without any implementation 
-		details. It defines a contract that concrete implementations must adhere to by providing 
+		In C: an interface is a set of function declarations without any implementation 
+		details. <br></br>
+		It defines a contract that concrete implementations must adhere to by providing 
 		definitions for all the functions declared in the interface.
 <code>
 
@@ -665,8 +671,11 @@ Both of them are close to forming a class.
 		</interfaces>
 		<macros>
 		Macros in C are powerful tools that allow developers to define reusable code snippets. 
+		<br></br>
 		They are defined using preprocessor directives and primarily used for code substitution 
-		and generation. Macros provide a convenient way to write concise and efficient code, 
+		and generation. 
+		<br></br>
+		Macros provide a convenient way to write concise and efficient code, 
 		improving the readability and maintainability of C programs.<br></br>
 <code>
 
@@ -694,11 +703,13 @@ int main()
 }
 </code>		
 		<br></br><br></br>
-		Object-Like Macros
+		Object-Like Macros:<br></br><br></br>
 		An object-like macro is a simple identifier that will be replaced by a code fragment. 
+		<br></br>
 		It is called object-like because it looks like an object in code that uses it. It is 
 		popularly used to replace a symbolic name with a numerical/variable represented 
-		as a constant.<br></br>
+		as a constant.
+		<br></br>
 <code>
 //Chain Macros
   
@@ -744,8 +755,9 @@ int main()
 		compilation. We can define constants and functions like macros using #define.
 		</defines>
 		<random-generators>
-		The rand() function returns the random integers whose range from 0 to RAND_MAX. 
-		The RAND_MAX is a symbolic constant that defines in stdlib.h header file, whose value 
+		The <code>rand()</code> function returns the random integers whose range from <code>0</code> to 
+		<code>RAND_MAX</code>. <br></br>
+		The <code>RAND_MAX</code> is a symbolic constant that defines in <code>stdlib.h</code> header file, whose value 
 		is greater but less than 32767 depending on the C libraries.<br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;    
@@ -763,11 +775,15 @@ void main()
 }  		
 
 </code>
-		The srand() function is a C library function that determines the initial point to generate 
-		different series of pseudo-random numbers. A srand() function cannot be used without 
-		using a rand() function. The srand() function is required to set the value of the seed 
+		The <code>srand()</code> function is a C library function that determines the initial 
+		point to generate 
+		different series of pseudo-random numbers. <br></br>
+		
+		A <code>srand()</code> function cannot be used without 
+		using a rand() function. <br></br>
+		The <code>srand()</code> function is required to set the value of the seed 
 		only once in a program to generate the different results of random integers before 
-		calling the rand() function. <br></br><br></br>
+		calling the <code>rand()</code> function. <br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;  
 #include &lt;stdlib.h&gt;  
@@ -790,29 +806,38 @@ int main()
 		</random-generators>
 		<command-line-arguments>
 		Command line arguments in C are passed to the main function 
-		as argc and argv. Command line arguments are used to control the program from 
-		the outside. argv[argc] is a Null pointer. The name of the program is 
-		stored in argv[0], the first command-line parameter in argv[1], and the 
-		last argument in argv[n]
+		as <code>argc</code> and <code>argv</code>. <br></br>
+		Command line arguments are used to control the program from 
+		the outside. <code>argv[argc]</code> is a Null pointer. <br></br>
+		The name of the program is 
+		stored in <code>argv[0]</code>, the first command-line parameter in <code>argv[1]</code>, 
+		and the	last argument in <code>argv[n]</code>.
 <code>
 /*Example*/
 int main(int argc, char *argv[]) { /* ... */ }
 
 //OR
 int main(int argc, char **argv) { /* ... */ }
+
 </code>
 		argc (ARGument Count) is an integer variable that stores the number of command-line 
-		arguments passed by the user including the name of the program. So if we pass a 
+		arguments passed by the user including the name of the program. 
+		<br></br>
+		So if we pass a 
 		value to a program, the value of argc would be 2 (one for argument and one for 
 		program name). <br></br>
 		The value of argc should be non-negative.<br></br>
 		argv (ARGument Vector) is an array of character pointers listing all the arguments.
+		<br></br>
 		If argc is greater than zero, the array elements from argv[0] to argv[argc-1] will 
 		contain pointers to strings.<br></br>
-		argv[0] is the name of the program , After that till argv[argc-1] every element 
+		argv[0] is the name of the program. 
+		<br></br>
+		After that until argv[argc-1] every element 
 		is command -line arguments.<br></br><br></br>
 		
-		Properties of Command Line Arguments in C<br></br>
+		<red>Properties of Command Line Arguments in C:<br></br></red>
+		<blue>
 		They are passed to the main() function.<br></br>
 		They are parameters/arguments supplied to the program when it is invoked.<br></br>
 		They are used to control programs from outside instead of hard coding those values 
@@ -821,11 +846,13 @@ int main(int argc, char **argv) { /* ... */ }
 		argv[0] holds the name of the program.<br></br>
 		argv[1] points to the first command line argument and argv[argc-1] points to 
 		the last argument.<br></br>
+		</blue>
 		</command-line-arguments>
 		<ternary-operator>
 		Ternary operator is used for decision making instead of placing longer if and else 
-		conditional statements:
+		conditional statements:<br></br>
 <code>
+
 /*Using IF ELSE statements:*/
 
 int a = 10, b = 20, c;
@@ -854,24 +881,28 @@ printf("%d", c);
 
 </code>
 		Syntax
-		condition ? value_if_true : value_if_false
-
-		The statement evaluates to value_if_true if condition is met, and value_if_false 
-		otherwise.
-		The ternary operator take three arguments:
-
-		The first is a comparison argument
-		The second is the result upon a true comparison
-		The third is the result upon a false comparison
+		<code>condition ? value_if_true : value_if_false</code>
+		<br></br>
+		The statement evaluates to <code>value_if_true</code> if condition is met, and <code>value_if_false</code> 
+		otherwise.<br></br><br></br>
+		
+		<red>The ternary operator take three arguments:</red>
+		<blue>
+		The first is a comparison argument;<br></br>
+		The second is the result upon a true comparison;<br></br>
+		The third is the result upon a false comparison;<br></br>
+		</blue>
 		</ternary-operator>
 		<modular-programming>
 		Modular programming consists of separating implementation from interface and 
-		hiding information in the implementation. In C this is achieved by placing 
+		hiding information in the implementation. <br></br>
+		In C this is achieved by placing 
 		the interface definition in a header file and the implementation in a source 
 		file. Disciplined use of static is used to hide implementation details.
 		<br></br><br></br>
-		Advantages of modular programming:<br></br><br></br>
-
+		<red>Advantages of modular programming:</red>
+		<br></br><br></br>
+		<blue>
 		Code is easier to read - Working on modular programming makes code easier to read 
 		because functions perform different tasks as compared to monolithic codes. 
 		Sometimes modular programming can be a bit messy if we pass arguments and 
@@ -908,9 +939,11 @@ printf("%d", c);
 		if the code is split between more functions, files, repos, etc. We can also provide 
 		ownership to specific code modules, where a team member can break them down into 
 		smaller tasks.<br></br><br></br><br></br>
+		</blue>
 		
-		Disadvantages of modular programming:
-
+		<red>Disadvantages of modular programming:</red>
+		<br></br><br></br>
+		<blue>
 		There is a need for extra time and budget for a product in modular programming.<br></br><br></br>
 		It is a challenging task to combine all the modules.<br></br><br></br>
 		Careful documentation is required so that other program modules are not affected.<br></br><br></br>
@@ -921,6 +954,7 @@ printf("%d", c);
 		same style.<br></br><br></br>
 		It reduces the program's efficiency because testing and debugging are 
 		time-consuming, where each function contains a thousand lines of code.<br></br><br></br>
+		</blue>
 <code>
 /*FILE module.h*/
  extern unsigned int Calculate_NoOfChars_In_string(char* str);
