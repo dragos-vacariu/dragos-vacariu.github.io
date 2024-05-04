@@ -99,7 +99,7 @@
 		</complex-data-types>
 		<loops>
 			In computer programming, a loop is a sequence of instruction s that is 
-			continually repeated until a certain condition is reached. 
+			continually repeated until a certain condition is reached. <br></br>
 			Typically, a certain process is done, such as getting an item of data 
 			and changing it, and then some condition is checked such as whether a 
 			counter has reached a prescribed number.<br></br><br></br>
@@ -175,9 +175,14 @@ while(counter &lt; 5)
 			Once the array is defined its size cannot be changed.<br></br><br></br>
 			
 			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
-			to the next element. Memory will be allocated dynamically for each element added to the list. The main benefit of a linked-list
+			to the next element. <br></br>
+			The memory can be allocated dynamically for each element added to the list. 
+			<br></br><br></br>
+			<green>
+			The main benefit of a linked-list
 			consists in the possibility of adding a variable number of elements, being able to delete or add an element without making copies
 			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
+			</green>
 			<br></br><br></br>
 			
 <code>
@@ -235,13 +240,14 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		<collection-methods>There are no built in functions for working with collections.</collection-methods>
 		<dynamic-memory-allocation>
 		Dynamic memory is allocated from the heap using some standard library functions. 
-		The two dynamic memory key functions are malloc() and free(). 
+		The two dynamic memory key functions are malloc() and free(). <br></br>
 		The malloc() function takes a single parameter, which is the size of the requested memory 
 		area in bytes. It returns a pointer to the allocated memory.
 		
 		C malloc() method:<br></br><br></br>
 		The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
-		large block of memory with the specified size. It returns a pointer of type void which 
+		large block of memory with the specified size. <br></br>
+		It returns a pointer of type void which 
 		can be cast into a pointer of any form. It doesn’t Initialize memory at execution time 
 		so that it has initialized each block with the default garbage value initially. <br></br><br></br>
 <code>
@@ -269,9 +275,12 @@ int main()
 
 </code>
 			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
+			<br></br><br></br>
 			The Malloc () and calloc() functions differ in how the functions are used when allocating 
-			memory at runtime. The Malloc () function only returns the starting address, it doesn't 
-			zero it. On the other hand, the calloc() function returns the starting address, zeroing it.
+			memory at runtime. <br></br>
+			The Malloc () function only returns the starting address, it doesn't zero it.
+			<br></br>			
+			On the other hand, the calloc() function returns the starting address, zeroing it.
 <code>
 
 /*Prototype void *calloc(size_t nitems, size_t size)*/
@@ -289,10 +298,10 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		<read-from-file>
 		C programming language supports four pre-defined functions to read contents from a file, defined in stdio.h header file:
 		<br></br><br></br>
-		fgetc()– This function is used to read a single character from the file.<br></br>
-		fgets()– This function is used to read strings from files.<br></br>
-		fscanf()– This function is used to read formatted input from a file.<br></br>
-		fread()– This function is used to read the block of raw bytes from files. This is used 
+		<blue>fgetc()</blue>– This function is used to read a single character from the file.<br></br>
+		<blue>fgets()</blue>– This function is used to read strings from files.<br></br>
+		<blue>fscanf()</blue>– This function is used to read formatted input from a file.<br></br>
+		<blue>fread()</blue>– This function is used to read the block of raw bytes from files. This is used 
 		to read binary files.
 		<br></br><br></br>
 		To open a file use: fopen(filename, mode);
@@ -301,9 +310,9 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
 		mode	A single character, which represents what you want to do with the file 
 		(read, write or append):<br></br><br></br>
-		w - Writes to a file<br></br>
-		a - Appends new data to a file<br></br>
-		r - Reads from a file<br></br>
+		<blue>w</blue> - Writes to a file<br></br>
+		<blue>a</blue> - Appends new data to a file<br></br>
+		<blue>r</blue> - Reads from a file<br></br>
 	
 <code>
 
