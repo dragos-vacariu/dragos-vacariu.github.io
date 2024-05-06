@@ -1910,9 +1910,187 @@ int main()
 </code>
 		</collections>
 		<collection-methods>Not present</collection-methods>
-		<dynamic-memory-allocation>Not present</dynamic-memory-allocation>
-		<read-from-file>Not present</read-from-file>
-		<write-to-file>Not present</write-to-file>
+		<dynamic-memory-allocation>
+		Additional to the C language: 
+		<br></br><br></br>
+		C++ integrates the operators new and delete for allocating dynamic memory. 
+		But these were not available in the C language; instead, it used a library solution, 
+		with the functions malloc, calloc, realloc and free, defined in the header <cstdlib> 
+		(known as <stdlib.h> in C). The functions are also available in C++ and can also be 
+		used to allocate and deallocate dynamic memory.
+		<br></br><br></br>
+		<red>Operators new and new[]: </red>
+		Dynamic memory is allocated using operator new. new is followed by a data 
+		type specifier and, if a sequence of more than one element is required, 
+		the number of these within brackets []. <br></br>
+		It returns a pointer to the beginning of the new block of memory allocated. <br></br>
+<code>
+
+//Example:
+int * foo;
+foo = new int [5];
+
+</code>
+		In this case, the system dynamically allocates space for five elements of type int 
+		and returns a pointer to the first element of the sequence, which is assigned to 
+		foo (a pointer). <br></br>
+		Therefore, foo now points to a valid block of memory with space 
+		for five elements of type int.<br></br>
+		<br></br>
+		<red>Operators delete and delete[]: </red>
+		In most cases, memory allocated dynamically is only needed during specific periods 
+		of time within a program; once it is no longer needed, it can be freed so that 
+		the memory becomes available again for other requests of dynamic memory. <br></br>
+		This is the purpose of operator delete, whose syntax is: <br></br>
+<code>
+
+// Example of dynamic allocation
+// and deallocation of memory using new and delete
+#include &lt;iostream&gt; 
+using namespace std;
+
+int main()
+{
+    // Pointer initialization to null
+    int* p = NULL;
+
+    // Request memory for the variable
+    // using new operator
+    p = new (nothrow) int;
+    if (!p)
+        cout &lt;&lt; "allocation of memory failed\n";
+    else {
+        // Store value at allocated address
+        *p = 29;
+        cout &lt;&lt; "Value of p: " &lt;&lt; *p &lt;&lt; endl;
+    }
+
+    // Request block of memory
+    // using new operator
+    float* r = new float(75.25);
+
+    cout &lt;&lt; "Value of r: " &lt;&lt; *r &lt;&lt; endl;
+
+    // Request block of memory of size n
+    int n = 5;
+    int* q = new (nothrow) int[n];
+
+    if (!q)
+        cout &lt;&lt; "allocation of memory failed\n";
+    else {
+        for (int i = 0; i &lt; n; i++)
+            q[i] = i + 1;
+
+        cout &lt;&lt; "Value store in block of memory: ";
+        for (int i = 0; i &lt; n; i++)
+            cout &lt;&lt; q[i] &lt;&lt; " ";
+    }
+
+    // freed the allocated memory
+    delete p;
+    delete r;
+
+    // freed the block of allocated memory
+    delete[] q;
+
+    return 0;
+	
+	/*
+	OUTPUT:
+	Value of p: 29
+	Value of r: 75.25
+	Value store in block of memory: 1 2 3 4 5 
+	*/
+}
+
+</code>
+		</dynamic-memory-allocation>
+		<read-from-file>
+		The fstream library allows us to work with files.
+		<br></br><br></br>
+		To use the fstream library, include both the standard #include &lt;iostream&gt;  AND 
+		the #include &lt;fstream&gt;  header file:
+		<br></br><br></br>
+		There are three classes included in the fstream library, which are used to create, write or read files:
+		<br></br><br></br>
+		Class		Description<br></br>
+		ofstream	Creates and writes to files<br></br>
+		ifstream	Reads from files<br></br>
+		fstream		A combination of ofstream and ifstream: creates, reads, and writes to files
+		<br></br><br></br>
+		To read from a file, use either the ifstream or fstream class, and the name of the file.
+		<br></br><br></br>
+		<green>Note: we also use a while loop together with the getline() function 
+		(which belongs to the ifstream class) to read the file line by line, and to print 
+		the content of the file:</green>
+		<br></br>
+<code>
+
+// Create a text string, which is used to output the text file
+
+#include &lt;iostream&gt; 
+#include &lt;fstream&gt; 
+
+using namespace std;
+
+int main() 
+{
+	string myText;
+
+	// Read from the text file
+	ifstream MyReadFile("filename.txt");
+
+	// Use a while loop together with the getline() function to read the file line by line
+	while (getline (MyReadFile, myText)) {
+	  // Output the text from the file
+	  cout &lt;&lt; myText;
+	}
+
+	// Close the file
+	MyReadFile.close(); //It is considered good practice to close the file, 
+	//and it can clean up unnecessary memory space.
+}
+
+</code>
+		</read-from-file>
+		<write-to-file>
+		There are three classes included in the fstream library, which are used to create, 
+		write or read files:
+		<br></br><br></br>
+		Class		Description<br></br>
+		ofstream	Creates and writes to files<br></br>
+		ifstream	Reads from files<br></br>
+		fstream		A combination of ofstream and ifstream: creates, reads, and writes to files
+		<br></br><br></br>
+		Create and Write To a File:<br></br>
+		To create a file, use either the ofstream or fstream class, and specify 
+		the name of the file.
+		<br></br><br></br>
+		To write to the file, use the insertion operator (&lt;&lt;).<br></br>
+<code>
+
+//Example of writing to file using fstream in C++
+
+#include &lt;iostream&gt; 
+#include &lt;fstream&gt; 
+
+using namespace std;
+
+int main() 
+{
+	// Create and open a text file
+	ofstream MyFile("filename.txt");
+
+	// Write to the file
+	MyFile &lt;&lt; "Files can be tricky, but it is fun enough!";
+
+	// Close the file
+	MyFile.close(); //It is considered good practice to close the file, 
+	//and it can clean up unnecessary memory space.
+}
+
+</code>
+		</write-to-file>
 		<serialization>Not present</serialization>
 		<deserialization>Not present</deserialization>
 		<constructors>Not present</constructors>
@@ -2160,7 +2338,110 @@ int main()
 
 </code>
 		</default-parameters>
-		<interfaces>Not present</interfaces>
+		<interfaces>
+		An interface describes the behavior or capabilities of a C++ class without committing 
+		to a particular implementation of that class.
+		<br></br><br></br>
+		The C++ interfaces are implemented using abstract classes and these abstract classes 
+		should not be confused with data abstraction which is a concept of keeping 
+		implementation details separate from associated data.<br></br>
+<code>
+
+/*Example of an interface implementation*/
+class Box {
+   public:
+      // pure virtual function
+      virtual double getVolume() = 0;
+      
+   private:
+      double length;      // Length of a box
+      double breadth;     // Breadth of a box
+      double height;      // Height of a box
+};
+
+</code>
+		</interfaces>
+		<abstract-classes>
+		The purpose of an abstract class (often referred to as an ABC) is to provide an 
+		appropriate base class from which other classes can inherit. <br></br>
+		Abstract classes cannot be used to instantiate objects and serves only as an 
+		interface. <br></br>
+		Attempting to instantiate an object of an abstract class causes a 
+		compilation error. <br></br>
+		<br></br>
+		Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of 
+		the virtual functions, which means that it supports the interface declared by the 
+		ABC. Failure to override a pure virtual function in a derived class, 
+		then attempting to instantiate objects of that class, is a compilation error.
+<code>
+
+#include &lt;iostream&gt; 
+ 
+using namespace std;
+ 
+// Base class
+class Shape {
+   public:
+      // pure virtual function providing interface framework.
+      virtual int getArea() = 0;
+      void setWidth(int w) {
+         width = w;
+      }
+   
+      void setHeight(int h) {
+         height = h;
+      }
+   
+   protected:
+      int width;
+      int height;
+};
+ 
+// Derived classes
+class Rectangle: public Shape {
+   public:
+      int getArea() { 
+         return (width * height); 
+      }
+};
+
+class Triangle: public Shape {
+   public:
+      int getArea() { 
+         return (width * height)/2; 
+      }
+};
+ 
+int main(void) {
+   Rectangle Rect;
+   Triangle  Tri;
+ 
+   Rect.setWidth(5);
+   Rect.setHeight(7);
+   
+   // Print the area of the object.
+   cout &lt;&lt; "Total Rectangle area: " &lt;&lt; Rect.getArea() &lt;&lt; endl;
+
+   Tri.setWidth(5);
+   Tri.setHeight(7);
+   
+   // Print the area of the object.
+   cout &lt;&lt; "Total Triangle area: " &lt;&lt; Tri.getArea() &lt;&lt; endl; 
+
+   return 0;
+}
+
+</code>
+		An object-oriented system might use an abstract base class to provide a common and 
+		standardized interface appropriate for all the external applications. <br></br>
+		Then, through inheritance from that abstract base class, derived classes are 
+		formed that operate similarly.
+		<br></br><br></br>
+		The capabilities (i.e., the public functions) offered by the external applications 
+		are provided as pure virtual functions in the abstract base class. <br></br>
+		The implementations of these pure virtual functions are provided in the derived 
+		classes that correspond to the specific types of the application.<br></br>
+		</abstract-classes>
 		<macros>
 		Similar to C Language: 
 		<br></br><br></br>
