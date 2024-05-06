@@ -2201,19 +2201,19 @@ class Student
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
 	
 	//override the extraction for object.field deserialization
-    friend ifstream &#38; operator &gt; &gt;  (ifstream &#38; ifs, Student &#38; s);
+    friend ifstream &#38; operator &gt;&gt;  (ifstream &#38; ifs, Student &#38; s);
 	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
 };
 
 //Overriding the operators for whole-object serialization and deserialization
-ofstream & operator &lt;&lt; (ofstream & ofs, Student s)
+ofstream &#38;  operator &lt;&lt; (ofstream & ofs, Student s)
 {
     ofs &lt;&lt; s.name &lt;&lt; endl;
     ofs &lt;&lt; s.rollno &lt;&lt; endl;
     ofs &lt;&lt; s.branch &lt;&lt; endl;
     return ofs;
 }
-ifstream & operator &gt;&gt;  (ifstream & ifs, Student & s)
+ifstream &#38;  operator &gt;&gt;  (ifstream & ifs, Student & s)
 {
     ifs &gt;&gt;  s.name &gt;&gt;  s.rollno &gt;&gt;  s.branch;
     return ifs;
