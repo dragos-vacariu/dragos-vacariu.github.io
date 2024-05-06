@@ -2114,7 +2114,7 @@ class Student
 	int rollno;
 	string branch;
 
-	Student ()
+	Student () // default constructor
 	{
 	} 
 	
@@ -2130,7 +2130,7 @@ class Student
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
 	
 	//override the extraction for object.field deserialization
-    friend ifstream &#38; operator &gt; &gt;  (ifstream &#38; ifs, Student &#38; s);
+    friend ifstream &#38; operator &gt;&gt; (ifstream &#38; ifs, Student &#38; s);
 	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
 };
 
@@ -2142,9 +2142,9 @@ int main()
 	ofstream ofs ("Student.txt", ios::trunc);
 
 	//writing to the file
-	ofs &lt;&lt;  s1.name &lt;&lt; endl;
-	ofs &lt;&lt;  s1.rollno &lt;&lt; endl;
-	ofs &lt;&lt;  s1.branch &lt;&lt; endl;
+	ofs &lt;&lt; s1.name &lt;&lt; endl;
+	ofs &lt;&lt; s1.rollno &lt;&lt; endl;
+	ofs &lt;&lt; s1.branch &lt;&lt; endl;
 	ofs.close();
 
 	Student s2; //empty object
@@ -2154,8 +2154,8 @@ int main()
 
 	//reading from the file
 	ifs &gt;&gt; s2.name;
-	ifs &gt;&gt;  s2.rollno;
-	ifs &gt;&gt;  s2.branch;
+	ifs &gt;&gt; s2.rollno;
+	ifs &gt;&gt; s2.branch;
 	ifs.close();
 
 	cout &lt;&lt; s2.name &lt;&lt; endl;
@@ -2163,10 +2163,12 @@ int main()
 	cout &lt;&lt; s2.branch &lt;&lt; endl;
 
 	/*
+	
 	OUTPUT: 
 	James 
 	28 
 	IT
+	
 	*/
 }
 
@@ -2190,11 +2192,11 @@ class Student
 	string name;
 	int rollno;
 	string branch;
-	Student ()
+	Student () // default constructor
 	{
 	}
 	
-	Student (string n, int r, string b)
+	Student (string n, int r, string b) // overloading constructor
 	{
 		name = n;
 		rollno = r;
@@ -2206,7 +2208,7 @@ class Student
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
 	
 	//override the extraction for object.field deserialization
-    friend ifstream &#38; operator &gt;&gt;  (ifstream &#38; ifs, Student &#38; s);
+    friend ifstream &#38; operator &gt;&gt; (ifstream &#38; ifs, Student &#38; s);
 	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
 };
 
@@ -2218,9 +2220,9 @@ ofstream &#38;  operator &lt;&lt; (ofstream &#38; ofs, Student s)
     ofs &lt;&lt; s.branch &lt;&lt; endl;
     return ofs;
 }
-ifstream &#38;  operator &gt;&gt;  (ifstream &#38; ifs, Student &#38; s)
+ifstream &#38; operator &gt;&gt; (ifstream &#38; ifs, Student &#38; s)
 {
-    ifs &gt;&gt;  s.name &gt;&gt;  s.rollno &gt;&gt;  s.branch;
+    ifs &gt;&gt; s.name &gt;&gt; s.rollno &gt;&gt; s.branch;
     return ifs;
 }
 
@@ -2249,11 +2251,13 @@ int main()
 	ifs &gt;&gt; s2;
 	ifs.close();
 		
-	cout &lt;&lt;  s2.name &lt;&lt;  " " &lt;&lt;  s2.rollno &lt;&lt;  " " &lt;&lt;  s2.branch &lt;&lt;  endl;
+	cout &lt;&lt; s2.name &lt;&lt; " " &lt;&lt; s2.rollno &lt;&lt; " " &lt;&lt; s2.branch &lt;&lt; endl;
 
 	/*
+	
 	OUTPUT:
 	James 28 IT
+	
 	*/
 }
 
