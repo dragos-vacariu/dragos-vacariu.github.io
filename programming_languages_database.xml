@@ -2138,7 +2138,7 @@ int main()
 
 	//Open the output stream
 	ofstream ofs ("Student.txt", ios::trunc);
-	
+
 	//writing to the file
 	ofs &lt;&lt;  s1.name &lt;&lt; endl;
 	ofs &lt;&lt;  s1.rollno &lt;&lt; endl;
@@ -2146,20 +2146,20 @@ int main()
 	ofs.close();
 
 	Student s2; //empty object
-	
+
 	//Open the input stream
 	ifstream ifs("Student.txt");
-	
+
 	//reading from the file
 	ifs &gt;&gt; s2.name;
 	ifs &gt;&gt;  s2.rollno;
 	ifs &gt;&gt;  s2.branch;
 	ifs.close();
 
-    cout &lt;&lt; s2.name &lt;&lt; endl;
-    cout &lt;&lt; s2.rollno &lt;&lt; endl;
-    cout &lt;&lt; s2.branch &lt;&lt; endl;
-	
+	cout &lt;&lt; s2.name &lt;&lt; endl;
+	cout &lt;&lt; s2.rollno &lt;&lt; endl;
+	cout &lt;&lt; s2.branch &lt;&lt; endl;
+
 	/*
 	OUTPUT: 
 	James 
