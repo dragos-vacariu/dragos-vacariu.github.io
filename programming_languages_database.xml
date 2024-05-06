@@ -325,7 +325,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 
 <red>/*Read file char by char*/</red>
 
-FILE* ptr; FILE is basically a data type, and we need to create a pointer variable to work with it 
+FILE* ptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
 char ch;
 
 // Opening file in reading mode
