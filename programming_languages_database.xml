@@ -2533,6 +2533,10 @@ int rand(void);
 		<ternary-operator>Same as presented in C Language.</ternary-operator>
 		<modular-programming>Same as presented in C Language.</modular-programming>
 		<string-methods>
+		The <code>std::string</code> is a class in C++ since C++98. This class is the standard 
+		representation for a text string. It includes some typical string operations 
+		like find, replace, concatenate, compare etc. It is present in &lt;string&gt; 
+		header file. <br></br><br></br>
 		Commonly Used String Functions in C++:<br></br>
 		<br></br>
 		<blue>length() or size()</blue><br></br>
