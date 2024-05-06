@@ -2011,10 +2011,7 @@ int main()
 </code>
 		</dynamic-memory-allocation>
 		<read-from-file>
-		The fstream library allows us to work with files.
-		<br></br><br></br>
-		To use the fstream library, include both the standard #include &lt;iostream&gt;  AND 
-		the #include &lt;fstream&gt;  header file:
+		The fstream library can be used in C++ to work with files.
 		<br></br><br></br>
 		There are three classes included in the fstream library, which are used to create, write or read files:
 		<br></br><br></br>
@@ -2059,6 +2056,8 @@ int main()
 </code>
 		</read-from-file>
 		<write-to-file>
+		The fstream library can be used in C++ to work with files.
+		<br></br><br></br>
 		There are three classes included in the fstream library, which are used to create, 
 		write or read files:
 		<br></br><br></br>
