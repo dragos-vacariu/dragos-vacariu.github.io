@@ -2532,7 +2532,51 @@ int rand(void);
 		<command-line-arguments>Same as presented in C Language.</command-line-arguments>
 		<ternary-operator>Same as presented in C Language.</ternary-operator>
 		<modular-programming>Same as presented in C Language.</modular-programming>
-		<string-methods>Not present</string-methods>
+		<string-methods>
+		Commonly Used String Functions in C++:<br></br>
+		<br></br>
+		<blue>length() or size()</blue><br></br>
+		It will return the length of the string.<br></br>
+		<br></br>
+		<blue>array[index]</blue><br></br>
+		To access individual characters using array indexing.<br></br>
+		<br></br>
+		<blue>at()</blue><br></br>
+		Used to access a character at a specified index.<br></br>
+		<br></br>
+		<blue>+ Operator</blue><br></br>
+		<code>+</code> operator is used to concatenate two strings.<br></br>
+		<br></br>
+		<blue>append()</blue><br></br>
+		The <code>append()</code> function adds one string to the end of another.<br></br>
+		<br></br>
+		<blue>== Operator</blue><br></br>
+		You can compare strings using the <code>==</code> operator.<br></br>
+		<br></br>
+		<blue>compare()</blue><br></br>
+		The <code>compare()</code> function returns an integer value indicating the 
+		comparison result.<br></br>
+		<br></br>
+		<blue>substr()</blue><br></br>
+		Use the substr() function to extract a substring from a string.<br></br>
+		<br></br>
+		<blue>find()</blue><br></br>
+		The find() function returns the position of the first occurrence of a substring.<br></br>
+		<br></br>
+		<blue>replace()</blue><br></br>
+		Use the replace() function to modify a part of the string.<br></br>
+		<br></br>
+		<blue>insert()</blue><br></br>
+		The insert() function adds a substring at a specified position.<br></br>
+		<br></br>
+		<blue>erase()</blue><br></br>
+		Use the erase() function to remove a part of the string.<br></br>
+		<br></br>
+		<blue>c_str()</blue><br></br>
+		To obtain a C-style string from a <code>std::string</code>, you can use the 
+		<code>c_str()</code> function.<br></br>
+		
+		</string-methods>
 		<datatype-conversions>
 		Same as presented in C Language.
 		<br></br><br></br>
@@ -2540,7 +2584,11 @@ int rand(void);
 		conversion is done automatically by the compiler, while explicit type conversion 
 		is done manually by the programmer.<br></br>
 		</datatype-conversions>
-		<optional-parameters>Not present</optional-parameters>
+		<optional-parameters>
+		A parameter with a default value, is often known as an "optional parameter".
+		<br></br><br></br> 
+		For more information see the <blue>default-parameters</blue> section.
+		</optional-parameters>
 		<decorators>
 		Decorator is a structural pattern that allows adding new behaviors to objects 
 		dynamically by placing them inside special wrapper objects, called decorators. 
