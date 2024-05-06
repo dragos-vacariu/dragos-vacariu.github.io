@@ -2148,13 +2148,13 @@ int main()
 	Student s2; //empty object
 	
 	//Open the input stream
-    ifstream ifs("Student.txt");
+	ifstream ifs("Student.txt");
 	
 	//reading from the file
 	ifs &gt;&gt; s2.name;
-    ifs &gt;&gt;  s2.rollno;
-    ifs &gt;&gt;  s2.branch;
-    ifs.close();
+	ifs &gt;&gt;  s2.rollno;
+	ifs &gt;&gt;  s2.branch;
+	ifs.close();
 
     cout &lt;&lt; s2.name &lt;&lt; endl;
     cout &lt;&lt; s2.rollno &lt;&lt; endl;
@@ -2218,8 +2218,8 @@ ifstream &#38;  operator &gt;&gt;  (ifstream &#38; ifs, Student &#38; s)
     ifs &gt;&gt;  s.name &gt;&gt;  s.rollno &gt;&gt;  s.branch;
     return ifs;
 }
-/*
 
+/*
 now we can read/write the whole object to and from the file. 
 
 Example: 
@@ -2231,10 +2231,15 @@ ifs &gt;&gt; s2;
 int main()
 {
     Student s1("James", 28, "IT");
+	
+	//Open the output stream
     ofstream ofs("Student.txt", ios::trunc);
     ofs &lt;&lt;  s1;
     ofs.close();
-    Student s2;
+	
+    Student s2; // empty object
+	
+	//Open the input stream
     ifstream ifs("Student.txt");
     ifs &gt;&gt; s2;
     cout &lt;&lt;  s2.name &lt;&lt;  " " &lt;&lt;  s2.rollno &lt;&lt;  " " &lt;&lt;  s2.branch &lt;&lt;  endl;
