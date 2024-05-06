@@ -2109,20 +2109,21 @@ using namespace std;
 class Student 
 {
     public:
-    string name;
-    int rollno;
-    string branch;
+		string name;
+		int rollno;
+		string branch;
 	
-    Student ()
-    {
-    } 
+		Student ()
+		{
+		} 
+		
+		Student (string n, int r, string b) // overloading constructor
+		{
+			name = n;
+			rollno = r;
+			branch = b;
+		} 
 	
-    Student (string n, int r, string b) // overloading constructor
-    {
-        name = n;
-        rollno = r;
-        branch = b;
-    } 
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
@@ -2184,18 +2185,20 @@ using namespace std;
 class Student
 {
     public:
-    string name;
-    int rollno;
-    string branch;
-    Student ()
-    {
-    }
-    Student (string n, int r, string b)
-    {
-        name = n;
-        rollno = r;
-        branch = b;
-    }
+		string name;
+		int rollno;
+		string branch;
+		Student ()
+		{
+		}
+		
+		Student (string n, int r, string b)
+		{
+			name = n;
+			rollno = r;
+			branch = b;
+		}
+
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
@@ -2230,21 +2233,21 @@ ifs &gt;&gt; s2;
 
 int main()
 {
-    Student s1("James", 28, "IT");
-	
+	Student s1("James", 28, "IT");
+
 	//Open the output stream
 	ofstream ofs("Student.txt", ios::trunc);
 	ofs &lt;&lt;  s1;
 	ofs.close();
-	
-    Student s2; // empty object
-	
+
+	Student s2; // empty object
+
 	//Open the input stream
 	ifstream ifs("Student.txt");
 	ifs &gt;&gt; s2;
 	cout &lt;&lt;  s2.name &lt;&lt;  " " &lt;&lt;  s2.rollno &lt;&lt;  " " &lt;&lt;  s2.branch &lt;&lt;  endl;
 	ifs.close();
-	
+
 	/*
 	OUTPUT:
 	James 28 IT
