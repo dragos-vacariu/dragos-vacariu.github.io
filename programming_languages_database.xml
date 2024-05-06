@@ -1415,59 +1415,60 @@ class Shape{
     //By default a member without access-specifier is set to private.
 
 	protected:
-		int length;
-		int height;
+	int length;
+	int height;
 
 	public:
-		virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
-		{
-			cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
-		}
+	virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
+	{
+		cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
+	}
 };
 
 class Square: public Shape
 {
 
 	private:
-		int area;
-		void CalcArea()
-		{
-			area=length*height;
-		}
+	int area;
+	void CalcArea()
+	{
+		area=length*height;
+	}
 
 	public:
-		Square (int len, int hg)
-		{
-			length=len;
-			height=hg;
-			CalcArea();
-		};
-		void DisplayArea()
-		{
-			cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
-		}
-		
-		//This function overrides the parent class function
-		void DisplayInfo()
-		{
-			cout &lt;&lt; "This is the child class." &lt;&lt; endl;
-		}
+	Square (int len, int hg)
+	{
+		length=len;
+		height=hg;
+		CalcArea();
+	};
+	void DisplayArea()
+	{
+		cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
+	}
+	
+	//This function overrides the parent class function
+	void DisplayInfo()
+	{
+		cout &lt;&lt; "This is the child class." &lt;&lt; endl;
+	}
 };
 
 class Circle: public Shape
 {
 
 	private:
-		int radius;
+	int radius;
+	
 	public:
-		Circle(int len)
-		{
-			radius=len/2;
-		}
-		void DisplayRadius()
-		{
-			cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
-		}
+	Circle(int len)
+	{
+		radius=len/2;
+	}
+	void DisplayRadius()
+	{
+		cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
+	}
 };
 
 int main()
@@ -1516,19 +1517,19 @@ using namespace std;
 class Shape{
 
     protected: 
-		//protected variables are visible into this class and the other classes that are inherited to this.
+	//protected variables are visible into this class and the other classes that are inherited to this.
 
-		string name;
+	string name;
 		
     public:
-        Shape(string newname)
-        {
-            name=newname;
-        }
-        string getName() const
-        {
-            return name;
-        }
+	Shape(string newname)
+	{
+		name=newname;
+	}
+	string getName() const
+	{
+		return name;
+	}
 };
 
 //CHILD CLASS ONE
@@ -1539,15 +1540,15 @@ class Circle : public Shape //making Circle class derive from the Shape class (s
     double radius; //this variable can be private, or protected or public (anything).
 
     public:
-        Circle(string inheritedName, double newradius) : Shape (inheritedName)//this will call the Shape constructor
-        //which will set a value into it's string variable called 'name', in this way, a variable will be used in 2 classes.
-        {
-            radius=newradius;
-        }
-        double getCircleRadius() const
-        {
-            return radius;
-        }
+	Circle(string inheritedName, double newradius) : Shape (inheritedName)//this will call the Shape constructor
+	//which will set a value into it's string variable called 'name', in this way, a variable will be used in 2 classes.
+	{
+		radius=newradius;
+	}
+	double getCircleRadius() const
+	{
+		return radius;
+	}
 
 };
 
@@ -1558,19 +1559,19 @@ class Rectangle : public Shape // making the Rectangle class derive from Shape C
     double length, width;
 
     public:
-        Rectangle (string inheritedName2, double newlength, double newwidth): Shape (inheritedName2)
-        {
-            length=newlength;
-            width=newwidth;
-        }
-        double getRectangleLength() const
-        {
-            return length;
-        }
-        double getRectangleWidth () const
-        {
-            return width;
-        }
+	Rectangle (string inheritedName2, double newlength, double newwidth): Shape (inheritedName2)
+	{
+		length=newlength;
+		width=newwidth;
+	}
+	double getRectangleLength() const
+	{
+		return length;
+	}
+	double getRectangleWidth () const
+	{
+		return width;
+	}
 };
 
 int main()
