@@ -2109,20 +2109,21 @@ using namespace std;
 class Student 
 {
     public:
-		string name;
-		int rollno;
-		string branch;
 	
-		Student ()
-		{
-		} 
-		
-		Student (string n, int r, string b) // overloading constructor
-		{
-			name = n;
-			rollno = r;
-			branch = b;
-		} 
+	string name;
+	int rollno;
+	string branch;
+
+	Student ()
+	{
+	} 
+	
+	Student (string n, int r, string b) // overloading constructor
+	{
+		name = n;
+		rollno = r;
+		branch = b;
+	}
 	
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
@@ -2185,19 +2186,20 @@ using namespace std;
 class Student
 {
     public:
-		string name;
-		int rollno;
-		string branch;
-		Student ()
-		{
-		}
-		
-		Student (string n, int r, string b)
-		{
-			name = n;
-			rollno = r;
-			branch = b;
-		}
+	
+	string name;
+	int rollno;
+	string branch;
+	Student ()
+	{
+	}
+	
+	Student (string n, int r, string b)
+	{
+		name = n;
+		rollno = r;
+		branch = b;
+	}
 
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
@@ -2245,8 +2247,9 @@ int main()
 	//Open the input stream
 	ifstream ifs("Student.txt");
 	ifs &gt;&gt; s2;
-	cout &lt;&lt;  s2.name &lt;&lt;  " " &lt;&lt;  s2.rollno &lt;&lt;  " " &lt;&lt;  s2.branch &lt;&lt;  endl;
 	ifs.close();
+		
+	cout &lt;&lt;  s2.name &lt;&lt;  " " &lt;&lt;  s2.rollno &lt;&lt;  " " &lt;&lt;  s2.branch &lt;&lt;  endl;
 
 	/*
 	OUTPUT:
