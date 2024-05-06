@@ -1913,10 +1913,12 @@ int main()
 		<dynamic-memory-allocation>
 		Additional to the C language: 
 		<br></br><br></br>
-		C++ integrates the operators new and delete for allocating dynamic memory. 
+		C++ integrates the operators <code>new</code> and <code>delete</code> for allocating dynamic memory. 
 		But these were not available in the C language; instead, it used a library solution, 
-		with the functions malloc, calloc, realloc and free, defined in the header &lt;cstdlib&gt; 
-		(known as &lt;stdlib.h&gt;  in C). The functions are also available in C++ and can also be 
+		with the functions <code>malloc</code>, <code>calloc</code>, <code>realloc</code> and <code>free</code>, 
+		defined in the header <code>&lt;cstdlib&gt;</code> (known as <code>&lt;stdlib.h&gt;</code>  in C). 
+		<br></br>
+		The functions are also available in C++ and can also be 
 		used to allocate and deallocate dynamic memory.
 		<br></br><br></br>
 		<red>Operators new and new[]: </red>
@@ -2017,9 +2019,9 @@ int main()
 		There are three classes included in the fstream library, which are used to create, write or read files:
 		<br></br><br></br>
 		Class		Description<br></br>
-		ofstream	Creates and writes to files<br></br>
-		ifstream	Reads from files<br></br>
-		fstream		A combination of ofstream and ifstream: creates, reads, and writes to files
+		<red>ofstream</red>	Creates and writes to files<br></br>
+		<red>ifstream</red>	Reads from files<br></br>
+		<red>fstream</red>		A combination of ofstream and ifstream: creates, reads, and writes to files
 		<br></br><br></br>
 		To read from a file, use either the ifstream or fstream class, and the name of the file.
 		<br></br><br></br>
@@ -2061,9 +2063,9 @@ int main()
 		write or read files:
 		<br></br><br></br>
 		Class		Description<br></br>
-		ofstream	Creates and writes to files<br></br>
-		ifstream	Reads from files<br></br>
-		fstream		A combination of ofstream and ifstream: creates, reads, and writes to files
+		<red>ofstream</red>	Creates and writes to files<br></br>
+		<red>ifstream</red>	Reads from files<br></br>
+		<red>fstream</red>		A combination of ofstream and ifstream: creates, reads, and writes to files
 		<br></br><br></br>
 		Create and Write To a File:<br></br>
 		To create a file, use either the ofstream or fstream class, and specify 
