@@ -2533,7 +2533,13 @@ int rand(void);
 		<ternary-operator>Same as presented in C Language.</ternary-operator>
 		<modular-programming>Same as presented in C Language.</modular-programming>
 		<string-methods>Not present</string-methods>
-		<datatype-conversions>Not present</datatype-conversions>
+		<datatype-conversions>
+		Same as presented in C Language.
+		<br></br><br></br>
+		Type conversion in C++ is of two types - implicit and explicit. Implicit type 
+		conversion is done automatically by the compiler, while explicit type conversion 
+		is done manually by the programmer.<br></br>
+		</datatype-conversions>
 		<optional-parameters>Not present</optional-parameters>
 		<decorators>
 		Decorator is a structural pattern that allows adding new behaviors to objects 
