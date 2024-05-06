@@ -1915,11 +1915,12 @@ int main()
 		<br></br><br></br>
 		C++ integrates the operators new and delete for allocating dynamic memory. 
 		But these were not available in the C language; instead, it used a library solution, 
-		with the functions malloc, calloc, realloc and free, defined in the header <cstdlib> 
-		(known as <stdlib.h> in C). The functions are also available in C++ and can also be 
+		with the functions malloc, calloc, realloc and free, defined in the header &lt;cstdlib&gt; 
+		(known as &lt;stdlib.h&gt;  in C). The functions are also available in C++ and can also be 
 		used to allocate and deallocate dynamic memory.
 		<br></br><br></br>
 		<red>Operators new and new[]: </red>
+		<br></br>
 		Dynamic memory is allocated using operator new. new is followed by a data 
 		type specifier and, if a sequence of more than one element is required, 
 		the number of these within brackets []. <br></br>
@@ -1938,9 +1939,11 @@ foo = new int [5];
 		for five elements of type int.<br></br>
 		<br></br>
 		<red>Operators delete and delete[]: </red>
+		<br></br>
 		In most cases, memory allocated dynamically is only needed during specific periods 
 		of time within a program; once it is no longer needed, it can be freed so that 
 		the memory becomes available again for other requests of dynamic memory. <br></br>
+		<br></br>
 		This is the purpose of operator delete, whose syntax is: <br></br>
 <code>
 
