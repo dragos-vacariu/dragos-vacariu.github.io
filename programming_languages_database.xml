@@ -2123,11 +2123,11 @@ class Student
         rollno = r;
         branch = b;
     } 
-	//override the insertion operator for serialization
+	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
 	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
 	
-	//override the extraction for deserialization
+	//override the extraction for object.field deserialization
     friend ifstream &#38; operator &gt; &gt;  (ifstream &#38; ifs, Student &#38; s);
 	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
 };
@@ -2218,7 +2218,15 @@ ifstream &#38;  operator &gt;&gt;  (ifstream & ifs, Student & s)
     ifs &gt;&gt;  s.name &gt;&gt;  s.rollno &gt;&gt;  s.branch;
     return ifs;
 }
+/*
 
+now we can read/write the whole object to and from the file. 
+
+Example: 
+ofs &lt;&lt; s1; 
+ifs &gt;&gt; s2; 
+
+*/
 
 int main()
 {
