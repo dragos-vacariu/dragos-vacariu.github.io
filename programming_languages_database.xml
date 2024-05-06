@@ -2269,11 +2269,11 @@ int main()
 		of a class is created.
 <code>
 
+/*Example*/
 #include &lt;iostream&gt; 
 
 using namespace std;
 
-/*Example*/
 class MyClass {     // The class
   public:           // Access specifier
     MyClass() {     // Constructor
@@ -2297,12 +2297,12 @@ int main() {
 
 <code>
 
+/*Example*/
 #include &lt;iostream&gt; 
 #include &lt;string&gt; 
 
 using namespace std;
 
-/*Example*/
 class MyClass {     // The class
   public:           // Access specifier
     MyClass(string message) {     // Constructor with parameter
