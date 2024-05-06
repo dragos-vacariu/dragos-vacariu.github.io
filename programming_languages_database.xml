@@ -2206,14 +2206,14 @@ class Student
 };
 
 //Overriding the operators for whole-object serialization and deserialization
-ofstream &#38;  operator &lt;&lt; (ofstream & ofs, Student s)
+ofstream &#38;  operator &lt;&lt; (ofstream &#38; ofs, Student s)
 {
     ofs &lt;&lt; s.name &lt;&lt; endl;
     ofs &lt;&lt; s.rollno &lt;&lt; endl;
     ofs &lt;&lt; s.branch &lt;&lt; endl;
     return ofs;
 }
-ifstream &#38;  operator &gt;&gt;  (ifstream & ifs, Student & s)
+ifstream &#38;  operator &gt;&gt;  (ifstream &#38; ifs, Student &#38; s)
 {
     ifs &gt;&gt;  s.name &gt;&gt;  s.rollno &gt;&gt;  s.branch;
     return ifs;
