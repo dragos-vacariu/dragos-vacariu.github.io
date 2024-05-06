@@ -2686,7 +2686,7 @@ int main()
 			all of which support C# and are free, open-source, and cross-platform. 
 			Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
 		</description>
-		<oop>C# OOP</oop>
+		<oop>No information present in the database.</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -2698,7 +2698,12 @@ int main()
 		<loops>No information present in the database.</loops>
 		<collections>No information present in the database.</collections>
 		<collection-methods>No information present in the database.</collection-methods>
-		<dynamic-memory-allocation>No information present in the database.</dynamic-memory-allocation>
+		<dynamic-memory-allocation>
+		In C#, objects are dynamically allocated on the heap using the new keyword.
+		<br></br><br></br>
+		When an object is no longer needed, it is the responsibility of the garbage 
+		collector to deallocate the memory and reclaim it for future use.
+		</dynamic-memory-allocation>
 		<read-from-file>No information present in the database.</read-from-file>
 		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>No information present in the database.</serialization>
@@ -2715,8 +2720,6 @@ int main()
 		<bitwise-operators>No information present in the database.</bitwise-operators>
 		<default-parameters>No information present in the database.</default-parameters>
 		<interfaces>No information present in the database.</interfaces>
-		<macros>No information present in the database.</macros>
-		<defines>No information present in the database.</defines>
 		<random-generators>No information present in the database.</random-generators>
 		<command-line-arguments>No information present in the database.</command-line-arguments>
 		<ternary-operator>No information present in the database.</ternary-operator>
@@ -2728,7 +2731,6 @@ int main()
 		<decorators>No information present in the database.</decorators>
 		<operators>No information present in the database.</operators>
 		<pre-post-incrementation>No information present in the database.</pre-post-incrementation>
-		<datatypes-sizing>No information present in the database.</datatypes-sizing>
 	</programming_language>
 	
 	<programming_language>
@@ -2749,8 +2751,7 @@ int main()
 			It has application programming interfaces (APIs) for working with text, dates, 
 			regular expressions, standard data structures, and the Document Object Model (DOM).
 		</description>
-		<oop>
-		</oop>
+		<oop>No information present in the database.</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -2762,7 +2763,6 @@ int main()
 		<loops>No information present in the database.</loops>
 		<collections>No information present in the database.</collections>
 		<collection-methods>No information present in the database.</collection-methods>
-		<dynamic-memory-allocation>No information present in the database.</dynamic-memory-allocation>
 		<read-from-file>No information present in the database.</read-from-file>
 		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>No information present in the database.</serialization>
@@ -2779,15 +2779,11 @@ int main()
 		<bitwise-operators>No information present in the database.</bitwise-operators>
 		<default-parameters>No information present in the database.</default-parameters>
 		<interfaces>No information present in the database.</interfaces>
-		<macros>No information present in the database.</macros>
-		<defines>No information present in the database.</defines>
 		<random-generators>No information present in the database.</random-generators>
-		<command-line-arguments>No information present in the database.</command-line-arguments>
 		<ternary-operator>No information present in the database.</ternary-operator>
 		<modular-programming>No information present in the database.</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<optional-parameters>No information present in the database.</optional-parameters>
 		<partial-classes>No information present in the database.</partial-classes>
 		<decorators>No information present in the database.</decorators>
 		<operators>No information present in the database.</operators>
@@ -2810,7 +2806,7 @@ int main()
 			dynamic capabilities (such as reflection and runtime code modification) that are 
 			typically not available in traditional compiled languages.
 		</description>
-		<oop>Java OOP</oop>
+		<oop>No information present in the database.</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -2822,7 +2818,14 @@ int main()
 		<loops>No information present in the database.</loops>
 		<collections>No information present in the database.</collections>
 		<collection-methods>No information present in the database.</collection-methods>
-		<dynamic-memory-allocation>No information present in the database.</dynamic-memory-allocation>
+		<dynamic-memory-allocation>
+		Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
+		at runtime. <br></br>
+		New objects are always created in heap space, and the references to these objects 
+		are stored in stack memory. <br></br>
+		These objects have global access and we can access them from anywhere in the 
+		application.<br></br>
+		</dynamic-memory-allocation>
 		<read-from-file>No information present in the database.</read-from-file>
 		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>No information present in the database.</serialization>
@@ -2839,15 +2842,12 @@ int main()
 		<bitwise-operators>No information present in the database.</bitwise-operators>
 		<default-parameters>No information present in the database.</default-parameters>
 		<interfaces>No information present in the database.</interfaces>
-		<macros>No information present in the database.</macros>
-		<defines>No information present in the database.</defines>
 		<random-generators>No information present in the database.</random-generators>
 		<command-line-arguments>No information present in the database.</command-line-arguments>
 		<ternary-operator>No information present in the database.</ternary-operator>
 		<modular-programming>No information present in the database.</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<optional-parameters>No information present in the database.</optional-parameters>
 		<partial-classes>No information present in the database.</partial-classes>
 		<decorators>No information present in the database.</decorators>
 		<operators>No information present in the database.</operators>
@@ -2867,7 +2867,7 @@ int main()
 			"batteries included" language due to its comprehensive standard library.
 		
 		</description>
-		<oop>Python OOP</oop>
+		<oop>No information present in the database.</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -2879,7 +2879,13 @@ int main()
 		<loops>No information present in the database.</loops>
 		<collections>No information present in the database.</collections>
 		<collection-methods>No information present in the database.</collection-methods>
-		<dynamic-memory-allocation>No information present in the database.</dynamic-memory-allocation>
+		<dynamic-memory-allocation>
+		Memory is allocated to the objects at the run time. <br></br>
+		We use the Heap for implement dynamic memory management. <br></br>
+		We can use the memory throughout the program. <br></br><br></br>
+		As we know, everything in Python is an object means dynamic memory 
+		allocation inspires the Python memory management.<br></br>
+		</dynamic-memory-allocation>
 		<read-from-file>No information present in the database.</read-from-file>
 		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>No information present in the database.</serialization>
@@ -2896,15 +2902,12 @@ int main()
 		<bitwise-operators>No information present in the database.</bitwise-operators>
 		<default-parameters>No information present in the database.</default-parameters>
 		<interfaces>No information present in the database.</interfaces>
-		<macros>No information present in the database.</macros>
-		<defines>No information present in the database.</defines>
 		<random-generators>No information present in the database.</random-generators>
 		<command-line-arguments>No information present in the database.</command-line-arguments>
 		<ternary-operator>No information present in the database.</ternary-operator>
 		<modular-programming>No information present in the database.</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<optional-parameters>No information present in the database.</optional-parameters>
 		<partial-classes>No information present in the database.</partial-classes>
 		<decorators>No information present in the database.</decorators>
 		<operators>No information present in the database.</operators>
