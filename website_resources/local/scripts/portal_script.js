@@ -206,18 +206,19 @@ function loadXMLDoc(xml_file)
 						
 			for(var index=0; index< programming_languages.length; index++)
 			{
-				/*Grabbing all concepts available*/
-				for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
-				{
-					if(concept_collection.includes(programming_languages[index].concepts[concept_index].concept_name) == false)
-					{
-						concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
-					}
-				}
-				/*Adding the programming language selection if not General Knowledge*/
+				/*Grabbing all concepts available for all the programming languages*/
+				/*Ignore everything for General-Programming-Knowledge*/
 				if(programming_languages[index].name != "General-Programming-Knowledge")
 				{
-					if(index<3) //display only 3 columns in the table by default
+					/*Adding the programming language selection*/				
+					for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
+					{
+						if(concept_collection.includes(programming_languages[index].concepts[concept_index].concept_name) == false)
+						{
+							concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
+						}
+					}
+					if(index<4) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
 					{
 						programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true));
 					}
