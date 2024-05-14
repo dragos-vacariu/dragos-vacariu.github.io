@@ -2100,31 +2100,31 @@ int main()
 			Some of the methods available in C++ for the Collection Type Classes: Vector or List are:
 			<br></br><br></br>
 			<red>Capacity:</red><br></br>
-			<code>size			</code><br></br>Return size (public member function)<br></br><br></br>
-			<code>max_size		</code><br></br>Return maximum size (public member function)<br></br><br></br>
-			<code>resize		</code><br></br>Change size (public member function)<br></br><br></br>
-			<code>capacity		</code><br></br>Return size of allocated storage capacity (public member function)<br></br><br></br>
-			<code>empty			</code><br></br>Test whether vector is empty (public member function)<br></br><br></br>
-			<code>reserve		</code><br></br>Request a change in capacity (public member function)<br></br><br></br>
-			<code>shrink_to_fit	</code><br></br>Shrink to fit (public member function)<br></br><br></br>
+			<code>size()	</code><br></br>Return size (public member function)<br></br><br></br>
+			<code>max_size()</code><br></br>Return maximum size (public member function)<br></br><br></br>
+			<code>resize()	</code><br></br>Change size (public member function)<br></br><br></br>
+			<code>capacity()</code><br></br>Return size of allocated storage capacity (public member function)<br></br><br></br>
+			<code>empty()	</code><br></br>Test whether vector is empty (public member function)<br></br><br></br>
+			<code>reserve()	</code><br></br>Request a change in capacity (public member function)<br></br><br></br>
+			<code>shrink_to_fit()</code><br></br>Shrink to fit (public member function)<br></br><br></br>
 			<br></br>
 			<red>Element access:</red><br></br>
 			<code>operator[]</code><br></br>Access element (public member function)<br></br><br></br>
-			<code>at		</code><br></br>Access element (public member function)<br></br><br></br>
-			<code>front		</code><br></br>Access first element (public member function)<br></br><br></br>
-			<code>back		</code><br></br>Access last element (public member function)<br></br><br></br>
-			<code>data		</code><br></br>Access data (public member function)<br></br><br></br>
+			<code>at()</code><br></br>Access element (public member function)<br></br><br></br>
+			<code>front()</code><br></br>Access first element (public member function)<br></br><br></br>
+			<code>back()</code><br></br>Access last element (public member function)<br></br><br></br>
+			<code>data()</code><br></br>Access data (public member function)<br></br><br></br>
 			<br></br>
 			<red>Modifiers:</red><br></br>
-			<code>assign	</code><br></br>Assign vector content (public member function)<br></br><br></br>
-			<code>push_back	</code><br></br>Add element at the end (public member function)<br></br><br></br>
-			<code>pop_back	</code><br></br>Delete last element (public member function)<br></br><br></br>
-			<code>insert	</code><br></br>Insert elements (public member function)<br></br><br></br>
-			<code>erase		</code><br></br>Erase elements (public member function)<br></br><br></br>
-			<code>swap		</code><br></br>Swap content (public member function)<br></br><br></br>
-			<code>clear		</code><br></br>Clear content (public member function)<br></br><br></br>
-			<code>emplace	</code><br></br>Construct and insert element (public member function)<br></br><br></br>
-			<code>emplace_back</code><br></br>Construct and insert element at the end (public member function)<br></br><br></br>
+			<code>assign()</code><br></br>Assign vector content (public member function)<br></br><br></br>
+			<code>push_back()</code><br></br>Add element at the end (public member function)<br></br><br></br>
+			<code>pop_back()</code><br></br>Delete last element (public member function)<br></br><br></br>
+			<code>insert()</code><br></br>Insert elements (public member function)<br></br><br></br>
+			<code>erase()</code><br></br>Erase elements (public member function)<br></br><br></br>
+			<code>swap()</code><br></br>Swap content (public member function)<br></br><br></br>
+			<code>clear()</code><br></br>Clear content (public member function)<br></br><br></br>
+			<code>emplace()</code><br></br>Construct and insert element (public member function)<br></br><br></br>
+			<code>emplace_back()</code><br></br>Construct and insert element at the end (public member function)<br></br><br></br>
 		</collection-methods>
 		<dynamic-memory-allocation>
 			*General-Programming-Knowledge*
