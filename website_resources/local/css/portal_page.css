@@ -180,15 +180,7 @@
 	margin: 5px;
 	*/
 }
-/*
-pre{
-    counter-reset: line;
-}
 
-#page_block code:before{
-    content: ""counter(line)". ";
-}
-*/
 #page_block red{
 	color: #aa0000;
 	font-family: Tahoma;
