@@ -4,28 +4,28 @@
 <programming_language>
 		<name>General-Programming-Knowledge</name>
 		<oop>
-		OOP stands for Object-Oriented Programming.
-		<br></br><br></br>
-		Procedural programming is about writing procedures or functions that perform operations on the data, 
-		while object-oriented programming is about creating objects that contain both data and functions.
-		<br></br><br></br>
-		Object-oriented programming has several advantages over procedural programming:
-		<br></br><br></br>
-		<green>
-		OOP is faster and easier to execute;<br></br>
-		OOP provides a clear structure for the programs;<br></br>
-		OOP helps to keep the code DRY "Don't Repeat Yourself", and makes the code 
-		easier to maintain, modify and debug;<br></br>
-		OOP makes it possible to create full reusable applications with less code and 
-		shorter development time;
-		</green>
-		<br></br><br></br>
-		<red>
-		Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
-		of code. You should extract out the codes that are common for the application, 
-		and place them at a single place and reuse them instead of repeating it.
-		</red>
-		<br></br>
+			OOP stands for Object-Oriented Programming.
+			<br></br><br></br>
+			Procedural programming is about writing procedures or functions that perform operations on the data, 
+			while object-oriented programming is about creating objects that contain both data and functions.
+			<br></br><br></br>
+			Object-oriented programming has several advantages over procedural programming:
+			<br></br><br></br>
+			<green>
+			OOP is faster and easier to execute;<br></br>
+			OOP provides a clear structure for the programs;<br></br>
+			OOP helps to keep the code DRY "Don't Repeat Yourself", and makes the code 
+			easier to maintain, modify and debug;<br></br>
+			OOP makes it possible to create full reusable applications with less code and 
+			shorter development time;
+			</green>
+			<br></br><br></br>
+			<red>
+			Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
+			of code. You should extract out the codes that are common for the application, 
+			and place them at a single place and reuse them instead of repeating it.
+			</red>
+			<br></br>
 		</oop>
 	</programming_language>
 	<programming_language>
@@ -1363,28 +1363,7 @@ int main()
 			and many vendors provide C++ compilers, including the Free Software Foundation, 
 			LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
 		</description>
-		<oop>
-		OOP stands for Object-Oriented Programming.
-		<br></br><br></br>
-		Procedural programming is about writing procedures or functions that perform operations on the data, while object-oriented programming is about creating objects that contain both data and functions.
-		<br></br><br></br>
-		Object-oriented programming has several advantages over procedural programming:
-		<br></br><br></br>
-		<green>
-		OOP is faster and easier to execute;<br></br>
-		OOP provides a clear structure for the programs;<br></br>
-		OOP helps to keep the C++ code DRY "Don't Repeat Yourself", and makes the code 
-		easier to maintain, modify and debug;<br></br>
-		OOP makes it possible to create full reusable applications with less code and 
-		shorter development time;
-		</green>
-		<br></br><br></br>
-		<red>
-		Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
-		of code. You should extract out the codes that are common for the application, 
-		and place them at a single place and reuse them instead of repeating it.
-		</red>
-		<br></br>
+		<oop>*General-Programming-Knowledge*
 		</oop>
 		<encapsulation>
 		The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from 
@@ -3148,7 +3127,7 @@ int main()
 			It has application programming interfaces (APIs) for working with text, dates, 
 			regular expressions, standard data structures, and the Document Object Model (DOM).
 		</description>
-		<oop>No information present in the database.</oop>
+		<oop>*General-Programming-Knowledge*</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -3203,7 +3182,7 @@ int main()
 			dynamic capabilities (such as reflection and runtime code modification) that are 
 			typically not available in traditional compiled languages.
 		</description>
-		<oop>No information present in the database.</oop>
+		<oop>*General-Programming-Knowledge*</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
@@ -3264,7 +3243,7 @@ int main()
 			"batteries included" language due to its comprehensive standard library.
 		
 		</description>
-		<oop>No information present in the database.</oop>
+		<oop>*General-Programming-Knowledge*</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>

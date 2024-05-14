@@ -13,7 +13,7 @@ const table_view_value = "table view";
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
 const programming_language_div_style = [
-	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
+	"background-color: rgba(255,255,255,0.1); padding: 1vw; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
@@ -251,6 +251,7 @@ function showTable()
 	var hidden = table_content.getAttribute("hidden");
 	if (hidden) 
 	{
+		removeTable();
 		fillTable();
 		table_content.removeAttribute("hidden");
     }
@@ -326,28 +327,32 @@ function fillTable()
 			/*For each language in the table selected to be displayed - insert a column*/
 			for(var index=0; index < programming_languages.length; index++)
 			{
-				/*check if the language is selected to be displayed*/ 
-				if(programming_language_selection.children[index].innerHTML == programming_languages[index].name && programming_language_selection.children[index].value==true)
+				for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
 				{
-					var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+					/*check if the language is selected to be displayed*/
+					if(programming_language_selection.children[lang_selection_index].innerHTML == programming_languages[index].name && programming_language_selection.children[lang_selection_index].value==true)
+					{
+						var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+						
+						/*
+						The findIndex() method of Array instances returns the index of the first element in an 
+						array that satisfies the provided testing function. If no elements satisfy the testing 
+						function, -1 is returned.
+						*/
 					
-					/*
-					The findIndex() method of Array instances returns the index of the first element in an 
-					array that satisfies the provided testing function. If no elements satisfy the testing 
-					function, -1 is returned.
-					*/
-				
-					cell = row.insertCell(); //empty cell
-					cell.style = concept_value_style + programming_language_div_style[index];
-											
-					/*If the concept exists for this language*/
-					if(found_element_index >= 0) 
-					{
-						cell.innerHTML = programming_languages[index].concepts[found_element_index].concept_value;
-					}
-					else
-					{
-						cell.innerHTML = "NA";
+						cell = row.insertCell(); //empty cell
+						cell.style = concept_value_style + programming_language_div_style[index];
+												
+						/*If the concept exists for this language*/
+						if(found_element_index >= 0) 
+						{
+							cell.innerHTML = programming_languages[index].concepts[found_element_index].concept_value;
+							checkCopyConceptFromGeneralKnowledge(cell, programming_languages[index].concepts[found_element_index]);
+						}
+						else
+						{
+							cell.innerHTML = "NA";
+						}
 					}
 				}
 			}
@@ -510,6 +515,7 @@ function showParagraph()
 	var hidden = paragraph_content.getAttribute("hidden");
 	if (hidden) 
 	{
+		removeParagraph();
 		fillParagraph();
 		paragraph_content.removeAttribute("hidden");
     }
@@ -552,7 +558,7 @@ function fillParagraph()
 {
 	var index = 0;
 	programming_languages.forEach(async (language) => {
-		for(var lang_selection_index=0; lang_selection_index<programming_language_selection.children.length; lang_selection_index++)
+		for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
 		{
 			/*if language is selected to be displayed*/
 			if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
@@ -583,7 +589,7 @@ function fillParagraph()
 							
 							p = document.createElement("p")
 							p.innerHTML += language.concepts[concept_index].concept_value;
-							checkCopyConceptFromGeneralKnowledge(p);
+							checkCopyConceptFromGeneralKnowledge(p, language.concepts[concept_index]);
 							
 							p.style = concept_value_style;
 							div.appendChild(p);
@@ -597,31 +603,36 @@ function fillParagraph()
 	});
 }
 
-function checkCopyConceptFromGeneralKnowledge(p)
+function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 {
-	if(String(p.innerHTML).includes(copy_GeneralKnowledge_token))
+	//Enter here if this is paragraph or table cell
+	if(String(html_element.tagName).toLowerCase() == "p" ||
+		String(html_element.tagName).toLowerCase() == "td")
 	{
-		
-		var found_element_index = programming_languages.findIndex(element => element.name == "General-Programming-Knowledge");
-		if( found_element_index >= 0 )
+		if(String(html_element.innerHTML).includes(copy_GeneralKnowledge_token))
 		{
-			var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == language.concepts[concept_index].concept_name);
-			if( found_concept >= 0 )
+			
+			var found_element_index = programming_languages.findIndex(element => element.name == "General-Programming-Knowledge");
+			if( found_element_index >= 0 )
 			{
-				p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, programming_languages[found_element_index].concepts[found_concept].concept_value);
+				var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == concept.concept_name);
+				if( found_concept >= 0 )
+				{
+					html_element.innerHTML = String(html_element.innerHTML).replace(copy_GeneralKnowledge_token, programming_languages[found_element_index].concepts[found_concept].concept_value);
+				}
+				else
+				{
+					/*If something happened and for some reason there is no such entry in the General-Programming-Knowledge just clear this substring*/
+					html_element.innerHTML = String(html_element.innerHTML).replace(copy_GeneralKnowledge_token, "");
+				}
 			}
 			else
 			{
-				/*If something happened and for some reason there is no such entry in the General-Programming-Knowledge just clear this substring*/
+				/*If something happened and cannot find General-Programming-Knowledge just clear this substring*/
 				p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
 			}
+			
 		}
-		else
-		{
-			/*If something happened and cannot find General-Programming-Knowledge just clear this substring*/
-			p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
-		}
-		
 	}
 }
 
