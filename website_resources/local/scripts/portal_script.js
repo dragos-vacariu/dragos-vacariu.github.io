@@ -211,14 +211,17 @@ function loadXMLDoc(xml_file)
 						concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
 					}
 				}
-				/*Adding the programming language selection*/
-				if(index<3) //display only 3 columns in the table by default
+				/*Adding the programming language selection if not General Knowledge*/
+				if(programming_languages[index].name != "General-Programming-Knowledge")
 				{
-					programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true));
-				}
-				else
-				{
-					programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false));
+					if(index<3) //display only 3 columns in the table by default
+					{
+						programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true));
+					}
+					else
+					{
+						programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false));
+					}
 				}
 			}
 			
