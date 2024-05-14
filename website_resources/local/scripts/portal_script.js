@@ -578,15 +578,16 @@ function fillParagraph()
 							p = document.createElement("p")
 							p.innerHTML += language.concepts[concept_index].concept_value;
 							
-							if(programming_language_selection.children[lang_selection_index].innerHTML.includes("COPY_FROM_C++"))
+							if(String(p.innerHTML).includes("COPY_FROM_C++"))
 							{
+								
 								var found_element_index = programming_languages.findIndex(element => element.name == "C++");
 								if( found_element_index >= 0 )
 								{
-									var found_concept = programming_languages[found_element_index].concept.findIndex(element => element.concept_name == language.concepts[concept_index].concept_name);
+									var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == language.concepts[concept_index].concept_name);
 									if( found_concept >= 0 )
 									{
-										p.innerHTML.replace("COPY_FROM_C++", programming_languages[found_element_index])
+										p.innerHTML = String(p.innerHTML).replace("COPY_FROM_C++", programming_languages[found_element_index].concepts[found_concept].concept_value);
 									}
 								}
 								
