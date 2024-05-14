@@ -830,6 +830,11 @@ C |= 2 is same as C = C | 2
 			Using decorators you can wrap objects countless number of times since both target 
 			objects and decorators follow the same interface.<br></br>
 		</decorators>
+		<generic-programming>
+			Generic programming is a style of computer programming in which algorithms are 
+			written in terms of data types to-be-specified-later that are then instantiated 
+			when needed for specific types provided as parameters.<br></br>
+		</generic-programming>
 	</programming_language>
 	
 	<programming_language>
@@ -847,6 +852,8 @@ C |= 2 is same as C = C | 2
 			and embedded systems.
 		</description>
 		<generic-programming>
+			*General-Programming-Knowledge*
+			<br></br>
 			In C Language generic programming can be achieved using:<br></br><br></br>
 			Variable argument lists;<br></br>
 			Using <code>void *</code> and function pointers to write generic code;<br></br>
@@ -938,23 +945,23 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		<collection-methods>There are no built in functions for working with collections.</collection-methods>
 		<dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
 		<read-from-file>
-		C programming language supports four pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
-		<br></br><br></br>
-		<blue>fgetc()</blue>– This function is used to read a single character from the file.<br></br>
-		<blue>fgets()</blue>– This function is used to read strings from files.<br></br>
-		<blue>fscanf()</blue>– This function is used to read formatted input from a file.<br></br>
-		<blue>fread()</blue>– This function is used to read the block of raw bytes from files. This is used 
-		to read binary files.
-		<br></br><br></br>
-		To open a file use: <code>fopen(filename, mode)</code>;
-		<br></br><br></br>
-		Where:<br></br><br></br>
-		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
-		mode	A single character, which represents what you want to do with the file 
-		(read, write or append):<br></br><br></br>
-		<blue>w</blue> - Writes to a file<br></br>
-		<blue>a</blue> - Appends new data to a file<br></br>
-		<blue>r</blue> - Reads from a file<br></br>
+			C programming language supports four pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
+			<br></br><br></br>
+			<blue>fgetc()</blue>– This function is used to read a single character from the file.<br></br>
+			<blue>fgets()</blue>– This function is used to read strings from files.<br></br>
+			<blue>fscanf()</blue>– This function is used to read formatted input from a file.<br></br>
+			<blue>fread()</blue>– This function is used to read the block of raw bytes from files. This is used 
+			to read binary files.
+			<br></br><br></br>
+			To open a file use: <code>fopen(filename, mode)</code>;
+			<br></br><br></br>
+			Where:<br></br><br></br>
+			filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
+			mode	A single character, which represents what you want to do with the file 
+			(read, write or append):<br></br><br></br>
+			<blue>w</blue> - Writes to a file<br></br>
+			<blue>a</blue> - Appends new data to a file<br></br>
+			<blue>r</blue> - Reads from a file<br></br>
 	
 <code>
 
@@ -1030,22 +1037,22 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		
 		</read-from-file>
 		<write-to-file>
-		To create a file, or write to a file you can use the w mode inside the fopen() function.<br></br>
-		Function Prototype: fopen(filename, mode);
-		<br></br><br></br>
-		Where:<br></br><br></br>
-		filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
-		mode	A single character, which represents what you want to do with the file 
-		(read, write or append):<br></br><br></br>
-		<blue>w</blue> - Writes to a file<br></br>
-		<blue>a</blue> - Appends new data to a file<br></br>
-		<blue>r</blue> - Reads from a file<br></br><br></br>
-		
-		The w mode means that the file is opened for writing. To insert content to it, you can 
-		use the fprintf() function and add the pointer variable (fptr in our example) and some text:
-		<br></br><br></br>
-		If you write to a file that already exists, the old content is deleted, and the new content 
-		is inserted. This is important to know, as you might accidentally erase existing content.
+			To create a file, or write to a file you can use the w mode inside the fopen() function.<br></br>
+			Function Prototype: fopen(filename, mode);
+			<br></br><br></br>
+			Where:<br></br><br></br>
+			filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
+			mode	A single character, which represents what you want to do with the file 
+			(read, write or append):<br></br><br></br>
+			<blue>w</blue> - Writes to a file<br></br>
+			<blue>a</blue> - Appends new data to a file<br></br>
+			<blue>r</blue> - Reads from a file<br></br><br></br>
+			
+			The w mode means that the file is opened for writing. To insert content to it, you can 
+			use the fprintf() function and add the pointer variable (fptr in our example) and some text:
+			<br></br><br></br>
+			If you write to a file that already exists, the old content is deleted, and the new content 
+			is inserted. This is important to know, as you might accidentally erase existing content.
 <code>
 
 FILE *fptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
@@ -1199,13 +1206,17 @@ int main()
 			*General-Programming-Knowledge*
 		</bitwise-operators>
 		<default-parameters>
+			*General-Programming-Knowledge*
+			<br></br>
 			There are no default parameters in C. <br></br><br></br>
 			One way to achieve this is by passing NULL pointers and 
 			then set the values to the default if NULL is passed.
 		</default-parameters>
 		<interfaces>
-			In C: an interface is a set of function declarations without any implementation 
-			details. <br></br>
+			*General-Programming-Knowledge*
+			<br></br>
+			In C: an interface can be implemented as a set of function declarations without 
+			any implementation details. <br></br>
 			It defines a contract that concrete implementations must adhere to by providing 
 			definitions for all the functions declared in the interface.
 <code>
@@ -1324,6 +1335,8 @@ printf("%d", c);
 </code>
 		</ternary-operator>
 		<modular-programming>
+			*General-Programming-Knowledge*
+			<br></br>
 			In C this is achieved by placing 
 			the interface definition in a header file and the implementation in a source 
 			file. Disciplined use of static is used to hide implementation details.
@@ -1406,6 +1419,7 @@ printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 		</string-methods>
 		<datatype-conversions>
 			*General-Programming-Knowledge*
+			<br></br>
 			It is one of the important concepts introduced in 'C' 
 			programming.<br></br>
 <code>
@@ -1441,7 +1455,7 @@ float percentage = (float) userScore / maxScore * 100.0;
 printf("User's percentage is %.2f", percentage);
 </code>
 		</datatype-conversions>
-		<optional-parameters>C does not support optional parameters.</optional-parameters>
+		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
 		<operators>
 			*General-Programming-Knowledge*
 			<green><br></br>Misc Operators<br></br></green>
@@ -3223,9 +3237,9 @@ int main()
 		<inheritance>*General-Programming-Knowledge*</inheritance>
 		<abstraction>*General-Programming-Knowledge*</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
-		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
-		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
-		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
+		<simple-data-types>No information present in the database.</simple-data-types>
+		<complex-data-types>No information present in the database.</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
 		<collections>*General-Programming-Knowledge*</collections>
 		<collection-methods>*General-Programming-Knowledge*</collection-methods>
