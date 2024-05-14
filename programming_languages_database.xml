@@ -26,7 +26,7 @@
 			C allows a function call to have a variable number of
 			arguments with the variable argument list mechanism.<br></br>
 			Use ellipsis <code>...</code> to denote a variable number of arguments to
-			the compiler. the ellipsis can only occur at the end of an
+			the compiler. The ellipsis can only occur at the end of an
 			argument list.<br></br><br></br>
 			Here are some standard function calls that use variable
 			argument lists:<br></br><br></br>
@@ -76,7 +76,7 @@
 		</simple-data-types>
 		<complex-data-types>
 			Data types that are derived from fundamental data types:<br></br><br></br>
-			<code>bool type</code><br></br><br></br>
+			<code>bool type</code> - The bool type is a <red>byte-sized</red> type that can only hold the value true or false.<br></br><br></br>
 			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants (unchangeable values).<br></br><br></br>
 			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
 			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code>.
@@ -84,21 +84,26 @@
 			When the header <code>complex.h</code> is 
 			included, the three complex number types are also accessible as double complex, 
 			float complex, long double complex.<br></br><br></br>
-			<code>Arrays</code>: A collection of elements of the same data type. <br></br>
+			<code>Arrays</code> - A collection of elements of the same data type. <br></br>
 			An array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
 			These entities or elements can be of int, float, char, or double data type or can be of user-defined data types too
-			like structures.<br></br><br></br>
-			<code>Pointers</code>: A variable that stores the memory address of another variable. 
+			like structures.<br></br>
+			The size of an array can be calculated by multiplying the <red>data-type * numberOfElements</red> within the array.
+			<br></br><br></br>
+			<code>Pointers</code> - A variable that stores the memory address of another variable. 
 			The size of a pointer in C programming language varies depending on factors such as the operating system and CPU 
 			architecture.<br></br>
-			Typically, on a 32-bit computer system, the size of pointer is 4 bytes,	
-			while on a 64-bit computer system, it is 8 bytes.<br></br><br></br>
+			Typically, on a <blue>32-bit</blue> computer system, the size of pointer is <red>4 bytes</red>,	
+			while on a <blue>64-bit</blue> computer system, it is <red>8 bytes</red>.<br></br><br></br>
 			<code>Structures</code>: A collection of variables of different data types grouped 
-			together under a single name. <br></br><br></br>
-			<code>Unions</code>: A special type of structure that can store only one value at a time.<br></br><br></br>
-			<code>Typedefs</code>: A way to create a new name for an existing data type to improve code 
+			together under a single name. <br></br>
+			The size of a struct can be calculated by summing up the size of all the element data-types.
+			<br></br><br></br>
+			<code>Unions</code> - A special type of structure that can store only one value at a time. <br></br>
+			The size of the union is equal to the size of the largest element defined within the union.<br></br><br></br>
+			<code>Typedefs</code> - A way to create a new name for an existing data type to improve code 
 			readability and maintainability.<br></br><br></br>
-			<code>void</code> - used to indicate an empty data type, usually used with pointers.<br></br>
+			<code>void</code> - It's used to indicate an empty data type, usually used with pointers.<br></br>
 		</complex-data-types>
 		<loops>
 			In computer programming, a loop is a sequence of instruction s that is 
@@ -121,12 +126,14 @@
 			In for loop, a loop variable is used to control the loop. Firstly we initialize 
 			the loop variable with some value, then check its test condition. If the 
 			statement is true then control will move to the body and the body of for 
-			loop will be executed. Steps will be repeated till the exit condition 
+			loop will be executed. <br></br>
+			Steps will be repeated till the exit condition 
 			becomes true. If the test condition will be false then it will stop.
 			<br></br><br></br>
 			
 			Initialization Expression: In this expression, we assign a loop variable 
 			or loop counter to some value. for example: <code>int i=1;</code>
+			<br></br><br></br>
 			Test Expression: In this expression, test conditions are performed. 
 			If the condition evaluates to true then the loop body will be executed and 
 			then an update of the loop variable is done. If the test expression becomes 
@@ -142,7 +149,8 @@
 			<br></br>		
 			The do-while loop is similar to a while loop but the only difference 
 			lies in the do-while loop test condition which is tested at the end of 
-			the body. In the do-while loop, the loop body will execute at least once 
+			the body. <br></br>
+			In the do-while loop, the loop body will execute at least once 
 			irrespective of the test condition.<br></br>
 			</blue>
 <code>
@@ -2318,10 +2326,152 @@ int main() {
 
 </code>
 		</constructors>
-		<instantiation>No information present in the database.</instantiation>
-		<destructors>No information present in the database.</destructors>
-		<function-overloading>No information present in the database.</function-overloading>
-		<operator-overloading>No information present in the database.</operator-overloading>
+		<instantiation>
+		In object-oriented programming, an instance is a concrete realization of a class. <br></br>
+		When you define a class, you're essentially creating a blueprint. <br></br>
+		An instance, then, is an object built from that blueprint. <br></br>
+		It has all the characteristics defined in the class, but with specific values.<br></br>
+		<br></br>
+<code>
+
+/*Example of instantiation*/
+
+#include &lt;stdio.h&gt; 
+
+class MyClass{
+
+public:
+    MyClass(){}
+    void PrintMessage()
+    {
+        printf("Message from class member.\n");
+    }
+};
+
+int main()
+{
+    //Instantiating the class:
+    MyClass obj; 
+    obj.PrintMessage();
+
+    return 0;
+}
+
+</code>
+		</instantiation>
+		<destructors>
+		Destructor is an instance member function that is invoked automatically whenever an object is 
+		going to be destroyed. 
+		Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+		<br></br><br></br>
+		- A destructor is also a special member function like a constructor.
+		Destructor destroys the class objects created by the constructor. <br></br>
+		- Destructor has the same name as their class name preceded by a tilde (~) symbol.<br></br>
+		- It is not possible to define more than one destructor. <br></br>
+		- The destructor is only one way to destroy the object created by the constructor. 
+		Hence destructor can-not be overloaded.<br></br>
+		- Destructor neither requires any argument nor returns any value.<br></br>
+		- It is automatically called when an object goes out of scope. <br></br>
+		- Destructor release memory space occupied by the objects created by the constructor.<br></br>
+		- In destructor, objects are destroyed in the reverse of an object creation.<br></br>
+<code>
+
+class Test {
+public:
+    // User-Defined Constructor
+    Test() { cout &lt;&lt; "\n Constructor executed"; }
+ 
+    // User-Defined Destructor
+    ~Test() { cout &lt;&lt; "\n Destructor executed"; }
+};
+
+</code>
+		</destructors>
+		<function-overloading>
+		Function overloading is a feature of object-oriented programming where two or more 
+		functions can have the same name but different parameters. <br></br>
+		Function overloading can be considered as an example of a polymorphism feature.<br></br>
+		<br></br><br></br>
+		If multiple functions having same name but parameters of the functions should be different is 
+		known as Function Overloading.<br></br>
+		If we have to perform only one operation and having same name of the functions increases 
+		the readability of the program.<br></br><br></br>
+		Overloaded functions can be defined both outside and inside classes.<br></br>
+<code>
+
+/*Example of function overloading*/
+
+#include &lt;iostream&gt; 
+using namespace std;
+ 
+ 
+void add(int a, int b)
+{
+  cout &lt;&lt; "sum = " &lt;&lt; (a + b);
+}
+ 
+void add(double a, double b)
+{
+    cout &lt;&lt; endl &lt;&lt; "sum = " &lt;&lt; (a + b);
+}
+ 
+int main()
+{
+    add(10, 2); //calling function with ints
+    add(5.3, 6.2); //calling function with floats
+ 
+    return 0;
+}
+</code>
+		</function-overloading>
+		<operator-overloading>
+		Operator overloading is a compile-time polymorphism. <br></br>
+		It is an idea of giving special meaning to an existing operator 
+		in C++ without changing its original meaning. <br></br>
+<code>
+
+// Example of Operator Overloading
+
+#include &lt;iostream&gt; 
+using namespace std;
+ 
+class Complex {
+private:
+    int real, imag;
+ 
+public:
+    Complex(int r = 0, int i = 0)
+    {
+        real = r;
+        imag = i;
+    }
+ 
+    // This is automatically called when '+' is used with
+    // between two Complex objects
+    Complex operator+(Complex const	&#38; obj)
+    {
+        Complex res;
+        res.real = real + obj.real;
+        res.imag = imag + obj.imag;
+        return res;
+    }
+    void print() { cout &lt;&lt; real &lt;&lt; " + i" &lt;&lt; imag &lt;&lt; '\n'; }
+};
+ 
+int main()
+{
+    Complex c1(10, 5), c2(2, 4);
+    Complex c3 = c1 + c2;
+    c3.print();
+	
+	/*
+	OUTPUT:
+	12 + i9
+	*/
+}
+
+</code>
+		</operator-overloading>
 		<enums>
 		Comparison to C Language: <br></br><br></br>
 		In C, an enum is basically a way to alias names to integers. This does not lead to 
