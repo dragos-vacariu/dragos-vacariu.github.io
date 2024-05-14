@@ -831,6 +831,7 @@ C |= 2 is same as C = C | 2
 			objects and decorators follow the same interface.<br></br>
 		</decorators>
 	</programming_language>
+	
 	<programming_language>
 		<name>C</name>
 		<description>
@@ -3164,10 +3165,10 @@ int main()
 		<collections>*General-Programming-Knowledge*</collections>
 		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<dynamic-memory-allocation>
-		In C#, objects are dynamically allocated on the heap using the new keyword.
-		<br></br><br></br>
-		When an object is no longer needed, it is the responsibility of the garbage 
-		collector to deallocate the memory and reclaim it for future use.
+			In C#, objects are dynamically allocated on the heap using the new keyword.
+			<br></br><br></br>
+			When an object is no longer needed, it is the responsibility of the garbage 
+			collector to deallocate the memory and reclaim it for future use.
 		</dynamic-memory-allocation>
 		<read-from-file>*General-Programming-Knowledge*</read-from-file>
 		<write-to-file>*General-Programming-Knowledge*</write-to-file>
@@ -3281,18 +3282,18 @@ int main()
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
-		<collections>*General-Programming-Knowledge*</collections>
-		<collection-methods>*General-Programming-Knowledge*</collection-methods>
+		<collections>No information present in the database.</collections>
+		<collection-methods>No information present in the database.</collection-methods>
 		<dynamic-memory-allocation>
-		Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
-		at runtime. <br></br>
-		New objects are always created in heap space, and the references to these objects 
-		are stored in stack memory. <br></br>
-		These objects have global access and we can access them from anywhere in the 
-		application.<br></br>
+			Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
+			at runtime. <br></br>
+			New objects are always created in heap space, and the references to these objects 
+			are stored in stack memory. <br></br>
+			These objects have global access and we can access them from anywhere in the 
+			application.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>*General-Programming-Knowledge*</read-from-file>
-		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<read-from-file>No information present in the database.</read-from-file>
+		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>*General-Programming-Knowledge*</serialization>
 		<deserialization>*General-Programming-Knowledge*</deserialization>
 		<constructors>*General-Programming-Knowledge*</constructors>
@@ -3310,8 +3311,8 @@ int main()
 		<random-generators>*General-Programming-Knowledge*</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
-		<modular-programming>*General-Programming-Knowledge*</modular-programming>
-		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<modular-programming>No information present in the database.</modular-programming>
+		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
@@ -3341,18 +3342,18 @@ int main()
 		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
-		<loops>*General-Programming-Knowledge*</loops>
+		<loops>No information present in the database.</loops>
 		<collections>*General-Programming-Knowledge*</collections>
-		<collection-methods>*General-Programming-Knowledge*</collection-methods>
+		<collection-methods>No information present in the database.</collection-methods>
 		<dynamic-memory-allocation>
-		Memory is allocated to the objects at the run time. <br></br>
-		We use the Heap for implement dynamic memory management. <br></br>
-		We can use the memory throughout the program. <br></br><br></br>
-		As we know, everything in Python is an object means dynamic memory 
-		allocation inspires the Python memory management.<br></br>
+			Memory is allocated to the objects at the run time. <br></br>
+			We use the Heap for implement dynamic memory management. <br></br>
+			We can use the memory throughout the program. <br></br><br></br>
+			As we know, everything in Python is an object means dynamic memory 
+			allocation inspires the Python memory management.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>*General-Programming-Knowledge*</read-from-file>
-		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<read-from-file>No information present in the database.</read-from-file>
+		<write-to-file>No information present in the database.</write-to-file>
 		<serialization>*General-Programming-Knowledge*</serialization>
 		<deserialization>*General-Programming-Knowledge*</deserialization>
 		<constructors>*General-Programming-Knowledge*</constructors>
@@ -3371,8 +3372,8 @@ int main()
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
 		<modular-programming>*General-Programming-Knowledge*</modular-programming>
-		<string-methods>*General-Programming-Knowledge*</string-methods>
-		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<string-methods>No information present in the database.</string-methods>
+		<datatype-conversions>No information present in the database.</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
 		<operators>*General-Programming-Knowledge*</operators>
