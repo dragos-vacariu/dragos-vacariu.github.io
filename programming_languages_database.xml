@@ -787,6 +787,49 @@ C |= 2 is same as C = C | 2
 			a value for the argument. In case any value is passed, the default value is 
 			overridden. <br></br>
 		</default-parameters>
+		<interfaces>
+			In programming: an interface describes the behavior or capabilities of a class without 
+			committing to a particular implementation of that class.
+			<br></br><br></br>
+			The interfaces are implemented using abstract classes and these abstract classes 
+			should not be confused with data abstraction which is a concept of keeping 
+			implementation details separate from associated data.<br></br>
+		</interfaces>
+		<abstract-classes>
+			The purpose of an abstract class (often referred to as an ABC) is to provide an 
+			appropriate base class from which other classes can inherit. <br></br>
+			Abstract classes cannot be used to instantiate objects and serves only as an 
+			interface. <br></br>
+			Attempting to instantiate an object of an abstract class causes a 
+			compilation error. <br></br>
+			<br></br>
+			Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of 
+			the virtual functions, which means that it supports the interface declared by the 
+			ABC. Failure to override a pure virtual function in a derived class, 
+			then attempting to instantiate objects of that class, is a compilation error.
+			<br></br><br></br>
+			An object-oriented system might use an abstract base class to provide a common and 
+			standardized interface appropriate for all the external applications. <br></br>
+			Then, through inheritance from that abstract base class, derived classes are 
+			formed that operate similarly.
+			<br></br><br></br>
+			The capabilities (i.e., the public functions) offered by the external applications 
+			are provided as pure virtual functions in the abstract base class. <br></br>
+			The implementations of these pure virtual functions are provided in the derived 
+			classes that correspond to the specific types of the application.<br></br>
+		</abstract-classes>
+		<optional-parameters>
+			A parameter with a default value, is often known as an "optional parameter".
+			<br></br><br></br> 
+			For more information see the <blue>default-parameters</blue> section.
+		</optional-parameters>
+		<decorators>
+			Decorator is a structural pattern that allows adding new behaviors to objects 
+			dynamically by placing them inside special wrapper objects, called decorators. 
+			<br></br>
+			Using decorators you can wrap objects countless number of times since both target 
+			objects and decorators follow the same interface.<br></br>
+		</decorators>
 	</programming_language>
 	<programming_language>
 		<name>C</name>
@@ -2798,12 +2841,7 @@ int main()
 </code>
 		</default-parameters>
 		<interfaces>
-		An interface describes the behavior or capabilities of a C++ class without committing 
-		to a particular implementation of that class.
-		<br></br><br></br>
-		The C++ interfaces are implemented using abstract classes and these abstract classes 
-		should not be confused with data abstraction which is a concept of keeping 
-		implementation details separate from associated data.<br></br>
+			*General-Programming-Knowledge*
 <code>
 
 /*Example of an interface implementation*/
@@ -2821,18 +2859,10 @@ class Box {
 </code>
 		</interfaces>
 		<abstract-classes>
-		The purpose of an abstract class (often referred to as an ABC) is to provide an 
-		appropriate base class from which other classes can inherit. <br></br>
-		Abstract classes cannot be used to instantiate objects and serves only as an 
-		interface. <br></br>
-		Attempting to instantiate an object of an abstract class causes a 
-		compilation error. <br></br>
-		<br></br>
-		Thus, if a subclass of an ABC needs to be instantiated, it has to implement each of 
-		the virtual functions, which means that it supports the interface declared by the 
-		ABC. Failure to override a pure virtual function in a derived class, 
-		then attempting to instantiate objects of that class, is a compilation error.
+			*General-Programming-Knowledge*
 <code>
+
+/*Example of abstract class*/
 
 #include &lt;iostream&gt; 
  
@@ -2891,56 +2921,49 @@ int main(void) {
 }
 
 </code>
-		An object-oriented system might use an abstract base class to provide a common and 
-		standardized interface appropriate for all the external applications. <br></br>
-		Then, through inheritance from that abstract base class, derived classes are 
-		formed that operate similarly.
-		<br></br><br></br>
-		The capabilities (i.e., the public functions) offered by the external applications 
-		are provided as pure virtual functions in the abstract base class. <br></br>
-		The implementations of these pure virtual functions are provided in the derived 
-		classes that correspond to the specific types of the application.<br></br>
+		
 		</abstract-classes>
 		<macros>
-		Similar to C Language: 
-		<br></br><br></br>
-		A C++ macro is defined as a section of code that that particular macro value can 
-		replace. <br></br>
-		We can define the macro by using a #define directive. 
-		When the compiler goes to the macros while program compilation, 
-		the macro's name is replaced by the definition of the macro. 
-		<br></br>
-		The termination of the C++ Macros does not need a 
-		semi-colon (;).
-		<br></br><br></br>
-		Aditionally to the C Language: the header file: &lt;limits.h&gt; is defined to help finding 
-		the range of fundamental data-types. <br></br>
-		Unsigned modifiers have minimum value is zero. So, no macro constants are defined for the unsigned minimum value.
-		<br></br><br></br>
-		<red>
-		Macro Constants<br></br><br></br>
-		</red>
-		<green>
-		<blue>CHAR_MIN</blue>  - The minimum value for an object of type char <br></br><br></br>	
-		<blue>CHAR_MAX</blue>  - Maximum value for an object of type char <br></br><br></br>		
-		<blue>SCHAR_MIN</blue>  - The minimum value for an object of type Signed char <br></br><br></br>	
-		<blue>SCHAR_MAX</blue>  - Maximum value for an object of type Signed char <br></br><br></br>		
-		<blue>UCHAR_MAX</blue>  - Maximum value for an object of type Unsigned char <br></br><br></br>		
-		<blue>CHAR_BIT</blue>  - Number of bits in a char object <br></br><br></br>		
-		<blue>MB_LEN_MAX</blue>  - Maximum number of bytes in a multi-byte character <br></br><br></br>		
-		<blue>SHRT_MIN</blue>  - The minimum value for an object of type short int <br></br><br></br>		
-		<blue>SHRT_MAX</blue>  - Maximum value for an object of type short int <br></br><br></br>		
-		<blue>USHRT_MAX</blue>  - Maximum value for an object of type Unsigned short int <br></br><br></br>		
-		<blue>INT_MIN</blue>  - The minimum value for an object of type int <br></br><br></br>		
-		<blue>INT_MAX</blue>  - Maximum value for an object of type int <br></br><br></br>		
-		<blue>UINT_MAX</blue>  - Maximum value for an object of type Unsigned int <br></br><br></br>	
-		<blue>LONG_MIN</blue>  - The minimum value for an object of type long int <br></br><br></br>		
-		<blue>LONG_MAX</blue>  - Maximum value for an object of type long int <br></br><br></br>		
-		<blue>ULONG_MAX</blue>  - Maximum value for an object of type Unsigned long int <br></br><br></br>		
-		<blue>LLONG_MIN</blue>  - The minimum value for an object of type long long int <br></br><br></br>		
-		<blue>LLONG_MAX</blue>  - Maximum value for an object of type long long int <br></br><br></br>	
-		<blue>ULLONG_MAX</blue> - Maximum value for an object of type Unsigned long long int		
-		</green>
+			*General-Programming-Knowledge*
+			Similar to C Language: 
+			<br></br><br></br>
+			A C++ macro is defined as a section of code that that particular macro value can 
+			replace. <br></br>
+			We can define the macro by using a #define directive. 
+			When the compiler goes to the macros while program compilation, 
+			the macro's name is replaced by the definition of the macro. 
+			<br></br>
+			The termination of the C++ Macros does not need a 
+			semi-colon (;).
+			<br></br><br></br>
+			Aditionally to the C Language: the header file: &lt;limits.h&gt; is defined to help finding 
+			the range of fundamental data-types. <br></br>
+			Unsigned modifiers have minimum value is zero. So, no macro constants are defined for the unsigned minimum value.
+			<br></br><br></br>
+			<red>
+			Macro Constants<br></br><br></br>
+			</red>
+			<green>
+			<blue>CHAR_MIN</blue>  - The minimum value for an object of type char <br></br><br></br>	
+			<blue>CHAR_MAX</blue>  - Maximum value for an object of type char <br></br><br></br>		
+			<blue>SCHAR_MIN</blue>  - The minimum value for an object of type Signed char <br></br><br></br>	
+			<blue>SCHAR_MAX</blue>  - Maximum value for an object of type Signed char <br></br><br></br>		
+			<blue>UCHAR_MAX</blue>  - Maximum value for an object of type Unsigned char <br></br><br></br>		
+			<blue>CHAR_BIT</blue>  - Number of bits in a char object <br></br><br></br>		
+			<blue>MB_LEN_MAX</blue>  - Maximum number of bytes in a multi-byte character <br></br><br></br>		
+			<blue>SHRT_MIN</blue>  - The minimum value for an object of type short int <br></br><br></br>		
+			<blue>SHRT_MAX</blue>  - Maximum value for an object of type short int <br></br><br></br>		
+			<blue>USHRT_MAX</blue>  - Maximum value for an object of type Unsigned short int <br></br><br></br>		
+			<blue>INT_MIN</blue>  - The minimum value for an object of type int <br></br><br></br>		
+			<blue>INT_MAX</blue>  - Maximum value for an object of type int <br></br><br></br>		
+			<blue>UINT_MAX</blue>  - Maximum value for an object of type Unsigned int <br></br><br></br>	
+			<blue>LONG_MIN</blue>  - The minimum value for an object of type long int <br></br><br></br>		
+			<blue>LONG_MAX</blue>  - Maximum value for an object of type long int <br></br><br></br>		
+			<blue>ULONG_MAX</blue>  - Maximum value for an object of type Unsigned long int <br></br><br></br>		
+			<blue>LLONG_MIN</blue>  - The minimum value for an object of type long long int <br></br><br></br>		
+			<blue>LLONG_MAX</blue>  - Maximum value for an object of type long long int <br></br><br></br>	
+			<blue>ULLONG_MAX</blue> - Maximum value for an object of type Unsigned long long int		
+			</green>
 <code>
 
 /*An example of defining a C++ macro:*/
@@ -2963,97 +2986,84 @@ int main() {
 </code>
 		</macros>
 		<random-generators>
-		Same as presented in C Language:
-		<br></br><br></br>
-		<code>rand()</code> function is an inbuilt function in C++ STL, which is defined in 
-		header file <code>&lt;cstdlib&gt;</code>. <code>rand()</code> is used to generate a 
-		series of random numbers. <br></br>
-		The random number is generated by using an algorithm that gives a series of 
-		non-related numbers whenever this function is called. <br></br>
-		The <code>rand()</code> function is 
-		used in C++ to generate random numbers in the range <code>[0, RAND_MAX)</code>.
-		<br></br><br></br>
-		<red>Syntax of rand()</red>:
+			*General-Programming-Knowledge*
+			<br></br>
+			For C++:
+			<br></br><br></br>
+			<code>rand()</code> function is an inbuilt function in C++ STL, which is defined in 
+			header file <code>&lt;cstdlib&gt;</code>. <code>rand()</code> is used to generate a 
+			series of random numbers. <br></br>
+			The random number is generated by using an algorithm that gives a series of 
+			non-related numbers whenever this function is called. <br></br>
+			The <code>rand()</code> function is 
+			used in C++ to generate random numbers in the range <code>[0, RAND_MAX)</code>.
+			<br></br><br></br>
+			<red>Syntax of rand()</red>:
 <code>
 
 int rand(void);
 
 </code>
-		<red>Parameters of rand():</red><br></br>
-		This function does not take any parameters.<br></br><br></br>
-		<red>Return Value of rand():</red><br></br>
-		rand() returns a pseudo-random number in the range of [0, RAND_MAX).<br></br>
+			<red>Parameters of rand():</red><br></br>
+			This function does not take any parameters.<br></br><br></br>
+			<red>Return Value of rand():</red><br></br>
+			rand() returns a pseudo-random number in the range of [0, RAND_MAX).<br></br>
 		</random-generators>
-		<command-line-arguments>Same as presented in C Language.</command-line-arguments>
-		<ternary-operator>Same as presented in C Language.</ternary-operator>
-		<modular-programming>Same as presented in C Language.</modular-programming>
+		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<modular-programming>*General-Programming-Knowledge*</modular-programming>
 		<string-methods>
-		The <code>std::string</code> is a class in C++ since C++98. This class is the standard 
-		representation for a text string. It includes some typical string operations 
-		like find, replace, concatenate, compare etc. It is present in &lt;string&gt; 
-		header file. <br></br><br></br>
-		Commonly Used String Functions in C++:<br></br>
-		<br></br>
-		<blue>length() or size()</blue><br></br>
-		It will return the length of the string.<br></br>
-		<br></br>
-		<blue>array[index]</blue><br></br>
-		To access individual characters using array indexing.<br></br>
-		<br></br>
-		<blue>at()</blue><br></br>
-		Used to access a character at a specified index.<br></br>
-		<br></br>
-		<blue>+ Operator</blue><br></br>
-		<code>+</code> operator is used to concatenate two strings.<br></br>
-		<br></br>
-		<blue>append()</blue><br></br>
-		The <code>append()</code> function adds one string to the end of another.<br></br>
-		<br></br>
-		<blue>== Operator</blue><br></br>
-		You can compare strings using the <code>==</code> operator.<br></br>
-		<br></br>
-		<blue>compare()</blue><br></br>
-		The <code>compare()</code> function returns an integer value indicating the 
-		comparison result.<br></br>
-		<br></br>
-		<blue>substr()</blue><br></br>
-		Use the substr() function to extract a substring from a string.<br></br>
-		<br></br>
-		<blue>find()</blue><br></br>
-		The find() function returns the position of the first occurrence of a substring.<br></br>
-		<br></br>
-		<blue>replace()</blue><br></br>
-		Use the replace() function to modify a part of the string.<br></br>
-		<br></br>
-		<blue>insert()</blue><br></br>
-		The insert() function adds a substring at a specified position.<br></br>
-		<br></br>
-		<blue>erase()</blue><br></br>
-		Use the erase() function to remove a part of the string.<br></br>
-		<br></br>
-		<blue>c_str()</blue><br></br>
-		To obtain a C-style string from a <code>std::string</code>, you can use the 
-		<code>c_str()</code> function.<br></br>
-		
+			The <code>std::string</code> is a class in C++ since C++98. This class is the standard 
+			representation for a text string. It includes some typical string operations 
+			like find, replace, concatenate, compare etc. It is present in &lt;string&gt; 
+			header file. <br></br><br></br>
+			Commonly Used String Functions in C++:<br></br>
+			<br></br>
+			<blue>length() or size()</blue><br></br>
+			It will return the length of the string.<br></br>
+			<br></br>
+			<blue>array[index]</blue><br></br>
+			To access individual characters using array indexing.<br></br>
+			<br></br>
+			<blue>at()</blue><br></br>
+			Used to access a character at a specified index.<br></br>
+			<br></br>
+			<blue>+ Operator</blue><br></br>
+			<code>+</code> operator is used to concatenate two strings.<br></br>
+			<br></br>
+			<blue>append()</blue><br></br>
+			The <code>append()</code> function adds one string to the end of another.<br></br>
+			<br></br>
+			<blue>== Operator</blue><br></br>
+			You can compare strings using the <code>==</code> operator.<br></br>
+			<br></br>
+			<blue>compare()</blue><br></br>
+			The <code>compare()</code> function returns an integer value indicating the 
+			comparison result.<br></br>
+			<br></br>
+			<blue>substr()</blue><br></br>
+			Use the substr() function to extract a substring from a string.<br></br>
+			<br></br>
+			<blue>find()</blue><br></br>
+			The find() function returns the position of the first occurrence of a substring.<br></br>
+			<br></br>
+			<blue>replace()</blue><br></br>
+			Use the replace() function to modify a part of the string.<br></br>
+			<br></br>
+			<blue>insert()</blue><br></br>
+			The insert() function adds a substring at a specified position.<br></br>
+			<br></br>
+			<blue>erase()</blue><br></br>
+			Use the erase() function to remove a part of the string.<br></br>
+			<br></br>
+			<blue>c_str()</blue><br></br>
+			To obtain a C-style string from a <code>std::string</code>, you can use the 
+			<code>c_str()</code> function.<br></br>
 		</string-methods>
-		<datatype-conversions>
-		Same as presented in C Language.
-		<br></br><br></br>
-		Type conversion in C++ is of two types - implicit and explicit. Implicit type 
-		conversion is done automatically by the compiler, while explicit type conversion 
-		is done manually by the programmer.<br></br>
-		</datatype-conversions>
-		<optional-parameters>
-		A parameter with a default value, is often known as an "optional parameter".
-		<br></br><br></br> 
-		For more information see the <blue>default-parameters</blue> section.
-		</optional-parameters>
+		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
 		<decorators>
-		Decorator is a structural pattern that allows adding new behaviors to objects 
-		dynamically by placing them inside special wrapper objects, called decorators. 
-		<br></br>
-		Using decorators you can wrap objects countless number of times since both target 
-		objects and decorators follow the same interface.<br></br>
+			*General-Programming-Knowledge*
 <code>
 
 /*Example*/
@@ -3113,8 +3123,8 @@ int main()
 
 </code>
 		</decorators>
-		<operators>Same as presented in C Language.</operators>
-		<pre-post-incrementation>Same as presented in C Language.</pre-post-incrementation>
+		<operators>*General-Programming-Knowledge*</operators>
+		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
@@ -3142,50 +3152,50 @@ int main()
 			Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>No information present in the database.</encapsulation>
-		<polymorphism>No information present in the database.</polymorphism>
-		<inheritance>No information present in the database.</inheritance>
-		<abstraction>No information present in the database.</abstraction>
-		<generic-programming>No information present in the database.</generic-programming>
-		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
-		<simple-data-types>No information present in the database.</simple-data-types>
-		<complex-data-types>No information present in the database.</complex-data-types>
-		<loops>No information present in the database.</loops>
-		<collections>No information present in the database.</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<polymorphism>*General-Programming-Knowledge*</polymorphism>
+		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<abstraction>*General-Programming-Knowledge*</abstraction>
+		<generic-programming>*General-Programming-Knowledge*</generic-programming>
+		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<loops>*General-Programming-Knowledge*</loops>
+		<collections>*General-Programming-Knowledge*</collections>
+		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<dynamic-memory-allocation>
 		In C#, objects are dynamically allocated on the heap using the new keyword.
 		<br></br><br></br>
 		When an object is no longer needed, it is the responsibility of the garbage 
 		collector to deallocate the memory and reclaim it for future use.
 		</dynamic-memory-allocation>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>No information present in the database.</serialization>
-		<deserialization>No information present in the database.</deserialization>
-		<constructors>No information present in the database.</constructors>
-		<instantiation>No information present in the database.</instantiation>
-		<destructors>No information present in the database.</destructors>
-		<function-overloading>No information present in the database.</function-overloading>
-		<operator-overloading>No information present in the database.</operator-overloading>
-		<enums>No information present in the database.</enums>
-		<multi-threading>No information present in the database.</multi-threading>
-		<namespaces>No information present in the database.</namespaces>
-		<exception-handling>No information present in the database.</exception-handling>
-		<bitwise-operators>No information present in the database.</bitwise-operators>
-		<default-parameters>No information present in the database.</default-parameters>
-		<interfaces>No information present in the database.</interfaces>
-		<random-generators>No information present in the database.</random-generators>
-		<command-line-arguments>No information present in the database.</command-line-arguments>
-		<ternary-operator>No information present in the database.</ternary-operator>
-		<modular-programming>No information present in the database.</modular-programming>
-		<string-methods>No information present in the database.</string-methods>
-		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<optional-parameters>No information present in the database.</optional-parameters>
-		<partial-classes>No information present in the database.</partial-classes>
-		<decorators>No information present in the database.</decorators>
-		<operators>No information present in the database.</operators>
-		<pre-post-incrementation>No information present in the database.</pre-post-incrementation>
+		<read-from-file>*General-Programming-Knowledge*</read-from-file>
+		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<serialization>*General-Programming-Knowledge*</serialization>
+		<deserialization>*General-Programming-Knowledge*</deserialization>
+		<constructors>*General-Programming-Knowledge*</constructors>
+		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<destructors>*General-Programming-Knowledge*</destructors>
+		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<enums>*General-Programming-Knowledge*</enums>
+		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<namespaces>*General-Programming-Knowledge*</namespaces>
+		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
+		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<interfaces>*General-Programming-Knowledge*</interfaces>
+		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
+		<partial-classes>*General-Programming-Knowledge*</partial-classes>
+		<decorators>*General-Programming-Knowledge*</decorators>
+		<operators>*General-Programming-Knowledge*</operators>
+		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
@@ -3207,42 +3217,42 @@ int main()
 			regular expressions, standard data structures, and the Document Object Model (DOM).
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>No information present in the database.</encapsulation>
-		<polymorphism>No information present in the database.</polymorphism>
-		<inheritance>No information present in the database.</inheritance>
-		<abstraction>No information present in the database.</abstraction>
-		<generic-programming>No information present in the database.</generic-programming>
-		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
-		<simple-data-types>No information present in the database.</simple-data-types>
-		<complex-data-types>No information present in the database.</complex-data-types>
-		<loops>No information present in the database.</loops>
-		<collections>No information present in the database.</collections>
-		<collection-methods>No information present in the database.</collection-methods>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>No information present in the database.</serialization>
-		<deserialization>No information present in the database.</deserialization>
-		<constructors>No information present in the database.</constructors>
-		<instantiation>No information present in the database.</instantiation>
-		<destructors>No information present in the database.</destructors>
-		<function-overloading>No information present in the database.</function-overloading>
-		<operator-overloading>No information present in the database.</operator-overloading>
-		<enums>No information present in the database.</enums>
-		<multi-threading>No information present in the database.</multi-threading>
-		<namespaces>No information present in the database.</namespaces>
-		<exception-handling>No information present in the database.</exception-handling>
-		<bitwise-operators>No information present in the database.</bitwise-operators>
-		<default-parameters>No information present in the database.</default-parameters>
-		<interfaces>No information present in the database.</interfaces>
-		<random-generators>No information present in the database.</random-generators>
-		<ternary-operator>No information present in the database.</ternary-operator>
-		<modular-programming>No information present in the database.</modular-programming>
-		<string-methods>No information present in the database.</string-methods>
-		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<partial-classes>No information present in the database.</partial-classes>
-		<decorators>No information present in the database.</decorators>
-		<operators>No information present in the database.</operators>
-		<pre-post-incrementation>No information present in the database.</pre-post-incrementation>
+		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<polymorphism>*General-Programming-Knowledge*</polymorphism>
+		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<abstraction>*General-Programming-Knowledge*</abstraction>
+		<generic-programming>*General-Programming-Knowledge*</generic-programming>
+		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<loops>*General-Programming-Knowledge*</loops>
+		<collections>*General-Programming-Knowledge*</collections>
+		<collection-methods>*General-Programming-Knowledge*</collection-methods>
+		<read-from-file>*General-Programming-Knowledge*</read-from-file>
+		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<serialization>*General-Programming-Knowledge*</serialization>
+		<deserialization>*General-Programming-Knowledge*</deserialization>
+		<constructors>*General-Programming-Knowledge*</constructors>
+		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<destructors>*General-Programming-Knowledge*</destructors>
+		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<enums>*General-Programming-Knowledge*</enums>
+		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<namespaces>*General-Programming-Knowledge*</namespaces>
+		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
+		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<interfaces>*General-Programming-Knowledge*</interfaces>
+		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<partial-classes>*General-Programming-Knowledge*</partial-classes>
+		<decorators>*General-Programming-Knowledge*</decorators>
+		<operators>*General-Programming-Knowledge*</operators>
+		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
@@ -3262,17 +3272,17 @@ int main()
 			typically not available in traditional compiled languages.
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>No information present in the database.</encapsulation>
-		<polymorphism>No information present in the database.</polymorphism>
-		<inheritance>No information present in the database.</inheritance>
-		<abstraction>No information present in the database.</abstraction>
-		<generic-programming>No information present in the database.</generic-programming>
-		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
-		<simple-data-types>No information present in the database.</simple-data-types>
-		<complex-data-types>No information present in the database.</complex-data-types>
-		<loops>No information present in the database.</loops>
-		<collections>No information present in the database.</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<polymorphism>*General-Programming-Knowledge*</polymorphism>
+		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<abstraction>*General-Programming-Knowledge*</abstraction>
+		<generic-programming>*General-Programming-Knowledge*</generic-programming>
+		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<loops>*General-Programming-Knowledge*</loops>
+		<collections>*General-Programming-Knowledge*</collections>
+		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<dynamic-memory-allocation>
 		Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
 		at runtime. <br></br>
@@ -3281,32 +3291,32 @@ int main()
 		These objects have global access and we can access them from anywhere in the 
 		application.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>No information present in the database.</serialization>
-		<deserialization>No information present in the database.</deserialization>
-		<constructors>No information present in the database.</constructors>
-		<instantiation>No information present in the database.</instantiation>
-		<destructors>No information present in the database.</destructors>
-		<function-overloading>No information present in the database.</function-overloading>
-		<operator-overloading>No information present in the database.</operator-overloading>
-		<enums>No information present in the database.</enums>
-		<multi-threading>No information present in the database.</multi-threading>
-		<namespaces>No information present in the database.</namespaces>
-		<exception-handling>No information present in the database.</exception-handling>
-		<bitwise-operators>No information present in the database.</bitwise-operators>
-		<default-parameters>No information present in the database.</default-parameters>
-		<interfaces>No information present in the database.</interfaces>
-		<random-generators>No information present in the database.</random-generators>
-		<command-line-arguments>No information present in the database.</command-line-arguments>
-		<ternary-operator>No information present in the database.</ternary-operator>
-		<modular-programming>No information present in the database.</modular-programming>
-		<string-methods>No information present in the database.</string-methods>
-		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<partial-classes>No information present in the database.</partial-classes>
-		<decorators>No information present in the database.</decorators>
-		<operators>No information present in the database.</operators>
-		<pre-post-incrementation>No information present in the database.</pre-post-incrementation>
+		<read-from-file>*General-Programming-Knowledge*</read-from-file>
+		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<serialization>*General-Programming-Knowledge*</serialization>
+		<deserialization>*General-Programming-Knowledge*</deserialization>
+		<constructors>*General-Programming-Knowledge*</constructors>
+		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<destructors>*General-Programming-Knowledge*</destructors>
+		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<enums>*General-Programming-Knowledge*</enums>
+		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<namespaces>*General-Programming-Knowledge*</namespaces>
+		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
+		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<interfaces>*General-Programming-Knowledge*</interfaces>
+		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<partial-classes>*General-Programming-Knowledge*</partial-classes>
+		<decorators>*General-Programming-Knowledge*</decorators>
+		<operators>*General-Programming-Knowledge*</operators>
+		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
 	<programming_language>
@@ -3323,17 +3333,17 @@ int main()
 		
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>No information present in the database.</encapsulation>
-		<polymorphism>No information present in the database.</polymorphism>
-		<inheritance>No information present in the database.</inheritance>
-		<abstraction>No information present in the database.</abstraction>
-		<generic-programming>No information present in the database.</generic-programming>
-		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
-		<simple-data-types>No information present in the database.</simple-data-types>
-		<complex-data-types>No information present in the database.</complex-data-types>
-		<loops>No information present in the database.</loops>
-		<collections>No information present in the database.</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<polymorphism>*General-Programming-Knowledge*</polymorphism>
+		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<abstraction>*General-Programming-Knowledge*</abstraction>
+		<generic-programming>*General-Programming-Knowledge*</generic-programming>
+		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<loops>*General-Programming-Knowledge*</loops>
+		<collections>*General-Programming-Knowledge*</collections>
+		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<dynamic-memory-allocation>
 		Memory is allocated to the objects at the run time. <br></br>
 		We use the Heap for implement dynamic memory management. <br></br>
@@ -3341,32 +3351,32 @@ int main()
 		As we know, everything in Python is an object means dynamic memory 
 		allocation inspires the Python memory management.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>No information present in the database.</serialization>
-		<deserialization>No information present in the database.</deserialization>
-		<constructors>No information present in the database.</constructors>
-		<instantiation>No information present in the database.</instantiation>
-		<destructors>No information present in the database.</destructors>
-		<function-overloading>No information present in the database.</function-overloading>
-		<operator-overloading>No information present in the database.</operator-overloading>
-		<enums>No information present in the database.</enums>
-		<multi-threading>No information present in the database.</multi-threading>
-		<namespaces>No information present in the database.</namespaces>
-		<exception-handling>No information present in the database.</exception-handling>
-		<bitwise-operators>No information present in the database.</bitwise-operators>
-		<default-parameters>No information present in the database.</default-parameters>
-		<interfaces>No information present in the database.</interfaces>
-		<random-generators>No information present in the database.</random-generators>
-		<command-line-arguments>No information present in the database.</command-line-arguments>
-		<ternary-operator>No information present in the database.</ternary-operator>
-		<modular-programming>No information present in the database.</modular-programming>
-		<string-methods>No information present in the database.</string-methods>
-		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<partial-classes>No information present in the database.</partial-classes>
-		<decorators>No information present in the database.</decorators>
-		<operators>No information present in the database.</operators>
-		<pre-post-incrementation>No information present in the database.</pre-post-incrementation>
+		<read-from-file>*General-Programming-Knowledge*</read-from-file>
+		<write-to-file>*General-Programming-Knowledge*</write-to-file>
+		<serialization>*General-Programming-Knowledge*</serialization>
+		<deserialization>*General-Programming-Knowledge*</deserialization>
+		<constructors>*General-Programming-Knowledge*</constructors>
+		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<destructors>*General-Programming-Knowledge*</destructors>
+		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<enums>*General-Programming-Knowledge*</enums>
+		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<namespaces>*General-Programming-Knowledge*</namespaces>
+		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
+		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<interfaces>*General-Programming-Knowledge*</interfaces>
+		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<partial-classes>*General-Programming-Knowledge*</partial-classes>
+		<decorators>*General-Programming-Knowledge*</decorators>
+		<operators>*General-Programming-Knowledge*</operators>
+		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
 </content>
