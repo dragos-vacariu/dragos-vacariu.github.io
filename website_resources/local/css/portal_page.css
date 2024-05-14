@@ -171,6 +171,13 @@
 	white-space: pre-wrap;
 	color: blue;
 	font-weight: bold;
+	/*
+	background-color: #eee;
+	border: 1px solid #999;
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	*/
 }
 
 #page_block red{
