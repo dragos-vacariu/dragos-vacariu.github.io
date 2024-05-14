@@ -10,7 +10,10 @@ const cookie_element_separator = "<br>";
 const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
 
+const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
+
 const programming_language_div_style = [
+	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
 	"background-color: rgba(0,0,255,0.1); padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,0,0.1);  padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(0,255,0,0.1);  padding: 1vw; margin: 1vw;",
@@ -580,21 +583,8 @@ function fillParagraph()
 							
 							p = document.createElement("p")
 							p.innerHTML += language.concepts[concept_index].concept_value;
+							checkCopyConceptFromGeneralKnowledge(p);
 							
-							if(String(p.innerHTML).includes("COPY_FROM_C++"))
-							{
-								
-								var found_element_index = programming_languages.findIndex(element => element.name == "C++");
-								if( found_element_index >= 0 )
-								{
-									var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == language.concepts[concept_index].concept_name);
-									if( found_concept >= 0 )
-									{
-										p.innerHTML = String(p.innerHTML).replace("COPY_FROM_C++", programming_languages[found_element_index].concepts[found_concept].concept_value);
-									}
-								}
-								
-							}
 							p.style = concept_value_style;
 							div.appendChild(p);
 						}
@@ -605,6 +595,34 @@ function fillParagraph()
 		}
 		index++;
 	});
+}
+
+function checkCopyConceptFromGeneralKnowledge(p)
+{
+	if(String(p.innerHTML).includes(copy_GeneralKnowledge_token))
+	{
+		
+		var found_element_index = programming_languages.findIndex(element => element.name == "General-Programming-Knowledge");
+		if( found_element_index >= 0 )
+		{
+			var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == language.concepts[concept_index].concept_name);
+			if( found_concept >= 0 )
+			{
+				p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, programming_languages[found_element_index].concepts[found_concept].concept_value);
+			}
+			else
+			{
+				/*If something happened and for some reason there is no such entry in the General-Programming-Knowledge just clear this substring*/
+				p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
+			}
+		}
+		else
+		{
+			/*If something happened and cannot find General-Programming-Knowledge just clear this substring*/
+			p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
+		}
+		
+	}
 }
 
 loadXMLDoc(online_xml_file);

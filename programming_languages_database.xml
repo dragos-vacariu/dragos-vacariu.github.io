@@ -3083,7 +3083,7 @@ int main()
 			all of which support C# and are free, open-source, and cross-platform. 
 			Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
 		</description>
-		<oop>COPY_FROM_C++</oop>
+		<oop>*General-Programming-Knowledge*</oop>
 		<encapsulation>No information present in the database.</encapsulation>
 		<polymorphism>No information present in the database.</polymorphism>
 		<inheritance>No information present in the database.</inheritance>
