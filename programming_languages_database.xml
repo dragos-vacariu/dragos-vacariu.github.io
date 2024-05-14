@@ -2100,31 +2100,31 @@ int main()
 			Some of the methods available in C++ for the Collection Type Classes: Vector or List are:
 			<br></br><br></br>
 			<red>Capacity:</red><br></br>
-			<code>size			</code> - Return size (public member function)<br></br>
-			<code>max_size		</code> - Return maximum size (public member function)<br></br>
-			<code>resize		</code> - Change size (public member function)<br></br>
-			<code>capacity		</code> - Return size of allocated storage capacity (public member function)<br></br>
-			<code>empty			</code> - Test whether vector is empty (public member function)<br></br>
-			<code>reserve		</code> - Request a change in capacity (public member function)<br></br>
-			<code>shrink_to_fit	</code> - Shrink to fit (public member function)<br></br>
+			<code>size		</code> - Return size (public member function)<br></br>
+			<code>max_size	</code> - Return maximum size (public member function)<br></br>
+			<code>resize	</code> - Change size (public member function)<br></br>
+			<code>capacity	</code> - Return size of allocated storage capacity (public member function)<br></br>
+			<code>empty		</code> - Test whether vector is empty (public member function)<br></br>
+			<code>reserve	</code> - Request a change in capacity (public member function)<br></br>
+			<code>shrink_to_fit</code> - Shrink to fit (public member function)<br></br>
 			<br></br>
 			<red>Element access:</red><br></br>
-			<code>operator[]	</code> - Access element (public member function)<br></br>
-			<code>at			</code> - Access element (public member function)<br></br>
-			<code>front			</code> - Access first element (public member function)<br></br>
-			<code>back			</code> - Access last element (public member function)<br></br>
-			<code>data			</code> - Access data (public member function)<br></br>
+			<code>operator[]</code> - Access element (public member function)<br></br>
+			<code>at		</code> - Access element (public member function)<br></br>
+			<code>front		</code> - Access first element (public member function)<br></br>
+			<code>back		</code> - Access last element (public member function)<br></br>
+			<code>data		</code> - Access data (public member function)<br></br>
 			<br></br>
 			<red>Modifiers:</red><br></br>
-			<code>assign		</code> - 	Assign vector content (public member function)<br></br>
-			<code>push_back		</code> - Add element at the end (public member function)<br></br>
-			<code>pop_back		</code> - Delete last element (public member function)<br></br>
-			<code>insert		</code> - 	Insert elements (public member function)<br></br>
-			<code>erase			</code> - Erase elements (public member function)<br></br>
-			<code>swap			</code> - Swap content (public member function)<br></br>
-			<code>clear			</code> - Clear content (public member function)<br></br>
-			<code>emplace		</code> - 	Construct and insert element (public member function)<br></br>
-			<code>emplace_back	</code> - Construct and insert element at the end (public member function)<br></br>
+			<code>assign	</code> - Assign vector content (public member function)<br></br>
+			<code>push_back	</code> - Add element at the end (public member function)<br></br>
+			<code>pop_back	</code> - Delete last element (public member function)<br></br>
+			<code>insert	</code> - Insert elements (public member function)<br></br>
+			<code>erase		</code> - Erase elements (public member function)<br></br>
+			<code>swap		</code> - Swap content (public member function)<br></br>
+			<code>clear		</code> - Clear content (public member function)<br></br>
+			<code>emplace	</code> - Construct and insert element (public member function)<br></br>
+			<code>emplace_back</code> - Construct and insert element at the end (public member function)<br></br>
 		</collection-methods>
 		<dynamic-memory-allocation>
 			*General-Programming-Knowledge*
