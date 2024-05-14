@@ -2096,7 +2096,36 @@ int main()
 }
 </code>
 		</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<collection-methods>
+			Some of the methods available in C++ for the Collection Type Classes: Vector or List are:
+			<br></br><br></br>
+			Capacity:<br></br>
+			size			Return size (public member function)<br></br>
+			max_size		Return maximum size (public member function)<br></br>
+			resize			Change size (public member function)<br></br>
+			capacity		Return size of allocated storage capacity (public member function)<br></br>
+			empty			Test whether vector is empty (public member function)<br></br>
+			reserve			Request a change in capacity (public member function)<br></br>
+			shrink_to_fit	Shrink to fit (public member function)<br></br>
+			<br></br>
+			Element access:<br></br>
+			operator[]	Access element (public member function)<br></br>
+			at			Access element (public member function)<br></br>
+			front		Access first element (public member function)<br></br>
+			back		Access last element (public member function)<br></br>
+			data		Access data (public member function)<br></br>
+			<br></br>
+			Modifiers:<br></br>
+			assign			Assign vector content (public member function)<br></br>
+			push_back		Add element at the end (public member function)<br></br>
+			pop_back		Delete last element (public member function)<br></br>
+			insert			Insert elements (public member function)<br></br>
+			erase			Erase elements (public member function)<br></br>
+			swap			Swap content (public member function)<br></br>
+			clear			Clear content (public member function)<br></br>
+			emplace			Construct and insert element (public member function)<br></br>
+			emplace_back	Construct and insert element at the end (public member function)<br></br>
+		</collection-methods>
 		<dynamic-memory-allocation>
 			*General-Programming-Knowledge*
 			Additional to the C language: 
