@@ -6020,7 +6020,21 @@ public class DiceClass {
 
 </code>
 		</encapsulation>
-		<polymorphism>*General-Programming-Knowledge*</polymorphism>
+		<polymorphism>*General-Programming-Knowledge*
+<code>
+class Bike{  
+  void run(){System.out.println("running");}  
+}  
+class Splendor extends Bike{  
+  void run(){System.out.println("running safely with 60km");}  
+  
+  public static void main(String args[]){  
+    Bike b = new Splendor();//upcasting  
+    b.run();  
+  }  
+}  
+</code>
+		</polymorphism>
 		<inheritance>*General-Programming-Knowledge*
 <code>
 package project25;
@@ -6221,7 +6235,42 @@ public final class Integer extends Number implements Comparable&lt;Integer&gt;
 */
 </code>
 		</generic-programming>
-		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<variable-arguments-lists>*General-Programming-Knowledge*
+<code>
+// Java program to demonstrate varargs
+ 
+class Test1 {
+    // A method that takes variable 
+    // number of integer arguments.
+    static void fun(int... a)
+    {
+        System.out.println("Number of arguments: "
+                           + a.length);
+ 
+        // using for each loop to display contents of a
+        for (int i : a)
+            System.out.print(i + " ");
+        System.out.println();
+    }
+ 
+    // Driver code
+    public static void main(String args[])
+    {
+        // Calling the varargs method with 
+        // different number of parameters
+       
+        // one parameter
+        fun(100); 
+           
+          // four parameters
+        fun(1, 2, 3, 4); 
+         
+          // no parameter
+          fun(); 
+    }
+}
+</code>
+		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*
 <code>
 package project2;
@@ -6572,7 +6621,29 @@ public class Project20 {
 
 </code>
 		</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<collection-methods>
+<code>
+public boolean add(E e)		//It is used to insert an element in this collection.
+public boolean addAll(Collection&lt;? extends E&gt; c)	//It is used to insert the specified collection elements in the invoking collection.
+public boolean remove(Object element)	//It is used to delete an element from the collection.
+public boolean removeAll(Collection&lt;?&gt; c)	//It is used to delete all the elements of the specified collection from the invoking collection.
+default boolean removeIf(Predicate&lt;? super E&gt; filter)	//It is used to delete all the elements of the collection that satisfy the specified predicate.
+public boolean retainAll(Collection&lt;?&gt; c)	//It is used to delete all the elements of invoking collection except the specified collection.
+public int size()	//It returns the total number of elements in the collection.
+public void clear()	//It removes the total number of elements from the collection.
+public boolean contains(Object element)	//It is used to search an element.
+public boolean containsAll(Collection&lt;?&gt; c)	//It is used to search the specified collection in the collection.
+public Iterator iterator()	//It returns an iterator.
+public Object[] toArray()	//It converts collection into array.
+public &lt;T&gt; T[] toArray(T[] a)	//It converts collection into array. Here, the runtime type of the returned array is that of the specified array.
+public boolean isEmpty()	//It checks if collection is empty.
+default Stream&lt;E&gt; parallelStream()	//It returns a possibly parallel Stream with the collection as its source.
+default Stream&lt;E&gt; stream()	//It returns a sequential Stream with the collection as its source.
+default Spliterator&lt;E&gt; spliterator()	//It generates a Spliterator over the specified elements in the collection.
+public boolean equals(Object element)	//It matches two collections.
+public int hashCode()	//It returns the hash code number of the collection.
+</code>
+		</collection-methods>
 		<dynamic-memory-allocation>
 			Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
 			at runtime. <br></br>
@@ -6581,8 +6652,8 @@ public class Project20 {
 			These objects have global access and we can access them from anywhere in the 
 			application.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
+		<read-from-file>For a concrete example - see the sample from Serialiation.</read-from-file>
+		<write-to-file>For a concrete example - see the sample from Serialiation.</write-to-file>
 		<serialization>*General-Programming-Knowledge*
 <code>
 package project23;
@@ -6700,8 +6771,62 @@ public class Project23 {
 		<constructors>*General-Programming-Knowledge*</constructors>
 		<instantiation>*General-Programming-Knowledge*</instantiation>
 		<destructors>*General-Programming-Knowledge*</destructors>
-		<function-overloading>*General-Programming-Knowledge*</function-overloading>
-		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<function-overloading>*General-Programming-Knowledge*
+<code>
+// Java Program for Method overloading
+// By using Different Types of Arguments 
+ 
+// Class 1
+// Helper class
+class Helper {
+ 
+    // Method with 2 integer parameters
+    static int Multiply(int a, int b)
+    {
+        // Returns product of integer numbers
+        return a * b;
+    }
+ 
+    // Method 2
+    // With same name but with 2 double parameters
+    static double Multiply(double a, double b)
+    {
+        // Returns product of double numbers
+        return a * b;
+    }
+}
+ 
+// Class 2
+// Main class
+class GFG {
+    // Main driver method
+    public static void main(String[] args)
+    {
+        // Calling method by passing
+        // input as in arguments
+        System.out.println(Helper.Multiply(2, 4));
+        System.out.println(Helper.Multiply(5.5, 6.3));
+    }
+}
+</code>
+		</function-overloading>
+		<operator-overloading>*General-Programming-Knowledge*
+<code>
+public class Vec {
+   private float x, y, z;
+
+   public Vec(float x, float y, float z) {
+       this.x = x;
+       this.y = y;
+       this.z = z;
+   }
+   //Overloading the operator +
+   public Vec plus(Vec other) {
+       return new Vec(x + other.x, y + other.y, z + other.z);
+   }
+}
+</code>
+		</operator-overloading>
 		<enums>*General-Programming-Knowledge*
 <code>
 /*
@@ -6893,7 +7018,13 @@ public class CustomExceptionOutRange extends Exception{
 </code>
 		</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
-		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<default-parameters>*General-Programming-Knowledge*
+<code>
+public void doSomething(String name, int age, String city = "New York") {  
+  // code to perform some action  
+}  
+</code>
+		</default-parameters>
 		<interfaces>*General-Programming-Knowledge*
 <code>
 /*
