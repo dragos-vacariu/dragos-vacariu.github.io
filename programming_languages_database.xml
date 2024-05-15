@@ -3695,13 +3695,206 @@ namespace read_from_file
 }
 </code>
 		</read-from-file>
-		<write-to-file>*General-Programming-Knowledge*</write-to-file>
-		<serialization>*General-Programming-Knowledge*</serialization>
-		<deserialization>*General-Programming-Knowledge*</deserialization>
-		<constructors>*General-Programming-Knowledge*</constructors>
+		<write-to-file>*General-Programming-Knowledge*
+<code>
+// Write file using StreamWriter
+using (StreamWriter writer = new StreamWriter(fullPath))
+{
+   writer.WriteLine("Monica Rathbun");
+   writer.WriteLine("Vidya Agarwal");
+   writer.WriteLine("Mahesh Chand");
+   writer.WriteLine("Vijay Anand");
+   writer.WriteLine("Jignesh Trivedi");
+}
+// Read a file
+string readText = File.ReadAllText(fullPath);
+Console.WriteLine(readText);
+</code>
+		</write-to-file>
+		<serialization>*General-Programming-Knowledge*
+<code>
+using System;  
+using System.IO;  
+using System.Runtime.Serialization.Formatters.Binary;  
+[Serializable]  
+class Student  
+{  
+    int rollno;  
+    string name;  
+    public Student(int rollno, string name)  
+    {  
+        this.rollno = rollno;  
+        this.name = name;  
+    }  
+}  
+public class SerializeExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        FileStream stream = new FileStream("e:\\sss.txt", FileMode.OpenOrCreate);  
+        BinaryFormatter formatter=new BinaryFormatter();  
+          
+        Student s = new Student(101, "sonoo");  
+        formatter.Serialize(stream, s);  
+  
+        stream.Close();  
+    }  
+}  
+</code>
+		</serialization>
+		<deserialization>*General-Programming-Knowledge*
+<code>
+using System;  
+using System.IO;  
+using System.Runtime.Serialization.Formatters.Binary;  
+[Serializable]  
+class Student  
+{  
+    public int rollno;  
+    public string name;  
+    public Student(int rollno, string name)  
+    {  
+        this.rollno = rollno;  
+        this.name = name;  
+    }  
+}  
+public class DeserializeExample  
+{  
+    public static void Main(string[] args)  
+    {  
+        FileStream stream = new FileStream("e:\\sss.txt", FileMode.OpenOrCreate);  
+        BinaryFormatter formatter=new BinaryFormatter();  
+  
+        Student s=(Student)formatter.Deserialize(stream);  
+        Console.WriteLine("Rollno: " + s.rollno);  
+        Console.WriteLine("Name: " + s.name);  
+  
+        stream.Close();  
+    }  
+}  
+</code>
+		</deserialization>
+		<constructors>*General-Programming-Knowledge*
+<code>
+using System;
+
+/*A struct is a similar data type with a class, but structs works with values, while classes works as reference
+ 	FOR A STRUCT:
+ 	if we create 2 objects:
+ 	object1 = object2, in this case object1 will have all the values that object2 has.
+ 	
+ 	FOR A CLASS:
+ 	if we create 2 objects:
+ 	object1 = object2, in this case object1, will be poiting to the object2's values which are stored on the heap.
+ */
+
+namespace project5_structs_with_constructors
+{
+	class Program
+	{
+		struct MyStr
+			{
+				//Variables of the struct:
+				public int posx, posy;
+				//Constructor of the struct:
+				public MyStr (int newposx, int newposy)
+				{
+					posx = newposx;
+					posy = newposy;
+				}
+			}
+		public static void Main(string[] args)
+		{
+			//Creating the instances/objects of the struct
+			MyStr structure1 = new MyStr (4, 5);
+			MyStr structure2 = new MyStr (10, 12);
+			//Printing the values:
+			Console.WriteLine("The first structure has: X=" +structure1.posx +" and Y=" +structure1.posy);
+			Console.WriteLine("The second structure has: X=" +structure2.posx +" and Y=" +structure2.posy);
+			structure1 = structure2;
+			//Printing the values:
+			Console.WriteLine("\nAfter setting structure1 = structure2.\n");
+			Console.WriteLine("The first structure has: X=" +structure1.posx +" and Y=" +structure1.posy);
+			Console.WriteLine("The second structure has: X=" +structure2.posx +" and Y=" +structure2.posy);
+			//End of program:
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</constructors>
 		<instantiation>*General-Programming-Knowledge*</instantiation>
-		<destructors>*General-Programming-Knowledge*</destructors>
-		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<destructors>*General-Programming-Knowledge*
+<code>
+class Example
+{ 
+    // Rest of the class
+    // members and methods.
+
+   // Destructor
+   ~Example()
+    {
+        // Your code
+    }
+
+} 
+</code>
+		</destructors>
+		<function-overloading>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project26_methods_and_functions_overloading
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			int outsider;
+			Program p = new Program();
+			p.Add(10,12);
+			p.Add(1,102,34);
+			p.Add(0.2f,3.3f);
+			p.Add(1,33, out outsider);
+			Console.WriteLine("Func4 Result: {0}", outsider);
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+		/*A function or method can be overloaded using different number of parameters, different types of 
+		parameters or different kind of parameters.
+		Kinds of parameters are: input parameters, output parameters, reference parameters
+		Types of parameters are: float, int, double, char, etc...
+		Overloading means that you can have multiple functions with the same name, but respecting at least one of
+		the criteria above (also it can respect all of the criteria above). This means that the signature of the
+		overloaded function must be different from the primary function.
+		Signature consist in number, type and kind of parameters, and also in the code inside the brackets. But
+		a signature does not consist in the return type of the function, the access modifier of the function, or
+		the optional parameters (params) of the function.
+		So a function CANNOT be overloaded ONLY by using different return types, access modifiers, or optional
+		params, there must be respected the criteria above.
+		
+		Examples:*/
+		public void Add(int numb1, int numb2)
+		{
+			Console.WriteLine("Func1\nThe Sum: {0}\n", numb1+numb2);
+		}
+		public void Add(int numb1, int numb2, int numb3) //method overloaded
+		{
+			Console.WriteLine("Func2\nThe Sum: {0}\n", numb1+numb2+numb3);
+		}
+		public void Add(float numb1, float numb2) //method overloaded
+		{
+			Console.WriteLine("Func3\nThe Sum: {0}\n", numb1+numb2);
+		}
+		public void Add (int numb1, int numb2, out int sum) //method overloaded
+		{
+			sum=numb1+numb2;
+		}
+	}
+}
+</code>
+		</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
 		<enums>*General-Programming-Knowledge*
 <code>
@@ -3790,7 +3983,50 @@ namespace Software
 }
 </code>
 		</enums>
-		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<multi-threading>*General-Programming-Knowledge*
+<code>
+using System;
+using System.Threading;
+
+namespace MultithreadingApplication {
+   class ThreadCreationProgram {
+      public static void CallToChildThread() {
+         try {
+            Console.WriteLine("Child thread starts");
+            
+            // do some work, like counting to 10
+            for (int counter = 0; counter &lt;= 10; counter++) {
+               Thread.Sleep(500);
+               Console.WriteLine(counter);
+            }
+            
+            Console.WriteLine("Child Thread Completed");
+         } catch (ThreadAbortException e) {
+            Console.WriteLine("Thread Abort Exception");
+         } finally {
+            Console.WriteLine("Couldn't catch the Thread Exception");
+         }
+      }
+      static void Main(string[] args) {
+         ThreadStart childref = new ThreadStart(CallToChildThread);
+         Console.WriteLine("In Main: Creating the Child thread");
+         
+         Thread childThread = new Thread(childref);
+         childThread.Start();
+         
+         //stop the main thread for some time
+         Thread.Sleep(2000);
+         
+         //now abort the child
+         Console.WriteLine("In Main: Aborting the Child thread");
+         
+         childThread.Abort();
+         Console.ReadKey();
+      }
+   }
+}
+</code>
+		</multi-threading>
 		<namespaces>*General-Programming-Knowledge*
 <code>
 //FILE: MyClass.cs
@@ -3964,7 +4200,30 @@ namespace project37_read_write_to_files_handling_exceptions
 </code>
 		</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
-		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<default-parameters>*General-Programming-Knowledge*
+<code>
+//Example:
+
+static void MyMethod(string country = "Norway") 
+{
+  Console.WriteLine(country);
+}
+
+static void Main(string[] args)
+{
+  MyMethod("Sweden");
+  MyMethod("India");
+  MyMethod();
+  MyMethod("USA");
+}
+
+//OUTPUT:
+// Sweden
+// India
+// Norway
+// USA
+</code>
+		</default-parameters>
 		<interfaces>*General-Programming-Knowledge*
 <code>
 using System;
