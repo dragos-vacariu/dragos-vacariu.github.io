@@ -159,7 +159,6 @@
 			irrespective of the test condition.<br></br>
 			</blue>
 <code>
-
 <red>/*While loop syntax: */</red>
 int counter = 0;
 while(counter &lt; 5)
@@ -167,16 +166,16 @@ while(counter &lt; 5)
 	/*code goes here*/
 	 counter++;
 }
-
-/*---------------------------------*/
+</code>
+<code>
 <red>/*For loop syntax: */</red>
 for(int counter = 0; counter &lt; 5; counter++)
 {
 	/*code goes here*/
 	 counter++;
 }
-
-/*---------------------------------*/
+</code>
+<code>
 <red>/*Do while loop syntax: */</red>
 do
 {
@@ -255,7 +254,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		<deserialization>
 			Deserialization is the process of reconstructing a data structure or object from a series 
 			of bytes or a string in order to instantiate the object for consumption. 
-		<br></br><br></br>
+			<br></br><br></br>
 			This is the 
 			reverse process of serialization, i.e., converting a data structure or object into a 
 			series of bytes for storage or transmission across devices.<br></br><br></br>
@@ -351,7 +350,6 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			Macros provide a convenient way to write concise and efficient code, 
 			improving the readability and maintainability of C programs.<br></br>
 <code>
-
 // C program to illustrate macros
 #include &lt;stdio.h&gt;
  
@@ -1219,7 +1217,6 @@ int main()
 			It defines a contract that concrete implementations must adhere to by providing 
 			definitions for all the functions declared in the interface.
 <code>
-
 // Declare an interface for a shape
 struct shape_interface {
   // Function pointers for the interface functions
@@ -1234,7 +1231,6 @@ In C we can have structs that store variables and structs that hold function poi
 Both of them are close to forming a class.
 
 */
-
 </code>
 		</interfaces>
 		<macros>*General-Programming-Knowledge*</macros>
@@ -1292,19 +1288,16 @@ int main()
 		<command-line-arguments>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example*/
 int main(int argc, char *argv[]) { /* ... */ }
 
 //OR
 int main(int argc, char **argv) { /* ... */ }
-
 </code>
 		</command-line-arguments>
 		<ternary-operator>
 			*General-Programming-Knowledge*
 <code>
-
 /*Using IF ELSE statements:*/
 
 int a = 10, b = 20, c;
@@ -1319,8 +1312,8 @@ else
 }
 
 printf("%d", c);
-
-/*=============================*/
+<code>
+</code>
 /*Using TERNARY operator:*/
 
 int a = 10, b = 20, c;
@@ -1330,7 +1323,6 @@ c = (a &lt; b) ? a : b;
 printf("%d", c);
 
 /*The output of both samples of code from above will result in: c = 3*/
-
 </code>
 		</ternary-operator>
 		<modular-programming>
@@ -1468,7 +1460,6 @@ sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, 
 		<pre-post-incrementation>
 			*General-Programming-Knowledge*
 <code>
-
 //pre increment operator
 
 #include &lt;stdio.h&gt;  
@@ -1489,9 +1480,8 @@ int main()
 	a = 11
 	x = 11
 	*/
-
-/*====================================*/
-
+</code>
+<code>
 //post increment operator
 
 #include &lt;stdio.h&gt;  
@@ -1514,7 +1504,6 @@ int main()
 	*/
 
 }
-
 </code>
 		</pre-post-incrementation>
 	</programming_language>
@@ -1571,7 +1560,6 @@ int main() {
 		<polymorphism>
 			*General-Programming-Knowledge*
 <code>
-
 #include &lt;iostream&gt;  
 
 /*
@@ -1774,7 +1762,6 @@ int main()
     getch();
     return 0;
 }
-
 </code>
 		</inheritance>
 		<abstraction>
@@ -1784,9 +1771,7 @@ int main()
 			details. Data abstraction refers to providing only essential information about the 
 			data to the outside world, hiding the background details or implementation. 
 			<br></br><br></br>
-
 <code>
-
 #include &lt;iostream&gt;  
 using namespace std;
  
@@ -1823,7 +1808,6 @@ int main()
 	b = 20
 	*/
 }
-
 </code>
 		We are not allowed to access the variables a and b directly, however, one can call 
 		the function set() to set the values in a and b and the function display() to 
@@ -1855,7 +1839,6 @@ int main()
 			<br></br>
 
 <code>
-
 #include &lt;iostream&gt;  
 
 // Template Function with a Type T
@@ -1874,7 +1857,6 @@ int main()
     std::cout &lt;&lt; maxNum&lt;float&gt;(a, b);
     return 0;
 }
-
 </code>
 		</generic-programming>
 		<variable-arguments-lists>
@@ -1891,7 +1873,6 @@ int main()
 			integer and floating-point enhancements.
 			<br></br>
 <code>
-
 <red>// Implementation of variable arguments using vector.</red>
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
@@ -2024,7 +2005,6 @@ int main() {
 			(introduced in C++ version 11 (2011), which is used exclusively to loop through 
 			elements in an array (or other data sets):
 <code>
-
 /*Example of foreach loop in C++*/
 
 int myNumbers[5] = {10, 20, 30, 40, 50};
@@ -2077,7 +2057,6 @@ int main()
 		pre-allocated memory.<br></br>
 		</green>
 <code>
-
 // C++ program to demonstrate the use of list containers
 #include &lt;iostream&gt; 
 #include &lt;list&gt; 
@@ -2144,11 +2123,9 @@ int main()
 			the number of these within brackets []. <br></br>
 			It returns a pointer to the beginning of the new block of memory allocated. <br></br>
 <code>
-
 //Example:
 int * foo;
 foo = new int [5];
-
 </code>
 		In this case, the system dynamically allocates space for five elements of type int 
 		and returns a pointer to the first element of the sequence, which is assigned to 
@@ -2164,7 +2141,6 @@ foo = new int [5];
 		<br></br>
 		This is the purpose of operator delete, whose syntax is: <br></br>
 <code>
-
 // Example of dynamic allocation
 // and deallocation of memory using new and delete
 #include &lt;iostream&gt; 
@@ -2223,7 +2199,6 @@ int main()
 	Value store in block of memory: 1 2 3 4 5 
 	*/
 }
-
 </code>
 		</dynamic-memory-allocation>
 		<read-from-file>
@@ -2243,7 +2218,6 @@ int main()
 			the content of the file:</green>
 			<br></br>
 <code>
-
 // Create a text string, which is used to output the text file
 
 #include &lt;iostream&gt; 
@@ -2268,7 +2242,6 @@ int main()
 	MyReadFile.close(); //It is considered good practice to close the file, 
 	//and it can clean up unnecessary memory space.
 }
-
 </code>
 		</read-from-file>
 		<write-to-file>
@@ -2288,7 +2261,6 @@ int main()
 			<br></br><br></br>
 			To write to the file, use the insertion operator (&lt;&lt;).<br></br>
 <code>
-
 //Example of writing to file using fstream in C++
 
 #include &lt;iostream&gt; 
@@ -2308,7 +2280,6 @@ int main()
 	MyFile.close(); //It is considered good practice to close the file, 
 	//and it can clean up unnecessary memory space.
 }
-
 </code>
 		</write-to-file>
 		<serialization>
@@ -2316,7 +2287,6 @@ int main()
 			<br></br><br></br>
 			Serialization is the process of storing the state of an object to a file.<br></br>
 <code>
-
 /*Example of C++ object.field serialization and deserialization*/
 
 #include &lt;iostream&gt; 
@@ -2389,7 +2359,6 @@ int main()
 	
 	*/
 }
-
 </code>
 		</serialization>
 		<deserialization>
@@ -2398,7 +2367,6 @@ int main()
 			Deserialization is the reverse process of Serialization, 
 			where the byte stream is used to reconstruct the original object.<br></br>
 <code>
-
 /*Example of C++ whole-object serialization and deserialization*/
 
 #include &lt;iostream&gt; 
@@ -2480,13 +2448,11 @@ int main()
 	
 	*/
 }
-
 </code>
 		</deserialization>
 		<constructors>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example*/
 #include &lt;iostream&gt; 
 
@@ -2529,13 +2495,11 @@ int main() {
   MyClass myObj("Hello World!");    // Create an object of MyClass (this will call the constructor)
   return 0;
 }
-
 </code>
 		</constructors>
 		<instantiation>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example of instantiation*/
 
 #include &lt;stdio.h&gt; 
@@ -2558,13 +2522,11 @@ int main()
 
     return 0;
 }
-
 </code>
 		</instantiation>
 		<destructors>
 			*General-Programming-Knowledge*
 <code>
-
 class Test {
 public:
     // User-Defined Constructor
@@ -2573,13 +2535,11 @@ public:
     // User-Defined Destructor
     ~Test() { cout &lt;&lt; "\n Destructor executed"; }
 };
-
 </code>
 		</destructors>
 		<function-overloading>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example of function overloading*/
 
 #include &lt;iostream&gt; 
@@ -2608,7 +2568,6 @@ int main()
 		<operator-overloading>
 			*General-Programming-Knowledge*
 <code>
-
 // Example of Operator Overloading
 
 #include &lt;iostream&gt; 
@@ -2648,7 +2607,6 @@ int main()
 	12 + i9
 	*/
 }
-
 </code>
 		</operator-overloading>
 		<enums>
@@ -2659,7 +2617,6 @@ int main()
 			improved type checking. In C++, an enum defines an actual type, which results in 
 			strong type checking.<br></br>
 <code>
-
 #include &lt;iostream&gt; 
 #include &lt;conio.h&gt; 
 
@@ -2732,7 +2689,6 @@ int main()
     getch();
     return 0;
 }
-
 </code>
 		</enums>
 		<multi-threading>
@@ -2744,7 +2700,6 @@ int main()
 			function to complete, and optionally some parameters for that function.
 			<br></br>
 <code>
-
 #include &lt;iostream&gt; 
 #include &lt;cstdlib&gt; 
 #include &lt;pthread.h&gt; 
@@ -2776,7 +2731,6 @@ int main () {
    }
    pthread_exit(NULL);
 }
-
 </code>
 		</multi-threading>
 		<namespaces>
@@ -2785,7 +2739,6 @@ int main () {
 			In C++ multiple namespace blocks 
 			with the same name are allowed.<br></br>
 <code>
-
 namespace Data
 {
     class ObjectManager
@@ -2795,14 +2748,12 @@ namespace Data
     };
     void Func(ObjectManager) {}
 }
-
 </code>
 		</namespaces>
 		<exception-handling>
 			*General-Programming-Knowledge*
 			<br></br><br></br>
 <code>
-
 // C++ example on how to use of try,catch and throw
 // for exception handling.
  
@@ -2839,7 +2790,6 @@ int main()
  
     return 0;
 }
-
 </code>
 		</exception-handling>
 		<bitwise-operators>
@@ -2853,7 +2803,6 @@ int main()
 		<default-parameters>
 			*General-Programming-Knowledge*
 <code>
-
 // Example of Default Parameters/Arguments in C++.
 
 #include &lt;iostream&gt; 
@@ -2880,13 +2829,11 @@ int main()
     cout &lt;&lt; sum(10, 15, 25, 30) &lt;&lt; endl;
     return 0;
 }
-
 </code>
 		</default-parameters>
 		<interfaces>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example of an interface implementation*/
 class Box {
    public:
@@ -2898,13 +2845,11 @@ class Box {
       double breadth;     // Breadth of a box
       double height;      // Height of a box
 };
-
 </code>
 		</interfaces>
 		<abstract-classes>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example of abstract class*/
 
 #include &lt;iostream&gt; 
@@ -2962,7 +2907,6 @@ int main(void) {
 
    return 0;
 }
-
 </code>
 		
 		</abstract-classes>
@@ -3008,7 +2952,6 @@ int main(void) {
 			<blue>ULLONG_MAX</blue> - Maximum value for an object of type Unsigned long long int		
 			</green>
 <code>
-
 /*An example of defining a C++ macro:*/
 
 using namespace std;
@@ -3025,7 +2968,6 @@ int main() {
  
     return 0;
 }
-
 </code>
 		</macros>
 		<random-generators>
@@ -3043,9 +2985,7 @@ int main() {
 			<br></br><br></br>
 			<red>Syntax of rand()</red>:
 <code>
-
 int rand(void);
-
 </code>
 			<red>Parameters of rand():</red><br></br>
 			This function does not take any parameters.<br></br><br></br>
@@ -3108,7 +3048,6 @@ int rand(void);
 		<decorators>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example*/
 
 #include &lt;iostream&gt; 
@@ -3163,7 +3102,6 @@ int main()
 
     p-&gt;display();
 }
-
 </code>
 		</decorators>
 		<operators>*General-Programming-Knowledge*</operators>
