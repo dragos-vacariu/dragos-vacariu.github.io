@@ -3461,7 +3461,31 @@ namespace project45_generics
 			When an object is no longer needed, it is the responsibility of the garbage 
 			collector to deallocate the memory and reclaim it for future use.
 		</dynamic-memory-allocation>
-		<read-from-file>*General-Programming-Knowledge*</read-from-file>
+		<read-from-file>*General-Programming-Knowledge*
+<code>
+using System;
+using System.Linq;
+using System.Text;
+using System.Collections.Generic;
+
+namespace read_from_file
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			string textFromFile = System.IO.File.ReadAllText("textfile.txt"); // in this case location of the file is in project folder/debug.
+			if(textFromFile!=string.Empty)
+			{
+				Console.WriteLine("Text From File: \n\n{0}", textFromFile);
+			}
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</read-from-file>
 		<write-to-file>*General-Programming-Knowledge*</write-to-file>
 		<serialization>*General-Programming-Knowledge*</serialization>
 		<deserialization>*General-Programming-Knowledge*</deserialization>
@@ -3853,8 +3877,110 @@ namespace project11_ternary_operator
 </code>
 		</ternary-operator>
 		<modular-programming>*General-Programming-Knowledge*</modular-programming>
-		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<string-methods>*General-Programming-Knowledge*
+<code>
+using System;
+using System.Text; // using this for StringBuilder.
+/*A stringbuilder is a data type just like string. The main difference between them is that the stringbuilder is mutable.
+ Mutable means that once that is created the string can be changed, whereas System.string is not mutable, once created
+ cannot be change. If you try to change a string after it was been initialized, the system will create another object of the string in
+ memory and pass the new value of the string to that object, but the old object which holds the old value of the string will not be cleaned
+ until the end of the program, when the garbage collector does its work.
+ A stringbuilder should be used everytime when a string that's created tends to change its value, in this way, only a single object will
+ be created in memory no matter how many times its value it will change, because it's mutable.
+ */
+
+namespace project46_working_with_string_builder
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			//Creating a stringbuilder:
+			StringBuilder stringbuiler = new StringBuilder("Adam"); //this is how a stringbuilder gets created and initialized
+			//To concatenate string builders, there is a function called .Append();
+			stringbuiler.Append(" has");
+			stringbuiler.Append(" C#");
+			stringbuiler.Append(" skills!");
+			//Printing the stringbuilder:
+			Console.WriteLine("{0}", stringbuiler);
+			Console.WriteLine("{0}", stringbuiler.ToString()); //this is a better way to print the stringbuilder
+			//Other stringbuilder operations:
+			stringbuiler.Clear(); //clear the stringbuiler's content
+			Console.WriteLine("{0}", stringbuiler);
+			Console.WriteLine("Stringbuilder Capacity: {0}", stringbuiler.Capacity); //stringbuilder.Capacity returns the capacity of the
+			//stringbuilder
+			Console.WriteLine("Stingbuilder Max Capacity: {0}",stringbuiler.MaxCapacity);
+			
+			//End of program:
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project13_implicit__explicit__data_type_conversions
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			/*An implicit conversion is done by the compiler when there are no loss of information. Also there is
+			 * no possibility of throwing exceptions during the conversion.
+			 * Example:
+			 */
+			int numb1 = 100;
+			float numb2 = numb1; //implicit conversion (done by the compiler).
+			Console.WriteLine("The value of numb2 is: {0}", numb2);
+			/*An explicit conversion is done by the programmer using type cast operators or predefined classes, 
+ 			* data-conversion classes.
+			 Example:
+			 */
+			float numb3=123.543f;
+			numb1 = (int) numb3; //explicit conversion using type cast.
+			Console.WriteLine("The value of numb1 is: {0}", numb1);
+			numb1 = Convert.ToInt32(numb3); //explicit conversion using Conversion Class.
+			Console.WriteLine("The value of numb1 is: {0}", numb1);
+			/* Conversion Class - will throw an exception/message when the conversion fails because one variable
+			 * can't hold the value of the converted one.
+			 * Type Cast - will not throw any exception, will just print the minimum value that the variable 
+			 * can hold. 
+			 */
+			
+			//Parse Methods of converting string to int.
+			string valueN = "199";
+			numb1 = int.Parse(valueN); //parsing sinthax
+			//in case if the string does not contain a valid number, an exception will be thrown. SO the program
+			//will be terminated.
+			Console.WriteLine("The value of numb1 after parsing is: {0}", numb1);
+			
+			//TryParse Methods of converting string to int.
+			string valueB = "221a";
+			int Result = 0;
+			bool Success = int.TryParse(valueB, out Result); //sinthax of TryParse.	
+			//if int.TryParsing is succesfull the bool Success will become true, else it will become false.
+			//TryParse takes 2 arguments: the string to be converted and the variable that will stored the
+			//converted result (if it is successful). If the TryParse is not successful the Result will not be 
+			//changed.
+			if(Success)
+			{
+				Console.WriteLine("The value of numb1 after tryparsing is: {0}", Result );
+			}
+			else
+			{
+				Console.WriteLine("The number is invalid. The conversion was unsuccesful!");
+			}
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
 <code>
 using System;
 
@@ -3979,7 +4105,76 @@ namespace project50_optional_parameters
 }
 </code>
 		</optional-parameters>
-		<partial-classes>*General-Programming-Knowledge*</partial-classes>
+		<partial-classes>*General-Programming-Knowledge*
+<code>
+using System;
+
+/*A partial class its used to separate/split a class into two or more parts, across different files.
+ If the part of the class are in different files, those files must be contained in the same assembly (directory of project), otherwise
+ the compilation will fail. 
+ A partial class can also be used in techniques of splitting an interface into more parts successfully.
+ 
+ IMPORTANT: Without the partial keyword into the class declaration, the compiler will not know the intention of creating a partial class.
+ All the parts of a partial class needs to be contained by the same namespace and assembly.
+ All the parts must use the partial keyword in their declaration.
+ All the parts must use the same access modifier in their declaration.
+ If any of the parts is declared as abstract, the entire class will be abstract (even if only a part was declared abstract).
+ If any of the parts is declared as sealed, the entire class will be sealed.
+ If any of the parts is declared to be inherited from a a class, the entire class will be inherited from that class. IMPORTANT, different
+ parts of the partial class cannot specify that they are inherited from different classes. (IN C# MULTIPLE CLASS INHERITANCE IS NOT ALLOWED).
+ Different parts of the partial class can specify that they inherits from different interfaces, so after the compilation the partial class
+ will be inherited from all the specified interfaces (even if they were specified in different parts of the class).
+ The members declared to a part of the partial class are available to all the part of the partial class (available in the entire class).
+ */
+
+
+namespace project47_partial_classes
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			//A partial class its used like a normal class.
+			MyClass obj = new MyClass();
+			obj.Age = 16;
+			obj.Name = "Ellias";
+			obj.PrintInfo();
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	//Example of partial class:
+	partial class MyClass //the partial keyword must be used for all the parts of the class.
+	{
+		private string _Name;
+		private int _Age;
+		public int Age
+		{
+			get {
+				return _Age;
+			}
+			set
+			{
+				_Age=value;
+			}
+		}
+		public string Name
+		{
+			get {
+				return _Name;
+			}
+			set
+			{
+				_Name=value;
+			}
+		}
+		//THE SECOND PART OF THE CLASS IS IN THE ASSEMBLY DIRECTORY (PROJECT DIRECTORY), WITH THE NAME PartialClassPartTwo, AND
+		//CONTAINS A METHOD CALLED PrintInfo().
+	}
+	
+}
+</code>
+		</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
 		<operators>*General-Programming-Knowledge*</operators>
 		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
