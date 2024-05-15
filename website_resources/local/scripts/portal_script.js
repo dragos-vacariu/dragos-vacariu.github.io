@@ -20,7 +20,7 @@ const programming_language_div_style = [
 	"background-color: rgba(0,255,255,0.1);  padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,0,255,0.1);  padding: 1vw; margin: 1vw;", 
 	"background-color: rgba(255,255,0,0.1);  padding: 1vw; margin: 1vw;"
-]
+];
 
 const  view_selection = document.getElementById("view_selection");
 
@@ -173,9 +173,12 @@ function loadXMLDoc(xml_file)
 		{
 			var parser = new DOMParser();
 			var xml_Document = parser.parseFromString(this.responseText, "application/xml");
-			/*get the content of the specified xml tag*/
-			var xml_tag_content = xml_Document.getElementsByTagName("programming_language");
 			
+			/*formatting the xml_Document content*/
+			xml_Document = format_XML_Document_Content(xml_Document);
+			
+			/*get the content of the specified xml tag and store the information*/
+			var xml_tag_content = xml_Document.getElementsByTagName("programming_language");
 
 			for (var i = 0; i< xml_tag_content.length; i++) 
 			{
@@ -635,6 +638,72 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 			
 		}
 	}
+}
+
+function format_XML_Document_Content(xml_Document_Content)
+{
+	//xml_Document_Content = addLineNumbers(xml_Document_Content);
+	xml_Document_Content = formatComments(xml_Document_Content);
+	xml_Document_Content = addStyleCodeBoxes(xml_Document_Content);
+	return xml_Document_Content;
+}
+
+function addStyleCodeBoxes(xml_Document_Content)
+{
+	var codeElements =  xml_Document_Content.getElementsByTagName("code");
+	for(var index = 0; index < codeElements.length; index++)
+	{
+		if(codeElements[index].innerHTML.split("\n").length > 2)
+		{
+			codeElements[index].innerHTML = "<box>" + codeElements[index].innerHTML + "</box>"
+		}
+	}
+	return xml_Document_Content;
+}
+
+function formatComments(xml_Document_Content)
+{
+	var codeElements =  xml_Document_Content.getElementsByTagName("code");
+	for(var index = 0; index < codeElements.length; index++)
+	{
+		var lines = codeElements[index].innerHTML.split("\n");
+		for(var i=0; i < lines.length; i++)
+		{
+			if(lines[i].includes("//")) // do not add line number to single-line content
+			{
+				lines[i] = lines[i].replace("//", "<red>//");
+				lines[i] = lines[i] + "</red>";
+			}
+			if(lines[i].includes("/*"))
+			{
+				lines[i] = lines[i].replace("/*", "<red>/*");
+			}
+			if(lines[i].includes("*/"))
+			{
+				lines[i] = lines[i].replace("*/", "*/</red>");
+			}
+		}
+		codeElements[index].innerHTML = lines.join("\n");
+	}
+	return xml_Document_Content;
+}
+
+function addLineNumbers(xml_Document_Content)
+{
+	var codeElements =  xml_Document_Content.getElementsByTagName("code");
+	for(var index = 0; index < codeElements.length; index++)
+	{
+		var lines = codeElements[index].innerHTML.split("\n");
+		for(var i=0; i < lines.length; i++)
+		{
+			if(lines.length > 1) // do not add line number to single-line content
+			{
+				lines[i] = i+ ". " + lines[i];
+			}
+		}
+		codeElements[index].innerHTML = lines.join("\n");
+	}
+	return xml_Document_Content;
 }
 
 loadXMLDoc(online_xml_file);

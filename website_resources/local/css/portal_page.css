@@ -76,7 +76,6 @@
 	font-family: Consolas;
 	font-size:12px;
 	color: blue;
-	
 }
 
 #page_block h4 .selection_title{
@@ -171,14 +170,14 @@
 	white-space: pre-wrap;
 	color: blue;
 	font-weight: bold;
-	counter-increment: line;
-	/*
-	background-color: #eee;
-	border: 1px solid #999;
+}
+
+#page_block code box{
+	background-color: rgba(255,255,255,0.4);
+	border: 1px solid black;
 	display: block;
 	padding: 5px;
-	margin: 5px;
-	*/
+	margin: 5px 0px;
 }
 
 #page_block red{

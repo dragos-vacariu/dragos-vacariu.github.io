@@ -358,7 +358,6 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 // Macro definition
 #define AREA(l, b) (l * b)
  
-// Driver Code
 int main()
 {
     // Given lengths l1 and l2
