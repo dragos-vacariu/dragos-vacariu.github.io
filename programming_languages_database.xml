@@ -5940,16 +5940,501 @@ a-b will result -10, becausse the string a will be automatically converted to a 
 			typically not available in traditional compiled languages.
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<encapsulation>*General-Programming-Knowledge*
+<code>
+/*
+The can be multiple classes in the same package. A package is actually the folder/directory
+that contains the .java files. All the packages are actually created inside the directory: \project6\src
+SO every folder inside the src directory is a package.
+
+In java each class must have its own .java file. There cannot be multiple classes in the same file,
+unless some of them are inner classes (class inside another class).
+
+Encapsulation is one of the four fundamental OOP concepts. The other three are inheritance, polymorphism, and abstraction.
+
+Encapsulation in Java is a mechanism of wrapping the data (variables) and code acting on the data (methods) together as a 
+single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through 
+the methods of their current class. Therefore, it is also known as data hiding.
+*/
+
+//PACKAGE needs to be written before the IMPORTS;
+package project6;
+import java.util.Random;
+import java.util.Scanner;
+
+public class DiceClass {
+    int Faces;
+    int StartingValue;
+    //Creating a constructor for the class;
+    public DiceClass(int numberOfFaces, int FirstValueOnDie) //A constructor is like a method/functions that is used
+            //to initialized all the ValueType Variables inside the class. A constructor has the same name as
+            //the class, and it doesn't need a return type, because it's not meant to return anything.
+    {
+        Faces = numberOfFaces;
+        StartingValue = FirstValueOnDie;
+    }
+    //Public Functions/Methods:
+    private int RollTheDice()
+    {
+        //Creating a random generator seeded with time (by default);
+        Random newRandomGenerator = new Random(); // seeded by time;
+        //Get a random number between 0 and Faces's Value;
+        int ShownValue = newRandomGenerator.nextInt(Faces);
+        //Increase that value with the StartingValue
+        ShownValue+=StartingValue;
+        //Return the result
+        return ShownValue;
+    }
+    public void PrintTheDieValue()
+    {
+        Scanner myscanner = new Scanner(System.in);
+        String UserInput = "DEFAULT";
+        while(UserInput.toUpperCase().compareTo("X")!=0)
+        {
+            if(UserInput.toUpperCase().compareTo("DEFAULT")!=0 && UserInput.toUpperCase().compareTo("A")!=0)
+            {
+                System.out.printf("Please enter only \"A\" or \"X\n");
+            }
+            else
+            {
+              System.out.printf("Press \"A\" to roll the dice, OR press \"X\" to quit!\n");
+            }
+            UserInput = myscanner.next();
+            if(UserInput.toUpperCase().compareTo("A")==0)
+            {
+                System.out.printf("The value from dice is: %d\n", RollTheDice());
+            }
+        }
+    }
+    //ENCAPSULATIONS IS THE GOOD USE OF GETTERS AND SETTERS FOR GETTING OR SETTING THE VALUE OF
+    //A FIELD INSIDE THE CLASS.
+    /*
+    CONVETIONS:
+    -good programmer use private fields for a class. (A field is a variable declared in the class)
+    -good programmers use at least a constructor for a class. (And that constructor is used to initialize the
+    fields.)
+    -good programmers use encapsulation for controling the value that get in or get out from the fields
+    -a method inside a class is also called property of the class, there can be public or private properties
+    */
+}
+
+</code>
+		</encapsulation>
 		<polymorphism>*General-Programming-Knowledge*</polymorphism>
-		<inheritance>*General-Programming-Knowledge*</inheritance>
-		<abstraction>*General-Programming-Knowledge*</abstraction>
-		<generic-programming>*General-Programming-Knowledge*</generic-programming>
+		<inheritance>*General-Programming-Knowledge*
+<code>
+package project25;
+
+public class Product {
+    private String name;
+    private double Price;
+    public Product(String NewName, double NewPrice)
+    {
+        this.name = NewName;
+        this.Price = NewPrice;
+    }
+    //Getters:
+    public String GetName()
+    {
+        return this.name;
+    }
+    public double GetPrice()
+    {
+        return this.Price;
+    }
+    public String GetType()
+    {
+        return "Product";
+    }
+}
+
+</code>
+<code>
+package project25;
+
+public class Books extends Product {
+    private String Author;
+    private int NrOfPages;
+    public Books(String NewAuthor, int NewNrOfPages, String NewName, double NewPrice)
+    {
+        super(NewName, NewPrice); 
+        //super refers to the parent class, so it will call the constructor of the parent class, and it will
+        //initialize the two fields Price and Name.
+        this.Author = NewAuthor;
+        this.NrOfPages = NewNrOfPages;
+    }
+    //Getters:
+    public String GetAuthor()
+    {
+        return this.Author;
+    }
+    public int GetNrOfPages()
+    {
+        return this.NrOfPages;
+    }
+    //Overriding the function of the parent class
+    @Override
+    public String GetType()
+    {
+        return "Book";
+    }
+}
+</code>
+		</inheritance>
+		<abstraction>*General-Programming-Knowledge*
+<code>
+/*
+As per dictionary, abstraction is the quality of dealing with ideas rather than events. 
+For example, when you consider the case of e-mail, complex details such as what happens as soon as you send 
+an e-mail, the protocol your e-mail server uses are hidden from the user. Therefore, to send an e-mail you 
+just need to type the content, mention the address of the receiver, and click send.
+
+Likewise in Object-oriented programming, abstraction is a process of hiding the implementation details from 
+the user, only the functionality will be provided to the user. In other words, the user will have the 
+information on what the object does instead of how it does it.
+
+In Java, abstraction is achieved using Abstract classes and interfaces.
+A class which contains the abstract keyword in its declaration is known as abstract class.
+
+Abstract classes may or may not contain abstract methods, i.e., methods without body ( public void get(); )
+But, if a class has at least one abstract method, then the class must be declared abstract.
+If a class is declared abstract, it cannot be instantiated.
+To use an abstract class, you have to inherit it from another class, provide implementations to the abstract 
+methods in it.
+If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.
+
+ */
+package project26;
+
+/**
+ *
+ * @author Black2
+ */
+public abstract class AbstractClass {
+    private String PersonName;
+    private int PersonAge;
+    public abstract void PrintMessage(); //abstract functions can only be public.
+    //Getters:
+    public String GetPersonName()
+    {
+        return this.PersonName;
+    }
+    public int GetAge()
+    {
+        return this.PersonAge;
+    }
+    public AbstractClass(String Name, int Age)
+    {
+        this.PersonName = Name;
+        this.PersonAge = Age;
+    }
+    //Setters:
+    public void SetAge(int Age)
+    {
+        this.PersonAge = Age;
+    }
+    public void SetName(String Name)
+    {
+        this.PersonName = Name;
+    }
+    
+}
+
+</code>
+		</abstraction>
+		<generic-programming>*General-Programming-Knowledge*
+<code>
+/*
+A generic class declaration looks like a non-generic class declaration, except that the class name is 
+followed by a type parameter section.
+
+As with generic methods, the type parameter section of a generic class can have one or more type parameters 
+separated by commas. These classes are known as parameterized classes or parameterized types because they 
+accept one or more parameters.
+ */
+package project29;
+//The sinthax for a generic class is just like a basic class dispite that it contains: &lt;T&gt;, which is the type
+//object, for the parameter.
+public class GenericClass &lt;T&gt; {
+   private T t;
+
+   public void set(T t) {
+      this.t = t;
+   }
+
+   public T get() {
+      return t;
+   }
+}
+
+</code>
+
+<code>
+/*
+Generics is related to using the correspondant object of a primitive data type as it is for int (primitive) -> 
+-> Integer(object), for double(primitive) -> Double(object) etc.
+
+Generic methods are methods that can be called with arguments of different types.
+Based on the types of the arguments passed to the generic method, the compiler handles each method 
+call appropriately. Following are the rules to define Generic Methods.
+
+This is possible only by using objects, but in Java each data type has an object correspondant. 
+
+The java.lang.Integer class wraps a value of the primitive type int in an object. An object of type Integer 
+contains a single field whose type is int.
+*/
+package project29;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project29 {
+
+    public static void main(String[] args) {
+        Integer [] myArray = new Integer[] {1,42,13,24,5};
+        Character [] myCharArray = new Character[] {'D', 'N', 'C', 'A'};
+        printArray(myArray);
+        printArray(myCharArray);
+        //Using the GenericClass:
+        GenericClass &lt;Integer&gt; FirstGeneric_Class = new GenericClass&lt;Integer&gt;();
+        FirstGeneric_Class.set(2);
+        System.out.printf("Value of GenericClass object: %d\n", FirstGeneric_Class.get());
+        //Keep the window opened until a key is pressed:
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    //Creating a generic function:
+    public static &lt; E &gt; void printArray( E[] inputArray ) {
+      // Display array elements
+      for(E element : inputArray) {
+         System.out.printf("%s ", element);
+      }
+      System.out.println();
+    }
+}
+/*
+Another example of using generics:
+public final class Integer extends Number implements Comparable&lt;Integer&gt;
+*/
+</code>
+		</generic-programming>
 		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
-		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<simple-data-types>*General-Programming-Knowledge*
+<code>
+package project2;
+//This import here, is like an include directive in C/C++, or like an using directive in C#
+//It has the purpose of telling the compiler which functioning you use, and where to find them.
+
+import java.util.Scanner;
+public class Project2 { //just like in C# it is mandatory that the main function be contained by a class.
+    public static void main(String[] args) {
+        //Creating a scanner in order to take the input;
+        Scanner myscanner = new Scanner(System.in);
+        String Name; //in Java strings needs to be declared using String keyword (with capital S);
+        int Age;
+        double height=11.1;
+        boolean IsFemale; //In Java the bool type got renamed to boolean.
+        //In Java a variable cannot be displayed if it doesn't get initialized.
+        String gender;
+        System.out.printf("Enter you name: ");
+        //Creating a scanner for inputting;
+        Name = myscanner.nextLine();
+        System.out.printf("Enter you age: ");
+        Age = myscanner.nextInt(); //if any other data it's entered that cannot be converted into a integer
+        //an exception will be thrown.
+        System.out.printf("Enter your height: ");
+        //if any other type it's entered that cannot be converted into a float, an exception will be thrown.
+        height = myscanner.nextDouble();
+        //Printing the stored information:
+        System.out.printf("Are you a female? (True or False)\n");
+        IsFemale = myscanner.nextBoolean();
+        
+        //Using the ternary operator:
+        gender = IsFemale? "Female" : "Male";
+        //Printing the information:
+        System.out.printf("Hello %s. Your age is %d, and you're %f tall. \n", Name, Age, height);
+        System.out.printf("%s, you are a %s!\n", Name, gender);
+        //System.out.print(MyByte); => this code is not valid, because the variable MyByte is never
+        //initialized so it cannot be displayed.
+        System.out.printf("Press any key to terminate!\n");
+        myscanner.next();
+    }
+    
+}
+/*
+DOCUMENTATION ABOUT DATATYPE IN JAVA:
+Data Type 	Default Value (for fields)
+byte                    0
+short                   0
+int                     0
+long                    0L
+float                   0.0f
+double          	0.0d
+char                    '\u0000'
+String (or any object)   null
+boolean                 false
+*/
+</code>
+		</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
-		<loops>*General-Programming-Knowledge*</loops>
+		<loops>*General-Programming-Knowledge*
+<code>
+package project7;
+
+import java.util.Scanner;
+
+/*
+Loops: a loop is a sequence of instructions that is continually repeated until a certain condition is reached.
+*/
+public class Project7 {
+    public static void main(String[] args) {
+        //Using FOR LOOP for multiplication table:
+        System.out.printf("USING FOR LOOP:\n");
+        for (int i = 1; i&lt;4; i++) // SINTHAX: for (initialization, condition, incrementation) just like in c, c++, c#
+        {
+            System.out.printf("Multiplication Table with %d:\n", i);
+            for (int j = 1; j&lt;11; j++)
+            {
+                System.out.printf("%d * %d = %d\n", i, j, i*j);
+            }
+            System.out.println();
+        }
+        //Using WHILE LOOP for multiplication table:
+        int i=4,j=1;
+        System.out.printf("USING WHILE LOOP:\n");
+        while(i&lt;7) //SINTHAX: while (condition) just like in c, c++, c#
+        {
+            System.out.printf("Multiplication Table with %d:\n", i);
+            while(j&lt;11)
+            {
+                System.out.printf("%d * %d = %d\n", i, j, i*j);
+                j++;
+            }
+            System.out.println();
+            j=1;
+            i++;
+        }
+        i=7; j=1;
+        System.out.printf("USING DO WHILE LOOP:\n");
+        do{ //SINTHAX DO{this stuff} while(condition);
+            System.out.printf("Multiplication Table with %d:\n", i);
+            do{
+                System.out.printf("%d * %d = %d\n", i, j, i*j);
+                j++;
+            }while(j&lt;11);
+            System.out.println();
+            j=1;
+            i++;
+        }while(i&lt;10);
+        /*
+        Nested LOOPS is a term used for one loop inside another.
+        */
+        int [] arrayC = {1,2,3,4,5,6,7,8,9,10};
+        System.out.printf("USING FOREACH LOOP:\nMultiplication Table with 10:\n");
+        for (int k : arrayC)
+        {
+            System.out.printf("10 * %d = %d\n", k, 10*k);
+        }
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+/*
+DIFFERENCES: WHILE LOOP AND FOR LOOP ARE VERY SIMILAR, DISPITE THAT FOR LOOP USES INITIALIZATION, AND
+INCREMENTATION WITHIN ITS DECLARATION, WHILE LOOP DOESN'T
+as while sinthax is this: while (condition) {do stuff}, for can be written just the same way
+ignoring the initialization part, and incrementation part for(condition){do stuff}
+
+DO WHILE DISPITE FOR AND WHILE LOOPS IT GUARENTEES THAT THE CERTAIN LOOP WILL BE EXECUTED AT LEAST
+ONCE, BECAUSE THE EVALUATION OF THE CONDITION IT IS MADE AFTER THE LOOP  CODE BLOCK.
+
+FOREACH LOOP it's used exclusively for collection like arrays, vectors, lists and so on, with
+a FOREACH LOOP you can iterate through all the items in that collection and to access them as well.
+SINTHAX: for(collection_data_type ITERATOR_NAME : COLLECTION_NAME);
+EXAMPLE: if we have an int [] arrayDATA, a foreach loop for that would be: for(int NAME : arrayDATA);
+so ITERATOR_NAME can have any name, and it doesn't need to be declared, you just put a name in there
+and then you use that name to access each element.
+*/
+</code>
+		</loops>
 		<collections>
+<code>
+package project11;
+import java.util.Scanner;
+import java.util.Vector; //using this for Vector class.
+/**
+ * AN ARRAY IS A COLLECTION OF DATA OF THE SAME TYPE, WITH FIXED SIZE AND CAPACITY.
+ A VECTOR IS A DYNAMIC ARRAY, THAT CAN CHANGE IT's SIZE/CAPACITY, and ITS AUTOMATICALLY CHANGING IT's CAPACITY
+ * IN JAVA A VECTOR CAN STORE ANY TYPE OF DATA/OBJECT.
+ * A VECTOR OF OBJECTS CAN MIX DIFFERENT TYPES TOGETHER, LIKE INTEGERS AND STRINGS.
+ */
+public class Project11 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Vector myVector = new Vector(3); //creating a vector (of objects by default) of size 3;
+        //Creating a vector of integers:
+	Vector &lt;Integer&gt; Vector2 = new Vector(); //using the default constructor, this vector will have
+        //by default the size 10;
+        System.out.printf("The capacity of the myVector before adding elements: %d\n", myVector.capacity());
+        System.out.printf("The size of myVector before adding elements: %d\n", myVector.size());
+	//A Vector of object can mix different types of data together.
+        myVector.add(21);
+        myVector.add(55);
+        myVector.add(77);
+        myVector.add(192);
+        myVector.add("Name");
+        System.out.printf("The capacity of the myVector after adding 5 elements: %d\n", myVector.capacity());
+        System.out.printf("The size of myVector after adding 5 elements: %d\n", myVector.size());
+        System.out.printf("The capacity of the Vector2 is: %d\n", Vector2.capacity());
+        /*
+        THE CAPACITY INCREASES AUTOMATICALLY WHEN IT's EXCEEDING ITS INITIAL VALUE.
+        */
+        System.out.printf("The index of NAME is: %d\n", myVector.indexOf("Name"));
+        //Displaying elements:
+        int i = 0;
+        //USING FOREACH LOOP TO ITERATE THROUGH THE VECTOR:
+        for(Object k : myVector)
+        {
+           if(i&lt;myVector.indexOf("Name"))
+           {
+               System.out.printf("vector [%d] = %d\n", i, Integer.parseInt(k.toString()));
+           }
+           else
+           {
+               System.out.printf("vector [%d] = %s\n", i, k.toString());
+           }
+           i++;
+        }
+        //SOME VECTOR FUNCTIONS:
+        Object [] array = myVector.toArray(); //converting vector into array;
+        //ITERATE THROUGH ARRAY:
+        for(i=0;i&lt;array.length; i++)
+        {
+            System.out.printf("array[%d] = %s\n", i, array[i].toString());
+        }
+        myVector.insertElementAt("NAME2", 3); //insert element at index 3;
+        myVector.removeElementAt(4); // remove element at index 4;
+        i=0;
+        //USING WHILE TO ITERATE THROUGH VECTOR:
+        while(i&lt;myVector.size())
+        {
+            System.out.printf("myVector[%d] = %s\n", i, myVector.elementAt(i).toString());
+            i++;
+        }
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+</code>
+
 <code>
 package project16;
 /*
@@ -6466,12 +6951,173 @@ An interface can extend multiple interfaces.
 */
 </code>
 		</interfaces>
-		<random-generators>*General-Programming-Knowledge*</random-generators>
-		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<random-generators>*General-Programming-Knowledge*
+<code>
+package project37;
+
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project37 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner myscanner = new Scanner(System.in);
+        System.out.printf("Thinking of a number between 0 and 100:\n\n");
+        Random rand = new Random();
+        int Number = rand.nextInt(101);
+        int choice = 101;
+        int NrOfTries=0;
+        while(Number!=choice)
+        {
+            System.out.printf("What is the number?\n");
+            do{
+                System.out.printf("Number = ");
+                choice = myscanner.nextInt();
+            }while(choice&lt;0 || choice>100);
+            if(Number==choice)
+            {
+                System.out.printf("Congratulations, the number was: %d\n", Number);
+            }
+            else if(Number&lt;choice)
+            {
+               System.out.printf("Your number is too high, try a lower one!\n");
+            }
+            else
+            {
+                System.out.printf("Your number is too low, try a higher one!\n");
+            }
+            System.out.println();
+            NrOfTries++;
+        }
+        System.out.printf("You required %d tries to guess the number!\n", NrOfTries);
+        //Keep the console opened.
+        myscanner.next();
+    }
+    
+}
+</code>
+		</random-generators>
+		<command-line-arguments>*General-Programming-Knowledge*
+<code>
+package Args_main;
+
+//Working with command prompts arguments.
+
+//IMPORTING PACKAGE:
+import java.util.Scanner;
+
+public class Args_main{
+    public static void main(String[] args) { //args will store the command prompt arguments -- if any
+        //Supposingly we have some arguments in args[]
+        
+        int [] lenNrs = Args_main.NumberOrNo(args); //convert them to numbers or get their string length
+        Sorting(lenNrs, args); //sort the numbers of lenghts
+        
+        System.out.printf("Sorting by length or value: \n\n");
+        for (int i=0; i&lt;args.length; i++)
+        {
+            System.out.printf("%d &lt;--&gt; %s\n", lenNrs[i], args[i]); //print results
+        }
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+        //cursor to the next line.
+        
+    }
+    public static int[] NumberOrNo(String[] arguments) //we shall return an array
+    {
+        int[] someArray = new int[arguments.length]; //lets build an array of the same length as arguments array
+        for (int i=0; i&lt;arguments.length; i++)
+        {
+            try{
+                someArray[i] = Integer.parseInt(arguments[i]); //try to convert to int
+            }
+            catch (Exception e){
+                someArray[i] = arguments[i].length(); // if not succesfull then we are having a letter string / word
+                //take out it's length
+            }
+        }
+        return someArray;
+    }
+    
+    public static void Sorting (int[] nrsOrNo, String[] arguments) //no need to return anything, lists/arrays are always passed by reference
+    {
+        //DO the sorting thing
+        for (int i=0; i &lt; nrsOrNo.length; i++)
+        {
+            for (int j=0; j&lt;nrsOrNo.length; j++ )
+                if (nrsOrNo[j] &lt; nrsOrNo[i])
+                {
+                    int temp = nrsOrNo[i];
+                    nrsOrNo[i] = nrsOrNo[j];
+                    nrsOrNo[j] = temp;
+                    String argTmp = arguments[i];
+                    arguments[i] = arguments [j];
+                    arguments [j] = argTmp;
+                }
+        }
+    }
+}
+
+</code>
+		</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
 		<modular-programming>No information present in the database.</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
-		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
+		<datatype-conversions>*General-Programming-Knowledge*
+<code>
+package project3;
+import java.util.Scanner;
+
+public class Project3 {
+
+    public static void main (String[] args) {
+       String ValueOne = "1";
+       String ValueTwo = "2";
+       System.out.printf("ValueOne + ValueTwo = %s\n", ValueOne+ValueTwo);
+       //Converting Strings to int:
+       int a = Integer.parseInt(ValueOne);
+       int b = Integer.parseInt(ValueTwo);
+       System.out.printf("a + b = %d\n", a+b);
+       float val1 = 22.1f, val2 = 25.4f;
+       //TypeCasting:
+       a = (int)val1; // a gets the integer part of the floating number val1;
+       b = (int)val2; // b gets the integer part of the floating number val2;
+       System.out.printf("The value of a is: %d\nThe value of b is: %d\n", a, b);
+       //Implicitly casting = casting that is made automatically by the compiler:
+       val2 = 15; // so in this case the integer value 15 will be casted into a floating point
+       //value, 15.00000, this is done automatically by the compiler, so it's implicit casting.
+       
+       //Explicitly casting = casting that is done by the programmer, because it cannot be done, 
+       //automatically by the compiler.
+       a = (int) 22.5; // in this case 22.5 will became 22, (only the integer part of the floating value will
+       //be stored to int a);
+       
+       //INTERESTING STUFF:
+       val2 = 20 / 15; // integer / integer will result an integer.
+       System.out.printf("The value of division is: %f\n", val2); // this will output the value: 1, even if
+       //20/15 is 1.33333333, and even if it is stored in a float.
+       
+       //FOR THE RESULT TO BE A FLOAT AT LEAST ONE OF THOSE NUMBERS NEEDS TO BE CASTED OR CONVERTED TO FLOAT:
+       val2 = 20 / (1.0f * 15); // solution one for casting (1.0 * 15 will be converted to float implicitly).
+       System.out.printf("The value of division after casting is: %f\n", val2);
+       val2 = 25 / (float) a; // a is explicitly casted to float, so int divided by float will generate a float.
+       System.out.printf("The value after explicitly casting is: %f\n", val2);
+       System.out.printf("Press any key to terminate!\n");
+       Scanner myscanner = new Scanner(System.in);
+       myscanner.next();
+    }
+    
+}
+
+</code>
+		</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
 		<operators>*General-Programming-Knowledge*</operators>
