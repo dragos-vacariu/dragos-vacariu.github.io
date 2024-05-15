@@ -4839,14 +4839,311 @@ namespace project12_new_types_null_coalescing_operator
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
 		<encapsulation>*General-Programming-Knowledge*</encapsulation>
-		<polymorphism>*General-Programming-Knowledge*</polymorphism>
-		<inheritance>*General-Programming-Knowledge*</inheritance>
-		<abstraction>*General-Programming-Knowledge*</abstraction>
+		<polymorphism>*General-Programming-Knowledge*
+<code>
+/*
+Polymorphism is the act of creating a collection of different object types (also called as an interface) which are inherited from the same base class. 
+ A polymorphic type is one whose operations can also be applied to values of some other type, or types. When calling a virtual function from any derived
+ class the method overrided will be invoked.
+ 
+There are several fundamentally different kinds of polymorphism:
+Ad hoc polymorphism: when a function has different implementations depending on a limited range of individually specified types and combinations. 
+	Ad hoc polymorphism is supported in many languages using function overloading.
+Parametric polymorphism: when code is written without mention of any specific type and thus can be used transparently with any number of new types. 
+	In the object-oriented programming community, this is often known as generics or generic programming. In the functional programming community, 
+	this is often shortened to polymorphism. 
+Subtyping (also called subtype polymorphism or inclusion polymorphism): when a name denotes instances of 
+	many different classes related by some common superclass
+*/
+
+//Creating polymorphism in javascript:
+
+//Creating a base class;
+var Shape = function() { }
+//Adding a function to the class:
+Shape.prototype.draw = function () {
+	return "I am a generic shape.";
+}
+
+//Creating another class
+var Circle = function () {}
+
+//Doing the inheritance:
+Circle.prototype = Object.create(Shape.prototype);
+
+//Overriding the base class function:
+Circle.prototype.draw = function ()
+{
+	return "I am a circle shape.";
+}
+
+//Doing the same thing again:
+
+var Square = function () {}
+Square.prototype = Object.create(Shape.prototype);
+Square.prototype.draw = function () 
+{
+	return "I am a square shape.";
+}
+
+//Creating a collection of objects:
+
+var collection = [new Shape(), new Circle(), new Square()];
+
+//Iterating through the collection / Creating a foreach loop:
+collection.forEach(function (shape) {
+	document.write(shape.draw() + "&lt;br&gt;");
+})
+</code>
+		</polymorphism>
+		<inheritance>*General-Programming-Knowledge*
+<code>
+/*
+Inheritance is one of the 4 OOP concepts aside: encapsulation, abstraction, polymorphism.
+
+Inheritance consist in classes that can inherit other classes behaviour and functionality. Example: A class that inherits
+from another class can have access to its variables and methods as if it were its own.
+
+In other programming languages a class inherits from another class, since in Javascript there is no classes, an object will
+only inherit from another object (this is called prototype based inheritance). Also there is NOT possible for a constructor to
+inherit from another constructor. A constructor can inherit only from an instance of another (also called object.)
+*/
+
+//Creating a singleton object constructor:
+
+var Vehicle = function (Name, Traction)
+{
+	this.name = Name;
+	this.traction = Traction;
+}
+
+/*
+Creating a function object constructor will work as well:
+
+function Vehicle(Name, Traction)
+{
+	this.name = Name;
+	this.traction = Traction;
+}
+*/
+
+//Creating a function using the prototype object:
+Vehicle.prototype.getName = function ()
+{
+	return this.name;
+}
+Vehicle.prototype.getTraction = function()
+{
+	return this.traction;
+}
+
+//Creating another singleton object:
+
+var car = function (speed, acceleration) 
+//Inheritance can also be made using the first singleton object(var Vehicle), as well, but the main 
+//fields should be initialized first, the example is below:
+{
+ //this keyword refers to the current instance's field.
+	this.speed = speed;
+	this.acceleration = acceleration;
+}
+
+//Creating an object from the singleton constructor:
+var vehicle = new Vehicle("Bike", "2 wheels");
+
+//Creating the inheritance:
+car.prototype = vehicle; //Now the any object of the car constructor is a child of the "vehicle" object.
+
+//Creating an object of the constructor "car".
+var c = new car(22, 109); 
+
+document.write("The following fields are inherited: &lt;br&gt;");
+document.write("Name: " + c.getName() + "&lt;br&gt;"); //calling the function inherited from parent object.
+document.write("Traction: " + c.getTraction() + "&lt;br&gt;"); //calling the function inherited from parent object.
+
+/*Adding a new method to the parent object will automatically be available to the child object as well.
+
+.hasOwnProperty() - this method will check whether a property/field/variable is defined on the actual 
+object or prototype. By that it can be found all the inherited properties.
+*/
+
+document.write("Is Name a Property of c Object: " + c.hasOwnProperty("name") + "&lt;br&gt;");
+document.write("Is Speed a Property of c Object: " + c.hasOwnProperty("speed") + "&lt;br&gt;");
+
+/*
+Another Example. Inheritance from the first object of the singleton:
+*/
+document.write("Singleton Nume: " + Vehicle.name + "&lt;br&gt;");
+Vehicle.name = "Something";
+Vehicle.traction = "4 wheels";
+document.write("Singleton Nume: " + Vehicle.name + "&lt;br&gt;");
+
+function Class (num)
+{
+	this.number = num;
+}
+Class.prototype = Vehicle;
+var clas = new Class(4)
+
+document.write("Inherited From Singleton: " + clas.name + "&lt;br&gt;");
+
+/*
+Inheritance can be realized without singletons as well:
+function Class (num)
+{
+	this.number = num;
+}
+
+var cl = new Class(7);
+
+function B (name)
+{
+	this.name = name;
+}
+B.prototype = cl;
+
+var bb = new B("Alan");
+
+document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
+*/
+</code>
+		</inheritance>
+		<abstraction>*General-Programming-Knowledge*
+<code>
+/*
+Abstraction is one of the 4 OOP concepts, and it is regarded to abstract objects, which are the objects
+that contain fields and methods to be inherited by their children. An abstract object is like a dead parent
+which has to allow inheritance to their children and nothing more.
+
+Abstract object constructors are those constructors that cannot be instantiated. That means 
+that no object can be created out of them. 
+The purpose of using such constructors is to provide inheritance to other prototypes. In this way
+the functionality can be shared amongst the objects without needing any instances.
+
+To block a constructor from being instantiated, an error will be thrown in such case.
+*/
+
+function House ()
+{
+	this.personName = "";
+	
+	//This will block anyone from creating an instance with this constructor.
+	throw Error ("Cannot instantiate an abstract object.");
+	
+}
+
+//This is a public-static method of House object;
+House.prototype.printMsg = function()
+{
+	document.write("Printing a message!" + "&lt;br&gt;");
+}
+
+function Home(pn)
+{
+	//Using the base object (Home) field named personName;
+	personName = pn;
+	
+	this.getHomeOwnerName = function ()
+	{
+		return personName;
+	}
+}
+
+//Creating the inheritance:
+Home.prototype = Object.create(House.prototype); //House is gonna be the base class for Home constructor
+/*
+Object.create - will create an object without using the constructor.
+*/
+
+//Creating an instance of the child object:
+var h = new Home("Adrian");
+
+//Using the child object method and parent object field:
+document.write("Owner's name: " + h.getHomeOwnerName() + "&lt;br&gt;");
+document.write("Is name owned by this class: " + h.hasOwnProperty("personName") + "&lt;br&gt;");
+document.write("Is h instance of House: " + (h instanceof House) + "&lt;br&gt;")
+document.write("Is h instance of Home: " + (h instanceof Home) + "&lt;br&gt;")
+
+//Calling the base object method;
+h.printMsg();
+</code>
+		</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
 		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
 		<simple-data-types>No information present in the database.</simple-data-types>
 		<complex-data-types>No information present in the database.</complex-data-types>
-		<loops>*General-Programming-Knowledge*</loops>
+		<loops>*General-Programming-Knowledge*
+<code>
+/*Recursion is a programming concept available to all programming languages including JavaScript.
+
+A recursive function, is a function that calls itself.
+A recursive function needs to have a condition or break statement in order to stop the recursion and 
+to avoid infinite loops and stack overflow.
+
+Recursion is a method where the solution to a problem depends on solutions to smaller instances 
+of the same problem (as opposed to iteration). Example: 5! = (4!*5) = (3! * 4 * 5) = (2! *3 *4 *5) etc.
+*/
+
+function RecursiveFunc(num)
+{
+	if (num &lt;= 1)
+	{
+		return 1;
+	}
+	else
+	{
+		return num * RecursiveFunc(num-1);
+		//This will be equivalent to n* n-1* n-2* n-3* ...... *1; when it reaches 
+		//1 all the functions will end
+		
+	}
+	
+	/*
+	Using the loop the whole code above is equivalent to:
+		var result=1;
+		while(num > 1)
+		{
+			result*=num;
+			num-=1;
+		}
+	*/
+};
+
+document.write("This was a recursive function: " + RecursiveFunc(5) + "&lt;br&gt;");
+
+/*
+Recursion vs Loops:
+
+Use the loop. It's easier to read and understand (reading code is always a lot harder than writing it), 
+and is generally a lot faster.
+
+Recursion is useful when it is the natural way of viewing the problem, but you must be sure that there 
+is a manageable number of stack frames involved. A stack frame is a bunch of memory assigned to the stack 
+memory when a function is called, if the stack frames exceeds the stack memory capacity, the stack overflow
+error will terminate the program.
+*/
+
+document.write("&lt;br&gt;With Loops&lt;br&gt;");
+var i;
+for(i=0;i&lt;10;i++)
+	document.write(i+" ");
+	
+//The equivalent recursive function is:
+
+document.write("&lt;br&gt;With Recursion&lt;br&gt;");
+
+function Rec(a)
+{
+	if(a&lt;10)
+	{
+		document.write(a + " ");
+		Rec(a+1);
+	}
+};
+
+Rec(0);
+</code>		
+		</loops>
 		<collections>*General-Programming-Knowledge*</collections>
 		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<read-from-file>*General-Programming-Knowledge*</read-from-file>
@@ -4860,8 +5157,168 @@ namespace project12_new_types_null_coalescing_operator
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
 		<enums>*General-Programming-Knowledge*</enums>
 		<multi-threading>*General-Programming-Knowledge*</multi-threading>
-		<namespaces>*General-Programming-Knowledge*</namespaces>
-		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<namespaces>*General-Programming-Knowledge*
+<code>
+/*
+In JavaScript there is no concept called function overriding. So when creating 2 functions with the same name and different
+number of arguments, the function declared later will replace the function declared sooner, in the global namespace. This
+process is called namespace pollution (or name collision). Also if the scripts are written in different files, the file 
+which is loaded last will replace the function declared into the file which was loaded first.
+
+It is possible to declare 2 functions with the same name, but not in the same namespace. Similarly with creating 2 
+variables with the same name but in different scope (global and local).
+
+The global namespace in JavaScript can be accessed using window.Object - where object is an item in the global 
+namespace "window".
+*/
+
+//Example of namespace pollution
+
+function PrintSomething()
+{
+	alert("This is the first function.");
+}
+
+function PrintSomething() //this function will replace the first function declared above;
+{
+	alert("This is the second function.");
+}
+
+//Creating a namespace;
+
+var NameSpace = NameSpace || {} // Create a variable named NameSpace if such an object already exists, than my variable will
+//take its value, otherwise my variable will be an empty object {};
+
+//Creating a nested namespace/object;
+
+NameSpace.a = NameSpace.a || {} //If NameSpace.a exists than my variable NameSpace.a will take its value otherwise 
+//it will be an empty object {}.
+
+//Creating an object into the nested namespace:
+NameSpace.a.print = function () 
+{
+	this.PrintMessage = function ()
+	{
+		alert("Message from the nested object.");
+	}
+}
+
+//Creating an instance of the nested namespace object.
+var a = new NameSpace.a.print;
+//Setting the object method for the onclick button.
+document.getElementById("but2").onclick = a.PrintMessage;
+
+/*
+Another example of creating a namespace:
+	var yourNamespace = {
+
+		foo: function() {
+		},
+
+		bar: function() {
+		}
+	};
+
+	...
+
+	yourNamespace.foo();
+*/
+</code>
+		</namespaces>
+		<exception-handling>*General-Programming-Knowledge*
+<code>
+/*
+Exceptions handling can be used to handle runtime errors:
+
+try/catch blocks can catch exceptions but not syntax errors.
+*/
+
+try{
+	//The code that can produce exception will be put here:
+	document.write(sayHello()); //calling undefined function will cause an exception;
+	
+	document.write("This line will be skipped, once the exception was caught.&lt;br&gt;");
+}
+catch(e) //e is the type of exception to be caught;
+{
+	document.write("Error. Calling undefined function.&lt;br&gt;&lt;br&gt;");
+	document.write(e.description+"&lt;br&gt;");
+	document.write(e.message+"&lt;br&gt;");
+	document.write(e.stack+"&lt;br&gt;");
+}
+finally //this will be executed no matter what.
+{
+	/*The code in this block will be executed regardless if there was an exception or no.*/
+	document.write("&lt;br&gt;Finished. &lt;br&gt;");
+}
+
+//This line will create an execution error and because it's not caught the script execution will crash.
+//document.write(sayHello()); //calling undefined function;
+//document.write("Nothing happens here. Since the script crashed because of the error above.");
+
+
+
+//Throwing customized exceptions:
+
+function Fraction(a,b)
+{
+	try
+	{
+		if (b==0)
+		{
+			throw { //creating a custom exception.
+				//Completing the exception properties:
+				
+				error: "Divide by zero error." ,  //here is coma not semicolon
+				message: "Denominator cannot be ZERO."
+			}
+		}
+		else{
+			return a/b;
+		}
+	}
+	catch(e) //catching the custom exception
+	{
+		document.write("Exception caught. " + e.error + "&lt;br&gt;");
+		document.write(e.message + "&lt;br&gt;");
+	}
+};
+
+var a = parseInt(prompt("Enter a number for nominator: "));
+var b = parseInt(prompt("Enter a number for denominator: "));
+
+document.write("&lt;br&gt;The result a/b is: " + Fraction(a,b) + "&lt;br&gt;");
+
+
+//Using window.onerror for handling errors:
+/*
+Once the window.onerror is initialized with a function which takes 3 arguments: msg, url, line. Any error
+that will occur will execute that code.
+*/
+
+window.onerror = function (msg, url, line){
+	//This code will be executed each time an error occur, without the need of try/catch blocks.
+	alert("Message: " + msg + "\nURL: " + url + "\nLine: " + line);
+	return true;
+}
+
+//Raising window.onerror by calling undefined function:
+UndefinedFunction();
+
+/*
+window.onerror is not displayed if it's places in a try/catch block, instead of that the try/catch will
+handle it by itself.
+
+window.onerror is raised only when there is an unhandled exception.
+*/
+
+//Handling an html element error:
+function ImageErrorHandler() //this function will be executed when the html image will have an error.
+{
+	alert("The image is not present.");
+}
+</code>
+		</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
 		<default-parameters>*General-Programming-Knowledge*</default-parameters>
 		<interfaces>*General-Programming-Knowledge*</interfaces>
