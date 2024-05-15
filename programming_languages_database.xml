@@ -7234,7 +7234,32 @@ public class Args_main{
 </code>
 		</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
-		<modular-programming>No information present in the database.</modular-programming>
+		<modular-programming>
+			Java Module System provides an additional layer of encapsulation to our programs as we can specify which package 
+			can be utilized by the modules, and which modules could have entry to to them. 
+			<br></br><br></br>
+			Difference Between Module and Package<br></br>
+			The principal difference between the module and package is given below.<br></br>
+			<br></br><br></br>
+			1. Module: In easy words, we can say that the module is a set of related applications or It is 
+			a collection of related applications such that it affords an API handy to different modules that are 
+			internal and encapsulated.
+			<br></br><br></br>
+			Suppose permits take an example from the built-in module in Java let’s take java.util for example. <br></br>
+			If we expect java.util as a module we recognize that there are a variety of instructions and sub-packages 
+			inside the java.util. <br></br>
+			Now we’ve assumed that java.util is a package deal the modules could be like 
+			java.util.Collections and java.util.stream.
+			<br></br><br></br>
+			2. Package: A package is a set of classes, interfaces, and sub-packages that are similar. 
+			There are mainly two types of packages in Java, they are:
+			<br></br><br></br>
+			User Defined packages: The packages that contain the classes or interfaces which are built based on the user 
+			and it is nothing but they are just defined by the user.
+			<br></br><br></br>
+			Built-In Packages: The packages that come pre-installed when we configure the Java in our system are called the 
+			built-in packages such as java.net, java.awt, javax.swing, java.sql.
+		</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*
 <code>
