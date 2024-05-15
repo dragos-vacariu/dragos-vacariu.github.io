@@ -3450,10 +3450,219 @@ namespace project45_generics
 </code>
 		</generic-programming>
 		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
-		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<simple-data-types>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project1_introduction 
+{
+	class Program
+	{
+		public static void Main(string[] args) //the main function starts here;
+		{ 
+			//string[] args is an optional argument;
+			
+			//function to print on the screen;
+			Console.WriteLine("Hello World!");
+			//Data types:
+			int numb_one = 5;
+			float numb_two = 6.034f;
+			double numb_three = 3.0;
+			bool istrue = false;
+			string name = "Black";
+			object ANYTHING = "A variable that can be initialized with anything!";
+			char character = 'X';
+			
+			//Printing the result on the screen;
+			Console.Write("The result of addition is: " + (numb_one+numb_two) + "\n");
+			Console.WriteLine("An object is: " + "\"" + ANYTHING + "\"");
+			/*
+ 			Console.WriteLine - automatically puts '\n' at the end of the line, because it is a function
+			designed to be used only for writing a line.
+			 */
+			
+			Console.Write(character + "\n");
+			Console.WriteLine("Processing data!\n\n");
+			while (numb_one>0)
+			{
+				if(numb_one==1)
+				{
+					Console.WriteLine("The program will end.\n\n");
+				}
+				numb_one--;
+			}
+			Console.Write("Press any key to continue . . . ");
+			//function to read keys;
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
-		<loops>*General-Programming-Knowledge*</loops>
-		<collections>*General-Programming-Knowledge*</collections>
+		<loops>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project6_foreach_loop
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			int [] myarray = new int[10];
+			for (int i=0;i&lt;10;i++)
+			{
+				myarray[i]=3*i;
+			}
+			Console.WriteLine("\nDisplaying elements using FOR LOOP: ");
+			for (int i=0;i&lt;10;i++)
+			{
+				Console.WriteLine("myarray[" + i + "]=" +myarray[i]);
+			}
+			Console.WriteLine("\nDisplaying elements using FOREACH LOOP: ");
+			/*FOREACH LOOP is used especially when trying to iterrate into a list which has dinamic size, or 
+			 * an array with unknown size.
+			 * FOREACH is very similar to a FOR loop. FOREACH is used only for Collection of data.
+			 * The difference between FOR LOOP and FOREACH LOOP is that in FOREACH LOOP there is no access to
+			 * the index.
+			 */
+			foreach(int iter in myarray) // synthax forech (datatype iterator_name in data_collection)
+			{
+					Console.WriteLine("myarray[" + iter/3 + "]=" +iter);
+			}
+			Console.WriteLine("\nSimple task for FOREACH LOOP");
+			foreach(int iter in myarray) // synthax forech (datatype iterator_name in data_collection)
+			{
+				if(iter%5==0 &#38;&#38; iter>0)
+				{
+					Console.WriteLine (iter + " is divisible with five.");
+				}
+			}
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</loops>
+		<collections>*General-Programming-Knowledge*
+<code>
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+
+/*A queue is a collection type just like a list or dictionary, dispite that once an object is retrieved from Queue (Dequeue), that object gets
+ automatically deleted from the beggining of the Queue.*/
+ 
+/*You can thing of a Queue just like an RAR archieve, because to use an object from the Queue, that object needs to be Dequeued into an another
+  object, otherwise it will affect the entire content of the Queue, unless an foreach loop it's used.
+  To prevent an object be deleted from the Queue, you have to use a foreach loop or the .Peak function, also you can iterate through the Queue using foreach loop, 
+  and effect changes without affecting the content of the Queue.
+ */
+
+namespace queue_collection_type
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			people p1 = new people ("Black", 22);
+			people p2 = new people ("Mark", 24);
+			
+			//Creating Queue
+			Queue &lt;people&gt; FirstQueue = new Queue &lt;people&gt; ();
+			FirstQueue.Enqueue(p1);
+			FirstQueue.Enqueue(p2);
+			//Printing Information:
+			Console.WriteLine("Number of objects in Queue: {0}\n", FirstQueue.Count());
+			
+			// Console.WriteLine ("Name: {0}, Age: {1}", FirstQueue.Dequeue().name, FirstQueue.Dequeue().Age); //this is wrong, unless it is
+			//moved into a foreach loop:
+			
+			//A Queue is like an archieve, you need to extract the object from it, before using that object.
+			Queue&lt;people&gt; SecondQueue = new Queue&lt;people&gt; ();
+			SecondQueue.Enqueue(p1);
+			SecondQueue.Enqueue(p2);
+			people deq1 = FirstQueue.Dequeue();
+			people deq2 = FirstQueue.Dequeue();
+			
+			/*SecondQueue=FirstQueue // these two Queues become highly connected one to another in the way that, SecondQueue take all the objects
+			 from the FirstQueue, but if in FirstQueue an object is removed so it is in the SecondQueue.*/
+			
+			Console.WriteLine("Name: {0}, Age: {1}", deq1.name, deq1.Age);
+			Console.WriteLine("Name: {0}, Age: {1}", deq2.name, deq2.Age);
+			Console.WriteLine();
+			//Auxiliar way -> Iteration:
+			foreach (people p in SecondQueue)
+			{
+				Console.WriteLine("Name: {0}, Age: {1}", p.name, p.Age);
+				Console.WriteLine ("Number of objects in Queue: {0}", FirstQueue.Count());
+				Console.WriteLine("In the foreach loop the content of the Queue is it not affected, \n(Dequeue is made without removal).\n");
+			}
+			
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	class people 
+	{
+		public int Age {get; set;}
+		public string name {get; set;}
+		public people (string GivenName, int GivenAge) 
+		{
+			this.Age = GivenAge; 
+			this.name = GivenName;
+		}
+	}
+}
+</code>
+
+<code>
+using System;
+using System.Collections.Generic;
+
+/*
+ * A stack uses the principle LIFO - Last In First Out, it is just like a list.
+ * Once an element gets retrieved from the Stack that object will be removed, unless a foreach loop, or the Peek function it's used.
+ */
+namespace project61_stack_collection_type
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			people p1 = new people ("Dragos", 22);
+			people p2 = new people ("Adrian", 21);
+			Stack&lt;people&gt; FirstStack = new Stack&lt;people&gt;();
+			FirstStack.Push(p1);
+			FirstStack.Push(p2);
+			//The first will be the last:
+			foreach (people p in FirstStack)
+			{
+				Console.WriteLine("Name: {0}	Age: {1}", p.Name, p.Age);
+				Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
+			}
+			Console.WriteLine();
+			Console.WriteLine("Outside the forech loop:");
+			Console.WriteLine("Name: {0}", FirstStack.Pop().Name);
+			Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
+			Console.WriteLine("Name: {0}", FirstStack.Pop().Name);
+			Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	class people
+	{
+		public string Name {get; set;}
+		public int Age {get; set;}
+		public people (string NewName, int NewAge) {Name=NewName; Age=NewAge;}
+	}
+}
+</code>
+		</collections>
 		<collection-methods>*General-Programming-Knowledge*</collection-methods>
 		<dynamic-memory-allocation>
 			In C#, objects are dynamically allocated on the heap using the new keyword.
@@ -3835,7 +4044,27 @@ namespace project30_interfaces
 }
 </code>
 		</interfaces>
-		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<random-generators>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project68_random_numbers
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Random i = new Random();
+			int nr;
+			nr=i.Next(1,5);
+			Console.WriteLine("Value: {0}",nr);
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*
 <code>
@@ -4176,7 +4405,74 @@ namespace project47_partial_classes
 </code>
 		</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
-		<operators>*General-Programming-Knowledge*</operators>
+		<operators>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project12_new_types_null_coalescing_operator
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			/*Non-Nullable type: Are Value TYPES: integers, boolean, double, float, long, long long, char...etc
+			 * Nullable type: Are Reference TYPES: classes, interface, delegates, arrays... etc
+			 * 
+			 * A Non-Nullable type can become Nullable type by using ? in their declaration.
+			 * Examples:
+			 */
+			bool major = false; //non-nullable value type.
+			bool ?minor = null; //nullable value type. 
+			/*A nullable boolean type can hold on to 3 values: true, false or null.
+			 */
+			Console.WriteLine("Are you a minor? Press Y/N to answear or anything else to skip.");
+			char answear=Convert.ToChar(Console.ReadLine());
+			switch(answear)
+			{
+				case 'y':  minor = true; break;
+				case 'Y': minor = true; break;
+				case 'n':  minor = false; break;
+				case 'N': minor = false; break;
+				default: minor = null; break;
+			}
+			if(minor==true)
+			{
+				Console.WriteLine("You are minor!");
+			}
+			else if(minor==false)
+			{
+				Console.WriteLine("You are not minor!");
+			}
+			else
+			{	
+				Console.WriteLine("You did not answear the question!");
+			}
+			//NULL COALESCING OPERATOR:
+			int? TicketsOnSale = 100;
+			int availableTickets=TicketsOnSale??0; //if TicketsOnSale is null, availableTickets will be 0, otherwise
+			//availableTickets = (int)TicketsOnSale.
+			/*Equivalent method:
+			 * if(TicketsOnSale==null)
+			 * {
+			 * 		availableTickets=0;
+			 * }
+			 * else
+			 * {
+			 * 		availableTickets=(int)TicketsOnSale; //TicketsOnSale is a nullable int, so it must be
+			 * 		//casted to normal int.
+			 * 		
+			 * 		//Other method of casting:
+			 * 		//available Tickets=TicketsOnSale.value;
+			 * }
+			 */
+			Console.WriteLine("Available Tickets: {0}", availableTickets);
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</operators>
 		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
