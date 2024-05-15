@@ -4836,9 +4836,92 @@ namespace project12_new_types_null_coalescing_operator
 			supporting event-driven, functional, and imperative programming styles. 
 			It has application programming interfaces (APIs) for working with text, dates, 
 			regular expressions, standard data structures, and the Document Object Model (DOM).
+			<br></br><br></br>
+			
+			Difference between JavaScript and PHP is that JavaScript is running in the client computer's browser, and its performance
+			depends only on the client computer's specifications. Whereas PHP is a programming language that runs on a server so when 
+			the client is using a PHP script its computer will make a request to the server with the purpose of getting the compilation
+			result and transfer that information back to the client computer. 
+			<br></br><br></br>
+			
+			This action is significantly slower that the javascript
+			because in case that the server is busy, that action might take place in a matter of seconds, or minutes. While in case of
+			JavaScript the action completes almost instantaneos.
+			<br></br><br></br>
+			
+			PHP is a back-end development language (related to the server), JavaScript is a front-end development language
+			related to the client computer/machine.
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<encapsulation>*General-Programming-Knowledge*
+<code>
+
+function Car ()
+{
+	//Creating private fields using the naming convention.
+	var _speed;
+	var _acceleration;
+	
+	//Creating properties: getters and setters
+	Object.defineProperty(this, "speed", {
+		get: function () {
+			return _speed;
+		} 
+		, //using the coma operator to separate between get and set properties:
+		set: function (value){
+			_speed = value;
+		}
+	})
+	
+	/*
+	This concept of using fields (getters and setter or get and set functions) is called encapsulation, being on of the
+	4 OOP concepts. Encapsulation is used to control the methods in which private fields get initialized or return value.
+	Private variables limit the access to data, and encapsulation provides a way of working with that data.
+	*/
+	
+	//The second way of creating getters and setters
+	
+	//Private methods:
+	function getAccel()
+	{
+		return _acceleration;
+	}
+	function setAccel(value)
+	{
+		_acceleration = value;
+	}
+	
+	//Privileged methods;
+	this.getAcceleration = function() //this is a get function
+	{
+		return getAccel();
+	}
+	this.setAcceleration = function (value) //this is a set function
+	{
+		setAccel(value);
+	}
+	
+	/*
+	Remember that privileged methods can be accessed from anywhere, and apart of public methods, privileged methods
+	are the only methods that can access directly private fields and functions. In the case of public methods this is
+	not possible.
+	*/
+	
+}
+
+var c = new Car();
+
+//Now we can use this syntax for initializing the private fields:
+c.speed = 12; //using the set:
+
+document.write ("The car speed is " + c.speed + "&lt;br&gt;"); //using the get;
+
+//Using the second way of encapsulation:
+
+c.setAcceleration(22); //using the setter
+document.write ("The car acceleration is " + c.getAcceleration() + "&lt;br&gt;"); //using the getter;
+</code>
+		</encapsulation>
 		<polymorphism>*General-Programming-Knowledge*
 <code>
 /*
@@ -5069,8 +5152,73 @@ h.printMsg();
 </code>
 		</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
-		<variable-arguments-lists>No information present in the database.</variable-arguments-lists>
-		<simple-data-types>No information present in the database.</simple-data-types>
+		<variable-arguments-lists>No information present in the database.
+<code>
+/*The argument object is used to store the value of arguments of a function.
+Accessing the argument object outside a function will result in undefined error.
+The argument object is not an array, but it only has one property of the array, and that is .length
+*/
+
+function Myfct(a,b,c)
+{
+	document.write("The function has: " + arguments.length + " arguments.&lt;br&gt;");
+	//arguments.length will return the number of arguments that was passed to the function. Not the number
+	//of parameters that the function has. 
+	
+	/*
+	Example: the function has 3 parameters: a,b,c but it was called using 5 arguments: 0,1,3,4,5.
+	*/
+	
+	document.write("&lt;br&gt;The arguments are: &lt;br&gt;");
+	for (var i =0; i&lt;arguments.length; i++)
+	{
+		document.write(" " + arguments[i] + " ");
+	}
+	document.write("&lt;br&gt;");
+	
+}; //Don't forget the semicolon here
+
+Myfct(0,1,3,4,5); //In JavaScript a function can be called using any number of arguments. The unnecessary ones
+//will be ignored.
+
+//Creating a function with various number of arguments;
+
+function getSum() //See how the function is declared without any parameters but it is called with aLinkcolor
+//various number of arguments each time.
+{
+	var sum=0;
+	for (var i=0; i&lt;arguments.length; i++)
+	{
+		sum+=arguments[i];
+	}
+	return sum;
+	
+}; //Don't forget the semicolon here.
+
+document.write("&lt;br&gt;The sum of all the arguments is: " + getSum(1,12,3,22,1,3,4,22) + "&lt;br&gt;");
+document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;br&gt;"); 
+//the function was called with different number of arguments each time and it worked fine.
+</code>
+		</variable-arguments-lists>
+		<simple-data-types>
+<code>
+	Javascript is a dynamical type language this means that any variable can store any data type: 
+	Example: 
+	var A = 22;
+	A="My string";
+	This is perfectly valid, because the var size and type will be automatically converted as needed.
+
+	Variables and function as in other programming languages they are case sensitive this means that var A is different
+	from var a; and function A () {} is different from function a() {};
+
+	Data Types: 
+	Numbers: 22, 22.4, 44;
+	Strings: "me", "you" //they can also be like single quoted: 
+	'me', 'you'
+	boolean: true, false; 
+	All the variables are declared using the var keyword.
+</code>
+		</simple-data-types>
 		<complex-data-types>No information present in the database.</complex-data-types>
 		<loops>*General-Programming-Knowledge*
 <code>
@@ -5323,13 +5471,74 @@ function ImageErrorHandler() //this function will be executed when the html imag
 		<default-parameters>*General-Programming-Knowledge*</default-parameters>
 		<interfaces>*General-Programming-Knowledge*</interfaces>
 		<random-generators>*General-Programming-Knowledge*</random-generators>
-		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+		<ternary-operator>*General-Programming-Knowledge*
+<code>
+function Funct()
+{
+	var a = document.getElementById('textBox').value;
+	//Using if statement (if statement is used to execute code when a particular condition is true)
+	if(isNaN(a))
+	{
+		document.getElementById('textBox').value+= " 'is not a number.'";
+	}
+	else //if the condition above is not true, then it will execute this code.
+	{
+		document.getElementById('textBox').value+= " is a number.";
+	}
+
+	//using ternary operator to change the color of the textbox:
+	(isNaN(a)==true) ? alert("Entered ternary if.") //this part will be executed if the condition
+	//in pharanteses is evaluated to true. 
+					: alert("Entered ternary else.") //this part is executed otherwise.
+					
+	/*
+	Ternary operator is also called the short if, and has the same functionality as an if statement, the only thing that
+	differs is that ternary operator sinthax is shorter, and yet harder to be read, that way is much better to use if
+	else if statements instead.
+	*/
+
+	//using switch()
+	if(isNaN(a) == false)
+	{
+		a = parseInt(a);
+		switch(a) //switch works only with constant values, integer, long, chars values. switch cannot be used with floats
+		//or doubles or strings just like in other programming languages.
+		{
+			case 1: {alert("you have entered 1."); break} // the break statement will break out of the switch.
+			case 2: {alert("you have entered 2."); break}
+			case 3: {alert("you have entered 3."); break}
+			default : {alert("you have entered a number above 3 or below 1."); break}
+			//the default case is equivalent to else statement, it will be executed only of the cases above do not match.
+		}	
+	}
+	/*
+	switch is very similar to an if, else if, else block, and even better a switch statement is faster in execution.
+	*/
+}
+</code>
+		</ternary-operator>
 		<modular-programming>*General-Programming-Knowledge*</modular-programming>
 		<string-methods>*General-Programming-Knowledge*</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
-		<operators>*General-Programming-Knowledge*</operators>
+		<operators>*General-Programming-Knowledge*
+<code>
+Plus operator:
+var a = 10;
+var b = 20;
+a + b will result 30;
+
+var a = "10";
+var b = 20;
+a + b will result 1020;  //b will be converted to string and then concatenated with a.
+
+Minus operator:
+var a = "10";
+var b = 20;
+a-b will result -10, becausse the string a will be automatically converted to a number.
+</code>
+		</operators>
 		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
 	</programming_language>
 	
