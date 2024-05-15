@@ -3449,7 +3449,31 @@ namespace project45_generics
 }
 </code>
 		</generic-programming>
-		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<variable-arguments-lists>*General-Programming-Knowledge*
+		<br></br>
+		Use the param keyword to get the variable arguments in C#.
+<code>
+using System;
+
+class Program {
+   static void Main() {
+      int mulVal1 = Multiply(5);
+      int mulVal2 = Multiply(5, 10);
+
+      Console.WriteLine(mulVal1);
+      Console.WriteLine(mulVal2);
+   }
+
+   static int Multiply(params int[] b) {
+      int mul =1;
+      foreach (int a in b) {
+         mul = mul*a;
+      }
+      return mul;
+   }
+}
+</code>
+		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*
 <code>
 using System;
@@ -3824,7 +3848,14 @@ namespace project5_structs_with_constructors
 }
 </code>
 		</constructors>
-		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<instantiation>*General-Programming-Knowledge*
+		<br></br>
+		When you create a new object in C# for a class using the new keyword, then it is called instantiation.
+		<br></br>
+<code>
+Student s1 = new Student();
+</code>
+		</instantiation>
 		<destructors>*General-Programming-Knowledge*
 <code>
 class Example
@@ -3895,7 +3926,60 @@ namespace project26_methods_and_functions_overloading
 }
 </code>
 		</function-overloading>
-		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+		<operator-overloading>*General-Programming-Knowledge*
+<code>
+// C# program to illustrate the
+// unary operator overloading
+using System;
+namespace Calculator 
+{
+     
+	class Calculator {
+		 
+		public int number1 , number2;
+		public Calculator(int num1 , int num2)
+		{
+			number1 = num1;
+			number2 = num2;
+		}
+		 
+	// Function to perform operation
+	// By changing sign of integers
+	public static Calculator operator -(Calculator c1)
+	{
+		c1.number1 = -c1.number1;
+		c1.number2 = -c1.number2;
+		return c1;
+	}
+	 
+	// Function to print the numbers
+	public void Print()
+	{
+		Console.WriteLine ("Number1 = " + number1);
+		Console.WriteLine ("Number2 = " + number2);
+	}
+	}
+	 
+	class EntryPoint
+	{
+		 
+		// Driver Code
+		static void Main(String []args)
+		{ 
+			 
+			// using overloaded - operator 
+			// with the class object
+			Calculator calc = new Calculator(15, -25);
+			 
+			calc = -calc;
+			 
+			// To display the result
+			calc.Print();
+		}
+	}
+}
+</code>
+		</operator-overloading>
 		<enums>*General-Programming-Knowledge*
 <code>
 using System;
