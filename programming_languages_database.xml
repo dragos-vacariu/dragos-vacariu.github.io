@@ -5544,8 +5544,6 @@ Non-mutator methods:
 */
 </code>
 		</collection-methods>
-		<read-from-file>*General-Programming-Knowledge*</read-from-file>
-		<write-to-file>*General-Programming-Knowledge*</write-to-file>
 		<serialization>*General-Programming-Knowledge*</serialization>
 		<deserialization>*General-Programming-Knowledge*</deserialization>
 		<constructors>*General-Programming-Knowledge*</constructors>
@@ -5632,8 +5630,12 @@ var alert = function(msg)
 </code>
 		</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
-		<enums>*General-Programming-Knowledge*</enums>
-		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<multi-threading>*General-Programming-Knowledge*
+		<br></br><br></br>
+		JavaScript is a single threaded language which does not support multithreading. <br></br>
+		All the operations in JavaScript are non-blocking and are executed in the event loop. <br></br>
+		This single-threaded nature along with event loop allows JavaScript to handle concurrent operations at once.<br></br>
+		</multi-threading>
 		<namespaces>*General-Programming-Knowledge*
 <code>
 /*
@@ -5799,7 +5801,11 @@ function ImageErrorHandler() //this function will be executed when the html imag
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
 		<default-parameters>*General-Programming-Knowledge*</default-parameters>
 		<interfaces>*General-Programming-Knowledge*</interfaces>
-		<random-generators>*General-Programming-Knowledge*</random-generators>
+		<random-generators>*General-Programming-Knowledge*<br></br>
+			Generate a random whole number between 1 and 10 (inclusive):
+			<br></br><br></br>
+			<code>let x = Math.floor((Math.random() * 10) + 1);</code>
+		</random-generators>
 		<ternary-operator>*General-Programming-Knowledge*
 <code>
 function Funct()
@@ -5888,9 +5894,15 @@ function Funct()
 	*/
 </code>
 		</string-methods>
-		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
-		<partial-classes>*General-Programming-Knowledge*</partial-classes>
-		<decorators>*General-Programming-Knowledge*</decorators>
+		<datatype-conversions>*General-Programming-Knowledge*
+			<br></br><br></br>
+			JavaScript variables can be converted to a new variable and another data type - 
+			the following functions can help with that: <br></br><br></br>
+			Number()		Returns a number, converted from its argument<br></br>
+			parseFloat()	Parses a string and returns a floating point number<br></br>
+			parseInt()		Parses a string and returns an integer<br></br>
+			String()		Converts to string<br></br>
+		</datatype-conversions>
 		<operators>*General-Programming-Knowledge*
 <code>
 Plus operator:
