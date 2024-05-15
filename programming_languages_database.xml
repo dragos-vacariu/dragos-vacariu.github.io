@@ -5991,7 +5991,7 @@ public class DiceClass {
         String UserInput = "DEFAULT";
         while(UserInput.toUpperCase().compareTo("X")!=0)
         {
-            if(UserInput.toUpperCase().compareTo("DEFAULT")!=0 && UserInput.toUpperCase().compareTo("A")!=0)
+            if(UserInput.toUpperCase().compareTo("DEFAULT")!=0 	&#38;&#38; UserInput.toUpperCase().compareTo("A")!=0)
             {
                 System.out.printf("Please enter only \"A\" or \"X\n");
             }
@@ -6773,7 +6773,42 @@ public class Project15 {
 }
 </code>
 		</enums>
-		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<multi-threading>*General-Programming-Knowledge*
+<code>
+
+
+// Java code for thread creation by extending
+// the Thread class
+class MultithreadingDemo extends Thread {
+    public void run()
+    {
+        try {
+            // Displaying the thread that is running
+            System.out.println(
+                "Thread " + Thread.currentThread().getId()
+                + " is running");
+        }
+        catch (Exception e) {
+            // Throwing an exception
+            System.out.println("Exception is caught");
+        }
+    }
+}
+ 
+// Main Class
+public class Multithread {
+    public static void main(String[] args)
+    {
+        int n = 8; // Number of threads
+        for (int i = 0; i &lt; n; i++) {
+            MultithreadingDemo object
+                = new MultithreadingDemo();
+            object.start();
+        }
+    }
+}
+</code>
+		</multi-threading>
 		<namespaces>*General-Programming-Knowledge*</namespaces>
 		<exception-handling>*General-Programming-Knowledge*
 <code>
