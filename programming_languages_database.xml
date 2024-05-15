@@ -233,7 +233,6 @@ int main()
 			<br></br>			
 			On the other hand, the <code>calloc()</code> function returns the starting address, <green>zeroing it.</green>
 <code>
-
 /*Prototype void *calloc(size_t nitems, size_t size)*/
 
 A=(int *)calloc(20, sizeof(int)); //calloc does the same as malloc while initializing all elements to 0:
@@ -957,7 +956,6 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 			<blue>r</blue> - Reads from a file<br></br>
 	
 <code>
-
 <red>/*Read file char by char*/</red>
 
 FILE* ptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
@@ -1046,7 +1044,6 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 			If you write to a file that already exists, the old content is deleted, and the new content 
 			is inserted. This is important to know, as you might accidentally erase existing content.
 <code>
-
 FILE *fptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
 
 // Open a file in writing mode
@@ -1117,7 +1114,6 @@ int main()
 		</enums>
 		<multi-threading>
 <code>
-
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;unistd.h&gt; //Header file for sleep(). man 3 sleep for details. 
@@ -1147,7 +1143,6 @@ int main()
 		<exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
 		<bitwise-operators>
 <code>
-
 // Example on how to use the bitwise operators:
 #include &lt;stdio.h&gt;
 int main()
@@ -1322,7 +1317,6 @@ printf("%d", c);
 			file. Disciplined use of static is used to hide implementation details.
 			<br></br>
 <code>
-
 /*FILE module.h*/
  extern unsigned int Calculate_NoOfChars_In_string(char* str);
 
@@ -1516,7 +1510,6 @@ int main()
 		<encapsulation>
 			*General-Programming-Knowledge*
 <code>
-
 #include &lt;iostream&gt;  
 using namespace std;
 
@@ -1547,7 +1540,6 @@ int main() {
 		<polymorphism>
 			*General-Programming-Knowledge*
 <code>
-
 #include &lt;iostream&gt;  
 
 /*
@@ -2439,7 +2431,6 @@ int main()
 		<constructors>
 			*General-Programming-Knowledge*
 <code>
-
 /*Example*/
 #include &lt;iostream&gt; 
 
