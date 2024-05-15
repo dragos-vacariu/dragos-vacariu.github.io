@@ -889,9 +889,8 @@ C |= 2 is same as C = C | 2
 int arr[5];
 int array_initialized[7] = [1,2,3,4,5,6,7];
 float array_floats[3] = [2.0f, 3.0f, 2.11f];
-
-/*---------------------------------------------*/
-
+</code>
+<code>
 <red>//Declaring and initializing a Linked List</red>
 
 //Linked list definition:
@@ -980,9 +979,9 @@ do {
 	// If it is EOF stop reading.
 } while (ch != EOF); 
 
+</code>
 
-//---------------------------------
-
+<code>
 /*
 
 <red>Alternatively feof function can be used:</red>
@@ -994,8 +993,9 @@ while (!feof(ptr)) {
 }
 
 */
-//---------------------------------
+</code>
 
+<code>
 <red>//Reading whole content of the file as string:</red>
 
 //fgets() reads one string at a time from the file. fgets() returns a string if it is
@@ -1006,10 +1006,9 @@ while (!feof(ptr)) {
 while (fgets(str, 50, ptr) != NULL) {
 	printf("%s", str);
 }
+</code>
 
-//---------------------------------
-
-
+<code>
 /*
 fscanf() reads formatted input from a stream.
 
@@ -1409,9 +1408,9 @@ int myInt = 9.99;
 printf("%d", myInt); // 9
 
 // the compiler automatically converts the float value of 9.99 to int value 9.
+</code>
 
-/*=================================================*/
-
+<code>
 //Calculate the percentage of a user's score in relation to the maximum score in a game:
 
 // Set the maximum possible score in the game to 500
@@ -1871,10 +1870,9 @@ int main() {
     printNames({"Technopedia", "for", "your", "mastermind!"});
     return 0;
 }
+</code>
 
-
-/*-------------------------------------------------------*/
-
+<code>
 <red>// Implementation of variable arguments using cstdarg variadic functons.</red>
 #include &lt;iostream&gt; 
 #include &lt;cstdarg&gt; 
@@ -1909,9 +1907,9 @@ int main() {
     return 0;
 
 }
+</code>
 
-/*-------------------------------------------------*/
-
+<code>
 <red>// Implementation of variable arguments using variadic templates. </red>
 #include &lt;iostream&gt; 
 using namespace std;
@@ -2452,9 +2450,9 @@ int main() {
   MyClass myObj;    // Create an object of MyClass (this will call the constructor)
   return 0;
 }
+</code>
 
-/*===========================================*/
-
+<code>
 /*Example*/
 #include &lt;iostream&gt; 
 #include &lt;string&gt; 
