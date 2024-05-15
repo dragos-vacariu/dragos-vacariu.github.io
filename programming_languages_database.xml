@@ -3133,9 +3133,196 @@ int main()
 			Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
 		</description>
 		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>*General-Programming-Knowledge*</encapsulation>
-		<polymorphism>*General-Programming-Knowledge*</polymorphism>
-		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<encapsulation>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project28_encapsulation_using_c__proprieties
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Encapsulation_Proprieties prop = new Encapsulation_Proprieties();
+			//This is the way of setting the variable's value after writing the proprieties:
+			prop.Age=15;
+			prop.Name="Black";
+			//This is the way of getting the variable's value after writing the proprieties:
+			Console.WriteLine("Name: {0}\nAge: {1}", prop.Name, prop.Age);
+			//the sinthax are identical, for setting and getting the value of a variable, but allthrough
+			//the compiler knows exactly how to interpret that.
+			
+			Console.WriteLine("Enter your email address: ");
+			//USING THE AUTO IMPLEMENTED PROPRIETY:
+			prop.Email=Convert.ToString(Console.ReadLine());
+			Console.WriteLine("Your email is: {0}", prop.Email);
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	class Encapsulation_Proprieties
+	{
+		private int _age;
+		private string _name;
+		
+		//Setting the proprieties:
+		/*To create a read only proprieties only the "get" field must be present into the propriety, whereas to create
+		 a write-only proprity only the "set" field must be present into the propriety.*/
+		public int Age 
+			//Age is the name of the propriety in this case.
+		{
+			set //this sinthax replaces the setter function for Age.
+			{
+				//Using the proprieties the value sent for the variable is stored into this "value" keyword.
+				if(value &lt;=0)
+				{
+					throw new Exception ("The age cannot be NULL or NEGATIVE.");
+				}
+				//Using this. keyword to reach the class member.
+				this._age=value;
+			}
+			get //this sinthax replaces the getter function for Age.
+			{
+				return this._age;
+			}
+		}
+		//Similar for this one too.
+		public string Name 
+			//Name is the name of the propriety in this case.
+		{
+			set //this replaces the setter function of the Name.
+			{
+				if(string.IsNullOrEmpty(value))
+				{
+					throw new Exception ("The name cannot be NULL or EMPTY.");
+				}
+				this._name=value;
+			}
+			get //this replaces the getter function of the Name.
+			{
+				//using this. keyword to reach the member's value
+				return this._name;
+			}
+		}
+		
+		//AUTO IMPLEMENTED PROPRIETIES IN C# 3.0
+		public string Email
+		{
+			/*In this case the compiler will automatically create a private variable that will corespond to this
+			 * field, and to which the user can read or write information using the AUTO IMPLEMENTED propriety.
+			 */
+			set;
+			get;
+		}
+		/*The purpose of auto implemented proprieties is that to reduce the code, and the time for writing a 
+		 * designed propriety when it's not the case, or when an optional field comes up. This are no use
+		 * of additional logic for getting or setting the value of a field.
+		 */
+	}
+}
+</code>
+		</encapsulation>
+		<polymorphism>*General-Programming-Knowledge*
+<code>
+using System;
+
+namespace project25_polymorphism
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			/*The idea of polymorphism is creating an array of type parent class, to which you can assign
+			 any object of type child classes.*/
+			Parent [] objarray = new Parent[4];
+			objarray[0]=new Parent();
+			objarray[1]=new Child1();
+			objarray[2]=new Child2();
+			objarray[3]=new Child3();
+			foreach(Parent k in objarray)
+			{
+				k.DisplayInfo(); //each child has the proprieties of the parent class
+				
+				/*To see the information of each child class we could make a function which will hide the parent
+				 * class function, and contain the updated information of the child class. But a better way doing
+				 * that is marking the parent class you'd wish to hide with virtual keyword, which will allow
+				 * every child class overide the method by their own needs.
+				 */
+			}
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	class Parent
+	{
+		protected string FirstName, LastName;
+		public Parent()
+		{
+			FirstName="FN";
+			LastName="LN";
+		}
+		public virtual void DisplayInfo()
+			//The virtual keyword will make this function overidable for each child class.
+		{
+			Console.WriteLine("This is parent class");
+		}
+	}
+	class Child1:Parent
+	{
+		//This is the sinthax: for overriding (overwriting) a function.
+		public override void DisplayInfo()
+		{
+			Console.WriteLine("This is a child 1 class.");
+		}
+	}
+	class Child2:Parent
+	{
+		//This is the sinthax: for overriding (overwriting) a function.
+		public override void DisplayInfo()
+		{
+			Console.WriteLine("This is a child 2 class.");
+		}
+	}
+	class Child3:Parent
+	{
+		//This is the sinthax: for overriding (overwriting) a function.
+		public override void DisplayInfo()
+		{
+			Console.WriteLine("This is a child 3 class.");
+		}
+	}
+}
+</code>		
+		</polymorphism>
+		<inheritance>*General-Programming-Knowledge*
+<code>
+using System;
+/*Inheritance is when a class depends on another, or a class derive from another.
+ *Inheritance is used to reduce the code size, and the amount of resources used, allowing the code re-use.
+ *Inheritance can also prevent errors, and reduce the time for designing a software.
+ */
+using inherited_classes; //using the namespace from the other file.
+
+namespace project23_inheritance //the namespace used for this file.
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			Mates m = new Mates(); //Creating an object with default constructor
+			m.DisplayInfo(); //Displaying Info
+			Mates Ellias = new Mates("Ellias", "Mustellar", 17, 'A'); //Creating an object with a predefined (overloaded) 
+			//constructor
+			//DYSPLAYING INFO:
+			Ellias.DisplayInfo();
+			Ellias.DisplayGrades();
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+</code>
+		</inheritance>
 		<abstraction>*General-Programming-Knowledge*</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
 		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
@@ -3161,7 +3348,108 @@ int main()
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
 		<enums>*General-Programming-Knowledge*</enums>
 		<multi-threading>*General-Programming-Knowledge*</multi-threading>
-		<namespaces>*General-Programming-Knowledge*</namespaces>
+		<namespaces>*General-Programming-Knowledge*
+<code>
+using System;
+//The namespace need to be declared in here
+using Project20.DeadyOnline; //declaration of the namespace.
+using PATA = Project20.DeadyOnline; //Creating a namespace alias called PATA.
+//Namespace ALIASES can be used to avoid ambiguity errors. An ambiguity erros is when declaring 2 namespaces which
+//may contains some classes or functions with the same name, so when trying to call the function, the compiler
+//will not know to which one are you refering to.
+
+//THIS IS AN EXTERNAL CLASS PROJECT
+using ProjectA.TeamB; // in order to use this you need to right click on this project and add the ProjectA.TeamB
+//as reference to the main project (in this case this is the main project).
+
+namespace project20_namespaces
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			//Creating an instance for the Class that's inside the namespace Project20.DeadyOnline
+			//A namespace is using much like a path to a file, or a directory(folder).
+			Project20.DeadyOnline.FirstClass p = new Project20.DeadyOnline.FirstClass();
+			//If the namespace is declared above, an object of the class can be created as follows:
+			FirstClass p2 = new FirstClass();
+			
+			//Calling the function that's inside the namespace below.
+			Project20.DeadyOnline.FirstClass.PrintingMethod(); //calling the STATIC function, which needs to be
+			PATA.FirstClass.PrintingMethod();//calling the function using the namespace alias PATA.
+			//called using the qualify name of the class
+			
+			//Also the function can be called like this if the namespace is declared above.
+			FirstClass.PrintingMethod();
+			p.AnotherMessage();//calling the INSTANCE (non-static) function.
+			p2.AnotherMessage(); //calling the INSTANCE (non-static function) using the object 2.
+			
+			//Calling a function from external namespace and class.
+			MyClass ms = new MyClass(); //creating an instance of the class.
+			ms.PrintName();//the function is INSTANCE function (so it needs to be called with and instance of
+			//the class that it belongs to).
+			Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+}
+//Namespaces are used to organize the code/programs, and to avoid name clashes.
+//Creating a namespace: (this is internal namespace because it's written into the same file.)
+namespace Project20
+{
+	namespace DeadyOnline
+	{
+		class FirstClass
+		{
+			public static void PrintingMethod()
+			{
+				Console.WriteLine("This is a function from a SELF-CREATED namespace.");
+			}
+			public void AnotherMessage()
+			{
+				Console.WriteLine("This function is INSTANCE function.");
+			}
+		}
+	}
+}
+</code>
+<code>
+using System;
+using System.Collections.Generic;
+
+namespace ProjectA.TeamB
+{
+	//This are called XML Coments, and are used to create descriptions.
+	/// <summary>
+	/// This is an Outside Class Project that contains a PrintName Function.
+	/// </summary>
+	public class MyClass
+	{
+		public void PrintName()
+		{
+			Console.WriteLine("This is an external Class Project called ProjectA.TeamA");
+		}
+	}
+}
+/*The code above is equivalent to this:
+ * 
+ * namespace ProjectA
+{
+	namespace TeamB
+	{
+		public class MyClass
+		{
+			public void PrintName()
+			{
+				Console.WriteLine("This is an external Class Project called ProjectA.TeamA");
+			}
+		}
+	}
+}
+ //THIS IS CALLED NASTED NAMESPACE (or a namespace inside of another).
+ */
+</code>
+		</namespaces>
 		<exception-handling>*General-Programming-Knowledge*</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
 		<default-parameters>*General-Programming-Knowledge*</default-parameters>
