@@ -4852,7 +4852,161 @@ namespace project12_new_types_null_coalescing_operator
 			PHP is a back-end development language (related to the server), JavaScript is a front-end development language
 			related to the client computer/machine.
 		</description>
-		<oop>*General-Programming-Knowledge*</oop>
+		<oop>*General-Programming-Knowledge*
+			JavaScript is an object oriented programming language, having the 4 concept that any OOP language has:<br></br><br></br>
+			1.Inheritance<br></br>
+			2.Polymorphism<br></br>
+			3.Encapsulation<br></br>
+			4.Abstraction<br></br>
+			<br></br><br></br>
+			The objects can be classifed in 2 categories:<br></br>
+			- standard built-in objects;<br></br>
+			- custom objects;<br></br>
+			<br></br><br></br>
+			In Javascript there is no concept called "class", so an object will not be built based on classes, but based on 
+			functions or literal notations (or singletons).<br></br>
+<code>
+//Creating an object using a function:
+
+function Employee (firstName, lastName) //This will be the constructor;
+{
+	this.firstName=firstName;
+	this.LastName=lastName;
+	
+	//This is an object method:
+	this.getFullName = function () {
+		return this.firstName + " " + this.LastName;
+	}
+}
+//Creating an instance of the object:
+
+var emp = new Employee("Black", "Yd");
+document.write("First Name: " + emp.firstName + "&lt;br&gt;");
+document.write("Last Name: " + emp.LastName + "&lt;br&gt;");
+document.write("Full Name: " + emp.getFullName() + "&lt;br&gt;");
+
+//Creating an object using a variable/literal notation or singleton:
+
+var objct = { //in this case we already create an object.
+
+//Here we are now describing the functionality of the object:
+
+	firstName: "Alan", // In this case instead of equal sign we use colon operator and coma afterwards;
+ 	lastName: "Walker",
+	
+	getFullName: function ()
+	{
+		return this.firstName + " " + this.lastName;
+	}
+} 
+
+//Displaying the information about this objct:
+
+document.write("&lt;br&gt;First Name: " + objct.firstName + "&lt;br&gt;");
+document.write("Last Name: " + objct.lastName + "&lt;br&gt;");
+document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
+
+/*
+Differences between the 2 ways:
+
+In the constructor case the properties are separed by their values using = operator, whereas in case
+of literal notation we use : operator;
+
+In contructor case we use ; to separate the properties, in literal notation we use , instead.
+
+With the constructor method, you first need to create an object to can access its properties, but with literal
+notation the object is already created and you can simply access it. 
+
+Objects created using literal notation are singletons, this mean that when a value is changed for an object, it 
+affects all the objects created. This is happening because all the objects created from literal notation will
+reference the same set of values, so if any of them make a change, that change will affect the whole set of objects.
+Whereas this is not the case using constructor objects.
+*/
+
+document.write("&lt;br&gt;Why singletons?&lt;br&gt;");
+var a = { //Creating an object out of a;
+	value:20,
+}
+
+var b = a; //Creating an object using the variable a;
+document.write("&lt;br&gt;Before Changing value of obj2: &lt;br&gt;");
+document.write("Object1: " + a.value + "&lt;br&gt;");
+document.write("Object2: " + b.value + "&lt;br&gt;");
+b.value=32;
+document.write("&lt;br&gt;After Changing value of obj2: &lt;br&gt;");
+document.write("Object1: " + a.value + "&lt;br&gt;");
+document.write("Object2: " + b.value + "&lt;br&gt;");
+
+/*
+When to use Object Constructor or Object Literal
+
+When multiple instances of an object are needed the object contructor will be used.
+When single instance of an object is needed the object literal can be used.
+
+Singleton means that the object cannot have multiple instances without affecting one another. That's why object literal
+is a singleton.
+
+The common used way of creating object in all the OOP languages is by using Object Constructor.
+*/
+</code>
+
+<code>
+/*
+Reflection allows the inspection of meta data, assemblies, modules and type. If the object is derived from a base class than
+reflection can also inspect the parent/base class data.
+*/
+
+var Class = function (objName, objID, objType) {
+	//These are public fields:
+	this.ObjectName = objName;
+	this.ObjectID= objID;
+	this.ObjectType = objType;
+}
+
+//These are public methods:
+Class.prototype.getObjectName = function () {
+	return this.ObjectName + "&lt;br&gt;";
+}
+
+Class.prototype.getObjectID = function () {
+	return this.ObjectID + "&lt;br&gt;";
+}
+
+Class.prototype.getObjectType = function () {
+	return this.ObjectType + "&lt;br&gt;";
+}
+
+var Class = new Class ("Car", "2", "Base Class");
+
+//Creating a foreach loop:
+for (var property in Class)
+{
+	//Checking if the property is a variable:
+	if(typeof Class[property] != "function")
+	{
+		document.write(property + " : " + Class[property] + "&lt;br&gt;");
+		//A property of class can be accessed using ClassName[foreach_variable].
+	}
+}
+
+document.write("&lt;br&gt;");
+//Another foreach loop:
+for (var p in Class)
+{
+	//Checking if a property is not inherited:
+	if( Class.hasOwnProperty(p) )
+	{
+		document.write(p + " : " + Class[p] + "&lt;br&gt;");
+	}
+	
+	//Checking if a property is inherited:
+	if( !Class.hasOwnProperty(p) )
+	{
+		document.write(p + " : " + Class[p] + "&lt;br&gt;");
+	}
+}
+</code>
+		</oop>
 		<encapsulation>*General-Programming-Knowledge*
 <code>
 
@@ -5152,7 +5306,7 @@ h.printMsg();
 </code>
 		</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
-		<variable-arguments-lists>No information present in the database.
+		<variable-arguments-lists>
 <code>
 /*The argument object is used to store the value of arguments of a function.
 Accessing the argument object outside a function will result in undefined error.
@@ -5219,7 +5373,6 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
 	All the variables are declared using the var keyword.
 </code>
 		</simple-data-types>
-		<complex-data-types>No information present in the database.</complex-data-types>
 		<loops>*General-Programming-Knowledge*
 <code>
 /*Recursion is a programming concept available to all programming languages including JavaScript.
@@ -5293,7 +5446,104 @@ Rec(0);
 </code>		
 		</loops>
 		<collections>*General-Programming-Knowledge*</collections>
-		<collection-methods>*General-Programming-Knowledge*</collection-methods>
+		<collection-methods>*General-Programming-Knowledge*
+<code>
+//Creating an array without a constructor:
+
+var arr = ["James", 10, 2];
+/*
+An array is a collection of variable, and in JavaScript a variable can take any type of values. So
+that's why the array above has a string and 2 integers in it.
+*/
+
+document.write("The length of arr is: " + arr.length + "&lt;br&gt;");
+for (var i=0;i&lt;arr.length; i++)
+{
+	document.write(arr[i] + " ");
+}
+document.write("&lt;br&gt;&lt;br&gt;");
+
+//Creating an array using the constructor
+
+var arr2 = new Array(5); // the 5 between the parenthesis specifies the length.
+//The elements of arr2 are not initialized
+
+document.write("The length of arr2 is: " + arr2.length + "&lt;br&gt;");
+for (var i=0;i&lt;arr2.length; i++)
+{
+	document.write(arr2[i] + " ");
+}
+document.write("&lt;br&gt;&lt;br&gt;");
+
+//Another ways to create an array:
+var arr3 = []; //Creating an array (without constructor), the size is not specified.
+
+/*
+Dispite the other C-like languages, creating an array using this syntax make it resizeable.
+*/
+arr3[0]= 22; //the array length is now 1.
+arr3[4]= 44; //the array length is now 2.
+
+document.write("The length of arr3 is: " + arr3.length + "&lt;br&gt;");
+for (var i=0;i&lt;arr3.length; i++)
+{
+	document.write(arr3[i] + " ");
+}
+document.write("&lt;br&gt;&lt;br&gt;");
+
+var arr4 = new Array(26,8,1994); //Creating an array using constructor, the elements are specified.
+
+/*
+The elements can be specified while creating an array using a constructor, by using multiple arguments when
+calling it. So, you cannot create and initialize an array with a single element, using this syntax. 
+*/
+
+document.write("The length of arr4 is: " + arr4.length + "&lt;br&gt;");
+document.write("This element was returned using pop method: " + arr4.pop() + "&lt;br&gt;");
+document.write("The new length of arr4 is: " + arr4.length + "&lt;br&gt;");
+document.write("This element was returned using shift method: " + arr4.shift() + "&lt;br&gt;");
+document.write("The new length of arr4 is: " + arr4.length + "&lt;br&gt;");
+for (var i=0;i&lt;arr4.length; i++)
+{
+	document.write(arr4[i] + " ");
+}
+document.write("&lt;br&gt;&lt;br&gt;");
+
+/*
+OTHER METHODS:
+
+These are Mutator methods:
+.push() - This method adds a new item at the end of the array.
+.pop() - This method removes and returns the last item from the array.
+.unshift() - This method adds a new item at the beginning of the array.
+.shift() - This method removes and returns the first element of the array.
+
+All the methods above change the size of the array. In JavaScript an Array is much like a Vector or a 
+List, being dynamic in length (resizeable).
+
+.reverse() - This method reverse the element order of an Array Object (the last element becomes the first, etc).
+.sort() - This method sorts the items of an array (alphabetical, descending or ascending, etc).
+.slice() - This method returns a shallow copy of a portion of an array into a new array object selected 
+from begin to end (end not included). The original array will not be modified. It can be used for adding
+or removing a group of item after the specified index. It takes 3 parameters:
+	.splice(index, deleteCount, item1,.... itemX)
+	where:
+	index - specifies at what position to add or remove items;
+	deleteCount - specified the number of elements to be removed, if 0 no elements will be removed.
+	item1...itemX - optional, specifies the elements to be added at specified index in the array.
+
+The 3 methods above change the content of the array object.
+
+A mutator method is a method that change or modify the array object (in size or content).
+
+Non-mutator methods:
+.contains() - This method returns a boolean value specifying if the searched value is present in the array or not.
+.lastIndexOf() - This method returns the position of the last occurrence of a specified value.
+.indexOf() - This method returns the position of the first occurrence of a specified value.
+
+*/
+</code>
+		</collection-methods>
 		<read-from-file>*General-Programming-Knowledge*</read-from-file>
 		<write-to-file>*General-Programming-Knowledge*</write-to-file>
 		<serialization>*General-Programming-Knowledge*</serialization>
@@ -5301,7 +5551,86 @@ Rec(0);
 		<constructors>*General-Programming-Knowledge*</constructors>
 		<instantiation>*General-Programming-Knowledge*</instantiation>
 		<destructors>*General-Programming-Knowledge*</destructors>
-		<function-overloading>*General-Programming-Knowledge*</function-overloading>
+		<function-overloading>*General-Programming-Knowledge*
+<code>
+/*
+Prototype object of a constructor function it is used for creating static methods or methods 
+which share their code between all of the instances.
+
+Advantages of using Prototype object for adding functions:
+
+-no matter how many objects are created, functions are loaded only once into the memory. Every instance sharing the same code.
+-it allows function overriding, if necessary.
+
+Syntax for creating function using prototype:
+ConstructorName.prototype.FunctionName = function () { function definition }
+*/
+
+
+//Creating a constructor for an object:
+function Computer (ProcessorSpeed, Memory)
+{
+	this.CPU_core = ProcessorSpeed;
+	var Memory = Memory;
+}
+
+var pc = new Computer (3.2, 200);
+var pc2 = new Computer (3.4, 2000);
+
+//Adding a function only to an instance of the object:
+pc.getName = function ()
+{
+	//This function is public and can access only with the public fields:
+	return this.CPU_core;
+}
+
+//Adding a private function to all the instances of the object:
+Computer.printMessage = function () //this function will be private.
+{
+	return "this is a message";
+}
+
+document.write("Instance function: " + pc.getName() + "&lt;br&gt;");
+//document.write("Instance function2: " + pc2.getName() + "&lt;br&gt;"); //this will throw an error
+//because getName() method is define only for pc instance.
+
+
+//document.write("Function Inst1: " + pc.printMessage() + "&lt;br&gt;"); //this will throw an error, because the function is private
+//document.write("Function Inst2: " + pc2.printMessage() + "&lt;br&gt;"); //this will throw an error, because the function is private
+
+
+//Adding a function using the prototype object:
+Computer.prototype.printMsg = function () //this code will be executed until the function will be overrided.
+{
+	alert("This function is created using prototype object.");
+}
+
+//Calling the function:
+pc.printMsg();
+pc2.printMsg();
+
+//Function Overriding:
+
+Computer.prototype.printMsg = function () //from this moment on, when calling printMsg() method, this code will be executed.
+{
+	alert("This function war overrided.");
+}
+
+//Calling the overrided function:
+pc.printMsg();
+
+/*
+Similarly built-in functions can be overrided as well:
+
+Example:
+var alert = function(msg)
+{
+	document.write (msg + "&lt;br&gt;")
+}
+*/
+
+</code>
+		</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
 		<enums>*General-Programming-Knowledge*</enums>
 		<multi-threading>*General-Programming-Knowledge*</multi-threading>
@@ -5517,8 +5846,48 @@ function Funct()
 }
 </code>
 		</ternary-operator>
-		<modular-programming>*General-Programming-Knowledge*</modular-programming>
-		<string-methods>*General-Programming-Knowledge*</string-methods>
+		<modular-programming>*General-Programming-Knowledge*
+			Minification of Javascript consists in reducing the amount of JavaScript files used in a webpage as well as reducing
+			the size of each file, in order to optimize the server amount of requests from the client machine.
+			<br></br><br></br>
+			Instead of using 4 JavaScript files, it will be used a single file, and instead of arranging the code in that file to
+			be readable, it will be arranged in such a way that the size will be reduced by removing unnecessary characters such used
+			spaces, newline characters and comments.
+		</modular-programming>
+		<string-methods>*General-Programming-Knowledge*
+<code>
+	/*
+	Example of global replacements in a string:
+	var string1 = "Blue bottle on a blue table."
+	var result = string1.replace(/blue/g , "green") // result will be: Blue bottle on a green table.
+	result = string1.replace(/blue/gi, "green") // result will be: green bottle on a green table.
+	
+	Regular Expresions:
+	// g - > comes from global, which will replace each occurance of the specified word, or expression in the string1
+	// i -> come from insesitive, which won't take in count if it's blue, or Blue or bLuE, or whatever.
+	//string.replace won't change the original string it will just return a string with the replacements made, but
+	//the original string will still hold the same value.
+	
+	Substring methods:
+	string1.substring(1, 4); will return the string: Blu, the forth character it won't be included:
+	string1.substring(4, 1); will produce the same result as above, because the function will swap the values 4 with 1, 
+	because the start value needs to be smaller than the end value. The value at the second parameter is not included
+	in the returned result.
+	
+	string1.substring(4); will return a string containing all the character from 4th character until the end of the 
+	string. so that will be: "e bottle on a blue table."
+	
+	string1.substr(1,4): has the same functionality as the function above, But it doesn't swap the parameters, and the 
+	second parameter specifies the last caracter to be returned.
+	
+	string1.slice(1,4): has the same functionality as the functions above, except that slice method won't swap the 
+	parameters, no matter if the start is greater than the end. (in that case it will return an empty string)
+	
+	string1.indexOf("B") : this function will return the index of "B" which is 0;
+	string1.lastIndexOf(b) : this will return the last index of specified value "b" which is: 17
+	*/
+</code>
+		</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*</decorators>
