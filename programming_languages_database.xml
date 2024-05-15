@@ -3246,7 +3246,89 @@ namespace project25_polymorphism
 }
 </code>
 		</polymorphism>
-		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<inheritance>*General-Programming-Knowledge*
+<code>
+//FILE: MyClass.cs
+
+using System;
+using System.Collections.Generic;
+
+/*In C# for an inherited class can be only one parent class (only single class inheritance is allowed).
+ IN CASE OF INHERITED CLASSES: the parent class constructor gets automatically executed before the child class 
+constructor if the parent class constructor has no arguments.
+Otherwise if the parent class has a constructors with multiple arguments/parameters it must be specified
+at the child class constructor declaration a sinthax:
+	:base()
+and specify the arguments of the constructor that you want to be executed inside the pharanteses.
+ 
+ IMPORTANT: To prevent a class of having children (inheritance), you can use the sealed keyword.
+ A sealed class cannot have children (cannot be base class).
+ */
+namespace inherited_classes
+{
+	//These are called XML Comments:
+	/// &lt;summary&gt;
+	/// Inherited Classes
+	/// &lt;/summary&gt;
+	//This is the parent class.
+	public class MyClass
+	{
+		protected string FirstName;
+		protected string LastName;
+		protected uint ?age;
+		protected MyClass(string FSS)
+		{
+			Console.WriteLine(FSS);
+		}
+		public void DisplayInfo()
+		{
+			Console.WriteLine("Name: {0} {1}",FirstName, LastName);
+			if(age==null)
+			{
+				Console.WriteLine("Age: No Age Provided");
+			}
+			else
+			{
+				Console.WriteLine("Age: {0}", age);
+			}
+		}
+	}
+	//This is the inherited class.
+	public class Mates:MyClass
+	{
+		char Grades;
+		//THIS IS DEFAULT CONSTRUCTOR
+		public Mates(): base("CHILD CLASS CONTROLS THE PARENTS CLASS") //this needs to be public.
+			//AS YOU SEE THE :base () sinthax appears here too.
+		{
+			FirstName="No First Name Provided";
+			LastName="No Last Name Provided";
+			age = null;
+		}
+		//THIS IS OVERLOADED CONSTRUCTOR
+		public Mates(string FS, string LS, uint AGE_m, char GRD) : base("CHILD CLASS CONTROLS THE PARENTS CLASS")
+			//the constructor needs to be public
+			//:base () -> it's used to explicitely specify which constructor should be used for the parent class
+			//THE SINTHAX must be used for each constructor of the child class.
+			//if the parent class constructor takes no arguments, then the sinthax is optional.
+		{
+			FirstName=FS;
+			LastName=LS;
+			age=AGE_m;
+			Grades=GRD;
+		}
+		public void DisplayGrades()
+		{
+			///&lt;summary&gt;Displays the grades of the objects in this class.&lt;/summary&gt;
+			Console.WriteLine("Grade: {0}", Grades);
+		}
+	}
+}
+</code>
+
+<code>
+</code>
+		</inheritance>
 		<abstraction>*General-Programming-Knowledge*</abstraction>
 		<generic-programming>*General-Programming-Knowledge*</generic-programming>
 		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
@@ -3274,7 +3356,10 @@ namespace project25_polymorphism
 		<multi-threading>*General-Programming-Knowledge*</multi-threading>
 		<namespaces>*General-Programming-Knowledge*
 <code>
+//FILE: MyClass.cs
+
 using System;
+
 //The namespace need to be declared in here
 using Project20.DeadyOnline; //declaration of the namespace.
 using PATA = Project20.DeadyOnline; //Creating a namespace alias called PATA.
@@ -3339,6 +3424,8 @@ namespace Project20
 </code>
 
 <code>
+//FILE: Program.cs
+
 using System;
 using System.Collections.Generic;
 
