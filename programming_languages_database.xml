@@ -5949,7 +5949,144 @@ a-b will result -10, becausse the string a will be automatically converted to a 
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
-		<collections>No information present in the database.</collections>
+		<collections>
+<code>
+package project16;
+/*
+Stack is a subclass of Vector that implements a standard last-in, first-out.
+Stack only defines the default constructor, which creates an empty stack. Stack includes all the methods 
+defined by Vector, and adds several of its own.
+A stack has the same properties as a vector, it's dynamic in size, can store objects, so it can hold
+any type of data... they get automatically resized to fit the objects pushed in.
+*/
+import java.util.Scanner; //used for Scanner class;
+import java.util.Stack; //used for stack collection;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project16 {
+
+    public static void main(String[] args) {
+        Stack newStack = new Stack(); //Stack of objects
+	Stack&lt;Integer&gt; intStack; //Stack of integers;
+        //Adding object on stack...
+        newStack.add(5);
+        newStack.add(5);
+        newStack.add(33);
+        newStack.add(135);
+        newStack.add(25);
+        System.out.printf("The element on top of stack is: %d\n", newStack.peek());
+        System.out.printf("The element on bottom of the stack is: %d\n", newStack.firstElement());
+        //Stacks have the same methods, fields and functionality as vectors.
+        Scanner myscanner = new Scanner (System.in);
+        myscanner.next();
+    }
+    
+}
+</code>
+
+<code>
+/*
+The Dictionary class is an abstract class that defines a data structure for mapping keys to values.
+This is useful in cases where you want to be able to access data via a particular key rather than an 
+integer index.
+Since the Dictionary class is abstract, it provides only the framework for a key-mapped data structure 
+rather than a specific implementation.
+Given a key and value, you can store the value in a Dictionary object. Once the value is stored, you can 
+retrieve it by using its key. Thus, like a map, a dictionary can be thought of as a list of key/value pairs.
+The Dictionary class is obsolete. You should implement the Map interface to obtain key/value storage 
+functionality.
+*/
+package project17;
+
+import java.util.Dictionary; //used for dictionary;
+import java.util.Scanner; //used for Scanner class;
+import java.util.Hashtable; //used for the hashtable;
+import java.util.Enumeration; //used for enumeration;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project17 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //It can be constructed like this also: Dictionary myDict = new Hashtable();
+        Dictionary &lt;Integer, String&gt; myDict = new Hashtable(); //creating a dictionary with Integer Keys, and
+        //String Content.
+        myDict.put(1, "Alan Walker");
+        myDict.put(2, "Adam Lambert");
+        myDict.put(3, "Tokio Hotel");
+        myDict.put(4, "Deryck Whibley");
+        myDict.put(5, "Avril Lavigne");
+        Enumeration&lt;Integer&gt; MyKeys = myDict.keys();
+        Enumeration&lt;String&gt; MyNames = myDict.elements();
+        System.out.printf("Size of Dictionary: %d\n", myDict.size());
+        //Using for loop to access dictionary:
+        for(int i=0; i&lt;myDict.size(); i++)
+        {
+            System.out.printf("Name: %s     Key: %s\n", MyNames.nextElement(), MyKeys.nextElement());
+        }
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+</code>
+
+<code>
+/*
+The ArrayList class extends AbstractList and implements the List interface. 
+ArrayList supports dynamic arrays that can grow as needed. This gives us a new collection data type that
+can be used exactly as Vectors, Lists, Stacks, Dictionaries etc. 
+Array lists are created with an initial size. When this size is exceeded, the collection is automatically 
+enlarged. When objects are removed, the array may be shrunk.
+
+SINTHAX: (all these sintaxes are correct)
+ArrayList al = new ArrayList(); //creates an array list;
+ArrayList&lt;Integer&gt; al = new ArrayList(); // creates an int arraylist;
+ArrayList&lt;Integer&gt; al = new ArrayList&lt;Integer&gt;(); // creates an int arraylist;
+
+NOTE: TO create an int, double, float arraylist there must be used an object of that class, and for int
+the object is Integer, for double the object is Double.
+
+Functions of an ArrayList are similar to functions of a Vector or List, or Stack, or Dictionary, you can 
+call Add() function, Remove(), RemoveAt() etc.
+*/
+package project20;
+
+import java.util.ArrayList; //including this here for ArrayList Collection type.
+import java.util.Scanner;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project20 {
+    public static void main(String[] args) {
+        ArrayList&lt;Integer&gt; al = new ArrayList();
+        al.add(22);
+        al.add(44);
+        al.add(59);
+        //Accessing the elements:
+        for(int i: al)
+        {
+            System.out.printf("%d ", i);
+        }
+        System.out.println();
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+
+</code>
+		</collections>
 		<collection-methods>No information present in the database.</collection-methods>
 		<dynamic-memory-allocation>
 			Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
@@ -5961,20 +6098,374 @@ a-b will result -10, becausse the string a will be automatically converted to a 
 		</dynamic-memory-allocation>
 		<read-from-file>No information present in the database.</read-from-file>
 		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>*General-Programming-Knowledge*</serialization>
-		<deserialization>*General-Programming-Knowledge*</deserialization>
+		<serialization>*General-Programming-Knowledge*
+<code>
+package project23;
+
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project23 {
+
+    /**
+     * @param args the command line arguments
+     */
+    //Making main function able to throw IOException, such that I don't need to use try catch blocks.
+    public static void main(String[] args) throws IOException {
+        File myfile = new File ("textFile.txt");
+        try{
+            
+            //THESE STATEMENTS NEEDS TO BE PLACED INSIDE A TRY CATCH BLOCK:
+            PrintWriter myPrintWriter = new PrintWriter(myfile);
+            myPrintWriter.println("This is a TEXT File!");
+            System.out.println("File has been successfully created!");
+            //Closing the file:
+            myPrintWriter.close(); //if the file doesn't get closed the modifications made to it 
+            //won't get saved.
+        }
+        catch(IOException e)
+        {
+            System.out.printf("File: %s\n", e);
+        }
+        //Reading from the file:
+        try{
+            Scanner readerfile = new Scanner(myfile);
+            String Message = readerfile.nextLine();
+            //If this line is reached it means that there is no exception thrown.
+            System.out.printf("FILE MESSAGE: %s\n", Message);
+        }
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
+        //Creating a collection of HumanClass objects:
+        ArrayList&lt;HumanClass&gt; myList = new ArrayList();
+        myList.add(new HumanClass(22, "Adam Lambert"));
+        myList.add(new HumanClass(44, "Jackie Chan"));
+        //Creating a file to store these objects:
+        File myObjectsFile = new File ("objectFile.txt");
+        //Serializing an object:
+        try{
+            FileOutputStream fo = new FileOutputStream(myObjectsFile);
+            ObjectOutputStream os = new ObjectOutputStream(fo);
+            for(HumanClass s:myList)
+            {
+                //Writing objects to a file ca be made only using binary mode. So that file will not contain
+                //readable text.
+                os.writeObject(s);
+            }
+        }
+        catch(FileNotFoundException e)
+        {
+            System.out.printf("File not found: %s", e);
+        }
+        //Deserializing an object from the file:
+        ArrayList&lt;HumanClass&gt; ObjectRead = new ArrayList();
+        FileInputStream fi = new FileInputStream(myObjectsFile);
+        ObjectInputStream oi = new ObjectInputStream(fi);
+        try{
+            while(true) //this loop will terminate when the catch block will terminate, and the catch block will
+                //terminate then EOFException will be thrown.
+            {
+               HumanClass e = (HumanClass) oi.readObject(); //this will read until the file ends. 
+               //When it cannot read any more object from the file it will throw an EOFException that needs
+              //to be catched, and handled, otherwise the program will terminate.
+              ObjectRead.add(e);
+            }
+        }
+        catch(ClassNotFoundException e)
+        {
+             System.out.printf("File not found: %s", e);
+        }
+        catch(EOFException b) //Once the file was done reading, it will catch this exception.
+        {
+            System.out.println("\nDone reading the objects:\n");
+            //Let's print the objects now:
+            for(HumanClass s:ObjectRead)
+            {
+                System.out.printf("Name: %s, Age: %d\n", s.GetName(), s.GetAge());
+            }
+        }
+        //Keep the console opened until I press a key.
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+
+</code>
+		</serialization>
+		<deserialization>*General-Programming-Knowledge*
+		<br></br>
+		For a concrete example - see the sample from Serialiation.
+		</deserialization>
 		<constructors>*General-Programming-Knowledge*</constructors>
 		<instantiation>*General-Programming-Knowledge*</instantiation>
 		<destructors>*General-Programming-Knowledge*</destructors>
 		<function-overloading>*General-Programming-Knowledge*</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
-		<enums>*General-Programming-Knowledge*</enums>
+		<enums>*General-Programming-Knowledge*
+<code>
+/*
+Enums can have constructors, and it needs to have contructors if they are provided with values.
+ */
+package project18;
+
+public enum Directions {
+    //Defining the fields:
+    South(0), West(180), North(90), East(260);
+    private final int Degrees; // a place to store the value for each field.
+    
+    //This constructor has the role of initializing the above fields with their values:
+    Directions(int degreesNew)
+    {
+        this.Degrees = degreesNew;
+    }
+    public int GetDegrees()
+    {
+        return this.Degrees;
+    }
+}
+/*
+Enums make the code more readable, and instead of providing value and later on trying to convert values
+from int to string, enums provides both string values and int values in the same patch.
+*/
+</code>
+
+<code>
+/*
+The Enumeration interface defines the methods by which you can enumerate (obtain one at a time) the elements 
+in a collection of objects.
+Enumerations must not be confused with enums. They are different types, different objects, with different
+utility.
+ */
+package project15;
+
+import java.util.Enumeration; //used for enumerations;
+import java.util.Scanner; // used for scanner class;
+import java.util.Vector; //used for vectors;
+
+/**
+ *
+ * @author Black2
+ */
+public class Project15 {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+	//Creating an enumeration of objects;
+        Enumeration Days; //enumerations cannot be initialized with an object of type enumeration;
+	//because enumeration is abstract interface.
+	Enumeration &lt;Integer&gt; intEnumeration; //enumeration of integers;
+        Vector myVect = new Vector (3); //vector of objects
+        myVect.add("Sunday");
+        myVect.add("Monday");
+        myVect.add("Friday");
+        Days = myVect.elements(); //the elements from vector gets transfered to enumeration.
+        while(Days.hasMoreElements())
+        {
+            System.out.println(Days.nextElement());
+        }
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+</code>
+		</enums>
 		<multi-threading>*General-Programming-Knowledge*</multi-threading>
 		<namespaces>*General-Programming-Knowledge*</namespaces>
-		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<exception-handling>*General-Programming-Knowledge*
+<code>
+/*
+try{} catch{} finally{} blocks is a way that you can trace errors and instead of doing the default exit from
+the program you could follow another path.
+SINTHAX:
+try{ //doing the code that can throw an exception}
+catch(//this kind of exception) {//if the exception has been caught, do this code here}
+finally{//no matter if there was thrown an exception or not, just do this code here. THIS WILL ALWAYS BE EXECUTED}
+ 
+the finally block is not mandatory. It is possible to have only try and catch blocks.
+*/
+package project22;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+/**
+ *
+ * @author Black2
+ */
+public class Project22 {
+    public static void main(String[] args) {
+        Scanner myscanner = new Scanner(System.in);
+        try{
+            System.out.println("Enter an integer: ");
+            int number = myscanner.nextInt();
+            //This code will run only if the line above doesn't produce an exception.
+            System.out.printf("You entered: %d\n\n", number);
+            //Throwing a Custom Exception:
+            if(number>10||number&lt;0)
+            {
+                throw new CustomExceptionOutRange();
+            }
+        }
+        //Handle the input mismatch exception:
+        catch(InputMismatchException e)
+        {
+            System.out.println("You didn't entered an integer!\n");
+        }
+        //Handle the custom exception:
+        catch(CustomExceptionOutRange r)
+        {
+            System.out.println("Your number is out of range!\n");
+        }
+        //This code gets executed anyhow.
+        finally
+        {
+            System.out.println("Thank you for running this!");
+        }
+        myscanner.next();
+    }
+    
+}
+
+</code>
+<code>
+/*
+This is the way of creating Custom Exceptions. You just create a class of the name you want and it make it
+extends the Exception class.
+
+IMPLEMENTS vs EXTENDS:
+extends is for extending a class, for inheritance from another class.
+implements is for implementing an interface.
+
+Inheritance, extends the functionality of a class into another.
+Interfaces, exhibits the same characteristics to multiple classes.
+
+The difference between an interface and a regular class is that in an interface you can not implement any 
+of the declared methods. Only the class that "implements" the interface can implement the methods. 
+The C++ equivalent of an interface would be an abstract class (not EXACTLY the same but pretty much).
+
+Also java doesn't support multiple inheritance for classes. This is solved by using multiple interfaces.
+*/
+package project22;
+
+/**
+ Making this class inherits from Exception class.
+ */
+public class CustomExceptionOutRange extends Exception{
+    
+}
+</code>
+		</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
 		<default-parameters>*General-Programming-Knowledge*</default-parameters>
-		<interfaces>*General-Programming-Knowledge*</interfaces>
+		<interfaces>*General-Programming-Knowledge*
+<code>
+/*
+Just like classes, there can be only one interface in a .JAVA file. Java does not allow that interfaces and
+classes to be defined in the same file.
+There can be inner interfaces also, this is the only way to write 2 interfaces in the same .JAVA file.
+
+ */
+package project13;
+
+/**
+ *
+ * @author DrVa
+ */
+public interface ToDoListInterface { //this is the outer interface
+    public interface Numbers{ //this is the inner interface
+        int findMax(int a, int b, int c);
+    }
+    void PrintMessage(String message);
+}
+</code>
+
+<code>
+/*
+An interface is a reference type in Java. It is similar to class. It is a collection of abstract methods. 
+A class implements an interface, thereby inheriting the abstract methods of the interface.
+
+Along with abstract methods, an interface may also contain constants, default methods, static methods, and 
+nested types. Method bodies exist only for default methods and static methods.
+
+Writing an interface is similar to writing a class. But a class describes the attributes and behaviors of 
+an object. And an interface contains behaviors that a class implements
+ */
+package project13;
+
+//ONCE THAT A CLASS implement AN INTERFACE THAT CLASS IS OBLIGED TO PROVIDE IMPLEMENTATIONS FOR ALL THE
+//METHODS IN THE INTERFACE:
+import java.util.Scanner;
+
+//THIS CLASS IS OBLIGED TO PROVIDE IMPLEMENTATIONS FOR ToDoListInterface and ToDoListInterface.Numbers
+public class Project13 implements ToDoListInterface, ToDoListInterface.Numbers {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        //Creating an object of the class:
+        Project13 InstanceOfClass = new Project13();
+        InstanceOfClass.PrintMessage("This is a function that came from an interface!");
+        System.out.printf("Max number is: %d\n", InstanceOfClass.findMax(12, 33, 21));
+        Scanner myscanner = new Scanner (System.in);
+        myscanner.next();
+    }
+    
+    //IF Project13 class WILL NOT PROVIDE IMPLEMENTATIONS FOR THIS... THE PROGRAM WOULD NOT COMPILE.
+    public void PrintMessage(String Message){
+        System.out.println(Message);
+    }
+    public int findMax(int a, int b, int c)
+    {
+        //USING TERNARY OPERATOR:
+        return a>b? a>c? a : c : b>c? b : c;
+    }
+}
+/*
+PROPERTIES OF INTERFACES:
+An interface is implicitly abstract. You do not need to use the abstract keyword while declaring an 
+interface.
+Each method in an interface is also implicitly abstract, so the abstract keyword is not needed.
+Methods in an interface are implicitly public.
+
+SIMILARITIES BETWEEN INTERFACES AND CLASSES:
+An interface can contain any number of methods.
+An interface is written in a file with a .JAVA extension, with the name of the interface matching the name 
+of the file.
+The byte code of an interface appears in a .class file.
+Interfaces appear in packages, and their corresponding bytecode file must be in a directory structure that 
+matches the package name.
+
+DIFFERENCES BETWEEN INTERFACES AND CLASSES:
+You cannot instantiate an interface.
+An interface does not contain any constructors.
+All of the methods in an interface are abstract.
+An interface cannot contain instance fields. The only fields that can appear in an interface must be declared 
+both static and final.
+An interface is not extended by a class; it is implemented by a class.
+An interface can extend multiple interfaces.
+
+
+*/
+</code>
+		</interfaces>
 		<random-generators>*General-Programming-Knowledge*</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
