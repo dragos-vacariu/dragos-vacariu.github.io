@@ -82,13 +82,9 @@
 		<complex-data-types>
 			Data types that are derived from fundamental data types:<br></br><br></br>
 			<code>bool type</code> - The bool type is a <red>byte-sized</red> type that can only hold the value true or false.<br></br><br></br>
-			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants (unchangeable values).<br></br><br></br>
-			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
-			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code>.
-			<br></br>
-			When the header <code>complex.h</code> is 
-			included, the three complex number types are also accessible as double complex, 
-			float complex, long double complex.<br></br><br></br>
+			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants 
+			(unchangeable values).
+			<br></br><br></br>
 			<code>Arrays</code> - A collection of elements of the same data type. <br></br>
 			An array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
 			These entities or elements can be of int, float, char, or double data type or can be of user-defined data types too
@@ -849,7 +845,10 @@ C |= 2 is same as C = C | 2
 		<generic-programming>
 			*General-Programming-Knowledge*
 			<br></br>
-			In C Language generic programming can be achieved using:<br></br><br></br>
+			<green>
+			In C Language generic programming can be achieved using:
+			</green>
+			<br></br><br></br>
 			Variable argument lists;<br></br>
 			Using <code>void *</code> and function pointers to write generic code;<br></br>
 			Using libraries to reuse code without copying and recompiling;<br></br>
@@ -863,14 +862,22 @@ C |= 2 is same as C = C | 2
 			argument list.<br></br><br></br>
 			<green>
 			Here are some standard function calls that use variable
-			argument lists:<br></br><br></br>
+			argument lists:<br></br>
 			</green>
 			<code>int printf(const char *format, ...);</code><br></br>
 			<code>int scanf(const char *format, ...);</code><br></br>
 			<code>int execlp(const char *file, const char *arg, ...);</code><br></br>
 		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
-		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+		<complex-data-types>*General-Programming-Knowledge*
+			<br></br><br></br>
+			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
+			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code>.
+			<br></br>
+			When the header <code>complex.h</code> is 
+			included, the three complex number types are also accessible as double complex, 
+			float complex, long double complex.<br></br><br></br>
+		</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
 		<collections>
 			<code>Arrays</code>: Are collections of elements of the same data type with fixed size. 
