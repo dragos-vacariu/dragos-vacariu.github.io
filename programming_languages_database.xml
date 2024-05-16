@@ -579,15 +579,18 @@ int main()
 			</brown>
 		</modular-programming>
 		<datatype-conversions>
-			Generally there are two types of conversion:<br></br>
+			<green>Generally there are two types of conversion:</green>
+			<br></br><br></br>
+			<blue>
 			- implicit conversion (done automatically by the compiler)<br></br>
 			- explicit conversion (done manually by the developer)<br></br>
-			<br></br><br></br>
-			Implicit conversion is done automatically by the compiler when you assign a value 
+			</blue>
+			<br></br>
+			<red>Implicit conversion</red> is done automatically by the compiler when you assign a value 
 			of one type to another.<br></br><br></br>
-			Explicit conversion is done manually by placing the type in parentheses () in front 
-			of the value. Also knows as typecasting. 
-			<br></br><br></br>
+			<red>Explicit conversion</red> is done manually by placing the type in parentheses <red>()</red> in front 
+			of the value. Also knows as <red>typecasting</red>. 
+			<br></br>
 		</datatype-conversions>
 		<operators>
 			An operator is a symbol that tells the compiler to perform specific mathematical or 
@@ -861,7 +864,7 @@ C |= 2 is same as C = C | 2
 			For more information see the <blue>default-parameters</blue> section.
 		</optional-parameters>
 		<decorators>
-			Decorator is a structural pattern that allows adding new behaviors to objects 
+			<red>Decorator</red> is a structural pattern that allows adding new behaviors to objects 
 			dynamically by placing them inside special wrapper objects, called decorators. 
 			<br></br>
 			Using decorators you can wrap objects countless number of times since both target 
@@ -1453,11 +1456,12 @@ int main()
 		</modular-programming>
 		<string-methods>
 			C has many useful string functions, which can be used to perform certain operations 
-			on strings.<br></br>
+			on strings.<br></br><br></br>
 			To use them, you must include the <code>&lt;string.h&gt;</code> header file in your program.
-			<br></br>
+			<br></br><br></br>
 <code>
 /* GET THE SIZE (IN CHARACTERS) OF STRINGS */
+
 char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 printf("%d", strlen(alphabet));
 
