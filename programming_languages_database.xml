@@ -1437,7 +1437,7 @@ printf("%d", c);
 		<modular-programming>
 			*General-Programming-Knowledge*
 			<br></br>
-			In C this is achieved by placing 
+			In C language this is achieved by placing 
 			the interface definition in a header file and the implementation in a source 
 			file. <br></br>
 			The disciplined use of static keyword is practiced in order to hide implementation details.
