@@ -7364,6 +7364,8 @@ public class Args_main{
 		</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
 		<modular-programming>
+			*General-Programming-Knowledge*
+			<br></br>
 			Java Module System provides an additional layer of encapsulation to our programs as we can specify which package 
 			can be utilized by the modules, and which modules could have entry to to them. 
 			<br></br><br></br>
