@@ -64,8 +64,8 @@
 			<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
 			format specifier <code>%llu</code>  - occupies <code>8 bytes</code> memory;
 			<br></br><br></br>
-			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies <code>1 
-			byte</code> memory;
+			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 
+			<code>1 byte</code> memory;
 			<br></br><br></br>
 			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies <code>1 
 			byte</code> memory;
