@@ -85,17 +85,17 @@
 			<code>Enumerated type / Enums</code> - An enum is a special type that represents a group of constants 
 			(unchangeable values).
 			<br></br><br></br>
-			<code>Arrays</code> - A collection of elements of the same data type. <br></br>
+			<code>Arrays</code> - A collection of elements of the same data type. <br></br><br></br>
 			An array in C can be defined as a method of clubbing multiple entities of similar type into a larger group. <br></br>
 			These entities or elements can be of int, float, char, or double data type or can be of user-defined data types too
 			like structures.<br></br>
-			The size of an array can be calculated by multiplying the <red>data-type * numberOfElements</red> within the array.
+			The size of an array can be calculated by multiplying the <code>data-type * numberOfElements</code> within the array.
 			<br></br><br></br>
 			<code>Pointers</code> - A variable that stores the memory address of another variable. 
 			The size of a pointer in C programming language varies depending on factors such as the operating system and CPU 
-			architecture.<br></br>
-			Typically, on a <blue>32-bit</blue> computer system, the size of pointer is <red>4 bytes</red>,	
-			while on a <blue>64-bit</blue> computer system, it is <red>8 bytes</red>.<br></br><br></br>
+			architecture.<br></br><br></br>
+			Typically, on a <code>32-bit</code> computer system, the size of pointer is <code>4 bytes</code>,	
+			while on a <code>64-bit</code> computer system, it is <code>8 bytes</code>.<br></br><br></br>
 			<code>Structures</code>: A collection of variables of different data types grouped 
 			together under a single name. <br></br>
 			The size of a struct can be calculated by summing up the size of all the element data-types.
@@ -873,13 +873,16 @@ C |= 2 is same as C = C | 2
 		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*
-			<br></br><br></br>
-			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three built-in types 
-			<code>double _Complex</code>, <code>float _Complex</code>, and <code>long double _Complex</code>.
+			<br></br>
+			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three 
+			built-in types:<br></br>
+			<code>double _Complex</code><br></br>
+			<code>float _Complex</code><br></br>
+			<code>long double _Complex</code><br></br>
 			<br></br>
 			When the header <code>complex.h</code> is 
-			included, the three complex number types are also accessible as double complex, 
-			float complex, long double complex.<br></br><br></br>
+			included, the three complex number types are also accessible as <code>double complex</code>, 
+			<code>float complex</code>, <code>long double complex</code>.<br></br><br></br>
 		</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
 		<collections>
