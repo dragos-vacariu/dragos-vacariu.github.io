@@ -166,7 +166,7 @@ while(counter &lt; 5)
 			<br></br><br></br>
 			
 			<blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
-			or loop counter to some value. Example: <code>int i=1;</code>
+			or loop counter to some value. Example: <code>int counter=1;</code>
 			<br></br><br></br>
 			
 			<blue>Test Expression</blue>: In this expression, test conditions are performed.
@@ -175,19 +175,18 @@ while(counter &lt; 5)
 			then an update of the loop variable is done. 
 			<br></br>
 			If the test expression becomes 
-			false then the control will exit from the loop. for example, <code>counter&lt;5;</code>
+			false then the control will exit from the loop. Example: <code>counter&lt;5;</code>
 			<br></br><br></br>
 			
 			<blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
 			by some value it could be incremented, decremented, multiplied, or divided by 
-			any value.<br></br><br></br>
+			any value. Example: <code>counter++;</code><br></br><br></br>
 
 <code>
 <red>/*For loop syntax: */</red>
 for(int counter = 0; counter &lt; 5; counter++)
 {
 	/*code goes here*/
-	 counter++;
 }
 </code>
 			<br></br>		
