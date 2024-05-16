@@ -682,6 +682,12 @@ function formatComments(xml_Document_Content)
 			{
 				lines[i] = lines[i].replace("*/", "*/</red>");
 			}
+			//if Python Comment
+			if( lines[i].includes("#") && lines[i].includes("#define")==false && lines[i].includes("#include")==false )
+			{
+				lines[i] = lines[i].replace("#", "<red>#");
+				lines[i] = lines[i] + "</red>";
+			}
 		}
 		codeElements[index].innerHTML = lines.join("\n");
 	}
