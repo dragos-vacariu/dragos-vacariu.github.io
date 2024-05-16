@@ -399,7 +399,7 @@ int main()
     return 0;
 }
 </code>		
-			<br></br><br></br>
+			<br></br>
 			<green>
 			Object-Like Macros:
 			</green>
@@ -410,7 +410,7 @@ int main()
 			<br></br>
 			It is popularly used to replace a symbolic name with a numerical/variable represented 
 			as a constant.
-			<br></br>
+			<br></br><br></br>
 <code>
 //Chain Macros
   
@@ -456,43 +456,48 @@ int main()
 			We can define constants and <red>functions like macros</red> using <code>#define</code>.
 		</defines>
 		<command-line-arguments>
-			Command line arguments are passed to the main function 
-			as <code>argc</code> and <code>argv</code>. <br></br>
-			Command line arguments are used to control the program from 
-			the outside. <code>argv[argc]</code> is a Null pointer. <br></br>
+			Command line <red>arguments</red> are passed to the main function 
+			as <code>argc</code> and <code>argv</code>. 
+			<br></br>
+			Command line <red>arguments</red> are used to control the program from 
+			the outside. <code>argv[argc]</code> is a <red>NULL</red> pointer. 
+			<br></br>
 			The name of the program is 
-			stored in <code>argv[0]</code>, the first command-line parameter in <code>argv[1]</code>, 
+			stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
 			and the	last argument in <code>argv[n]</code>.
 			<br></br><br></br>
 			<code>argc (ARGument Count)</code> is an integer variable that stores the number of 
 			command-line 
-			arguments passed by the user including the name of the program. 
+			<red>arguments</red> passed by the user including the name of the program. 
 			<br></br>
 			So if we pass a 
-			value to a program, the value of argc would be 2 (one for argument and one for 
-			program name). <br></br>
-			The value of argc should be non-negative.<br></br><br></br>
-			<code>argv (ARGument Vector)</code> is an array of character pointers listing all the arguments.
+			value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for argument and one for 
+			program name). 
+			<br></br><br></br>
+			<blue>The value of argc should be non-negative.</blue>
+			
+			<br></br><br></br>
+			<code>argv (ARGument Vector)</code> is an array of character pointers listing all the <red>arguments</red>.
 			<br></br>
 			If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
 			to <code>argv[argc-1]</code> will 
 			contain pointers to strings.<br></br>
 			<code>argv[0]</code> is the name of the program. 
-			<br></br>
+			<br></br><br></br>
 			After that until <code>argv[argc-1]</code> every element 
 			is command -line arguments.<br></br><br></br>
 			
-			<red>Properties of Command Line Arguments in C:<br></br><br></br></red>
-			<green>
-			They are passed to the main() function.<br></br>
+			<green>Properties of Command Line Arguments in C:<br></br><br></br></green>
+			<blue>
+			They are passed to the <code>main()</code> function.<br></br>
 			They are parameters/arguments supplied to the program when it is invoked.<br></br>
 			They are used to control programs from outside instead of hard coding those values 
 			inside the code.<br></br><br></br>
-			argv[argc] is a NULL pointer.<br></br>
-			argv[0] holds the name of the program.<br></br>
-			argv[1] points to the first command line argument and argv[argc-1] points to 
+			<code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
+			<code>argv[0]</code> holds the name of the program.<br></br>
+			<code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
 			the last argument.<br></br>
-			</green>
+			</blue>
 		</command-line-arguments>
 		<ternary-operator>
 			Ternary operator is used for decision making instead of placing longer if and else 
@@ -1315,13 +1320,16 @@ Both of them are close to forming a class.
 		<defines>*General-Programming-Knowledge*</defines>
 		<random-generators>
 			The <code>rand()</code> function returns the random integers whose range from <code>0</code> to 
-			<code>RAND_MAX</code>. <br></br>
+			<code>RAND_MAX</code>. <br></br><br></br>
 			The <code>RAND_MAX</code> is a symbolic constant that defines in <code>stdlib.h</code> header file, whose value 
-			is greater but less than 32767 depending on the C libraries.<br></br><br></br>
+			is greater but less than <blue>32767</blue> depending on the C libraries.<br></br><br></br>
 <code>
+//Example of using rand() to generate random numbers
+
 #include &lt;stdio.h&gt;    
 #include &lt;conio.h&gt;  
 #include &lt;stdlib.h&gt;  
+
 void main()  
 {     
     // use rand() function to generate the number  
@@ -1333,16 +1341,20 @@ void main()
     getch();  
 }  		
 </code>
+			<br></br>
 			The <code>srand()</code> function is a C library function that determines the initial 
 			point to generate 
-			different series of pseudo-random numbers. <br></br>
-			
+			different series of <red>pseudo-random numbers</red>. 
+			<br></br><br></br>
 			A <code>srand()</code> function cannot be used without 
-			using a rand() function. <br></br>
-			The <code>srand()</code> function is required to set the value of the seed 
+			using a <code>rand()</code> function. 
+			<br></br><br></br>
+			The <code>srand()</code> function is required to set the value of the <red>seed</red> 
 			only once in a program to generate the different results of random integers before 
 			calling the <code>rand()</code> function. <br></br><br></br>
 <code>
+//Example of using srand() to generate pseudo-random numbers
+
 #include &lt;stdio.h&gt;  
 #include &lt;stdlib.h&gt;  
 #include &lt;time.h&gt;  // use time.h header file to use time  
