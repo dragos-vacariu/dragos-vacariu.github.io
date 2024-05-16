@@ -262,8 +262,8 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 </code>
 		</dynamic-memory-allocation>
 		<serialization>
-			Serialization is the process of converting a data object — a combination of code and data 
-			represented within a region of data storage — into a series of bytes that saves the state 
+			Serialization is the process of converting a data object (a combination of code and data 
+			represented within a region of data storage) into a series of bytes that saves the state 
 			of the object in an easily transmittable form.<br></br><br></br>
 		</serialization>
 		<deserialization>
@@ -281,19 +281,24 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			<br></br><br></br>
 		</enums>
 		<multi-threading>
-			A thread is a single sequence stream within a process. Because threads have some of 
+			A <red>thread</red> is a single sequence stream within a process. Because threads have some of 
 			the properties of processes, they are sometimes called lightweight processes. 
 			<br></br><br></br>
 			Threads are not independent from each other unlike processes. As a result, 
 			threads shares with other threads their code section, data section and OS resources 
 			like open files and signals. 
 			<br></br>
-			But, like processes, a thread has its own program 
+			But, like processes, a <red>thread</red> has its own program 
 			counter (PC), a register set, and a stack space. 
 			<br></br><br></br>
-			Why Multithreading? Threads are popular way to improve application through parallelism. 
+			<green>
+			Why Multithreading? 
+			</green>
+			<br></br><br></br>
+			Threads are popular way to improve application through parallelism. 
 			<br></br>
-			For example, in a browser, multiple tabs can be different threads. MS word uses 
+			For example, in a browser, multiple tabs can be different threads. <br></br>
+			MS Word uses 
 			multiple threads, one thread to format the text, other thread to process inputs, etc. 
 			<br></br><br></br>
 			Threads operate faster than processes due to following reasons: <br></br><br></br>
