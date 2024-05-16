@@ -319,7 +319,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
 			bit of two numbers. The result of <red>XOR</red> is 1 if the two bits are different. 
 			<br></br><br></br>
-			The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, the <red>left-shifts</red> the bits of the 
+			The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, <red>left-shifts</red> the bits of the 
 			first operand, and the second operand decides the number of places to shift. 
 			<br></br><br></br>
 			The <code>&gt;&gt;</code> (<red>right-shift</red>) takes two numbers, <red>right-shifts</red> the bits of the 
@@ -367,15 +367,17 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			</red>
 		</bitwise-operators>
 		<macros>
-			Macros are powerful tools that allow developers to define reusable code snippets. 
-			<br></br>
+			<red>Macros</red> are powerful tools that allow developers to define reusable code snippets. 
+			<br></br><br></br>
 			They are defined using preprocessor directives and primarily used for code substitution 
 			and generation. 
-			<br></br>
-			Macros provide a convenient way to write concise and efficient code, 
-			improving the readability and maintainability of programs.<br></br>
+			<br></br><br></br>
+			<red>Macros</red> provide a convenient way to write concise and efficient code, 
+			improving the readability and maintainability of programs.
+			<br></br><br></br>
 <code>
 // Program to illustrate macros
+
 #include &lt;stdio.h&gt;
  
 // Macro definition
@@ -398,10 +400,13 @@ int main()
 }
 </code>		
 			<br></br><br></br>
-			Object-Like Macros:<br></br><br></br>
-			An object-like macro is a simple identifier that will be replaced by a code fragment. 
+			<green>
+			Object-Like Macros:
+			</green>
+			<br></br><br></br>
+			An <red>object-like macro</red> is a simple identifier that will be replaced by a code fragment. 
 			<br></br>
-			It is called object-like because it looks like an object in code that uses it. 
+			It is called <red>object-like</red> because it looks like an object in code that uses it. 
 			<br></br>
 			It is popularly used to replace a symbolic name with a numerical/variable represented 
 			as a constant.
@@ -445,10 +450,10 @@ int main()
 </code>
 		</macros>
 		<defines>
-			In programming, <code>#define</code> is a preprocessor directive that is used to define macros. 
+			In programming, <code>#define</code> is a preprocessor directive that is used to define <red>macros</red>. 
 			The macros are the identifiers defined by #define which are replaced by their value before 
 			compilation. <br></br><br></br>
-			We can define constants and functions like macros using <code>#define</code>.
+			We can define constants and <red>functions like macros</red> using <code>#define</code>.
 		</defines>
 		<command-line-arguments>
 			Command line arguments are passed to the main function 
@@ -1283,10 +1288,12 @@ int main()
 		<interfaces>
 			*General-Programming-Knowledge*
 			<br></br>
-			In C: an interface can be implemented as a set of function declarations without 
-			any implementation details. <br></br>
+			In C - an <red>interface</red> can be implemented as a set of function declarations without 
+			any implementation details. <br></br><br></br>
+			<brown>
 			It defines a contract that concrete implementations must adhere to by providing 
-			definitions for all the functions declared in the interface.
+			definitions for all the functions declared in the <red>interface</red>.
+			</brown>
 <code>
 // Declare an interface for a shape
 struct shape_interface {
