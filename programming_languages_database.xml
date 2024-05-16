@@ -1004,7 +1004,7 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 			<br></br><br></br>
 			Where:<br></br><br></br>
 			<code>filename</code><br></br>	
-			The name of the actual file you want to open (or create), like filename.txt
+			The name of the actual file you want to open (or create), like <red>filename.txt</red>.
 			<br></br><br></br>
 			<code>mode</code><br></br>	
 			A single character, which represents what you want to do with the file 
@@ -1042,16 +1042,13 @@ do {
 
 <code>
 /*
-
-<red>Alternatively feof function can be used:</red>
+Alternatively feof function can be used:
 feof() function takes file pointer as argument and returns true if pointer reaches the end of the file. 
-
+*/
 while (!feof(ptr)) {
 	ch = fgetc(ptr);
 	printf("%c", ch);
 }
-
-*/
 </code>
 
 <code>
