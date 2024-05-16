@@ -7328,18 +7328,726 @@ public class Project3 {
 			"batteries included" language due to its comprehensive standard library.
 		
 		</description>
-		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>*General-Programming-Knowledge*</encapsulation>
+		<oop>*General-Programming-Knowledge*
+<code>
+#Object Oriented Programming in Python (OOP)
+
+#Documentation:
+
+#Class: A user-defined prototype for an object that defines a set of attributes that characterize any object of the class.
+#The attributes are data members (class variables and instance variables) and methods, accessed via dot notation.
+
+#Class variable: A variable that is shared by all instances of a class. Class variables are defined within a class but
+#outside any of the class's methods. Class variables are not used as frequently as instance variables are.
+
+#Data member: A class variable or instance variable that holds data associated with a class and its objects.
+
+#Function overloading: The assignment of more than one behavior to a particular function. The operation performed varies
+#by the types of objects or arguments involved.
+
+#Instance variable: A variable that is defined inside a method and belongs only to the current instance of a class.
+
+#Inheritance: The transfer of the characteristics of a class to other classes that are derived from it.
+
+#Instance: An individual object of a certain class. An object obj that belongs to a class Circle, for example, is an
+#instance of the class Circle.
+
+#Instantiation: The creation of an instance of a class.
+
+#Method : A special kind of function that is defined in a class definition.
+
+#Object: A unique instance of a data structure that's defined by its class. An object comprises both data members (class variables and instance variables) and methods.
+
+#Operator overloading: The assignment of more than one function to a particular operator.
+
+#Creating a class:
+class Employee:
+   'Common base class for all employees' #This works like documentation of the class.
+
+   #This member is a class variable whose value is shared among all instances of a this class.
+   empCount = 0 #this is like a static variable. The class will create only a variable for all the instances.
+
+    #Creating a constructor for the class:
+   def __init__(self, name, salary):    #the name of the constructor is always the same: "__init__"
+
+    #Here is the place where the members of the class gets created and initialized.
+      self.name = name
+      self.salary = salary
+      Employee.empCount += 1
+   
+   def displayCount(self): #The first parameter of any function in the class is always "self"
+    #That means that the function will display information about that instance that calls it.
+     print ("Total Employee {0}" .format(Employee.empCount))
+
+   def displayEmployee(self):#The first parameter of any function in the class is always "self"
+    #That means that the function will display information about that instance that calls it.
+      print ("Name : {0}, Salary: {1}" .format(self.name,self.salary))
+
+    #Implementing a destructor for the class.
+   def __del__(self):
+      #This code will be executed when calling 'del instance'
+          class_name = self.__class__.__name__
+          print ("Employee destroyed")
+
+
+#Creating the instances:
+"This would create first object of Employee class"
+emp1 = Employee("Zara", 2000)
+"This would create second object of Employee class"
+emp2 = Employee("Manni", 5000)
+
+#Calling the functions;
+emp1.displayEmployee()
+emp2.displayEmployee()
+emp1.displayCount()
+Employee.displayCount(emp2) #This can work like this as well. But it needs to be specified an instance
+Employee.displayEmployee(emp1)  #This can work like this as well. But it needs to be specified an instance
+
+#Instead of using the normal statements to access attributes, you can use the following functions:
+#So there is no need for GETTERS and SETTERS:
+hasattr(emp1, 'name')    # Returns true if 'name' attribute exists
+getattr(emp1, 'name')    # Returns value of 'name' attribute
+setattr(emp1, 'name', "Mark") # Set attribute 'name' at 8
+# delattr(empl, 'name')    # Delete attribute 'name'
+
+emp1.displayEmployee()
+
+
+#Built-In Class Attributes:
+#They can be accessed using dot operator like any other attribute,
+
+#__dict__: Dictionary containing the class's namespace.
+#__doc__: Class documentation string or none, if undefined.
+#__name__: Class name.
+#__module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
+#__bases__: A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.
+
+#Accesing those attributes:
+print ("Employee.__doc__: {0}" .format(Employee.__doc__))
+print ("Employee.__name__: {0}" .format( Employee.__name__))
+print ("Employee.__module__: {0}" .format( Employee.__module__))
+print ("Employee.__bases__: {0}" .format( Employee.__bases__))
+print ("Employee.__dict__: {0}" .format( Employee.__dict__))
+
+
+#Python deletes unneeded objects (built-in types or class instances) automatically to free the memory space.
+#Python's garbage collector runs during program execution and is triggered when an object's reference count
+#reaches zero. An object's reference count changes as the number of aliases that point to it changes.
+#You normally will not notice when the garbage collector destroys an orphaned instance and reclaims its space.
+
+#A class can implement the special method __del__(), called a destructor, that is invoked when the instance is about to
+#be destroyed.
+
+#Example:
+del emp1 # this will delete the instance callded emp1.
+emp2.displayEmployee()
+#emp1.displayEmployee() -> not defined anymore
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>		
+		</oop>
+		<encapsulation>*General-Programming-Knowledge*
+<code>
+class Person: # for inheritance class Person(parent_class):
+    #Static fields are declared here
+    name = "name"
+    __age = 0 #this is a public field
+    width = 0 #this is a private
+    #static field can become non-static field for a particular instance at a particular time when specified
+    def __init__(self):
+        #This is the constructor: Only one constructor function is allowed
+        #Function overriding is forbidden
+        self.width = 104
+        #Non-Static field get declared in the constructor
+    def setName(self, Name): # this is a setter
+        self.name = Name
+    #Encapsulation
+    def setAge(self, Age):
+        self.__age = Age
+    def getAge(self):
+        return self.__age
+
+class Employee(Person):
+    def __init__(self):
+        super().__init__()
+        self.name = "Employee"
+#Creating a class
+person = Person ()
+#seting the field of the class
+person.setName("Alin Popescu")
+#Accesing the public field of the class
+print (person.name)
+
+#setting the value of private field
+person.setAge(22)
+#getting the value of a private field
+print(person.getAge())
+
+#accessing field modified by the constructor
+print(person.width)
+
+emp = Employee()
+print(emp.name)
+
+input("\nPress ENTER to exit.")
+</code>		
+		</encapsulation>
 		<polymorphism>*General-Programming-Knowledge*</polymorphism>
-		<inheritance>*General-Programming-Knowledge*</inheritance>
+		<inheritance>*General-Programming-Knowledge*
+<code>
+#Instead of starting from scratch, you can create a class by deriving it from a preexisting class by listing the parent class in
+#parentheses after the new class name.
+
+#The child class inherits the attributes of its parent class, and you can use those attributes as if they were defined in the
+#child class. A child class can also override data members and methods from the parent.
+
+class Parent:        # define parent class
+
+    #Members declared here will be shared through all the instances
+    
+    #Creating a public member
+   parentAttr = 100 #This is a public member which could be accessed from anywhere.
+
+   #Creating hidden (private) member:
+   __secretCount = 0 #this member is only visible for this class. So child classes won't be able to access or inherit it.
+   #To create hidden members (private members), you just need to put __ as prefix.
+   #Private members are only visible inside the class, and can be accessed only by class instances. IT DOES NOT INHERIT.
+
+
+   #Defining a constructor:
+   def __init__(self):
+
+       #Members declared here will be individually created for each instance:
+      print ("Calling parent constructor")
+         #Creating protected member(variable):
+      self._protectedVar = 2 # protected variables can be accessed by parent class and child class, they are not public.
+        #Creating hidden (private) member:
+      self.__privateVar = 1
+
+   def parentMethod(self):
+      print ("Calling parent method")
+      
+    #Defining a setter:
+   def setAttr(self, attr):
+      Parent.parentAttr = attr
+      
+    #Defining a getter:
+   def getAttr(self):
+      print ("Parent attribute : {0}" .format(Parent.parentAttr))
+
+   def myMethod(self):
+      print ("Calling parent method")
+   def printPrivate(self):
+       print("Private Variable: {0}" .format(self.__privateVar))
+
+class Child(Parent): # define child class
+    #Defining a contructor:
+   def __init__(self):
+      print ("Calling child constructor")
+      Parent.__init__(self)
+   def childMethod(self):
+      print ("Calling child method")
+
+    #This is an overrided function:
+   def myMethod(self):
+      print ("Calling the overrided method.")
+
+c = Child()          # creating an instance of Child class
+c.childMethod()      # child calls its method
+c.parentMethod()     # calls parent's method
+c.setAttr(200)       # again call parent's method
+c.getAttr()          # again call parent's method
+
+#Functions:
+#The issubclass(sub, sup) boolean function returns true if the given subclass sub is indeed a subclass of the superclass sup.
+
+#The isinstance(obj, Class) boolean function returns true if obj is an instance of class Class or is an instance of a
+#subclass of Class
+
+#You can always override your parent class methods. One reason for overriding parent's methods is because you may want
+#special or different functionality in your subclass.
+c.myMethod()
+
+#Trying to print a private member:
+#print("Private value: {0}" .format(c.__secretCount)) -> compilation error, child has no member named like that.
+#print("Private value: {0}" .format(Parent.__secretCount)) -> compilation error, parent has no member like that.
+
+print("The public member: {0}" .format(Parent.parentAttr))
+#print("The protected member: {0}" .format(Parent._protectedVar)) -> compilation error, parent class has no member name like that.
+print("The protected member: {0}" .format(c._protectedVar))
+p1 = Parent()
+#Accesing the private variable can only be made with public accessors (Getters and Setters)
+p1.printPrivate()
+#print("The private member: {0}" .format(p1.__privateVar)) -> this won't work.
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+		</inheritance>
 		<abstraction>*General-Programming-Knowledge*</abstraction>
-		<generic-programming>*General-Programming-Knowledge*</generic-programming>
-		<variable-arguments-lists>*General-Programming-Knowledge*</variable-arguments-lists>
+		<generic-programming>*General-Programming-Knowledge*
+<code>
+from typing import TypeVar, List
+
+T = TypeVar('T')
+
+def element(items: List[T]) -> T:
+    return items[0]
+
+# Usage
+print(element([1, 2, 3])) 
+print(element(['a', 'b', 'c']))  
+
+# OUTPUT:
+# 1
+# a
+</code>		
+		</generic-programming>
+		<variable-arguments-lists>*General-Programming-Knowledge*
+<code>
+def myFun(*argv):
+    for arg in argv:
+        print(arg)
+
+myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
+</code>		
+		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
-		<loops>No information present in the database.</loops>
-		<collections>*General-Programming-Knowledge*</collections>
-		<collection-methods>No information present in the database.</collection-methods>
+		<loops>
+<code>
+#This synthax of FOR loop works like FOREACH
+
+for letter in 'Python':     # letter is the variable in which will be stored
+#each element of the collection (String).
+   print ("Current Letter : {0}" .format(letter)) #This will print the current letter
+
+print("\n")
+fruits = ['banana', 'apple',  'mango']
+for fruit in fruits:
+   print ("Current fruit : {0}" .format(fruit))
+
+
+#This works as a normal FOR loop:
+for num in range(10,20):  #to iterate between 10 to 20
+    for i in range(2,num): #to iterate on the factors of the number
+        if num%i == 0:      #this "if statement" is in the inner loop.
+            j=num/i          #to calculate the second factor
+            print ("{0} equals {1} * {2}"  .format(num,i,j))
+            break #to move to the next number, the #first FOR
+    else:                  # this "else statement" is in the outer loop
+        print ("{0} is prime number" .format(num)) 
+
+#While Loops
+print("The following is WHILE loop:\n")
+count = 0
+while (count &lt; 9):
+   print ("The count is: {0}" .format(count))
+   count = count + 1        
+
+#Infinite While Loops
+var = 1
+while var == 1 :  # This constructs an infinite loop
+   num = input("Enter a number  :")
+   print ("You entered: {0}" .format(num))
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+
+<code>
+cars = ["Mitsubishi", "Subaru", "Peugeot", "Renault", "Lamborghini", "Ferrari"]
+
+#Printing the reverse list:
+for i in range (5,-1, -1):
+    print("{0}" .format(cars[i]))
+
+#Printing the reverse list 2 by 2:
+print()
+for i in range (5,-1, -2):
+    print("{0}" .format(cars[i]))
+
+#Printing the list 2 by 2:
+print()
+for i in range (0,6, 2):
+    print("{0}" .format(cars[i]))    
+
+#Slicing a loop:
+print()
+for car in cars[:3]:
+    print("{0}" .format(car))
+
+#Same syntax for a while:
+i=0;
+print()
+while (i&lt;10):
+    print(i)
+    i+=2
+
+#Another way of for looping:
+print()
+for i in range (3):
+    print (i)
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+		</loops>
+		<collections>*General-Programming-Knowledge*
+<code>
+#Each key is separated from its value by a colon (:), the items are separated by
+#commas, and the whole thing is enclosed in curly braces. An empty dictionary
+#without any items is written with just two curly braces, like this: {}.
+
+#Keys are unique within a dictionary while values may not be. The values of a
+#dictionary can be of any type, but the keys must be of an immutable data type
+#such as strings, numbers, or tuples.
+
+dict = {'Name': 'Zara', 'Age': 7, 'Class': 'First'}
+
+print ("dict['Name']: {0}" .format(dict['Name']))
+print ("dict['Age']: {0}" .format(dict['Age']))
+
+#An item can be accessed only with a valid key, trying otherwise will result
+#in an error.
+
+#UPDATING DICTIONARY:
+print("\nAfter the update:")
+dict['Age'] = 8; # update existing entry
+dict['Name'] = "DPS School"; # Add new entry
+print ("dict['Name']: {0}" .format(dict['Name']))
+print ("dict['Age']: {0}" .format(dict['Age']))
+
+#LOOPING THROUGH DICTIONARY:
+for name,key in dict.items(): #treat 'name' as the Name(from dictionary)
+                        #and key as the Key(value from the dictionary)
+    print("Key: ", key, "\t Name:", name)
+
+#DELETING DICTIONARY ITEMS:
+del dict['Name']; # remove entry with key 'Name'
+#After the deletion the item with key 'Name', accessing it will result and error.
+dict.clear();     # remove all entries in dict, the dictionary will be empty.
+del dict ;        # delete entire dictionary, it won't exist anymore.
+
+
+
+
+#Dictionary values have no restrictions. They can be any arbitrary Python object,
+#either standard objects or user-defined objects. However, same is not true for
+#the keys
+
+#IMPORTANT: More than one entry per key not allowed. Which means no duplicate
+#key is allowed. When duplicate keys encountered during assignment, the last
+#assignment wins.
+
+#Keys must be immutable. Which means you can use strings, numbers or tuples
+#as dictionary keys but something like ['key'] is not allowed.
+
+#Example: dict = {['Name']: 'Zara'}
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+</code>
+
+<code>
+#Accessing elements of dictionary using index in while loop:
+i=0
+dict = {"name1": "John", "name2": "Allan", "name3": "Mark"}
+#Iterating through dictionary using while loop (FOR VALUES):
+while(i&lt;len(dict)):
+    print("While-loop Key: ", list(dict.keys())[i], \
+                  " While-loop Value: ", list(dict.values())[i])
+    i+=1
+print()
+#Iterating through dictionary using while loop (FOR VALUES):
+i=0
+while(i&lt;len(dict)):
+    print("While-loop Value: ", list(dict.values())[i])
+    i+=1
+print()
+#Iterating through dictionary using while loop (FOR VALUES):
+i=0
+while(i&lt;len(dict)):
+    print("While-loop Key: ", list(dict.keys())[i])
+    i+=1
+print()
+#Iterating through dictionary using for loop (BOTH FOR KEYS AND VALUES):
+for n,k in dict.items():
+    print("For-Loop key = ", n, " For-Loop Value = ", k)
+print()
+#Iterating through dictionary using for loop (ONLY FOR KEYS):
+for k in dict:
+    print("For-Loop key = ", k)
+print()
+#Iterating through dictionary using for loop (ONLY FOR VALUES):
+for k in dict.values():
+    print("For-Loop Value = ", k)
+
+#Keep the console opened until the next button pressed:
+input("Enter anything to quit.")
+</code>
+
+<code>
+#Sets are like lists just that they cannot contain duplicate elements.
+
+'''This is a multi-line comment'''
+SetO = {"Fruits", "Vegetables", "Meal", "Drinks"}
+print("This is the list: ", SetO)
+
+#Printing item by item:
+print("\nThese are the items in the list: ")
+for item in SetO:
+    print(item)
+
+#Sets can use the same functions as lists and dictionaries:
+
+print("The size of Set is: " + str(len(SetO)))
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+'''This
+is a
+multi
+line
+comment
+'''
+</code>
+
+<code>
+#A tuple is a sequence of immutable Python objects. Tuples are sequences, just
+#like lists. The differences between tuples and lists are, the tuples cannot
+#be changed unlike lists and tuples use parentheses, whereas lists use square
+#brackets.
+
+tup1 = ('physics', 'chemistry', 1997, 2000);
+tup2 = (1, 2, 3, 4, 5 );
+tup3 = "a", "b", "c", "d";
+
+#An empty tuple is declared like this:
+tup1 = (); #Tuples can be reinitialized with other values.
+
+#To write a tuple containing a single value you have to include a comma, even
+#though there is only one value −
+tup1 = (50,); 
+print("The tuple contain {0} elements: {1} " .format(len(tup1), tup1[0]))
+
+#Like string indices, tuple indices start at 0, and they can be sliced, concatenated,
+#and so on.
+
+#Tuples are immutable which means you cannot update or change the values of tuple
+#elements. You are able to take portions of existing tuples to create new tuples
+#as the following example demonstrates −
+
+tup1 = (12, 34.56); #Tuples can be reinitialized with other values.
+tup2 = ('abc', 'xyz');
+
+# Following action is not valid for tuples
+# tup1[0] = 100;
+
+# So let's create a new tuple as follows
+tup3 = tup1 + tup2;
+print (tup3)
+
+#Tuples can be DELETED as follows:
+del tup3
+#print(tup3) -> this will result an error, tup3 won't exist anymore after its deletion
+
+tup3 = tup1 + tup2;
+#Tuples can use the same operation just as lists:
+print ("\nExample: tup3[2] = {0}, tup3[-2] = {1}" .format(tup3[2], tup3[-2]))
+
+print("Slicing tuples: {0}" .format(tup3[:2]))
+print("Slicing tuples: {0}" .format(tup3[2:]))
+
+#Any set of multiple objects, comma-separated, written without identifying symbols
+#are by default set to tuples.
+#Examples:
+x, y = 1, 2;
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+</code>
+
+<code>
+#Unpacking a list of items:
+
+item, name, price = ["Car", "Mustang Gt", "14000"]
+#This is an unpacked list, where each element is actually a variable.
+
+print("item: ", item, " name: ", name, " price: ", price);
+
+#The lists that have many more elements:
+print("\nThis is the second method: ")
+start, *middle, end = ["element1", "element2", "element3", "element4"]
+print(start) # this will print the first element
+print(*middle) # this will print all the middle elements
+print(end) # this will print the last element
+</code>
+
+<code>
+Dict = { "GOOGLE": 53.22, "FACEBOOK": 77.22, "TUMBLR": 33.2}
+
+#Splitting dictionary to lists:
+#Dict.values() => this will return a list with all the values in dictionary
+#Dict.keys() => this will return a list with all the keys in the dictionary
+
+#Zipping a dictionary:
+name = zip(Dict.values(), Dict.keys())
+
+#The zipped dictionary will look like this:
+#(33.2, 'TUMBLR'), (53.22, 'GOOGLE'), (77.22, 'FACEBOOK')
+#The same would be in case of lists, 1->1, 2->2
+#first element combined with first, second to second... etc
+
+print("The original dictionary is: ", Dict)
+#Sorting a zipped dictionary:
+print("The sorted(by value) zipped dictionary is: ", sorted(name))
+
+name = name = zip(Dict.keys(), Dict.values())
+print("The sorted (by keys) zipped dictionary is: ", sorted(name))
+</code>
+
+<code>
+#Zipping (combining) list together.
+
+Lst1 = ["Dragos", "Alan", "Robin"]
+Lst2 = ["Blake", "Walker", "Williams"]
+
+names = zip(Lst1,Lst2)
+
+#names will be a new list, a 2D list I might say, containing all the elements in
+#Lst1 and Lst2 combined.
+
+#Iterating names:
+for a,b in names:
+    print("Name = ", a, b)
+
+</code>
+		</collections>
+		<collection-methods>
+<code>
+#Exercise the function below will take a list as an argument, and it will return
+#back a list whom's items will be only the int's from the passed argument.
+#IF none then it will return an empty list.
+
+def filter_list(l):
+    filtered = []
+    for letter in l:
+        if isinstance(letter, int):
+            filtered.append(letter)
+    return filtered
+
+List=[103,44,55,'ABC', "c", 2]
+print("The original list is: " + str(List))
+print("The filtered list is: " + str(filter_list(List)))
+
+#Keep the console opened until the next button pressed.
+input("Press any key to quit. ")
+</code>
+
+<code>
+#Exercise: given a list of names, return another list cotaining only the 4-letters
+#elements from that list.
+def friend(x):
+    #Code
+    count_letters=0
+    Lst=[]
+    for word in x:
+        for letter in word:
+            count_letters+=1
+        if count_letters==4:
+            Lst.append(word)
+        count_letters=0
+    return Lst
+
+Lst=["Ryan", "Adam", "Carl", "John", "Marcus", "Derek", "Hilton"];
+print("The original list is: ", Lst)
+print("The returned list is: ", friend(Lst))
+
+#Keep the console opened until the next button pressed:
+input("Enter anything to quit.")
+</code>
+
+<code>
+#Accesing an element of a string
+StringVar = "This is a string!"
+
+print("The string is: {0}" .format(StringVar))
+print("The 8th element of the string is: {0}" .format(StringVar[8]))
+
+#Accesing the last element of the string can be done using StringVar[-1]
+
+print("The last element of the string is {0}" .format(StringVar[-1]))
+print("The 8th character is also the -9th character in this case: {0}" . format(StringVar[-9]))
+
+#Slicing strings
+
+#StringVar[2:12] -> will access only from the 2nd index until the 8th index of the string.
+
+
+#StringVar[:12] -> will access all the elements from the 0th until 12th
+#StringVar[3:] -> will access all the elements form the 3th until the last
+#StringVar[:] -> will access all the elements of the string
+
+print("This is the string sliced [3:]: {0}" .format(StringVar[3:]))
+
+#Get the length of a string
+print("The length of StringVar is: {0}" .format(len(StringVar)))
+
+#Changing multiple items of the string:
+StringVar = StringVar[:4] #keep only the first 4 elements of the string.
+StringVar += "ABC" #add these elements at the end of it
+
+print("The new string is: {0}\n" .format(StringVar))
+
+#LISTS
+
+CharList = ['M','e','s','s','a','g','e']
+#A list is like a vector(dynamic in length) and it can be accessed in the same way, by index.
+#In Python a list can be created using any type of data.
+#Dynamic length of a list, allows appending new elements at the end of the list,
+#so that the size would change automatically.
+
+print('The list is: {0}' .format(CharList))
+
+#Accessing an element of the list:
+print('This is the 4th element {0}' .format(CharList[4]))
+
+#Changing an element of the list:
+CharList[4] = 'O'
+print("The new 4th element is: {0}" .format(CharList[4]))
+
+#Appending elements at the end of the list.
+CharList+= ['1', '2'] # this is used for temporarily change.
+print("The list now, looks like this: {0}" .format(CharList))
+CharList.append('3') # this is used for permanent change. 
+print("The list now, looks like this: {0}" .format(CharList))
+
+#Slicing lists:
+print("The sliced list is: {0}" .format(CharList[:5])) #slicing a list can be done
+#just like in case of strings.
+
+#Changing multiple items of the list:
+CharList[2:] = ['2', '3'] #this synthax can only be used on lists, to add multiple
+#elements after a given index (will automatically erase the rest of the elements
+#after that index)
+print(CharList)
+
+#Emptying the list:
+CharList[:] = []
+print(CharList)
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+		</collection-methods>
 		<dynamic-memory-allocation>
 			Memory is allocated to the objects at the run time. <br></br>
 			We use the Heap for implement dynamic memory management. <br></br>
@@ -7347,32 +8055,925 @@ public class Project3 {
 			As we know, everything in Python is an object means dynamic memory 
 			allocation inspires the Python memory management.<br></br>
 		</dynamic-memory-allocation>
-		<read-from-file>No information present in the database.</read-from-file>
-		<write-to-file>No information present in the database.</write-to-file>
-		<serialization>*General-Programming-Knowledge*</serialization>
-		<deserialization>*General-Programming-Knowledge*</deserialization>
-		<constructors>*General-Programming-Knowledge*</constructors>
+		<read-from-file>
+<code>
+#Input and Output to files.
+
+#If the file doesn't exists, then it will be created.
+MyFile = open("dragos.txt", "w")
+
+#"w" - Opens a file for writing only. Overwrites the file if the file exists.
+#If the file does not exist, creates a new file for writing.
+
+#"r" - Opens a file for reading only. The file pointer is placed at the beginning
+#of the file. This is the default mode.
+
+#"rb" - Opens a file for reading only in binary format. The file pointer is placed
+#at the beginning of the file. This is the default mode.
+
+#"rb+" - Opens a file for both reading and writing in binary format. The file
+#pointer placed at the beginning of the file.
+
+#"wb" - Opens a file for writing only in binary format. Overwrites the file if the
+#file exists. If the file does not exist, creates a new file for writing.
+
+#"w+" - Opens a file for both writing and reading. Overwrites the existing file if
+#the file exists. If the file does not exist, creates a new file for reading
+#and writing.
+
+#"wb+" - Opens a file for both writing and reading in binary format. Overwrites
+#the existing file if the file exists. If the file does not exist, creates a
+#new file for reading and writing.
+
+#"a" - 	Opens a file for appending. The file pointer is at the end of the file
+#if the file exists. That is, the file is in the append mode. If the file does
+#not exist, it creates a new file for writing.
+
+#"ab" - Opens a file for appending in binary format. The file pointer is at the
+#end of the file if the file exists. That is, the file is in the append mode.
+#If the file does not exist, it creates a new file for writing.
+
+#"a+" - Opens a file for both appending and reading. The file pointer is at the
+#end of the file if the file exists. The file opens in the append mode. If the
+#file does not exist, it creates a new file for reading and writing.
+
+#"ab+" - Opens a file for both appending and reading in binary format. The file
+#pointer is at the end of the file if the file exists. The file opens in the
+#append mode. If the file does not exist, it creates a new file for reading
+#and writing.
+
+#The write() method writes any string to an open file. It is important to note that
+#Python strings can have binary data and not just text.
+#IMPORTANT - The write() method does not add a newline character ('\n')
+MyFile.write("This program is written in Python language. By Program: 'files for inputting and outputting'")
+#The string above will be written after the files gets closed (in the next line)
+MyFile.close();
+#The close() method of a file object flushes any unwritten information and closes
+#the file object, after which no more writing can be done. Python automatically
+#closes a file when the reference object of a file is reassigned to another file.
+#It is a good practice to use the close() method to close a file.
+
+MyFile = open("dragos.txt", "r")
+Msg = MyFile.read(11) #Only the first 11 character will be extracted from the file.
+print(Msg)
+#IMPORTANT - when reading character from a file the cursor will move across the
+#content of a file, so if it reaches the end, it will need to be reset using
+#seek() function.
+
+#The read() method reads a string from an open file. It is important to note that
+#Python strings can have binary data. apart from text data.
+Msg = MyFile.read(11) # This will print the next 11 character in the file
+#since the cursor wasn't restarted.
+print(Msg)
+# Check current position
+position = MyFile.tell();
+print ("Current file position : {0}"  .format(position))
+position = MyFile.seek(0, 0); #this will restart the cursor to the beginning of the file.
+Msg = MyFile.read(11)
+print(Msg)
+
+#This function will rename a file:
+import os #needed for the following function.
+#Syntax: os.rename(current_file_name, new_file_name)
+
+#Getting the current file name:
+print("The current file name is: {0}" .format(MyFile.name))
+#The attribute .name shows the name of the current file loaded.
+MyFile.close() # without closing the file it won't work.
+if os.path.isfile("dragos1.txt"): #checking if a file exists
+    os.remove("dragos1.txt") #removing a file
+os.rename("dragos.txt", "dragos1.txt")#renaming the file
+
+#Renaming the file with the name of an existing file (at the same path) will
+#throw an exception.
+
+MyFile = open("dragos1.txt", "r")
+print("The current file name is: {0}" .format(MyFile.name))
+#Changing the name of the file will work only if the file is closed, and not being
+#processed by another programs.
+
+#Removing a directory:
+os.chdir(r"C:\Users\Black2\Desktop\python") #Changing the current directory
+if os.path.exists(r"C:\Users\Black2\Desktop\python\dragos dir"): #checking for a directory
+    os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir") #removing directory
+
+#Creating a directory:
+os.mkdir("dragos dir")
+
+#The os.getcwd() method displays the current working directory.
+print("The current working directory is: {0}" .format(os.getcwd()))
+
+#Renaming directories:
+if os.path.exists(r"C:\Users\Black2\Desktop\python\dragos dir2"): #checking for a directory
+    os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir2") #removing directory
+
+os.rename(r"C:\Users\Black2\Desktop\python\dragos dir",
+             r"C:\Users\Black2\Desktop\python\dragos dir2")#renaming the file
+
+MyFile.close()
+os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir2")
+#The file Object Attributes
+#file.closed	Returns true if file is closed, false otherwise.
+#file.mode	Returns access mode with which file was opened.
+#file.name	Returns name of the file.
+#file.softspace	Returns false if space explicitly required with print, true otherwise.
+
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+		</read-from-file>
+		<write-to-file>
+<code>
+import os
+
+import sys
+import xml.etree.ElementTree
+
+class Persoana:
+    def __init__(self, nume:str, prenume:str, varsta: int):
+        self.nume = nume
+        self.varsta = varsta
+        self.prenume = prenume
+
+    def __repr__(self):
+        return self.nume+ " " + self.prenume + " " + str(self.varsta)
+
+persoane = [
+                Persoana("Geere", "Richard", 64),
+                Persoana("Walker", "Alan", 24),
+                Persoana("Manson", "Mary", 34),
+                Persoana("Manson", "Deny", 36),
+                Persoana("Menance", "Denise", 54),
+                Persoana("Reyes", "Antonio", 22),
+            ]
+
+def write_xml(lista, filename):
+    root  = xml.etree.ElementTree.Element("Persoane")
+    for pers in lista:
+        node = xml.etree.ElementTree.Element("persoana", varsta = str(pers.varsta))
+        nume = xml.etree.ElementTree.SubElement(node, 'nume')
+        prenume = xml.etree.ElementTree.SubElement(node, 'prenume')
+        nume.text = pers.nume
+        prenume.text = pers.prenume
+        root.append(node)
+    tree = xml.etree.ElementTree.ElementTree(root)
+    try:
+        tree.write(filename, "UTF-8")
+    except EnvironmentError as err:
+        print("{0}: import error: {1}".format(
+            os.path.basename(sys.argv[0]), err))
+        return False
+    return True
+
+write_xml(persoane, "fisier.xml")
+</code>		
+		</write-to-file>
+		<serialization>*General-Programming-Knowledge*
+<code>
+import pickle  
+# Object to serialize  
+data = [1, 2, 3, 4, 5]  
+# Serialize object to a file  
+with open('data.pkl', 'wb') as file:  
+pickle.dump(data, file)  
+# Deserialize object from the file  
+with open('data.pkl', 'rb') as file:  
+loaded_data = pickle.load(file)  
+print(loaded_data)    
+</code>		
+		</serialization>
+		<deserialization>*General-Programming-Knowledge*
+<code>
+# importing the module
+import marshal  
+ 
+data = {'name': 'sunny','age': 34,'address': 'nasik'} 
+ 
+# dumps() return byte object stored in variable 'bytes' 
+bytes = marshal.dumps(data)    
+print('After serialization : ', bytes) 
+ 
+# loads() convert byte object to value
+new_data = marshal.loads(bytes)    
+print('After deserialization : ', new_data)
+</code>		
+		</deserialization>
+		<constructors>*General-Programming-Knowledge*
+<code>
+# Python program to illustrate constructor
+class Employee:
+ 
+    # Initializing (Calling constructor)
+    def __init__(self):
+        print('Employee created.')
+ 
+    # Deleting (Calling destructor)
+    def __del__(self):
+        print('Destructor called, Employee deleted.')
+ 
+obj = Employee()
+del obj
+</code>		
+		</constructors>
 		<instantiation>*General-Programming-Knowledge*</instantiation>
-		<destructors>*General-Programming-Knowledge*</destructors>
+		<destructors>*General-Programming-Knowledge*
+<code>
+def __del__(self):
+  # body of destructor
+</code>		
+		</destructors>
 		<function-overloading>*General-Programming-Knowledge*</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
 		<enums>*General-Programming-Knowledge*</enums>
-		<multi-threading>*General-Programming-Knowledge*</multi-threading>
+		<multi-threading>*General-Programming-Knowledge*
+<code>
+import threading #used for threading
+import time #used for time
+
+def calculateSquare(numberList):
+    for n in numberList:
+        print(str(n) + " * " + str(n) + " = " + str(n*n))
+        time.sleep(0.2) #this will add a 0.2 seconds delay
+
+def calculateCube(numberList):
+    for n in numberList:
+        print(str(n) + " * " + str(n) + " * " + str(n) + " = " + str(n*n*n))
+        time.sleep(0.2) #this will add a 0.2 seconds delay
+
+numberList = [2,4,5,6,12,34]
+#Creating threads:
+thread1 = threading.Thread(target=calculateSquare, args =(numberList,))
+thread2 = threading.Thread(target=calculateCube, args =(numberList,))
+
+t_before = time.time() # this will get the time before starting the threads
+calculateSquare(numberList)
+calculateCube(numberList)
+t_after = time.time()
+print("Example1 (without threading): Time for execution: " + str(t_after-t_before) + " seconds.")
+print()
+
+#THIS THREAD EXAMPLE WORKS AS CALLING THE 2 FUNCTIONS WITHOUT THREADING (just like in the example above):
+#because the second thread needs to wait until the first thread finishes its execution.
+#just like the functions in the example above do.
+#Get current time:
+t1_before = time.time() # this will get the time before starting the threads
+thread1.start()
+thread1.join() #wait for the thread1 to finish its work.
+thread2.start()
+thread2.join() #wait for the thread2 to finish its work.
+t1_after = time.time()
+print("Example2 (inefficient threading) : Time for execution: " + str(t1_after-t1_before) + " seconds.")
+print()
+
+#THIS WAY IS FASTER BUT PRINTING IS A MESS (BECAUSE THE 2 FUNCTIONS EXECUTE SIMULTANEOUS):
+#After finishing, the thread needs to be reinitialized.
+thread1 = threading.Thread(target=calculateSquare, args =(numberList,))
+thread2 = threading.Thread(target=calculateCube, args =(numberList,))
+t2_before = time.time() # this will get the time before starting the threads
+thread1.start()
+thread2.start()
+thread1.join() #wait for the thread1 to finish its work.
+thread2.join() #wait for the thread2 to finish its work.
+t2_after = time.time()
+print("Example3 (good threading) : Time for execution: " + str(t2_after-t2_before) + " seconds.")
+
+#INFORMATION:
+'''Multi-Threading - is the action of executing tasks simultaneosly (in parallel)
+in order to increase the speed of execution.
+
+COMPARISON BETWEEN MULTI_THREADING AND MUTI_PROCESSING:
+
+Multi-threading shares the same stack memory as the whole program (this is one main difference comparing to multi-processing)
+Multi-threading returns a value to the same memory address (stack address) whereas the multi-processing doesn't because
+it's has it's own stack memory (in which it will copy all the variables related to it).
+
+ADVANTAGES FOR USING MULTI_THREADING (instead of multi-processing):
+Lightweight - low memory footprint
+Shared memory - makes access to state from another context easier
+Allows you to easily make responsive UIs
+cPython C extension modules that properly release the GIL will run in parallel
+Great option for I/O-bound applications
+
+DISADVANTAGES:
+
+cPython - subject to the GIL
+Not interruptible/killable
+If not following a command queue/message pump model (using the Queue module), then manual use of synchronization primitives become a necessity (decisions are needed for the granularity of locking)
+Code is usually harder to understand and to get right - the potential for race conditions increases dramatically
+'''
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+</code>
+
+<code>
+import multiprocessing # used for multiprocessing
+import time # used for time
+
+def PrintHello():
+    i=0
+    while(i&lt;50):
+        print("Hello " + str(i))
+        time.sleep(0.2)
+        i+=1
+def PrintHi():
+    i=0
+    while(i&lt;50):
+        print("Hi " + str(i))
+        time.sleep(0.2)
+        i+=1
+def Funct(n): # functions used with ".pool and .map" needs to take an extra argument
+    i=0
+    while(i&lt;50):
+        print("Hello " + str(i))
+        time.sleep(0.2)
+        i+=1
+        
+if __name__ == "__main__":
+    t_before = time.time()
+    p1 = multiprocessing.Process(target=PrintHello, args=())
+    p2 = multiprocessing.Process(target=PrintHi, args=())
+    p1.start()
+    p2.start()
+    p1.join() # wait for the process to finish
+    p2.join() # wait for the process to finish
+    t_after = time.time()
+    print("Example1. Time for execution: " + str(t_after - t_before))
+#Executing single process:
+    t_before = time.time()
+    p1 = multiprocessing.Process(target=PrintHello, args=())
+    p1.start()
+    p1.join() # wait for the process to finish
+    t_after = time.time()
+    print("Example2. Time for execution: " + str(t_after - t_before))
+#Pooling and mapping processes:
+# Functions used for "pooling and mapping" needs to take an extra argument for
+#iteration (how many times to run the same function).
+    t_before = time.time()
+    p1 = multiprocessing.Pool()
+    p1.map(Funct, range(1)) # run this function for 1 time.
+#The extra argument specifies how many times the function should be runned.
+    t_after = time.time()
+    print("Example2 with Pooling and Mapping. Time for execution: " + str(t_after - t_before))
+#Keep the console open until the next button pressed:
+    input("Press any key to quit.")
+
+'''Multi processing does almost the same thing as multi-threading: it is used
+for speeding up the execution of tasks, by executing them simultaneosly (in parallel).
+
+SIMILARITIES:
+Both multi-processing and multi-threading are used to speed up the execution of multiple
+tasks (the both execute individual multi-tasking in parallel).
+
+THE DIFFERENCES:
+Each process has its own memory address space (stack memory): so when returning a value
+from a process, the value returned will not be seen by the rest of the program
+unless it is saved in a file, in a shared memory address, or in a message pipe.
+Whereas threading is able to return values which can be used later in the main program.
+
+A process is treated as an individual program, (it even creates a process in the
+task mananger),
+
+Processes can be sent through different cores, that would speed up the program even more.
+
+Creating multiple processes is costly compare to threads. Since for each process
+there is allocated another stack memory space.
+
+ADVANTAGES FOR USING MULTI_PROCESSING (instead of multi-threading):
+
+Separate memory space
+Code is usually straightforward
+Takes advantage of multiple CPUs & cores
+Avoids GIL limitations for cPython
+Eliminates most needs for synchronization primitives unless if you use shared memory (instead, it's more of a communication model for IPC)
+Child processes are interruptible/killable
+Python multiprocessing module includes useful abstractions with an interface much like threading.Thread
+A must with cPython for CPU-bound processing
+
+DISADVANTAGES FOR USING MULTI_PROCESSING:
+
+IPC a little more complicated with more overhead (communication model vs. shared memory/objects)
+Larger memory footprint'''
+</code>		
+		</multi-threading>
 		<namespaces>*General-Programming-Knowledge*</namespaces>
-		<exception-handling>*General-Programming-Knowledge*</exception-handling>
+		<exception-handling>*General-Programming-Knowledge*
+<code>
+#Exceptions handling:
+
+#EXCEPTION NAME	DESCRIPTION
+#Exception	Base class for all exceptions
+#StopIteration	Raised when the next() method of an iterator does not point to any object.
+#SystemExit	Raised by the sys.exit() function.
+#StandardError	Base class for all built-in exceptions except StopIteration and SystemExit.
+#ArithmeticError	Base class for all errors that occur for numeric calculation.
+#OverflowError	Raised when a calculation exceeds maximum limit for a numeric type.
+#FloatingPointError	Raised when a floating point calculation fails.
+#ZeroDivisionError	Raised when division or modulo by zero takes place for all numeric types.
+#AssertionError	Raised in case of failure of the Assert statement.
+#AttributeError	Raised in case of failure of attribute reference or assignment.
+#EOFError	Raised when there is no input from either the raw_input() or input() function and the end of file is reached.
+#ImportError	Raised when an import statement fails.
+#KeyboardInterrupt	Raised when the user interrupts program execution, usually by pressing Ctrl+c.
+#LookupError	Base class for all lookup errors.
+#IndexError     Raised when an index is not found in a sequence.
+#KeyError       Raised when the specified key is not found in the dictionary.
+#NameError	Raised when an identifier is not found in the local or global namespace.
+#UnboundLocalError   Raised when trying to access a local variable in a function or method but no value has been assigned to it.
+#EnvironmentError   Same as above
+#IOError        Raised when an input/ output operation fails, such as the print statement or the open() function when trying to open
+#a file that does not exist.
+#IOError    Same as above.
+#SyntaxError    Raised when there is an error in Python syntax.
+#IndentationError   Raised when indentation is not specified properly.
+#SystemError	Raised when the interpreter finds an internal problem, but when this error is encountered the Python interpreter does not exit.
+#SystemExit	Raised when Python interpreter is quit by using the sys.exit() function. If not handled in the code, causes the interpreter to exit.
+#TypeError	Raised when an operation or function is attempted that is invalid for the specified data type.
+#ValueError	Raised when the built-in function for a data type has the valid type of arguments, but the arguments have invalid values specified.
+#RuntimeError	Raised when a generated error does not fall into any category.
+#NotImplementedError	Raised when an abstract method that needs to be implemented in an inherited class is not actually implemented.
+
+
+#An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's
+#instructions. In general, when a Python script encounters a situation that it cannot cope with, it raises an exception.
+#An exception is a Python object that represents an error.
+
+#Handling exceptions:
+try:
+   fh = open("dragos1.txt", "a")
+   fh.write("This was added by 'handling exceptions' Program.")
+except IOError:
+   print ("Error: can't find file or read data from {0}" .format(fh.name))
+else:
+   print ("Written content in the file successfully!")
+   fh.close()
+
+#Example 2:
+try:
+    fh = open("file.txt", "r")
+    fh.read(12)
+except IOError:
+    print ("Error: can\'t find file or read data from {0}" .format(fh.name))
+finally:
+    print ("Not working!")
+
+#When an exception is thrown in the try block, the execution immediately passes to the finally block. After all the statements
+#in the finally block are executed, the exception is raised again and is handled in the except statements if present in the
+#next higher layer of the try-except statement.
+
+#You can raise exceptions in several ways by using the raise statement. The general syntax for the raise statement is as follows.
+
+level=1
+if level &lt; 1:
+      raise Exception('level &lt; 1')
+
+#Creating user-defined exception:
+class MyError(Exception):
+     def __init__(self, value):
+         self.value = value
+     def __str__(self):
+         return repr(self.value)
+
+#Catching user-defined exceptions:
+try:
+    raise MyError(2*2)
+except MyError as e:
+     print ("My exception occurred, value: {0}" .format (e.value))
+
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+</code>		
+
+<code>
+try:
+    lis = ['a', 'b']
+    print(str(lis[4]))
+except Exception as exp: # equivalent to except:
+    print("Exception class: " + str(type(exp)) + "\nMessage: " + str(exp))
+    #an exception created in the except block or finally will not be treated or caught.
+else:
+    print("No exception caught!")
+finally:
+    print("Operation done.")
+
+#raise Exception ("Custom error") # this will throw an exception
+
+assert 5&lt;8, "Nothing to do" #this is fine since condition is true
+#assert 5&gt;8, "Condition is false" # this will raise an exception because the condition is false.
+
+#assert can be used for debugging. can be turned off when running python script with -O
+
+#LAMBDA functions:
+
+DoubleValue = lambda value: value*2
+
+print(DoubleValue(2)) #calling the lambda function
+
+input("\nPress ENTER to exit.")
+</code>
+		</exception-handling>
 		<bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
-		<default-parameters>*General-Programming-Knowledge*</default-parameters>
+		<default-parameters>*General-Programming-Knowledge*
+<code>
+#Functions in Python:
+
+#A function is a block of organized, reusable code that is used to perform a
+#single, related action. Functions provide better modularity for your
+#application and a high degree of code reusing.
+
+#IMPORTANT: All parameters (arguments) in the Python language are passed by
+#reference. 
+
+def AddingNumbers(a,b):
+    return a+b
+
+print("The sum of {0} and {1} is: {2}\n" . format(5,4,AddingNumbers(5,4)))
+
+#ABOVE in the print() function call the AddingNumbers() function is called using
+#required arguments
+
+#BELOW the function AddingNumbers() is called using keyword arguments:
+print("The sum of {0} and {1} is: {2}" . format(5,4,AddingNumbers(a=5,b=4)))
+#Keyword arguments are used to specify for which arguments you are giving a value
+#when it comes to default arguments.
+
+#A function can have default arguments:
+def PrintFunct (str="Default argument"):
+    print(str)
+    return
+
+print("This is PrintFunct: {0}" .format(PrintFunct()))
+
+#If you have a function with 2 default arguments, you can use keyword to specify
+#for which of them you are setting a value.
+
+def PrintFunct2 (str="Default argument", str2="Default argument2"):
+    print("{0} + {1}" .format(str, str2))
+    return
+print("This is PrintFunct2: ")
+PrintFunct2(str="First String")
+
+#The function PrintFunct() above is called using default argument (no value is
+#passed).
+
+#Variable-length arguments - > can be implemented using tuples as arguments:
+def VarArgFct(arg1, *ArgTuple):
+    print("\n")
+    print(arg1)
+    for item in ArgTuple:
+        print("{0}" .format(item))
+    return
+
+#Calling function:
+VarArgFct(22, 44,33,55)
+VarArgFct(22, [44,33,55])
+
+
+#Anonymous Functions - are called anonymous because they are not declared in
+#the standard manner by using the def keyword. You can use the lambda keyword
+#to create small anonymous functions.
+
+#Example:
+sum = lambda arg1, arg2: arg1 + arg2; #Anonymous functions are small single line functions
+
+#Anonymous functions don't need a 'return' statement, they will return whoever the
+#value after the ':' is. (return values similarily as ternary operator)
+
+#Calling the function:
+print ("Value of total: {0}" .format(sum(10,20)))
+
+#Variables: local and global.
+#Local variables - are those that are declared inside a function.
+#Global variables - are those declared outside of any function.
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>		
+		</default-parameters>
 		<interfaces>*General-Programming-Knowledge*</interfaces>
-		<random-generators>*General-Programming-Knowledge*</random-generators>
-		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+		<random-generators>*General-Programming-Knowledge*
+<code>
+#This program will print a random quotes from the .txt quotation file opened below. 
+from random import randint
+
+def ReadFromFile():
+    MyFile = open(r"D:\my files\quotations.txt", "r")
+    Line=MyFile.read(1000000)
+    i=0
+    numberOfQuotes=0
+    MyList=[]
+    buff=""
+    while(i&lt;len(Line)):
+        if(Line[i]=="\n"):
+            MyList.append(buff)
+            buff=""
+            numberOfQuotes+=1
+        else:
+            buff+=Line[i]
+        i+=1
+    #Getting a random number between 0 and numberOfQuotes
+    choice = randint(0,numberOfQuotes)
+    #Printing the choice:
+    print(MyList[choice])
+
+#Calling the function:
+while(input("Press C to continue, or Q to quit: ")=="C"):
+    print()
+    ReadFromFile()
+    print()
+
+#Keep the console opened until the next button pressed:
+input("Press any key to quit.")
+
+</code>
+		</random-generators>
+		<command-line-arguments>*General-Programming-Knowledge*
+<code>
+import sys
+
+if __name__ == "__main__": #if script is run from this file do this, otherwise it means file imported by other module and you will ignore this.
+    if len(sys.argv) > 1: #there is always gonna be at least one element in this... at index 0 the name of the file is stored.
+        print ("The script has the name "  + str(sys.argv[0]))
+        print ("The arguments which were passed are: " + str(sys.argv[1:]))
+</code>		
+		</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
-		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<modular-programming>*General-Programming-Knowledge*
+<code>
+#This is a module (a module can be any .py file):
+
+
+#These are the functions:
+def print_func( par ):
+   print ("Hello : {0} " .format(par))
+   return
+
+def CalculateSum (*Args):
+    sum=0
+    for item in Args:
+        sum+=item
+    return sum
+</code>		
+
+<code>
+#The next line will set the filepath:
+PYTHONPATH=r'C:\Users\Black2\Desktop\python\modular programming in python'
+#The next line will import a specific module:
+import module_with_functions
+
+#Calling functions from inside the module:
+module_with_functions.print_func("Dragos")
+
+print("Sum of {0} and {1} is: {2}" .format(4,10,module_with_functions.CalculateSum(4,10)))
+
+#There is possible to import a single function from the whole module below is the
+#synthax:
+from module_with_functions import print_func
+#The effect is here: the fuction can be called without mentioning the module, whereas
+#in the example above it couldn't.
+print_func("Black")
+
+#The following synthax will import anything from the mentioned module:
+from module_with_functions import *
+
+print("{0}+{1}={2}" .format(3,4,CalculateSum(3,4)))
+#Once again there was no need of mentioning the module for CalculateSum()
+
+
+#Namespace and scoping:
+#Variables are names (identifiers) that map to objects. A namespace is a dictionary
+#of variable names (keys) and their corresponding objects (values).
+
+#A Python statement can access variables in a local namespace and in the global
+#namespace. If a local and a global variable have the same name, the local
+#variable shadows the global variable.
+
+#Python makes educated guesses on whether variables are local or global. It
+#assumes that any variable assigned a value in a function is local.
+#Therefore, in order to assign a value to a global variable within a function,
+#you must first use the global statement.
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+</code>
+		</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>No information present in the database.</datatype-conversions>
 		<partial-classes>*General-Programming-Knowledge*</partial-classes>
-		<decorators>*General-Programming-Knowledge*</decorators>
+		<decorators>*General-Programming-Knowledge*
+<code>
+import time
+
+def masoara_timp(fct):
+    if hasattr(fct, 'call_number') == False:
+        fct.call_number = 1
+        fct.call_time = 0
+    print("Apel decorator.")
+    def proxy():
+        print("Apel proxy.")
+        t = time.time()
+        fct()
+        fct.call_time += time.time() - t
+        print("Functia " + str(fct.__name__) + " : s-a executat in : " + str(time.time() - t))
+        print("Apeluri functie " + str(fct.call_number))
+        print("Durata medie: " + str(fct.call_time / fct.call_number))
+        fct.call_number += 1
+    return proxy
+
+
+#masoara_timp it's a decorator. 
+
+@masoara_timp #this is equivalent to functie = masoara_timp(functie)
+def functie():
+    time.sleep(0.5)
+    print("se executa functia")
+
+functie()
+functie()
+functie()
+functie()
+functie()
+</code>		
+		</decorators>
 		<operators>*General-Programming-Knowledge*</operators>
+		<abstract-classes>
+<code>
+from p19_abs_class import PUNCT as abstract, PUNCT
+
+#p = PUNCT()  #cannot be done, abstract classes cannot be instraciated
+
+class LINE(PUNCT):
+    def abstract_method(self): #providing definition for abstract parent method
+        print("Abstract method is now redefined")
+
+    #creating static methods:
+    @staticmethod #the following method will be static. Static = shared among the instances.
+    def staticMe(): #static method don't take self as argument
+        print("\nThis is a static method\nAll instances of the class share same method")
+
+l = LINE()
+
+l.abstract_method()
+l.staticMe()
+#static methods can be invoked only with the class name
+
+LINE.staticMe()
+
+input("\nPress ENTER to exit.")
+</code>
+		</abstract-classes>
 		<pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+		<regular-expressions>
+<code>
+#A regular expression is a special sequence of characters that helps you match or find other strings or sets
+#of strings, using a specialized syntax held in a pattern.
+
+#The match() function -> This function attempts to match RE pattern to string with optional flags.
+#Syntax: re.match(pattern, string, flags=0)
+#pattern    This is the regular expression to be matched.
+#string	    This is the string, which would be searched to match the pattern at the beginning of string.
+#flags	    You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.
+
+#The re.match function returns a match object on success, None on failure. We usegroup(num) or groups()
+#function of match object to get matched expression.
+
+import re #This library is used for regular expressions (re)
+
+line = "Cats are smarter than dogs"
+
+matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I) #find something at the beginning of the string and return a match object.
+
+if matchObj:
+   print ("matchObj.group() : {0}" .format(matchObj.group()))
+   print ("matchObj.group(1) : {0}" .format (matchObj.group(1)))
+   print ("matchObj.group(2) : {0}" .format(matchObj.group(2)))
+else:
+   print ("No match!!")
+
+matchObj = re.match( "Cats", line, 0)
+if matchObj:
+   print ("matchObj.group() : {0}" .format(matchObj.group()))
+   #print ("matchObj.group(1) : {0}" .format(matchObj.group(1)))
+   #print ("matchObj.group(2) : {0}" .format(matchObj.group(2)))
+else:
+   print ("No match!!")
+
+#The search() function - This function searches for first occurrence of RE pattern within string with optional flags.
+searchObj = re.search( r'dogs*', line, re.M|re.I) #re* -> Matches 0 or more occurrences of preceding expression.
+if searchObj:
+   print ("searchObj.group() : {0}" .format(searchObj.group()))
+   #print ("searchObj.group(1) : {0}" .format (searchObj.group(1)))
+   #print ("searchObj.group(2) : {0}" .format(searchObj.group(2)))
+else:
+   print ("No match!!")
+
+#Match checks for a match only at the beginning of the string, while search checks for a match anywhere in the string.
+
+#The sub() function - replaces all occurrences of the pattern in the string with 'repl'
+#Syntax: re.sub(pattern, repl, string, max=0)
+
+phone = "2004-959-559 # This is Phone Number"
+
+# Delete Python-style comments
+num = re.sub(r'#.*$', "", phone)
+print ("Phone Num : {0}" .format(num))
+
+# Remove anything other than digits
+num = re.sub(r'\D', "", phone)    
+print ("Phone Num : {0}" .format(num))
+
+#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+input("\nPress any key to exit: ")
+
+#Following table lists the regular expression syntax that is available in Python :
+
+#Pattern	Description
+#^	Matches beginning of line.
+#$	Matches end of line.
+#.	Matches any single character except newline. Using m option allows it to match newline as well.
+#[...]	Matches any single character in brackets.
+#[^...]	Matches any single character not in brackets
+#re*	Matches 0 or more occurrences of preceding expression.
+#re+	Matches 1 or more occurrence of preceding expression.
+#re?	Matches 0 or 1 occurrence of preceding expression.
+#re{ n}	Matches exactly n number of occurrences of preceding expression.
+#re{ n,}	Matches n or more occurrences of preceding expression.
+#re{ n, m}	Matches at least n and at most m occurrences of preceding expression.
+#a| b	Matches either a or b.
+#(re)	Groups regular expressions and remembers matched text.
+#(?imx)	Temporarily toggles on i, m, or x options within a regular expression. If in parentheses, only that area is affected.
+#(?-imx)	Temporarily toggles off i, m, or x options within a regular expression. If in parentheses, only that area is affected.
+#(?: re)	Groups regular expressions without remembering matched text.
+#(?imx: re)	Temporarily toggles on i, m, or x options within parentheses.
+#(?-imx: re)	Temporarily toggles off i, m, or x options within parentheses.
+#(?#...)	Comment.
+#(?= re)	Specifies position using a pattern. Doesn't have a range.
+#(?! re)	Specifies position using pattern negation. Doesn't have a range.
+#(?> re)	Matches independent pattern without backtracking.
+#\w	Matches word characters.
+#\W	Matches nonword characters.
+#\s	Matches whitespace. Equivalent to [\t\n\r\f].
+#\S	Matches nonwhitespace.
+#\d	Matches digits. Equivalent to [0-9].
+#\D	Matches nondigits.
+#\A	Matches beginning of string.
+#\Z	Matches end of string. If a newline exists, it matches just before newline.
+#\z	Matches end of string.
+#\G	Matches point where last match finished.
+#\b	Matches word boundaries when outside brackets. Matches backspace (0x08) when inside brackets.
+#\B	Matches nonword boundaries.
+#\n, \t, etc.	Matches newlines, carriage returns, tabs, etc.
+#\1...\9	Matches nth grouped subexpression.
+#\10	Matches nth grouped subexpression if it matched already. Otherwise refers to the octal representation of a character code.
+
+#Option flags:
+
+#Modifier	Description
+#re.I	Performs case-insensitive matching.
+#re.L	Interprets words according to the current locale. This interpretation affects the alphabetic group (\w and \W), as well as word boundary behavior (\b and \B).
+#re.M	Makes $ match the end of a line (not just the end of the string) and makes ^ match the start of any line (not just the start of the string).
+#re.S	Makes a period (dot) match any character, including a newline.
+#re.U	Interprets letters according to the Unicode character set. This flag affects the behavior of \w, \W, \b, \B.
+#re.X	Permits "cuter" regular expression syntax. It ignores whitespace (except inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.
+
+#Character classes
+#Example	Description
+#[Pp]ython	Match "Python" or "python"
+#rub[ye]	Match "ruby" or "rube"
+#[aeiou]	Match any one lowercase vowel
+#[0-9]	Match any digit; same as [0123456789]
+#[a-z]	Match any lowercase ASCII letter
+#[A-Z]	Match any uppercase ASCII letter
+#[a-zA-Z0-9]	Match any of the above
+#[^aeiou]	Match anything other than a lowercase vowel
+#[^0-9]	Match anything other than a digit
+
+#Special Character Classes
+#Example	Description
+#.	Match any character except newline
+#\d	Match a digit: [0-9]
+#\D	Match a nondigit: [^0-9]
+#\s	Match a whitespace character: [ \t\r\n\f]
+#\S	Match nonwhitespace: [^ \t\r\n\f]
+#\w	Match a single word character: [A-Za-z0-9_]
+#\W	Match a nonword character: [^A-Za-z0-9_]
+
+
+#Repetition Cases
+#Example	Description
+#ruby?	Match "rub" or "ruby": the y is optional
+#ruby*	Match "rub" plus 0 or more ys
+#ruby+	Match "rub" plus 1 or more ys
+#\d{3}	Match exactly 3 digits
+#\d{3,}	Match 3 or more digits
+#\d{3,5}	Match 3, 4, or 5 digits
+</code>		
+		</regular-expressions>
 	</programming_language>
 	
 </content>
