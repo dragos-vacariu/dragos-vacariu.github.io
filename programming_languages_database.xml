@@ -193,7 +193,7 @@ for(int counter = 0; counter &lt; 5; counter++)
 			lies in the do-while loop test condition which is tested at the end of 
 			the body. <br></br>
 			In the <red>do-while loop</red>, the loop body will execute at least once 
-			irrespective of the test condition.<br></br>
+			irrespective of the test condition.<br></br><br></br>
 <code>
 <red>/*Do while loop syntax: */</red>
 do
@@ -206,14 +206,17 @@ while(counter &lt; 5)
 		</loops>
 		<dynamic-memory-allocation>
 			Dynamic memory is allocated from the heap using some standard library functions. 
-			The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. <br></br>
+			The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. 
+			<br></br><br></br>
 			The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
 			area in bytes. <br></br>
 			It returns a pointer of type <red>void</red> which 
 			can be cast into a pointer of any form. 
-			<br></br>
-			It doesn’t initialize the memory at execution time.
+			<br></br><br></br>
+			<red>
+			It doesn’t initialize the memory at execution time.<br></br>
 			So each block will initially have a default garbage value. 
+			</red>
 			<br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;
@@ -892,12 +895,12 @@ C |= 2 is same as C = C | 2
 		</variable-arguments-lists>
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*
-			<br></br>
+			<br></br><br></br>
 			<green>
 			The C programming language, as of C99, supports complex number math with the three 
 			built-in complex types:
 			</green>
-			<br></br>
+			<br></br><br></br>
 			<code>double _Complex</code><br></br>
 			<code>float _Complex</code><br></br>
 			<code>long double _Complex</code><br></br>
@@ -908,8 +911,10 @@ C |= 2 is same as C = C | 2
 		</complex-data-types>
 		<loops>*General-Programming-Knowledge*</loops>
 		<collections>
-			<code>Arrays</code>: Are collections of elements of the same data type with fixed size. 
-			<br></br>Once the <code>array</code> is defined, its size cannot be changed.<br></br><br></br>
+			<code>Arrays</code> are collections of elements of the same data type with fixed size. 
+			<br></br>
+			Once the <red>array</red> is defined, its size cannot be changed.
+			<br></br><br></br>
 
 <code>
 <red>/*Declaring arrays and initializing arrays*/</red>
