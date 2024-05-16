@@ -1082,14 +1082,13 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		
 		</read-from-file>
 		<write-to-file>
-			To create a file, or write to a file you can use the w mode inside the fopen() function.<br></br>
-			Function Prototype: <code>fopen(filename, mode)</code>;
+			To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.<br></br>
 			<br></br><br></br>
 			<green>
 			Opening a file:
 			</green>
 			<br></br><br></br>
-			To open a file use: <code>fopen(filename, mode)</code>;
+			Function Prototype: <code>fopen(filename, mode)</code>;
 			<br></br><br></br>
 			Where:<br></br><br></br>
 			<code>filename</code><br></br>	
@@ -1102,7 +1101,7 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 			<blue>a</blue> - Appends new data to a file<br></br>
 			<blue>r</blue> - Reads from a file<br></br>
 			<br></br>
-			The w mode means that the file is opened for writing. 
+			The <red>w</red> mode means that the file is opened for writing. 
 			<br></br>
 			To insert content to it, you can 
 			use the <code>fprintf()</code> function and add the pointer variable (<red>fptr</red> in our example) and some text:
@@ -1130,7 +1129,7 @@ fclose(fptr); // this will close the file when we are done with it.
 		<br></br>
 		Closing the file:
 		<br></br><br></br>
-		It is considered as good practice, because it makes sure that:
+		It is considered as <red>good practice</red>, because it makes sure that:
 		<br></br><br></br>
 		<blue>
 		Changes are saved properly. <br></br>
