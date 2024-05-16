@@ -498,9 +498,10 @@ int main()
 			<code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
 			the last argument.<br></br>
 			</blue>
+			<br></br>
 		</command-line-arguments>
 		<ternary-operator>
-			Ternary operator is used for decision making instead of placing longer if and else 
+			<red>Ternary operator</red> is used for decision making instead of placing longer <red>if and else</red>
 			conditional statements.
 			<br></br><br></br>
 			Syntax:
@@ -509,61 +510,62 @@ int main()
 			The statement evaluates to <code>value_if_true</code> if condition is met, and <code>value_if_false</code> 
 			otherwise.<br></br><br></br>
 			
-			<red>The ternary operator take three arguments:</red>
+			<green>The ternary operator take three arguments:</green>
 			<br></br><br></br>
-			<green>
+			<blue>
 			The first is a comparison argument;<br></br>
 			The second is the result upon a true comparison;<br></br>
 			The third is the result upon a false comparison;<br></br>
-			</green>
+			</blue>
 		</ternary-operator>
 		<modular-programming>
 			Modular programming consists of separating implementation from interface and 
 			hiding information in the implementation.
 			<br></br><br></br>
-			<red>Advantages of modular programming:</red>
+			<green>Advantages of modular programming:</green>
 			<br></br><br></br>
 			
-			<green>Code is easier to read</green> - Working on modular programming makes code easier to read 
+			<blue>Code is easier to read</blue> - Working on modular programming makes code easier to read 
 			because functions perform different tasks as compared to monolithic codes. 
 			Sometimes modular programming can be a bit messy if we pass arguments and 
 			variables in different functions. The use of modules should be done in a 
 			sensible manner so as to avoid any problem. Functions should be neat, clean, 
 			and descriptive.<br></br><br></br>
 			
-			<green>Code is easier to test</green> - In software, some functions perform fewer tasks and 
+			<blue>Code is easier to test</blue> - In software, some functions perform fewer tasks and 
 			also functions that perform numerous tasks. If the software is easily split 
 			using modules, it becomes easier to test. We can also focus on the riskier 
 			functions during testing and need more test cases to make it bug-free.<br></br><br></br>
 			
-			<green>Reusability</green> - There are times where a piece of code is implemented everywhere in 
+			<blue>Reusability</blue> - There are times where a piece of code is implemented everywhere in 
 			our program. Instead of copying and pasting it, again and again, modularity 
 			gives us the advantage of reusability so that we can pull our code from 
 			anywhere using interfaces or libraries. The concept of reusability also 
 			reduces the size of our program.<br></br><br></br>
 			
-			<green>Faster fixes</green> - Suppose there is an error in the payment options in any 
+			<blue>Faster fixes</blue> - Suppose there is an error in the payment options in any 
 			application, and the bug needs to be removed. Modularity can be a great help 
 			because we know that there will be a separate function that will contain the 
 			code of payments, and only that function will only be rectified. Thus using 
 			modules to find and fixing bugs becomes much more smooth and maintainable.<br></br><br></br>
 			
-			<green>Low-risk update</green> - In modular programming, a defined layer of APIs protects things that 
+			<blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects things that 
 			use it from making changes inside the library. Unless there is a change in the API, 
 			there is a low risk for someone's code-breaking. For example, if you didn't have 
 			explicit APIs and someone changed a function they thought was only used within that 
 			same library (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
 			
 			
-			<green>Easy collaboration</green> - Different developers work on a single piece of code in the team. 
+			<blue>Easy collaboration</blue> - Different developers work on a single piece of code in the team. 
 			There are chances of conflicts when there's a git merge. This conflict can be reduced 
 			if the code is split between more functions, files, repos, etc. We can also provide 
 			ownership to specific code modules, where a team member can break them down into 
 			smaller tasks.<br></br><br></br><br></br>
 			
 			
-			<red>Disadvantages of modular programming:</red>
+			<green>Disadvantages of modular programming:</green>
 			<br></br><br></br>
+			<brown>
 			There is a need for extra time and budget for a product in modular programming.<br></br><br></br>
 			It is a challenging task to combine all the modules.<br></br><br></br>
 			Careful documentation is required so that other program modules are not affected.<br></br><br></br>
@@ -574,6 +576,7 @@ int main()
 			same style.<br></br><br></br>
 			It reduces the program's efficiency because testing and debugging are 
 			time-consuming, where each function contains a thousand lines of code.<br></br><br></br>
+			</brown>
 		</modular-programming>
 		<datatype-conversions>
 			Generally there are two types of conversion:<br></br>
