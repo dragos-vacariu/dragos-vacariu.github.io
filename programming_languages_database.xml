@@ -135,7 +135,7 @@
 			<red>While loop</red> does not depend upon the number of iterations. 
 			<br></br>
 			If the test condition will 
-			become false then it will break from the while loop else body will be executed.
+			become <red>false</red> then it will break from the while loop else body will be executed.
 			<br></br><br></br>
 <code>
 <red>/*While loop syntax: */</red>
@@ -156,9 +156,9 @@ while(counter &lt; 5)
 			statement is <red>true</red> then control will move to the body and the body of for 
 			loop will be executed. 
 			<br></br>
-			Steps will be repeated untill the test condition becomes false. 
+			Steps will be repeated untill the test condition becomes <red>false</red>. 
 			<br></br>
-			When the test condition will be false the loop will exit.
+			When the test condition will be <red>false</red> the loop will exit.
 			<br></br><br></br>
 			
 			<blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
@@ -168,11 +168,11 @@ while(counter &lt; 5)
 			
 			<blue>Test Expression</blue>: In this expression, test conditions are performed.
 			<br></br>			
-			If the condition evaluates to true then the loop body will be executed and 
+			If the condition evaluates to <red>true</red> then the loop body will be executed and 
 			then an update of the loop variable is done. 
 			<br></br>
 			If the test expression becomes 
-			false then the control will exit from the loop. <br></br>
+			<red>false</red> then the control will exit from the loop. <br></br>
 			Example: <code>counter&lt;5;</code>
 			<br></br><br></br>
 			
