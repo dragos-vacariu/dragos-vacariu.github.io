@@ -988,12 +988,17 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 			<blue>fgetc()</blue><br></br>
 			This function is used to read a single character from the file.<br></br><br></br>
 			<blue>fgets()</blue><br></br>
-			This function is used to read strings from files.<br></br>
+			This function is used to read strings from files.
+			<br></br><br></br>
 			<blue>fscanf()</blue><br></br>
 			This function is used to read formatted input from a file.<br></br><br></br>
 			<blue>fread()</blue><br></br>
 			This function is used to read the block of raw bytes from files. This is used 
 			to read binary files.
+			<br></br><br></br>
+			<green>
+			Opening a file:
+			</green>
 			<br></br><br></br>
 			To open a file use: <code>fopen(filename, mode)</code>;
 			<br></br><br></br>
