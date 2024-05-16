@@ -123,7 +123,8 @@
 		</complex-data-types>
 		<loops>
 			In computer programming, a loop is a sequence of instruction s that is 
-			continually repeated until a certain condition is reached. <br></br>
+			continually repeated until a certain condition is reached. 
+			<br></br>
 			Typically, a certain process is done, such as getting an item of data 
 			and changing it, and then some condition is checked such as whether a 
 			counter has reached a prescribed number.
@@ -132,10 +133,6 @@
 			For, while, do-while loops:<br></br><br></br>
 			</green>
 			<red>While loop</red> does not depend upon the number of iterations. 
-			<br></br>
-			In for loop the number 
-			of iterations was previously known to us but in the While loop, the execution 
-			is terminated on the basis of the test condition. 
 			<br></br>
 			If the test condition will 
 			become false then it will break from the while loop else body will be executed.
@@ -150,23 +147,23 @@ while(counter &lt; 5)
 }
 </code>
 			<br></br>
-			In <red>for loop</red>, a loop variable is used to control the loop. 
+			<red>For loop</red> uses a loop variable to control the loop. 
 			<br></br>
-			Firstly we initialize 
-			the loop variable with some value, then check its test condition. 
+			Firstly	the loop variable is initialized with some value.<br></br>
+			Then its test condition is checked. 
 			<br></br>
 			If the 
-			statement is true then control will move to the body and the body of for 
+			statement is <red>true</red> then control will move to the body and the body of for 
 			loop will be executed. 
 			<br></br>
-			Steps will be repeated till the exit condition 
-			becomes true. 
+			Steps will be repeated untill the test condition becomes false. 
 			<br></br>
-			If the test condition will be false then it will stop.
+			When the test condition will be false the loop will exit.
 			<br></br><br></br>
 			
 			<blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
-			or loop counter to some value. Example: <code>int counter=1;</code>
+			or loop counter to some value. <br></br>
+			Example: <code>int counter=1;</code>
 			<br></br><br></br>
 			
 			<blue>Test Expression</blue>: In this expression, test conditions are performed.
@@ -175,12 +172,14 @@ while(counter &lt; 5)
 			then an update of the loop variable is done. 
 			<br></br>
 			If the test expression becomes 
-			false then the control will exit from the loop. Example: <code>counter&lt;5;</code>
+			false then the control will exit from the loop. <br></br>
+			Example: <code>counter&lt;5;</code>
 			<br></br><br></br>
 			
 			<blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
-			by some value it could be incremented, decremented, multiplied, or divided by 
-			any value. Example: <code>counter++;</code><br></br><br></br>
+			by some value. It could be incremented, decremented, multiplied, or divided by 
+			any value. <br></br>
+			Example: <code>counter++;</code><br></br><br></br>
 
 <code>
 <red>/*For loop syntax: */</red>
@@ -917,18 +916,7 @@ C |= 2 is same as C = C | 2
 		<collections>
 			<code>Arrays</code>: Are collections of elements of the same data type with fixed size. 
 			<br></br>Once the <code>array</code> is defined, its size cannot be changed.<br></br><br></br>
-			
-			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
-			to the next element. <br></br>
-			The memory can be allocated dynamically for each element added to the list. 
-			<br></br><br></br>
-			<brown>
-			The main benefit of a linked-list
-			consists in the possibility of adding a variable number of elements, being able to delete or add an element without making copies
-			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
-			</brown>
-			<br></br><br></br>
-			
+
 <code>
 <red>/*Declaring arrays and initializing arrays*/</red>
 
@@ -936,6 +924,19 @@ int arr[5];
 int array_initialized[7] = [1,2,3,4,5,6,7];
 float array_floats[3] = [2.0f, 3.0f, 2.11f];
 </code>
+			<br></br>
+			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
+			to the next element. <br></br>
+			The memory can be allocated dynamically for each element added to the list. 
+			<br></br><br></br>
+			<brown>
+			The main benefit of a linked-list
+			consists in the possibility of adding a variable number of elements, being able to delete or add an element 
+			without making copies
+			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
+			</brown>
+			<br></br><br></br>
+			
 <code>
 <red>//Declaring and initializing a Linked List</red>
 
