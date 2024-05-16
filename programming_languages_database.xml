@@ -310,42 +310,42 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			</blue>
 		</multi-threading>
 		<bitwise-operators>
-			The <code>&#38;</code> (bitwise AND) in C takes two numbers as operands and does AND on every bit 
-			of two numbers. The result of AND is 1 only if both bits are 1.  
+			The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
+			of two numbers. The result of <red>AND</red> is 1 only if both bits are 1.  
 			<br></br><br></br>
-			The <code>|</code> (bitwise OR) in C takes two numbers as operands and does OR on every bit 
-			of two numbers. The result of OR is 1 if any of the two bits is 1. 
+			The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does <red>OR</red> on every bit 
+			of two numbers. The result of <red>OR</red> is 1 if any of the two bits is 1. 
 			<br></br><br></br>
-			The <code>^</code> (bitwise XOR) in C takes two numbers as operands and does XOR on every 
-			bit of two numbers. The result of XOR is 1 if the two bits are different. 
+			The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
+			bit of two numbers. The result of <red>XOR</red> is 1 if the two bits are different. 
 			<br></br><br></br>
-			The <code>&lt;&lt;</code> (left shift) in C takes two numbers, the left shifts the bits of the 
+			The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, the <red>left-shifts</red> the bits of the 
 			first operand, and the second operand decides the number of places to shift. 
 			<br></br><br></br>
-			The <code>&gt;&gt;</code> (right shift) in C takes two numbers, right shifts the bits of the 
+			The <code>&gt;&gt;</code> (<red>right-shift</red>) takes two numbers, <red>right-shifts</red> the bits of the 
 			first operand, and the second operand decides the number of places to shift.
 			<br></br><br></br>
-			The <code>~</code> (bitwise NOT) in C takes one number and inverts all bits of it.
+			The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
 			<br></br><br></br>
-			The left-shift and right-shift operators should not be used for negative numbers.<br></br>
-			The left-shift and right-shift operators are equivalent to multiplication and division by 
+			The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
+			The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
 			2 respectively.<br></br><br></br>
 			
-			The bitwise OR of two numbers is just the sum of those two numbers if there is no carry 
-			involved, otherwise, you just add their bitwise AND.
+			The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
+			involved, otherwise, you just add their bitwise <red>AND</red>.
 			<br></br><br></br>
 			Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
 			their sum is just <code>a|b</code>. <br></br>
 			Now, if we change ‘a’ to 6 which is 110 in binary, their sum would change 
 			to <code>a|b + a&#38;b</code> since there is a carry involved. 
 			<br></br><br></br>
-			The bitwise XOR operator is the most useful operator from a technical interview perspective.
+			The bitwise <red>XOR</red> operator is the most useful operator from a technical interview perspective.
 			<br></br><br></br>
 			It is used in many problems. <br></br>
 			A simple example could be: “Given a set of numbers where all 
 			elements occur an even number of times except one number, find the odd occurring number.”
 			<br></br>
-			This problem can be efficiently solved by doing XOR to all numbers. 
+			This problem can be efficiently solved by doing <red>XOR</red> to all numbers. 
 			<br></br><br></br>
 			
 			The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
