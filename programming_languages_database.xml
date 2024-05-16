@@ -923,11 +923,11 @@ C |= 2 is same as C = C | 2
 			to the next element. <br></br>
 			The memory can be allocated dynamically for each element added to the list. 
 			<br></br><br></br>
-			<green>
+			<brown>
 			The main benefit of a linked-list
 			consists in the possibility of adding a variable number of elements, being able to delete or add an element without making copies
 			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
-			</green>
+			</brown>
 			<br></br><br></br>
 			
 <code>
