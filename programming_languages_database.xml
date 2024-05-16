@@ -864,8 +864,9 @@ C |= 2 is same as C = C | 2
 			argument list.<br></br><br></br>
 			<green>
 			Here are some standard function calls that use variable
-			argument lists:<br></br>
+			argument lists:
 			</green>
+			<br></br><br></br>
 			<code>int printf(const char *format, ...);</code><br></br>
 			<code>int scanf(const char *format, ...);</code><br></br>
 			<code>int execlp(const char *file, const char *arg, ...);</code><br></br>
