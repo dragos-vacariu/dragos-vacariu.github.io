@@ -327,27 +327,30 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			<br></br><br></br>
 			The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
 			<br></br><br></br>
+			<brown>
 			The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
 			The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
 			2 respectively.<br></br><br></br>
+			</brown>
 			
 			The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
 			involved, otherwise, you just add their bitwise <red>AND</red>.
 			<br></br><br></br>
+			<brown>
 			Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
 			their sum is just <code>a|b</code>. <br></br>
-			Now, if we change ‘a’ to 6 which is 110 in binary, their sum would change 
-			to <code>a|b + a&#38;b</code> since there is a carry involved. 
+			Now, if we change <red>'a'</red> to <red>6</red> which is <red>110</red> in binary, their sum would change 
+			to <code>a|b + a&#38;b</code> since there is a carry involved.
 			<br></br><br></br>
 			The bitwise <red>XOR</red> operator is the most useful operator from a technical interview perspective.
 			<br></br><br></br>
 			It is used in many problems. <br></br>
-			A simple example could be: “Given a set of numbers where all 
-			elements occur an even number of times except one number, find the odd occurring number.”
+			A simple example could be: <blue>"Given a set of numbers where all 
+			elements occur an even number of times except one number, find the odd occurring number."</blue>
 			<br></br>
 			This problem can be efficiently solved by doing <red>XOR</red> to all numbers. 
 			<br></br><br></br>
-			
+			</brown>
 			The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
 
 			The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
