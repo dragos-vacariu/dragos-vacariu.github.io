@@ -7615,7 +7615,25 @@ def myFun(*argv):
 myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
 </code>		
 		</variable-arguments-lists>
-		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+		<simple-data-types>*General-Programming-Knowledge*
+<code>
+Python Data Types
+In programming, data type is an important concept.
+
+Variables can store data of different types, and different types can do different things.
+
+Python has the following data types built-in by default, in these categories:
+
+Text Type:	str
+Numeric Types:	int, float, complex
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:	set, frozenset
+Boolean Type:	bool
+Binary Types:	bytes, bytearray, memoryview
+None Type:	NoneType
+</code>		
+		</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*</complex-data-types>
 		<loops>
 <code>
@@ -8277,7 +8295,18 @@ obj = Employee()
 del obj
 </code>		
 		</constructors>
-		<instantiation>*General-Programming-Knowledge*</instantiation>
+		<instantiation>*General-Programming-Knowledge*
+<code>
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+person1 = Person("John", 25)
+print(person1.name)
+print(person1.age)
+</code>		
+		</instantiation>
 		<destructors>*General-Programming-Knowledge*
 <code>
 def __del__(self):
@@ -8286,7 +8315,6 @@ def __del__(self):
 		</destructors>
 		<function-overloading>*General-Programming-Knowledge*</function-overloading>
 		<operator-overloading>*General-Programming-Knowledge*</operator-overloading>
-		<enums>*General-Programming-Knowledge*</enums>
 		<multi-threading>*General-Programming-Knowledge*
 <code>
 import threading #used for threading
@@ -8764,7 +8792,6 @@ input("\nPress any key to exit: ")
 		</modular-programming>
 		<string-methods>No information present in the database.</string-methods>
 		<datatype-conversions>No information present in the database.</datatype-conversions>
-		<partial-classes>*General-Programming-Knowledge*</partial-classes>
 		<decorators>*General-Programming-Knowledge*
 <code>
 import time
