@@ -41,43 +41,43 @@
 		</polymorphism>
 		<simple-data-types>
 			<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
-			occupies <code>2 bytes</code> memory
+			occupies <code>2 bytes</code> memory;
 			<br></br><br></br>
 			<code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
-			occupies <code>2 bytes</code> memory
+			occupies <code>2 bytes</code> memory;
 			<br></br><br></br>
 			<code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
-			occupies <code>4 bytes</code> memory
+			occupies <code>4 bytes</code> memory;
 			<br></br><br></br>
 			<code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
-			occupies <code>4 bytes</code> memory
+			occupies <code>4 bytes</code> memory;
 			<br></br><br></br>
 			<code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
-			format specifier <code>%ld</code> - occupies <code>4 bytes</code> memory
+			format specifier <code>%ld</code> - occupies <code>4 bytes</code> memory;
 			<br></br><br></br>
 			<code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
-			occupies <code>4 bytes</code> memory
+			occupies <code>4 bytes</code> memory;
 			<br></br><br></br>
 			<code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
-			occupies <code>8 bytes</code> memory
+			occupies <code>8 bytes</code> memory;
 			<br></br><br></br>
 			<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
-			format specifier <code>%llu</code>  - occupies <code>8 bytes</code> memory
+			format specifier <code>%llu</code>  - occupies <code>8 bytes</code> memory;
 			<br></br><br></br>
 			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies <code>1 
-			byte</code> memory
+			byte</code> memory;
 			<br></br><br></br>
-			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 1 
-			byte memory
+			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies <code>1 
+			byte</code> memory;
 			<br></br><br></br>
 			<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
-			<code>4 bytes</code> memory
+			<code>4 bytes</code> memory;
 			<br></br><br></br>
 			<code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
-			occupies <code>8 bytes</code> memory
+			occupies <code>8 bytes</code> memory;
 			<br></br><br></br>
 			<code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
-			occupies <code>16 bytes</code> memory
+			occupies <code>16 bytes</code> memory;
 		</simple-data-types>
 		<complex-data-types>
 			Data types that are derived from fundamental data types:<br></br><br></br>
@@ -87,10 +87,14 @@
 			<br></br><br></br>
 			<code>Arrays</code> - A collection of elements of the same data type. <br></br>
 			These entities or elements can be of <code>int</code>, <code>float</code>, <code>char</code>, or <code>double</code> 
-			data type or can be of <code>user-defined</code> data types such as	like <code>structures</code>.<br></br>
+			data type or can be of <code>user-defined</code> data types such as	like <code>structures</code>.
+			<br></br><br></br>
+			<red>
 			The size of an array can be calculated by multiplying the <code>data-type * numberOfElements</code> within the array.
+			</red>
 			<br></br><br></br>
 			<code>Pointers</code> - A variable that stores the memory address of another variable. 
+			<br></br>
 			The size of a pointer varies depending on factors such as the operating system and CPU 
 			architecture.<br></br><br></br>
 			<red>
@@ -99,11 +103,17 @@
 			</red>
 			<br></br><br></br>
 			<code>Structures</code>: A collection of variables of different data types grouped 
-			together under a single name. <br></br>
-			The size of a <code>struct</code> can be calculated by summing up the size of all the element data-types.
+			together under a single name. 
 			<br></br><br></br>
-			<code>Unions</code> - A special type of structure that can store only one value at a time. <br></br>
-			The size of the <code>union</code> is equal to the size of the largest element defined within the union.<br></br><br></br>
+			<red>
+			The size of a <code>struct</code> can be calculated by summing up the size of all the element data-types.
+			</red>
+			<br></br><br></br>
+			<code>Unions</code> - A special type of structure that can store only one value at a time. <br></br><br></br>
+			<red>
+			The size of the <code>union</code> is equal to the size of the largest element defined within the union.
+			</red>
+			<br></br><br></br>
 			<code>Typedefs</code> - A way to create a new name for an existing data type to improve code 
 			readability and maintainability.<br></br><br></br>
 			<code>void</code> - It's used to indicate an empty data type, usually used with pointers.<br></br>
