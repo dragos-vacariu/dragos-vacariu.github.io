@@ -247,7 +247,8 @@ int main()
 			memory at runtime. <br></br><br></br>
 			The <code>malloc()</code> function only returns the starting address, <red>it doesn't zero it.</red>
 			<br></br>			
-			On the other hand, the <code>calloc()</code> function returns the starting address, <green>zeroing it.</green>
+			On the other hand, the <code>calloc()</code> function returns the starting address, <red>zeroing it.</red>
+			<br></br>	
 <code>
 /*Prototype void *calloc(size_t nitems, size_t size)*/
 
@@ -982,20 +983,27 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 		<collection-methods>There are no built in functions for working with collections.</collection-methods>
 		<dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
 		<read-from-file>
-			C programming language supports four pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
+			C programming language supports <red>four</red> pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
 			<br></br><br></br>
-			<blue>fgetc()</blue>– This function is used to read a single character from the file.<br></br>
-			<blue>fgets()</blue>– This function is used to read strings from files.<br></br>
-			<blue>fscanf()</blue>– This function is used to read formatted input from a file.<br></br>
-			<blue>fread()</blue>– This function is used to read the block of raw bytes from files. This is used 
+			<blue>fgetc()</blue><br></br>
+			This function is used to read a single character from the file.<br></br><br></br>
+			<blue>fgets()</blue><br></br>
+			This function is used to read strings from files.<br></br>
+			<blue>fscanf()</blue><br></br>
+			This function is used to read formatted input from a file.<br></br><br></br>
+			<blue>fread()</blue><br></br>
+			This function is used to read the block of raw bytes from files. This is used 
 			to read binary files.
 			<br></br><br></br>
 			To open a file use: <code>fopen(filename, mode)</code>;
 			<br></br><br></br>
 			Where:<br></br><br></br>
-			filename	The name of the actual file you want to open (or create), like filename.txt<br></br>
-			mode	A single character, which represents what you want to do with the file 
-			(read, write or append):<br></br><br></br>
+			<code>filename</code><br></br>	
+			The name of the actual file you want to open (or create), like filename.txt
+			<br></br><br></br>
+			<code>mode</code><br></br>	
+			A single character, which represents what you want to do with the file 
+			(<red>read</red>, <red>write</red> or <red>append</red>):<br></br><br></br>
 			<blue>w</blue> - Writes to a file<br></br>
 			<blue>a</blue> - Appends new data to a file<br></br>
 			<blue>r</blue> - Reads from a file<br></br>
