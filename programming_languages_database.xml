@@ -67,8 +67,8 @@
 			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 
 			<code>1 byte</code> memory;
 			<br></br><br></br>
-			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies <code>1 
-			byte</code> memory;
+			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 
+			<code>1 byte</code> memory;
 			<br></br><br></br>
 			<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
 			<code>4 bytes</code> memory;
@@ -80,7 +80,10 @@
 			occupies <code>16 bytes</code> memory;
 		</simple-data-types>
 		<complex-data-types>
-			Data types that are derived from fundamental data types:<br></br><br></br>
+			<green>
+				Data types that are derived from fundamental data types:
+			</green>
+			<br></br><br></br>
 			<code>bool type</code> - The bool type is a <red>byte-sized</red> type that can only hold the value true or false.<br></br><br></br>
 			<code>Enumerated type / Enums</code> - An <code>enum</code> is a special type that represents a group of constants 
 			(unchangeable values).
@@ -123,13 +126,18 @@
 			continually repeated until a certain condition is reached. <br></br>
 			Typically, a certain process is done, such as getting an item of data 
 			and changing it, and then some condition is checked such as whether a 
-			counter has reached a prescribed number.<br></br><br></br>
-			<br></br>
+			counter has reached a prescribed number.
+			<br></br><br></br>
+			<green>
 			For, while, do-while loops:<br></br><br></br>
-			
-			While loop does not depend upon the number of iterations. In for loop the number 
+			</green>
+			<red>While loop</red> does not depend upon the number of iterations. 
+			<br></br>
+			In for loop the number 
 			of iterations was previously known to us but in the While loop, the execution 
-			is terminated on the basis of the test condition. If the test condition will 
+			is terminated on the basis of the test condition. 
+			<br></br>
+			If the test condition will 
 			become false then it will break from the while loop else body will be executed.
 			<br></br><br></br>
 <code>
@@ -141,24 +149,33 @@ while(counter &lt; 5)
 	 counter++;
 }
 </code>
-			In for loop, a loop variable is used to control the loop. Firstly we initialize 
+			In <red>for loop</red>, a loop variable is used to control the loop. 
+			<br></br>
+			Firstly we initialize 
 			the loop variable with some value, then check its test condition. If the 
 			statement is true then control will move to the body and the body of for 
-			loop will be executed. <br></br>
+			loop will be executed. 
+			<br></br>
 			Steps will be repeated till the exit condition 
-			becomes true. If the test condition will be false then it will stop.
+			becomes true. 
+			<br></br>
+			If the test condition will be false then it will stop.
 			<br></br><br></br>
 			
-			Initialization Expression: In this expression, we assign a loop variable 
-			or loop counter to some value. for example: <code>int i=1;</code>
+			<blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
+			or loop counter to some value. Example: <code>int i=1;</code>
 			<br></br><br></br>
-			Test Expression: In this expression, test conditions are performed. 
+			
+			<blue>Test Expression</blue>: In this expression, test conditions are performed.
+			<br></br>			
 			If the condition evaluates to true then the loop body will be executed and 
-			then an update of the loop variable is done. If the test expression becomes 
+			then an update of the loop variable is done. 
+			<br></br>
+			If the test expression becomes 
 			false then the control will exit from the loop. for example, <code>counter&lt;5;</code>
 			<br></br><br></br>
 			
-			Update Expression: After execution of the loop body loop variable is updated 
+			<blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
 			by some value it could be incremented, decremented, multiplied, or divided by 
 			any value.<br></br><br></br>
 
@@ -171,10 +188,10 @@ for(int counter = 0; counter &lt; 5; counter++)
 }
 </code>
 			<br></br>		
-			The do-while loop is similar to a while loop but the only difference 
+			The <red>do-while loop</red> is similar to a while loop but the only difference 
 			lies in the do-while loop test condition which is tested at the end of 
 			the body. <br></br>
-			In the do-while loop, the loop body will execute at least once 
+			In the <red>do-while loop</red>, the loop body will execute at least once 
 			irrespective of the test condition.<br></br>
 <code>
 <red>/*Do while loop syntax: */</red>
@@ -828,7 +845,7 @@ C |= 2 is same as C = C | 2
 		</decorators>
 		<generic-programming>
 			Generic programming is a style of computer programming in which algorithms are 
-			written in terms of data types to-be-specified-later that are then instantiated 
+			written in terms of <red>data types to-be-specified-later</red> that are then instantiated 
 			when needed for specific types provided as parameters.<br></br>
 		</generic-programming>
 	</programming_language>
@@ -881,8 +898,10 @@ C |= 2 is same as C = C | 2
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*
 			<br></br>
+			<green>
 			The C programming language, as of C99, supports complex number math with the three 
 			built-in <code>Complex types</code>:
+			</green>
 			<br></br>
 			<code>double _Complex</code><br></br>
 			<code>float _Complex</code><br></br>
