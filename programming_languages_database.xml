@@ -461,12 +461,12 @@ int main()
 			<br></br>
 			Command line <red>arguments</red> are used to control the program from 
 			the outside. <code>argv[argc]</code> is a <red>NULL</red> pointer. 
-			<br></br>
+			<br></br><br></br>
 			The name of the program is 
 			stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
 			and the	last argument in <code>argv[n]</code>.
 			<br></br><br></br>
-			<code>argc (ARGument Count)</code> is an integer variable that stores the number of 
+			<code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores the number of 
 			command-line 
 			<red>arguments</red> passed by the user including the name of the program. 
 			<br></br>
@@ -477,7 +477,7 @@ int main()
 			<blue>The value of argc should be non-negative.</blue>
 			
 			<br></br><br></br>
-			<code>argv (ARGument Vector)</code> is an array of character pointers listing all the <red>arguments</red>.
+			<code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers listing all the <red>arguments</red>.
 			<br></br>
 			If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
 			to <code>argv[argc-1]</code> will 
@@ -570,11 +570,11 @@ int main()
 			Careful documentation is required so that other program modules are not affected.<br></br>
 			Some modules may partly repeat the task performed by other modules. Hence, 
 			Modular programs need more memory space and extra time for execution.<br></br>
-			Integrating various modules into a single program may not be a task because 
-			different people working on the design of different modules may not have the 
-			same style.<br></br>
 			It reduces the program's efficiency because testing and debugging are 
 			time-consuming, where each function contains a thousand lines of code.<br></br>
+			Integrating various modules into a single program may not be an easy task because 
+			different people working on the design of different modules may not have the 
+			same style.<br></br>
 			</brown>
 		</modular-programming>
 		<datatype-conversions>
