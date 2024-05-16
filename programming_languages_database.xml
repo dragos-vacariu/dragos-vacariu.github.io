@@ -579,7 +579,9 @@ int main()
 			</blue>
 			<br></br>
 			Ternary operators:  <br></br>
+			<blue>							
 			the ? operator. 	<br></br>
+			</blue>							
 			<br></br>
 			C language is rich in built-in operators and provides the following types of operators −
 			<br></br><br></br>
