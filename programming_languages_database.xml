@@ -262,8 +262,8 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 </code>
 		</dynamic-memory-allocation>
 		<serialization>
-			Serialization is the process of converting a data object—a combination of code and data 
-			represented within a region of data storage—into a series of bytes that saves the state 
+			Serialization is the process of converting a data object — a combination of code and data 
+			represented within a region of data storage — into a series of bytes that saves the state 
 			of the object in an easily transmittable form.<br></br><br></br>
 		</serialization>
 		<deserialization>
@@ -275,7 +275,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			series of bytes for storage or transmission across devices.<br></br><br></br>
 		</deserialization>
 		<enums>
-			Enumeration (or enum) is a user defined data type. <br></br>
+			<red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
 			It is mainly used to 
 			assign names to integral constants, the names make a program easy to read and maintain.
 			<br></br><br></br>
@@ -1082,7 +1082,7 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
 		
 		</read-from-file>
 		<write-to-file>
-			To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.<br></br>
+			To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.
 			<br></br><br></br>
 			<green>
 			Opening a file:
@@ -1163,11 +1163,11 @@ fclose(fptr);
 		<enums>
 			*General-Programming-Knowledge*
 <code>
-/*Examples*/
 //Syntax: enum flag{constant1, constant2, constant3, ....... };
 
 // An example program to demonstrate working
 // of enum in C
+
 #include &lt;stdio.h&gt;
  
 enum week{Mon, Tue, Wed, Thur, Fri, Sat, Sun};
