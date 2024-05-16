@@ -127,15 +127,20 @@
 			<br></br>
 			For, while, do-while loops:<br></br><br></br>
 			
-			<red>
 			While loop does not depend upon the number of iterations. In for loop the number 
 			of iterations was previously known to us but in the While loop, the execution 
 			is terminated on the basis of the test condition. If the test condition will 
-			become false then it will break from the while loop else body will be executed.<br></br><br></br>
-			<br></br>
-			</red>	
-			
-			<green>
+			become false then it will break from the while loop else body will be executed.
+			<br></br><br></br>
+<code>
+<red>/*While loop syntax: */</red>
+int counter = 0;
+while(counter &lt; 5)
+{
+	/*code goes here*/
+	 counter++;
+}
+</code>
 			In for loop, a loop variable is used to control the loop. Firstly we initialize 
 			the loop variable with some value, then check its test condition. If the 
 			statement is true then control will move to the body and the body of for 
@@ -156,25 +161,7 @@
 			Update Expression: After execution of the loop body loop variable is updated 
 			by some value it could be incremented, decremented, multiplied, or divided by 
 			any value.<br></br><br></br>
-			</green>
-			
-			<blue>
-			<br></br>		
-			The do-while loop is similar to a while loop but the only difference 
-			lies in the do-while loop test condition which is tested at the end of 
-			the body. <br></br>
-			In the do-while loop, the loop body will execute at least once 
-			irrespective of the test condition.<br></br>
-			</blue>
-<code>
-<red>/*While loop syntax: */</red>
-int counter = 0;
-while(counter &lt; 5)
-{
-	/*code goes here*/
-	 counter++;
-}
-</code>
+
 <code>
 <red>/*For loop syntax: */</red>
 for(int counter = 0; counter &lt; 5; counter++)
@@ -183,6 +170,12 @@ for(int counter = 0; counter &lt; 5; counter++)
 	 counter++;
 }
 </code>
+			<br></br>		
+			The do-while loop is similar to a while loop but the only difference 
+			lies in the do-while loop test condition which is tested at the end of 
+			the body. <br></br>
+			In the do-while loop, the loop body will execute at least once 
+			irrespective of the test condition.<br></br>
 <code>
 <red>/*Do while loop syntax: */</red>
 do
@@ -888,8 +881,9 @@ C |= 2 is same as C = C | 2
 		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
 		<complex-data-types>*General-Programming-Knowledge*
 			<br></br>
-			<code>Complex types</code> - The C programming language, as of C99, supports complex number math with the three 
-			built-in types:<br></br>
+			The C programming language, as of C99, supports complex number math with the three 
+			built-in <code>Complex types</code>:
+			<br></br>
 			<code>double _Complex</code><br></br>
 			<code>float _Complex</code><br></br>
 			<code>long double _Complex</code><br></br>
