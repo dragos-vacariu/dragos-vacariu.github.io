@@ -564,16 +564,30 @@ int main()
 			
 			<green>Disadvantages of modular programming:</green>
 			<br></br><br></br>
-			<blue>Takes more resources</blue> - There is a need for extra time and budget for a product in modular programming.<br></br><br></br>
-			<blue>Higher risk and difficulty</blue> - It is a challenging task to combine all the modules.<br></br><br></br>
-			<blue>Additional efforts</blue> - Careful documentation is required so that other program modules are not affected.<br></br><br></br>
-			<blue>Task repetition and performance impact</blue> - Some modules may partly repeat the task performed by other modules. Hence, 
-			Modular programs need more memory space and extra time for execution.<br></br><br></br>
+			<blue>Takes more resources</blue> - There is a need for extra time and 
+			budget for a product in modular programming.
+			<br></br><br></br>
+			
+			<blue>Higher risk and difficulty</blue> - It is a challenging task to combine all the modules.
+			<br></br><br></br>
+			
+			<blue>Additional efforts</blue> - Careful documentation is required so that other program modules are not affected.
+			<br></br><br></br>
+			
+			<blue>Task repetition and performance impact</blue> - Some modules may partly repeat the task 
+			performed by other modules. Hence, 
+			Modular programs need more memory space and extra time for execution.
+			<br></br><br></br>
+			
 			<blue>Work efficiency impact</blue> - It reduces the program's efficiency because testing and debugging are 
-			time-consuming, where each function contains a thousand lines of code.<br></br><br></br>
+			time-consuming, where each function contains a thousand lines of code.
+			<br></br><br></br>
+			
 			<blue>Affected readability</blue> - Integrating various modules into a single program may not be an easy task because 
 			different people working on the design of different modules may not have the 
-			same style.<br></br><br></br>
+			same style.
+			<br></br><br></br>
+			
 		</modular-programming>
 		<datatype-conversions>
 			<green>Generally there are two types of conversion:</green>
@@ -1425,8 +1439,9 @@ printf("%d", c);
 			<br></br>
 			In C this is achieved by placing 
 			the interface definition in a header file and the implementation in a source 
-			file. Disciplined use of static is used to hide implementation details.
-			<br></br>
+			file. <br></br>
+			The disciplined use of static keyword is practiced in order to hide implementation details.
+			<br></br><br></br>
 <code>
 /*FILE module.h*/
  extern unsigned int Calculate_NoOfChars_In_string(char* str);
