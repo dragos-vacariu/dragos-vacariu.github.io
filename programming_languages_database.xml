@@ -148,10 +148,10 @@ while(counter &lt; 5)
 </code>
 			<br></br>
 			<red>For loop</red> uses a loop variable to control the loop. 
-			<br></br>
+			<br></br><br></br>
 			Firstly	the loop variable is initialized with some value.<br></br>
 			Then its test condition is checked. 
-			<br></br>
+			<br></br><br></br>
 			If the 
 			statement is <red>true</red> then control will move to the body and the body of for 
 			loop will be executed. 
@@ -209,17 +209,11 @@ while(counter &lt; 5)
 			The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. <br></br>
 			The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
 			area in bytes. <br></br>
-			It returns a pointer to the allocated memory.
-			<br></br><br></br>
-			<red>C malloc() method:</red>
-			<br></br><br></br>
-			The “malloc” or “memory allocation” method in C is used to dynamically allocate a single 
-			large block of memory with the specified size. <br></br><br></br>
-			It returns a pointer of type void which 
+			It returns a pointer of type <red>void</red> which 
 			can be cast into a pointer of any form. 
 			<br></br>
-			It doesn’t Initialize memory at execution time 
-			so that it has initialized each block with the default garbage value initially. 
+			It doesn’t initialize the memory at execution time.
+			So each block will initially have a default garbage value. 
 			<br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;
@@ -244,7 +238,7 @@ int main()
 	free(A);
 }
 </code>
-			Calloc function allocates the requested memory and returns a pointer to it similarly to malloc. 
+			<red>Calloc</red> function allocates the requested memory and returns a pointer to it similarly to <red>malloc</red>. 
 			<br></br><br></br>
 			The <code>malloc()</code> and <code>calloc()</code> do differentiate in how the functions are used when allocating 
 			memory at runtime. <br></br><br></br>
@@ -277,7 +271,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			series of bytes for storage or transmission across devices.<br></br><br></br>
 		</deserialization>
 		<enums>
-			Enumeration (or enum) is a user defined data type in C. <br></br>
+			Enumeration (or enum) is a user defined data type. <br></br>
 			It is mainly used to 
 			assign names to integral constants, the names make a program easy to read and maintain.
 			<br></br><br></br>
