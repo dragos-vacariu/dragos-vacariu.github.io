@@ -1182,7 +1182,10 @@ int main()
 </code>
 		</enums>
 		<multi-threading>
+		*General-Programming-Knowledge*<br></br>
 <code>
+/*Example of using multi-threading in C Language*/
+
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;unistd.h&gt; //Header file for sleep(). man 3 sleep for details. 
