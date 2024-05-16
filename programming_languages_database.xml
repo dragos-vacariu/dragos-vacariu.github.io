@@ -149,10 +149,13 @@ while(counter &lt; 5)
 	 counter++;
 }
 </code>
+			<br></br>
 			In <red>for loop</red>, a loop variable is used to control the loop. 
 			<br></br>
 			Firstly we initialize 
-			the loop variable with some value, then check its test condition. If the 
+			the loop variable with some value, then check its test condition. 
+			<br></br>
+			If the 
 			statement is true then control will move to the body and the body of for 
 			loop will be executed. 
 			<br></br>
@@ -900,7 +903,7 @@ C |= 2 is same as C = C | 2
 			<br></br>
 			<green>
 			The C programming language, as of C99, supports complex number math with the three 
-			built-in <code>Complex types</code>:
+			built-in complex types:
 			</green>
 			<br></br>
 			<code>double _Complex</code><br></br>
