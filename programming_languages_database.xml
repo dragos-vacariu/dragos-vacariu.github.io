@@ -262,7 +262,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 </code>
 		</dynamic-memory-allocation>
 		<serialization>
-			Serialization is the process of converting a data object (a combination of code and data 
+			Serialization is the process of converting a <red>data object</red> (a combination of code and data 
 			represented within a region of data storage) into a series of bytes that saves the state 
 			of the object in an easily transmittable form.<br></br><br></br>
 		</serialization>
@@ -362,15 +362,15 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			complement form where the leftmost bit is the sign bit).<br></br>
 		</bitwise-operators>
 		<macros>
-			Macros in C are powerful tools that allow developers to define reusable code snippets. 
+			Macros are powerful tools that allow developers to define reusable code snippets. 
 			<br></br>
 			They are defined using preprocessor directives and primarily used for code substitution 
 			and generation. 
 			<br></br>
 			Macros provide a convenient way to write concise and efficient code, 
-			improving the readability and maintainability of C programs.<br></br>
+			improving the readability and maintainability of programs.<br></br>
 <code>
-// C program to illustrate macros
+// Program to illustrate macros
 #include &lt;stdio.h&gt;
  
 // Macro definition
@@ -440,7 +440,7 @@ int main()
 </code>
 		</macros>
 		<defines>
-			In C programming, <code>#define</code> is a preprocessor directive that is used to define macros. 
+			In programming, <code>#define</code> is a preprocessor directive that is used to define macros. 
 			The macros are the identifiers defined by #define which are replaced by their value before 
 			compilation. <br></br><br></br>
 			We can define constants and functions like macros using <code>#define</code>.
@@ -1219,9 +1219,13 @@ int main()
 		</multi-threading>
 		<exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
 		<bitwise-operators>
+			*General-Programming-Knowledge*
+			<br></br>
 <code>
 // Example on how to use the bitwise operators:
+
 #include &lt;stdio.h&gt;
+
 int main()
 {
     // a = 5(00000101), b = 9(00001001)
@@ -1262,7 +1266,6 @@ int main()
 	*/
 }
 </code>
-			*General-Programming-Knowledge*
 		</bitwise-operators>
 		<default-parameters>
 			*General-Programming-Knowledge*
