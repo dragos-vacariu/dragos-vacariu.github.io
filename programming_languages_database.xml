@@ -551,8 +551,12 @@ int main()
 		</datatype-conversions>
 		<operators>
 			An operator is a symbol that tells the compiler to perform specific mathematical or 
-			logical functions. By definition, an operator performs a certain operation on 
-			operands. An operator needs one or more operands for the operation to be performed.<br></br>
+			logical functions. 
+			<br></br>
+			By definition, an operator performs a certain operation on 
+			operands. 
+			<br></br>
+			An operator needs one or more operands for the operation to be performed.<br></br>
 			<br></br>
 			Depending on how many operands are required to perform the operation, operands are called as 
 			unary, binary or ternary operators. They need one, two or three operands respectively.<br></br>
@@ -585,13 +589,11 @@ B % A = 0
 
 ++ <red>is the Increment operator, it increases the integer value by one.</red>
 A++ = 11
-<red>++ IS NOT AVAILABLE IN PYTHON.</red>
 
 -- <red>is the Decrement operator, it decreases the integer value by one.</red>
 A-- = 9
-<red>-- IS NOT AVAILABLE IN PYTHON.</red>
 </code>
-		<green><br></br>Relational Operators<br></br></green>
+		<green><br></br>Relational Operators:<br></br></green>
 <code>
 == <red>it checks if the values of two operands are equal or not. 
 If yes, then the condition becomes true.</red>
@@ -617,7 +619,7 @@ If yes, then the condition becomes true.</red>
 If yes, then the condition becomes true.</red>
 (A &lt;= B) is true.
 </code>
-		<green><br></br>Logical Operators<br></br></green>
+		<green><br></br>Logical Operators:<br></br></green>
 <code>
 	
 &#38;&#38; <red>it's called Logical AND operator. Results in TRUE if both the operands are non-zero, 
@@ -632,7 +634,7 @@ then the condition becomes true.</red>
 If a condition is true, then Logical NOT operator will make it false.</red>
 !(A &#38;&#38; B) is true.
 </code>
-		<br></br>Bitwise Operators<br></br>
+		<green><br></br>Bitwise Operators:<br></br></green>
 <code>
 &#38; <red>binary AND Operator copies a bit to the result if it exists in both operands.</red>	
 (A &#38; B) = 12, i.e., 0000 1100
@@ -654,7 +656,7 @@ A &lt;&lt; 2 = 240 i.e., 1111 0000
 The left operands value is moved right by the number of bits specified by the right operand.</red>
 A &gt;&gt; 2 = 15 i.e., 0000 1111
 </code>
-		<green><br></br>Assignment Operators<br></br></green>
+		<green><br></br>Assignment Operators:<br></br></green>
 <code>
 = <red>is the assignment operator. 
 Assigns values from right side operands to left side operand.</red>
