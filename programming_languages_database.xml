@@ -471,8 +471,8 @@ int main()
 			<red>arguments</red> passed by the user including the name of the program. 
 			<br></br>
 			So if we pass a 
-			value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for argument and one for 
-			program name). 
+			value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for <red>argument</red> and one for 
+			<red>program name</red>). 
 			<br></br><br></br>
 			<blue>The value of argc should be non-negative.</blue>
 			
@@ -515,7 +515,7 @@ int main()
 			<blue>
 			The first is a comparison argument;<br></br>
 			The second is the result upon a true comparison;<br></br>
-			The third is the result upon a false comparison;<br></br>
+			The third is the result upon a false comparison;<br></br><br></br>
 			</blue>
 		</ternary-operator>
 		<modular-programming>
@@ -1555,6 +1555,7 @@ sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, 
 		</operators>
 		<pre-post-incrementation>
 			*General-Programming-Knowledge*
+			<br></br>
 <code>
 //pre increment operator
 
@@ -1572,11 +1573,12 @@ int main()
     return 0;
 	
 	/*
-	OUTPUT: 
-	a = 11
-	x = 11
+		OUTPUT: 
+		a = 11
+		x = 11
 	*/
 </code>
+
 <code>
 //post increment operator
 
@@ -1594,9 +1596,9 @@ int main()
     return 0;
 	
 	/*
-	OUTPUT: 
-	a = 10
-	x = 11
+		OUTPUT: 
+		a = 10
+		x = 11
 	*/
 
 }
