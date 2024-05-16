@@ -262,17 +262,17 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 </code>
 		</dynamic-memory-allocation>
 		<serialization>
-			Serialization is the process of converting a <red>data object</red> (a combination of code and data 
-			represented within a region of data storage) into a series of bytes that saves the state 
+			Serialization is the process of converting a <red>data object</red> <blue>(a combination of code and data 
+			represented within a region of data storage)</blue> into a series of bytes that saves the state 
 			of the object in an easily transmittable form.<br></br><br></br>
 		</serialization>
 		<deserialization>
-			Deserialization is the process of reconstructing a data structure or object from a series 
+			Deserialization is the process of <red>reconstructing a data structure or object</red> from a series 
 			of bytes or a string in order to instantiate the object for consumption. 
 			<br></br><br></br>
 			This is the 
-			reverse process of serialization, i.e., converting a data structure or object into a 
-			series of bytes for storage or transmission across devices.<br></br><br></br>
+			reverse process of serialization, <red>i.e., converting a data structure or object into a 
+			series of bytes for storage or transmission across devices</red>.<br></br><br></br>
 		</deserialization>
 		<enums>
 			<red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
@@ -360,9 +360,11 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			<br></br><br></br>
 			The result of the <code>~</code> operator on a small number can be a big number if the result 
 			is stored in an unsigned variable. <br></br>
+			<red>
 			The result may be a negative number if the result 
-			is stored in a signed variable (assuming that the negative numbers are stored in 2’s 
+			is stored in a signed variable (assuming that the negative numbers are stored into a
 			complement form where the leftmost bit is the sign bit).<br></br>
+			</red>
 		</bitwise-operators>
 		<macros>
 			Macros are powerful tools that allow developers to define reusable code snippets. 
@@ -802,9 +804,11 @@ C |= 2 is same as C = C | 2
 			program keeps running.<br></br>
 		</exception-handling>
 		<default-parameters>
-			A default parameter/argument is a value provided in a function declaration that is 
+			A <red>default parameter/argument</red> is a value provided in a function declaration that is 
 			automatically assigned by the compiler if the calling function doesn’t provide 
-			a value for the argument. In case any value is passed, the default value is 
+			a value for the argument. <br></br>
+			<br></br>
+			In case any value is passed, the default value is 
 			overridden. <br></br>
 		</default-parameters>
 		<interfaces>
@@ -1273,8 +1277,8 @@ int main()
 			*General-Programming-Knowledge*
 			<br></br>
 			There are no default parameters in C. <br></br><br></br>
-			One way to achieve this is by passing NULL pointers and 
-			then set the values to the default if NULL is passed.
+			But one way to achieve this is by passing <red>NULL</red> pointers and 
+			then set the values to the default if <red>NULL</red> is passed.
 		</default-parameters>
 		<interfaces>
 			*General-Programming-Knowledge*
