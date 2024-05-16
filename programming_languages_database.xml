@@ -610,9 +610,9 @@ int main()
 			<br></br><br></br>
 			Ternary operators − The <code>?</code> operator.
 			<br></br><br></br>
-			C language is rich in built-in operators and provides the following types of operators −
+			<green>Most programming languages are rich in built-in operators and provides the following types of operators:</green>
 			<br></br><br></br>
-			Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
+			<brown>Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br></brown>
 			<green>Arithmetic Operators: <br></br></green>
 <code>
 + <red>it adds two operands.</red>
@@ -859,7 +859,7 @@ C |= 2 is same as C = C | 2
 			classes that correspond to the specific types of the application.<br></br>
 		</abstract-classes>
 		<optional-parameters>
-			A parameter with a default value, is often known as an "optional parameter".
+			A parameter with a default value, is often known as an <blue>"optional parameter"</blue>.
 			<br></br><br></br> 
 			For more information see the <blue>default-parameters</blue> section.
 		</optional-parameters>
@@ -1543,7 +1543,7 @@ printf("User's percentage is %.2f", percentage);
 		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
 		<operators>
 			*General-Programming-Knowledge*
-			<green><br></br>Misc Operators<br></br></green>
+			<green><br></br>Misc Operators:<br></br></green>
 <code>
 sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, will return 4.</red>
 &#38;  <red>it returns the address of a variable. &#38;a; returns the actual address of the variable.</red>
