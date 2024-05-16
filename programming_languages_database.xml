@@ -561,12 +561,26 @@ int main()
 			Depending on how many operands are required to perform the operation, operands are called as 
 			unary, binary or ternary operators. They need one, two or three operands respectively.<br></br>
 			<br></br>
-			Unary operators − <code>++</code> (increment), <code>--</code> (decrement), <code>!</code> (NOT), <code>~</code> (compliment), <code>&#38;</code> (address of), <code>*</code> (dereference)
-			<br></br><br></br>
-			Binary operators − arithmetic, logical and relational operators except !
-			<br></br><br></br>
-			Ternary operators − The <code>?</code> operator.
-			<br></br><br></br>
+			Unary operators: 		
+			<blue>					<br></br>
+			++ (increment);			<br></br>
+			-- (decrement);			<br></br>
+			! (NOT);				<br></br>
+			~ (compliment);			<br></br>
+			&#38; (address of);		<br></br>
+			* (dereference); 		<br></br>
+			</blue>
+			<br></br>
+			Binary operators: 				<br></br>
+			<blue>							<br></br>
+			arithmetic;				        <br></br>
+			logical;                        <br></br>
+			relational operators except !;	<br></br>
+			</blue>
+			<br></br>
+			Ternary operators:  <br></br>
+			the ? operator. 	<br></br>
+			<br></br>
 			C language is rich in built-in operators and provides the following types of operators −
 			<br></br><br></br>
 			Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: <br></br><br></br>
@@ -1432,7 +1446,7 @@ printf("User's percentage is %.2f", percentage);
 		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
 		<operators>
 			*General-Programming-Knowledge*
-			<green><br></br>Misc Operators<br></br></green>
+			<green><br></br>Misc Operators:<br></br></green>
 <code>
 sizeof() <red>it returns the size of a variable. sizeof(a), where a is integer, will return 4.</red>
 &#38;  <red>it returns the address of a variable. &#38;a; returns the actual address of the variable.</red>
