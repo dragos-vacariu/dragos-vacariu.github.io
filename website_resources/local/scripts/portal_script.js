@@ -38,10 +38,6 @@ const concept_value_style = "vertical-align: top; color: black; font-family: Tah
 
 function cookieHandling()
 {
-	console.log("Cookie Loaded");
-	console.log("------------");
-	console.log(document.cookie);
-	console.log("------------");
 	//reading from the cookie file:
 	if(document.cookie.length > 0)
 	{
