@@ -1610,19 +1610,25 @@ printf("User's percentage is %.2f", percentage);
 		<operators>
 			*General-Programming-Knowledge*
 			<green><br></br>Misc Operators:<br></br></green>
+				<br></br> 
 				<code>sizeof()</code><br></br> 
-				<red>it returns the size of a variable. sizeof(a), 
+				<red>It returns the size of a variable. <br></br>
+				<code>sizeof(a)</code>, 
 				where <code>a</code> is integer, will return <blue>4</blue>.</red>
 				<br></br><br></br>
 				<code>&#38;</code><br></br>
-				<red>it returns the <blue>address</blue> of a variable. &#38;a; returns the actual 
+				<red>It returns the <blue>address</blue> of a variable.<br></br> 
+				<code>&#38;a;</code> 
+				returns the actual 
 				address of the variable.</red>
 				<br></br><br></br>
 				<code>*</code><br></br>
-				<red>Pointer to a variable. *a;</red>
+				<red>Pointer to a variable.<br></br>
+				<code>*a;</code></red>
 				<br></br><br></br>
 				<code>? :</code><br></br>
-				<red>Conditional Expression. If Condition is <code>true</code> <blue>?</blue> 
+				<red>Conditional Expression. <br></br>
+				If Condition is <code>true</code> <blue>?</blue> 
 				then value X <blue>:</blue> otherwise value Y; </red>
 				<br></br>
 		</operators>
