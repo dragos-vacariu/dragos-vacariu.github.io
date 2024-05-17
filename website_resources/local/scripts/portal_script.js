@@ -674,12 +674,15 @@ function format_XML_Document_Content(xml_Document_Content)
 		for(var i=0; i < lines.length; i++)
 		{
 			//Format the comments within the code elements with different style.
-			//lines[i] = formatComments(lines[i]);
-			var spaces = " ".repeat(3-String(i).length);
+			console.log("Before: " + lines[i]);
+			lines[i] = formatComments(lines[i]);
+			var spaces = " ".repeat(4-String(i).length);
+			console.log("After: " + lines[i]);
 			
 			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
 			{
+				//Insert lineNumber and content in different table columns
 				lines[i] = "<tr>" + "<td style='width:26px; text-align:left; padding:0px;" +
 				"margin:0px; border: solid 1px black;'>" +
 				"<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + 
@@ -687,7 +690,15 @@ function format_XML_Document_Content(xml_Document_Content)
 				"</td>" + "</tr>";
 			}
 		}
-		codeElements[index].innerHTML = "<table>" + lines.join("\n") + "</table>";
+		//if we have multiline code means we need to use table as we've added LineNumbers
+		if(lines.length > 1)
+		{
+			codeElements[index].innerHTML = "<table>" + lines.join("\n") + "</table>";
+		}
+		else
+		{
+			codeElements[index].innerHTML = lines.join("\n");
+		}
 		
 		//Put the code elements with more than 2 lines into a box
 		if(codeElements[index].innerHTML.split("\n").length > 2)
@@ -708,29 +719,46 @@ function addStyleCodeBoxes(contentToPutInBox)
 	return contentToPutInBox;
 }
 
-function formatComments(line)
+function formatComments(line, multiline_comment)
 {
 	
 	//use if instead of if-else as the line can contain all of them at the same time.
 	
 	if(String(line).includes("//")) // do not add line number to single-line content
 	{
-		line = line.replace("//", "<red>//");
-		line = line + "</red>";
+		line = line.replace("//", "<comment>//");
+		line = line + "</comment>";
 	}
-	if(String(line).includes("/*"))
+	
+	if(String(line).includes("/*") && String(line).includes("*/"))
 	{
-		line = line.replace("/*", "<red>/*");
-	}
-	if(String(line).includes("*/"))
-	{
-		line = line.replace("*/", "*/</red>");
+		line = line.replace("/*", "<comment>/*");
+		line = line.replace("*/", "*/</comment>");
+		multiline_comment=true;
 	}
 	//if Python Comment
 	if( String(line).includes("#") && String(line).includes("#define")==false && String(line).includes("#include")==false )
 	{
-		line = line.replace("#", "<red>#");
-		line = line + "</red>";
+		line = line.replace("#", "<comment>#");
+		line = line + "</comment>";
+	}
+	
+	//if comment on multiple lines
+	if(String(line).includes("/*"))
+	{
+		line = line.replace("/*", "<comment>/*");
+		line = line + "</comment>";
+		multiline_comment=true;
+	}
+	else if(multiline_comment==true)
+	{
+		line = "<comment>" + line + "</comment>";
+	}
+	else if (String(line).includes("*/") || multiline_comment==true)
+	{
+		line = line.replace("*/", "*/</comment>");
+		line = "<comment>" + line;
+		multiline_comment=undefined;
 	}
 	return line;
 }

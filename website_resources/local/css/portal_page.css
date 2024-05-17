@@ -210,6 +210,10 @@
   height: auto;
 }
 
+#page_block code comment{
+	color: #aa0000;
+}
+
 #page_block red{
 	color: #aa0000;
 	font-family: Tahoma;
