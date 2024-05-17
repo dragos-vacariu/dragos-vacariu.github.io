@@ -644,21 +644,24 @@ int main()
 				B / A = 2<br></br>
 				<br></br>
 				
-				% <red>is the Modulus Operator it gives the remainder after an integer division.</red><br></br>
+				% <red>is the Modulus Operator.</red><br></br>
+				<blue>It gives the remainder after an integer division.</blue><br></br>
 				B % A = 0<br></br>
 				<br></br><br></br>
 				
-				++ <red>is the Increment operator, it increases the integer value by one.</red><br></br>
+				++ <red>is the Increment operator. </red>
+				<blue>It increases the integer value by one.</blue><br></br>
 				A++ = 11<br></br>
 				<br></br>
-				-- <red>is the Decrement operator, it decreases the integer value by one.</red><br></br>
+				-- <red>is the Decrement operator.</red>
+				<blue>It decreases the integer value by one.</blue><br></br>
 				A-- = 9<br></br>
 				<br></br>
 				<green><br></br>Relational Operators:<br></br></green>
 				<br></br>
 				
 				== <red>it checks if the values of two operands are equal or not. </red><br></br>
-				</blue>If yes, then the condition becomes true.</blue><br></br>
+				<blue>If yes, then the condition becomes true.</blue><br></br>
 				(A == B) is not true.<br></br>
 				<br></br>
 
@@ -675,7 +678,7 @@ int main()
 
 				&lt; <red>it checks if the value of left operand is less than the value of 
 				right operand.</red><br></br>
-				</blue>If yes, then the condition becomes true.</blue><br></br>
+				<blue>If yes, then the condition becomes true.</blue><br></br>
 				(A &lt; B) is true.<br></br>
 				<br></br>
 
@@ -760,7 +763,7 @@ int main()
 				the result to the left operand.</blue><br></br>	
 				C *= A is equivalent to C = C * A<br></br>
 				<br></br>
-				/= <red>the divide AND assign operator. <br></br></red>
+				/= <red>the divide AND assign operator. </red><br></br>
 				<blue>It divides the left operand with the right operand and assigns the 
 				result to the left operand.</blue><br></br>
 				C /= A is equivalent to C = C / A<br></br>
