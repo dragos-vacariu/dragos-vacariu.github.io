@@ -2040,7 +2040,8 @@ int main()
 		</generic-programming>
 		<variable-arguments-lists>
 			The variable number of arguments in C++ is a feature that permits a function to 
-			accept any number of arguments. This type of function is called <red>variadic functions</red>.
+			accept any number of arguments.<br></br>
+			This type of function is called <red>variadic functions</red>.
 			<br></br><br></br>
 			Functions with a variable number of arguments in C++ can be easily implemented using 
 			a <red>vector</red> or an <red>array</red> if all the arguments are the same type.
@@ -2049,7 +2050,7 @@ int main()
 			to implement <red>variadic functions</red>.
 			<br></br><br></br>
 			<red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
-			They also do not perform integer and floating-point enhancements.
+			<brown>They also do not perform integer and floating-point enhancements.</brown>
 			<br></br>
 <code>
 // Implementation of variable arguments using vector.
@@ -2141,18 +2142,20 @@ int main() {
 </code>
 		</variable-arguments-lists>
 		<simple-data-types>
-			All variables use data type during declaration to restrict the type of data to 
-			be stored. Therefore, we can say that data types are used to tell the variables 
-			the type of data they can store. <br></br>
-			Whenever a variable is defined in C++, 
-			the compiler allocates some memory for that variable based on the data type 
-			with which it is declared. Every data type requires a different amount of memory.
+			All <red>variables</red> use data type during declaration to <blue>restrict</blue> the type of data to 
+			be stored. <br></br>
+			Therefore, we can say that data types are used to tell the variables 
+			the type of data they can store. <br></br><br></br>
+			Whenever a <red>variable</red> is defined in C++, 
+			the compiler allocates some memory for that <red>variable</red> based on the data type 
+			with which it is declared. <br></br><br></br>
+			Every data type requires a different amount of memory.
 			<br></br><br></br>
-			The datatypes presented on C Language are still available in C++:
+			<green>The datatypes presented on C Language are still available in C++:</green>
 			<br></br><br></br>
 			*General-Programming-Knowledge*
 			<br></br><br></br>
-			<green>Primitive Datatypes:</green><br></br>
+			<green>Primitive Datatypes:</green><br></br><br></br>
 			<blue>
 			Integer<br></br>
 			Character<br></br>
