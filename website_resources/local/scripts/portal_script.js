@@ -128,7 +128,7 @@ function updateCookie(property, value)
 	console.log(document.cookie);
 	console.log("============");
 	console.log("Elements after split: " + cookie_elements);
-	var matchIndex = cookie_elements.findIndex(element => element == String(property + "=" + value) );
+	var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) );
 	console.log("Match Index = " + matchIndex);
 	if(matchIndex >= 0)
 	{
