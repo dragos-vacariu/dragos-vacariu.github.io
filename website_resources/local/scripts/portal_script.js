@@ -62,26 +62,33 @@ function setCookie()
 	{
 		var pairs = cookie_elements[i].split("=");
 		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
-		var language_index = programming_languages.findIndex(element => element.name == pairs[0]) -1; // -1 because General-Programming-Knowledge is not available for display
 		/*
 		The findIndex() method of Array instances returns the index of the first element in an 
 		array that satisfies the provided testing function. If no elements satisfy the testing 
 		function, -1 is returned.
 		*/
-		console.log(pairs[0] + " " + pairs[1]);
+		
+		//find index of language within html collection
+		var language_index = -1;
+		for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
+		{
+			if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
+			{
+				language_index = lang_sel_index;
+			}
+		}
+
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
 			{
 				//Set paragraph view to true
 				switchToParagraphView();
-				console.log("Switch to paragraph view");
 			}
 			else
 			{
 				//Set table view to true
 				switchToTableView();
-				console.log("Switch to table view");
 			}
 		}
 		else if(concept_index >= 0)
@@ -93,13 +100,11 @@ function setCookie()
 			{
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
-				console.log(concept_selection.children[concept_index].innerHTML + " set true");
 			}
 			else
 			{
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
-				console.log(concept_selection.children[concept_index].innerHTML + " set false");
 			}
 		}
 		else if( language_index >= 0 )
@@ -108,13 +113,11 @@ function setCookie()
 			{
 				programming_language_selection.children[language_index].value = true;
 				programming_language_selection.children[language_index].style.opacity = 1.0;
-				console.log(programming_language_selection.children[language_index].innerHTML + " set true");
 			}
 			else
 			{
 				programming_language_selection.children[language_index].value = false;
 				programming_language_selection.children[language_index].style.opacity = 0.3;
-				console.log(programming_language_selection.children[language_index].innerHTML + " set false");
 			}				
 		}
 	}
@@ -124,12 +127,7 @@ function setCookie()
 function updateCookie(property, value)
 {
 	var cookie_elements = document.cookie.split(cookie_element_separator);
-	console.log("Before update");
-	console.log(document.cookie);
-	console.log("============");
-	console.log("NEW: Elements after split: " + cookie_elements);
 	var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
-	console.log("Match Index = " + matchIndex);
 	if(matchIndex >= 0)
 	{
 		var pairs = cookie_elements[matchIndex].split("=");
@@ -147,10 +145,7 @@ function updateCookie(property, value)
 		}
 		document.cookie += element;
 	}
-	console.log("After update");
-	console.log(document.cookie);
-	console.log("============");
-	console.log("");
+	//console.log("Cookie Update.");
 }
 
 class Programming_Language
