@@ -649,11 +649,11 @@ int main()
 				B % A = 0<br></br>
 				<br></br><br></br>
 				
-				++ <red>is the Increment operator. </red>
+				++ <red>is the Increment operator. </red><br></br>
 				<blue>It increases the integer value by one.</blue><br></br>
 				A++ = 11<br></br>
 				<br></br>
-				-- <red>is the Decrement operator.</red>
+				-- <red>is the Decrement operator.</red><br></br>
 				<blue>It decreases the integer value by one.</blue><br></br>
 				A-- = 9<br></br>
 				<br></br>
@@ -713,6 +713,7 @@ int main()
 				<blue>It is used to reverse the logical state of 
 				its operand. 
 				If a condition is true, then Logical NOT operator will make it false.</blue>
+				<br></br>
 				!(A &#38;&#38; B) is true.<br></br>
 				<br></br>
 				
@@ -722,13 +723,16 @@ int main()
 				(A &#38; B) = 12, i.e., 0000 1100<br></br>
 				<br></br>
 
-				| <red>binary OR Operator copies a bit if it exists in either operand.</red><br></br>
+				| <red>binary OR Operator.</red>
+				<blue>It copies a bit if it exists in either operand.</blue><br></br>
 				(A | B) = 61, i.e., 0011 1101<br></br>
 				<br></br>
-				^ <red>binary XOR Operator copies the bit if it is set in one operand but not both.</red><br></br>
+				^ <red>binary XOR Operator.</red>
+				<blue>It copies the bit if it is set in one operand but not both.</blue><br></br>
 				(A ^ B) = 49, i.e., 0011 0001<br></br>
 				<br></br>
-				~ <red>binary One's Complement Operator is unary and has the effect of 'flipping' bits.</red><br></br>
+				~ <red>binary One's Complement Operator.</red>
+				<blue>Is unary and has the effect of 'flipping' bits.</blue><br></br>
 				(~A ) = ~(60), i.e,. -0111101<br></br>
 				<br></br>
 				&lt;&lt; <red>binary Left Shift Operator.</red> <br></br>
