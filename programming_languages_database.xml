@@ -2052,8 +2052,8 @@ int main()
 			If all arguments are of different types, then we need to use the <code>cstdarg</code> header file 
 			to implement <red>variadic functions</red>.
 			<br></br><br></br>
-			<brown><red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
-			They also do not perform integer and floating-point enhancements.</brown>
+			<blue><red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
+			They also do not perform integer and floating-point enhancements.</blue>
 			<br></br>
 <code>
 // Implementation of variable arguments using vector.
@@ -2217,14 +2217,15 @@ for (int i : myNumbers)
 			<green>
 				Vector: 
 			</green>
+			<br></br><br></br>
 			The C++ Standard Library vector class is a class template for sequence containers.<br></br>
 			<br></br>
 			<blue>
-			Vector is a type of dynamic array which has the ability to resize 
-			automatically after insertion or deletion of elements. <br></br>
+			Vector is a type of <red>dynamic array</red> which has the ability to <red>resize 
+			automatically</red> after insertion or deletion of elements. <br></br>
 			The elements in vector 
 			are placed in contiguous storage so that they can be accessed and traversed using 
-			iterators. <br></br>
+			<red>iterators</red>. <br></br>
 			Element is inserted at the end of the vector.<br></br><br></br>
 			</blue>
 <code>
@@ -2252,12 +2253,13 @@ int main()
 		<green>
 		List: 
 		</green>
+		<br></br><br></br>
 		<blue>
-		List is a double linked sequence that supports both forward and backward 
+		List is a <red>double linked sequence</red> that supports both forward and backward 
 		traversal. <br></br>
 		The time taken in the insertion and deletion in the beginning, end 
 		and middle is constant.<br></br> 
-		It has the non-contiguous memory and there is no 
+		It has the <red>non-contiguous memory</red> and there is no 
 		pre-allocated memory.<br></br>
 		</blue>
 <code>
@@ -2280,7 +2282,8 @@ int main()
 </code>
 		</collections>
 		<collection-methods>
-			Some of the methods available in C++ for the Collection Type Classes: Vector or List are:
+			Some of the methods available in C++ for the Collection Type Classes: 
+			<red>Vector</red> or <red>List</red> are:
 			<br></br><br></br>
 			<red>Capacity:</red><br></br>
 			<code>size()	</code><br></br>Return size<br></br><br></br>
