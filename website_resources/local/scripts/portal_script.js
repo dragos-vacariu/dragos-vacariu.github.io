@@ -39,7 +39,6 @@ const concept_value_style = "vertical-align: top; color: black; font-family: Tah
 function cookieHandling()
 {
 	//reading from the cookie file:
-	alert(document.cookie);
 	if(document.cookie.length > 0)
 	{
 		/*If cookie -> setCookie will also set the view.*/
@@ -85,30 +84,32 @@ function setCookie()
 			/*The concept_selection.children were added based on concept_collection array. 
 			So they wear same index.
 			*/
-			alert(concept_selection.children[concept_index].innerHTML + " changing.");
 			if(pairs[1]=="1")
 			{
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
+				alert(concept_selection.children[concept_index].innerHTML + " true.");
 			}
 			else
 			{
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
+				alert(concept_selection.children[concept_index].innerHTML + " false.");
 			}
 		}
 		else if( language_index >= 0 )
 		{
-			alert(programming_language_selection.children[language_index].innerHTML + " changing.");
 			if(pairs[1]=="1")
 			{
 				programming_language_selection.children[language_index].value = true;
 				programming_language_selection.children[language_index].style.opacity = 1.0;
+				alert(programming_language_selection.children[language_index].innerHTML + " true.");
 			}
 			else
 			{
 				programming_language_selection.children[language_index].value = false;
 				programming_language_selection.children[language_index].style.opacity = 0.3;
+				alert(programming_language_selection.children[language_index].innerHTML + " false.");
 			}				
 		}
 	}
