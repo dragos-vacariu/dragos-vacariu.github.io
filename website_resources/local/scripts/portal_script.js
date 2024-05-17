@@ -38,6 +38,10 @@ const concept_value_style = "vertical-align: top; color: black; font-family: Tah
 
 function cookieHandling()
 {
+	console.log("Cookie Loaded");
+	console.log("------------");
+	console.log(document.cookie);
+	console.log("------------");
 	//reading from the cookie file:
 	if(document.cookie.length > 0)
 	{
@@ -64,18 +68,20 @@ function setCookie()
 		array that satisfies the provided testing function. If no elements satisfy the testing 
 		function, -1 is returned.
 		*/
-		
+		console.log(pairs[0] + " " + pairs[1]);
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
 			{
 				//Set paragraph view to true
 				switchToParagraphView();
+				console.log("Switch to paragraph view");
 			}
 			else
 			{
 				//Set table view to true
 				switchToTableView();
+				console.log("Switch to table view");
 			}
 		}
 		else if(concept_index >= 0)
@@ -87,11 +93,13 @@ function setCookie()
 			{
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
+				console.log(concept_selection.children[concept_index].innerHTML + " set true");
 			}
 			else
 			{
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
+				console.log(concept_selection.children[concept_index].innerHTML + " set false");
 			}
 		}
 		else if( language_index >= 0 )
@@ -100,11 +108,13 @@ function setCookie()
 			{
 				programming_language_selection.children[language_index].value = true;
 				programming_language_selection.children[language_index].style.opacity = 1.0;
+				console.log(programming_language_selection.children[language_index].innerHTML + " set true");
 			}
 			else
 			{
 				programming_language_selection.children[language_index].value = false;
 				programming_language_selection.children[language_index].style.opacity = 0.3;
+				console.log(programming_language_selection.children[language_index].innerHTML + " set false");
 			}				
 		}
 	}
@@ -114,6 +124,9 @@ function setCookie()
 function updateCookie(property, value)
 {
 	var cookie_elements = document.cookie.split(cookie_element_separator);
+	console.log("Before update");
+	console.log(document.cookie);
+	console.log("============");
 	var matchIndex = cookie_elements.findIndex(element => element == String(property + "=" + value) );
 	if(matchIndex >= 0)
 	{
@@ -132,6 +145,10 @@ function updateCookie(property, value)
 		}
 		document.cookie += element;
 	}
+	console.log("After update");
+	console.log(document.cookie);
+	console.log("============");
+	console.log("");
 }
 
 class Programming_Language
