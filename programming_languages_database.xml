@@ -1420,8 +1420,9 @@ else
 }
 
 printf("%d", c);
-<code>
 </code>
+
+<code>
 /*Using TERNARY operator:*/
 
 int a = 10, b = 20, c;
