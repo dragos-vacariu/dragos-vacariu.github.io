@@ -80,6 +80,9 @@
 			occupies <code>16 bytes</code> memory;
 		</simple-data-types>
 		<complex-data-types>
+			In Programming, data type is an attribute associated with a piece of data that tells a 
+			computer system how to interpret its value. <br></br>
+			<br></br>
 			<green>
 				Data types that are derived from fundamental data types:
 			</green>
@@ -2049,8 +2052,8 @@ int main()
 			If all arguments are of different types, then we need to use the <code>cstdarg</code> header file 
 			to implement <red>variadic functions</red>.
 			<br></br><br></br>
-			<red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
-			<brown>They also do not perform integer and floating-point enhancements.</brown>
+			<brown><red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
+			They also do not perform integer and floating-point enhancements.</brown>
 			<br></br>
 <code>
 // Implementation of variable arguments using vector.
@@ -2169,7 +2172,8 @@ int main() {
 		</simple-data-types>
 		<complex-data-types>
 			*General-Programming-Knowledge*
-			Aditional to the C Language, C++ introduced classes as a user-defined datatype.
+			<br></br>
+			<brown>Aditional to the C Language, C++ introduced classes as a user-defined datatype. </brown>
 			<br></br><br></br>
 			<green>Derived Datatypes:</green><br></br>
 			<blue>
