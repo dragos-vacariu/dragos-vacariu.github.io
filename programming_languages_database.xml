@@ -138,7 +138,7 @@
 			become <red>false</red> then it will break from the while loop else body will be executed.
 			<br></br><br></br>
 <code>
-<red>/*While loop syntax: */</red>
+/*While loop syntax: */
 int counter = 0;
 while(counter &lt; 5)
 {
@@ -182,7 +182,7 @@ while(counter &lt; 5)
 			Example: <code>counter++;</code><br></br><br></br>
 
 <code>
-<red>/*For loop syntax: */</red>
+/*For loop syntax: */
 for(int counter = 0; counter &lt; 5; counter++)
 {
 	/*code goes here*/
@@ -195,7 +195,7 @@ for(int counter = 0; counter &lt; 5; counter++)
 			In the <red>do-while loop</red>, the loop body will execute at least once 
 			irrespective of the test condition.<br></br><br></br>
 <code>
-<red>/*Do while loop syntax: */</red>
+/*Do while loop syntax: */
 do
 {
 	/*code goes here*/
@@ -959,7 +959,7 @@ C |= 2 is same as C = C | 2
 			<br></br><br></br>
 
 <code>
-<red>/*Declaring arrays and initializing arrays*/</red>
+/*Declaring arrays and initializing arrays*/
 
 int arr[5];
 int array_initialized[7] = [1,2,3,4,5,6,7];
@@ -979,7 +979,7 @@ float array_floats[3] = [2.0f, 3.0f, 2.11f];
 			<br></br><br></br>
 			
 <code>
-<red>//Declaring and initializing a Linked List</red>
+//Declaring and initializing a Linked List
 
 //Linked list definition:
 struct LinkedList{
@@ -1055,7 +1055,7 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
 			<blue>r</blue> - Reads from a file<br></br>
 	
 <code>
-<red>/*Read file char by char*/</red>
+/*Read file char by char*/
 
 FILE* ptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
 char ch;
@@ -1093,7 +1093,7 @@ while (!feof(ptr)) {
 </code>
 
 <code>
-<red>//Reading whole content of the file as string:</red>
+//Reading whole content of the file as string:
 
 //fgets() reads one string at a time from the file. fgets() returns a string if it is
 //successfully read by function or returns NULL if can not read. 
@@ -1981,7 +1981,7 @@ int main()
 			integer and floating-point enhancements.
 			<br></br>
 <code>
-<red>// Implementation of variable arguments using vector.</red>
+// Implementation of variable arguments using vector.
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
 using namespace std;
@@ -2002,7 +2002,7 @@ int main() {
 </code>
 
 <code>
-<red>// Implementation of variable arguments using cstdarg variadic functons.</red>
+// Implementation of variable arguments using cstdarg variadic functons.
 #include &lt;iostream&gt; 
 #include &lt;cstdarg&gt; 
 
@@ -2039,7 +2039,7 @@ int main() {
 </code>
 
 <code>
-<red>// Implementation of variable arguments using variadic templates. </red>
+// Implementation of variable arguments using variadic templates.
 #include &lt;iostream&gt; 
 using namespace std;
 

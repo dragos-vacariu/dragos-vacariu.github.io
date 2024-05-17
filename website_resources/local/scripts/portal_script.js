@@ -679,10 +679,12 @@ function format_XML_Document_Content(xml_Document_Content)
 			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
 			{
-				lines[i] = "<lineNumber>" + i + spaces + "</lineNumber>" + lines[i];
+				console.log("Before: " + lines[i]);
+				lines[i] = "<tr>" + "<td>" + "<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + "<td>" + lines[i] + "</td>" + "</tr>";
+				console.log("After: " + lines[i]);
 			}
 		}
-		codeElements[index].innerHTML = lines.join("\n");
+		codeElements[index].innerHTML = "<table>" + lines.join("\n") + "</table>";
 		
 		//Put the code elements with more than 2 lines into a box
 		if(codeElements[index].innerHTML.split("\n").length > 2)
