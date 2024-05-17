@@ -723,19 +723,19 @@ int main()
 				<code>(A &#38; B) = 12, i.e., 0000 1100</code><br></br>
 				<br></br>
 
-				| <red>binary OR Operator.</red>
+				| <red>binary OR Operator.</red><br></br>
 				<blue>It copies a bit if it exists in either operand.</blue><br></br>
 				<code>(A | B) = 61, i.e., 0011 1101</code><br></br>
 				<br></br>
-				^ <red>binary XOR Operator.</red>
+				^ <red>binary XOR Operator.</red><br></br>
 				<blue>It copies the bit if it is set in one operand but not both.</blue><br></br>
 				<code>(A ^ B) = 49, i.e., 0011 0001</code><br></br>
 				<br></br>
-				~ <red>binary One's Complement Operator.</red>
+				~ <red>binary One's Complement Operator.</red><br></br>
 				<blue>Is unary and has the effect of 'flipping' bits.</blue><br></br>
 				<code>(~A ) = ~(60), i.e,. -0111101</code><br></br>
 				<br></br>
-				&lt;&lt; <red>binary Left Shift Operator.</red> <br></br>
+				&lt;&lt; <red>binary Left Shift Operator.</red><br></br>
 				<blue>The left operands value is moved left by the number of bits specified by the 
 				right operand.</blue><br></br>
 				<code>A &lt;&lt; 2 = 240 i.e., 1111 0000</code><br></br>
@@ -1491,7 +1491,7 @@ printf("%d", c);
 			In C language this is achieved by placing 
 			the interface definition in a header file and the implementation in a source 
 			file. <br></br>
-			The disciplined use of static keyword is practiced in order to hide implementation details.
+			The disciplined use of <code>static</code> keyword is practiced in order to hide implementation details.
 			<br></br><br></br>
 <code>
 /*FILE module.h*/
@@ -2004,13 +2004,17 @@ int main()
 		</green>
 		</abstraction>
 		<generic-programming>
-			In C++ the templates generalize the algorithm to make it data type-independent.
-			<br></br>		
-			The functions and classes which are data type independent are called generics, 
+			*General-Programming-Knowledge*
+			<br></br>	
+			In C++ the <red>templates</red> generalize the algorithm to make it <red>data type-independent</red>.
+			<br></br><br></br>			
+			The functions and classes which are data type independent are called <red>generics</red>, 
 			and this concept is called generic programming. 
-			<br></br>
+			<br></br><br></br>
+			<brown>
 			Generic Programming reduces code 
 			repetition and in-demand compilation; hence efficient.
+			</brown>
 			<br></br>
 
 <code>
