@@ -2040,24 +2040,26 @@ int main()
 		</generic-programming>
 		<variable-arguments-lists>
 			The variable number of arguments in C++ is a feature that permits a function to 
-			accept any number of arguments. This type of function is called variadic functions.
+			accept any number of arguments. This type of function is called <red>variadic functions</red>.
 			<br></br><br></br>
 			Functions with a variable number of arguments in C++ can be easily implemented using 
-			a vector or an array if all the arguments are the same type.
+			a <red>vector</red> or an <red>array</red> if all the arguments are the same type.
 			<br></br><br></br>
-			If all arguments are of different types, then we need to use the cstdarg header file 
-			to implement variadic functions.
+			If all arguments are of different types, then we need to use the <code>cstdarg</code> header file 
+			to implement <red>variadic functions</red>.
 			<br></br><br></br>
-			Variadic functions do not put restrictions on the types of arguments. They also do not perform 
-			integer and floating-point enhancements.
+			<red>Variadic functions</red> do not put restrictions on the types of arguments. <br></br>
+			They also do not perform integer and floating-point enhancements.
 			<br></br>
 <code>
 // Implementation of variable arguments using vector.
+
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
 using namespace std;
 
 // Using vector of string as a parameter to store a variable number of strings.
+
 void printNames(vector&lt;string&gt;  nameVector) {
     for (string &#38;name : nameVector) {
         cout &lt;&lt; name &lt;&lt; " ";
@@ -2074,6 +2076,7 @@ int main() {
 
 <code>
 // Implementation of variable arguments using cstdarg variadic functons.
+
 #include &lt;iostream&gt; 
 #include &lt;cstdarg&gt; 
 
@@ -2083,14 +2086,20 @@ void printDeveloperData(const char* fmt...) {
     va_list args;
     va_start(args, fmt);
  
-    while (*fmt != '\0') {
-        if (*fmt == 'd') {
+    while (*fmt != '\0') 
+	{
+        if (*fmt == 'd') 
+		{
             int version = va_arg(args, int);
             std::cout &lt;&lt; "C++ Version: " &lt;&lt; version;
-        } else if (*fmt == 'c') {
+        } 
+		else if (*fmt == 'c') 
+		{
             int name = va_arg(args, int);
             std::cout &lt;&lt; "Name: " &lt;&lt; static_cast&lt;char&gt; (name);
-        } else if (*fmt == 'f') {
+        } 
+		else if (*fmt == 'f') 
+		{
             double stability_percentage = va_arg(args, double);
             std::cout &lt;&lt; "Stability Percentage: " &lt;&lt; stability_percentage &lt;&lt; "%";
         }
@@ -2111,6 +2120,7 @@ int main() {
 
 <code>
 // Implementation of variable arguments using variadic templates.
+
 #include &lt;iostream&gt; 
 using namespace std;
 
