@@ -2314,43 +2314,43 @@ int main()
 		</collection-methods>
 		<dynamic-memory-allocation>
 			*General-Programming-Knowledge*
-			Additional to the C language: 
-			<br></br><br></br>
-			C++ integrates the operators <code>new</code> and <code>delete</code> for allocating dynamic memory. 
-			But these were not available in the C language; instead, it used a library solution, 
-			with the functions <code>malloc</code>, <code>calloc</code>, <code>realloc</code> and <code>free</code>, 
-			defined in the header <code>&lt;cstdlib&gt;</code> (known as <code>&lt;stdlib.h&gt;</code>  in C). 
 			<br></br>
-			The functions are also available in C++ and can also be 
-			used to allocate and deallocate dynamic memory.
+			<green>
+			Additional to the C language: 
+			</green>
+			<br></br><br></br>
+			C++ integrates the operators <code>new</code> and <code>delete</code> for allocating dynamic memory.
 			<br></br><br></br>
 			<red>Operators new and new[]: </red>
 			<br></br>
-			Dynamic memory is allocated using operator new. new is followed by a data 
+			Dynamic memory is allocated using operator <code>new</code>. <br></br>
+			<code>new</code> is followed by a data 
 			type specifier and, if a sequence of more than one element is required, 
-			the number of these within brackets []. <br></br>
+			the number of these within brackets <code>[]</code>. <br></br>
 			It returns a pointer to the beginning of the new block of memory allocated. <br></br>
 <code>
 //Example:
+
 int * foo;
 foo = new int [5];
 </code>
-		In this case, the system dynamically allocates space for five elements of type int 
-		and returns a pointer to the first element of the sequence, which is assigned to 
-		foo (a pointer). <br></br>
-		Therefore, foo now points to a valid block of memory with space 
-		for five elements of type int.<br></br>
+		In this case, the system <red>dynamically allocates space</red> for five elements of type <code>int</code> 
+		and <red>returns</red> a pointer to the first element of the sequence, which is assigned to 
+		<code>foo</code> (a pointer). <br></br><br></br>
+		Therefore, <code>foo</code> now points to a valid block of memory with space 
+		for five elements of type <code>int</code>.<br></br>
 		<br></br>
 		<red>Operators delete and delete[]: </red>
 		<br></br>
-		In most cases, memory allocated dynamically is only needed during specific periods 
-		of time within a program; once it is no longer needed, it can be freed so that 
-		the memory becomes available again for other requests of dynamic memory. <br></br>
+		In most cases, <red>memory allocated dynamically</red> is only needed during specific periods 
+		of time within a program; once it is no longer needed, it can be <red>freed</red> so that 
+		the memory becomes available again for other requests of <red>dynamic memory</red>. <br></br>
 		<br></br>
 		This is the purpose of operator delete, whose syntax is: <br></br>
 <code>
 // Example of dynamic allocation
 // and deallocation of memory using new and delete
+
 #include &lt;iostream&gt; 
 using namespace std;
 
@@ -2399,13 +2399,13 @@ int main()
     delete[] q;
 
     return 0;
-	
-	/*
-	OUTPUT:
-	Value of p: 29
-	Value of r: 75.25
-	Value store in block of memory: 1 2 3 4 5 
-	*/
+    
+    /*
+        OUTPUT:
+        Value of p: 29
+        Value of r: 75.25
+        Value store in block of memory: 1 2 3 4 5 
+    */
 }
 </code>
 		</dynamic-memory-allocation>
