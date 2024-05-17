@@ -143,7 +143,7 @@
 }
 
 #page_block #table_content tr td{
-	border: solid 2px black; 
+	border: none 2px black; /*value of this property will affect the code table also*/
 	padding: 0.5vw 1vw;
 }
 
@@ -172,12 +172,31 @@
 	font-weight: bold;
 }
 
+#page_block code table{
+	border: none 1px black;
+	width: 100%;
+	table-layout: fixed;
+	word-wrap: break-word;
+	padding:0px;
+	margin: 0px;
+	height: auto;
+}
+#page_block code table td{
+	text-align: left;
+	border: none 1px black;
+	/*properties set explicitly within the script
+	padding: 0px;
+	margin: 0px;
+	width: auto;
+	*/
+}
+
 #page_block code box{
 	background-color: rgba(255,255,255,0.4);
 	border: 1px solid black;
 	display: block;
 	padding: 0px;
-	margin: 5px 0px;
+	margin: 15px 0px;
 }
 
 #page_block code lineNumber {
@@ -185,12 +204,10 @@
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
   color: black;
-  background-color: rgba(0,0,0,0.1);
-  border-right: solid 1px black;
-  border-bottom: solid 1px black;
-  margin-right: 15px;
-  padding-left: 5px;
+  margin:0px;
+  padding:0px;
   font-family: Courier New;
+  height: auto;
 }
 
 #page_block red{

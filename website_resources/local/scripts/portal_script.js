@@ -676,12 +676,15 @@ function format_XML_Document_Content(xml_Document_Content)
 			//Format the comments within the code elements with different style.
 			//lines[i] = formatComments(lines[i]);
 			var spaces = " ".repeat(3-String(i).length);
+			
 			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
 			{
-				console.log("Before: " + lines[i]);
-				lines[i] = "<tr>" + "<td>" + "<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + "<td>" + lines[i] + "</td>" + "</tr>";
-				console.log("After: " + lines[i]);
+				lines[i] = "<tr>" + "<td style='width:26px; text-align:left; padding:0px;" +
+				"margin:0px; border: solid 1px black;'>" +
+				"<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + 
+				"<td style='text-align:left; padding:0px; margin:0px;'>" + lines[i] + 
+				"</td>" + "</tr>";
 			}
 		}
 		codeElements[index].innerHTML = "<table>" + lines.join("\n") + "</table>";
