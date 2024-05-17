@@ -62,24 +62,6 @@ function setCookie()
 	{
 		var pairs = cookie_elements[i].split("=");
 		
-		//Checking if pairs[0] is a CONCEPT:
-		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
-		
-		/*
-		The findIndex() method of Array instances returns the index of the first element in an 
-		array that satisfies the provided testing function. If no elements satisfy the testing 
-		function, -1 is returned.
-		*/
-		
-		//Checking if pairs[0] is a LANGUAGE:
-		var language_index = -1;
-		for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
-		{
-			if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
-			{
-				language_index = lang_sel_index;
-			}
-		}
 		//Process and restore the values stored in the cookie
 		if(pairs[0] == "view")
 		{
@@ -94,34 +76,58 @@ function setCookie()
 				switchToTableView();
 			}
 		}
-		else if(concept_index >= 0)
+		else
 		{
-			/*The concept_selection.children were added based on concept_collection array. 
-			So they wear same index.
+			//Checking if pairs[0] is a CONCEPT:
+			var concept_index = concept_collection.findIndex(element => element == pairs[0]);
+			
+			/*
+			The findIndex() method of Array instances returns the index of the first element in an 
+			array that satisfies the provided testing function. If no elements satisfy the testing 
+			function, -1 is returned.
 			*/
-			if(pairs[1]=="1")
+			
+			if(concept_index >= 0)
 			{
-				concept_selection.children[concept_index].value = true;
-				concept_selection.children[concept_index].style.opacity = 1.0;
+				/*The concept_selection.children were added based on concept_collection array. 
+				So they wear same index.
+				*/
+				if(pairs[1]=="1")
+				{
+					concept_selection.children[concept_index].value = true;
+					concept_selection.children[concept_index].style.opacity = 1.0;
+				}
+				else
+				{
+					concept_selection.children[concept_index].value = false;
+					concept_selection.children[concept_index].style.opacity = 0.3;
+				}
 			}
-			else
+			else 
 			{
-				concept_selection.children[concept_index].value = false;
-				concept_selection.children[concept_index].style.opacity = 0.3;
+				//Checking if pairs[0] is a LANGUAGE:
+				var language_index = -1;
+				for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
+				{
+					if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
+					{
+						language_index = lang_sel_index;
+					}
+				}
+				if( language_index >= 0 )
+				{
+					if(pairs[1]=="1")
+					{
+						programming_language_selection.children[language_index].value = true;
+						programming_language_selection.children[language_index].style.opacity = 1.0;
+					}
+					else
+					{
+						programming_language_selection.children[language_index].value = false;
+						programming_language_selection.children[language_index].style.opacity = 0.3;
+					}
+				}
 			}
-		}
-		else if( language_index >= 0 )
-		{
-			if(pairs[1]=="1")
-			{
-				programming_language_selection.children[language_index].value = true;
-				programming_language_selection.children[language_index].style.opacity = 1.0;
-			}
-			else
-			{
-				programming_language_selection.children[language_index].value = false;
-				programming_language_selection.children[language_index].style.opacity = 0.3;
-			}				
 		}
 	}
 	setView();
