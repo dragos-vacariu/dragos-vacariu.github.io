@@ -2346,7 +2346,7 @@ foo = new int [5];
 		of time within a program; once it is no longer needed, it can be <red>freed</red> so that 
 		the memory becomes available again for other requests of <red>dynamic memory</red>. <br></br>
 		<br></br>
-		This is the purpose of operator delete, whose syntax is: <br></br>
+		This is the purpose of operator <code>delete</code>, whose syntax is: <br></br>
 <code>
 // Example of dynamic allocation
 // and deallocation of memory using new and delete
@@ -2421,9 +2421,9 @@ int main()
 			<br></br><br></br>
 			To read from a file, use either the <code>ifstream</code> or <code>fstream class</code>, and the name of the file.
 			<br></br><br></br>
-			<green>Note: we also use a while loop together with the <code>getline()</code> function 
+			<blue>Note: we also use a while loop together with the <code>getline()</code> function 
 			(which belongs to the <code>ifstream</code> class) to read the file line by line, and to print 
-			the content of the file:</green>
+			the content of the file:</blue>
 			<br></br>
 <code>
 // Create a text string, which is used to output the text file
@@ -2468,7 +2468,7 @@ int main()
 			To create a file, use either the ofstream or <red>fstream</red> class, and specify 
 			the name of the file.
 			<br></br><br></br>
-			To write to the file, use the insertion operator (&lt;&lt;).<br></br>
+			To write to the file, use the insertion operator (<code>&lt;&lt;</code>).<br></br>
 <code>
 //Example of writing to file using fstream in C++
 
@@ -2493,8 +2493,8 @@ int main()
 		</write-to-file>
 		<serialization>
 			*General-Programming-Knowledge*
-			<br></br><br></br>
-			Serialization is the process of storing the state of an object to a file.<br></br>
+			<br></br>
+			Storing the state of an object to a file:<br></br>
 <code>
 /*Example of C++ object.field serialization and deserialization*/
 
@@ -2524,11 +2524,13 @@ class Student
 	
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
-	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
+	//now we can write individually every class field member to the file.
+	//Example: ofs &lt;&lt; s1.name; 
 	
 	//override the extraction for object.field deserialization
     friend ifstream &#38; operator &gt;&gt; (ifstream &#38; ifs, Student &#38; s);
-	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
+	//now we can read individually every class field member from the file. 
+	//Example: ifs &gt;&gt; s1.name; 
 };
 
 int main() 
@@ -2561,10 +2563,10 @@ int main()
 
 	/*
 	
-	OUTPUT: 
-	James 
-	28 
-	IT
+		OUTPUT: 
+		James 
+		28 
+		IT
 	
 	*/
 }
@@ -2572,7 +2574,7 @@ int main()
 		</serialization>
 		<deserialization>
 			*General-Programming-Knowledge*
-			<br></br><br></br>
+			<br></br>
 			Deserialization is the reverse process of Serialization, 
 			where the byte stream is used to reconstruct the original object.<br></br>
 <code>
@@ -2602,11 +2604,13 @@ class Student
 
 	//override the insertion operator for object.field serialization
     friend ofstream &#38; operator &lt;&lt; (ofstream &#38; ofs, Student s);
-	//now we can write individually every class field member to the file. Example: ofs &lt;&lt; s1.name; 
+	//now we can write individually every class field member to the file. 
+	//Example: ofs &lt;&lt; s1.name; 
 	
 	//override the extraction for object.field deserialization
     friend ifstream &#38; operator &gt;&gt; (ifstream &#38; ifs, Student &#38; s);
-	//now we can read individually every class field member from the file. Example: ifs &gt;&gt; s1.name; 
+	//now we can read individually every class field member from the file. 
+	//Example: ifs &gt;&gt; s1.name; 
 };
 
 //Overriding the operators for whole-object serialization and deserialization
@@ -2652,8 +2656,8 @@ int main()
 
 	/*
 	
-	OUTPUT:
-	James 28 IT
+		OUTPUT:
+		James 28 IT
 	
 	*/
 }
@@ -2820,11 +2824,13 @@ int main()
 		</operator-overloading>
 		<enums>
 			*General-Programming-Knowledge*
-			<br></br>
-			Comparison to C Language: <br></br><br></br>
-			In C, an enum is basically a way to alias names to integers. This does not lead to 
-			improved type checking. In C++, an enum defines an actual type, which results in 
-			strong type checking.<br></br>
+			<green>Comparison to C Language: </green>
+			<br></br><br></br>
+			In C, an enum is basically a way to <red>alias names</red> to integers. 
+			This does not lead to 
+			improved type checking. <br></br>
+			In C++, an enum defines an actual type, which results in 
+			<red>strong type checking</red>.<br></br>
 <code>
 #include &lt;iostream&gt; 
 #include &lt;conio.h&gt; 
@@ -2833,7 +2839,9 @@ using namespace std;
 
 /*
 While processing a game loop, there are lots of statements to be checked, so in order to use those statements, variables
-that will hold a certain value will be created. Example:
+that will hold a certain value will be created. 
+
+Example:
 int GamePlay =1;
 int PauseGame = 2;
 int ExitGame = 3;
@@ -2842,8 +2850,10 @@ So in this way the statements can be checked, to see when the game should be pau
 above, the variables that are used needs to have different values.
 
 An ENUM is a way to enclose a bunch of constants, an ENUM guarantees that every variable inside it, will have different values.
+
 Example: an ENUM with the variables above, can be created as follows:
 enum GameStates {GamePlay, PauseGame, ExitGame};
+
 So the synthax is:
 enum &lt;name&gt; {states/members};
 */
