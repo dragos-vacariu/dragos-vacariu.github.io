@@ -57,7 +57,7 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
-		
+		alert("Cookie elements: " + pairs[0] + " " + pairs[1]);
 		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
 		var language_index = programming_languages.findIndex(element => element.name == pairs[0]) -1; // -1 because General-Programming-Knowledge is not available for display
 		/*
@@ -84,6 +84,7 @@ function setCookie()
 			/*The concept_selection.children were added based on concept_collection array. 
 			So they wear same index.
 			*/
+			alert(concept_selection.children[concept_index].innerHTML + " changing.");
 			if(pairs[1]=="1")
 			{
 				concept_selection.children[concept_index].value = true;
@@ -97,6 +98,7 @@ function setCookie()
 		}
 		else if( language_index >= 0 )
 		{
+			alert(programming_language_selection.children[language_index].innerHTML + " changing.");
 			if(pairs[1]=="1")
 			{
 				programming_language_selection.children[language_index].value = true;
