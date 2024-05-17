@@ -61,14 +61,17 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
+		
+		//Checking if pairs[0] is a CONCEPT:
 		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
+		
 		/*
 		The findIndex() method of Array instances returns the index of the first element in an 
 		array that satisfies the provided testing function. If no elements satisfy the testing 
 		function, -1 is returned.
 		*/
 		
-		//find index of language within html collection
+		//Checking if pairs[0] is a LANGUAGE:
 		var language_index = -1;
 		for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
 		{
@@ -77,7 +80,7 @@ function setCookie()
 				language_index = lang_sel_index;
 			}
 		}
-
+		//Process and restore the values stored in the cookie
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
