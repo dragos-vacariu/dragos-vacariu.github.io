@@ -2194,33 +2194,39 @@ int main() {
 		</complex-data-types>
 		<loops>
 			*General-Programming-Knowledge*
-			<br></br><br></br>
-			Additional to the loops presented in C language, there is also a "for-each loop" 
-			(introduced in C++ version 11 (2011), which is used exclusively to loop through 
+			<br></br>
+			Additional to the loops presented in C language, there is also a <red>"for-each loop"</red> 
+			<blue>(introduced in C++ version 11 (2011)</blue>, which is used exclusively to loop through 
 			elements in an array (or other data sets):
 <code>
 /*Example of foreach loop in C++*/
 
 int myNumbers[5] = {10, 20, 30, 40, 50};
-for (int i : myNumbers) {
+
+for (int i : myNumbers) 
+{
   cout &lt;&lt;  i &lt;&lt;  "\n";
 }
 </code>
 		</loops>
 		<collections>
-			*General-Programming-Knowledge*<br></br><br></br>
+			*General-Programming-Knowledge*
+			<br></br>
 			Additional to C Language: C++ introduced several new collection classes datatypes:
 			<br></br><br></br>
-			<blue>
-			Vector: The C++ Standard Library vector class is a class template for sequence containers.<br></br>
-			</blue>
-			<br></br>
 			<green>
-			Vector is a type of dynamic array which has the ability to resize 
-			automatically after insertion or deletion of elements. The elements in vector 
-			are placed in contiguous storage so that they can be accessed and traversed using 
-			iterators. Element is inserted at the end of the vector.<br></br><br></br>
+				Vector: 
 			</green>
+			The C++ Standard Library vector class is a class template for sequence containers.<br></br>
+			<br></br>
+			<blue>
+			Vector is a type of dynamic array which has the ability to resize 
+			automatically after insertion or deletion of elements. <br></br>
+			The elements in vector 
+			are placed in contiguous storage so that they can be accessed and traversed using 
+			iterators. <br></br>
+			Element is inserted at the end of the vector.<br></br><br></br>
+			</blue>
 <code>
 #include &lt;iostream&gt; 
 #include &lt;vector&gt; 
@@ -2244,13 +2250,19 @@ int main()
 }
 </code>	
 		<green>
-		List: List is a double linked sequence that supports both forward and backward 
-		traversal. The time taken in the insertion and deletion in the beginning, end 
-		and middle is constant. It has the non-contiguous memory and there is no 
-		pre-allocated memory.<br></br>
+		List: 
 		</green>
+		<blue>
+		List is a double linked sequence that supports both forward and backward 
+		traversal. <br></br>
+		The time taken in the insertion and deletion in the beginning, end 
+		and middle is constant.<br></br> 
+		It has the non-contiguous memory and there is no 
+		pre-allocated memory.<br></br>
+		</blue>
 <code>
 // C++ program to demonstrate the use of list containers
+
 #include &lt;iostream&gt; 
 #include &lt;list&gt; 
 using namespace std;
