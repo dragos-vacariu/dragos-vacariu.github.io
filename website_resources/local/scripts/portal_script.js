@@ -57,7 +57,6 @@ function setCookie()
 	for(var i=0; i<cookie_elements.length; i++)
 	{
 		var pairs = cookie_elements[i].split("=");
-		alert("Cookie elements: " + pairs[0] + " " + pairs[1]);
 		var concept_index = concept_collection.findIndex(element => element == pairs[0]);
 		var language_index = programming_languages.findIndex(element => element.name == pairs[0]) -1; // -1 because General-Programming-Knowledge is not available for display
 		/*
@@ -88,13 +87,11 @@ function setCookie()
 			{
 				concept_selection.children[concept_index].value = true;
 				concept_selection.children[concept_index].style.opacity = 1.0;
-				alert(concept_selection.children[concept_index].innerHTML + " true.");
 			}
 			else
 			{
 				concept_selection.children[concept_index].value = false;
 				concept_selection.children[concept_index].style.opacity = 0.3;
-				alert(concept_selection.children[concept_index].innerHTML + " false.");
 			}
 		}
 		else if( language_index >= 0 )
@@ -103,13 +100,11 @@ function setCookie()
 			{
 				programming_language_selection.children[language_index].value = true;
 				programming_language_selection.children[language_index].style.opacity = 1.0;
-				alert(programming_language_selection.children[language_index].innerHTML + " true.");
 			}
 			else
 			{
 				programming_language_selection.children[language_index].value = false;
 				programming_language_selection.children[language_index].style.opacity = 0.3;
-				alert(programming_language_selection.children[language_index].innerHTML + " false.");
 			}				
 		}
 	}
