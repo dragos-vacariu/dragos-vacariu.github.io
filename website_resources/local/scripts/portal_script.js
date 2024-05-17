@@ -674,7 +674,7 @@ function format_XML_Document_Content(xml_Document_Content)
 		for(var i=0; i < lines.length; i++)
 		{
 			//Format the comments within the code elements with different style.
-			lines[i] = formatComments(lines[i]);
+			//lines[i] = formatComments(lines[i]);
 			var spaces = " ".repeat(3-String(i).length);
 			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
