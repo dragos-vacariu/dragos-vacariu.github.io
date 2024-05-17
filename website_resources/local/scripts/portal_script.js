@@ -661,23 +661,20 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 }
 
 function format_XML_Document_Content(xml_Document_Content)
-{
-	//xml_Document_Content = addLineNumbers(xml_Document_Content);
-	xml_Document_Content = formatComments(xml_Document_Content);
-	
+{	
 	var codeElements =  xml_Document_Content.getElementsByTagName("code");
 	for(var index = 0; index < codeElements.length; index++)
 	{
 		
 		//Format the code elements with different style.
 		var lines = codeElements[index].innerHTML.split("\n");
+		
+		lines = formatMultiLineComments(lines);
 		for(var i=0; i < lines.length; i++)
 		{
 			//Format the comments within the code elements with different style.
-			console.log("Before: " + lines[i]);
-			lines[i] = formatComments(lines[i]);
+			lines[i] = formatSingleLineComments(lines[i]);
 			var spaces = " ".repeat(4-String(i).length);
-			console.log("After: " + lines[i]);
 			
 			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
@@ -719,7 +716,7 @@ function addStyleCodeBoxes(contentToPutInBox)
 	return contentToPutInBox;
 }
 
-function formatComments(line, multiline_comment)
+function formatSingleLineComments(line)
 {
 	
 	//use if instead of if-else as the line can contain all of them at the same time.
@@ -743,24 +740,36 @@ function formatComments(line, multiline_comment)
 		line = line + "</comment>";
 	}
 	
-	//if comment on multiple lines
-	if(String(line).includes("/*"))
-	{
-		line = line.replace("/*", "<comment>/*");
-		line = line + "</comment>";
-		multiline_comment=true;
-	}
-	else if(multiline_comment==true)
-	{
-		line = "<comment>" + line + "</comment>";
-	}
-	else if (String(line).includes("*/") || multiline_comment==true)
-	{
-		line = line.replace("*/", "*/</comment>");
-		line = "<comment>" + line;
-		multiline_comment=undefined;
-	}
 	return line;
+}
+
+function formatMultiLineComments(codeElementListOfLines)
+{
+	var multiline_comment_found = 0;
+
+	for(var i=0; i < codeElementListOfLines.length; i++)
+	{
+		//if comment on multiple lines
+		if(String(codeElementListOfLines[i]).includes("/*") && 
+			String(codeElementListOfLines[i]).includes("*/") == false)
+		{
+			codeElementListOfLines[i] = codeElementListOfLines[i].replace("/*", "<comment>/*");
+			codeElementListOfLines[i] = codeElementListOfLines[i] + "</comment>";
+			multiline_comment_found++;
+		}
+		else if (String(codeElementListOfLines[i]).includes("*/") && multiline_comment_found > 0)
+		{
+			codeElementListOfLines[i] = codeElementListOfLines[i].replace("*/", "*/</comment>");
+			codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i];
+			multiline_comment_found--;
+		}
+		else if(multiline_comment_found > 0)
+		{
+			codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i] + "</comment>";
+		}
+
+	}
+	return codeElementListOfLines;
 }
 
 loadXMLDoc(online_xml_file);
