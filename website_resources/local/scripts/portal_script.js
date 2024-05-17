@@ -39,6 +39,7 @@ const concept_value_style = "vertical-align: top; color: black; font-family: Tah
 function cookieHandling()
 {
 	//reading from the cookie file:
+	alert(document.cookie);
 	if(document.cookie.length > 0)
 	{
 		/*If cookie -> setCookie will also set the view.*/
