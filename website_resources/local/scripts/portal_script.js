@@ -664,72 +664,70 @@ function format_XML_Document_Content(xml_Document_Content)
 {
 	//xml_Document_Content = addLineNumbers(xml_Document_Content);
 	xml_Document_Content = formatComments(xml_Document_Content);
-	xml_Document_Content = addStyleCodeBoxes(xml_Document_Content);
-	return xml_Document_Content;
-}
-
-function addStyleCodeBoxes(xml_Document_Content)
-{
+	
 	var codeElements =  xml_Document_Content.getElementsByTagName("code");
 	for(var index = 0; index < codeElements.length; index++)
 	{
-		if(codeElements[index].innerHTML.split("\n").length > 2)
-		{
-			codeElements[index].innerHTML = "<box>" + codeElements[index].innerHTML + "</box>"
-		}
-	}
-	return xml_Document_Content;
-}
-
-function formatComments(xml_Document_Content)
-{
-	var codeElements =  xml_Document_Content.getElementsByTagName("code");
-	for(var index = 0; index < codeElements.length; index++)
-	{
+		
+		//Format the code elements with different style.
 		var lines = codeElements[index].innerHTML.split("\n");
 		for(var i=0; i < lines.length; i++)
 		{
-			if(lines[i].includes("//")) // do not add line number to single-line content
-			{
-				lines[i] = lines[i].replace("//", "<red>//");
-				lines[i] = lines[i] + "</red>";
-			}
-			if(lines[i].includes("/*"))
-			{
-				lines[i] = lines[i].replace("/*", "<red>/*");
-			}
-			if(lines[i].includes("*/"))
-			{
-				lines[i] = lines[i].replace("*/", "*/</red>");
-			}
-			//if Python Comment
-			if( lines[i].includes("#") && lines[i].includes("#define")==false && lines[i].includes("#include")==false )
-			{
-				lines[i] = lines[i].replace("#", "<red>#");
-				lines[i] = lines[i] + "</red>";
-			}
-		}
-		codeElements[index].innerHTML = lines.join("\n");
-	}
-	return xml_Document_Content;
-}
-
-function addLineNumbers(xml_Document_Content)
-{
-	var codeElements =  xml_Document_Content.getElementsByTagName("code");
-	for(var index = 0; index < codeElements.length; index++)
-	{
-		var lines = codeElements[index].innerHTML.split("\n");
-		for(var i=0; i < lines.length; i++)
-		{
+			//Format the comments within the code elements with different style.
+			lines[i] = formatComments(lines[i]);
+			var spaces = " ".repeat(3-String(i).length);
+			//Add line numbers:
 			if(lines.length > 1) // do not add line number to single-line content
 			{
-				lines[i] = i+ ". " + lines[i];
+				lines[i] = "<lineNumber>" + i + spaces + "</lineNumber>" + lines[i];
 			}
 		}
 		codeElements[index].innerHTML = lines.join("\n");
+		
+		//Put the code elements with more than 2 lines into a box
+		if(codeElements[index].innerHTML.split("\n").length > 2)
+		{
+			codeElements[index].innerHTML = addStyleCodeBoxes(codeElements[index].innerHTML);
+		}
+		
+		
+		
 	}
+	
 	return xml_Document_Content;
+}
+
+function addStyleCodeBoxes(contentToPutInBox)
+{
+	contentToPutInBox = "<box>" + contentToPutInBox + "</box>"
+	return contentToPutInBox;
+}
+
+function formatComments(line)
+{
+	
+	//use if instead of if-else as the line can contain all of them at the same time.
+	
+	if(String(line).includes("//")) // do not add line number to single-line content
+	{
+		line = line.replace("//", "<red>//");
+		line = line + "</red>";
+	}
+	if(String(line).includes("/*"))
+	{
+		line = line.replace("/*", "<red>/*");
+	}
+	if(String(line).includes("*/"))
+	{
+		line = line.replace("*/", "*/</red>");
+	}
+	//if Python Comment
+	if( String(line).includes("#") && String(line).includes("#define")==false && String(line).includes("#include")==false )
+	{
+		line = line.replace("#", "<red>#");
+		line = line + "</red>";
+	}
+	return line;
 }
 
 loadXMLDoc(online_xml_file);
