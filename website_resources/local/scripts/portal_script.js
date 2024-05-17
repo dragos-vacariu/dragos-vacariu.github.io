@@ -59,6 +59,8 @@ function setCookie()
 		var pairs = cookie_elements[i].split("=");
 		
 		//Process and restore the values stored in the cookie
+		
+		//Checking if pairs[0] is a VIEW:
 		if(pairs[0] == "view")
 		{
 			if(pairs[1] == "paragraph")
