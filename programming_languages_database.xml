@@ -4983,12 +4983,12 @@ namespace MultithreadingApplication
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
-            In C#: <code>namespace</code> <red>alliases</red> can be used to avoid 
-            <blue>ambiguity errors</blue>. <br></br>
-            An <blue>ambiguity errors</blue> is when declaring <blue>2</blue> <code>namespaces</code> 
-            which
-            may contains some <blue>classes</blue> or <blue>functions</blue> with the same name, 
-            so when trying to call one of such <blue>function</blue>, the compiler
+            C# allows using <code>namespace</code> <red>alliases</red> to avoid 
+            <blue>ambiguity errors</blue>. 
+            <br></br><br></br>
+            An <blue>ambiguity errors</blue> is when declaring <blue>2 namespaces</blue> 
+            which may contains some <blue>classes</blue> or <blue>functions</blue> with 
+            the same name, so when trying to call one of such <blue>function</blue>, the compiler
             will not know to which one are you refering to.
             <br></br>
 <code>
