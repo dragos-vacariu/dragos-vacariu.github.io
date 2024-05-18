@@ -4222,22 +4222,24 @@ namespace project6_foreach_loop
             <br></br>
             <green>C# introduces the following collections:</green>
             <br></br><br></br>
-            <red>Queue</red> is a collection type just like a list or dictionary, dispite that 
-            once an object is retrieved from Queue (operation called <red>dequeue</red>), that <red>object</red>
-            gets automatically deleted from the beggining of the <red>Queue</red>.
+            <code>Queue</code> is a collection type just like a list or dictionary, dispite that 
+            once an object is retrieved from <code>Queue</code> (operation called <red>dequeue</red>), 
+            that <red>object</red>
+            gets automatically <blue>deleted</blue> from the beggining of the <code>Queue</code>.
             <br></br><br></br>
-            You can think of a <red>Queue</red> just like a RAR archieve, in order to use an 
-            object from the <red>Queue</red>, that object needs to be <red>dequeued</red> into an 
-            another object, otherwise it will affect the entire content of the <red>Queue</red>, 
-            unless an <blue>foreach</blue> loop is being used.
+            You can think of a <code>Queue</code> just like a RAR archieve, in order to use an 
+            object from the <code>Queue</code>, that object needs to be <red>dequeued</red> into an 
+            another object, otherwise it will affect the entire content of the <code>Queue</code>, 
+            unless an <code>foreach</code> loop is being used.
             <br></br><br></br>
-            To prevent an object be deleted from the <red>Queue</red>, you have to use a 
-            <blue>foreach</blue> loop or the <code>.Peak</code> function. 
+            To prevent an object be <blue>deleted</blue> from the <code>Queue</code>, you 
+            have to use a 
+            <code>foreach</code> loop or the <code>.Peak</code> function. 
             <br></br><br></br>
-            If you iterate through the <red>Queue</red> 
-            using <blue>foreach</blue> loop, 
-            and effect changes without affecting the content of the <red>Queue</red>.
- */
+            If you <blue>iterate</blue> through the <code>Queue</code> 
+            using <code>foreach</code> loop, 
+            and effect changes without affecting the content of the <code>Queue</code>.
+            <br></br>
 <code>
 //Exemple on how to use Queue
 
@@ -4304,15 +4306,19 @@ namespace queue_collection_type
     }
 }
 </code>
-
+            
+  <code>Stack</code> uses the principle <blue>LIFO - Last In First Out</blue>, it is just like a list.
+  <br></br><br></br>
+  Once an element gets retrieved from the <code>Stack</code> that object will be removed, 
+  unless a <code>foreach</code> loop, or the <code>.Peek</code> function it's used.
+  <br></br>
+ 
 <code>
+//Example on how to use Stack
+
 using System;
 using System.Collections.Generic;
 
-/*
- * A stack uses the principle LIFO - Last In First Out, it is just like a list.
- * Once an element gets retrieved from the Stack that object will be removed, unless a foreach loop, or the Peek function it's used.
- */
 namespace project61_stack_collection_type
 {
     class Program
@@ -4324,12 +4330,14 @@ namespace project61_stack_collection_type
             Stack&lt;people&gt; FirstStack = new Stack&lt;people&gt;();
             FirstStack.Push(p1);
             FirstStack.Push(p2);
+            
             //The first will be the last:
             foreach (people p in FirstStack)
             {
                 Console.WriteLine("Name: {0}    Age: {1}", p.Name, p.Age);
                 Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
             }
+            
             Console.WriteLine();
             Console.WriteLine("Outside the forech loop:");
             Console.WriteLine("Name: {0}", FirstStack.Pop().Name);
@@ -4340,6 +4348,7 @@ namespace project61_stack_collection_type
             Console.ReadKey(true);
         }
     }
+    
     class people
     {
         public string Name {get; set;}
