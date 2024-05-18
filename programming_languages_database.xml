@@ -1058,16 +1058,16 @@ int main()
         <variable-arguments-lists>
             *General-Programming-Knowledge*
             <br></br>
-            C allows a function call to have a variable number of
-            arguments with the variable argument list mechanism.<br></br>
-            Use ellipsis <code>...</code> to denote a variable number of arguments to
+            C language allows a <red>function</red> call to have a <red>variable</red> number of
+            <red>arguments</red> with the <red>variable argument list</red> mechanism.<br></br>
+            Use ellipsis <code>...</code> to denote a <red>variable number of arguments</red> to
             the compiler. 
             <br></br>
             The ellipsis can only occur at the end of an
-            argument list.<br></br><br></br>
+            <red>argument list</red>.<br></br><br></br>
             <green>
             Here are some standard function calls that use variable
-            argument lists:
+            <red>argument lists</red>:
             </green>
             <br></br><br></br>
             <code>int printf(const char *format, ...);</code><br></br>
