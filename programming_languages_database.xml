@@ -5999,19 +5999,19 @@ namespace project12_new_types_null_coalescing_operator
             <green>Rules for abstract classes in C#:</green>
             <br></br><br></br>
             <blue>
-             1. An <red>abstract class</red> cannot be <red>instanciated</red> (an instance of the class 
-             cannot be created).<br></br>
+             1. An <red>abstract class</red> cannot be <red>instanciated</red> (an <red>instance</red> 
+             of the <red>class</red> cannot be created).<br></br>
              <br></br>
              2. An <red>abstract class</red> can contain <red>abstract members</red>, and the 
              <red>abstract members</red>
              are not allowed to be implemented in
              that <red>class</red>.<br></br>
              <br></br>
-             3. An <red>abstract class</red> can inherit (can have children classes), and every child 
+             3. An <red>abstract class</red> can inherit (can have <red>children classes</red>), and every child 
              of the <red>class</red> must provide its
              own implementations for the <red>abstract members</red> of the <red>parent class</red>.<br></br>
              <br></br>
-             4. Any <red>class</red> provides single inheritance (the child of the class can have 
+             4. Any <red>class</red> provides <red>single inheritance</red> (the child of the <red>class</red> can have 
              only one <red>parent/base class</red>).<br></br>
              <br></br>
              5. An <red>abstract class</red> can only be used as a <red>base class</red>. 
