@@ -3238,7 +3238,7 @@ int main()
     // random numbers on every program run 
     for (int i = 0; i &lt; 5; i++) 
         cout &lt;&lt; rand() &lt;&lt; " "; 
-  
+
     return 0; 
 }
 </code>
@@ -3248,7 +3248,150 @@ int main()
 		</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
-		<modular-programming>*General-Programming-Knowledge*</modular-programming>
+		<modular-programming>*General-Programming-Knowledge*
+		<br></br>
+		<red>Example of modular programming in C++</red>
+<code>
+//FILE: vectors_of_objects_mainfile.cpp
+
+#include "vectors_of_objects_class.h"
+
+//Function prototyping or declaration
+void createObjects(vector &lt;vectors_of_objects_class&gt;&#38;);
+void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38;); 
+
+//The main function is the entry point of the program
+int main()
+{
+	vector &lt;vectors_of_objects_class&gt; ObjectVector; //creating a vector of objects;
+	
+	//Calling the function that populates the vector of objects.
+	createObjects(ObjectVector);
+	
+	//Calling the function that prints out the vector of objects.
+	printObjectsInfo(ObjectVector);
+	return 0;
+}
+
+//Function definition
+void createObjects(vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) //defining the function
+{
+    int age;
+    string name;
+    cout &lt;&lt; "How many people do you wish to add? ";
+    int people;
+    cin &gt;&gt; people;
+    for(int i=0;i&lt;people;i++)
+    {
+        cout &lt;&lt; "People_" &lt;&lt; i &lt;&lt; " Name: ";
+        cin &gt;&gt; name; //get the name from the keyboard
+        cout &lt;&lt; "People_" &lt;&lt; i &lt;&lt; " Age: ";
+        cin &gt;&gt; age; //get the age from the keyboard
+        vectors_of_objects_class ObjectInVector(name, age); //creating the object with self made constructor
+        ObjectInVector.setAge(age); //calling the class function
+        ObjectInVector.setName(name); //calling the class function
+        newObjVec.push_back(ObjectInVector); //put the object into the vector;
+    }
+    cout &lt;&lt; endl;
+}
+
+void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) //defining the function
+{
+    unsigned int sizeOfVector=newObjVec.size();
+    for(int i=0;i&lt;sizeOfVector; i++)
+    {
+        cout &lt;&lt; "People_" &lt;&lt; i &lt;&lt; " Name: " &lt;&lt; newObjVec[i].getName() &lt;&lt; endl;
+        cout &lt;&lt; "People_" &lt;&lt; i &lt;&lt; " Age: " &lt;&lt; newObjVec[i].getAge() &lt;&lt; endl;
+    }
+}
+
+</code>
+
+<code>
+//FILE: vectors_of_objects_class.cpp
+
+#include "vectors_of_objects_class.h"
+
+//Implementing the custom vector class interface
+
+//Adding a default constructor
+vectors_of_objects_class::vectors_of_objects_class() //default constructor
+{
+    //constructor
+}
+
+//Adding an overloading constructor that takes 2 arguments
+vectors_of_objects_class::vectors_of_objects_class(string name, int age) //self made constructor
+{
+    //initializing the variables;
+    newage=0;
+}
+
+//Adding a default destructor
+vectors_of_objects_class::~vectors_of_objects_class()
+{
+    //destructor
+}
+
+//Adding methods
+string vectors_of_objects_class::getName() const //access the private variable of the class
+{
+    return newname;
+}
+int vectors_of_objects_class::getAge() const //access the private variables of the class
+{
+    return newage;
+}
+void vectors_of_objects_class::setName(string name) //set the private variables of the class
+{
+    newname=name;
+}
+void vectors_of_objects_class::setAge(int age) //set the private variables of the class
+{
+    newage=age;
+}
+
+</code>
+
+<code>
+//FILE: vectors_of_objects_class.h
+
+#ifndef VECTORS_OF_OBJECTS_CLASS_H //this will ensure that the header file is only included once
+#define VECTORS_OF_OBJECTS_CLASS_H
+
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+//Creating a custom vector class interface
+class vectors_of_objects_class
+{
+    public:
+        vectors_of_objects_class(); //default constructor
+        vectors_of_objects_class(string, int); //self made constructor
+
+        //Accessor functions:
+        string getName () const;
+        int getAge () const;
+
+        //Mutator functions;
+        void setName(string);
+        void setAge(int);
+
+        virtual ~vectors_of_objects_class();
+
+    protected:
+
+    private: //private variables;
+        string newname; 
+        int newage;
+};
+
+#endif // VECTORS_OF_OBJECTS_CLASS_H
+
+</code>
+		</modular-programming>
 		<string-methods>
 			The <code>std::string</code> is a class in C++ since C++98. This class is the standard 
 			representation for a text string. It includes some typical string operations 
