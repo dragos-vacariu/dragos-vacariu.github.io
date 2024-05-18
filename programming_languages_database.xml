@@ -5431,7 +5431,64 @@ namespace project11_ternary_operator
 }
 </code>
         </ternary-operator>
-        <modular-programming>*General-Programming-Knowledge*</modular-programming>
+        <modular-programming>
+            *General-Programming-Knowledge*
+<code>
+//Example of modular programming in C#:
+
+//FILE: project20_namespaces.cs
+
+using System;
+
+
+//THIS IS AN EXTERNAL CLASS PROJECT
+//in order to use this you need to right click on this project and add the ProjectA.TeamB
+//as reference to the main project (in this case this is the main project).
+
+using ProjectA.TeamB; 
+
+namespace project20_namespaces
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            MyClass ms = new MyClass(); 
+            
+            ms.PrintName();
+
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+    }
+}
+</code>
+
+<code>
+//This is an external namespace
+
+//FILE: Program2.cs
+
+using System;
+using System.Collections.Generic;
+
+namespace ProjectA.TeamB
+{
+    //This are called XML Comments, and are used to create descriptions.
+    /// &lt;summary&gt;
+    /// This is an Outside Class Project that contains a PrintName Function.
+    /// &lt;/summary&gt;
+    
+    public class MyClass
+    {
+        public void PrintName()
+        {
+            Console.WriteLine("This is an external Class Project called ProjectA.TeamA");
+        }
+    }
+}
+</code>
+        </modular-programming>
         <string-methods>
             <br></br>
              A <code>stringbuilder</code> is a <red>data type</red> just like <code>string</code>. 
