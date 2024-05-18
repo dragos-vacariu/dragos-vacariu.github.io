@@ -1147,6 +1147,9 @@ int main()
             included, the three complex number types are also accessible as <code>double complex</code>, 
             <code>float complex</code>, <code>long double complex</code>.<br></br><br></br>
         </complex-data-types>
+        <preprocessor-directives>
+            *General-Programming-Knowledge*
+        </preprocessor-directives>
         <loops>*General-Programming-Knowledge*</loops>
         <collections>
             <code>Arrays</code> are collections of elements of the same data type with fixed size. 
@@ -2328,6 +2331,9 @@ int main() {
             Typedef defined Datatype<br></br>
             </blue>
         </complex-data-types>
+        <preprocessor-directives>
+            *General-Programming-Knowledge*
+        </preprocessor-directives>
         <loops>
             *General-Programming-Knowledge*
             <br></br>
@@ -4125,11 +4131,10 @@ namespace project1_introduction
         </complex-data-types>
         <preprocessor-directives>
             *General-Programming-Knowledge*
-            <br></br>
             C# unlike C and C++ it does not allow the use <red>directives</red> to create <red>macros</red>. 
             <br></br><br></br>
             <brown>
-                Although there is no #define in C# - some preprocessor directive are still available.
+                Although there is no #define in C# - some preprocessor directive are still available:
             </brown>
             <br></br><br></br>
 <code>
