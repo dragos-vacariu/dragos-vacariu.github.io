@@ -3253,8 +3253,9 @@ int main()
 		<red>Example of modular programming in C++</red>
 <code>
 //FILE: vectors_of_objects_mainfile.cpp
+//In this file we put everything together
 
-#include "vectors_of_objects_class.h"
+#include "vectors_of_objects_class.h" //by this inclusion we get access to: vectors_of_objects_class
 
 //Function prototyping or declaration
 void createObjects(vector &lt;vectors_of_objects_class&gt;&#38;);
@@ -3309,6 +3310,7 @@ void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38; newObjV
 
 <code>
 //FILE: vectors_of_objects_class.cpp
+//In this file we implement the vectors_of_objects_class interface
 
 #include "vectors_of_objects_class.h"
 
@@ -3355,6 +3357,7 @@ void vectors_of_objects_class::setAge(int age) //setter defined to set the priva
 
 <code>
 //FILE: vectors_of_objects_class.h
+//In this file we declare an interface called: vectors_of_objects_class
 
 #ifndef VECTORS_OF_OBJECTS_CLASS_H //this will ensure that the header file is only included once
 #define VECTORS_OF_OBJECTS_CLASS_H
