@@ -1062,12 +1062,12 @@ int main()
             <red>arguments</red> with the <red>variable argument list</red> mechanism.<br></br>
             Use ellipsis <code>...</code> to denote a <red>variable number of arguments</red> to
             the compiler. 
-            <br></br>
+            <br></br><br></br>
             The ellipsis can only occur at the end of an
             <red>argument list</red>.<br></br><br></br>
             <green>
             Here are some standard function calls that use variable
-            <red>argument lists</red>:
+            argument lists:
             </green>
             <br></br><br></br>
             <code>int printf(const char *format, ...);</code><br></br>
