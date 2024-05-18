@@ -856,19 +856,15 @@ int main()
             <br></br><br></br>
             <blue>
             - A destructor is also a special member function like a constructor. <br></br>
-            <brown>
-            Destructor destroys the class objects created by the constructor. <br></br>
-            </brown>
+            - Destructor destroys the class objects created by the constructor. <br></br>
             - Destructor has the same name as their <code>class</code> name preceded by a 
             tilde (<code>~</code>) symbol.<br></br>
             - It is <red>not possible</red> to define more than one destructor. <br></br>
             - The destructor is the only one way to destroy the <red>object</red> created by the constructor. 
             <br></br>
-            <brown>
-            So the destructor <red>can-not be overloaded</red>.
-            </brown>
+            - The destructor <red>can-not be overloaded</red>.
             <br></br>
-            - Destructor neither requires any argument nor returns any value.<br></br>
+            - Destructor <red>neither requires</red> any argument <red>nor returns</red> any value.<br></br>
             - It is automatically called when an <red>object</red> goes <red>out of scope</red>. <br></br>
             - Destructor release memory space occupied by the <red>objects</red> created by the constructor.<br></br>
             - In destructor, <red>objects</red> are destroyed in the reverse of an <red>object</red> creation.<br></br>
@@ -883,21 +879,23 @@ int main()
             <br></br><br></br>
             Multiple <red>functions</red> having same name but <red>different parameters</red> is 
             known as <red>function overloading</red>.<br></br>
-            If we have to perform only one operation and having same name of the functions increases 
+            If we have to perform one operation then having same name for the functions doing it increases 
             the readability of the program.<br></br><br></br>
             <brown>
             Overloaded functions can be defined both outside and inside classes.<br></br>
             </brown>
         </function-overloading>
         <operator-overloading>
-            Operator overloading is a compile-time polymorphism. <br></br>
+            <blue>Operator overloading</blue> is a compile-time <red>polymorphism</red>. <br></br><br></br>
             It is an idea of giving special meaning to an existing operator 
             without changing its original meaning. <br></br>
         </operator-overloading>
         <namespaces>
-            A namespace is a feature which can be defined as a
-            declarative region that provides a scope to the identifiers (names of functions, 
-            variables or other user-defined data types) inside it. <br></br>
+            A <red>namespace</red> is a feature which can be defined as a
+            <blue>declarative region</blue> that provides a <red>scope</red> to the 
+            identifiers (names of <red>functions</red>, 
+            <red>variables</red> or other <red>user-defined data types</red>) inside it. 
+            <br></br>
         </namespaces>
         <exception-handling>
             In computer programming exceptions are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
@@ -930,23 +928,26 @@ int main()
         <abstract-classes>
             The purpose of an <red>abstract class</red> (often referred to as an <red>ABC</red>) is to provide an 
             appropriate <red>base class</red> from which other classes can inherit. <br></br>
+            <br></br>
             <red>Abstract classes</red> cannot be used to instantiate objects and serves only as an 
             interface. <br></br>
             Attempting to instantiate an object of an <red>abstract class</red> causes a 
             compilation error. <br></br>
             <br></br>
-            Thus, if a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
+            If a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
             the <red>virtual functions</red>, which means that it supports the interface declared by the 
-            <red>ABC</red>. Failure to override a pure <red>virtual function</red> in a <red>derived class</red>, 
+            <red>ABC</red>. <br></br><br></br>
+            Failing to override a pure <red>virtual function</red> in a <red>derived class</red>, 
             then attempting to instantiate objects of that class, is a compilation error.
             <br></br><br></br>
-            An object-oriented system might use an <red>abstract base class</red> to provide a common and 
+            An <red>object-oriented</red> system might use an <red>abstract base class</red> to provide a common and 
             standardized interface appropriate for all the external applications. <br></br>
             Then, through inheritance from that <red>abstract base class</red>, derived classes are 
             formed that operate similarly.
             <br></br><br></br>
             The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
-            are provided as pure <red>virtual functions</red> in the <red>abstract base class</red>. <br></br>
+            are provided as pure <red>virtual functions</red> in the <red>abstract base class</red>. 
+            <br></br><br></br>
             The implementations of these pure <red>virtual functions</red> are provided in the <red>derived 
             classes</red> that correspond to the specific types of the application.<br></br>
         </abstract-classes>
@@ -956,11 +957,11 @@ int main()
             For more information see the <blue>default-parameters</blue> section.
         </optional-parameters>
         <decorators>
-            <red>Decorator</red> is a structural pattern that allows adding new behaviors to objects 
-            dynamically by placing them inside special wrapper objects, called decorators. 
-            <br></br>
-            Using decorators you can wrap objects countless number of times since both target 
-            objects and decorators follow the same interface.<br></br>
+            <red>Decorator</red> is a structural pattern that allows adding new behaviors to <red>objects</red> 
+            dynamically by placing them inside special wrapper <red>objects</red> , called <red>decorators</red>. 
+            <br></br><br></br>
+            Using <red>decorators</red> you can wrap <red>objects</red>  countless number of times since both target 
+            <red>objects</red>  and <red>decorators</red> follow the same interface.<br></br>
         </decorators>
         <generic-programming>
             Generic programming is a style of computer programming in which algorithms are 
@@ -2820,27 +2821,28 @@ int main()
 #include &lt;iostream&gt; 
 using namespace std;
  
-class Complex {
-private:
-    int real, imag;
- 
-public:
-    Complex(int r = 0, int i = 0)
-    {
-        real = r;
-        imag = i;
-    }
- 
-    // This is automatically called when '+' is used with
-    // between two Complex objects
-    Complex operator+(Complex const    &#38; obj)
-    {
-        Complex res;
-        res.real = real + obj.real;
-        res.imag = imag + obj.imag;
-        return res;
-    }
-    void print() { cout &lt;&lt; real &lt;&lt; " + i" &lt;&lt; imag &lt;&lt; '\n'; }
+class Complex 
+{
+    private:
+        int real, imag;
+     
+    public:
+        Complex(int r = 0, int i = 0)
+        {
+            real = r;
+            imag = i;
+        }
+     
+        // This is automatically called when '+' is used with
+        // between two Complex objects
+        Complex operator+(Complex const    &#38; obj)
+        {
+            Complex res;
+            res.real = real + obj.real;
+            res.imag = imag + obj.imag;
+            return res;
+        }
+        void print() { cout &lt;&lt; real &lt;&lt; " + i" &lt;&lt; imag &lt;&lt; '\n'; }
 };
  
 int main()
@@ -2850,8 +2852,8 @@ int main()
     c3.print();
     
     /*
-    OUTPUT:
-    12 + i9
+        OUTPUT:
+        12 + i9
     */
 }
 </code>
@@ -2992,7 +2994,7 @@ int main ()
         </multi-threading>
         <namespaces>
             *General-Programming-Knowledge*
-            <br></br><br></br>
+            <br></br>
             In C++ multiple namespace blocks 
             with the same name are allowed.<br></br>
 <code>
@@ -3485,50 +3487,52 @@ class vectors_of_objects_class
         <decorators>
             *General-Programming-Knowledge*
 <code>
-/*Example*/
+/*Example of decorators*/
 
 #include &lt;iostream&gt; 
 using namespace std;
 
 class Computer
 {
-public:
-    virtual void display()
-    {
-        cout &lt;&lt; "I am a computer..." &lt;&lt; endl;
-    }
+    public:
+        virtual void display()
+        {
+            cout &lt;&lt; "I am a computer..." &lt;&lt; endl;
+        }
 };
 
 class CDDrive : public Computer
 {
-private:
-    Computer* c;
-public:
-    CDDrive(Computer* _c)
-    {
-        c = _c;
-    }
-    void display()
-    {
-        c-&gt;display();
-        cout &lt;&lt; "with a CD Drive..." &lt;&lt; endl;
-    }
+    private:
+        Computer* c;
+        
+    public:
+        CDDrive(Computer* _c)
+        {
+            c = _c;
+        }
+        void display()
+        {
+            c-&gt;display();
+            cout &lt;&lt; "with a CD Drive..." &lt;&lt; endl;
+        }
 };
 
 class Printer : public Computer
 {
-private:
-    CDDrive* d;
-public:
-    Printer(CDDrive* _d)
-    {
-        d = _d;
-    }
-    void display()
-    {
-        d-&gt;display();
-        cout &lt;&lt; "with a printer..." &lt;&lt; endl;
-    }
+    private:
+        CDDrive* d;
+        
+    public:
+        Printer(CDDrive* _d)
+        {
+            d = _d;
+        }
+        void display()
+        {
+            d-&gt;display();
+            cout &lt;&lt; "with a printer..." &lt;&lt; endl;
+        }
 };
 
 int main()
