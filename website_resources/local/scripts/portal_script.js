@@ -741,7 +741,9 @@ function formatSingleLineComments(line)
 		String(line).includes("#undef")==false &&
 		String(line).includes("#if")==false &&
 		String(line).includes("#pragma")==false &&
-		String(line).includes("#error")==false
+		String(line).includes("#error")==false &&
+        String(line).includes("#region")==false &&
+        String(line).includes("#endregion")
 		)
 	{
 		line = line.replace("#", "<comment>#");
