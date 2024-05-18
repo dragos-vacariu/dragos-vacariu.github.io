@@ -307,8 +307,8 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             Why Multithreading? 
             </green>
             <br></br><br></br>
-            Threads are popular way to improve application through parallelism. 
-            <br></br>
+            <red>Threads</red> are popular way to improve application through <blue>parallelism</blue>. 
+            <br></br><br></br>
             For example, in a browser, multiple tabs can be different <red>threads</red>. <br></br>
             MS Word uses 
             multiple <red>threads</red>, one <red>thread</red> to format the text, other 
@@ -325,15 +325,16 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
         <bitwise-operators>
             The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
             of two numbers. <br></br>
-            The result of <red>AND</red> is 1 only if both bits are 1.  
+            The result of <red>AND</red> is <blue>1</blue> only if both bits are <blue>1</blue>.  
             <br></br><br></br>
-            The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does <red>OR</red> on every bit 
+            The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does 
+            <red>OR</red> on every bit 
             of two numbers. <br></br>
-            The result of <red>OR</red> is 1 if any of the two bits is 1. 
+            The result of <red>OR</red> is <blue>1</blue> if any of the two bits is <blue>1</blue>. 
             <br></br><br></br>
             The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
             bit of two numbers.<br></br> 
-            The result of <red>XOR</red> is 1 if the two bits are different. 
+            The result of <red>XOR</red> is <blue>1</blue> if the two bits are different. 
             <br></br><br></br>
             The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, <red>left-shifts</red> the bits of the 
             first operand, and the second operand decides the number of places to shift. 
@@ -344,9 +345,11 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
             <br></br><br></br>
             <blue>
-            The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
-            The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
-            2 respectively.<br></br><br></br>
+            The <red>left-shift</red> and <red>right-shift</red> operators should not be used for 
+            <red>negative numbers</red>.<br></br>
+            The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to 
+            <red>multiplication</red> and <red>division</red> by 
+            <red>2</red> respectively.<br></br><br></br>
             </blue>
             
             The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
@@ -3105,6 +3108,7 @@ int main()
             <br></br>
             Bitwise operators in C/C++ are 
             tools for working with individual <red>bits</red> in data. <br></br>
+            <br></br>
             They might not be as famous as other 
             operators, but they’re essential for tasks like making code more <red>efficient</red> or 
             <red>controlling hardware</red>.
