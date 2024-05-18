@@ -5833,34 +5833,34 @@ namespace project50_optional_parameters
              </green>
              <br></br><br></br>
              <blue>
-             Without the <red>partial</red> keyword into the <red>class declaration</red>, 
+             1. Without the <red>partial</red> keyword into the <red>class declaration</red>, 
              the compiler will not 
              know the intention of creating a <red>partial class</red>.
              <br></br>
-             All the parts of a <red>partial class</red> needs to be contained by 
+             2. All the parts of a <red>partial class</red> needs to be contained by 
              the <red>same namespace</red> 
              and assembly.<br></br>
-             All the parts must use the <red>partial</red> keyword in their declaration.
+             3. All the parts must use the <red>partial</red> keyword in their declaration.
              <br></br>
-             All the parts must use the same <red>access modifier</red> in their declaration.
+             4. All the parts must use the same <red>access modifier</red> in their declaration.
              <br></br>
-             If any of the parts is declared as abstract, the entire class will be 
+             5. If any of the parts is declared as abstract, the entire class will be 
              abstract (even if only a part was declared abstract).
              <br></br>
-             If any of the parts is declared as sealed, the entire class will be sealed.
+             6. If any of the parts is declared as sealed, the entire class will be sealed.
              <br></br>
-             If any of the parts is declared to be inherited from a a class, the entire class 
+             7. If any of the parts is declared to be inherited from a a class, the entire class 
              will be inherited from that class. 
              <br></br>
-             Different parts of the <red>partial class</red> cannot specify that they are inherited from 
-             different classes. (IN C# MULTIPLE CLASS INHERITANCE IS NOT ALLOWED).
+             8. Different parts of the <red>partial class</red> cannot specify that they are inherited from 
+             different classes. Multiple class inheritance is not allowed in C#.
              <br></br>
-             Different parts of the <red>partial class</red> can specify that they <red>inherits</red> 
+             9. Different parts of the <red>partial class</red> can specify that they <red>inherits</red> 
              from different <red>interfaces</red>, so after the compilation the <red>partial class</red>
              will be <red>inherited</red> from all the specified <red>interfaces</red> (even if they were 
              specified in different parts of the <red>class</red>).
              <br></br>
-             The members declared to a part of the <red>partial class</red> are available to all 
+             10. The members declared to a part of the <red>partial class</red> are available to all 
              the part of the <red>partial class</red> (available in the <red>entire class</red>).
              </blue>
              
