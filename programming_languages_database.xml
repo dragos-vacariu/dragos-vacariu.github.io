@@ -4974,26 +4974,26 @@ namespace ProjectA.TeamB
 </code>
         </namespaces>
         <exception-handling>*General-Programming-Knowledge*
-        <br></br> 
-        <green>
-            Disadvantages of unhandling exceptions:
-        </green>
-        <br></br> <br></br> 
-        <blue>
-         An <red>unhandled exception</red> would provide annoying error message to a user, 
-         which could make the program be devoid using.
-         <br></br> 
-         An unhandled exception could also provide important information to a hacker.
-         <br></br> 
-         </blue>
-         While handling the <red>exceptions</red> the <code>catch</code> block containing the <red>specific 
-         classes</red> must be placed above the <red>general class</red> which should be the last one 
-         at the bottom.
-         <br></br> <br></br> 
-         In this way specific <red>exceptions</red> will be handled first and in case the exception 
-         was not handled
-         specifically then it can be handled generically with the general Exception Class.
-         <br></br> 
+            <br></br> 
+            <green>
+                Disadvantages of unhandling exceptions:
+            </green>
+            <br></br> <br></br> 
+            <blue>
+             An <red>unhandled exception</red> would provide annoying error message to a user, 
+             which could make the program be devoid using.
+             <br></br> 
+             An <red>unhandled exception</red> could also provide important information to a hacker.
+             <br></br><br></br> 
+             </blue>
+             While handling the <red>exceptions</red> the <code>catch</code> block containing the <red>specific 
+             classes</red> must be placed above the <red>general class</red> which should be the last one 
+             at the bottom.
+             <br></br> <br></br> 
+             In this way specific <red>exceptions</red> will be handled first and in case the 
+             <code>exception</code> was not handled
+             specifically then it can be handled generically with the general <code>Exception Class</code>.
+             <br></br> 
 <code>
 //Example on how to handle exceptions in C#
 
@@ -5013,7 +5013,8 @@ namespace project37_read_write_to_files_handling_exceptions
             //EXCEPTION HANDLING:
             try //try to do this without exception
             {
-                Console.WriteLine(readFromFile.ReadToEnd()); //ReadToEnd will read all the content of the file (until the end).
+                Console.WriteLine(readFromFile.ReadToEnd()); 
+                //ReadToEnd will read all the content of the file (until the end).
             }
             
             //If there was an exception come to this catch statement
@@ -5022,8 +5023,9 @@ namespace project37_read_write_to_files_handling_exceptions
             catch(FileNotFoundException fNotFound) //try to handle the exception with this object.
                 //This object is mostly for FileNotFoundException.
             {
-                //An object of type FileNotFoundException contain more information about the file that could 
-                //not be found then an object of type Exception (as we use in our case).
+                //An object of type FileNotFoundException contain more information about 
+                //the file that could not be found then an object of type 
+                //Exception (as we use in our case).
                 
                 Console.WriteLine(fNotFound.Message);
                 Console.WriteLine("Check for the file: {0}", fNotFound.FileName);
@@ -5037,10 +5039,11 @@ namespace project37_read_write_to_files_handling_exceptions
                 Console.WriteLine(ex.Message);
             }
             
-            //THIS BLOCK IS ALWAYS EXECUTED while for the catch blocks is not a certainty which one is going to
-            //be executed.
+            //THIS BLOCK IS ALWAYS EXECUTED while for the catch blocks is not a certainty 
+            //which one is going to be executed.
             
-            finally //the finally block contain the code that should be executed by all means necessary
+            finally 
+            //the finally block contain the code that should be executed by all means necessary
             {
                 if(readFromFile!=null) //if the file is null then it cannot be closed.
                 {
