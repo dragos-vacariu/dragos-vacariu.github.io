@@ -3244,13 +3244,13 @@ int main()
 </code>
 			<code>srand()</code> function is also available in C++.<br></br>
 			This function sets the
-			seed which is used by rand to generate “random” numbers.
+			<red>seed</red> which is used by <red>rand</red> to generate <red>"random"</red> numbers.
 		</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
 		<modular-programming>*General-Programming-Knowledge*
-		<br></br>
-		<red>Example of modular programming in C++</red>
+			<br></br>
+			<red>Example of modular programming in C++</red>
 <code>
 //FILE: vectors_of_objects_mainfile.cpp
 //In this file we put everything together
@@ -3396,14 +3396,17 @@ class vectors_of_objects_class
 </code>
 		</modular-programming>
 		<string-methods>
-			The <code>std::string</code> is a class in C++ since C++98. This class is the standard 
+			The <code>std::string</code> is a <code>class</code> in <red>C++ since C++98</red>. 
+			This <code>class</code> is the standard 
 			representation for a text string. It includes some typical string operations 
-			like find, replace, concatenate, compare etc. It is present in &lt;string&gt; 
+			like find, replace, concatenate, compare etc. It is present in <code>&lt;string&gt;</code> 
 			header file. <br></br><br></br>
+			<green>
 			Commonly Used String Functions in C++:<br></br>
+			</green>
 			<br></br>
 			<blue>length() or size()</blue><br></br>
-			It will return the length of the string.<br></br>
+			It will return the <red>length</red> of the string.<br></br>
 			<br></br>
 			<blue>array[index]</blue><br></br>
 			To access individual characters using array indexing.<br></br>
@@ -3412,7 +3415,7 @@ class vectors_of_objects_class
 			Used to access a character at a specified index.<br></br>
 			<br></br>
 			<blue>+ Operator</blue><br></br>
-			<code>+</code> operator is used to concatenate two strings.<br></br>
+			<code>+</code> operator is used to <red>concatenate</red> two strings.<br></br>
 			<br></br>
 			<blue>append()</blue><br></br>
 			The <code>append()</code> function adds one string to the end of another.<br></br>
@@ -3425,22 +3428,22 @@ class vectors_of_objects_class
 			comparison result.<br></br>
 			<br></br>
 			<blue>substr()</blue><br></br>
-			Use the substr() function to extract a substring from a string.<br></br>
+			Use the <code>substr()</code> function to extract a substring from a string.<br></br>
 			<br></br>
 			<blue>find()</blue><br></br>
-			The find() function returns the position of the first occurrence of a substring.<br></br>
+			The <code>find()</code> function returns the position of the first occurrence of a substring.<br></br>
 			<br></br>
 			<blue>replace()</blue><br></br>
-			Use the replace() function to modify a part of the string.<br></br>
+			Use the <code>replace()</code> function to modify a part of the string.<br></br>
 			<br></br>
 			<blue>insert()</blue><br></br>
-			The insert() function adds a substring at a specified position.<br></br>
+			The <code>insert()</code> function adds a substring at a specified position.<br></br>
 			<br></br>
 			<blue>erase()</blue><br></br>
-			Use the erase() function to remove a part of the string.<br></br>
+			Use the <code>erase()</code> function to remove a part of the string.<br></br>
 			<br></br>
 			<blue>c_str()</blue><br></br>
-			To obtain a C-style string from a <code>std::string</code>, you can use the 
+			To obtain a <red>C-style string</red> from a <code>std::string</code>, you can use the 
 			<code>c_str()</code> function.<br></br>
 		</string-methods>
 		<datatype-conversions>*General-Programming-Knowledge*</datatype-conversions>
