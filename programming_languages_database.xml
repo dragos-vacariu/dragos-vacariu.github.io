@@ -1039,14 +1039,16 @@ int main()
             
             <green>Data abstraction:</green>
             <br></br><br></br>
-            <blue>Data abstraction</blue> is one of the most essential and important features of <red>object-oriented 
-            programming</red>. <br></br><br></br>
-            <blue>Data abstraction</blue> refers to providing only <blue>essential information</blue> about the 
+            <blue>Data abstraction</blue> is one of the most essential and important features of 
+            <red>object-oriented programming</red>. 
+            <br></br><br></br>
+            <blue>Data abstraction</blue> refers to providing only <blue>essential information</blue> 
+            about the 
             data to the outside world, hiding the background details or implementation. 
             <br></br><br></br>
             Using <blue>data abstraction</blue>, we are not allowed to <red>access</red> the variables directly, however, 
-            one can call the <red>setter function</red> to set the values or the <red>getter function</red> to
-            get the values.
+            one can call the <red>setter function</red> to set the values or the 
+            <red>getter function</red> to get the values.
             <br></br><br></br>
             
             <green>Advantages of Data Abstraction:</green>
@@ -1065,7 +1067,8 @@ int main()
             <green>Process Abstraction:</green>
             <br></br><br></br>
             <blue>Process abstraction</blue> focuses on abstracting the behavior or 
-            processes of an object. <br></br>
+            processes of an object. 
+            <br></br>
             It allows developers to define the methods an object that can perform without 
             specifying how these methods are implemented. 
             <br></br>
@@ -1082,7 +1085,7 @@ int main()
             high-level design and promotes <red>code reusability</red>. 
             <blue>Concrete implementation</blue>, 
             on the other hand, involves the actual coding and realization of the abstract 
-            concepts. Striking a balance between <red>abstraction</red> and </blue>concrete 
+            concepts. Striking a balance between <red>abstraction</red> and <blue>concrete 
             implementation</blue> is 
             essential in creating <red>maintainable</red>, <red>scalable</red>, and 
             <red>efficient</red> software systems.
