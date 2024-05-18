@@ -2049,6 +2049,8 @@ int main()
 </code>    
         </polymorphism>
         <inheritance>
+            *General-Programming-Knowledge*
+            <br></br>
             In C++, it is possible to <red>inherit</red> attributes and methods from one <code>class</code> 
             to another. <br></br><br></br>
             <green>
