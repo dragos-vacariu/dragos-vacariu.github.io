@@ -933,20 +933,20 @@ int main()
             The purpose of an <red>abstract class</red> (often referred to as an <red>ABC</red>) is to provide an 
             appropriate <red>base class</red> from which other classes can inherit. <br></br>
             <br></br>
-            <red>Abstract classes</red> cannot be used to instantiate objects and serves only as an 
+            <red>Abstract classes</red> cannot be used to <red>instantiate</red> objects and serves only as an 
             interface. <br></br>
-            Attempting to instantiate an object of an <red>abstract class</red> causes a 
+            Attempting to <red>instantiate</red> an object of an <red>abstract class</red> causes a 
             compilation error. <br></br>
             <br></br>
             If a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
             the <red>virtual functions</red>, which means that it supports the interface declared by the 
             <red>ABC</red>. <br></br><br></br>
-            Failing to override a pure <red>virtual function</red> in a <red>derived class</red>, 
-            then attempting to instantiate objects of that class, is a compilation error.
+            Failing to <red>override</red> a pure <red>virtual function</red> in a <red>derived class</red>, 
+            then attempting to <red>instantiate objects</red> of that <code>class</code>, is a compilation error.
             <br></br><br></br>
             An <red>object-oriented</red> system might use an <red>abstract base class</red> to provide a common and 
-            standardized interface appropriate for all the external applications. <br></br>
-            Then, through inheritance from that <red>abstract base class</red>, derived classes are 
+            standardized <red>interface</red> appropriate for all the external applications. <br></br>
+            Then, through <red>inheritance</red> from that <red>abstract base class</red>, <blue>derived classes</blue> are 
             formed that operate similarly.
             <br></br><br></br>
             The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
