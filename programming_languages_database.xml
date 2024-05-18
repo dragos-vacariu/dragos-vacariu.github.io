@@ -1062,6 +1062,20 @@ int main()
             So even though an output number produced may seem <red>random</red>, the values are 
             <blue>mathematically computed</blue>.
         </random-generators>
+        <preprocessor-directives>
+            <red>Preprocessor directives</red> are lines of the source file where the first non-whitespace 
+            character is <code>#</code> , which distinguishes them from other lines of text. 
+            <br></br><br></br>
+            The effect of each <red>preprocessor directives</red> is a change to the text and the 
+            result is a 
+            transformation of the text that does not contain the <blue>directives</blue> nor comments.
+            <br></br><br></br>
+            <green>The #define preprocessor is as example:</green>
+            <br></br><br></br>
+            The #define preprocessor directive creates symbolic constants. <br></br>
+            The symbolic constant is called a macro and the general form of the directive is:<br></br>
+            <code>#define macro-name replacement-text</code>
+        </preprocessor-directives>
     </programming_language>
     
     <programming_language>
@@ -4079,37 +4093,56 @@ namespace project1_introduction
 }
 </code>
         </simple-data-types>
-        <complex-data-types>
-        *General-Programming-Knowledge*
-        <br></br>
-        <green>C# brings changes with regards to the datatypes which were available in C/C++:</green>
-        <br></br><br></br>
-        C# supports <red>pointers</red> in a limited extent. <br></br><br></br>
-        A C# <red>pointer</red> is 
-        nothing but a variable that 
-        holds the <red>memory address</red> of another type. But in C# pointer can only be declared to 
-        hold the <red>memory address</red> of value types and arrays. 
-        <br></br><br></br>
-        Unlike reference types, <red>pointer types</red> are not tracked by the default garbage 
-        collection mechanism. For the same reason <red>pointers</red> are not allowed to point to a 
-        <blue>reference type</blue> or even to a <blue>structure type</blue> which contains a 
-        <blue>reference type</blue>. 
-        <br></br><br></br>
-        We can say that <red>pointers</red> can point to only <blue>unmanaged types</blue> which includes 
-        all basic <red>data types</red>, <red>enum types</red>, other <red>pointer types</red> and 
-        <blue>structs</blue> 
-        which contain only <blue>unmanaged types</blue>.
-        <br></br>
-        <brown>There are no unions available in C#.</brown>
-        <brown>There are no typedefs available in C#.</brown>
-        </complex-data-types>
-        <loops>*General-Programming-Knowledge*
+        <preprocessor-directives>
+            *General-Programming-Knowledge*
             <br></br>
-           <red>Foreach loop</red> is used especially when trying to iterrate into a 
-           list which has dinamic size, or an array with unknown size.
-           <br></br><br></br>
-           <green>The foreach loop is very similar to a for loop</green>.
-           <br></br><br></br>
+            C# unlike C and C++ it does not allow the use directives to create macros. <br></br>
+            <brown>
+                Although there is no #define in C#. Some preprocessor directive are still available.
+            </brown>
+            <br></br><br></br>
+<code>
+//Example:
+
+#if DEBUG
+    Console.WriteLine("Debug version");
+#endif
+</code>
+            A preprocessor directive must be the only 
+            instruction on a line. <br></br>
+        </preprocessor-directives>
+        <complex-data-types>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>C# brings changes with regards to the datatypes which were available in C/C++:</green>
+            <br></br><br></br>
+            C# supports <red>pointers</red> in a limited extent. <br></br><br></br>
+            A C# <red>pointer</red> is 
+            nothing but a variable that 
+            holds the <red>memory address</red> of another type. But in C# pointer can only be declared to 
+            hold the <red>memory address</red> of value types and arrays. 
+            <br></br><br></br>
+            Unlike reference types, <red>pointer types</red> are not tracked by the default garbage 
+            collection mechanism. For the same reason <red>pointers</red> are not allowed to point to a 
+            <blue>reference type</blue> or even to a <blue>structure type</blue> which contains a 
+            <blue>reference type</blue>. 
+            <br></br><br></br>
+            We can say that <red>pointers</red> can point to only <blue>unmanaged types</blue> which includes 
+            all basic <red>data types</red>, <red>enum types</red>, other <red>pointer types</red> and 
+            <blue>structs</blue> 
+            which contain only <blue>unmanaged types</blue>.
+            <br></br>
+            <brown>There are no unions available in C#.</brown>
+            <brown>There are no typedefs available in C#.</brown>
+        </complex-data-types>
+        <loops>
+            *General-Programming-Knowledge*
+            <br></br>
+            <red>Foreach loop</red> is used especially when trying to iterrate into a 
+            list which has dinamic size, or an array with unknown size.
+            <br></br><br></br>
+            <green>The foreach loop is very similar to a for loop</green>.
+            <br></br><br></br>
             <red>Foreach</red> is used only for <red>Collection of data</red>.
             The difference between <red>for loop</red> and <red>foreach loop</red> is that 
             in <red>foreach loop</red> there is no access to the index.
