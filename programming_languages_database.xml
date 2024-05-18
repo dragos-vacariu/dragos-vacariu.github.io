@@ -5319,7 +5319,8 @@ namespace project46_working_with_string_builder
         public static void Main(string[] args)
         {
             //Creating a stringbuilder:
-            StringBuilder stringbuiler = new StringBuilder("Adam"); //this is how a stringbuilder gets created and initialized
+            StringBuilder stringbuiler = new StringBuilder("Adam"); 
+            //this is how a stringbuilder gets created and initialized
             
             //To concatenate string builders, there is a function called .Append();
             stringbuiler.Append(" has");
@@ -5328,14 +5329,16 @@ namespace project46_working_with_string_builder
             
             //Printing the stringbuilder:
             Console.WriteLine("{0}", stringbuiler);
-            Console.WriteLine("{0}", stringbuiler.ToString()); //this is a better way to print the stringbuilder
+            Console.WriteLine("{0}", stringbuiler.ToString()); 
+            //this is a better way to print the stringbuilder
             
             //Other stringbuilder operations:
             stringbuiler.Clear(); //clear the stringbuiler's content
             Console.WriteLine("{0}", stringbuiler);
-            Console.WriteLine("Stringbuilder Capacity: {0}", stringbuiler.Capacity); //stringbuilder.Capacity returns the capacity of the
             
-            //stringbuilder
+            //stringbuilder.Capacity returns the capacity of the stringbuilder
+            Console.WriteLine("Stringbuilder Capacity: {0}", stringbuiler.Capacity); 
+            
             Console.WriteLine("Stingbuilder Max Capacity: {0}",stringbuiler.MaxCapacity);
             
             //End of program:
@@ -5368,8 +5371,8 @@ namespace project13_implicit__explicit__data_type_conversions
             float numb2 = numb1; //implicit conversion (done by the compiler).
             Console.WriteLine("The value of numb2 is: {0}", numb2);
             
-            /* An explicit conversion is done by the programmer using type cast operators or predefined classes, 
-             * data-conversion classes.
+            /* An explicit conversion is done by the programmer using type cast operators  
+             * or predefined classes, data-conversion classes.
              * 
              * Example:
              */
@@ -5455,7 +5458,9 @@ namespace project30_explicit_vs_implicit_implementation
     {
         public static void Main(string[] args)
         {
-            Program soft = new Program(); //soft is reference variable for an object type Program stored in heap.
+            Program soft = new Program(); 
+            //soft is reference variable for an object type Program stored in heap.
+            
             soft.Print(); //calling the implicit implemented function
             
             //By TYPE CASTING - calling the explicit implemented functions.
@@ -5473,8 +5478,8 @@ namespace project30_explicit_vs_implicit_implementation
             Console.ReadKey(true);
         }
         
-        //This is implicit implementation, the compilation and the runtime is fine, dispite that there is
-        //a simple implementation for the both functions.
+        //This is implicit implementation, the compilation and the runtime is fine, 
+        //dispite that there is a simple implementation for the both functions.
         
         public void Print()
         {
@@ -5482,12 +5487,15 @@ namespace project30_explicit_vs_implicit_implementation
         }
         
         //Explicit Implementation:
-        void I3.MessageShow() //when explicitly implementing a function the access modifiers are not allowed
+        
+        //when explicitly implementing a function the access modifiers are not allowed
+        void I3.MessageShow() 
         {
             Console.WriteLine("This is I3 function!");
         }
         
-        void I4.MessageShow() //when explicitly implementing a function the access modifiers are not allowed
+        //when explicitly implementing a function the access modifiers are not allowed
+        void I4.MessageShow() 
         {
             Console.WriteLine("This is I4 function!");
         }
@@ -5495,17 +5503,29 @@ namespace project30_explicit_vs_implicit_implementation
 }
 </code>
         </datatype-conversions>
-        <optional-parameters>*General-Programming-Knowledge*
+        <optional-parameters>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>
+                Ways of adding optional parameters in C#:
+            </green>
+            <br></br><br></br>
+            <blue>
+            1.Using <code>params</code> <red>arrays</red> (optional <red>arrays</red> created 
+            using <code>params</code> keyword as prefix).<br></br>
+            2.Methods overloading (overloading a method/function to 
+            provide many versions with different number of parameters);<br></br>
+            3.Methods with <red>default parameter values</red>.<br></br>
+            4.Methods that are using <red>optional attribute</red>.<br></br>
+            </blue>
+            
 <code>
-using System;
-using System.Runtime.InteropServices; //using this for the [Optional] or [OptionalAttribute] attribute
+//Example of using optional parameters:
 
-/*WAYS OF ADDING OPTIONAL PARAMETERS:
- * 1.Using params arrays (optional arrays creating using params keyword as prefix).
- * 2.Methods overloading (overloading a method/function to provide many versions with different number of parameters);
- * 3.Methods with default parameter values.
- * 4.Methods that are using optional attribute.
- */
+using System;
+
+//using this for the [Optional] or [OptionalAttribute] attribute
+using System.Runtime.InteropServices; 
 
 namespace project50_optional_parameters
 {
@@ -5516,10 +5536,13 @@ namespace project50_optional_parameters
             Program pr = new Program();
             Console.WriteLine("The result of adding 10, 3, 4, 6 is: {0}", pr.AddNumbers(10,3, new int[]{4,6}));
             Console.WriteLine("The result of adding 2 and 5 is: {0}", pr.AddNumbers(2,5));
+            
             //Calling the second function:
             pr.PrintNrs(12);
+            
             //To use the default value only for b (the second argument):
             pr.PrintNrs(1,c:22); //the value of b will be the default value (10);
+            
             //To use default value only for c:
             pr.PrintNrs(1,2); //the value of c will be the default value (2);
             
@@ -5529,6 +5552,7 @@ namespace project50_optional_parameters
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
+        
         //Creating functions with default values:
         public int AddNumbers(int num1, int num2, int [] array = null) //sinthax is just like in C++;
         {
@@ -5542,14 +5566,18 @@ namespace project50_optional_parameters
             }
             return result;
         }
-        public void PrintNrs(int a, int b=10, int c=2) //for a function with default parameters, the parameters initialized with
-            //default values must be the last in the list of parameters (just like in case of params arrays).
+        
+        public void PrintNrs(int a, int b=10, int c=2) 
+        //for a function with default parameters, the parameters initialized with
+        //default values must be the last in the list of parameters 
+        //(just like in case of params arrays).
         {
             Console.WriteLine("Nr1= {0}\nNr2= {1}\nNr3= {2}", a, b, c);
         }
         
         //Creating functions with [Optional] attributes
-        public void DisplayArgs(int num1, int num2, [Optional] int num3) //this can also be done with [OptionalAttribute].
+        public void DisplayArgs(int num1, int num2, [Optional] int num3) 
+        //this can also be done with [OptionalAttribute].
         {
             //In case that num3 is not specified by the user, it's value will be 0.
             Console.WriteLine("The numbers are: {0}, {1}, {2}", num1,num2,num3);
