@@ -216,8 +216,8 @@ while(counter &lt; 5)
 </code>
         </loops>
         <dynamic-memory-allocation>
-            Dynamic memory is allocated from the heap using some standard library functions. 
-            The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. 
+            <red>Dynamic memory</red> is allocated from the <red>heap</red> using some standard library functions. 
+            The two <red>dynamic memory</red> key functions are <code>malloc()</code> and <code>free()</code>. 
             <br></br><br></br>
             The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
             area in bytes. <br></br>
@@ -295,9 +295,10 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             A <red>thread</red> is a single sequence stream within a process. Because threads have some of 
             the properties of processes, they are sometimes called lightweight processes. 
             <br></br><br></br>
-            Threads are not independent from each other unlike processes. As a result, 
-            threads shares with other threads their code section, data section and OS resources 
-            like open files and signals. 
+            <red>Threads</red> are not independent from each other unlike <red>processes</red>. 
+            As a result, 
+            <red>threads</red> shares with other <red>threads</red> their code section, 
+            data section and OS resources like open files and signals. 
             <br></br>
             But, like processes, a <red>thread</red> has its own program 
             counter (PC), a register set, and a stack space. 
@@ -308,15 +309,16 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             <br></br><br></br>
             Threads are popular way to improve application through parallelism. 
             <br></br>
-            For example, in a browser, multiple tabs can be different threads. <br></br>
+            For example, in a browser, multiple tabs can be different <red>threads</red>. <br></br>
             MS Word uses 
-            multiple threads, one thread to format the text, other thread to process inputs, etc. 
+            multiple <red>threads</red>, one <red>thread</red> to format the text, other 
+            <red>thread</red> to process inputs, etc. 
             <br></br><br></br>
-            Threads operate faster than processes due to following reasons: <br></br><br></br>
+            <red>Threads</red> operate faster than processes due to following reasons: <br></br><br></br>
             <blue>
-            1) Thread creation is much faster. <br></br>
-            2) Context switching between threads is much faster. <br></br>
-            3) Threads can be terminated easily <br></br>
+            1) <red>Thread</red> creation is much faster. <br></br>
+            2) Context switching between <red>threads</red> is much faster. <br></br>
+            3) <red>Threads</red> can be terminated easily <br></br>
             4) Communication between threads is faster.<br></br>
             </blue>
         </multi-threading>
@@ -2291,7 +2293,7 @@ for (int i : myNumbers)
         <collections>
             *General-Programming-Knowledge*
             <br></br>
-            Additional to C Language: C++ introduced several new collection classes datatypes:
+            Additional to C Language: C++ introduced several new <red>collection classes datatypes</red>:
             <br></br><br></br>
             <green>
                 Vector: 
@@ -2302,10 +2304,10 @@ for (int i : myNumbers)
             <blue>
             Vector is a type of <red>dynamic array</red> which has the ability to <red>resize 
             automatically</red> after insertion or deletion of elements. <br></br>
-            The elements in vector 
+            The elements in <code>vector</code> 
             are placed in contiguous storage so that they can be accessed and traversed using 
             <red>iterators</red>. <br></br>
-            Element is inserted at the end of the vector.<br></br><br></br>
+            Element is inserted at the end of the <code>vector</code>.<br></br><br></br>
             </blue>
 <code>
 #include &lt;iostream&gt; 
@@ -2361,7 +2363,7 @@ int main()
 </code>
         </collections>
         <collection-methods>
-            Some of the methods available in C++ for the Collection Type Classes: 
+            Some of the methods available in C++ for the <blue>Collection Type Classes</blue>: 
             <red>Vector</red> or <red>List</red> are:
             <br></br><br></br>
             <green>Capacity:</green><br></br>
@@ -2401,10 +2403,10 @@ int main()
             C++ integrates the operators <code>new</code> and <code>delete</code> for allocating dynamic memory.
             <br></br><br></br>
             <red>Operators new and new[]: </red>
-            <br></br>
-            Dynamic memory is allocated using operator <code>new</code>. <br></br>
-            <code>new</code> is followed by a data 
-            type specifier and, if a sequence of more than one element is required, 
+            <br></br><br></br>
+            <red>Dynamic memory</red> is allocated using operator <code>new</code>. <br></br>
+            <code>new</code> is followed by a <red>data 
+            type</red> specifier and, if a sequence of more than one element is required, 
             the number of these within brackets <code>[]</code>. <br></br>
             It returns a pointer to the beginning of the new block of memory allocated. <br></br>
 <code>
@@ -2420,7 +2422,7 @@ foo = new int [5];
         for five elements of type <code>int</code>.<br></br>
         <br></br>
         <red>Operators delete and delete[]: </red>
-        <br></br>
+        <br></br><br></br>
         In most cases, <red>memory allocated dynamically</red> is only needed during specific periods 
         of time within a program; once it is no longer needed, it can be <red>freed</red> so that 
         the memory becomes available again for other requests of <red>dynamic memory</red>. <br></br>
@@ -2489,18 +2491,20 @@ int main()
 </code>
         </dynamic-memory-allocation>
         <read-from-file>
-            The fstream library can be used in C++ to work with files.
+            The <code>fstream</code> library can be used in C++ to work with files.
             <br></br><br></br>
-            There are three classes included in the fstream library, which are used to create, write or read files:
+            There are three classes included in the <code>fstream</code> library, 
+            which are used to <red>create</red>, <red>write</red> or <red>read</red> files:
             <br></br><br></br>
             <green>Class description:</green><br></br><br></br>
-            <red>ofstream</red>    Creates and writes to files<br></br>
-            <red>ifstream</red>    Reads from files<br></br>
-            <red>fstream</red>        A combination of ofstream and ifstream: creates, reads, and writes to files
+            <red>ofstream</red> - Creates and writes to files.<br></br>
+            <red>ifstream</red> - Reads from files.<br></br>
+            <red>fstream</red>  - A combination of <code>ofstream</code> and <code>ifstream</code>: 
+            <red>creates</red>, <red>reads</red>, and <red>writes</red> to files.
             <br></br><br></br>
-            To read from a file, use either the <code>ifstream</code> or <code>fstream class</code>, and the name of the file.
+            To <red>read</red> from a file, use either the <code>ifstream</code> or <code>fstream class</code>, and the name of the file.
             <br></br><br></br>
-            <blue>Note: we also use a while loop together with the <code>getline()</code> function 
+            <blue>Note: we also use a <code>while</code> loop together with the <code>getline()</code> function 
             (which belongs to the <code>ifstream</code> class) to read the file line by line, and to print 
             the content of the file:</blue>
             <br></br>
@@ -2535,16 +2539,19 @@ int main()
         <write-to-file>
             The <code>fstream</code> library can be used in C++ to work with files.
             <br></br><br></br>
-            There are three classes included in the <code>fstream</code> library, which are used to create, 
-            write or read files:
+            There are three classes included in the <code>fstream</code> library, which are used to 
+            <red>create</red>, 
+            <red>write</red> or <red>read</red> files:
             <br></br><br></br>
             <green>Class description:</green><br></br><br></br>
-            <red>ofstream</red>    Creates and writes to files<br></br>
-            <red>ifstream</red>    Reads from files<br></br>
-            <red>fstream</red>    A combination of <red>ofstream</red> and <red>ifstream</red>: creates, reads, and writes to files
+            <red>ofstream</red> - Creates and writes to files.<br></br>
+            <red>ifstream</red> - Reads from files.<br></br>
+            <red>fstream</red> - A combination of <red>ofstream</red> and <red>ifstream</red>: 
+            <red>creates</red>, <red>reads</red>, and <red>writes</red> to files.
             <br></br><br></br>
-            Create and Write To a File:<br></br>
-            To create a file, use either the ofstream or <red>fstream</red> class, and specify 
+            <red>Create and Write To a File:</red>
+            <br></br><br></br>
+            To create a file, use either the <red>ofstream</red> or <red>fstream</red> class, and specify 
             the name of the file.
             <br></br><br></br>
             To write to the file, use the insertion operator (<code>&lt;&lt;</code>).<br></br>
