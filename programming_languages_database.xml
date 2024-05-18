@@ -5105,29 +5105,29 @@ static void Main(string[] args)
             </green>
             <br></br><br></br>
             <blue>
-             1.An <code>interface</code> cannot have field <red>members/variable</red> members (can have only 
+             1. An <code>interface</code> cannot have field <red>members/variable</red> members (can have only 
              <red>functions/methods</red>, <red>delegates</red>, <red>events</red> or <red>proprieties</red>).
-             <br></br>
-             2.An <code>interface</code> cannot contain implementations for the <red>functions/methods</red>
+             <br></br><br></br>
+             2. An <code>interface</code> cannot contain implementations for the <red>functions/methods</red>
              (an implementation of a <red>function/method</red> is the code between the brackets).
-             <br></br>
-             3.An <code>interface</code> has <code>public</code> fields set by default, so inside an 
+             <br></br><br></br>
+             3. An <code>interface</code> has <code>public</code> fields set by default, so inside an 
              <code>interface</code> you 
              cannot use the <code>public</code> acces-modifier for its members.
-             <br></br>
-             4.A class can inherit from an <code>interface</code>. But with the condition of providing 
+             <br></br><br></br>
+             4. A class can inherit from an <code>interface</code>. But with the condition of providing 
              the implementation for all the <code>interface</code> <red>function/method</red> members.
-             <br></br>
-             5.When a class provides implementation of an <code>interface</code> function member, 
+             <br></br><br></br>
+             5. When a class provides implementation of an <code>interface</code> function member, 
              it also needs to make the member function <code>public</code>. 
              (The <code>public</code> access modifier must be used.)
-             <br></br>
-             6.A <code>class</code> or <code>struct</code> can <red>inherit</code> from MORE interfaces 
+             <br></br><br></br>
+             6. A <code>class</code> or <code>struct</code> can <red>inherit</red> from MORE interfaces 
              at the same time. 
              Whereas a <code>class</code> or <code>struct</code> cannot <red>inherit</red> from
              more then one <code>class</code>.
-             <br></br>
-             7.An <code>interface</code> cannot be <red>instanciated</red> (an <red>instance</red>, 
+             <br></br><br></br>
+             7. An <code>interface</code> cannot be <red>instanciated</red> (an <red>instance</red>, 
              object of the <code>interface</code> 
              cannot be created), because doing this it would mean that you would be able to call 
              a function from the <code>interface</code>, and the <code>interface</code> cannot contain
