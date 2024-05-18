@@ -1044,7 +1044,18 @@ int main()
             details are provided to the user.<br></br>
             It <red>reduces the complexity</red> as well as the <red>redundancy</red> of the code, therefore 
             <red>increasing the readability</red>.
+            <br></br><br></br>
+            
+            <blue>Abstraction</blue> is a powerful technique that allows for a separation of concerns between the 
+            <red>interface</red> and <blue>implementation</blue> of a <code>class</code>. 
             <br></br>
+            It helps to <red>reduce complexity</red> and improve 
+            <blue>maintainability</blue> by allowing changes to be made to the 
+            <blue>implementation</blue> without affecting 
+            the overall behavior of the <code>class</code>.
+            <br></br><br></br>
+            Can be used to create a <red>base implementation</red> or <blue>contract</blue> for the 
+            <blue>actual implementation<blue> from <code>base classes</code>.
             </blue>
         </abstraction>
         <variable-arguments-lists>
@@ -3727,7 +3738,8 @@ int main()
             Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
         </description>
         <oop>*General-Programming-Knowledge*</oop>
-        <encapsulation>*General-Programming-Knowledge*
+        <encapsulation>
+            *General-Programming-Knowledge*
 <code>
 using System;
 
@@ -3802,7 +3814,8 @@ namespace project27_classes_encaptulation_and_exceptions_throwing
 }
 </code>
         </encapsulation>
-        <polymorphism>*General-Programming-Knowledge*
+        <polymorphism>
+            *General-Programming-Knowledge*
 <code>
 using System;
 
@@ -3884,28 +3897,29 @@ namespace project25_polymorphism
 }
 </code>
         </polymorphism>
-        <inheritance>*General-Programming-Knowledge*
-        <br></br>
-        In C# for an <red>inherited class</red> can be only one <red>parent class</red> 
-        (only <red>single class inheritance</red> is allowed).
-        <br></br><br></br> 
-        In case of inherited classes: the <red>parent class constructor</red> gets automatically 
-        executed before the <red>child class constructor</red> if the <red>parent class constructor</red> 
-        has no <blue>arguments</blue>.
-        <br></br><br></br>
-        Otherwise: if the <red>parent class</red> has a <red>constructors</red> with multiple 
-        <blue>arguments/parameters</blue> 
-        it must be specified at the <red>child class constructor</red> declaration a 
-        <blue>syntax<code>:base()</code></blue>
-        and specify the <blue>arguments</blue> of the <red>constructor</red> that you want to 
-        be executed inside 
-        the pharanteses.
-        <br></br><br></br>
-        <green>IMPORTANT:</green> 
-        <br></br><br></br>
-        To prevent a <code>class</code> of having children (<red>inheritance</red>), you can use the 
-        <code>sealed</code> keyword.
-        A <code>sealed class</code> cannot have children (cannot be <code>base class</code>).
+        <inheritance>
+            *General-Programming-Knowledge*
+            <br></br>
+            In C# for an <red>inherited class</red> can be only one <red>parent class</red> 
+            (only <red>single class inheritance</red> is allowed).
+            <br></br><br></br> 
+            In case of inherited classes: the <red>parent class constructor</red> gets automatically 
+            executed before the <red>child class constructor</red> if the <red>parent class constructor</red> 
+            has no <blue>arguments</blue>.
+            <br></br><br></br>
+            Otherwise: if the <red>parent class</red> has a <red>constructors</red> with multiple 
+            <blue>arguments/parameters</blue> 
+            it must be specified at the <red>child class constructor</red> declaration a 
+            <blue>syntax<code>:base()</code></blue>
+            and specify the <blue>arguments</blue> of the <red>constructor</red> that you want to 
+            be executed inside 
+            the pharanteses.
+            <br></br><br></br>
+            <green>IMPORTANT:</green> 
+            <br></br><br></br>
+            To prevent a <code>class</code> of having children (<red>inheritance</red>), you can use the 
+            <code>sealed</code> keyword.
+            A <code>sealed class</code> cannot have children (cannot be <code>base class</code>).
 <code>
 //FILE: MyClass.cs
 
@@ -3981,66 +3995,37 @@ namespace inherited_classes
 }
 </code>
         </inheritance>
-        <abstraction>*General-Programming-Knowledge*
+        <abstraction>
+            *General-Programming-Knowledge*
 <code>
-using System;
+//Example of data abstraction:
 
-/*
+//Animal class provides empty function for eat() 
+//and actual implementation for sound()
 
-An abstract class is similar to an interface, dispite that it can contain variable_members (field members), and
- an abstract class it's acting like a class when it comes to inheritance. An abstract class can have implementation
- for some or even for all its members/field, while the interface cannot. An abstract class can use the (public) 
-access modifiers while an interface cannot. An abstract class member is private by default while an interface
-member is public by default. An interface can be inherited ONLY from another interface, while an abstract class
-can be inherited either from an interface or abstract class. A class can be inherited from multiple interfaces in the
-same time whereas a class cannot be inherited from multiple classes.
-
-RULES FOR ABSTRACT CLASSES:
- 1.An abstract class cannot be instanciated (an instance of the class cannot be created).
- 2.An abstract class can contain abstract members, and the abstract members are not allowed to be implemented in
- that class.
- 3.An abstract class can inherit (can have children classes), and every child of the class must provide its
- own implementations for the abstract members of the parent class.
- 4.Any class provides single inheritance (the child of the class can have only one parent/base class).
- 5.An abstract class can only be used as a base class. SO an abstract class cannot be SEALED.
- 6.An abstract class CAN HAVE NO ABSTRACT MEMBERS, so it can provide implementation for all its fields and members.
- 7.If a class that's inherited from an abstract class doesn't wish to provide implementation for the parent class
- abstract members, then that class can be also set as abstract.
- 
- */
-
-namespace project32_abstract_classes
+abstract class animal 
 {
-    class Program: AbsClass //A class can inherit only from a single class. (multiple class inheritance is not allowed)
+    public abstract void eat();
+    public void sound() 
     {
-        public static void Main(string[] args)
-        {
-            Program p1 = new Program();
-            p1.MessageShow();
-            p1.Print();
-            Console.Write("Press any key to continue . . . ");
-            Console.ReadKey(true);
-        }
-        //IN order to provide implementation for an abstract member of the parent class the override keyword 
-        //must be used.
-        protected override void Print()
-        {
-            Console.WriteLine("Providing implementation for the parent abstract class member.");
-        }
+        Console.WriteLine("dog can sound");
     }
-    //Creating an abstract class:
-    public abstract class AbsClass
+}
+
+//Class dog inherits animal and can provide its implementation to eat()
+//while still be able to access actual implementation sound()
+
+class dog: animal 
+{
+    public override void eat() 
     {
-        protected abstract void Print(); //this function is abstract
-        public void MessageShow() //this is a normal function
-        {
-            Console.WriteLine("This is not an abstract member.");
-        }
+        Console.WriteLine("dog can eat");
     }
 }
 </code>
         </abstraction>
-        <generic-programming>*General-Programming-Knowledge*
+        <generic-programming>
+            *General-Programming-Knowledge*
 <code>
 using System;
 /* The generic is a specification that allows to a function/method or class to operate without 
@@ -4136,7 +4121,8 @@ class Program {
 }
 </code>
         </variable-arguments-lists>
-        <simple-data-types>*General-Programming-Knowledge*
+        <simple-data-types>
+            *General-Programming-Knowledge*
 <code>
 //Example of working with different data type variables in C#
 
@@ -4444,7 +4430,8 @@ namespace project61_stack_collection_type
             When an <red>object</red> is no longer needed, it is the responsibility of the <red>garbage 
             collector</red> to <blue>deallocate the memory</blue> and reclaim it for future use.
         </dynamic-memory-allocation>
-        <read-from-file>*General-Programming-Knowledge*
+        <read-from-file>
+            *General-Programming-Knowledge*
 <code>
 //Example of reading content from a file.
 
@@ -4473,7 +4460,8 @@ namespace read_from_file
 }
 </code>
         </read-from-file>
-        <write-to-file>*General-Programming-Knowledge*
+        <write-to-file>
+            *General-Programming-Knowledge*
 <code>
 //Example of writing content to a file.
 
@@ -4492,7 +4480,8 @@ string readText = File.ReadAllText(fullPath);
 Console.WriteLine(readText);
 </code>
         </write-to-file>
-        <serialization>*General-Programming-Knowledge*
+        <serialization>
+            *General-Programming-Knowledge*
 <code>
 //Example of using serialization in C#
 
@@ -4527,7 +4516,8 @@ public class SerializeExample
 }  
 </code>
         </serialization>
-        <deserialization>*General-Programming-Knowledge*
+        <deserialization>
+            *General-Programming-Knowledge*
 <code>
 //Example of deserializating an object from a file.
 
@@ -4563,7 +4553,8 @@ public class DeserializeExample
 }  
 </code>
         </deserialization>
-        <constructors>*General-Programming-Knowledge*
+        <constructors>
+            *General-Programming-Knowledge*
 <code>
 using System;
 
@@ -4613,7 +4604,8 @@ namespace project5_structs_with_constructors
 }
 </code>
         </constructors>
-        <instantiation>*General-Programming-Knowledge*
+        <instantiation>
+            *General-Programming-Knowledge*
             <br></br>
             When you create a <code>new</code> object in C# for a <code>class</code> using 
             the <code>new</code> 
@@ -4623,7 +4615,8 @@ namespace project5_structs_with_constructors
 Student s1 = new Student();
 </code>
         </instantiation>
-        <destructors>*General-Programming-Knowledge*
+        <destructors>
+            *General-Programming-Knowledge*
 <code>
 class Example
 { 
@@ -4639,7 +4632,8 @@ class Example
 } 
 </code>
         </destructors>
-        <function-overloading>*General-Programming-Knowledge*
+        <function-overloading>
+            *General-Programming-Knowledge*
 <code>
 using System;
 
@@ -4693,7 +4687,8 @@ namespace project26_methods_and_functions_overloading
 }
 </code>
         </function-overloading>
-        <operator-overloading>*General-Programming-Knowledge*
+        <operator-overloading>
+            *General-Programming-Knowledge*
 <code>
 // C# program to illustrate the
 // unary operator overloading
@@ -4747,7 +4742,8 @@ namespace Calculator
 }
 </code>
         </operator-overloading>
-        <enums>*General-Programming-Knowledge*
+        <enums>
+            *General-Programming-Knowledge*
              The <code>enum</code> is like an <code>array</code> of <code>boolean</code> <red>values</red>, 
              in which only one can be <code>true</code> at a time.
              <br></br> <br></br> 
@@ -4854,7 +4850,8 @@ namespace Software
 }
 </code>
         </enums>
-        <multi-threading>*General-Programming-Knowledge*
+        <multi-threading>
+            *General-Programming-Knowledge*
 <code>
 //Example of using multi-threading in C#
 
@@ -4911,7 +4908,8 @@ namespace MultithreadingApplication
 }
 </code>
         </multi-threading>
-        <namespaces>*General-Programming-Knowledge*
+        <namespaces>
+            *General-Programming-Knowledge*
 <code>
 //FILE: MyClass.cs
 
@@ -5021,7 +5019,8 @@ namespace ProjectA.TeamB
  */
 </code>
         </namespaces>
-        <exception-handling>*General-Programming-Knowledge*
+        <exception-handling>
+            *General-Programming-Knowledge*
             <br></br> 
             <green>
                 Disadvantages of unhandling exceptions:
@@ -5119,7 +5118,8 @@ namespace project37_read_write_to_files_handling_exceptions
 </code>
         </exception-handling>
         <bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
-        <default-parameters>*General-Programming-Knowledge*
+        <default-parameters>
+            *General-Programming-Knowledge*
 <code>
 //Example of functions default-parameters:
 
@@ -5257,7 +5257,8 @@ namespace project30_interfaces
 }
 </code>
         </interfaces>
-        <random-generators>*General-Programming-Knowledge*
+        <random-generators>
+            *General-Programming-Knowledge*
 <code>
 //Example of generating random numbers in C#
 
@@ -5281,7 +5282,8 @@ namespace project68_random_numbers
 </code>
         </random-generators>
         <command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
-        <ternary-operator>*General-Programming-Knowledge*
+        <ternary-operator>
+            *General-Programming-Knowledge*
 <code>
 //Example of using ternary operator in C#
 
@@ -5393,7 +5395,8 @@ namespace project46_working_with_string_builder
 }
 </code>
         </string-methods>
-        <datatype-conversions>*General-Programming-Knowledge*
+        <datatype-conversions>
+            *General-Programming-Knowledge*
 <code>
 //Example of datatype conversions:
 
@@ -5714,7 +5717,8 @@ namespace project47_partial_classes
 </code>
         </partial-classes>
         <decorators>*General-Programming-Knowledge*</decorators>
-        <operators>*General-Programming-Knowledge*
+        <operators>
+            *General-Programming-Knowledge*
 <code>
 //Example of using operators in C#
 
@@ -5797,7 +5801,67 @@ namespace project12_new_types_null_coalescing_operator
 </code>
         </operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
-        <abstract-classes>*General-Programming-Knowledge*</abstract-classes>
+        <abstract-classes>
+            *General-Programming-Knowledge*
+            <br></br>
+<code>
+using System;
+
+/*
+
+An abstract class is similar to an interface, dispite that it can contain variable_members (field members), and
+ an abstract class it's acting like a class when it comes to inheritance. An abstract class can have implementation
+ for some or even for all its members/field, while the interface cannot. An abstract class can use the (public) 
+access modifiers while an interface cannot. An abstract class member is private by default while an interface
+member is public by default. An interface can be inherited ONLY from another interface, while an abstract class
+can be inherited either from an interface or abstract class. A class can be inherited from multiple interfaces in the
+same time whereas a class cannot be inherited from multiple classes.
+
+RULES FOR ABSTRACT CLASSES:
+ 1.An abstract class cannot be instanciated (an instance of the class cannot be created).
+ 2.An abstract class can contain abstract members, and the abstract members are not allowed to be implemented in
+ that class.
+ 3.An abstract class can inherit (can have children classes), and every child of the class must provide its
+ own implementations for the abstract members of the parent class.
+ 4.Any class provides single inheritance (the child of the class can have only one parent/base class).
+ 5.An abstract class can only be used as a base class. SO an abstract class cannot be SEALED.
+ 6.An abstract class CAN HAVE NO ABSTRACT MEMBERS, so it can provide implementation for all its fields and members.
+ 7.If a class that's inherited from an abstract class doesn't wish to provide implementation for the parent class
+ abstract members, then that class can be also set as abstract.
+ 
+ */
+
+namespace project32_abstract_classes
+{
+    class Program: AbsClass //A class can inherit only from a single class. (multiple class inheritance is not allowed)
+    {
+        public static void Main(string[] args)
+        {
+            Program p1 = new Program();
+            p1.MessageShow();
+            p1.Print();
+            Console.Write("Press any key to continue . . . ");
+            Console.ReadKey(true);
+        }
+        //IN order to provide implementation for an abstract member of the parent class the override keyword 
+        //must be used.
+        protected override void Print()
+        {
+            Console.WriteLine("Providing implementation for the parent abstract class member.");
+        }
+    }
+    //Creating an abstract class:
+    public abstract class AbsClass
+    {
+        protected abstract void Print(); //this function is abstract
+        public void MessageShow() //this is a normal function
+        {
+            Console.WriteLine("This is not an abstract member.");
+        }
+    }
+}
+</code>
+        </abstract-classes>
     </programming_language>
     
     <programming_language>
