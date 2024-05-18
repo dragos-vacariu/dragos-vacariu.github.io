@@ -5816,16 +5816,17 @@ namespace project50_optional_parameters
             The <code>partial</code> keyword is 
             used to build a <code>partial class</code>.
             <br></br><br></br>
-            
+            <brown>
             A partial class its used to separate/split a class into two or more parts, 
             across different files.
+            </brown>
             <br></br><br></br>
-            If the part of the class are in different files, those files must be contained in 
-            the same assembly (directory of project), otherwise
+            If the part of the <red>class</red> are in different files, those files must be 
+            contained in the same assembly (directory of project), otherwise
             the compilation will fail. 
             <br></br><br></br>
-            A partial class can also be used in techniques of splitting an interface into more 
-            parts successfully.
+            A <red>partial class</red> can also be used in techniques of splitting an <red>interface</red> 
+            into more parts successfully.
              <br></br><br></br>
              <green>
              IMPORTANT:
@@ -5864,7 +5865,9 @@ namespace project50_optional_parameters
              </blue>
              
 <code>
-//Example of partial class in C#
+//Example of partial class in C#:
+
+FILE: project47_partial_classes.cs
 
 using System;
 
@@ -5883,8 +5886,10 @@ namespace project47_partial_classes
             Console.ReadKey(true);
         }
     }
+    
     //Example of partial class:
-    partial class MyClass //the partial keyword must be used for all the parts of the class.
+    //the partial keyword must be used for all the parts of the class
+    partial class MyClass .
     {
         private string _Name;
         private int _Age;
@@ -5908,10 +5913,30 @@ namespace project47_partial_classes
                 _Name=value;
             }
         }
-        //THE SECOND PART OF THE CLASS IS IN THE ASSEMBLY DIRECTORY (PROJECT DIRECTORY), WITH THE NAME PartialClassPartTwo, AND
-        //CONTAINS A METHOD CALLED PrintInfo().
+        //THE SECOND PART OF THE CLASS IS IN THE ASSEMBLY DIRECTORY (PROJECT DIRECTORY), 
+        //WITH THE NAME PartialClassPartTwo, AND CONTAINS A METHOD CALLED PrintInfo().
     }
     
+}
+</code>
+
+<code>
+//FILE: PartialClassPartTwo.cs
+
+using System;
+
+namespace project47_partial_classes //IMPORTANT: the class parts must be in the same namespace.
+{
+	/// <summary>
+	/// Description of PartialClassPartTwo.
+	/// </summary>
+	partial class MyClass //the partial keyword must be used for all the parts of the class.
+	{
+		public void PrintInfo()
+		{
+			Console.WriteLine("Name: {0} 	Age: {1}", _Name, _Age);
+		}
+	}
 }
 </code>
         </partial-classes>
