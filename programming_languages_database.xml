@@ -4367,12 +4367,12 @@ namespace project61_stack_collection_type
 }
 </code>
         </collections>
-        <collection-methods>*General-Programming-Knowledge*</collection-methods>
         <dynamic-memory-allocation>
-            In C#, objects are dynamically allocated on the heap using the new keyword.
+            In C#, objects are <red>dynamically allocated</red> on the <red>heap</red> using the 
+            <code>new</code> keyword.
             <br></br><br></br>
-            When an object is no longer needed, it is the responsibility of the garbage 
-            collector to deallocate the memory and reclaim it for future use.
+            When an object is no longer needed, it is the responsibility of the <red>garbage 
+            collector</red> to <blue>deallocate the memory</blue> and reclaim it for future use.
         </dynamic-memory-allocation>
         <read-from-file>*General-Programming-Knowledge*
 <code>
