@@ -545,26 +545,29 @@ int main()
             <green>Advantages of modular programming:</green>
             <br></br><br></br>
             
-            <blue>Code is easier to read</blue> - Working on modular programming makes <red>code easier to read</red> 
-            because functions perform different tasks as compared to monolithic codes. 
+            <blue>Code is easier to read</blue> - Working on modular programming makes <red>code easier 
+            to read</red> 
+            because functions perform different tasks as compared to <red>monolithic codes</red>. 
             Sometimes modular programming can be a bit messy if we pass arguments and 
-            variables in different functions. <br></br>
+            variables in different functions. 
             The use of modules should be done in a 
-            sensible manner so as to avoid any problem. Functions should be neat, clean, 
-            and descriptive.<br></br><br></br>
+            <red>sensible manner</red> so as to avoid any problem. <br></br>
+            Functions should be <red>neat</red>, <red>clean</red>, 
+            and <red>descriptive</red>.<br></br><br></br>
             
-            <blue>Code is easier to test</blue> - In software, some functions perform fewer tasks and 
-            also functions that perform numerous tasks. If the software is easily split 
+            <blue>Code is easier to test</blue> - In software, some functions perform fewer tasks than
+            other functions. If the software is easily split 
             using modules, it becomes easier to test. <br></br>
-            We can also focus on the riskier 
-            functions during testing and need more test cases to make it bug-free.<br></br><br></br>
+            We can also focus on the <red>riskier 
+            functions</red> during testing and use more <red>test cases</red> to make it bug-free.<br></br><br></br>
             
-            <blue>Reusability</blue> - There are times where a piece of code is implemented everywhere in 
+            <blue>Reusability</blue> - There are times where a piece of code is implemented 
+            everywhere in 
             our program. Instead of copying and pasting it, again and again, modularity 
-            gives us the advantage of reusability so that we can pull our code from 
+            gives us the <red>advantage of reusability</red> so that we can pull our code from 
             anywhere using interfaces or libraries. <br></br>
             The concept of <red>reusability</red> also 
-            reduces the size of our program.<br></br><br></br>
+            <red>reduces the size</red> of our program.<br></br><br></br>
             
             <blue>Faster fixes</blue> - Suppose there is an error in the payment options in any 
             application, and the bug needs to be removed. Modularity can be a great help 
@@ -594,21 +597,27 @@ int main()
             budget for a product in modular programming.
             <br></br><br></br>
             
-            <blue>Increases the risk and the difficulty</blue> - It is a challenging task to combine all the modules.
+            <blue>Increases the risk and the difficulty</blue> - It is a <red>challenging task</red> to 
+            <red>combine</red> and <red>integrate</red> all the modules into a single program.
             <br></br><br></br>
             
-            <blue>Additional efforts needed for documentation</blue> - Careful documentation is required so that other program modules are not affected.
+            <blue>Additional efforts needed for the design</blue> - The design should be <red>carefully defined</red> 
+            so that the impact for the other program modules is minimum.
             <br></br><br></br>
             
-            <blue>The task repetition impacts the software performance</blue> - Some modules may partly repeat the task 
-            performed by other modules. Hence, Modular programs need more memory space and extra time for execution.
+            <blue>The task repetition impacts the software performance</blue> - Some modules may partly 
+            <red>repeat the task</red> 
+            performed by other modules. Hence, modular programs <red>may need more memory</red>, 
+            <red>space</red> and <red>extra time for execution</red>.
             <br></br><br></br>
             
-            <blue>The work efficiency might be impacted</blue> - It reduces the program's efficiency because testing and debugging are 
+            <blue>The work efficiency might be impacted</blue> - It <red>reduces the program's 
+            efficiency</red> because testing and debugging are 
             time-consuming, where each function contains a thousand lines of code.
             <br></br><br></br>
             
-            <blue>The code readability might be affected</blue> - Integrating various modules into a single program may not be an easy task because 
+            <blue>The code readability might be affected</blue> - Integrating various modules into a 
+            single program <red>might prove be a difficult task</red> because 
             different people working on the design of different modules may not have the 
             same style.
             <br></br><br></br>
