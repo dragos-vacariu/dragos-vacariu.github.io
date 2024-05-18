@@ -6018,11 +6018,14 @@ namespace project12_new_types_null_coalescing_operator
              <red>abstract members</red>, then that class can be also set as <red>abstract</red>.<br></br>
              </blue>
 <code>
+//Example of abstract class in C#:
+
 using System;
 
 namespace project32_abstract_classes
 {
-    class Program: AbsClass //A class can inherit only from a single class. (multiple class inheritance is not allowed)
+    //A class can inherit only from a single class. (multiple class inheritance is not allowed)
+    class Program: AbsClass 
     {
         public static void Main(string[] args)
         {
@@ -6032,18 +6035,23 @@ namespace project32_abstract_classes
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
-        //IN order to provide implementation for an abstract member of the parent class the override keyword 
-        //must be used.
+        
+        //In order to provide implementation for an abstract member of the parent 
+        //class the override keyword must be used.
         protected override void Print()
         {
             Console.WriteLine("Providing implementation for the parent abstract class member.");
         }
     }
+    
     //Creating an abstract class:
     public abstract class AbsClass
     {
-        protected abstract void Print(); //this function is abstract
-        public void MessageShow() //this is a normal function
+        //this function is abstract
+        protected abstract void Print(); 
+        
+        //this is a normal function
+        public void MessageShow()
         {
             Console.WriteLine("This is not an abstract member.");
         }
