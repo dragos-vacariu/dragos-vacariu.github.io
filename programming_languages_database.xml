@@ -5208,6 +5208,8 @@ namespace project30_interfaces
         </interfaces>
         <random-generators>*General-Programming-Knowledge*
 <code>
+//Example of generating random numbers in C#
+
 using System;
 
 namespace project68_random_numbers
@@ -5230,6 +5232,8 @@ namespace project68_random_numbers
         <command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
         <ternary-operator>*General-Programming-Knowledge*
 <code>
+//Example of using ternary operator in C#
+
 using System;
 
 namespace project11_ternary_operator
@@ -5241,11 +5245,12 @@ namespace project11_ternary_operator
             bool istrue;
             int simpletest;
             int number = 10;
-            //Ternary Operator "?"
-            istrue = number==10 ? true : false;
-            //sinthax: boolean variable = condition ? value for true : value for false
             
-            /*Equivalence of that:
+            //Ternary Operator "?":
+            istrue = number==10 ? true : false;
+            //Syntax: boolean variable = condition ? value for true : value for false
+            
+            /* Equivalence of that:
              * if(number==10)
              * {
              *         istrue=true;
@@ -5255,7 +5260,9 @@ namespace project11_ternary_operator
              *         istrue=false;
              * }
              */
+            
             Console.WriteLine("The value of istrue is: {0}", istrue);
+            
             //Other example:
             simpletest = number==10 ? 10+2 : 10-2;
             Console.WriteLine("The value of simpletest is: {0}", simpletest);
