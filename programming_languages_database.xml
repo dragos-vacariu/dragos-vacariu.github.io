@@ -4610,7 +4610,6 @@ public class DeserializeExample
  */
  </code>
              <br></br>
-             <br></br>
              <green>For a class</green>:
              <br></br><br></br>
              - if we create <blue>2</blue> <red>class objects</red> (<red>object1</red> and 
@@ -4625,8 +4624,10 @@ public class DeserializeExample
  */
  </code>
              <br></br>
-             Regardless of the entity used: <blue>struct</blue> or <blue>class</blue>, the constructors
+             <green>
+             Regardless of the entity used: struct or class, the constructors
              get declared in the same way.
+             </green>
              <br></br>
 <code>
 //Example of constructors
