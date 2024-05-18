@@ -4703,9 +4703,9 @@ namespace Calculator
              The <code>enum</code> is like an <code>array</code> of <code>boolean</code> <red>values</red>, 
              in which only one can be <code>true</code> at a time.
              <br></br> <br></br> 
-             This is useful while creating game engines, or software engines, to know when a 
-             certain option is available. 
-             <br></br> <br></br> 
+             This is useful while creating <blue>game engines</blue>, or <blue>software engines</blue>, 
+             to know when a certain option is available. 
+             <br></br><br></br> 
              Also this is used to control and interract the states in a certain application.
              <br></br> 
 <code>
@@ -4808,29 +4808,42 @@ namespace Software
         </enums>
         <multi-threading>*General-Programming-Knowledge*
 <code>
+//Example of using multi-threading in C#
+
 using System;
 using System.Threading;
 
-namespace MultithreadingApplication {
-   class ThreadCreationProgram {
-      public static void CallToChildThread() {
-         try {
+namespace MultithreadingApplication 
+{
+   class ThreadCreationProgram 
+   {
+      public static void CallToChildThread() 
+      {
+         try 
+         {
             Console.WriteLine("Child thread starts");
             
             // do some work, like counting to 10
-            for (int counter = 0; counter &lt;= 10; counter++) {
+            for (int counter = 0; counter &lt;= 10; counter++) 
+            {
                Thread.Sleep(500);
                Console.WriteLine(counter);
             }
             
             Console.WriteLine("Child Thread Completed");
-         } catch (ThreadAbortException e) {
+         } 
+         catch (ThreadAbortException e) 
+         {
             Console.WriteLine("Thread Abort Exception");
-         } finally {
+         } 
+         finally 
+         {
             Console.WriteLine("Couldn't catch the Thread Exception");
          }
       }
-      static void Main(string[] args) {
+      
+      static void Main(string[] args) 
+      {
          ThreadStart childref = new ThreadStart(CallToChildThread);
          Console.WriteLine("In Main: Creating the Child thread");
          
@@ -4961,17 +4974,32 @@ namespace ProjectA.TeamB
 </code>
         </namespaces>
         <exception-handling>*General-Programming-Knowledge*
+        <br></br> 
+        <green>
+            Disadvantages of unhandling exceptions:
+        </green>
+        <br></br> <br></br> 
+        <blue>
+         An <red>unhandled exception</red> would provide annoying error message to a user, 
+         which could make the program be devoid using.
+         <br></br> 
+         An unhandled exception could also provide important information to a hacker.
+         <br></br> 
+         </blue>
+         While handling the <red>exceptions</red> the <code>catch</code> block containing the <red>specific 
+         classes</red> must be placed above the <red>general class</red> which should be the last one 
+         at the bottom.
+         <br></br> <br></br> 
+         In this way specific <red>exceptions</red> will be handled first and in case the exception 
+         was not handled
+         specifically then it can be handled generically with the general Exception Class.
+         <br></br> 
 <code>
+//Example on how to handle exceptions in C#
+
 using System;
 using System.IO; //namespace for files.
 
-/*DISADVANTAGES OF UNHANDLING EXCEPTION:
- An unhandled exception would provide annoying error message to a user, which could make the program be devoid
- using.
- An unhandled exception could also provide important information to a hacker.
- */
- //While handling the exceptions the catch block containing the specific Classes must be above 
- //the general Class which should be the last one at the bottom.
 namespace project37_read_write_to_files_handling_exceptions
 {
     class Program
@@ -4981,29 +5009,37 @@ namespace project37_read_write_to_files_handling_exceptions
             
             //Creating a file read streamer:
             StreamReader readFromFile = new StreamReader(@"D:\error.txt"); // @ -> using the escape sequence
+            
             //EXCEPTION HANDLING:
             try //try to do this without exception
             {
                 Console.WriteLine(readFromFile.ReadToEnd()); //ReadToEnd will read all the content of the file (until the end).
             }
+            
             //If there was an exception come to this catch statement
+            
             //THIS IS A SPECIFIC CATCH, this is the child of EXCEPTION CLASS
             catch(FileNotFoundException fNotFound) //try to handle the exception with this object.
                 //This object is mostly for FileNotFoundException.
             {
-                //AN object of type FileNotFoundException contain more information about the file that could 
+                //An object of type FileNotFoundException contain more information about the file that could 
                 //not be found then an object of type Exception (as we use in our case).
+                
                 Console.WriteLine(fNotFound.Message);
                 Console.WriteLine("Check for the file: {0}", fNotFound.FileName);
             }
+            
             //If the catch above was not able to handle the exception try this one:
+            
             //THIS IS THE GENERAL CATCH (Exception class is the parent of all the other classes above.)
             catch(Exception ex) //this can handle also the DirectoryNotFoundException.
             {
                 Console.WriteLine(ex.Message);
             }
+            
             //THIS BLOCK IS ALWAYS EXECUTED while for the catch blocks is not a certainty which one is going to
             //be executed.
+            
             finally //the finally block contain the code that should be executed by all means necessary
             {
                 if(readFromFile!=null) //if the file is null then it cannot be closed.
@@ -5011,7 +5047,9 @@ namespace project37_read_write_to_files_handling_exceptions
                     readFromFile.Close();
                 }
             }
+            
             //END OF EXCEPTION HANDLING.
+            
             StreamWriter writeToFile = new StreamWriter(@"D:\writeToFile.txt");
             writeToFile.WriteLine("Project37 Read write to files, exeption handling Finally!");
             writeToFile.Close(); //the filestream needs to be closed for the writing to work.
