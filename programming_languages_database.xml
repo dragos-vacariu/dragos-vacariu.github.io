@@ -4093,6 +4093,30 @@ namespace project1_introduction
 }
 </code>
         </simple-data-types>
+        <complex-data-types>
+            *General-Programming-Knowledge*
+            <br></br><br></br>
+            <green>C# brings changes with regards to the datatypes which were available in C/C++:</green>
+            <br></br><br></br>
+            C# supports <red>pointers</red> in a limited extent. <br></br><br></br>
+            A C# <red>pointer</red> is 
+            nothing but a variable that 
+            holds the <red>memory address</red> of another type. But in C# pointer can only be declared to 
+            hold the <red>memory address</red> of value types and arrays. 
+            <br></br><br></br>
+            Unlike reference types, <red>pointer types</red> are not tracked by the default garbage 
+            collection mechanism. For the same reason <red>pointers</red> are not allowed to point to a 
+            <blue>reference type</blue> or even to a <blue>structure type</blue> which contains a 
+            <blue>reference type</blue>. 
+            <br></br><br></br>
+            We can say that <red>pointers</red> can point to only <blue>unmanaged types</blue> which includes 
+            all basic <red>data types</red>, <red>enum types</red>, other <red>pointer types</red> and 
+            <blue>structs</blue> 
+            which contain only <blue>unmanaged types</blue>.
+            <br></br><br></br>
+            <brown>There are no unions available in C#.</brown><br></br>
+            <brown>There are no typedefs available in C#.</brown><br></br>
+        </complex-data-types>
         <preprocessor-directives>
             *General-Programming-Knowledge*
             <br></br>
@@ -4111,30 +4135,6 @@ namespace project1_introduction
             A preprocessor directive must be the only 
             instruction on a line. <br></br>
         </preprocessor-directives>
-        <complex-data-types>
-            *General-Programming-Knowledge*
-            <br></br>
-            <green>C# brings changes with regards to the datatypes which were available in C/C++:</green>
-            <br></br><br></br>
-            C# supports <red>pointers</red> in a limited extent. <br></br><br></br>
-            A C# <red>pointer</red> is 
-            nothing but a variable that 
-            holds the <red>memory address</red> of another type. But in C# pointer can only be declared to 
-            hold the <red>memory address</red> of value types and arrays. 
-            <br></br><br></br>
-            Unlike reference types, <red>pointer types</red> are not tracked by the default garbage 
-            collection mechanism. For the same reason <red>pointers</red> are not allowed to point to a 
-            <blue>reference type</blue> or even to a <blue>structure type</blue> which contains a 
-            <blue>reference type</blue>. 
-            <br></br><br></br>
-            We can say that <red>pointers</red> can point to only <blue>unmanaged types</blue> which includes 
-            all basic <red>data types</red>, <red>enum types</red>, other <red>pointer types</red> and 
-            <blue>structs</blue> 
-            which contain only <blue>unmanaged types</blue>.
-            <br></br>
-            <brown>There are no unions available in C#.</brown>
-            <brown>There are no typedefs available in C#.</brown>
-        </complex-data-types>
         <loops>
             *General-Programming-Knowledge*
             <br></br>
