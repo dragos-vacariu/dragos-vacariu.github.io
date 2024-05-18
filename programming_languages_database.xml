@@ -4735,7 +4735,7 @@ namespace project26_methods_and_functions_overloading
         the access modifier of the function, or the optional parameters (params) of the function.
         
         So a function CANNOT be overloaded ONLY by using different return types, access modifiers, 
-        or optional params, there must be respected the criteria above.
+        or optional params, it must be respected the criteria above.
         
         Examples:
         */
@@ -4763,13 +4763,15 @@ namespace project26_methods_and_functions_overloading
         <operator-overloading>
             *General-Programming-Knowledge*
 <code>
-// C# program to illustrate the
-// unary operator overloading
+// Example of operator overloading in C#:
+
 using System;
+
 namespace Calculator 
 {
      
-    class Calculator {
+    class Calculator 
+    {
          
         public int number1 , number2;
         public Calculator(int num1 , int num2)
@@ -4778,27 +4780,26 @@ namespace Calculator
             number2 = num2;
         }
          
-    // Function to perform operation
-    // By changing sign of integers
-    public static Calculator operator -(Calculator c1)
-    {
-        c1.number1 = -c1.number1;
-        c1.number2 = -c1.number2;
-        return c1;
-    }
-     
-    // Function to print the numbers
-    public void Print()
-    {
-        Console.WriteLine ("Number1 = " + number1);
-        Console.WriteLine ("Number2 = " + number2);
-    }
+        // Function to perform operation
+        // By changing sign of integers
+        public static Calculator operator -(Calculator c1)
+        {
+            c1.number1 = -c1.number1;
+            c1.number2 = -c1.number2;
+            return c1;
+        }
+         
+        // Function to print the numbers
+        public void Print()
+        {
+            Console.WriteLine ("Number1 = " + number1);
+            Console.WriteLine ("Number2 = " + number2);
+        }
     }
      
     class EntryPoint
     {
          
-        // Driver Code
         static void Main(String []args)
         { 
              
