@@ -3062,6 +3062,7 @@ int main()
 			*General-Programming-Knowledge*
 <code>
 /*Example of an interface implementation*/
+
 class Box {
    public:
       // pure virtual function
@@ -3139,25 +3140,29 @@ int main(void) {
 		</abstract-classes>
 		<macros>
 			*General-Programming-Knowledge*
-			Similar to C Language: 
+			<green>Similar to C Language:</green> 
 			<br></br><br></br>
-			A C++ macro is defined as a section of code that that particular macro value can 
+			A C++ <red>macro</red> is defined as a section of code that that particular <red>macro</red> value can 
 			replace. <br></br>
-			We can define the macro by using a #define directive. 
+			We can define the <red>macro</red> by using a <code>#define</code> directive. 
 			When the compiler goes to the macros while program compilation, 
-			the macro's name is replaced by the definition of the macro. 
+			the <red>macro</red>'s name is replaced by the definition of the <red>macro</red>. 
 			<br></br>
-			The termination of the C++ Macros does not need a 
+			The termination of the C++ <red>Macros</red> does not need a 
 			semi-colon (;).
 			<br></br><br></br>
-			Aditionally to the C Language: the header file: &lt;limits.h&gt; is defined to help finding 
-			the range of fundamental data-types. <br></br>
-			Unsigned modifiers have minimum value is zero. So, no macro constants are defined for the unsigned minimum value.
+			<blue>Aditionally to the C Language</blue><br></br>
+			The header file: <code>&lt;limits.h&gt;</code> 
+			is defined to help finding 
+			the range of fundamental <red>data-types</red>. <br></br>
+			 <br></br>
+			<red>Unsigned</red> modifiers have minimum value is <blue>zero</blue>. 
+			So, no <red>macro</red> constants are defined for the <red>unsigned minimum value</red>.
 			<br></br><br></br>
-			<red>
-			Macro Constants<br></br><br></br>
-			</red>
 			<green>
+			Macro Constants:<br></br><br></br>
+			</green>
+			<red>
 			<blue>CHAR_MIN</blue>  - The minimum value for an object of type char <br></br><br></br>	
 			<blue>CHAR_MAX</blue>  - Maximum value for an object of type char <br></br><br></br>		
 			<blue>SCHAR_MIN</blue>  - The minimum value for an object of type Signed char <br></br><br></br>	
@@ -3177,7 +3182,7 @@ int main(void) {
 			<blue>LLONG_MIN</blue>  - The minimum value for an object of type long long int <br></br><br></br>		
 			<blue>LLONG_MAX</blue>  - Maximum value for an object of type long long int <br></br><br></br>	
 			<blue>ULLONG_MAX</blue> - Maximum value for an object of type Unsigned long long int		
-			</green>
+			</red>
 <code>
 /*An example of defining a C++ macro:*/
 
