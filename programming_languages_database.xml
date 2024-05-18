@@ -18,7 +18,7 @@
 			<blue>
 			OOP is faster and easier to execute;<br></br>
 			OOP provides a clear structure for the programs;<br></br>
-			OOP helps to keep the code DRY "Don't Repeat Yourself", and makes the code 
+			OOP helps to keep the code <red>DRY "Don't Repeat Yourself"</red>, and makes the code 
 			easier to maintain, modify and debug;<br></br>
 			OOP makes it possible to create full reusable applications with less code and 
 			shorter development time;
@@ -35,7 +35,7 @@
 		<encapsulation>
 			The meaning of <red>Encapsulation</red>, is to make sure that <red>"sensitive"</red> data is hidden from 
 			users.<br></br><br></br> 
-			To achieve this, you must declare class variables/attributes as <code>private</code> 
+			To achieve this, you must declare <red>class variables/attributes</red> as <code>private</code> 
 			(cannot be accessed from outside the class). <br></br><br></br>
 			If you want others to <red>read</red> or <red>modify</red> 
 			the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
@@ -1714,26 +1714,33 @@ int main()
 		<encapsulation>
 			*General-Programming-Knowledge*
 <code>
+//Example of encapsulation
+
 #include &lt;iostream&gt;  
 using namespace std;
 
-class Employee {
+class Employee 
+{
   private:
     // Private attribute
     int salary;
 
   public:
     // Setter
-    void setSalary(int s) {
+    void setSalary(int s) 
+	{
       salary = s;
     }
-    // Getter
-    int getSalary() {
+    
+	// Getter
+    int getSalary() 
+	{
       return salary;
     }
 };
 
-int main() {
+int main() 
+{
   Employee myObj;
   myObj.setSalary(50000);
   cout &lt;&lt; myObj.getSalary();
@@ -1744,6 +1751,8 @@ int main() {
 		<polymorphism>
 			*General-Programming-Knowledge*
 <code>
+//Example of polymorphism
+
 #include &lt;iostream&gt;  
 
 /*
@@ -1760,66 +1769,69 @@ each one of the child classes.
 Syntax: virtual void DisplayFunction () = 0;
 
 */
+
 using namespace std;
 
-class Shape{
+class Shape
+{
     //By default a member without access-specifier is set to private.
 
 	protected:
-	int length;
-	int height;
+		int length;
+		int height;
 
 	public:
-	virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
-	{
-		cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
-	}
+		virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
+		{
+			cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
+		}
 };
 
 class Square: public Shape
 {
 
 	private:
-	int area;
-	void CalcArea()
-	{
-		area=length*height;
-	}
+		int area;
+		void CalcArea()
+		{
+			area=length*height;
+		}
 
 	public:
-	Square (int len, int hg)
-	{
-		length=len;
-		height=hg;
-		CalcArea();
-	};
-	void DisplayArea()
-	{
-		cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
-	}
-	
-	//This function overrides the parent class function
-	void DisplayInfo()
-	{
-		cout &lt;&lt; "This is the child class." &lt;&lt; endl;
-	}
+		Square (int len, int hg)
+		{
+			length=len;
+			height=hg;
+			CalcArea();
+		};
+		
+		void DisplayArea()
+		{
+			cout &lt;&lt; "Area: " &lt;&lt; area &lt;&lt; endl;
+		}
+		
+		//This function overrides the parent class function
+		void DisplayInfo()
+		{
+			cout &lt;&lt; "This is the child class." &lt;&lt; endl;
+		}
 };
 
 class Circle: public Shape
 {
 
 	private:
-	int radius;
+		int radius;
 	
 	public:
-	Circle(int len)
-	{
-		radius=len/2;
-	}
-	void DisplayRadius()
-	{
-		cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
-	}
+		Circle(int len)
+		{
+			radius=len/2;
+		}
+		void DisplayRadius()
+		{
+			cout &lt;&lt; "Radius: " &lt;&lt; radius &lt;&lt; endl;
+		}
 };
 
 int main()
@@ -1829,8 +1841,8 @@ int main()
     Square square_object(4,3);
 	
     /*
-    The pointer of type Shape can reference any of the Shape class children, but having only the functionality of Shape
-    Class.
+    The pointer of type Shape can reference any of the Shape class children, 
+	but having only the functionality of Shape Class.
     */
 	
     p=&#38;circle_object;
