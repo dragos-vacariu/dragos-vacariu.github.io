@@ -314,13 +314,16 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 		</multi-threading>
 		<bitwise-operators>
 			The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
-			of two numbers. The result of <red>AND</red> is 1 only if both bits are 1.  
+			of two numbers. <br></br>
+			The result of <red>AND</red> is 1 only if both bits are 1.  
 			<br></br><br></br>
 			The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does <red>OR</red> on every bit 
-			of two numbers. The result of <red>OR</red> is 1 if any of the two bits is 1. 
+			of two numbers. <br></br>
+			The result of <red>OR</red> is 1 if any of the two bits is 1. 
 			<br></br><br></br>
 			The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
-			bit of two numbers. The result of <red>XOR</red> is 1 if the two bits are different. 
+			bit of two numbers.<br></br> 
+			The result of <red>XOR</red> is 1 if the two bits are different. 
 			<br></br><br></br>
 			The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, <red>left-shifts</red> the bits of the 
 			first operand, and the second operand decides the number of places to shift. 
@@ -330,16 +333,16 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			<br></br><br></br>
 			The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
 			<br></br><br></br>
-			<brown>
+			<blue>
 			The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
 			The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
 			2 respectively.<br></br><br></br>
-			</brown>
+			</blue>
 			
 			The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
 			involved, otherwise, you just add their bitwise <red>AND</red>.
 			<br></br><br></br>
-			<brown>
+			<blue>
 			Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
 			their sum is just <code>a|b</code>. <br></br>
 			Now, if we change <red>'a'</red> to <red>6</red> which is <red>110</red> in binary, their sum would change 
@@ -348,12 +351,8 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			The bitwise <red>XOR</red> operator is the most useful operator from a technical interview perspective.
 			<br></br><br></br>
 			It is used in many problems. <br></br>
-			A simple example could be: <blue>"Given a set of numbers where all 
-			elements occur an even number of times except one number, find the odd occurring number."</blue>
 			<br></br>
-			This problem can be efficiently solved by doing <red>XOR</red> to all numbers. 
-			<br></br><br></br>
-			</brown>
+			</blue>
 			The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
 
 			The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
@@ -362,7 +361,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
 			The <code>~</code> operator should be used carefully.
 			<br></br><br></br>
 			The result of the <code>~</code> operator on a small number can be a big number if the result 
-			is stored in an unsigned variable. <br></br>
+			is stored in an unsigned variable. <br></br><br></br>
 			<red>
 			The result may be a negative number if the result 
 			is stored in a signed variable (assuming that the negative numbers are stored into a
@@ -876,14 +875,15 @@ int main()
 			variables or other user-defined data types) inside it. <br></br>
 		</namespaces>
 		<exception-handling>
-			In computer programming exceptions are runtime anomalies or abnormal conditions that a program 
+			In computer programming exceptions are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
 			encounters during its execution. The process of handling these exceptions is 
-			called exception handling. <br></br>
-			Using the exception handling mechanism, the control 
-			from one part of the program where the exception occurred can be transferred 
+			called <red>exception handling</red>. <br></br>
+			<br></br>
+			Using the <red>exception handling</red> mechanism, the control 
+			from one part of the program where the <red>exception</red> occurred can be transferred 
 			to another part of the code.
 			<br></br><br></br>
-			By using exception handling we can handle the anomalies so that our 
+			By using <red>exception handling</red> we can handle the anomalies so that our 
 			program keeps running.<br></br>
 		</exception-handling>
 		<default-parameters>
@@ -2913,7 +2913,7 @@ int main()
 		<multi-threading>
 			*General-Programming-Knowledge*
 			<br></br>
-			C++ multithreading involves creating and using thread objects, seen as std::thread 
+			C++ multithreading involves creating and using thread objects, seen as <code>std::thread</code> 
 			in code, to carry out delegated sub-tasks independently. <br></br>
 			New threads are passed a 
 			function to complete, and optionally some parameters for that function.
@@ -2927,23 +2927,27 @@ using namespace std;
 
 #define NUM_THREADS 5
 
-void *PrintHello(void *threadid) {
+void *PrintHello(void *threadid) 
+{
    long tid;
    tid = (long)threadid;
    cout &lt;&lt; "Hello World! Thread ID, " &lt;&lt; tid &lt;&lt; endl;
    pthread_exit(NULL);
 }
 
-int main () {
+int main () 
+{
    pthread_t threads[NUM_THREADS];
    int rc;
    int i;
    
-   for( i = 0; i &lt; NUM_THREADS; i++ ) {
+   for( i = 0; i &lt; NUM_THREADS; i++ ) 
+   {
       cout &lt;&lt; "main() : creating thread, " &lt;&lt; i &lt;&lt; endl;
       rc = pthread_create(&#38;threads[i], NULL, PrintHello, (void *)i);
       
-      if (rc) {
+      if (rc) 
+	  {
          cout &lt;&lt; "Error:unable to create thread," &lt;&lt; rc &lt;&lt; endl;
          exit(-1);
       }
@@ -2971,7 +2975,7 @@ namespace Data
 		</namespaces>
 		<exception-handling>
 			*General-Programming-Knowledge*
-			<br></br><br></br>
+			<br></br>
 <code>
 // C++ example on how to use of try,catch and throw
 // for exception handling.
@@ -2984,14 +2988,16 @@ int main()
 {
  
     // try block
-    try {
+    try 
+	{
         int numerator = 10;
         int denominator = 0;
         int res;
  
         // check if denominator is 0 then throw runtime
         // error.
-        if (denominator == 0) {
+        if (denominator == 0) 
+		{
             throw runtime_error(
                 "Division by zero not allowed!");
         }
@@ -3002,7 +3008,8 @@ int main()
         cout &lt;&lt; "Result after division: " &lt;&lt; res &lt;&lt; endl;
     }
     // catch block to catch the thrown exception
-    catch (const exception&#38; e) {
+    catch (const exception&#38; e) 
+	{
         // print the exception
         cout &lt;&lt; "Exception " &lt;&lt; e.what() &lt;&lt; endl;
     }
@@ -3013,11 +3020,12 @@ int main()
 		</exception-handling>
 		<bitwise-operators>
 			*General-Programming-Knowledge*
-			<br></br><br></br>
+			<br></br>
 			Bitwise operators in C/C++ are 
-			tools for working with individual bits in data. They might not be as famous as other 
-			operators, but they’re essential for tasks like making code more efficient or 
-			controlling hardware.
+			tools for working with individual <red>bits</red> in data. <br></br>
+			They might not be as famous as other 
+			operators, but they’re essential for tasks like making code more <red>efficient</red> or 
+			<red>controlling hardware</red>.
 		</bitwise-operators>
 		<default-parameters>
 			*General-Programming-Knowledge*
