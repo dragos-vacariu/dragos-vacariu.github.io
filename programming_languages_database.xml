@@ -1036,35 +1036,35 @@ int main()
             <blue>actual implementation</blue> from <code>base classes</code>.
             <br></br><br></br>
             <green>Types of Abstraction in OOP:</green>
-            
-            <green>Data abstraction:</green>
+            <br></br><br></br>
+            <brown>Data abstraction:</brown>
             <br></br><br></br>
             <blue>Data abstraction</blue> is one of the most essential and important features of 
             <red>object-oriented programming</red>. 
             <br></br><br></br>
             <blue>Data abstraction</blue> refers to providing only <blue>essential information</blue> 
-            about the 
-            data to the outside world, hiding the background details or implementation. 
+            about the data to the outside world, hiding the background details or implementation. 
             <br></br><br></br>
             Using <blue>data abstraction</blue>, we are not allowed to <red>access</red> the variables directly, however, 
             one can call the <red>setter function</red> to set the values or the 
             <red>getter function</red> to get the values.
             <br></br><br></br>
             
-            <green>Advantages of Data Abstraction:</green>
+            <brown>Advantages of Data Abstraction:</brown>
             <br></br><br></br>
             <blue>
             Helps the user to avoid writing the <red>low-level code</red>;<br></br>
             Avoids code duplication and <red>increases reusability</red>.<br></br>
-            Can change the internal implementation of the <code>class</code> independently <red>without 
-            affecting the user</red>.<br></br>
+            Can change the internal implementation of the <code>class</code> independently 
+            <red>without affecting the user</red>.
+            <br></br>
             Helps to <red>increase the security</red> of an application or program as only important 
             details are provided to the user.<br></br>
             It <red>reduces the complexity</red> as well as the <red>redundancy</red> of the code, therefore 
             <red>increasing the readability</red>.
             </blue>
             <br></br><br></br>
-            <green>Process Abstraction:</green>
+            <brown>Process Abstraction:</brown>
             <br></br><br></br>
             <blue>Process abstraction</blue> focuses on abstracting the behavior or 
             processes of an object. 
