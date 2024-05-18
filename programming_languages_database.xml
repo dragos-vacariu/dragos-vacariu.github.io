@@ -534,8 +534,8 @@ int main()
             <br></br><br></br>
             <blue>
             The first is a comparison argument;<br></br>
-            The second is the result upon a true comparison;<br></br>
-            The third is the result upon a false comparison;<br></br><br></br>
+            The second is the result upon a <code>true</code> comparison;<br></br>
+            The third is the result upon a <code>false</code> comparison;<br></br><br></br>
             </blue>
         </ternary-operator>
         <modular-programming>
@@ -5177,6 +5177,7 @@ namespace project30_interfaces
         /* A class that inherits from an interface HAS to provide implementations for all 
          * the interface methods members.
          */
+         
         public void Print() //providing implementation for the interface function.
         {
             /*
@@ -5194,13 +5195,17 @@ namespace project30_interfaces
             
             Console.WriteLine("Class inherited from an interface.");
         }
-        public void Print2() //A method can be implemented like this. (The brackets can be empty.)
+        
+        //A method can be implemented like this. (The brackets can be empty.)
+        public void Print2() 
         {
             //By implementing a function inherited from an interface, 
             //you have to assure that the functionis public, and there 
             //exists the brackets (where the implementation should be made).
         }
-        public void Print3() //this function is inherited from an interface which inherits from another interface.
+        
+        //this function is inherited from an interface which inherits from another interface.
+        public void Print3() 
         {
             Console.WriteLine("This is the grandpa's function!");
         }
@@ -5277,18 +5282,35 @@ namespace project11_ternary_operator
 </code>
         </ternary-operator>
         <modular-programming>*General-Programming-Knowledge*</modular-programming>
-        <string-methods>*General-Programming-Knowledge*
+        <stringbuilder>
+            <br></br>
+             A <code>stringbuilder</code> is a <red>data type</red> just like <code>string</code>. 
+             <br></br><br></br>
+             The main difference between them is that the <code>stringbuilder</code> is 
+             <red>mutable</red>.
+             <red>Mutable</red> means that once that is created the <code>string</code> can be 
+             changed, whereas 
+             <code>System.string</code> is not <red>mutable</red>, once created cannot be change. 
+             <br></br><br></br>
+             If you try to change a <code>string</code> after it was been initialized, the system will 
+             create another object of the <code>string</code> in
+             memory and pass the new <blue>value</blue> of the <code>string</code> to that object, 
+             but the old object 
+             which holds the old <blue>value</blue> of the string will not be cleaned
+             until the end of the program, when the garbage collector does its work.
+             <br></br><br></br>
+             A <code>stringbuilder</code> should be used everytime when a <code>string</code> 
+             that's created 
+             tends to 
+             change its <blue>value</blue>, in this way, only a single object will
+             be created in memory no matter how many times its <blue>value</blue> it will change, 
+             because it's <red>mutable</red>.
+             <br></br>
 <code>
+//Example of using StringBuilder and StringBuilder methods
+
 using System;
 using System.Text; // using this for StringBuilder.
-/*A stringbuilder is a data type just like string. The main difference between them is that the stringbuilder is mutable.
- Mutable means that once that is created the string can be changed, whereas System.string is not mutable, once created
- cannot be change. If you try to change a string after it was been initialized, the system will create another object of the string in
- memory and pass the new value of the string to that object, but the old object which holds the old value of the string will not be cleaned
- until the end of the program, when the garbage collector does its work.
- A stringbuilder should be used everytime when a string that's created tends to change its value, in this way, only a single object will
- be created in memory no matter how many times its value it will change, because it's mutable.
- */
 
 namespace project46_working_with_string_builder
 {
@@ -5298,17 +5320,21 @@ namespace project46_working_with_string_builder
         {
             //Creating a stringbuilder:
             StringBuilder stringbuiler = new StringBuilder("Adam"); //this is how a stringbuilder gets created and initialized
+            
             //To concatenate string builders, there is a function called .Append();
             stringbuiler.Append(" has");
             stringbuiler.Append(" C#");
             stringbuiler.Append(" skills!");
+            
             //Printing the stringbuilder:
             Console.WriteLine("{0}", stringbuiler);
             Console.WriteLine("{0}", stringbuiler.ToString()); //this is a better way to print the stringbuilder
+            
             //Other stringbuilder operations:
             stringbuiler.Clear(); //clear the stringbuiler's content
             Console.WriteLine("{0}", stringbuiler);
             Console.WriteLine("Stringbuilder Capacity: {0}", stringbuiler.Capacity); //stringbuilder.Capacity returns the capacity of the
+            
             //stringbuilder
             Console.WriteLine("Stingbuilder Max Capacity: {0}",stringbuiler.MaxCapacity);
             
@@ -5319,7 +5345,7 @@ namespace project46_working_with_string_builder
     }
 }
 </code>
-        </string-methods>
+        </stringbuilder>
         <datatype-conversions>*General-Programming-Knowledge*
 <code>
 using System;
