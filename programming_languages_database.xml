@@ -3722,12 +3722,16 @@ int main()
 <code>
 using System;
 
-/*Members of the class should never be set to public, because public means that anyone who works at that program
- *is able to change the variable's value, so to avoid that, all the members (sometimes called proprieties), should
- * be private, (or protected for inheritance purposes).
- * Encapsulation - is the use of getter functions for getting the value of private member of the class.
- * and setter function for setting the value of a private member of the class.
+/* Members of the class should never be set to public, because public means that anyone 
+ * who works at that program is able to change the variable's value, so to avoid that, 
+ * all the members (sometimes called proprieties), should be private, 
+ * (or protected for inheritance purposes).
+ * 
+ * Encapsulation: 
+ * uses getter functions for getting the value of private members of the class;
+ * uses setter function for setting the value of a private members of the class;
  */
+ 
 namespace project27_classes_encaptulation_and_exceptions_throwing
 {
     class Program
@@ -3744,9 +3748,12 @@ namespace project27_classes_encaptulation_and_exceptions_throwing
     }
     class Encapsulation_Example
     {
-        //Members: (sometimes called proprieties)
-        private int _age; //as good programming habbit the private variables in a function should start with 
-        //underscore/underline.
+        //Members: (sometimes called properties)
+        
+        //as good programming habbit the private variables in a function 
+        //should start with underscore.
+        private int _age; 
+
         private string _Name;
         
         //Setters:
@@ -3754,13 +3761,15 @@ namespace project27_classes_encaptulation_and_exceptions_throwing
         {
             if(NewAge&lt;=0)
             {
-                //An exception is an error message, that occures and terminates the program in case that
-                //something goes wrong.
-                //Sinthax for throwing exception
+                //An exception is an error message, that occures and terminates the 
+                //program in case that something goes wrong.
+
+                //Syntax for throwing exception:
                 throw new Exception("A person cannot have NULL or NEGATIVE age.");
             }
             _age=NewAge;
         }
+        
         public void SetName(string NewName)
         {
             //string.IsNullOrEmpty (string_name) -> function that checks if a string is null or empty
