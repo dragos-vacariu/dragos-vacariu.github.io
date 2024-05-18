@@ -1055,7 +1055,7 @@ int main()
             the overall behavior of the <code>class</code>.
             <br></br><br></br>
             Can be used to create a <red>base implementation</red> or <blue>contract</blue> for the 
-            <blue>actual implementation<blue> from <code>base classes</code>.
+            <blue>actual implementation</blue> from <code>base classes</code>.
             </blue>
         </abstraction>
         <variable-arguments-lists>
