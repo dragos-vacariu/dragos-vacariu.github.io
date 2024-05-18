@@ -4275,8 +4275,14 @@ namespace queue_collection_type
             people deq1 = FirstQueue.Dequeue();
             people deq2 = FirstQueue.Dequeue();
             
-            /*SecondQueue=FirstQueue // these two Queues become highly connected one to another in the way that, SecondQueue take all the objects
-             from the FirstQueue, but if in FirstQueue an object is removed so it is in the SecondQueue.*/
+            /*
+             SecondQueue=FirstQueue 
+            
+             These two Queues become highly connected one to another in the way that, 
+             SecondQueue take all the objects from the FirstQueue, 
+             but if in FirstQueue an object is removed so it is in the SecondQueue.
+             
+            */
             
             Console.WriteLine("Name: {0}, Age: {1}", deq1.name, deq1.Age);
             Console.WriteLine("Name: {0}, Age: {1}", deq2.name, deq2.Age);
@@ -4307,9 +4313,10 @@ namespace queue_collection_type
 }
 </code>
             
-  <code>Stack</code> uses the principle <blue>LIFO - Last In First Out</blue>, it is just like a list.
+  <code>Stack</code> is a collection that uses the principle <blue>LIFO - Last In First Out</blue>, 
+  and which can be accessed and handled similarly to a list.
   <br></br><br></br>
-  Once an element gets retrieved from the <code>Stack</code> that object will be removed, 
+  Once an element gets retrieved from the <code>Stack</code> that object will be <blue>removed</blue>, 
   unless a <code>foreach</code> loop, or the <code>.Peek</code> function it's used.
   <br></br>
  
@@ -4340,10 +4347,12 @@ namespace project61_stack_collection_type
             
             Console.WriteLine();
             Console.WriteLine("Outside the forech loop:");
+            
             Console.WriteLine("Name: {0}", FirstStack.Pop().Name);
             Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
             Console.WriteLine("Name: {0}", FirstStack.Pop().Name);
             Console.WriteLine("Number of elements on Stack: {0}", FirstStack.Count);
+            
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
