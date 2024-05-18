@@ -4624,9 +4624,9 @@ public class DeserializeExample
  */
  </code>
              <br></br>
-             <green>
+             <brown>
              The constructors for both structs and classes are declared in the same way:
-             </green>
+             </brown>
              <br></br>
 <code>
 //Example of constructors
@@ -6029,7 +6029,9 @@ using System;
 
 namespace project32_abstract_classes
 {
-    //A class can inherit only from a single class. (multiple class inheritance is not allowed)
+    //A class can inherit only from a single class. 
+    //(multiple class inheritance is not allowed)
+    
     class Program: AbsClass 
     {
         public static void Main(string[] args)
