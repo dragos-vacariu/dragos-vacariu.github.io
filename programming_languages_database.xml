@@ -1078,11 +1078,12 @@ int main()
             <red>interface</red> in different ways.
             <br></br><br></br>
             <red>Abstraction</red> vs. <blue>Concrete Implementation:</blue>
+            <br></br><br></br>
             <red>Abstraction</red> provides a clear distinction between the <red>interface</red> 
-            of an object and 
-            its internal implementation. 
+            of an object and its internal implementation. 
             This separation enables developers to focus on 
-            high-level design and promotes <red>code reusability</red>. 
+            high-level design and promotes <red>code reusability</red>.
+            <br></br><br></br>
             <blue>Concrete implementation</blue>, 
             on the other hand, involves the actual coding and realization of the abstract 
             concepts. Striking a balance between <red>abstraction</red> and <blue>concrete 
