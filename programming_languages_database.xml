@@ -1082,6 +1082,14 @@ int main()
 </code>
             <br></br>
         </preprocessor-directives>
+        <collections>
+            In computer programming: A <red>collection</red> is an <red>object</red> that groups 
+            multiple elements into a single unit.
+            <br></br><br></br> 
+            <red>Collections</red> are used to store, retrieve, manipulate, and communicate 
+            aggregate <red>data</red>.
+            <br></br>
+        </collections>
     </programming_language>
     
     <programming_language>
@@ -1152,6 +1160,8 @@ int main()
         </preprocessor-directives>
         <loops>*General-Programming-Knowledge*</loops>
         <collections>
+            *General-Programming-Knowledge*
+            <br></br>
             <code>Arrays</code> are collections of elements of the same data type with fixed size. 
             <br></br>
             Once the <red>array</red> is defined, its size cannot be changed.
@@ -4185,14 +4195,14 @@ namespace project6_foreach_loop
             
             Console.WriteLine("\nDisplaying elements using FOREACH LOOP: ");
              
-            foreach(int iter in myarray) // synthax forech (datatype iterator_name in data_collection)
+            foreach(int iter in myarray) // syntax forech (datatype iterator_name in data_collection)
             {
                     Console.WriteLine("myarray[" + iter/3 + "]=" +iter);
             }
             
             Console.WriteLine("\nSimple task for FOREACH LOOP");
             
-            foreach(int iter in myarray) // synthax forech (datatype iterator_name in data_collection)
+            foreach(int iter in myarray) // syntax forech (datatype iterator_name in data_collection)
             {
                 if(iter%5==0 &#38;&#38; iter>0)
                 {
