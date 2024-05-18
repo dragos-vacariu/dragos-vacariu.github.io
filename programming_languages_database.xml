@@ -4624,8 +4624,10 @@ public class DeserializeExample
     which are stored on the heap.
  */
  </code>
-
-             <br></br><br></br>
+             <br></br>
+             Regardless of the entity used: <blue>struct</blue> or <blue>class</blue>, the constructors
+             get declared in the same way.
+             <br></br>
 <code>
 //Example of constructors
 
@@ -4998,7 +5000,7 @@ namespace MultithreadingApplication
             An <blue>ambiguity errors</blue> is when declaring <blue>2 namespaces</blue> 
             which may contains some <blue>classes</blue> or <blue>functions</blue> with 
             the same name, so when trying to call one of such <blue>function</blue>, the compiler
-            will not know to which one are you refering to.
+            will not know to which one are you are refering to.
             <br></br>
 <code>
 //Example of using namespaces in C#
