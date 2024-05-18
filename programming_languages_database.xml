@@ -1070,11 +1070,17 @@ int main()
             result is a 
             transformation of the text that does not contain the <blue>directives</blue> nor comments.
             <br></br><br></br>
-            <green>The #define preprocessor is as example:</green>
+            <green>The #define preprocessor as example:</green>
             <br></br><br></br>
-            The #define preprocessor directive creates symbolic constants. <br></br>
-            The symbolic constant is called a macro and the general form of the directive is:<br></br>
-            <code>#define macro-name replacement-text</code>
+            The <code>#define</code> preprocessor directive creates <blue>symbolic constant</blue>. 
+            <br></br>
+            <br></br>
+            The <blue>symbolic constant</blue> is called a <red>macro</red> and the general form of the 
+            directive is:<br></br>
+<code>
+#define macro-name replacement-text
+</code>
+            <br></br>
         </preprocessor-directives>
     </programming_language>
     
