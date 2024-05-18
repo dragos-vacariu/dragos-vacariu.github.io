@@ -319,7 +319,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             1) <red>Thread</red> creation is much faster. <br></br>
             2) Context switching between <red>threads</red> is much faster. <br></br>
             3) <red>Threads</red> can be terminated easily <br></br>
-            4) Communication between threads is faster.<br></br>
+            4) Communication between <red>threads</red> is faster.<br></br>
             </blue>
         </multi-threading>
         <bitwise-operators>
@@ -379,13 +379,14 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             </red>
         </bitwise-operators>
         <macros>
-            <red>Macros</red> are powerful tools that allow developers to define reusable code snippets. 
+            <red>Macros</red> are powerful tools that allow developers to define <blue>reusable code snippets</blue>. 
             <br></br><br></br>
             They are defined using preprocessor directives and primarily used for code substitution 
             and generation. 
             <br></br><br></br>
-            <red>Macros</red> provide a convenient way to write concise and efficient code, 
-            improving the readability and maintainability of programs.
+            <red>Macros</red> provide a convenient way to write <blue>concise</blue> and 
+            <blue>efficient code</blue>, 
+            <red>improving the readability</red> and <red>maintainability</red> of programs.
             <br></br><br></br>
 <code>
 // Program to illustrate macros
@@ -416,9 +417,10 @@ int main()
             Object-Like Macros:
             </green>
             <br></br><br></br>
-            An <red>object-like macro</red> is a simple identifier that will be replaced by a code fragment. 
+            An <red>object-like macro</red> is a simple identifier that will be 
+            <blue>replaced by a code fragment</blue>. 
             <br></br>
-            It is called <red>object-like</red> because it looks like an object in code that uses it. 
+            It is called <red>object-like</red> because it looks like an <red>object</red> in code that uses it. 
             <br></br><br></br>
             <brown>
             It is popularly used to replace a symbolic name with a numerical/variable represented 
@@ -465,7 +467,7 @@ int main()
         </macros>
         <defines>
             In programming, <code>#define</code> is a preprocessor directive that is used to define <red>macros</red>. 
-            The macros are the identifiers which are replaced by their value before 
+            The <red>macros</red> are the identifiers which are replaced by their <blue>value</blue> before 
             compilation. <br></br><br></br>
             We can define constants and <red>functions like macros</red> using <code>#define</code>.
         </defines>
@@ -533,47 +535,53 @@ int main()
             </blue>
         </ternary-operator>
         <modular-programming>
-            Modular programming consists of separating implementation from interface and 
+            Modular programming consists of <blue>separating implementation</blue> from interface and 
             hiding information in the implementation.
             <br></br><br></br>
             <green>Advantages of modular programming:</green>
             <br></br><br></br>
             
-            <blue>Code is easier to read</blue> - Working on modular programming makes code easier to read 
+            <blue>Code is easier to read</blue> - Working on modular programming makes <red>code easier to read</red> 
             because functions perform different tasks as compared to monolithic codes. 
             Sometimes modular programming can be a bit messy if we pass arguments and 
-            variables in different functions. The use of modules should be done in a 
+            variables in different functions. <br></br>
+            The use of modules should be done in a 
             sensible manner so as to avoid any problem. Functions should be neat, clean, 
             and descriptive.<br></br><br></br>
             
             <blue>Code is easier to test</blue> - In software, some functions perform fewer tasks and 
             also functions that perform numerous tasks. If the software is easily split 
-            using modules, it becomes easier to test. We can also focus on the riskier 
+            using modules, it becomes easier to test. <br></br>
+            We can also focus on the riskier 
             functions during testing and need more test cases to make it bug-free.<br></br><br></br>
             
             <blue>Reusability</blue> - There are times where a piece of code is implemented everywhere in 
             our program. Instead of copying and pasting it, again and again, modularity 
             gives us the advantage of reusability so that we can pull our code from 
-            anywhere using interfaces or libraries. The concept of reusability also 
+            anywhere using interfaces or libraries. <br></br>
+            The concept of <red>reusability</red> also 
             reduces the size of our program.<br></br><br></br>
             
             <blue>Faster fixes</blue> - Suppose there is an error in the payment options in any 
             application, and the bug needs to be removed. Modularity can be a great help 
             because we know that there will be a separate function that will contain the 
-            code of payments, and only that function will only be rectified. Thus using 
-            modules to find and fixing bugs becomes much more smooth and maintainable.<br></br><br></br>
+            code of payments, and only that function will only be rectified.<br></br>
+            Using modules to find and fix bugs becomes much more 
+            <red>smooth</red> and <red>maintainable</red>.<br></br><br></br>
             
             <blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects things that 
             use it from making changes inside the library. Unless there is a change in the API, 
-            there is a low risk for someone's code-breaking. For example, if you didn't have 
+            there is a low risk for someone's code-breaking. <br></br>
+			For example, if you didn't have 
             explicit APIs and someone changed a function they thought was only used within that 
-            same library (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
+            same <red>library</red> (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
             
             
             <blue>Easy collaboration</blue> - Different developers work on a single piece of code in the team. 
             There are chances of conflicts when there's a git merge. This conflict can be reduced 
-            if the code is split between more functions, files, repos, etc. We can also provide 
-            ownership to specific code modules, where a team member can break them down into 
+            if the code is split between more functions, files, repos, etc. <br></br>
+			We can also provide 
+            ownership to <red>specific code modules</red>, where a team member can break them down into 
             smaller tasks.<br></br><br></br>
             
             <green>Disadvantages of modular programming:</green>
@@ -3288,7 +3296,7 @@ int main() {
             The <code>rand()</code> function is 
             used in C++ to generate random numbers in the range <code>[0, RAND_MAX)</code>.
             <br></br><br></br>
-            The random number is generated by using an algorithm that gives a series of 
+            The <red>random number</red> is generated by using an algorithm that gives a series of 
             non-related numbers whenever this function is called.
             <br></br><br></br>
             <red>Syntax of rand():</red><br></br>
