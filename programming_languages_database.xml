@@ -4589,47 +4589,66 @@ public class DeserializeExample
         </deserialization>
         <constructors>
             *General-Programming-Knowledge*
+            <br></br>
+            In C# constructors can be defined for <code>structs</code> as well as <code>classes</code>.
+            <br></br><br></br>
+            A <code>struct</code> is a similar data type with a <code>class</code>, but 
+            <red>structs</red> works with values, while <red>classes</red> works as 
+            <blue>references.</blue>
+            <br></br><br></br>
+            <brown>FOR A STRUCT:</brown>
+            <br></br>
+             - if we create <blue>2</blue> <red>struct objects</red> (<red>object1</red> and 
+             <red>object2</red>):
+             <br></br>
+             <code>object1 = object2;</code><br></br>
+             - in this case object1 will have all the values that object2 has.<br></br>
+             <br></br>
+             <brown>FOR A CLASS</brown>:
+             <br></br>
+             - if we create <blue>2</blue> <red>class objects</red> (<red>object1</red> and 
+             <red>object2</red>):
+             <br></br>
+             <code>object1 = object2;</code><br></br>  
+             - in this case <red>object1</red>, will be poiting to the <red>object2</reds>'s values 
+             which are stored on the heap.<br></br>
 <code>
-using System;
+//Example of constructors
 
-/*A struct is a similar data type with a class, but structs works with values, while classes works as reference
-     FOR A STRUCT:
-     if we create 2 objects:
-     object1 = object2, in this case object1 will have all the values that object2 has.
-     
-     FOR A CLASS:
-     if we create 2 objects:
-     object1 = object2, in this case object1, will be poiting to the object2's values which are stored on the heap.
- */
+using System;
 
 namespace project5_structs_with_constructors
 {
     class Program
     {
         struct MyStr
+        {
+            //Variables of the struct:
+            public int posx, posy;
+            
+            //Constructor of the struct:
+            public MyStr (int newposx, int newposy)
             {
-                //Variables of the struct:
-                public int posx, posy;
-                //Constructor of the struct:
-                public MyStr (int newposx, int newposy)
-                {
-                    posx = newposx;
-                    posy = newposy;
-                }
+                posx = newposx;
+                posy = newposy;
             }
+        }
         public static void Main(string[] args)
         {
             //Creating the instances/objects of the struct
             MyStr structure1 = new MyStr (4, 5);
             MyStr structure2 = new MyStr (10, 12);
+            
             //Printing the values:
             Console.WriteLine("The first structure has: X=" +structure1.posx +" and Y=" +structure1.posy);
             Console.WriteLine("The second structure has: X=" +structure2.posx +" and Y=" +structure2.posy);
             structure1 = structure2;
+            
             //Printing the values:
             Console.WriteLine("\nAfter setting structure1 = structure2.\n");
             Console.WriteLine("The first structure has: X=" +structure1.posx +" and Y=" +structure1.posy);
             Console.WriteLine("The second structure has: X=" +structure2.posx +" and Y=" +structure2.posy);
+            
             //End of program:
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
