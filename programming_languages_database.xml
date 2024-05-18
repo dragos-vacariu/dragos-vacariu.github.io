@@ -961,7 +961,7 @@ int main()
         </interfaces>
         <abstract-classes>
             The purpose of an <red>abstract class</red> (often referred to as an <red>ABC</red>) is to provide an 
-            appropriate <red>base class</red> from which other classes can inherit. <br></br>
+            appropriate <red>base class</red> from which other classes can <red>inherit</red>. <br></br>
             <br></br>
             <red>Abstract classes</red> cannot be used to <red>instantiate</red> objects and serves only as an 
             interface. <br></br>
@@ -3937,11 +3937,13 @@ namespace project32_abstract_classes
         <generic-programming>*General-Programming-Knowledge*
 <code>
 using System;
-/* The generic is a specification that allows to a function/method or class to operate without depending on the data type that's been taking 
+/* The generic is a specification that allows to a function/method or class to operate without 
+ * depending on the data type that's been taking 
  * as parameters, and without losing the strong typed property of the function, and the performance.
  * Generics were introduced in C# 2.0, and they are used especially for class collections.
  * 
- * The conversion from value type to reference type is called boxing. When we talk about performance provided by generics, we mean that
+ * The conversion from value type to reference type is called boxing. When we talk about performance 
+ * provided by generics, we mean that
  * no boxing will be effectuated. Boxing are weak in performance.
  */
 
@@ -3952,34 +3954,43 @@ namespace project45_generics
         public static void Main(string[] args)
         {
             Program aProg = new Program();
+            
             //Using the generic function:
             bool result = aProg.IsEqual&lt;int&gt; (21,44); //the function works for any data type.
             Console.WriteLine("Result of the comparison: {0}", result);
+            
             result = aProg.IsEqual&lt;string&gt; ("Adam", "Exit"); //the function works for any data type.
             Console.WriteLine("Result of the comparison: {0}", result);
+            
             result = aProg.IsEqual&lt;char&gt;('a', 'a'); //the function works for any data type.
             Console.WriteLine("Result of the comparison: {0}", result);
             
             //Working with the generic class:
             MyClass&lt;int&gt; GenCls = new MyClass&lt;int&gt;();
             GenCls.printStuff(12,3);
+            
             MyClass&lt;string> GenCls2 = new MyClass&lt;string&gt;();
             GenCls2.printStuff("Deady", "Online");
+            
             //End of program.
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
+        
         //Creating a generic function:
-        public bool IsEqual &lt;T&gt; (T value1, T value2) //the parameters are of type T, into that type could be encapsulated any data type.
+        public bool IsEqual &lt;T&gt; (T value1, T value2) //the parameters are of type T, into 
+        //that type could be encapsulated any data type.
         {
             return value1.Equals(value2);
         }
-        //The sinthax to create a generic function is: access_modifier return_type function_name &lt;variable_type_name&gt; (arguments of 
-        //variable_type_name).
+        
+        //The syntax to create a generic function is: access_modifier return_type function_name 
+        //&lt;variable_type_name&gt; (arguments of variable_type_name).
     }
+    
     //Creating a generic class
     #region GenericClass //this is how you can structure your code using regions
-    class MyClass &lt;A&gt; //the sinthax is class Class_Name &lt;variable_type_name&gt;
+    class MyClass &lt;A&gt; //the syntax is class Class_Name &lt;variable_type_name&gt;
     {
         //Creating a function for the generic class.
         public void printStuff(A value1, A value2)
