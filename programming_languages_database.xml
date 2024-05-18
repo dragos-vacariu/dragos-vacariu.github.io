@@ -4689,6 +4689,8 @@ class Example
         <function-overloading>
             *General-Programming-Knowledge*
 <code>
+//Example of function overloading in C#:
+
 using System;
 
 namespace project26_methods_and_functions_overloading
@@ -4707,20 +4709,31 @@ namespace project26_methods_and_functions_overloading
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
-        /*A function or method can be overloaded using different number of parameters, different types of 
-        parameters or different kind of parameters.
-        Kinds of parameters are: input parameters, output parameters, reference parameters
-        Types of parameters are: float, int, double, char, etc...
-        Overloading means that you can have multiple functions with the same name, but respecting at least one of
-        the criteria above (also it can respect all of the criteria above). This means that the signature of the
-        overloaded function must be different from the primary function.
-        Signature consist in number, type and kind of parameters, and also in the code inside the brackets. But
-        a signature does not consist in the return type of the function, the access modifier of the function, or
-        the optional parameters (params) of the function.
-        So a function CANNOT be overloaded ONLY by using different return types, access modifiers, or optional
-        params, there must be respected the criteria above.
         
-        Examples:*/
+        /*
+        A function or method can be overloaded using different number of parameters, 
+        different types of parameters or different kind of parameters.
+        
+        Kinds of parameters are: input parameters, output parameters, reference parameters.
+        Types of parameters are: float, int, double, char, etc...
+        
+        Overloading means that you can have multiple functions with the same name, but 
+        respecting at least one of the criteria above (also it can respect all of the 
+        criteria above). 
+        
+        This means that the signature of the overloaded function must be different from 
+        the primary function.
+        
+        Signature consist in number, type and kind of parameters, and also in the code inside 
+        the brackets. But a signature does not consist in the return type of the function, 
+        the access modifier of the function, or the optional parameters (params) of the function.
+        
+        So a function CANNOT be overloaded ONLY by using different return types, access modifiers, 
+        or optional params, there must be respected the criteria above.
+        
+        Examples:
+        */
+        
         public void Add(int numb1, int numb2)
         {
             Console.WriteLine("Func1\nThe Sum: {0}\n", numb1+numb2);
