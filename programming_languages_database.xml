@@ -834,10 +834,10 @@ int main()
             </blue>
         </pre-post-incrementation>
         <constructors>
-            A constructor in C++ is a special method that is automatically called when an object 
-            of a class is created.
+            A <red>constructor</red> in C++ is a special method that is automatically called when an object 
+            of a <code>class</code> is created.
             <br></br><br></br>
-            Constructors can also take parameters (just like regular functions), which can be 
+            <red>Constructors</red> can also take <red>parameters</red> (just like <red>regular functions</red>), which can be 
             useful for setting initial values for attributes.<br></br>
         </constructors>
         <instantiation>
@@ -876,21 +876,22 @@ int main()
         <function-overloading>
             <red>Function overloading</red> is a feature of <red>object-oriented programming</red> 
             where two or more 
-            functions can have the <red>same name but different parameters</red>. <br></br><br></br>
+            <red>functions</red> can have the <red>same name but different parameters</red>. <br></br><br></br>
             <red>Function overloading</red> can be considered as an example of a <red>polymorphism</red> 
             feature.
             <br></br><br></br>
             Multiple <red>functions</red> having same name but <red>different parameters</red> is 
             known as <red>function overloading</red>.<br></br>
-            If we have to perform one operation then having same name for the functions doing it increases 
-            the readability of the program.<br></br><br></br>
+            If we have to perform one operation then having same name for the <red>functions</red> 
+            doing it <blue>increases 
+            the readability</blue> of the program.<br></br><br></br>
             <brown>
             Overloaded functions can be defined both outside and inside classes.<br></br>
             </brown>
         </function-overloading>
         <operator-overloading>
             <blue>Operator overloading</blue> is a compile-time <red>polymorphism</red>. <br></br><br></br>
-            It is an idea of giving special meaning to an existing operator 
+            It is an idea of giving special meaning to an existing <red>operator</red> 
             without changing its original meaning. <br></br>
         </operator-overloading>
         <namespaces>
@@ -984,18 +985,18 @@ int main()
             get the values.
             <br></br><br></br>
             
-            <red>Advantages of Data Abstraction:</red>
+            <green>Advantages of Data Abstraction:</green>
             <br></br><br></br>
             <blue>
-            Helps the user to avoid writing the low-level code;<br></br>
-            Avoids code duplication and increases reusability.<br></br>
-            Can change the internal implementation of the class independently without 
-            affecting the user.<br></br>
-            Helps to increase the security of an application or program as only important 
+            Helps the user to avoid writing the <red>low-level code</red>;<br></br>
+            Avoids code duplication and <red>increases reusability</red>.<br></br>
+            Can change the internal implementation of the <code>class</code> independently <red>without 
+            affecting the user</red>.<br></br>
+            Helps to <red>increase the security</red> of an application or program as only important 
             details are provided to the user.<br></br>
-            It reduces the complexity as well as the redundancy of the code, therefore 
-            increasing the readability.
-            <br></br><br></br>
+            It <red>reduces the complexity</red> as well as the <red>redundancy</red> of the code, therefore 
+            </red>increasing the readability</red>.
+            <br></br>
             </blue>
         </abstraction>
     </programming_language>
@@ -2998,8 +2999,10 @@ int main ()
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
+            <brown>
             In C++ multiple namespace blocks 
             with the same name are allowed.<br></br>
+            </brown>
 <code>
 namespace Data
 {
