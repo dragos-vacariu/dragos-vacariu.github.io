@@ -5855,7 +5855,9 @@ namespace project50_optional_parameters
              <br></br><br></br>
              8. Different parts of the <red>partial class</red> cannot specify that they are 
              <red>inherited</red> from 
-             different <red>classes</red>. <red>Multiple class inheritance is not allowed</red> in C#.
+             different <red>classes</red>.
+             <br></br>
+             <red>Multiple class inheritance is not allowed</red> in C#.
              <br></br><br></br>
              9. Different parts of the <red>partial class</red> can specify that they <red>inherits</red> 
              from different <red>interfaces</red>, so after the compilation the <red>partial class</red>
