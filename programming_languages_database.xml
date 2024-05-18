@@ -384,8 +384,8 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
         <macros>
             <red>Macros</red> are powerful tools that allow developers to define <blue>reusable code snippets</blue>. 
             <br></br><br></br>
-            They are defined using preprocessor directives and primarily used for code substitution 
-            and generation. 
+            They are defined using <blue>preprocessor directives</blue> and primarily used for 
+            <blue>code substitution</blue> and <blue>generation</blue>. 
             <br></br><br></br>
             <red>Macros</red> provide a convenient way to write <blue>concise</blue> and 
             <blue>efficient code</blue>, 
@@ -470,6 +470,7 @@ int main()
         </macros>
         <defines>
             In programming, <code>#define</code> is a preprocessor directive that is used to define <red>macros</red>. 
+            <br></br><br></br>
             The <red>macros</red> are the identifiers which are replaced by their <blue>value</blue> before 
             compilation. <br></br><br></br>
             We can define constants and <red>functions like macros</red> using <code>#define</code>.
@@ -934,14 +935,14 @@ int main()
             automatically assigned by the compiler if the calling <red>function</red> doesn’t provide 
             a value for the <red>argument</red>. <br></br>
             <br></br>
-            In case any value is passed, the default value is 
+            In case any value is passed, the <blue>default value</blue> is 
             <red>overridden</red>. <br></br>
         </default-parameters>
         <interfaces>
             In programming: an <red>interface</red> describes the behavior or capabilities of a <red>class</red> without 
             committing to a particular implementation of that <red>class</red>.
             <br></br><br></br>
-            The <red>interfaces</red> are implemented using <red>abstract classes</red> and these abstract classes 
+            The <red>interfaces</red> are implemented using <red>abstract classes</red> and these <red>abstract classes</red>
             should not be confused with <red>data abstraction</red> which is a concept of keeping 
             implementation details separate from associated data.<br></br>
         </interfaces>
@@ -1040,6 +1041,14 @@ int main()
             accept any number of <red>arguments</red>.
             <br></br>
         </variable-arguments-lists>
+        <random-generators>
+            A <blue>random number generator</blue> forms the backbone of creating <blue>pseudo-random numbers</blue>.
+            <br></br><br></br>
+            The idea behind <blue>pseudo-random numbers</blue> is that a computer does not have a thinking 
+            process to select a random number. <br></br><br></br>
+            So even though an output number produced may seem <red>random</red>, the values are 
+            <blue>mathematically computed</blue>.
+        </random-generators>
     </programming_language>
     
     <programming_language>
@@ -3231,7 +3240,7 @@ int main(void) {
             A C++ <red>macro</red> is defined as a section of code that that particular <red>macro</red> value can 
             replace. <br></br><br></br>
             We can define the <red>macro</red> by using a <code>#define</code> directive.<br></br> 
-            When the compiler goes to the macros while program compilation, 
+            When the compiler goes to the <red>macros</red> while program compilation, 
             the <red>macro</red>'s name is replaced by the definition of the <red>macro</red>. 
             <br></br><br></br>
             The termination of the C++ <red>Macros</red> does not need a 
