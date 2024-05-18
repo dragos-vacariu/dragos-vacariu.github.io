@@ -5282,7 +5282,7 @@ namespace project11_ternary_operator
 </code>
         </ternary-operator>
         <modular-programming>*General-Programming-Knowledge*</modular-programming>
-        <stringbuilder>
+        <string-methods>
             <br></br>
              A <code>stringbuilder</code> is a <red>data type</red> just like <code>string</code>. 
              <br></br><br></br>
@@ -5296,7 +5296,7 @@ namespace project11_ternary_operator
              create another object of the <code>string</code> in
              memory and pass the new <blue>value</blue> of the <code>string</code> to that object, 
              but the old object 
-             which holds the old <blue>value</blue> of the string will not be cleaned
+             which holds the old <blue>value</blue> of the <code>string</code> will not be cleaned
              until the end of the program, when the garbage collector does its work.
              <br></br><br></br>
              A <code>stringbuilder</code> should be used everytime when a <code>string</code> 
@@ -5307,7 +5307,7 @@ namespace project11_ternary_operator
              because it's <red>mutable</red>.
              <br></br>
 <code>
-//Example of using StringBuilder and StringBuilder methods
+//Example of using StringBuilder and StringBuilder methods:
 
 using System;
 using System.Text; // using this for StringBuilder.
@@ -5345,7 +5345,7 @@ namespace project46_working_with_string_builder
     }
 }
 </code>
-        </stringbuilder>
+        </string-methods>
         <datatype-conversions>*General-Programming-Knowledge*
 <code>
 using System;
