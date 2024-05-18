@@ -5505,7 +5505,7 @@ namespace project30_explicit_vs_implicit_implementation
         </datatype-conversions>
         <optional-parameters>
             *General-Programming-Knowledge*
-            <br></br>
+            <br></br><br></br>
             <green>
                 Ways of adding optional parameters in C#:
             </green>
@@ -5513,8 +5513,8 @@ namespace project30_explicit_vs_implicit_implementation
             <blue>
             1.Using <code>params</code> <red>arrays</red> (optional <red>arrays</red> created 
             using <code>params</code> keyword as prefix).<br></br>
-            2.Methods overloading (overloading a method/function to 
-            provide many versions with different number of parameters);<br></br>
+            2.Methods <red>overloading</red> (<red>overloading</red> a method/function to 
+            provide many <red>versions</red> with different number of <red>parameters</red>);<br></br>
             3.Methods with <red>default parameter values</red>.<br></br>
             4.Methods that are using <red>optional attribute</red>.<br></br>
             </blue>
@@ -5554,7 +5554,7 @@ namespace project50_optional_parameters
         }
         
         //Creating functions with default values:
-        public int AddNumbers(int num1, int num2, int [] array = null) //sinthax is just like in C++;
+        public int AddNumbers(int num1, int num2, int [] array = null) //syntax is just like in C++;
         {
             int result=num1+num2;
             if(array!=null)
@@ -5567,10 +5567,11 @@ namespace project50_optional_parameters
             return result;
         }
         
-        public void PrintNrs(int a, int b=10, int c=2) 
+        
         //for a function with default parameters, the parameters initialized with
         //default values must be the last in the list of parameters 
         //(just like in case of params arrays).
+        public void PrintNrs(int a, int b=10, int c=2) 
         {
             Console.WriteLine("Nr1= {0}\nNr2= {1}\nNr3= {2}", a, b, c);
         }
@@ -5671,6 +5672,8 @@ namespace project47_partial_classes
         <decorators>*General-Programming-Knowledge*</decorators>
         <operators>*General-Programming-Knowledge*
 <code>
+//Example of using operators in C#
+
 using System;
 
 namespace project12_new_types_null_coalescing_operator
@@ -5679,16 +5682,21 @@ namespace project12_new_types_null_coalescing_operator
     {
         public static void Main(string[] args)
         {
-            /*Non-Nullable type: Are Value TYPES: integers, boolean, double, float, long, long long, char...etc
-             * Nullable type: Are Reference TYPES: classes, interface, delegates, arrays... etc
+            /* Non-Nullable type: Are Value TYPES: 
+             * integers, boolean, double, float, long, long long, char...etc
+             * 
+             * Nullable type: Are Reference TYPES: 
+             * classes, interface, delegates, arrays... etc
              * 
              * A Non-Nullable type can become Nullable type by using ? in their declaration.
+             * 
              * Examples:
              */
+            
             bool major = false; //non-nullable value type.
             bool ?minor = null; //nullable value type. 
-            /*A nullable boolean type can hold on to 3 values: true, false or null.
-             */
+            
+            /* A nullable boolean type can hold on to 3 values: true, false or null. */
             Console.WriteLine("Are you a minor? Press Y/N to answear or anything else to skip.");
             char answear=Convert.ToChar(Console.ReadLine());
             switch(answear)
@@ -5699,11 +5707,12 @@ namespace project12_new_types_null_coalescing_operator
                 case 'N': minor = false; break;
                 default: minor = null; break;
             }
-            if(minor==true)
+            
+            if(minor == true)
             {
                 Console.WriteLine("You are minor!");
             }
-            else if(minor==false)
+            else if(minor == false)
             {
                 Console.WriteLine("You are not minor!");
             }
@@ -5711,24 +5720,30 @@ namespace project12_new_types_null_coalescing_operator
             {    
                 Console.WriteLine("You did not answear the question!");
             }
+            
             //NULL COALESCING OPERATOR:
             int? TicketsOnSale = 100;
-            int availableTickets=TicketsOnSale??0; //if TicketsOnSale is null, availableTickets will be 0, otherwise
+            
+            //if TicketsOnSale is null, availableTickets will be 0, otherwise
             //availableTickets = (int)TicketsOnSale.
+            int availableTickets=TicketsOnSale??0; 
+
             /*Equivalent method:
-             * if(TicketsOnSale==null)
+             * if(TicketsOnSale == null)
              * {
              *         availableTickets=0;
              * }
              * else
              * {
-             *         availableTickets=(int)TicketsOnSale; //TicketsOnSale is a nullable int, so it must be
+             *         availableTickets = (int)TicketsOnSale; 
+             *         //TicketsOnSale is a nullable int, so it must be
              *         //casted to normal int.
              *         
              *         //Other method of casting:
-             *         //available Tickets=TicketsOnSale.value;
+             *         //available Tickets = TicketsOnSale.value;
              * }
              */
+            
             Console.WriteLine("Available Tickets: {0}", availableTickets);
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
