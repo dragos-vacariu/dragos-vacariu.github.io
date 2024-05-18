@@ -3479,9 +3479,14 @@ class vectors_of_objects_class
         </modular-programming>
         <string-methods>
             The <code>std::string</code> is a <code>class</code> in <red>C++ since C++98</red>. 
+            <br></br>
             This <code>class</code> is the standard 
-            representation for a text string. It includes some typical string operations 
-            like find, replace, concatenate, compare etc. It is present in <code>&lt;string&gt;</code> 
+            representation for a text <code>string</code>. 
+            <br></br>
+            It includes some typical <code>string</code> operations 
+            like find, <red>replace</red>, <red>concatenate</red>, <red>compare</red> etc.
+            <br></br>
+            It is present in <code>&lt;string&gt;</code> 
             header file. <br></br><br></br>
             <green>
             Commonly Used String Functions in C++:<br></br>
