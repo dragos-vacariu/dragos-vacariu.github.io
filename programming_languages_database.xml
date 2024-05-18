@@ -5805,7 +5805,7 @@ namespace project50_optional_parameters
 </code>
         </optional-parameters>
         <partial-classes>
-            A <red>partial class</red> is a unique feature of C#. 
+            A <red>partial class</red> is a <blue>unique feature</blue> of C#. 
             <br></br><br></br>
             It can break the functionality of a single 
             <code>class</code> into many files. 
@@ -5829,7 +5829,7 @@ namespace project50_optional_parameters
             <red>interface</red> into more parts successfully.
              <br></br><br></br>
              <green>
-             IMPORTANT:
+             Important rules of partial classes:
              </green>
              <br></br><br></br>
              <blue>
