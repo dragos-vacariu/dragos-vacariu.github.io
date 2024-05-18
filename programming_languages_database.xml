@@ -1095,6 +1095,7 @@ int main()
             <red>read</red>, <red>write</red>, and <red>close</red> operations on a <red>file</red>.
             <br></br> <br></br> 
             A <red>file</red> is a collection of <red>data</red> stored in the <blue>secondary memory</blue>. 
+            <br></br><br></br> 
             The <red>data</red> is entered into the programs through the keyboard. 
             <br></br><br></br> 
             Files are used for storing information that can be processed 
@@ -4393,11 +4394,13 @@ namespace project61_stack_collection_type
             In C#, objects are <red>dynamically allocated</red> on the <red>heap</red> using the 
             <code>new</code> keyword.
             <br></br><br></br>
-            When an object is no longer needed, it is the responsibility of the <red>garbage 
+            When an <red>object</red> is no longer needed, it is the responsibility of the <red>garbage 
             collector</red> to <blue>deallocate the memory</blue> and reclaim it for future use.
         </dynamic-memory-allocation>
         <read-from-file>*General-Programming-Knowledge*
 <code>
+//Example of reading content from a file.
+
 using System;
 using System.Linq;
 using System.Text;
@@ -4409,11 +4412,13 @@ namespace read_from_file
     {
         public static void Main(string[] args)
         {
-            string textFromFile = System.IO.File.ReadAllText("textfile.txt"); // in this case location of the file is in project folder/debug.
+            string textFromFile = System.IO.File.ReadAllText("textfile.txt");
+            
             if(textFromFile!=string.Empty)
             {
                 Console.WriteLine("Text From File: \n\n{0}", textFromFile);
             }
+            
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
@@ -4423,6 +4428,8 @@ namespace read_from_file
         </read-from-file>
         <write-to-file>*General-Programming-Knowledge*
 <code>
+//Example of writing content to a file.
+
 // Write file using StreamWriter
 using (StreamWriter writer = new StreamWriter(fullPath))
 {
@@ -4432,6 +4439,7 @@ using (StreamWriter writer = new StreamWriter(fullPath))
    writer.WriteLine("Vijay Anand");
    writer.WriteLine("Jignesh Trivedi");
 }
+
 // Read a file
 string readText = File.ReadAllText(fullPath);
 Console.WriteLine(readText);
@@ -4439,10 +4447,13 @@ Console.WriteLine(readText);
         </write-to-file>
         <serialization>*General-Programming-Knowledge*
 <code>
+//Example of using serialization in C#
+
 using System;  
 using System.IO;  
-using System.Runtime.Serialization.Formatters.Binary;  
-[Serializable]  
+using System.Runtime.Serialization.Formatters.Binary;
+  
+[Serializable]  //this will ensure that the class is serializable
 class Student  
 {  
     int rollno;  
@@ -4452,7 +4463,8 @@ class Student
         this.rollno = rollno;  
         this.name = name;  
     }  
-}  
+}
+
 public class SerializeExample  
 {  
     public static void Main(string[] args)  
