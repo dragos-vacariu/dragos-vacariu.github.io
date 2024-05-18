@@ -1044,8 +1044,8 @@ int main()
             details are provided to the user.<br></br>
             It <red>reduces the complexity</red> as well as the <red>redundancy</red> of the code, therefore 
             <red>increasing the readability</red>.
+            </blue>
             <br></br><br></br>
-            
             <blue>Abstraction</blue> is a powerful technique that allows for a separation of concerns between the 
             <red>interface</red> and <blue>implementation</blue> of a <code>class</code>. 
             <br></br>
@@ -1056,7 +1056,7 @@ int main()
             <br></br><br></br>
             Can be used to create a <red>base implementation</red> or <blue>contract</blue> for the 
             <blue>actual implementation</blue> from <code>base classes</code>.
-            </blue>
+            
         </abstraction>
         <variable-arguments-lists>
             In programming: A <red>function</red> that takes a <red>variable number of arguments</red> 
