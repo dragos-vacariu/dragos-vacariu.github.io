@@ -743,7 +743,7 @@ function formatSingleLineComments(line)
 		String(line).includes("#pragma")==false &&
 		String(line).includes("#error")==false &&
         String(line).includes("#region")==false &&
-        String(line).includes("#endregion")
+        String(line).includes("#endregion")==false
 		)
 	{
 		line = line.replace("#", "<comment>#");

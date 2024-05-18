@@ -4030,6 +4030,8 @@ class Program {
         </variable-arguments-lists>
         <simple-data-types>*General-Programming-Knowledge*
 <code>
+//Example of working with different data type variables in C#
+
 using System;
 
 namespace project1_introduction 
