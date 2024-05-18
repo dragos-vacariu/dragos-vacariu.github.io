@@ -858,7 +858,14 @@ int main()
             <br></br><br></br>
             <blue>
             Pre-Increment Operator<br></br>
+            <code>
+            a = ++x; // first x will be incremented then value of x is assigned to a;
+            </code>
+            <br></br>
             Post-Increment Operator<br></br>
+            <code>
+            a = x++; // first x value is assigned to a, then the value of x gets incremented;
+            </code>
             </blue>
         </pre-post-incrementation>
         <constructors>
@@ -1852,7 +1859,7 @@ int main()
 {
     int x = 10, a;
  
-    a = x++; // x value is assined to a, then x value gets incremented to 11;
+    a = x++; // x value is assigned to a, then x value gets incremented to 11;
 
     printf("a = %d\n", a);
  
@@ -5511,12 +5518,12 @@ namespace project30_explicit_vs_implicit_implementation
             </green>
             <br></br><br></br>
             <blue>
-            1.Using <code>params</code> <red>arrays</red> (optional <red>arrays</red> created 
+            1. Using <code>params</code> <red>arrays</red> (optional <red>arrays</red> created 
             using <code>params</code> keyword as prefix).<br></br>
-            2.Methods <red>overloading</red> (<red>overloading</red> a method/function to 
+            2. Methods <red>overloading</red> (<red>overloading</red> a method/function to 
             provide many <red>versions</red> with different number of <red>parameters</red>);<br></br>
-            3.Methods with <red>default parameter values</red>.<br></br>
-            4.Methods that are using <red>optional attribute</red>.<br></br>
+            3. Methods with <red>default parameter values</red>.<br></br>
+            4. Methods that are using <red>optional attribute</red>.<br></br>
             </blue>
             
 <code>
@@ -5698,7 +5705,7 @@ namespace project12_new_types_null_coalescing_operator
             
             /* A nullable boolean type can hold on to 3 values: true, false or null. */
             Console.WriteLine("Are you a minor? Press Y/N to answear or anything else to skip.");
-            char answear=Convert.ToChar(Console.ReadLine());
+            char answear = Convert.ToChar(Console.ReadLine());
             switch(answear)
             {
                 case 'y':  minor = true; break;
