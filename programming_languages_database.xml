@@ -576,20 +576,24 @@ int main()
             Using modules to find and fix bugs becomes much more 
             <red>smooth</red> and <red>maintainable</red>.<br></br><br></br>
             
-            <blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects things that 
+            <blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects 
+            things that 
             use it from making changes inside the library. Unless there is a change in the API, 
-            there is a low risk for someone's code-breaking. <br></br>
+            there is a <red>low risk</red> for someone's code-breaking. <br></br>
 			For example, if you didn't have 
             explicit APIs and someone changed a function they thought was only used within that 
-            same <red>library</red> (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
+            same <red>library</red> (but it was used elsewhere), they could <red>accidentally break</red> 
+            something.<br></br><br></br>
             
             
             <blue>Easy collaboration</blue> - Different developers work on a single piece of code in the team. 
-            There are chances of conflicts when there's a git merge. This conflict can be reduced 
-            if the code is split between more functions, files, repos, etc. <br></br>
+            There are <red>chances of conflicts</red> when there's a <red>git merge</red>. 
+            This <red>conflict</red> can be <red>reduced</red> 
+            if the <red>code is split</red> between more <red>functions</red>, <red>files</red>, <red>repos</red>, 
+            etc. <br></br>
 			We can also provide 
             ownership to <red>specific code modules</red>, where a team member can break them down into 
-            smaller tasks.<br></br><br></br>
+            <red>smaller tasks</red>.<br></br><br></br>
             
             <green>Disadvantages of modular programming:</green>
             <br></br><br></br>
@@ -3255,7 +3259,7 @@ int main(void) {
             The termination of the C++ <red>Macros</red> does not need a 
             semi-colon (;).
             <br></br><br></br>
-            <blue>Additionally to the C Language</blue><br></br>
+            <blue>Additionally to the C Language:</blue><br></br>
             The header file: <code>&lt;limits.h&gt;</code> 
             is defined to help finding 
             the range of fundamental <red>data-types</red>. <br></br>
@@ -3309,8 +3313,8 @@ int main() {
         <defines>*General-Programming-Knowledge*</defines>
         <random-generators>
             *General-Programming-Knowledge*
-            <br></br>
-            <green>Within C++:</green>
+            <br></br><br></br>
+            <green>For C++:</green>
             <br></br><br></br>
             <code>rand()</code> function is an inbuilt function in <red>C++ Standard Library</red>, which is defined in 
             header file <code>&lt;cstdlib&gt;</code>. <br></br><br></br>
