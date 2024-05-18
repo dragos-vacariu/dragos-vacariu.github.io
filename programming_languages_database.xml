@@ -1761,7 +1761,8 @@ The word polymorphism means having many forms.
 Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance.
 
 C++ polymorphism means that a call to a member function will cause a different function to be executed depending on the type of object that invokes the function. 
-Example if a parent class function is set to be override-able, then a parent class pointer can have functionality of the a child class object.
+
+Example: if a parent class function is set to be override-able, then a parent class pointer can have functionality of the a child class object.
 
 A pure virtual function is a function that is declared in the parent class and it really needs to be defined in
 each one of the child classes.
@@ -1774,7 +1775,7 @@ using namespace std;
 
 class Shape
 {
-    //By default a member without access-specifier is set to private.
+	//By default a member without access-specifier is set to private.
 
 	protected:
 		int length;
@@ -1789,7 +1790,6 @@ class Shape
 
 class Square: public Shape
 {
-
 	private:
 		int area;
 		void CalcArea()
@@ -1819,7 +1819,6 @@ class Square: public Shape
 
 class Circle: public Shape
 {
-
 	private:
 		int radius;
 	
@@ -1836,23 +1835,23 @@ class Circle: public Shape
 
 int main()
 {
-    Shape *p;
-    Circle circle_object(22);
-    Square square_object(4,3);
+	Shape *p;
+	Circle circle_object(22);
+	Square square_object(4,3);
 	
-    /*
-    The pointer of type Shape can reference any of the Shape class children, 
+	/*
+	The pointer of type Shape can reference any of the Shape class children, 
 	but having only the functionality of Shape Class.
-    */
+	*/
 	
-    p=&#38;circle_object;
-    p-&gt;DisplayInfo();
-    p=&#38;square_object;
-    p-&gt;DisplayInfo();
+	p=&#38;circle_object;
+	p-&gt;DisplayInfo();
+	p=&#38;square_object;
+	p-&gt;DisplayInfo();
 	
-    int a;
-    cin &gt;&gt; a;
-    return 0;
+	int a;
+	cin &gt;&gt; a;
+	return 0;
 	
 	/*
 	Using same variable we accessed different behaviour for each child class.
@@ -1861,14 +1860,15 @@ int main()
 </code>	
 		</polymorphism>
 		<inheritance>
-			In C++, it is possible to inherit attributes and methods from one class to another. 
-			We group the "inheritance concept" into two categories:
+			In C++, it is possible to <red>inherit</red> attributes and methods from one <code>class</code> 
+			to another. 
+			We group the <red>"inheritance concept"</red> into two categories:
 			<br></br><br></br>
 			<green>
 			- derived class (child) - the class that inherits from another class;<br></br>
 			- base class (parent) - the class being inherited from;<br></br><br></br>
 			</green>
-			To inherit from a class, use the : symbol.<br></br>
+			To <red>inherit</red> from a <code>class</code>, use the <blue>:</blue> symbol.<br></br>
 <code>
 #include &lt;iostream&gt;  
 #include &lt;conio.h&gt;  
