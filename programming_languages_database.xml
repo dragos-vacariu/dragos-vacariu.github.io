@@ -946,7 +946,7 @@ int main()
             <br></br><br></br>
             An <red>object-oriented</red> system might use an <red>abstract base class</red> to provide a common and 
             standardized <red>interface</red> appropriate for all the external applications. <br></br>
-            Then, through <red>inheritance</red> from that <red>abstract base class</red>, <blue>derived classes</blue> are 
+            Through <red>inheritance</red> from the <red>abstract base class</red>, <blue>derived classes</blue> are 
             formed that operate similarly.
             <br></br><br></br>
             The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
