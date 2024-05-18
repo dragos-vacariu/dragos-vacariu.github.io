@@ -847,20 +847,26 @@ int main()
             <br></br>
         </instantiation>
         <destructors>
-            Destructor is an instance member function that is invoked automatically whenever an object is 
-            going to be destroyed. 
-            Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+            Destructor is an <red>instance member function</red> that is invoked automatically whenever an <red>object</red> is 
+            going to be destroyed. <br></br><br></br>
+            The destructor is the last <red>function</red> that is going to be called before an 
+            <red>object</red> is destroyed.
             <br></br><br></br>
+            <green>About destructors:</green>
+            <br></br><br></br>
+            <blue>
             - A destructor is also a special member function like a constructor.
             Destructor destroys the class objects created by the constructor. <br></br>
-            - Destructor has the same name as their class name preceded by a tilde (~) symbol.<br></br>
-            - It is not possible to define more than one destructor. <br></br>
-            - The destructor is only one way to destroy the object created by the constructor. 
-            Hence destructor can-not be overloaded.<br></br>
+            - Destructor has the same name as their <code>class</code> name preceded by a 
+            tilde (<code>~</code>) symbol.<br></br>
+            - It is <red>not possible</red> to define more than one destructor. <br></br>
+            - The destructor is the only one way to destroy the object created by the constructor. 
+            So the destructor <red>can-not be overloaded</red>.<br></br>
             - Destructor neither requires any argument nor returns any value.<br></br>
             - It is automatically called when an object goes out of scope. <br></br>
-            - Destructor release memory space occupied by the objects created by the constructor.<br></br>
-            - In destructor, objects are destroyed in the reverse of an object creation.<br></br>
+            - Destructor release memory space occupied by the <red>objects</red> created by the constructor.<br></br>
+            - In destructor, <red>objects</red> are destroyed in the reverse of an object creation.<br></br>
+            </blue>
         </destructors>
         <function-overloading>
             Function overloading is a feature of object-oriented programming where two or more 
