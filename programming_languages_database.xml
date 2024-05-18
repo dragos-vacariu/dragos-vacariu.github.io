@@ -5097,27 +5097,45 @@ static void Main(string[] args)
 // USA
 </code>
         </default-parameters>
-        <interfaces>*General-Programming-Knowledge*
+        <interfaces>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>
+            An interface in C# is mostly like a class but with some differences:
+            </green>
+            <br></br><br></br>
+            <blue>
+             1.An <red>interface</red> cannot have field <red>members/variable</red> members (can have only 
+             <red>functions/methods</red>, <red>delegates</red>, <red>events</red> or <red>proprieties</red>).
+             <br></br>
+             2.An <red>interface</red> cannot contain implementations for the <red>functions/methods</red>
+             (an implementation of a <red>function/method</red> is the code between the brackets).
+             <br></br>
+             3.An <red>interface</red> has <code>public</code> fields set by default, so inside an 
+             <red>interface</red> you 
+             cannot use the <code>public</code> acces-modifier for its members.
+             <br></br>
+             4.A class can inherit from an <red>interface</red>. But with the condition of providing 
+             the implementation for all the <red>interface</red> <red>function/method</red> members.
+             <br></br>
+             5.When a class provides implementation of an <red>interface</red> function member, 
+             it also needs to make the member function <code>public</code>. 
+             (The <code>public</code> access modifier must be used.)
+             <br></br>
+             6.A <code>class</code> or <code>struct</code> can <red>inherit</code> from MORE interfaces 
+             at the same time. 
+             Whereas a <code>class</code> or <code>struct</code> cannot <red>inherit</red> from
+             more then one <code>class</code>.
+             <br></br>
+             7.An <red>interface</red> cannot be <red>instanciated</red> (an <red>instance</red>, 
+             object of the <red>interface</red> 
+             cannot be created), because doing this it would mean that you would be able to call 
+             a function from the <red>interface</red>, and the <red>interface</red> cannot contain
+             implemented members.
+             </blue>
+             <br></br><br></br>
 <code>
 using System;
-
-/*An interface is mostly like a class but with some differences:
- 1.An interface cannot have field members/variable members (can have only functions/methods, delegates, events or
-proprieties).
- 2.An interface cannot contain implementations for the functions/methods(an implementation of a function/method
-is the code between the brackets).
- 3.An interface has public fields set by default, so inside an interface you cannot use the public acces-modifier
-for its members.
- 4.A class CAN inherit from an interface. BUT with the condition of providing the implementation for all the
- interface function/method members.
- 5.When a class provides implementation of an interface function member, it also needs to make the member function
- public. (The public access modifier must be used.)
- 6.A class or struct can inherit from MORE interfaces in the same time. Whereas a class or struct cannot inherit from
- more then one class.
- 7.An interface cannot be instanciated (an instance, object of the interface cannot be created), because doing this
- it would mean that you would be able to call a function from the interface, and the interface cannot contain
- implemented members.
- */
 
 namespace project30_interfaces
 {
