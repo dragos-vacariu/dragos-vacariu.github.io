@@ -1098,7 +1098,7 @@ int main()
             <br></br><br></br> 
             The <red>data</red> is entered into the programs through the keyboard. 
             <br></br><br></br> 
-            Files are used for storing information that can be processed 
+            <red>Files</red> are used for storing information that can be processed 
             by the programs. 
             <br></br><br></br> 
             <red>Files</red> are not only used for storing the <red>data</red>, programs are also 
@@ -1106,7 +1106,8 @@ int main()
             <br></br>
         </read-from-file>
         <write-to-file>
-            When a program is terminated, the entire <red>data</red> is lost. 
+            When a program is terminated, the entire <red>data</red> is lost.
+            <br></br><br></br>  
             <red>Storing</red> in a <red>file</red> will preserve your data even if the 
             program terminates.
             <br></br><br></br>  
@@ -4484,8 +4485,9 @@ public class SerializeExample
 <code>
 using System;  
 using System.IO;  
-using System.Runtime.Serialization.Formatters.Binary;  
-[Serializable]  
+using System.Runtime.Serialization.Formatters.Binary;
+  
+[Serializable] //this will ensure that the class is serializable 
 class Student  
 {  
     public int rollno;  
@@ -4496,6 +4498,7 @@ class Student
         this.name = name;  
     }  
 }  
+
 public class DeserializeExample  
 {  
     public static void Main(string[] args)  
@@ -4695,7 +4698,17 @@ namespace Calculator
 </code>
         </operator-overloading>
         <enums>*General-Programming-Knowledge*
+         <br></br> 
+         The enum is like an array of boolean values, in which only one can be true at a time.
+         <br></br> <br></br> 
+         This is useful while creating game engines, or software engines, to know when a 
+         certain option is available. 
+         <br></br> <br></br> 
+         Also this is used to control and interract the states in a certain application.
+         <br></br> 
 <code>
+//Example of using enums in C#
+
 using System;
 using System.Threading.Tasks;
 using System.Text;
@@ -4704,40 +4717,48 @@ using System.Collections.Generic;
 
 namespace Software
 {
-    class Software{
-        /*
-         NOTE: Enums cannot be declared inside a function, or method. NOT EVEN the Main function.
-         */
+    class Software
+    {
+         /*
+            NOTE: Enums cannot be declared inside a function, or method. NOT EVEN within the Main function.
+          */
+        
         enum Gamestate {Playing, Menu, Pause=6}; //from now on, Gamestate is like a datatype.
-        /*From the moment of declaration the enum is initializing to true the first state. In this case
+        
+        /*
+         * From the moment of declaration the enum is initializing to true the first state. 
+         * In this case:
          * Playing = true, until the programmer sets it otherwise.
-         * The elements of the enum can also hold values, as it sets above, Pause = 6, Playing = 0, Menu = 1 
-            (by default the    value set for each element is its index).
+         * The elements of the enum can also hold values, 
+         * as it sets above, Pause = 6, Playing = 0, Menu = 1 
+         * (by default the    value set for each element is its index).
          */
+        
         public static int Main()
         {
             //Creating an object/instance for the enum;
             Gamestate gamestate;
             Console.WriteLine("Gamestate: " + Convert.ToInt32(Gamestate.Pause));
             Console.WriteLine("Gamestate: " + Convert.ToInt32(Gamestate.Playing));
+            
             //Changing the state of the Gamestate enum;
             gamestate=Gamestate.Menu;
-            /*Equivalence for this case:
+            
+            /* Equivalence for this case:
              * bool Playing = false;
              * bool Menu = true;
              * bool Pause = false;
-             * 
-             * As denoted, the enum is like an array of boolean values, in which only one can be true at a time.
-             * This is useful while creating game engines, or software engines, to know when a certain option is
-             * available. Also this is used to control and interract the states in a certain application.
              */
+             
             Console.WriteLine("Gamestate: " + gamestate);        
             gamestate=Gamestate.Playing;
-            /*Equivalence:
+            
+            /* Equivalence:
              * bool Playing = true;
              * bool Menu = false;
              * bool Pause = false;
              */
+             
             Console.WriteLine("Gamestate: " + gamestate);
             
             //Interraction of the user:
