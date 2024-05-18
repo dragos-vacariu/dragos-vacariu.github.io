@@ -5148,8 +5148,15 @@ namespace project50_optional_parameters
 }
 </code>
         </optional-parameters>
-        <partial-classes>*General-Programming-Knowledge*
+        <partial-classes>
+        A <red>partial class</red> is a unique feature of C#. 
+        It can break the functionality of a single 
+        <code>class</code> into many files. When the application is compiled, these files are then 
+        reassembled into a single <code>class</code> file. The <code>partial</code> keyword is 
+        used to build a <code>partial class</code>.
 <code>
+//Example of partial class in C#
+
 using System;
 
 /*A partial class its used to separate/split a class into two or more parts, across different files.
