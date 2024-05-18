@@ -1026,7 +1026,7 @@ int main()
             <blue>Abstraction</blue> is a powerful technique that allows for a separation of 
             concerns between the 
             <red>interface</red> and <blue>implementation</blue> of a <code>class</code>. 
-            <br></br>
+            <br></br><br></br>
             It helps to <red>reduce complexity</red> and improve 
             <blue>maintainability</blue> by allowing changes to be made to the 
             <blue>implementation</blue> without affecting 
@@ -1050,7 +1050,7 @@ int main()
             <red>getter function</red> to get the values.
             <br></br><br></br>
             
-            <brown>Advantages of Data Abstraction:</brown>
+            <red>Advantages of Data Abstraction:</red>
             <br></br><br></br>
             <blue>
             Helps the user to avoid writing the <red>low-level code</red>;<br></br>
@@ -1071,8 +1071,9 @@ int main()
             <br></br>
             It allows developers to define the methods an object that can perform without 
             specifying how these methods are implemented. 
-            <br></br>
+            <br></br><br></br>
             <blue>Process abstraction</blue> is achieved through <red>interfaces</red>. 
+            <br></br>
             <red>Interfaces</red> define a set of method signatures without providing the method 
             implementations, enabling multiple <red>classes</red> to implement the same 
             <red>interface</red> in different ways.
@@ -2207,7 +2208,7 @@ int main()
         <abstraction>
             *General-Programming-Knowledge*
 <code>
-// Example of Abstraction in C++
+// Example of Data Abstraction in C++
 
 #include &lt;iostream&gt;  
 using namespace std;
@@ -4031,7 +4032,7 @@ namespace inherited_classes
         <abstraction>
             *General-Programming-Knowledge*
 <code>
-//Example of data abstraction:
+//Abstraction:
 
 //Animal class provides empty function for eat() 
 //and actual implementation for sound()
