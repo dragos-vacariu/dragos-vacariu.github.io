@@ -3242,8 +3242,9 @@ int main()
     return 0; 
 }
 </code>
-			<br></br>
-			<code>srand()</code> function is also available in C++.
+			<code>srand()</code> function is also available in C++.<br></br>
+			This function sets the
+			seed which is used by rand to generate “random” numbers.
 		</random-generators>
 		<command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
 		<ternary-operator>*General-Programming-Knowledge*</ternary-operator>
