@@ -3885,31 +3885,33 @@ namespace project25_polymorphism
 </code>
         </polymorphism>
         <inheritance>*General-Programming-Knowledge*
+        <br></br>
+        In C# for an <red>inherited class</red> can be only one <red>parent class</red> 
+        (only <red>single class inheritance</red> is allowed).
+        <br></br><br></br> 
+        In case of inherited classes: the <red>parent class constructor</red> gets automatically 
+        executed before the <red>child class constructor</red> if the <red>parent class constructor</red> 
+        has no <blue>arguments</blue>.
+        <br></br><br></br>
+        Otherwise: if the <red>parent class</red> has a <red>constructors</red> with multiple 
+        <blue>arguments/parameters</blue> 
+        it must be specified at the <red>child class constructor</red> declaration a 
+        <blue>syntax<code>:base()</code></blue>
+        and specify the <blue>arguments</blue> of the <red>constructor</red> that you want to 
+        be executed inside 
+        the pharanteses.
+        <br></br><br></br>
+        <green>IMPORTANT:<green> 
+        <br></br><br></br>
+        To prevent a <code>class</code> of having children (<red>inheritance</red>), you can use the 
+        <code>sealed</code> keyword.
+        A <code>sealed class</code> cannot have children (cannot be <code>base class</code>).
 <code>
 //FILE: MyClass.cs
 
 using System;
 using System.Collections.Generic;
 
-/*
-
-In C# for an inherited class can be only one parent class 
-(only single class inheritance is allowed).
-
-IN CASE OF INHERITED CLASSES: the parent class constructor gets automatically 
-executed before the child class constructor if the parent class constructor 
-has no arguments.
-
-Otherwise: if the parent class has a constructors with multiple arguments/parameters 
-it must be specified at the child class constructor declaration a syntax:base()
-and specify the arguments of the constructor that you want to be executed inside 
-the pharanteses.
- 
-IMPORTANT: 
-To prevent a class of having children (inheritance), you can use the sealed keyword.
-A sealed class cannot have children (cannot be base class).
- 
-*/
 namespace inherited_classes
 {
     //These are called XML Comments:
