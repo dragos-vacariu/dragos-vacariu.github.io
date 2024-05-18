@@ -4126,9 +4126,10 @@ namespace project1_introduction
         <preprocessor-directives>
             *General-Programming-Knowledge*
             <br></br>
-            C# unlike C and C++ it does not allow the use directives to create macros. <br></br>
+            C# unlike C and C++ it does not allow the use <red>directives</red> to create <red>macros</red>. 
+            <br></br><br></br>
             <brown>
-                Although there is no #define in C#. Some preprocessor directive are still available.
+                Although there is no #define in C# - some preprocessor directive are still available.
             </brown>
             <br></br><br></br>
 <code>
@@ -4138,7 +4139,7 @@ namespace project1_introduction
     Console.WriteLine("Debug version");
 #endif
 </code>
-            A preprocessor directive must be the only 
+            A <red>preprocessor directive</red> must be the only 
             instruction on a line. <br></br>
         </preprocessor-directives>
         <loops>
