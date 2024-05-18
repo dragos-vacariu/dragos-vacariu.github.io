@@ -5929,9 +5929,9 @@ using System;
 
 namespace project47_partial_classes //IMPORTANT: the class parts must be in the same namespace.
 {
-	/// <summary>
+	/// &lt;summary&gt;
 	/// Description of PartialClassPartTwo.
-	/// </summary>
+	/// &lt;/summary&gt;
 	partial class MyClass //the partial keyword must be used for all the parts of the class.
 	{
 		public void PrintInfo()
