@@ -5836,32 +5836,32 @@ namespace project50_optional_parameters
              1. Without the <red>partial</red> keyword into the <red>class declaration</red>, 
              the compiler will not 
              know the intention of creating a <red>partial class</red>.
-             <br></br>
+             <br></br><br></br>
              2. All the parts of a <red>partial class</red> needs to be contained by 
              the <red>same namespace</red> 
-             and assembly.<br></br>
+             and assembly.<br></br><br></br>
              3. All the parts must use the <red>partial</red> keyword in their declaration.
-             <br></br>
+             <br></br><br></br>
              4. All the parts must use the same <red>access modifier</red> in their declaration.
-             <br></br>
+             <br></br><br></br>
              5. If any of the parts is declared as <red>abstract</red>, the entire class will be 
              <red>abstract</red> (even if only a part was declared <red>abstract</red>).
-             <br></br>
+             <br></br><br></br>
              6. If any of the parts is declared as <red>sealed</red>, the entire <red>class</red> will 
              be <red>sealed</red>.
-             <br></br>
+             <br></br><br></br>
              7. If any of the parts is declared to be <red>inherited</red> from a a <red>class</red>, 
              the entire <red>class</red> will be <red>inherited</red> from that <red>class</red>. 
-             <br></br>
+             <br></br><br></br>
              8. Different parts of the <red>partial class</red> cannot specify that they are 
              <red>inherited</red> from 
              different <red>classes</red>. <red>Multiple class inheritance is not allowed</red> in C#.
-             <br></br>
+             <br></br><br></br>
              9. Different parts of the <red>partial class</red> can specify that they <red>inherits</red> 
              from different <red>interfaces</red>, so after the compilation the <red>partial class</red>
              will be <red>inherited</red> from all the specified <red>interfaces</red> (even if they were 
              specified in different parts of the <red>class</red>).
-             <br></br>
+             <br></br><br></br>
              10. The members declared to a part of the <red>partial class</red> are available to all 
              the part of the <red>partial class</red> (available in the <red>entire class</red>).
              </blue>
@@ -5927,7 +5927,8 @@ namespace project47_partial_classes
 
 using System;
 
-namespace project47_partial_classes //IMPORTANT: the class parts must be in the same namespace.
+//IMPORTANT: the class parts must be in the same namespace.
+namespace project47_partial_classes 
 {
 	/// &lt;summary&gt;
 	/// Description of PartialClassPartTwo.
