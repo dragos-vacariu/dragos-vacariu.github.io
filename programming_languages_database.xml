@@ -131,11 +131,11 @@
             <code>void</code> - It's used to indicate an empty data type, usually used with pointers.<br></br>
         </complex-data-types>
         <loops>
-            In computer programming, a loop is a sequence of instruction s that is 
-            continually repeated until a certain condition is reached. 
-            <br></br>
+            In computer programming, a <red>loop</red> is a sequence of instructions that is 
+            continually repeated until a certain <red>condition</red> is reached. 
+            <br></br><br></br>
             Typically, a certain process is done, such as getting an item of data 
-            and changing it, and then some condition is checked such as whether a 
+            and changing it, and then some <red>condition</red> is checked such as whether a 
             counter has reached a prescribed number.
             <br></br><br></br>
             <green>
@@ -158,16 +158,16 @@ while(counter &lt; 5)
             <br></br>
             <red>For loop</red> uses a loop variable to control the loop. 
             <br></br><br></br>
-            Firstly    the loop variable is initialized with some value.<br></br>
-            Then its test condition is checked. 
+            Firstly the <red>loop</red> variable is initialized with some value.<br></br>
+            Then its test <red>condition</red> is checked. 
             <br></br><br></br>
             If the 
             statement is <red>true</red> then control will move to the body and the body of for 
             loop will be executed. 
             <br></br>
-            Steps will be repeated untill the test condition becomes <red>false</red>. 
+            Steps will be repeated untill the test <red>condition</red> becomes <red>false</red>. 
             <br></br>
-            When the test condition will be <red>false</red> the loop will exit.
+            When the test <red>condition</red> will be <red>false</red> the loop will exit.
             <br></br><br></br>
             
             <blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
@@ -177,7 +177,7 @@ while(counter &lt; 5)
             
             <blue>Test Expression</blue>: In this expression, test conditions are performed.
             <br></br>            
-            If the condition evaluates to <red>true</red> then the loop body will be executed and 
+            If the <red>condition</red> evaluates to <red>true</red> then the loop body will be executed and 
             then an update of the loop variable is done. 
             <br></br>
             If the test expression becomes 
@@ -186,7 +186,8 @@ while(counter &lt; 5)
             <br></br><br></br>
             
             <blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
-            by some value. It could be incremented, decremented, multiplied, or divided by 
+            by some value. <br></br>
+            It could be incremented, decremented, multiplied, or divided by 
             any value. <br></br>
             Example: <code>counter++;</code><br></br><br></br>
 
@@ -199,10 +200,10 @@ for(int counter = 0; counter &lt; 5; counter++)
 </code>
             <br></br>        
             The <red>do-while loop</red> is similar to a while loop but the only difference 
-            lies in the do-while loop test condition which is tested at the end of 
+            lies in the <red>do-while loop</red> test <red>condition</red> which is tested at the end of 
             the body. <br></br>
             In the <red>do-while loop</red>, the loop body will execute at least once 
-            irrespective of the test condition.<br></br><br></br>
+            irrespective of the test <red>condition</red>.<br></br><br></br>
 <code>
 /*Do while loop syntax: */
 do
@@ -281,7 +282,7 @@ free(A); //free is used to free the allocated memory. There is no delete() in C 
             <br></br><br></br>
             This is the 
             reverse process of serialization, <red>i.e., converting a data structure or object into a 
-            series of bytes for storage or transmission across devices</red>.<br></br><br></br>
+            series of bytes for storage or transmission across devices</red>.<br></br>
         </deserialization>
         <enums>
             <red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
@@ -415,9 +416,11 @@ int main()
             An <red>object-like macro</red> is a simple identifier that will be replaced by a code fragment. 
             <br></br>
             It is called <red>object-like</red> because it looks like an object in code that uses it. 
-            <br></br>
+            <br></br><br></br>
+            <brown>
             It is popularly used to replace a symbolic name with a numerical/variable represented 
             as a constant.
+            </brown>
             <br></br><br></br>
 <code>
 //Chain Macros
@@ -910,12 +913,12 @@ int main()
             program keeps running.<br></br>
         </exception-handling>
         <default-parameters>
-            A <red>default parameter/argument</red> is a value provided in a function declaration that is 
-            automatically assigned by the compiler if the calling function doesn’t provide 
-            a value for the argument. <br></br>
+            A <red>default parameter/argument</red> is a value provided in a <red>function</red> declaration that is 
+            automatically assigned by the compiler if the calling <red>function</red> doesn’t provide 
+            a value for the <red>argument</red>. <br></br>
             <br></br>
             In case any value is passed, the default value is 
-            overridden. <br></br>
+            <red>overridden</red>. <br></br>
         </default-parameters>
         <interfaces>
             In programming: an <red>interface</red> describes the behavior or capabilities of a <red>class</red> without 
@@ -2628,7 +2631,7 @@ int main()
             *General-Programming-Knowledge*
             <br></br>
             Deserialization is the reverse process of Serialization, 
-            where the byte stream is used to reconstruct the original object.<br></br>
+            where the <red>byte stream</red> is used to reconstruct the original object.<br></br>
 <code>
 /*Example of C++ whole-object serialization and deserialization*/
 
