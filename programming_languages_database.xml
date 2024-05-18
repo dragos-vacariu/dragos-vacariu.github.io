@@ -86,8 +86,9 @@
             occupies <code>16 bytes</code> memory;
         </simple-data-types>
         <complex-data-types>
-            In Programming, data type is an attribute associated with a piece of data that tells a 
-            computer system how to interpret its value. <br></br>
+            In Programming, a <red>data type</red> is an attribute associated with a 
+            piece of <red>data</red> that tells a computer system how to 
+            interpret its <blue>value</blue>. <br></br>
             <br></br>
             <green>
                 Data types that are derived from fundamental data types:
@@ -1011,12 +1012,18 @@ int main()
             </blue>
         </abstraction>
         <variable-arguments-lists>
-            In programming: A <red>function</red> that takes a variable number of arguments is called a 
-            <blue>variadic function</blue>. <br></br><br></br>
+            In programming: A <red>function</red> that takes a <red>variable number of arguments</red> 
+            is called a 
+            <blue>variadic function</blue>. 
+            <br></br><br></br>
             A <blue>variadic function</blue> must specify at least one fixed argument 
             with an <blue>explicitly declared</blue> <red>data type</red>. <br></br><br></br>
             Additional <red>arguments</red> can follow, and can vary in 
-            both <blue>quantity</blue> and <red>data type</red>.<br></br>
+            both <blue>quantity</blue> and <red>data type</red>.
+            <br></br><br></br>
+            The variable number of arguments permits a <red>function</red> to 
+            accept any number of <red>arguments</red>.
+            <br></br>
         </variable-arguments-lists>
     </programming_language>
     
@@ -2118,10 +2125,6 @@ int main()
         <variable-arguments-lists>
             *General-Programming-Knowledge*
             <br></br>
-            The variable number of arguments in C++ is a feature that permits a function to 
-            accept any number of arguments.<br></br>
-            This type of function is called <red>variadic functions</red>.
-            <br></br><br></br>
             Functions with a variable number of arguments in C++ can be easily implemented using 
             a <red>vector</red> or an <red>array</red> if all the arguments are the same type.
             <br></br><br></br>
@@ -3943,7 +3946,7 @@ namespace project45_generics
         <variable-arguments-lists>
             *General-Programming-Knowledge*
             <br></br>
-            Use the param keyword to get the variable arguments in C#.
+            Use the <code>param</code> keyword to get the <red>variable arguments</red> in C#.
 <code>
 using System;
 
