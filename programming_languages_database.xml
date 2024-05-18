@@ -968,9 +968,20 @@ int main()
             <red>objects</red>  and <red>decorators</red> follow the same interface.<br></br>
         </decorators>
         <generic-programming>
-            Generic programming is a style of computer programming in which algorithms are 
+            <blue>Generic programming</blue> is a style of computer programming in which 
+            algorithms are 
             written in terms of <red>data types to-be-specified-later</red> that are then instantiated 
-            when needed for specific types provided as parameters.<br></br>
+            when needed for specific types provided as parameters.
+            <br></br><br></br>            
+            The <red>functions</red> and <red>classes</red> which are <red>data type independent</red> 
+            are called <red>generics</red>, 
+            and this concept is called <blue>generic programming</blue>. 
+            <br></br><br></br>
+            <brown>
+            Generic Programming provides efficiency by reducing code 
+            repetition and in-demand compilation.
+            </brown>
+            <br></br>
         </generic-programming>
         <abstraction>
             <blue>Data abstraction</blue> is one of the most essential and important features of <red>object-oriented 
@@ -2066,15 +2077,7 @@ int main()
             *General-Programming-Knowledge*
             <br></br>    
             In C++ the <red>templates</red> generalize the algorithm to make it <red>data type-independent</red>.
-            <br></br><br></br>            
-            The functions and classes which are data type independent are called <red>generics</red>, 
-            and this concept is called generic programming. 
             <br></br><br></br>
-            <brown>
-            Generic Programming reduces code 
-            repetition and in-demand compilation; hence efficient.
-            </brown>
-            <br></br>
 
 <code>
 #include &lt;iostream&gt;  
