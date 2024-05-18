@@ -2080,6 +2080,8 @@ int main()
             <br></br><br></br>
 
 <code>
+//Example of generic programming in C++
+
 #include &lt;iostream&gt;  
 
 // Template Function with a Type T
