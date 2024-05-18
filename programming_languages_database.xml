@@ -6,23 +6,28 @@
 		<oop>
 			OOP stands for Object-Oriented Programming.
 			<br></br><br></br>
-			Procedural programming is about writing procedures or functions that perform operations on the data, 
-			while object-oriented programming is about creating objects that contain both data and functions.
-			<br></br><br></br>
-			Object-oriented programming has several advantages over procedural programming:
+			<blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions</red> 
+			that perform operations on the <red>data</red>, 
+			while <blue>object-oriented programming</blue> is about creating objects that contain both 
+			<red>data</red> and <red>functions</red>.
 			<br></br><br></br>
 			<green>
+			Object-oriented programming has several advantages over procedural programming:
+			</green>
+			<br></br><br></br>
+			<blue>
 			OOP is faster and easier to execute;<br></br>
 			OOP provides a clear structure for the programs;<br></br>
 			OOP helps to keep the code DRY "Don't Repeat Yourself", and makes the code 
 			easier to maintain, modify and debug;<br></br>
 			OOP makes it possible to create full reusable applications with less code and 
 			shorter development time;
-			</green>
+			</blue>
 			<br></br><br></br>
 			<red>
 			Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
-			of code. You should extract out the codes that are common for the application, 
+			of code. <br></br>
+			You should extract out the codes that are common for the application, 
 			and place them at a single place and reuse them instead of repeating it.
 			</red>
 			<br></br>
@@ -3421,7 +3426,7 @@ class vectors_of_objects_class
 			The <code>append()</code> function <red>adds one string</red> to the end of another.<br></br>
 			<br></br>
 			<blue>== Operator</blue><br></br>
-			You can compare strings using the <code>==</code> operator.<br></br>
+			You can <red>compare</red> strings using the <code>==</code> operator.<br></br>
 			<br></br>
 			<blue>compare()</blue><br></br>
 			The <code>compare()</code> function <red>returns an integer</red> value indicating the 
