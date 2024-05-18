@@ -5105,20 +5105,20 @@ static void Main(string[] args)
             </green>
             <br></br><br></br>
             <blue>
-             1.An <red>interface</red> cannot have field <red>members/variable</red> members (can have only 
+             1.An <code>interface</code> cannot have field <red>members/variable</red> members (can have only 
              <red>functions/methods</red>, <red>delegates</red>, <red>events</red> or <red>proprieties</red>).
              <br></br>
-             2.An <red>interface</red> cannot contain implementations for the <red>functions/methods</red>
+             2.An <code>interface</code> cannot contain implementations for the <red>functions/methods</red>
              (an implementation of a <red>function/method</red> is the code between the brackets).
              <br></br>
-             3.An <red>interface</red> has <code>public</code> fields set by default, so inside an 
-             <red>interface</red> you 
+             3.An <code>interface</code> has <code>public</code> fields set by default, so inside an 
+             <code>interface</code> you 
              cannot use the <code>public</code> acces-modifier for its members.
              <br></br>
-             4.A class can inherit from an <red>interface</red>. But with the condition of providing 
-             the implementation for all the <red>interface</red> <red>function/method</red> members.
+             4.A class can inherit from an <code>interface</code>. But with the condition of providing 
+             the implementation for all the <code>interface</code> <red>function/method</red> members.
              <br></br>
-             5.When a class provides implementation of an <red>interface</red> function member, 
+             5.When a class provides implementation of an <code>interface</code> function member, 
              it also needs to make the member function <code>public</code>. 
              (The <code>public</code> access modifier must be used.)
              <br></br>
@@ -5127,14 +5127,16 @@ static void Main(string[] args)
              Whereas a <code>class</code> or <code>struct</code> cannot <red>inherit</red> from
              more then one <code>class</code>.
              <br></br>
-             7.An <red>interface</red> cannot be <red>instanciated</red> (an <red>instance</red>, 
-             object of the <red>interface</red> 
+             7.An <code>interface</code> cannot be <red>instanciated</red> (an <red>instance</red>, 
+             object of the <code>interface</code> 
              cannot be created), because doing this it would mean that you would be able to call 
-             a function from the <red>interface</red>, and the <red>interface</red> cannot contain
+             a function from the <code>interface</code>, and the <code>interface</code> cannot contain
              implemented members.
              </blue>
              <br></br><br></br>
 <code>
+//Example of using creating/using interfaces
+
 using System;
 
 namespace project30_interfaces
@@ -5155,6 +5157,7 @@ namespace project30_interfaces
     {
         void Print3();
     }
+    
     class Program
     {
         public static void Main(string[] args)
@@ -5166,27 +5169,34 @@ namespace project30_interfaces
             Console.ReadKey(true);
         }
     }
+    
     class Inherited_from_interface : Ifirst_interface, Isecond_interface
     {
-        /* A class that inherits from an interface HAS to provide implementations for all the interface methods
-         * members.
+        /* A class that inherits from an interface HAS to provide implementations for all 
+         * the interface methods members.
          */
         public void Print() //providing implementation for the interface function.
         {
-            /*IMPORTANT: when providing implementation for an interface function/method member you have
+            /*
+             * IMPORTANT: 
+             * when providing implementation for an interface function/method member you have
              * to specify it to be public. (YOU need to use the public access modifier.)
-             IF A CLASS inherits from multiple interfaces,  then the class has to provide implementation for all
-             the interface members.
-             IF A CLASS inherits from an interface which inherits from another interface, then the class has to
-             provide implementation for both the parent interface and grandparent interface as well.
-            */
+             * 
+             * IF A CLASS inherits from multiple interfaces, then the class has to provide 
+             * members.implementation for all the interface members.
+             * 
+             * IF A CLASS inherits from an interface which inherits from another interface, 
+             * then the class has to provide implementation for both the parent
+             * interface and grandparent interface as well.
+             */
             
             Console.WriteLine("Class inherited from an interface.");
         }
         public void Print2() //A method can be implemented like this. (The brackets can be empty.)
         {
-            //By implementing a function inherited from an interface, you have to assure that the function
-            //is public, and there exists the brackets (where the implementation should be made).
+            //By implementing a function inherited from an interface, 
+            //you have to assure that the functionis public, and there 
+            //exists the brackets (where the implementation should be made).
         }
         public void Print3() //this function is inherited from an interface which inherits from another interface.
         {
