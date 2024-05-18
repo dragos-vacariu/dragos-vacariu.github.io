@@ -1776,7 +1776,6 @@ using namespace std;
 class Shape
 {
     //By default a member without access-specifier is set to private.
-
     protected:
         int length;
         int height;
@@ -1881,7 +1880,8 @@ using namespace std;
 class Shape{
 
     protected: 
-    //protected variables are visible into this class and the other classes that are inherited to this.
+    //protected variables are visible into this class and the other classes 
+    //that are inherited from this.
 
     string name;
         
@@ -1897,45 +1897,48 @@ class Shape{
 };
 
 //CHILD CLASS ONE
-class Circle : public Shape //making Circle class derive from the Shape class (setting the inheritance).
+class Circle : public Shape 
+//making Circle class derive from the Shape class (setting the inheritance).
 {
     //inheritance is a way to make 2 classes share the same variables between each other
 
     double radius; //this variable can be private, or protected or public (anything).
 
     public:
-    Circle(string inheritedName, double newradius) : Shape (inheritedName)//this will call the Shape constructor
-    //which will set a value into it's string variable called 'name', in this way, a variable will be used in 2 classes.
-    {
-        radius=newradius;
-    }
-    double getCircleRadius() const
-    {
-        return radius;
-    }
+        Circle(string inheritedName, double newradius) : Shape (inheritedName)
+        //this will call the Shape constructor which will set a value into it's string 
+        //variable called 'name', in this way, a variable will be used in 2 classes.
+        {
+            radius=newradius;
+        }
+        double getCircleRadius() const
+        {
+            return radius;
+        }
 
 };
 
 //CHILD CLASS TWO
-class Rectangle : public Shape // making the Rectangle class derive from Shape Class, let the Rectangle Class, use the
-//protected variables of the Shape Class.
+class Rectangle : public Shape 
+// making the Rectangle class derive from Shape Class, 
+//let the Rectangle Class, use the protected variables of the Shape Class.
 {
     double length, width;
 
     public:
-    Rectangle (string inheritedName2, double newlength, double newwidth): Shape (inheritedName2)
-    {
-        length=newlength;
-        width=newwidth;
-    }
-    double getRectangleLength() const
-    {
-        return length;
-    }
-    double getRectangleWidth () const
-    {
-        return width;
-    }
+        Rectangle (string inheritedName2, double newlength, double newwidth): Shape (inheritedName2)
+        {
+            length=newlength;
+            width=newwidth;
+        }
+        double getRectangleLength() const
+        {
+            return length;
+        }
+        double getRectangleWidth () const
+        {
+            return width;
+        }
 };
 
 int main()
@@ -1946,13 +1949,17 @@ int main()
     cout &lt;&lt; endl &lt;&lt; "CHILD ONE CLASS: " &lt;&lt; endl;
     
     Circle objectchild ("Circle (stored in Shape Class String)", 3.0); //create object
-    cout &lt;&lt; objectchild.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Circle Class.
+    
+    //calling a function from Shape Class using the object from Circle Class.
+    cout &lt;&lt; objectchild.getName() &lt;&lt; endl; 
     cout &lt;&lt; objectchild.getCircleRadius() &lt;&lt; endl;
 
     cout &lt;&lt; endl &lt;&lt; "CHILD TWO CLASS: " &lt;&lt; endl;
     
     Rectangle objectchild2("Rectangle (stored in Shape Class String)", 20.0, 65.0); //create object
-    cout &lt;&lt; objectchild2.getName() &lt;&lt; endl; //calling a function from Shape Class using the object from Rectangle Class.
+    
+    //calling a function from Shape Class using the object from Rectangle Class.
+    cout &lt;&lt; objectchild2.getName() &lt;&lt; endl; 
     cout &lt;&lt; objectchild2.getRectangleLength() &lt;&lt; endl;
     cout &lt;&lt; objectchild2.getRectangleWidth() &lt;&lt; endl;
 
