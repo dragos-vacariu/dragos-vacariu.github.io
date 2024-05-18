@@ -4596,21 +4596,22 @@ public class DeserializeExample
             <red>structs</red> works with values, while <red>classes</red> works as 
             <blue>references.</blue>
             <br></br><br></br>
-            <brown>FOR A STRUCT:</brown>
+            <brown>For a struct:</brown>
             <br></br>
              - if we create <blue>2</blue> <red>struct objects</red> (<red>object1</red> and 
-             <red>object2</red>):
+             <blue>object2</blue>):
              <br></br>
              <code>object1 = object2;</code><br></br>
-             - in this case object1 will have all the values that object2 has.<br></br>
+             - in this case <red>object1</red> will have all the values that 
+             <blue>object2</blue> has.<br></br>
              <br></br>
-             <brown>FOR A CLASS</brown>:
+             <brown>For a class</brown>:
              <br></br>
              - if we create <blue>2</blue> <red>class objects</red> (<red>object1</red> and 
-             <red>object2</red>):
+             <blue>object2</blue>):
              <br></br>
              <code>object1 = object2;</code><br></br>  
-             - in this case <red>object1</red>, will be poiting to the <red>object2</reds>'s values 
+             - in this case <red>object1</red>, will be poiting to the <blue>object2</blue>'s values 
              which are stored on the heap.<br></br>
 <code>
 //Example of constructors
