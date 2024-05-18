@@ -33,16 +33,17 @@
 			<br></br>
 		</oop>
 		<encapsulation>
-			The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from 
+			The meaning of <red>Encapsulation</red>, is to make sure that <red>"sensitive"</red> data is hidden from 
 			users.<br></br><br></br> 
-			To achieve this, you must declare class variables/attributes as private 
+			To achieve this, you must declare class variables/attributes as <code>private</code> 
 			(cannot be accessed from outside the class). <br></br><br></br>
-			If you want others to read or modify 
-			the value of a private member, you can provide public get and set methods.<br></br>
+			If you want others to <red>read</red> or <red>modify</red> 
+			the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
+			<red>set</red> methods.<br></br>
 		</encapsulation>
 		<polymorphism>
-			Polymorphism means "many forms", and it occurs when we have many 
-			classes that are related to each other by inheritance.<br></br>
+			Polymorphism means <red>"many forms"</red>, and it occurs when we have many 
+			<red>classes</red> that are related to each other by <red>inheritance</red>.<br></br>
 		</polymorphism>
 		<simple-data-types>
 			<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
