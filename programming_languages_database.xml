@@ -5976,50 +5976,50 @@ namespace project12_new_types_null_coalescing_operator
             <br></br>
             <green>In C#:</green> 
             <br></br><br></br>
-             An <code>abstract class</code> is similar to an <code>interface</code>, 
+             An <red>abstract class</red> is similar to an <red>interface</red>, 
              dispite that it can contain 
              <blue>variable_members(field members)</blue> , and that
-             an <code>abstract class</code> it's acting like a <code>class</code> when it comes to 
+             an <red>abstract class</red> it's acting like a <red>class</red> when it comes to 
              <blue>inheritance</blue>.
              <br></br><br></br>
-             An <code>abstract class</code> can have implementation
-             for some or even for all its <blue>members/field</blue>, while the <code>interface</code> 
+             An <red>abstract class</red> can have implementation
+             for some or even for all its <blue>members/field</blue>, while the <red>interface</red> 
              cannot.
              <br></br><br></br>
-             An <code>abstract class</code> can use the (<code>public</code>) 
-            <blue>access modifiers</blue> whereas an <code>interface</code> cannot. 
+             An <red>abstract class</red> can use the (<red>public</red>) 
+            <blue>access modifiers</blue> whereas an <red>interface</red> cannot. 
             <br></br><br></br>
-            An <code>interface</code> can be <blue>inherited</blue> only from another <code>interface</code>, 
-            while an <code>abstract class</code>
-            can be <blue>inherited</blue> either from an <code>interface</code> or <code>abstract class</code>. 
+            An <red>interface</red> can be <red>inherited</red> only from another <red>interface</red>, 
+            while an <red>abstract class</red>
+            can be <blue>inherited</blue> either from an <red>interface</red> or <red>abstract class</red>. 
             <br></br><br></br>
-            A <code>class</code> can <blue>inherit</blue> from multiple <code>interfaces</code> at the
-            same time whereas a <code>class</code> cannot inherit from <blue>multiple classes</blue>.
+            A <red>class</red> can <blue>inherit</blue> from multiple <red>interfaces</red> at the
+            same time whereas a <red>class</red> cannot inherit from <blue>multiple classes</blue>.
             <br></br><br></br>
             <green>Rules for abstract classes in C#:</green>
             <br></br><br></br>
             <blue>
-             1. An <code>abstract class</code> cannot be <red>instanciated</red> (an instance of the class 
+             1. An <red>abstract class</red> cannot be <red>instanciated</red> (an instance of the class 
              cannot be created).<br></br>
              <br></br>
-             2. An <code>abstract class</code> can contain <red>abstract members</red>, and the 
+             2. An <red>abstract class</red> can contain <red>abstract members</red>, and the 
              <red>abstract members</red>
              are not allowed to be implemented in
-             that <code>class</code>.<br></br>
+             that <red>class</red>.<br></br>
              <br></br>
-             3. An <code>abstract class</code> can inherit (can have children classes), and every child 
-             of the <code>class</code> must provide its
+             3. An <red>abstract class</red> can inherit (can have children classes), and every child 
+             of the <red>class</red> must provide its
              own implementations for the <red>abstract members</red> of the <red>parent class</red>.<br></br>
              <br></br>
-             4. Any <code>class</code> provides single inheritance (the child of the class can have 
+             4. Any <red>class</red> provides single inheritance (the child of the class can have 
              only one <red>parent/base class</red>).<br></br>
              <br></br>
-             5. An <code>abstract class</code> can only be used as a <red>base class</red>. 
-             So an <code>abstract class</code> cannot be <code>sealed</code>.<br></br>
+             5. An <red>abstract class</red> can only be used as a <red>base class</red>. 
+             So an <red>abstract class</red> cannot be <red>sealed</red>.<br></br>
              <br></br>
-             6. If a <code>class</code> that's inherited from an <code>abstract class</code> 
+             6. If a <red>class</red> that's inherited from an <red>abstract class</red> 
              doesn't wish to provide implementation for the <red>parent class</red>
-             <red>abstract members</red>, then that <code>class</code> can be also 
+             <red>abstract members</red>, then that <red>class</red> can be also 
              set as <red>abstract</red>.<br></br>
              </blue>
 <code>
