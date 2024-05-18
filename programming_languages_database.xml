@@ -905,8 +905,10 @@ int main()
             <br></br>
         </namespaces>
         <exception-handling>
-            In computer programming exceptions are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
-            encounters during its execution. The process of handling these exceptions is 
+            In computer programming <blue>exceptions</blue> are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
+            encounters during its execution. 
+            <br></br><br></br>
+            The process of handling these <blue>exceptions</blue> is 
             called <red>exception handling</red>. <br></br>
             <br></br>
             Using the <red>exception handling</red> mechanism, the control 
@@ -2983,9 +2985,9 @@ int main()
         <multi-threading>
             *General-Programming-Knowledge*
             <br></br>
-            C++ multithreading involves creating and using thread objects, seen as <code>std::thread</code> 
+            C++ <red>multithreading</red> involves creating and using <red>thread</red> objects, seen as <code>std::thread</code> 
             in code, to carry out delegated sub-tasks independently. <br></br>
-            New threads are passed a 
+            New <red>threads</red> are passed a 
             function to complete, and optionally some parameters for that function.
             <br></br>
 <code>
