@@ -3901,7 +3901,7 @@ namespace project25_polymorphism
         be executed inside 
         the pharanteses.
         <br></br><br></br>
-        <green>IMPORTANT:<green> 
+        <green>IMPORTANT:</green> 
         <br></br><br></br>
         To prevent a <code>class</code> of having children (<red>inheritance</red>), you can use the 
         <code>sealed</code> keyword.
