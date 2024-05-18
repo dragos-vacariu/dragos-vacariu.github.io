@@ -4483,6 +4483,8 @@ public class SerializeExample
         </serialization>
         <deserialization>*General-Programming-Knowledge*
 <code>
+//Example of deserializating an object from a file.
+
 using System;  
 using System.IO;  
 using System.Runtime.Serialization.Formatters.Binary;
@@ -4698,14 +4700,14 @@ namespace Calculator
 </code>
         </operator-overloading>
         <enums>*General-Programming-Knowledge*
-         <br></br> 
-         The enum is like an array of boolean values, in which only one can be true at a time.
-         <br></br> <br></br> 
-         This is useful while creating game engines, or software engines, to know when a 
-         certain option is available. 
-         <br></br> <br></br> 
-         Also this is used to control and interract the states in a certain application.
-         <br></br> 
+             The <code>enum</code> is like an <code>array</code> of <code>boolean</code> <red>values</red>, 
+             in which only one can be <code>true</code> at a time.
+             <br></br> <br></br> 
+             This is useful while creating game engines, or software engines, to know when a 
+             certain option is available. 
+             <br></br> <br></br> 
+             Also this is used to control and interract the states in a certain application.
+             <br></br> 
 <code>
 //Example of using enums in C#
 
@@ -4720,7 +4722,9 @@ namespace Software
     class Software
     {
          /*
-            NOTE: Enums cannot be declared inside a function, or method. NOT EVEN within the Main function.
+          * NOTE: 
+          * Enums cannot be declared inside a function, or method. 
+          * NOT even within the Main function.
           */
         
         enum Gamestate {Playing, Menu, Pause=6}; //from now on, Gamestate is like a datatype.
