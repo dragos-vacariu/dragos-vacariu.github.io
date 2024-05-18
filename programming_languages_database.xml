@@ -1093,22 +1093,22 @@ int main()
         <read-from-file>
             <red>File handing</red> is the process in which we <red>create</red>, <red>open</red>, 
             <red>read</red>, <red>write</red>, and <red>close</red> operations on a <red>file</red>.
-            <br></br> 
+            <br></br> <br></br> 
             A <red>file</red> is a collection of <red>data</red> stored in the <blue>secondary memory</blue>. 
             The <red>data</red> is entered into the programs through the keyboard. 
-            <br></br>
+            <br></br><br></br> 
             Files are used for storing information that can be processed 
             by the programs. 
-            <br></br> 
+            <br></br><br></br> 
             <red>Files</red> are not only used for storing the <red>data</red>, programs are also 
             stored in <red>files</red>.
-            <br></br> 
+            <br></br>
         </read-from-file>
         <write-to-file>
             When a program is terminated, the entire <red>data</red> is lost. 
             <red>Storing</red> in a <red>file</red> will preserve your data even if the 
             program terminates.
-            <br></br> 
+            <br></br><br></br>  
             A <red>file</red> is a container in computer storage devices used for storing <red>data</red>.
             <br></br> 
         </write-to-file>
