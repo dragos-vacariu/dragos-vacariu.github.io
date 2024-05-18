@@ -995,7 +995,7 @@ int main()
             Helps to <red>increase the security</red> of an application or program as only important 
             details are provided to the user.<br></br>
             It <red>reduces the complexity</red> as well as the <red>redundancy</red> of the code, therefore 
-            </red>increasing the readability</red>.
+            <red>increasing the readability</red>.
             <br></br>
             </blue>
         </abstraction>
