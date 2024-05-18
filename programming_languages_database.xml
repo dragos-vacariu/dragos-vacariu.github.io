@@ -1,232 +1,232 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <content>
-	<programming_language>
-		<name>General-Programming-Knowledge</name>
-		<oop>
-			OOP stands for Object-Oriented Programming.
-			<br></br><br></br>
-			<blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions</red> 
-			that perform operations on the <red>data</red>, 
-			while <blue>object-oriented programming</blue> is about creating objects that contain both 
-			<red>data</red> and <red>functions</red>.
-			<br></br><br></br>
-			<green>
-			Object-oriented programming has several advantages over procedural programming:
-			</green>
-			<br></br><br></br>
-			<blue>
-			OOP is faster and easier to execute;<br></br>
-			OOP provides a clear structure for the programs;<br></br>
-			OOP helps to keep the code <red>DRY "Don't Repeat Yourself"</red>, and makes the code 
-			easier to maintain, modify and debug;<br></br>
-			OOP makes it possible to create full reusable applications with less code and 
-			shorter development time;
-			</blue>
-			<br></br><br></br>
-			<red>
-			Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
-			of code. <br></br>
-			You should extract out the codes that are common for the application, 
-			and place them at a single place and reuse them instead of repeating it.
-			</red>
-			<br></br>
-		</oop>
-		<encapsulation>
-			The meaning of <red>Encapsulation</red>, is to make sure that <red>"sensitive"</red> data is hidden from 
-			users.<br></br><br></br> 
-			To achieve this, you must declare <red>class variables/attributes</red> as <code>private</code> 
-			(cannot be accessed from outside the class). <br></br><br></br>
-			If you want others to <red>read</red> or <red>modify</red> 
-			the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
-			<red>set</red> methods.<br></br>
-		</encapsulation>
-		<polymorphism>
-			Polymorphism means <red>"many forms"</red>, and it occurs when we have many 
-			<red>classes</red> that are related to each other by <red>inheritance</red>.<br></br>
-		</polymorphism>
-		<simple-data-types>
-			<code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
-			occupies <code>2 bytes</code> memory;
-			<br></br><br></br>
-			<code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
-			occupies <code>2 bytes</code> memory;
-			<br></br><br></br>
-			<code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
-			occupies <code>4 bytes</code> memory;
-			<br></br><br></br>
-			<code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
-			occupies <code>4 bytes</code> memory;
-			<br></br><br></br>
-			<code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
-			format specifier <code>%ld</code> - occupies <code>4 bytes</code> memory;
-			<br></br><br></br>
-			<code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
-			occupies <code>4 bytes</code> memory;
-			<br></br><br></br>
-			<code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
-			occupies <code>8 bytes</code> memory;
-			<br></br><br></br>
-			<code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
-			format specifier <code>%llu</code>  - occupies <code>8 bytes</code> memory;
-			<br></br><br></br>
-			<code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 
-			<code>1 byte</code> memory;
-			<br></br><br></br>
-			<code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 
-			<code>1 byte</code> memory;
-			<br></br><br></br>
-			<code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
-			<code>4 bytes</code> memory;
-			<br></br><br></br>
-			<code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
-			occupies <code>8 bytes</code> memory;
-			<br></br><br></br>
-			<code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
-			occupies <code>16 bytes</code> memory;
-		</simple-data-types>
-		<complex-data-types>
-			In Programming, data type is an attribute associated with a piece of data that tells a 
-			computer system how to interpret its value. <br></br>
-			<br></br>
-			<green>
-				Data types that are derived from fundamental data types:
-			</green>
-			<br></br><br></br>
-			<code>bool type</code> - The bool type is a <red>byte-sized</red> type that can only hold the value true or false.<br></br><br></br>
-			<code>Enumerated type / Enums</code> - An <code>enum</code> is a special type that represents a group of constants 
-			(unchangeable values).
-			<br></br><br></br>
-			<code>Arrays</code> - A collection of elements of the same data type. <br></br>
-			These entities or elements can be of <code>int</code>, <code>float</code>, <code>char</code>, or <code>double</code> 
-			data type or can be of <code>user-defined</code> data types such as	like <code>structures</code>.
-			<br></br><br></br>
-			<red>
-			The size of an array can be calculated by multiplying the <code>data-type * numberOfElements</code> within the array.
-			</red>
-			<br></br><br></br>
-			<code>Pointers</code> - A variable that stores the memory address of another variable. 
-			<br></br>
-			The size of a pointer varies depending on factors such as the operating system and CPU 
-			architecture.<br></br><br></br>
-			<red>
-			Typically, on a <code>32-bit</code> computer system, the size of pointer is <code>4 bytes</code>,	
-			while on a <code>64-bit</code> computer system, it is <code>8 bytes</code>.
-			</red>
-			<br></br><br></br>
-			<code>Structures</code>: A collection of variables of different data types grouped 
-			together under a single name. 
-			<br></br><br></br>
-			<red>
-			The size of a <code>struct</code> can be calculated by summing up the size of all the element data-types.
-			</red>
-			<br></br><br></br>
-			<code>Unions</code> - A special type of structure that can store only one value at a time. <br></br><br></br>
-			<red>
-			The size of the <code>union</code> is equal to the size of the largest element defined within the union.
-			</red>
-			<br></br><br></br>
-			<code>Typedefs</code> - A way to create a new name for an existing data type to improve code 
-			readability and maintainability.<br></br><br></br>
-			<code>void</code> - It's used to indicate an empty data type, usually used with pointers.<br></br>
-		</complex-data-types>
-		<loops>
-			In computer programming, a loop is a sequence of instruction s that is 
-			continually repeated until a certain condition is reached. 
-			<br></br>
-			Typically, a certain process is done, such as getting an item of data 
-			and changing it, and then some condition is checked such as whether a 
-			counter has reached a prescribed number.
-			<br></br><br></br>
-			<green>
-			For, while, do-while loops:<br></br><br></br>
-			</green>
-			<red>While loop</red> does not depend upon the number of iterations. 
-			<br></br>
-			If the test condition will 
-			become <red>false</red> then it will break from the while loop else body will be executed.
-			<br></br><br></br>
+    <programming_language>
+        <name>General-Programming-Knowledge</name>
+        <oop>
+            OOP stands for Object-Oriented Programming.
+            <br></br><br></br>
+            <blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions</red> 
+            that perform operations on the <red>data</red>, 
+            while <blue>object-oriented programming</blue> is about creating objects that contain both 
+            <red>data</red> and <red>functions</red>.
+            <br></br><br></br>
+            <green>
+            Object-oriented programming has several advantages over procedural programming:
+            </green>
+            <br></br><br></br>
+            <blue>
+            OOP is faster and easier to execute;<br></br>
+            OOP provides a clear structure for the programs;<br></br>
+            OOP helps to keep the code <red>DRY "Don't Repeat Yourself"</red>, and makes the code 
+            easier to maintain, modify and debug;<br></br>
+            OOP makes it possible to create full reusable applications with less code and 
+            shorter development time;
+            </blue>
+            <br></br><br></br>
+            <red>
+            Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition 
+            of code. <br></br>
+            You should extract out the codes that are common for the application, 
+            and place them at a single place and reuse them instead of repeating it.
+            </red>
+            <br></br>
+        </oop>
+        <encapsulation>
+            The meaning of <red>Encapsulation</red>, is to make sure that <red>"sensitive"</red> data is hidden from 
+            users.<br></br><br></br> 
+            To achieve this, you must declare <red>class variables/attributes</red> as <code>private</code> 
+            (cannot be accessed from outside the class). <br></br><br></br>
+            If you want others to <red>read</red> or <red>modify</red> 
+            the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
+            <red>set</red> methods.<br></br>
+        </encapsulation>
+        <polymorphism>
+            Polymorphism means <red>"many forms"</red>, and it occurs when we have many 
+            <red>classes</red> that are related to each other by <red>inheritance</red>.<br></br>
+        </polymorphism>
+        <simple-data-types>
+            <code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
+            occupies <code>2 bytes</code> memory;
+            <br></br><br></br>
+            <code>unsigned short int</code> - has value range <red>[-32,768 to 65,535]</red> - format specifier <code>%hu</code> - 
+            occupies <code>2 bytes</code> memory;
+            <br></br><br></br>
+            <code>unsigned int</code> - has value range <red>[0 to 4,294,967,295]</red> - format specifier <code>%u</code> - 
+            occupies <code>4 bytes</code> memory;
+            <br></br><br></br>
+            <code>int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - format specifier <code>%d</code> - 
+            occupies <code>4 bytes</code> memory;
+            <br></br><br></br>
+            <code>long int</code> - has value range <red>[-2,147,483,648 to 2,147,483,647]</red> - 
+            format specifier <code>%ld</code> - occupies <code>4 bytes</code> memory;
+            <br></br><br></br>
+            <code>unsigned long int</code> - has value range <red>[0 to 4,294,967,295 ]</red> - format specifier <code>%lu</code> -
+            occupies <code>4 bytes</code> memory;
+            <br></br><br></br>
+            <code>long long int</code> - has value range <red>[-(2^63) to (2^63)-1]</red> - format specifier <code>%lld</code> - 
+            occupies <code>8 bytes</code> memory;
+            <br></br><br></br>
+            <code>unsigned long long int</code> - has value range <red>[-(2^63) to 18,446,744,073,709,551,615 ]</red> - 
+            format specifier <code>%llu</code>  - occupies <code>8 bytes</code> memory;
+            <br></br><br></br>
+            <code>signed char</code> - has value range <red>[-128 to 127]</red> - format specifier <code>%c</code> - occupies 
+            <code>1 byte</code> memory;
+            <br></br><br></br>
+            <code>unsigned char</code> - has value range <red>[0 to 255]</red> - format specifier <code>%c</code> - occupies 
+            <code>1 byte</code> memory;
+            <br></br><br></br>
+            <code>float</code> - has value range <red>[1.2E-38 to 3.4E+38]</red> - format specifier <code>%f</code> - occupies 
+            <code>4 bytes</code> memory;
+            <br></br><br></br>
+            <code>double</code> - has value range <red>[1.7E-308 to 1.7E+308]</red> - format specifier <code>%lf</code> - 
+            occupies <code>8 bytes</code> memory;
+            <br></br><br></br>
+            <code>long double</code> - has value range <red>[3.4E-4932 to 1.1E+4932]</red> - format specifier <code>%Lf</code>  - 
+            occupies <code>16 bytes</code> memory;
+        </simple-data-types>
+        <complex-data-types>
+            In Programming, data type is an attribute associated with a piece of data that tells a 
+            computer system how to interpret its value. <br></br>
+            <br></br>
+            <green>
+                Data types that are derived from fundamental data types:
+            </green>
+            <br></br><br></br>
+            <code>bool type</code> - The bool type is a <red>byte-sized</red> type that can only hold the value true or false.<br></br><br></br>
+            <code>Enumerated type / Enums</code> - An <code>enum</code> is a special type that represents a group of constants 
+            (unchangeable values).
+            <br></br><br></br>
+            <code>Arrays</code> - A collection of elements of the same data type. <br></br>
+            These entities or elements can be of <code>int</code>, <code>float</code>, <code>char</code>, or <code>double</code> 
+            data type or can be of <code>user-defined</code> data types such as    like <code>structures</code>.
+            <br></br><br></br>
+            <red>
+            The size of an array can be calculated by multiplying the <code>data-type * numberOfElements</code> within the array.
+            </red>
+            <br></br><br></br>
+            <code>Pointers</code> - A variable that stores the memory address of another variable. 
+            <br></br>
+            The size of a pointer varies depending on factors such as the operating system and CPU 
+            architecture.<br></br><br></br>
+            <red>
+            Typically, on a <code>32-bit</code> computer system, the size of pointer is <code>4 bytes</code>,    
+            while on a <code>64-bit</code> computer system, it is <code>8 bytes</code>.
+            </red>
+            <br></br><br></br>
+            <code>Structures</code>: A collection of variables of different data types grouped 
+            together under a single name. 
+            <br></br><br></br>
+            <red>
+            The size of a <code>struct</code> can be calculated by summing up the size of all the element data-types.
+            </red>
+            <br></br><br></br>
+            <code>Unions</code> - A special type of structure that can store only one value at a time. <br></br><br></br>
+            <red>
+            The size of the <code>union</code> is equal to the size of the largest element defined within the union.
+            </red>
+            <br></br><br></br>
+            <code>Typedefs</code> - A way to create a new name for an existing data type to improve code 
+            readability and maintainability.<br></br><br></br>
+            <code>void</code> - It's used to indicate an empty data type, usually used with pointers.<br></br>
+        </complex-data-types>
+        <loops>
+            In computer programming, a loop is a sequence of instruction s that is 
+            continually repeated until a certain condition is reached. 
+            <br></br>
+            Typically, a certain process is done, such as getting an item of data 
+            and changing it, and then some condition is checked such as whether a 
+            counter has reached a prescribed number.
+            <br></br><br></br>
+            <green>
+            For, while, do-while loops:<br></br><br></br>
+            </green>
+            <red>While loop</red> does not depend upon the number of iterations. 
+            <br></br>
+            If the test condition will 
+            become <red>false</red> then it will break from the while loop else body will be executed.
+            <br></br><br></br>
 <code>
 /*While loop syntax: */
 int counter = 0;
 while(counter &lt; 5)
 {
-	/*code goes here*/
-	 counter++;
+    /*code goes here*/
+     counter++;
 }
 </code>
-			<br></br>
-			<red>For loop</red> uses a loop variable to control the loop. 
-			<br></br><br></br>
-			Firstly	the loop variable is initialized with some value.<br></br>
-			Then its test condition is checked. 
-			<br></br><br></br>
-			If the 
-			statement is <red>true</red> then control will move to the body and the body of for 
-			loop will be executed. 
-			<br></br>
-			Steps will be repeated untill the test condition becomes <red>false</red>. 
-			<br></br>
-			When the test condition will be <red>false</red> the loop will exit.
-			<br></br><br></br>
-			
-			<blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
-			or loop counter to some value. <br></br>
-			Example: <code>int counter=1;</code>
-			<br></br><br></br>
-			
-			<blue>Test Expression</blue>: In this expression, test conditions are performed.
-			<br></br>			
-			If the condition evaluates to <red>true</red> then the loop body will be executed and 
-			then an update of the loop variable is done. 
-			<br></br>
-			If the test expression becomes 
-			<red>false</red> then the control will exit from the loop. <br></br>
-			Example: <code>counter&lt;5;</code>
-			<br></br><br></br>
-			
-			<blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
-			by some value. It could be incremented, decremented, multiplied, or divided by 
-			any value. <br></br>
-			Example: <code>counter++;</code><br></br><br></br>
+            <br></br>
+            <red>For loop</red> uses a loop variable to control the loop. 
+            <br></br><br></br>
+            Firstly    the loop variable is initialized with some value.<br></br>
+            Then its test condition is checked. 
+            <br></br><br></br>
+            If the 
+            statement is <red>true</red> then control will move to the body and the body of for 
+            loop will be executed. 
+            <br></br>
+            Steps will be repeated untill the test condition becomes <red>false</red>. 
+            <br></br>
+            When the test condition will be <red>false</red> the loop will exit.
+            <br></br><br></br>
+            
+            <blue>Initialization Expression</blue>: In this expression, we assign a loop variable 
+            or loop counter to some value. <br></br>
+            Example: <code>int counter=1;</code>
+            <br></br><br></br>
+            
+            <blue>Test Expression</blue>: In this expression, test conditions are performed.
+            <br></br>            
+            If the condition evaluates to <red>true</red> then the loop body will be executed and 
+            then an update of the loop variable is done. 
+            <br></br>
+            If the test expression becomes 
+            <red>false</red> then the control will exit from the loop. <br></br>
+            Example: <code>counter&lt;5;</code>
+            <br></br><br></br>
+            
+            <blue>Update Expression</blue>: After execution of the loop body loop variable is updated 
+            by some value. It could be incremented, decremented, multiplied, or divided by 
+            any value. <br></br>
+            Example: <code>counter++;</code><br></br><br></br>
 
 <code>
 /*For loop syntax: */
 for(int counter = 0; counter &lt; 5; counter++)
 {
-	/*code goes here*/
+    /*code goes here*/
 }
 </code>
-			<br></br>		
-			The <red>do-while loop</red> is similar to a while loop but the only difference 
-			lies in the do-while loop test condition which is tested at the end of 
-			the body. <br></br>
-			In the <red>do-while loop</red>, the loop body will execute at least once 
-			irrespective of the test condition.<br></br><br></br>
+            <br></br>        
+            The <red>do-while loop</red> is similar to a while loop but the only difference 
+            lies in the do-while loop test condition which is tested at the end of 
+            the body. <br></br>
+            In the <red>do-while loop</red>, the loop body will execute at least once 
+            irrespective of the test condition.<br></br><br></br>
 <code>
 /*Do while loop syntax: */
 do
 {
-	/*code goes here*/
-	 counter++;
+    /*code goes here*/
+     counter++;
 }
 while(counter &lt; 5)
 </code>
-		</loops>
-		<dynamic-memory-allocation>
-			Dynamic memory is allocated from the heap using some standard library functions. 
-			The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. 
-			<br></br><br></br>
-			The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
-			area in bytes. <br></br>
-			It returns a pointer of type <red>void</red> which 
-			can be cast into a pointer of any form. 
-			<br></br><br></br>
-			<red>
-			It doesn’t initialize the memory at execution time.<br></br>
-			So each block will initially have a default garbage value. 
-			</red>
-			<br></br><br></br>
+        </loops>
+        <dynamic-memory-allocation>
+            Dynamic memory is allocated from the heap using some standard library functions. 
+            The two dynamic memory key functions are <code>malloc()</code> and <code>free()</code>. 
+            <br></br><br></br>
+            The <code>malloc()</code> function takes a single parameter, which is the size of the requested memory 
+            area in bytes. <br></br>
+            It returns a pointer of type <red>void</red> which 
+            can be cast into a pointer of any form. 
+            <br></br><br></br>
+            <red>
+            It doesn’t initialize the memory at execution time.<br></br>
+            So each block will initially have a default garbage value. 
+            </red>
+            <br></br><br></br>
 <code>
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
@@ -234,155 +234,155 @@ while(counter &lt; 5)
 
 int main()
 {
-	int *A;
-	int i;
-	
-	/*
-	Prototype: void *malloc(size_t size);
-	*/
+    int *A;
+    int i;
+    
+    /*
+    Prototype: void *malloc(size_t size);
+    */
 
-	A=(int *)malloc(20*sizeof(int)); // malloc return a void pointer that needs to be converted
-	//into a pointer to however the type of the variable that uses it has. (int *) - is the type of pointer A
-	//20 = the number of memory cells allocated;
-	
-	for (i=0;i&lt;20;i++)
-		printf("A[%d]=%d\n", i, A[i]); //the value in each memory cell can be anything
-	free(A);
+    A=(int *)malloc(20*sizeof(int)); // malloc return a void pointer that needs to be converted
+    //into a pointer to however the type of the variable that uses it has. (int *) - is the type of pointer A
+    //20 = the number of memory cells allocated;
+    
+    for (i=0;i&lt;20;i++)
+        printf("A[%d]=%d\n", i, A[i]); //the value in each memory cell can be anything
+    free(A);
 }
 </code>
-			<red>Calloc</red> function allocates the requested memory and returns a pointer to it similarly to <red>malloc</red>. 
-			<br></br><br></br>
-			The <code>malloc()</code> and <code>calloc()</code> do differentiate in how the functions are used when allocating 
-			memory at runtime. <br></br><br></br>
-			The <code>malloc()</code> function only returns the starting address, <red>it doesn't zero it.</red>
-			<br></br>			
-			On the other hand, the <code>calloc()</code> function returns the starting address, <red>zeroing it.</red>
-			<br></br>	
+            <red>Calloc</red> function allocates the requested memory and returns a pointer to it similarly to <red>malloc</red>. 
+            <br></br><br></br>
+            The <code>malloc()</code> and <code>calloc()</code> do differentiate in how the functions are used when allocating 
+            memory at runtime. <br></br><br></br>
+            The <code>malloc()</code> function only returns the starting address, <red>it doesn't zero it.</red>
+            <br></br>            
+            On the other hand, the <code>calloc()</code> function returns the starting address, <red>zeroing it.</red>
+            <br></br>    
 <code>
 /*Prototype void *calloc(size_t nitems, size_t size)*/
 
 A=(int *)calloc(20, sizeof(int)); //calloc does the same as malloc while initializing all elements to 0:
-	
+    
 for (i=0;i&lt;20;i++)
-	printf("A[%d]=%d\n", i ,A[i]); //the value in each memory cell is 0
-	
+    printf("A[%d]=%d\n", i ,A[i]); //the value in each memory cell is 0
+    
 free(A); //free is used to free the allocated memory. There is no delete() in C language.
-	
+    
 </code>
-		</dynamic-memory-allocation>
-		<serialization>
-			Serialization is the process of converting a <red>data object</red> <blue>(a combination of code and data 
-			represented within a region of data storage)</blue> into a series of bytes that saves the state 
-			of the object in an easily transmittable form.<br></br><br></br>
-		</serialization>
-		<deserialization>
-			Deserialization is the process of <red>reconstructing a data structure or object</red> from a series 
-			of bytes or a string in order to instantiate the object for consumption. 
-			<br></br><br></br>
-			This is the 
-			reverse process of serialization, <red>i.e., converting a data structure or object into a 
-			series of bytes for storage or transmission across devices</red>.<br></br><br></br>
-		</deserialization>
-		<enums>
-			<red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
-			It is mainly used to 
-			assign names to integral constants, the names make a program easy to read and maintain.
-			<br></br><br></br>
-		</enums>
-		<multi-threading>
-			A <red>thread</red> is a single sequence stream within a process. Because threads have some of 
-			the properties of processes, they are sometimes called lightweight processes. 
-			<br></br><br></br>
-			Threads are not independent from each other unlike processes. As a result, 
-			threads shares with other threads their code section, data section and OS resources 
-			like open files and signals. 
-			<br></br>
-			But, like processes, a <red>thread</red> has its own program 
-			counter (PC), a register set, and a stack space. 
-			<br></br><br></br>
-			<green>
-			Why Multithreading? 
-			</green>
-			<br></br><br></br>
-			Threads are popular way to improve application through parallelism. 
-			<br></br>
-			For example, in a browser, multiple tabs can be different threads. <br></br>
-			MS Word uses 
-			multiple threads, one thread to format the text, other thread to process inputs, etc. 
-			<br></br><br></br>
-			Threads operate faster than processes due to following reasons: <br></br><br></br>
-			<blue>
-			1) Thread creation is much faster. <br></br>
-			2) Context switching between threads is much faster. <br></br>
-			3) Threads can be terminated easily <br></br>
-			4) Communication between threads is faster.<br></br>
-			</blue>
-		</multi-threading>
-		<bitwise-operators>
-			The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
-			of two numbers. <br></br>
-			The result of <red>AND</red> is 1 only if both bits are 1.  
-			<br></br><br></br>
-			The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does <red>OR</red> on every bit 
-			of two numbers. <br></br>
-			The result of <red>OR</red> is 1 if any of the two bits is 1. 
-			<br></br><br></br>
-			The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
-			bit of two numbers.<br></br> 
-			The result of <red>XOR</red> is 1 if the two bits are different. 
-			<br></br><br></br>
-			The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, <red>left-shifts</red> the bits of the 
-			first operand, and the second operand decides the number of places to shift. 
-			<br></br><br></br>
-			The <code>&gt;&gt;</code> (<red>right-shift</red>) takes two numbers, <red>right-shifts</red> the bits of the 
-			first operand, and the second operand decides the number of places to shift.
-			<br></br><br></br>
-			The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
-			<br></br><br></br>
-			<blue>
-			The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
-			The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
-			2 respectively.<br></br><br></br>
-			</blue>
-			
-			The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
-			involved, otherwise, you just add their bitwise <red>AND</red>.
-			<br></br><br></br>
-			<blue>
-			Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
-			their sum is just <code>a|b</code>. <br></br>
-			Now, if we change <red>'a'</red> to <red>6</red> which is <red>110</red> in binary, their sum would change 
-			to <code>a|b + a&#38;b</code> since there is a carry involved.
-			<br></br><br></br>
-			The bitwise <red>XOR</red> operator is the most useful operator from a technical interview perspective.
-			<br></br><br></br>
-			It is used in many problems. <br></br>
-			<br></br>
-			</blue>
-			The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
+        </dynamic-memory-allocation>
+        <serialization>
+            Serialization is the process of converting a <red>data object</red> <blue>(a combination of code and data 
+            represented within a region of data storage)</blue> into a series of bytes that saves the state 
+            of the object in an easily transmittable form.<br></br><br></br>
+        </serialization>
+        <deserialization>
+            Deserialization is the process of <red>reconstructing a data structure or object</red> from a series 
+            of bytes or a string in order to instantiate the object for consumption. 
+            <br></br><br></br>
+            This is the 
+            reverse process of serialization, <red>i.e., converting a data structure or object into a 
+            series of bytes for storage or transmission across devices</red>.<br></br><br></br>
+        </deserialization>
+        <enums>
+            <red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
+            It is mainly used to 
+            assign names to integral constants, the names make a program easy to read and maintain.
+            <br></br><br></br>
+        </enums>
+        <multi-threading>
+            A <red>thread</red> is a single sequence stream within a process. Because threads have some of 
+            the properties of processes, they are sometimes called lightweight processes. 
+            <br></br><br></br>
+            Threads are not independent from each other unlike processes. As a result, 
+            threads shares with other threads their code section, data section and OS resources 
+            like open files and signals. 
+            <br></br>
+            But, like processes, a <red>thread</red> has its own program 
+            counter (PC), a register set, and a stack space. 
+            <br></br><br></br>
+            <green>
+            Why Multithreading? 
+            </green>
+            <br></br><br></br>
+            Threads are popular way to improve application through parallelism. 
+            <br></br>
+            For example, in a browser, multiple tabs can be different threads. <br></br>
+            MS Word uses 
+            multiple threads, one thread to format the text, other thread to process inputs, etc. 
+            <br></br><br></br>
+            Threads operate faster than processes due to following reasons: <br></br><br></br>
+            <blue>
+            1) Thread creation is much faster. <br></br>
+            2) Context switching between threads is much faster. <br></br>
+            3) Threads can be terminated easily <br></br>
+            4) Communication between threads is faster.<br></br>
+            </blue>
+        </multi-threading>
+        <bitwise-operators>
+            The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
+            of two numbers. <br></br>
+            The result of <red>AND</red> is 1 only if both bits are 1.  
+            <br></br><br></br>
+            The <code>|</code> (bitwise <red>OR</red>) in C takes two numbers as operands and does <red>OR</red> on every bit 
+            of two numbers. <br></br>
+            The result of <red>OR</red> is 1 if any of the two bits is 1. 
+            <br></br><br></br>
+            The <code>^</code> (bitwise <red>XOR</red>) takes two numbers as operands and does <red>XOR</red> on every 
+            bit of two numbers.<br></br> 
+            The result of <red>XOR</red> is 1 if the two bits are different. 
+            <br></br><br></br>
+            The <code>&lt;&lt;</code> (<red>left-shift</red>) takes two numbers, <red>left-shifts</red> the bits of the 
+            first operand, and the second operand decides the number of places to shift. 
+            <br></br><br></br>
+            The <code>&gt;&gt;</code> (<red>right-shift</red>) takes two numbers, <red>right-shifts</red> the bits of the 
+            first operand, and the second operand decides the number of places to shift.
+            <br></br><br></br>
+            The <code>~</code> (bitwise <red>NOT</red>) takes one number and inverts all bits of it.
+            <br></br><br></br>
+            <blue>
+            The <red>left-shift</red> and <red>right-shift</red> operators should not be used for negative numbers.<br></br>
+            The <red>left-shift</red> and <red>right-shift</red> operators are equivalent to multiplication and division by 
+            2 respectively.<br></br><br></br>
+            </blue>
+            
+            The bitwise <red>OR</red> of two numbers is just the sum of those two numbers if there is no carry 
+            involved, otherwise, you just add their bitwise <red>AND</red>.
+            <br></br><br></br>
+            <blue>
+            Let’s say, we have <code>a=5(101)</code> and <code>b=2(010)</code>, since there is no carry involved, 
+            their sum is just <code>a|b</code>. <br></br>
+            Now, if we change <red>'a'</red> to <red>6</red> which is <red>110</red> in binary, their sum would change 
+            to <code>a|b + a&#38;b</code> since there is a carry involved.
+            <br></br><br></br>
+            The bitwise <red>XOR</red> operator is the most useful operator from a technical interview perspective.
+            <br></br><br></br>
+            It is used in many problems. <br></br>
+            <br></br>
+            </blue>
+            The <code>&#38;</code> operator can be used to quickly check if a number is odd or even.<br></br>
 
-			The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
-			the value would be zero. <br></br><br></br>
-			
-			The <code>~</code> operator should be used carefully.
-			<br></br><br></br>
-			The result of the <code>~</code> operator on a small number can be a big number if the result 
-			is stored in an unsigned variable. <br></br><br></br>
-			<red>
-			The result may be a negative number if the result 
-			is stored in a signed variable (assuming that the negative numbers are stored into a
-			complement form where the leftmost bit is the sign bit).<br></br>
-			</red>
-		</bitwise-operators>
-		<macros>
-			<red>Macros</red> are powerful tools that allow developers to define reusable code snippets. 
-			<br></br><br></br>
-			They are defined using preprocessor directives and primarily used for code substitution 
-			and generation. 
-			<br></br><br></br>
-			<red>Macros</red> provide a convenient way to write concise and efficient code, 
-			improving the readability and maintainability of programs.
-			<br></br><br></br>
+            The value of the expression <code>(x &#38; 1)</code> would be non-zero only if x is odd, otherwise, 
+            the value would be zero. <br></br><br></br>
+            
+            The <code>~</code> operator should be used carefully.
+            <br></br><br></br>
+            The result of the <code>~</code> operator on a small number can be a big number if the result 
+            is stored in an unsigned variable. <br></br><br></br>
+            <red>
+            The result may be a negative number if the result 
+            is stored in a signed variable (assuming that the negative numbers are stored into a
+            complement form where the leftmost bit is the sign bit).<br></br>
+            </red>
+        </bitwise-operators>
+        <macros>
+            <red>Macros</red> are powerful tools that allow developers to define reusable code snippets. 
+            <br></br><br></br>
+            They are defined using preprocessor directives and primarily used for code substitution 
+            and generation. 
+            <br></br><br></br>
+            <red>Macros</red> provide a convenient way to write concise and efficient code, 
+            improving the readability and maintainability of programs.
+            <br></br><br></br>
 <code>
 // Program to illustrate macros
 
@@ -406,19 +406,19 @@ int main()
  
     return 0;
 }
-</code>		
-			<br></br>
-			<green>
-			Object-Like Macros:
-			</green>
-			<br></br><br></br>
-			An <red>object-like macro</red> is a simple identifier that will be replaced by a code fragment. 
-			<br></br>
-			It is called <red>object-like</red> because it looks like an object in code that uses it. 
-			<br></br>
-			It is popularly used to replace a symbolic name with a numerical/variable represented 
-			as a constant.
-			<br></br><br></br>
+</code>        
+            <br></br>
+            <green>
+            Object-Like Macros:
+            </green>
+            <br></br><br></br>
+            An <red>object-like macro</red> is a simple identifier that will be replaced by a code fragment. 
+            <br></br>
+            It is called <red>object-like</red> because it looks like an object in code that uses it. 
+            <br></br>
+            It is popularly used to replace a symbolic name with a numerical/variable represented 
+            as a constant.
+            <br></br><br></br>
 <code>
 //Chain Macros
   
@@ -456,567 +456,567 @@ int main()
 }
   
 </code>
-		</macros>
-		<defines>
-			In programming, <code>#define</code> is a preprocessor directive that is used to define <red>macros</red>. 
-			The macros are the identifiers which are replaced by their value before 
-			compilation. <br></br><br></br>
-			We can define constants and <red>functions like macros</red> using <code>#define</code>.
-		</defines>
-		<command-line-arguments>
-			Command line <red>arguments</red> are passed to the main function 
-			as <code>argc</code> and <code>argv</code>. 
-			<br></br>
-			Command line <red>arguments</red> are used to control the program from 
-			the outside. <code>argv[argc]</code> is a <red>NULL</red> pointer. 
-			<br></br><br></br>
-			The name of the program is 
-			stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
-			and the	last argument in <code>argv[n]</code>.
-			<br></br><br></br>
-			<code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores the number of 
-			command-line 
-			<red>arguments</red> passed by the user including the name of the program. 
-			<br></br>
-			So if we pass a 
-			value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for <red>argument</red> and one for 
-			<red>program name</red>). 
-			<br></br><br></br>
-			<blue>The value of argc should be non-negative.</blue>
-			
-			<br></br><br></br>
-			<code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers listing all the <red>arguments</red>.
-			<br></br>
-			If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
-			to <code>argv[argc-1]</code> will 
-			contain pointers to strings.<br></br>
-			<code>argv[0]</code> is the name of the program. 
-			<br></br><br></br>
-			After that until <code>argv[argc-1]</code> every element 
-			is command -line arguments.<br></br><br></br>
-			
-			<green>Properties of Command Line Arguments in C:<br></br><br></br></green>
-			<blue>
-			They are passed to the <code>main()</code> function.<br></br>
-			They are parameters/arguments supplied to the program when it is invoked.<br></br>
-			They are used to control programs from outside instead of hard coding those values 
-			inside the code.<br></br><br></br>
-			<code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
-			<code>argv[0]</code> holds the name of the program.<br></br>
-			<code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
-			the last argument.<br></br>
-			</blue>
-			<br></br>
-		</command-line-arguments>
-		<ternary-operator>
-			<red>Ternary operator</red> is used for decision making instead of placing longer <red>if and else</red>
-			conditional statements.
-			<br></br><br></br>
-			Syntax:
-			<code>condition ? value_if_true : value_if_false</code>
-			<br></br>
-			The statement evaluates to <code>value_if_true</code> if condition is met, and <code>value_if_false</code> 
-			otherwise.<br></br><br></br>
-			
-			<green>The ternary operator take three arguments:</green>
-			<br></br><br></br>
-			<blue>
-			The first is a comparison argument;<br></br>
-			The second is the result upon a true comparison;<br></br>
-			The third is the result upon a false comparison;<br></br><br></br>
-			</blue>
-		</ternary-operator>
-		<modular-programming>
-			Modular programming consists of separating implementation from interface and 
-			hiding information in the implementation.
-			<br></br><br></br>
-			<green>Advantages of modular programming:</green>
-			<br></br><br></br>
-			
-			<blue>Code is easier to read</blue> - Working on modular programming makes code easier to read 
-			because functions perform different tasks as compared to monolithic codes. 
-			Sometimes modular programming can be a bit messy if we pass arguments and 
-			variables in different functions. The use of modules should be done in a 
-			sensible manner so as to avoid any problem. Functions should be neat, clean, 
-			and descriptive.<br></br><br></br>
-			
-			<blue>Code is easier to test</blue> - In software, some functions perform fewer tasks and 
-			also functions that perform numerous tasks. If the software is easily split 
-			using modules, it becomes easier to test. We can also focus on the riskier 
-			functions during testing and need more test cases to make it bug-free.<br></br><br></br>
-			
-			<blue>Reusability</blue> - There are times where a piece of code is implemented everywhere in 
-			our program. Instead of copying and pasting it, again and again, modularity 
-			gives us the advantage of reusability so that we can pull our code from 
-			anywhere using interfaces or libraries. The concept of reusability also 
-			reduces the size of our program.<br></br><br></br>
-			
-			<blue>Faster fixes</blue> - Suppose there is an error in the payment options in any 
-			application, and the bug needs to be removed. Modularity can be a great help 
-			because we know that there will be a separate function that will contain the 
-			code of payments, and only that function will only be rectified. Thus using 
-			modules to find and fixing bugs becomes much more smooth and maintainable.<br></br><br></br>
-			
-			<blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects things that 
-			use it from making changes inside the library. Unless there is a change in the API, 
-			there is a low risk for someone's code-breaking. For example, if you didn't have 
-			explicit APIs and someone changed a function they thought was only used within that 
-			same library (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
-			
-			
-			<blue>Easy collaboration</blue> - Different developers work on a single piece of code in the team. 
-			There are chances of conflicts when there's a git merge. This conflict can be reduced 
-			if the code is split between more functions, files, repos, etc. We can also provide 
-			ownership to specific code modules, where a team member can break them down into 
-			smaller tasks.<br></br><br></br>
-			
-			<green>Disadvantages of modular programming:</green>
-			<br></br><br></br>
-			<blue>Requires more resources</blue> - There is a need for extra time and 
-			budget for a product in modular programming.
-			<br></br><br></br>
-			
-			<blue>Increases the risk and the difficulty</blue> - It is a challenging task to combine all the modules.
-			<br></br><br></br>
-			
-			<blue>Additional efforts needed for documentation</blue> - Careful documentation is required so that other program modules are not affected.
-			<br></br><br></br>
-			
-			<blue>The task repetition impacts the software performance</blue> - Some modules may partly repeat the task 
-			performed by other modules. Hence, Modular programs need more memory space and extra time for execution.
-			<br></br><br></br>
-			
-			<blue>The work efficiency might be impacted</blue> - It reduces the program's efficiency because testing and debugging are 
-			time-consuming, where each function contains a thousand lines of code.
-			<br></br><br></br>
-			
-			<blue>The code readability might be affected</blue> - Integrating various modules into a single program may not be an easy task because 
-			different people working on the design of different modules may not have the 
-			same style.
-			<br></br><br></br>
-			
-		</modular-programming>
-		<datatype-conversions>
-			<green>Generally there are two types of conversion:</green>
-			<br></br><br></br>
-			<blue>
-			- implicit conversion (done automatically by the compiler)<br></br>
-			- explicit conversion (done manually by the developer)<br></br>
-			</blue>
-			<br></br>
-			<red>Implicit conversion</red> is done automatically by the compiler when you assign a value 
-			of one type to another.<br></br><br></br>
-			<red>Explicit conversion</red> is done manually by placing the type in parentheses <red>()</red> in front 
-			of the value. Also knows as <red>typecasting</red>. 
-			<br></br>
-		</datatype-conversions>
-		<operators>
-			An operator is a symbol that tells the compiler to perform specific mathematical or 
-			logical functions. 
-			<br></br><br></br>
-			By definition, an operator performs a certain operation on 
-			operands. 
-			<br></br>
-			An operator needs one or more operands for the operation to be performed.<br></br>
-			<br></br>
-			Depending on how many operands are required to perform the operation, operands are called as 
-			<red>unary</red>, <red>binary</red> or <red>ternary</red> operators. <br></br>
-			They need one, two or three operands respectively.<br></br>
-			<br></br>
-			<red>Unary operators</red> − <code>++</code> (increment), <code>--</code> (decrement), <code>!</code> (NOT), <code>~</code> (compliment), <code>&#38;</code> (address of), <code>*</code> (dereference)
-			<br></br><br></br>
-			<red>Binary operators</red> − arithmetic, logical and relational operators except !
-			<br></br><br></br>
-			<red>Ternary operators</red> − The <code>?</code> operator.
-			<br></br><br></br>
-			<green>Most programming languages are rich in built-in operators and provides the following types of operators:</green>
-			<br></br><br></br>
-			<brown>Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: 
-			<br></br><br></br></brown>
-			<br></br>
-			<green>Arithmetic Operators: <br></br></green>
-				<br></br>
-				+ <red>it adds two operands.</red><br></br>
-				<code>A + B = 30</code><br></br>
-				<br></br>
-				
-				− <red>it subtracts second operand from the first.</red><br></br>
-				<code>A − B = -10</code><br></br>
-				<br></br>
-				
-				* <red>it multiplies both operands.</red><br></br>
-				<code>A * B = 200</code><br></br>
-				<br></br>
-				
-				/ <red>it divides numerator by de-numerator.</red><br></br>
-				<code>B / A = 2</code><br></br>
-				<br></br>
-				
-				% <red>is the Modulus Operator.</red><br></br>
-				<blue>It gives the remainder after an integer division.</blue><br></br>
-				<code>B % A = 0</code><br></br>
-				<br></br><br></br>
-				
-				++ <red>is the Increment operator. </red><br></br>
-				<blue>It increases the integer value by one.</blue><br></br>
-				<code>A++ = 11</code><br></br>
-				<br></br>
-				-- <red>is the Decrement operator.</red><br></br>
-				<blue>It decreases the integer value by one.</blue><br></br>
-				<code>A-- = 9</code><br></br>
-				<br></br>
-				<green><br></br>Relational Operators:<br></br></green>
-				<br></br>
-				
-				== <red>it checks if the values of two operands are equal or not. </red><br></br>
-				<blue>If yes, then the condition becomes true.</blue><br></br>
-				<code>(A == B) is not true.</code><br></br>
-				<br></br>
+        </macros>
+        <defines>
+            In programming, <code>#define</code> is a preprocessor directive that is used to define <red>macros</red>. 
+            The macros are the identifiers which are replaced by their value before 
+            compilation. <br></br><br></br>
+            We can define constants and <red>functions like macros</red> using <code>#define</code>.
+        </defines>
+        <command-line-arguments>
+            Command line <red>arguments</red> are passed to the main function 
+            as <code>argc</code> and <code>argv</code>. 
+            <br></br>
+            Command line <red>arguments</red> are used to control the program from 
+            the outside. <code>argv[argc]</code> is a <red>NULL</red> pointer. 
+            <br></br><br></br>
+            The name of the program is 
+            stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
+            and the    last argument in <code>argv[n]</code>.
+            <br></br><br></br>
+            <code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores the number of 
+            command-line 
+            <red>arguments</red> passed by the user including the name of the program. 
+            <br></br>
+            So if we pass a 
+            value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for <red>argument</red> and one for 
+            <red>program name</red>). 
+            <br></br><br></br>
+            <blue>The value of argc should be non-negative.</blue>
+            
+            <br></br><br></br>
+            <code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers listing all the <red>arguments</red>.
+            <br></br>
+            If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
+            to <code>argv[argc-1]</code> will 
+            contain pointers to strings.<br></br>
+            <code>argv[0]</code> is the name of the program. 
+            <br></br><br></br>
+            After that until <code>argv[argc-1]</code> every element 
+            is command -line arguments.<br></br><br></br>
+            
+            <green>Properties of Command Line Arguments in C:<br></br><br></br></green>
+            <blue>
+            They are passed to the <code>main()</code> function.<br></br>
+            They are parameters/arguments supplied to the program when it is invoked.<br></br>
+            They are used to control programs from outside instead of hard coding those values 
+            inside the code.<br></br><br></br>
+            <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
+            <code>argv[0]</code> holds the name of the program.<br></br>
+            <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
+            the last argument.<br></br>
+            </blue>
+            <br></br>
+        </command-line-arguments>
+        <ternary-operator>
+            <red>Ternary operator</red> is used for decision making instead of placing longer <red>if and else</red>
+            conditional statements.
+            <br></br><br></br>
+            Syntax:
+            <code>condition ? value_if_true : value_if_false</code>
+            <br></br>
+            The statement evaluates to <code>value_if_true</code> if condition is met, and <code>value_if_false</code> 
+            otherwise.<br></br><br></br>
+            
+            <green>The ternary operator take three arguments:</green>
+            <br></br><br></br>
+            <blue>
+            The first is a comparison argument;<br></br>
+            The second is the result upon a true comparison;<br></br>
+            The third is the result upon a false comparison;<br></br><br></br>
+            </blue>
+        </ternary-operator>
+        <modular-programming>
+            Modular programming consists of separating implementation from interface and 
+            hiding information in the implementation.
+            <br></br><br></br>
+            <green>Advantages of modular programming:</green>
+            <br></br><br></br>
+            
+            <blue>Code is easier to read</blue> - Working on modular programming makes code easier to read 
+            because functions perform different tasks as compared to monolithic codes. 
+            Sometimes modular programming can be a bit messy if we pass arguments and 
+            variables in different functions. The use of modules should be done in a 
+            sensible manner so as to avoid any problem. Functions should be neat, clean, 
+            and descriptive.<br></br><br></br>
+            
+            <blue>Code is easier to test</blue> - In software, some functions perform fewer tasks and 
+            also functions that perform numerous tasks. If the software is easily split 
+            using modules, it becomes easier to test. We can also focus on the riskier 
+            functions during testing and need more test cases to make it bug-free.<br></br><br></br>
+            
+            <blue>Reusability</blue> - There are times where a piece of code is implemented everywhere in 
+            our program. Instead of copying and pasting it, again and again, modularity 
+            gives us the advantage of reusability so that we can pull our code from 
+            anywhere using interfaces or libraries. The concept of reusability also 
+            reduces the size of our program.<br></br><br></br>
+            
+            <blue>Faster fixes</blue> - Suppose there is an error in the payment options in any 
+            application, and the bug needs to be removed. Modularity can be a great help 
+            because we know that there will be a separate function that will contain the 
+            code of payments, and only that function will only be rectified. Thus using 
+            modules to find and fixing bugs becomes much more smooth and maintainable.<br></br><br></br>
+            
+            <blue>Low-risk update</blue> - In modular programming, a defined layer of APIs protects things that 
+            use it from making changes inside the library. Unless there is a change in the API, 
+            there is a low risk for someone's code-breaking. For example, if you didn't have 
+            explicit APIs and someone changed a function they thought was only used within that 
+            same library (but it was used elsewhere), they could accidentally break something.<br></br><br></br>
+            
+            
+            <blue>Easy collaboration</blue> - Different developers work on a single piece of code in the team. 
+            There are chances of conflicts when there's a git merge. This conflict can be reduced 
+            if the code is split between more functions, files, repos, etc. We can also provide 
+            ownership to specific code modules, where a team member can break them down into 
+            smaller tasks.<br></br><br></br>
+            
+            <green>Disadvantages of modular programming:</green>
+            <br></br><br></br>
+            <blue>Requires more resources</blue> - There is a need for extra time and 
+            budget for a product in modular programming.
+            <br></br><br></br>
+            
+            <blue>Increases the risk and the difficulty</blue> - It is a challenging task to combine all the modules.
+            <br></br><br></br>
+            
+            <blue>Additional efforts needed for documentation</blue> - Careful documentation is required so that other program modules are not affected.
+            <br></br><br></br>
+            
+            <blue>The task repetition impacts the software performance</blue> - Some modules may partly repeat the task 
+            performed by other modules. Hence, Modular programs need more memory space and extra time for execution.
+            <br></br><br></br>
+            
+            <blue>The work efficiency might be impacted</blue> - It reduces the program's efficiency because testing and debugging are 
+            time-consuming, where each function contains a thousand lines of code.
+            <br></br><br></br>
+            
+            <blue>The code readability might be affected</blue> - Integrating various modules into a single program may not be an easy task because 
+            different people working on the design of different modules may not have the 
+            same style.
+            <br></br><br></br>
+            
+        </modular-programming>
+        <datatype-conversions>
+            <green>Generally there are two types of conversion:</green>
+            <br></br><br></br>
+            <blue>
+            - implicit conversion (done automatically by the compiler)<br></br>
+            - explicit conversion (done manually by the developer)<br></br>
+            </blue>
+            <br></br>
+            <red>Implicit conversion</red> is done automatically by the compiler when you assign a value 
+            of one type to another.<br></br><br></br>
+            <red>Explicit conversion</red> is done manually by placing the type in parentheses <red>()</red> in front 
+            of the value. Also knows as <red>typecasting</red>. 
+            <br></br>
+        </datatype-conversions>
+        <operators>
+            An operator is a symbol that tells the compiler to perform specific mathematical or 
+            logical functions. 
+            <br></br><br></br>
+            By definition, an operator performs a certain operation on 
+            operands. 
+            <br></br>
+            An operator needs one or more operands for the operation to be performed.<br></br>
+            <br></br>
+            Depending on how many operands are required to perform the operation, operands are called as 
+            <red>unary</red>, <red>binary</red> or <red>ternary</red> operators. <br></br>
+            They need one, two or three operands respectively.<br></br>
+            <br></br>
+            <red>Unary operators</red> − <code>++</code> (increment), <code>--</code> (decrement), <code>!</code> (NOT), <code>~</code> (compliment), <code>&#38;</code> (address of), <code>*</code> (dereference)
+            <br></br><br></br>
+            <red>Binary operators</red> − arithmetic, logical and relational operators except !
+            <br></br><br></br>
+            <red>Ternary operators</red> − The <code>?</code> operator.
+            <br></br><br></br>
+            <green>Most programming languages are rich in built-in operators and provides the following types of operators:</green>
+            <br></br><br></br>
+            <brown>Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: 
+            <br></br><br></br></brown>
+            <br></br>
+            <green>Arithmetic Operators: <br></br></green>
+                <br></br>
+                + <red>it adds two operands.</red><br></br>
+                <code>A + B = 30</code><br></br>
+                <br></br>
+                
+                − <red>it subtracts second operand from the first.</red><br></br>
+                <code>A − B = -10</code><br></br>
+                <br></br>
+                
+                * <red>it multiplies both operands.</red><br></br>
+                <code>A * B = 200</code><br></br>
+                <br></br>
+                
+                / <red>it divides numerator by de-numerator.</red><br></br>
+                <code>B / A = 2</code><br></br>
+                <br></br>
+                
+                % <red>is the Modulus Operator.</red><br></br>
+                <blue>It gives the remainder after an integer division.</blue><br></br>
+                <code>B % A = 0</code><br></br>
+                <br></br><br></br>
+                
+                ++ <red>is the Increment operator. </red><br></br>
+                <blue>It increases the integer value by one.</blue><br></br>
+                <code>A++ = 11</code><br></br>
+                <br></br>
+                -- <red>is the Decrement operator.</red><br></br>
+                <blue>It decreases the integer value by one.</blue><br></br>
+                <code>A-- = 9</code><br></br>
+                <br></br>
+                <green><br></br>Relational Operators:<br></br></green>
+                <br></br>
+                
+                == <red>it checks if the values of two operands are equal or not. </red><br></br>
+                <blue>If yes, then the condition becomes true.</blue><br></br>
+                <code>(A == B) is not true.</code><br></br>
+                <br></br>
 
-				!= <red>it checks if the values of two operands are equal or not.</red><br></br>
-				<blue>If the values are not equal, then the condition becomes true.</blue><br></br>
-				<code>(A != B) is true.</code><br></br>
-				<br></br>
+                != <red>it checks if the values of two operands are equal or not.</red><br></br>
+                <blue>If the values are not equal, then the condition becomes true.</blue><br></br>
+                <code>(A != B) is true.</code><br></br>
+                <br></br>
 
-				&gt; <red>it checks if the value of left operand is greater than the value of 
-				right operand.</red><br></br>
-				<blue>If yes, then the condition becomes true.</blue><br></br>
-				<code>(A &gt; B) is not true.</code><br></br>
-				<br></br>
+                &gt; <red>it checks if the value of left operand is greater than the value of 
+                right operand.</red><br></br>
+                <blue>If yes, then the condition becomes true.</blue><br></br>
+                <code>(A &gt; B) is not true.</code><br></br>
+                <br></br>
 
-				&lt; <red>it checks if the value of left operand is less than the value of 
-				right operand.</red><br></br>
-				<blue>If yes, then the condition becomes true.</blue><br></br>
-				<code>(A &lt; B) is true.</code><br></br>
-				<br></br>
+                &lt; <red>it checks if the value of left operand is less than the value of 
+                right operand.</red><br></br>
+                <blue>If yes, then the condition becomes true.</blue><br></br>
+                <code>(A &lt; B) is true.</code><br></br>
+                <br></br>
 
-				&gt;= <red>it checks if the value of left operand is greater than or equal to 
-				the value of right operand.</red><br></br>
-				<blue>If yes, then the condition becomes true.</blue><br></br>
-				<code>(A &gt;= B) is not true.</code><br></br>
-				<br></br>
+                &gt;= <red>it checks if the value of left operand is greater than or equal to 
+                the value of right operand.</red><br></br>
+                <blue>If yes, then the condition becomes true.</blue><br></br>
+                <code>(A &gt;= B) is not true.</code><br></br>
+                <br></br>
 
-				&lt;= <red>it checks if the value of left operand is less than or equal to the value 
-				of right operand.</red><br></br>
-				<blue>If yes, then the condition becomes true.</blue><br></br>
-				<code>(A &lt;= B) is true.</code><br></br>
-				<br></br>
-				
-				<green><br></br>Logical Operators:<br></br></green>
-				<br></br>
-	
-				&#38;&#38; <red>it's called Logical AND operator.</red><br></br> 
-				<blue>Results in TRUE if both the operands are non-zero, 
-				then the condition becomes true.</blue><br></br>
-				<code>(A &#38;&#38; B) is false.</code><br></br>
-				<br></br>
+                &lt;= <red>it checks if the value of left operand is less than or equal to the value 
+                of right operand.</red><br></br>
+                <blue>If yes, then the condition becomes true.</blue><br></br>
+                <code>(A &lt;= B) is true.</code><br></br>
+                <br></br>
+                
+                <green><br></br>Logical Operators:<br></br></green>
+                <br></br>
+    
+                &#38;&#38; <red>it's called Logical AND operator.</red><br></br> 
+                <blue>Results in TRUE if both the operands are non-zero, 
+                then the condition becomes true.</blue><br></br>
+                <code>(A &#38;&#38; B) is false.</code><br></br>
+                <br></br>
 
-				|| <red>it's called Logical OR Operator.</red><br></br>  
-				<blue>Results in TRUE if any of the two operands is non-zero, 
-				then the condition becomes true.</blue><br></br>
-				<code>(A || B) is true.</code><br></br>
-				<br></br>
+                || <red>it's called Logical OR Operator.</red><br></br>  
+                <blue>Results in TRUE if any of the two operands is non-zero, 
+                then the condition becomes true.</blue><br></br>
+                <code>(A || B) is true.</code><br></br>
+                <br></br>
 
-				! <red>it's called Logical NOT Operator. </red><br></br>
-				<blue>It is used to reverse the logical state of 
-				its operand. 
-				If a condition is true, then Logical NOT operator will make it false.</blue>
-				<br></br>
-				<code>!(A &#38;&#38; B) is true.</code><br></br>
-				<br></br>
-				
-				<green><br></br>Bitwise Operators:<br></br></green>
-				<br></br>
-				&#38; <red>binary AND Operator copies a bit to the result if it exists in both operands.</red><br></br>	
-				<code>(A &#38; B) = 12, i.e., 0000 1100</code><br></br>
-				<br></br>
+                ! <red>it's called Logical NOT Operator. </red><br></br>
+                <blue>It is used to reverse the logical state of 
+                its operand. 
+                If a condition is true, then Logical NOT operator will make it false.</blue>
+                <br></br>
+                <code>!(A &#38;&#38; B) is true.</code><br></br>
+                <br></br>
+                
+                <green><br></br>Bitwise Operators:<br></br></green>
+                <br></br>
+                &#38; <red>binary AND Operator copies a bit to the result if it exists in both operands.</red><br></br>    
+                <code>(A &#38; B) = 12, i.e., 0000 1100</code><br></br>
+                <br></br>
 
-				| <red>binary OR Operator.</red><br></br>
-				<blue>It copies a bit if it exists in either operand.</blue><br></br>
-				<code>(A | B) = 61, i.e., 0011 1101</code><br></br>
-				<br></br>
-				^ <red>binary XOR Operator.</red><br></br>
-				<blue>It copies the bit if it is set in one operand but not both.</blue><br></br>
-				<code>(A ^ B) = 49, i.e., 0011 0001</code><br></br>
-				<br></br>
-				~ <red>binary One's Complement Operator.</red><br></br>
-				<blue>Is unary and has the effect of 'flipping' bits.</blue><br></br>
-				<code>(~A ) = ~(60), i.e,. -0111101</code><br></br>
-				<br></br>
-				&lt;&lt; <red>binary Left Shift Operator.</red><br></br>
-				<blue>The left operands value is moved left by the number of bits specified by the 
-				right operand.</blue><br></br>
-				<code>A &lt;&lt; 2 = 240 i.e., 1111 0000</code><br></br>
-				<br></br>
-				&gt;&gt; <red>binary Right Shift Operator. </red><br></br>
-				<blue>The left operands value is moved right by the number of bits specified 
-				by the right operand.</blue><br></br>
-				<code>A &gt;&gt; 2 = 15 i.e., 0000 1111</code><br></br>
-				<br></br>
-				
-				<green><br></br>Assignment Operators:<br></br></green>
-				<br></br>
-				= <red>is the assignment operator. </red><br></br>
-				<blue>Assigns values from right side operands to left side operand.</blue><br></br>
-				<code>C = A + B will assign the value of A + B to C</code><br></br>
-				<br></br>
-				+= <red>the add AND assign operator. </red><br></br>
-				<blue>It adds the right operand to the left operand and assign the result 
-				to the left operand.</blue><br></br>
-				<code>C += A is equivalent to C = C + A</code><br></br>
-				<br></br>
-				-= <red>Subtract AND assignment operator. </red><br></br>
-				<blue>It subtracts the right operand from the left operand and assigns 
-				the result to the left operand.</blue><br></br>
-				<code>C -= A is equivalent to C = C - A</code><br></br>
-				<br></br>
-				*= <red>Multiply AND assignment operator. </red><br></br>
-				<blue>It multiplies the right operand with the left operand and assigns 
-				the result to the left operand.</blue><br></br>	
-				<code>C *= A is equivalent to C = C * A</code><br></br>
-				<br></br>
-				/= <red>the divide AND assign operator. </red><br></br>
-				<blue>It divides the left operand with the right operand and assigns the 
-				result to the left operand.</blue><br></br>
-				<code>C /= A is equivalent to C = C / A</code><br></br>
-				<br></br>
-				%= <red>the modulus AND assign operator. </red><br></br>
-				<blue>It takes modulus using two operands and assigns the 
-				result to the left operand.</blue><br></br>
-				<code>C %= A is equivalent to C = C % A</code><br></br>
-				<br></br>
-				&lt;&lt;= <red>the Left shift AND assign operator.</red><br></br>
-				<blue>It takes the value stored in variable C shifts it to the left by 
-				the number of bits specified 
-				after the equal sign and then assigns the result of the operation back to C variable</blue><br></br>
-				<code>C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</code><br></br>
-				<br></br>
-				&gt;&gt;= <red>the Right shift AND assign operator.</red><br></br>
-				<blue>It takes the value stored in variable C shifts it to the right by the 
-				number of bits specified after the equal sign and then assigns the result of the 
-				operation back to C variable.</blue><br></br>
-				<code>C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</code><br></br>
-				<br></br>
-				&#38;= <red>the bitwise AND assign operator.</red><br></br>
-				<blue>It takes the value stored in variable C performs bitwise AND with 
-				the value specified after the equal sign and then assigns the result of 
-				the operation back to C variable.</blue><br></br>
-				<code>C &#38;= 2 is same as C = C &#38; 2</code><br></br>
-				<br></br>
-				^= <red>the bitwise exclusive OR and assign operator.</red><br></br>
-				<blue>It takes the value stored in variable C performs bitwise XOR with the value 
-				specified after the equal sign and then assigns the result of the 
-				operation back to C variable.</blue><br></br>
-				<code>C ^= 2 is same as C = C ^ 2</code><br></br>
-				<br></br>
-				|= <red>the bitwise inclusive OR and assign operator.</red><br></br>
-				<blue>It takes the value stored in variable C performs bitwise OR with the 
-				value specified after the equal sign and then assign the result of the 
-				operation back to C variable.</blue><br></br>
-				<code>C |= 2 is same as C = C | 2</code><br></br>
-				<br></br>
-		</operators>
-		<pre-post-incrementation>
-			<red>Increment operators</red> are used to increase the value of a variable by <blue>1</blue>.<br></br>
-			This operator is represented by the <red>++</red> symbol. <br></br><br></br>
-			The increment operator can either
-			increase the value of the variable by <blue>1</blue> before assigning it to the variable or 
-			can increase the value of the variable by <blue>1</blue> after assigning the variable. 
-			<br></br><br></br>
-			<green>Thus it can be classified into two types:</green>
-			<br></br><br></br>
-			<blue>
-			Pre-Increment Operator<br></br>
-			Post-Increment Operator<br></br>
-			</blue>
-		</pre-post-incrementation>
-		<constructors>
-			A constructor in C++ is a special method that is automatically called when an object 
-			of a class is created.
-			<br></br><br></br>
-			Constructors can also take parameters (just like regular functions), which can be 
-			useful for setting initial values for attributes.<br></br>
-		</constructors>
-		<instantiation>
-			In object-oriented programming, an instance is a concrete realization of a class. <br></br>
-			When you define a class, you're essentially creating a blueprint. <br></br>
-			An instance, then, is an object built from that blueprint. <br></br>
-			It has all the characteristics defined in the class, but with specific values.<br></br>
-		</instantiation>
-		<destructors>
-			Destructor is an instance member function that is invoked automatically whenever an object is 
-			going to be destroyed. 
-			Meaning, a destructor is the last function that is going to be called before an object is destroyed.
-			<br></br><br></br>
-			- A destructor is also a special member function like a constructor.
-			Destructor destroys the class objects created by the constructor. <br></br>
-			- Destructor has the same name as their class name preceded by a tilde (~) symbol.<br></br>
-			- It is not possible to define more than one destructor. <br></br>
-			- The destructor is only one way to destroy the object created by the constructor. 
-			Hence destructor can-not be overloaded.<br></br>
-			- Destructor neither requires any argument nor returns any value.<br></br>
-			- It is automatically called when an object goes out of scope. <br></br>
-			- Destructor release memory space occupied by the objects created by the constructor.<br></br>
-			- In destructor, objects are destroyed in the reverse of an object creation.<br></br>
-		</destructors>
-		<function-overloading>
-			Function overloading is a feature of object-oriented programming where two or more 
-			functions can have the same name but different parameters. <br></br>
-			Function overloading can be considered as an example of a polymorphism feature.<br></br>
-			<br></br><br></br>
-			If multiple functions having same name but parameters of the functions should be different is 
-			known as Function Overloading.<br></br>
-			If we have to perform only one operation and having same name of the functions increases 
-			the readability of the program.<br></br><br></br>
-			Overloaded functions can be defined both outside and inside classes.<br></br>
-		</function-overloading>
-		<operator-overloading>
-			Operator overloading is a compile-time polymorphism. <br></br>
-			It is an idea of giving special meaning to an existing operator 
-			without changing its original meaning. <br></br>
-		</operator-overloading>
-		<namespaces>
-			A namespace is a feature which can be defined as a
-			declarative region that provides a scope to the identifiers (names of functions, 
-			variables or other user-defined data types) inside it. <br></br>
-		</namespaces>
-		<exception-handling>
-			In computer programming exceptions are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
-			encounters during its execution. The process of handling these exceptions is 
-			called <red>exception handling</red>. <br></br>
-			<br></br>
-			Using the <red>exception handling</red> mechanism, the control 
-			from one part of the program where the <red>exception</red> occurred can be transferred 
-			to another part of the code.
-			<br></br><br></br>
-			By using <red>exception handling</red> we can handle the anomalies so that our 
-			program keeps running.<br></br>
-		</exception-handling>
-		<default-parameters>
-			A <red>default parameter/argument</red> is a value provided in a function declaration that is 
-			automatically assigned by the compiler if the calling function doesn’t provide 
-			a value for the argument. <br></br>
-			<br></br>
-			In case any value is passed, the default value is 
-			overridden. <br></br>
-		</default-parameters>
-		<interfaces>
-			In programming: an <red>interface</red> describes the behavior or capabilities of a <red>class</red> without 
-			committing to a particular implementation of that <red>class</red>.
-			<br></br><br></br>
-			The <red>interfaces</red> are implemented using <red>abstract classes</red> and these abstract classes 
-			should not be confused with <red>data abstraction</red> which is a concept of keeping 
-			implementation details separate from associated data.<br></br>
-		</interfaces>
-		<abstract-classes>
-			The purpose of an <red>abstract class</red> (often referred to as an <red>ABC</red>) is to provide an 
-			appropriate <red>base class</red> from which other classes can inherit. <br></br>
-			<red>Abstract classes</red> cannot be used to instantiate objects and serves only as an 
-			interface. <br></br>
-			Attempting to instantiate an object of an <red>abstract class</red> causes a 
-			compilation error. <br></br>
-			<br></br>
-			Thus, if a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
-			the <red>virtual functions</red>, which means that it supports the interface declared by the 
-			<red>ABC</red>. Failure to override a pure <red>virtual function</red> in a <red>derived class</red>, 
-			then attempting to instantiate objects of that class, is a compilation error.
-			<br></br><br></br>
-			An object-oriented system might use an <red>abstract base class</red> to provide a common and 
-			standardized interface appropriate for all the external applications. <br></br>
-			Then, through inheritance from that <red>abstract base class</red>, derived classes are 
-			formed that operate similarly.
-			<br></br><br></br>
-			The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
-			are provided as pure <red>virtual functions</red> in the <red>abstract base class</red>. <br></br>
-			The implementations of these pure <red>virtual functions</red> are provided in the <red>derived 
-			classes</red> that correspond to the specific types of the application.<br></br>
-		</abstract-classes>
-		<optional-parameters>
-			A parameter with a default value, is often known as an <blue>"optional parameter"</blue>.
-			<br></br><br></br> 
-			For more information see the <blue>default-parameters</blue> section.
-		</optional-parameters>
-		<decorators>
-			<red>Decorator</red> is a structural pattern that allows adding new behaviors to objects 
-			dynamically by placing them inside special wrapper objects, called decorators. 
-			<br></br>
-			Using decorators you can wrap objects countless number of times since both target 
-			objects and decorators follow the same interface.<br></br>
-		</decorators>
-		<generic-programming>
-			Generic programming is a style of computer programming in which algorithms are 
-			written in terms of <red>data types to-be-specified-later</red> that are then instantiated 
-			when needed for specific types provided as parameters.<br></br>
-		</generic-programming>
-	</programming_language>
-	
-	<programming_language>
-		<name>C</name>
-		<description>
-			C is a general-purpose computer programming language.<br></br><br></br>
-			It was created in the 1970s by Dennis Ritchie, and remains very widely used and 
-			influential. <br></br><br></br>
-			By design, C's features cleanly reflect the 
-			capabilities of the targeted CPUs. It has found lasting use in operating 
-			systems, device drivers, and protocol stacks, but its use in application 
-			software has been decreasing. <br></br><br></br>
-			C is commonly used on computer architectures that range from the largest 
-			supercomputers to the smallest microcontrollers 
-			and embedded systems.
-		</description>
-		<generic-programming>
-			*General-Programming-Knowledge*
-			<br></br>
-			<green>
-			In C Language generic programming can be achieved using:
-			</green>
-			<br></br><br></br>
-			<blue>
-			Variable argument lists;<br></br>
-			Using <code>void *</code> and function pointers to write generic code;<br></br>
-			Using libraries to reuse code without copying and recompiling;<br></br>
-			Using plugins to get run-time overriding and more;
-			</blue>
-		</generic-programming>
-		<variable-arguments-lists>
-			C allows a function call to have a variable number of
-			arguments with the variable argument list mechanism.<br></br>
-			Use ellipsis <code>...</code> to denote a variable number of arguments to
-			the compiler. 
-			<br></br>
-			The ellipsis can only occur at the end of an
-			argument list.<br></br><br></br>
-			<green>
-			Here are some standard function calls that use variable
-			argument lists:
-			</green>
-			<br></br><br></br>
-			<code>int printf(const char *format, ...);</code><br></br>
-			<code>int scanf(const char *format, ...);</code><br></br>
-			<code>int execlp(const char *file, const char *arg, ...);</code><br></br>
-		</variable-arguments-lists>
-		<simple-data-types>*General-Programming-Knowledge*</simple-data-types>
-		<complex-data-types>*General-Programming-Knowledge*
-			<br></br><br></br>
-			<green>
-			The C programming language, as of C99, supports complex number math with the three 
-			built-in complex types:
-			</green>
-			<br></br><br></br>
-			<code>double _Complex</code><br></br>
-			<code>float _Complex</code><br></br>
-			<code>long double _Complex</code><br></br>
-			<br></br>
-			When the header <code>complex.h</code> is 
-			included, the three complex number types are also accessible as <code>double complex</code>, 
-			<code>float complex</code>, <code>long double complex</code>.<br></br><br></br>
-		</complex-data-types>
-		<loops>*General-Programming-Knowledge*</loops>
-		<collections>
-			<code>Arrays</code> are collections of elements of the same data type with fixed size. 
-			<br></br>
-			Once the <red>array</red> is defined, its size cannot be changed.
-			<br></br><br></br>
+                | <red>binary OR Operator.</red><br></br>
+                <blue>It copies a bit if it exists in either operand.</blue><br></br>
+                <code>(A | B) = 61, i.e., 0011 1101</code><br></br>
+                <br></br>
+                ^ <red>binary XOR Operator.</red><br></br>
+                <blue>It copies the bit if it is set in one operand but not both.</blue><br></br>
+                <code>(A ^ B) = 49, i.e., 0011 0001</code><br></br>
+                <br></br>
+                ~ <red>binary One's Complement Operator.</red><br></br>
+                <blue>Is unary and has the effect of 'flipping' bits.</blue><br></br>
+                <code>(~A ) = ~(60), i.e,. -0111101</code><br></br>
+                <br></br>
+                &lt;&lt; <red>binary Left Shift Operator.</red><br></br>
+                <blue>The left operands value is moved left by the number of bits specified by the 
+                right operand.</blue><br></br>
+                <code>A &lt;&lt; 2 = 240 i.e., 1111 0000</code><br></br>
+                <br></br>
+                &gt;&gt; <red>binary Right Shift Operator. </red><br></br>
+                <blue>The left operands value is moved right by the number of bits specified 
+                by the right operand.</blue><br></br>
+                <code>A &gt;&gt; 2 = 15 i.e., 0000 1111</code><br></br>
+                <br></br>
+                
+                <green><br></br>Assignment Operators:<br></br></green>
+                <br></br>
+                = <red>is the assignment operator. </red><br></br>
+                <blue>Assigns values from right side operands to left side operand.</blue><br></br>
+                <code>C = A + B will assign the value of A + B to C</code><br></br>
+                <br></br>
+                += <red>the add AND assign operator. </red><br></br>
+                <blue>It adds the right operand to the left operand and assign the result 
+                to the left operand.</blue><br></br>
+                <code>C += A is equivalent to C = C + A</code><br></br>
+                <br></br>
+                -= <red>Subtract AND assignment operator. </red><br></br>
+                <blue>It subtracts the right operand from the left operand and assigns 
+                the result to the left operand.</blue><br></br>
+                <code>C -= A is equivalent to C = C - A</code><br></br>
+                <br></br>
+                *= <red>Multiply AND assignment operator. </red><br></br>
+                <blue>It multiplies the right operand with the left operand and assigns 
+                the result to the left operand.</blue><br></br>    
+                <code>C *= A is equivalent to C = C * A</code><br></br>
+                <br></br>
+                /= <red>the divide AND assign operator. </red><br></br>
+                <blue>It divides the left operand with the right operand and assigns the 
+                result to the left operand.</blue><br></br>
+                <code>C /= A is equivalent to C = C / A</code><br></br>
+                <br></br>
+                %= <red>the modulus AND assign operator. </red><br></br>
+                <blue>It takes modulus using two operands and assigns the 
+                result to the left operand.</blue><br></br>
+                <code>C %= A is equivalent to C = C % A</code><br></br>
+                <br></br>
+                &lt;&lt;= <red>the Left shift AND assign operator.</red><br></br>
+                <blue>It takes the value stored in variable C shifts it to the left by 
+                the number of bits specified 
+                after the equal sign and then assigns the result of the operation back to C variable</blue><br></br>
+                <code>C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</code><br></br>
+                <br></br>
+                &gt;&gt;= <red>the Right shift AND assign operator.</red><br></br>
+                <blue>It takes the value stored in variable C shifts it to the right by the 
+                number of bits specified after the equal sign and then assigns the result of the 
+                operation back to C variable.</blue><br></br>
+                <code>C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</code><br></br>
+                <br></br>
+                &#38;= <red>the bitwise AND assign operator.</red><br></br>
+                <blue>It takes the value stored in variable C performs bitwise AND with 
+                the value specified after the equal sign and then assigns the result of 
+                the operation back to C variable.</blue><br></br>
+                <code>C &#38;= 2 is same as C = C &#38; 2</code><br></br>
+                <br></br>
+                ^= <red>the bitwise exclusive OR and assign operator.</red><br></br>
+                <blue>It takes the value stored in variable C performs bitwise XOR with the value 
+                specified after the equal sign and then assigns the result of the 
+                operation back to C variable.</blue><br></br>
+                <code>C ^= 2 is same as C = C ^ 2</code><br></br>
+                <br></br>
+                |= <red>the bitwise inclusive OR and assign operator.</red><br></br>
+                <blue>It takes the value stored in variable C performs bitwise OR with the 
+                value specified after the equal sign and then assign the result of the 
+                operation back to C variable.</blue><br></br>
+                <code>C |= 2 is same as C = C | 2</code><br></br>
+                <br></br>
+        </operators>
+        <pre-post-incrementation>
+            <red>Increment operators</red> are used to increase the value of a variable by <blue>1</blue>.<br></br>
+            This operator is represented by the <red>++</red> symbol. <br></br><br></br>
+            The increment operator can either
+            increase the value of the variable by <blue>1</blue> before assigning it to the variable or 
+            can increase the value of the variable by <blue>1</blue> after assigning the variable. 
+            <br></br><br></br>
+            <green>Thus it can be classified into two types:</green>
+            <br></br><br></br>
+            <blue>
+            Pre-Increment Operator<br></br>
+            Post-Increment Operator<br></br>
+            </blue>
+        </pre-post-incrementation>
+        <constructors>
+            A constructor in C++ is a special method that is automatically called when an object 
+            of a class is created.
+            <br></br><br></br>
+            Constructors can also take parameters (just like regular functions), which can be 
+            useful for setting initial values for attributes.<br></br>
+        </constructors>
+        <instantiation>
+            In object-oriented programming, an instance is a concrete realization of a class. <br></br>
+            When you define a class, you're essentially creating a blueprint. <br></br>
+            An instance, then, is an object built from that blueprint. <br></br>
+            It has all the characteristics defined in the class, but with specific values.<br></br>
+        </instantiation>
+        <destructors>
+            Destructor is an instance member function that is invoked automatically whenever an object is 
+            going to be destroyed. 
+            Meaning, a destructor is the last function that is going to be called before an object is destroyed.
+            <br></br><br></br>
+            - A destructor is also a special member function like a constructor.
+            Destructor destroys the class objects created by the constructor. <br></br>
+            - Destructor has the same name as their class name preceded by a tilde (~) symbol.<br></br>
+            - It is not possible to define more than one destructor. <br></br>
+            - The destructor is only one way to destroy the object created by the constructor. 
+            Hence destructor can-not be overloaded.<br></br>
+            - Destructor neither requires any argument nor returns any value.<br></br>
+            - It is automatically called when an object goes out of scope. <br></br>
+            - Destructor release memory space occupied by the objects created by the constructor.<br></br>
+            - In destructor, objects are destroyed in the reverse of an object creation.<br></br>
+        </destructors>
+        <function-overloading>
+            Function overloading is a feature of object-oriented programming where two or more 
+            functions can have the same name but different parameters. <br></br>
+            Function overloading can be considered as an example of a polymorphism feature.<br></br>
+            <br></br><br></br>
+            If multiple functions having same name but parameters of the functions should be different is 
+            known as Function Overloading.<br></br>
+            If we have to perform only one operation and having same name of the functions increases 
+            the readability of the program.<br></br><br></br>
+            Overloaded functions can be defined both outside and inside classes.<br></br>
+        </function-overloading>
+        <operator-overloading>
+            Operator overloading is a compile-time polymorphism. <br></br>
+            It is an idea of giving special meaning to an existing operator 
+            without changing its original meaning. <br></br>
+        </operator-overloading>
+        <namespaces>
+            A namespace is a feature which can be defined as a
+            declarative region that provides a scope to the identifiers (names of functions, 
+            variables or other user-defined data types) inside it. <br></br>
+        </namespaces>
+        <exception-handling>
+            In computer programming exceptions are <red>runtime anomalies</red> or <red>abnormal conditions</red> that a program 
+            encounters during its execution. The process of handling these exceptions is 
+            called <red>exception handling</red>. <br></br>
+            <br></br>
+            Using the <red>exception handling</red> mechanism, the control 
+            from one part of the program where the <red>exception</red> occurred can be transferred 
+            to another part of the code.
+            <br></br><br></br>
+            By using <red>exception handling</red> we can handle the anomalies so that our 
+            program keeps running.<br></br>
+        </exception-handling>
+        <default-parameters>
+            A <red>default parameter/argument</red> is a value provided in a function declaration that is 
+            automatically assigned by the compiler if the calling function doesn’t provide 
+            a value for the argument. <br></br>
+            <br></br>
+            In case any value is passed, the default value is 
+            overridden. <br></br>
+        </default-parameters>
+        <interfaces>
+            In programming: an <red>interface</red> describes the behavior or capabilities of a <red>class</red> without 
+            committing to a particular implementation of that <red>class</red>.
+            <br></br><br></br>
+            The <red>interfaces</red> are implemented using <red>abstract classes</red> and these abstract classes 
+            should not be confused with <red>data abstraction</red> which is a concept of keeping 
+            implementation details separate from associated data.<br></br>
+        </interfaces>
+        <abstract-classes>
+            The purpose of an <red>abstract class</red> (often referred to as an <red>ABC</red>) is to provide an 
+            appropriate <red>base class</red> from which other classes can inherit. <br></br>
+            <red>Abstract classes</red> cannot be used to instantiate objects and serves only as an 
+            interface. <br></br>
+            Attempting to instantiate an object of an <red>abstract class</red> causes a 
+            compilation error. <br></br>
+            <br></br>
+            Thus, if a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
+            the <red>virtual functions</red>, which means that it supports the interface declared by the 
+            <red>ABC</red>. Failure to override a pure <red>virtual function</red> in a <red>derived class</red>, 
+            then attempting to instantiate objects of that class, is a compilation error.
+            <br></br><br></br>
+            An object-oriented system might use an <red>abstract base class</red> to provide a common and 
+            standardized interface appropriate for all the external applications. <br></br>
+            Then, through inheritance from that <red>abstract base class</red>, derived classes are 
+            formed that operate similarly.
+            <br></br><br></br>
+            The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
+            are provided as pure <red>virtual functions</red> in the <red>abstract base class</red>. <br></br>
+            The implementations of these pure <red>virtual functions</red> are provided in the <red>derived 
+            classes</red> that correspond to the specific types of the application.<br></br>
+        </abstract-classes>
+        <optional-parameters>
+            A parameter with a default value, is often known as an <blue>"optional parameter"</blue>.
+            <br></br><br></br> 
+            For more information see the <blue>default-parameters</blue> section.
+        </optional-parameters>
+        <decorators>
+            <red>Decorator</red> is a structural pattern that allows adding new behaviors to objects 
+            dynamically by placing them inside special wrapper objects, called decorators. 
+            <br></br>
+            Using decorators you can wrap objects countless number of times since both target 
+            objects and decorators follow the same interface.<br></br>
+        </decorators>
+        <generic-programming>
+            Generic programming is a style of computer programming in which algorithms are 
+            written in terms of <red>data types to-be-specified-later</red> that are then instantiated 
+            when needed for specific types provided as parameters.<br></br>
+        </generic-programming>
+    </programming_language>
+    
+    <programming_language>
+        <name>C</name>
+        <description>
+            C is a general-purpose computer programming language.<br></br><br></br>
+            It was created in the 1970s by Dennis Ritchie, and remains very widely used and 
+            influential. <br></br><br></br>
+            By design, C's features cleanly reflect the 
+            capabilities of the targeted CPUs. It has found lasting use in operating 
+            systems, device drivers, and protocol stacks, but its use in application 
+            software has been decreasing. <br></br><br></br>
+            C is commonly used on computer architectures that range from the largest 
+            supercomputers to the smallest microcontrollers 
+            and embedded systems.
+        </description>
+        <generic-programming>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>
+            In C Language generic programming can be achieved using:
+            </green>
+            <br></br><br></br>
+            <blue>
+            Variable argument lists;<br></br>
+            Using <code>void *</code> and function pointers to write generic code;<br></br>
+            Using libraries to reuse code without copying and recompiling;<br></br>
+            Using plugins to get run-time overriding and more;
+            </blue>
+        </generic-programming>
+        <variable-arguments-lists>
+            C allows a function call to have a variable number of
+            arguments with the variable argument list mechanism.<br></br>
+            Use ellipsis <code>...</code> to denote a variable number of arguments to
+            the compiler. 
+            <br></br>
+            The ellipsis can only occur at the end of an
+            argument list.<br></br><br></br>
+            <green>
+            Here are some standard function calls that use variable
+            argument lists:
+            </green>
+            <br></br><br></br>
+            <code>int printf(const char *format, ...);</code><br></br>
+            <code>int scanf(const char *format, ...);</code><br></br>
+            <code>int execlp(const char *file, const char *arg, ...);</code><br></br>
+        </variable-arguments-lists>
+        <simple-data-types>*General-Programming-Knowledge*</simple-data-types>
+        <complex-data-types>*General-Programming-Knowledge*
+            <br></br><br></br>
+            <green>
+            The C programming language, as of C99, supports complex number math with the three 
+            built-in complex types:
+            </green>
+            <br></br><br></br>
+            <code>double _Complex</code><br></br>
+            <code>float _Complex</code><br></br>
+            <code>long double _Complex</code><br></br>
+            <br></br>
+            When the header <code>complex.h</code> is 
+            included, the three complex number types are also accessible as <code>double complex</code>, 
+            <code>float complex</code>, <code>long double complex</code>.<br></br><br></br>
+        </complex-data-types>
+        <loops>*General-Programming-Knowledge*</loops>
+        <collections>
+            <code>Arrays</code> are collections of elements of the same data type with fixed size. 
+            <br></br>
+            Once the <red>array</red> is defined, its size cannot be changed.
+            <br></br><br></br>
 
 <code>
 /*Declaring arrays and initializing arrays*/
@@ -1025,27 +1025,27 @@ int arr[5];
 int array_initialized[7] = [1,2,3,4,5,6,7];
 float array_floats[3] = [2.0f, 3.0f, 2.11f];
 </code>
-			<br></br>
-			The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
-			to the next element. <br></br>
-			The memory can be allocated dynamically for each element added to the list. 
-			<br></br><br></br>
-			<brown>
-			The main benefit of a linked-list
-			consists in the possibility of adding a variable number of elements, being able to delete or add an element 
-			without making copies
-			or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
-			</brown>
-			<br></br><br></br>
-			
+            <br></br>
+            The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
+            to the next element. <br></br>
+            The memory can be allocated dynamically for each element added to the list. 
+            <br></br><br></br>
+            <brown>
+            The main benefit of a linked-list
+            consists in the possibility of adding a variable number of elements, being able to delete or add an element 
+            without making copies
+            or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
+            </brown>
+            <br></br><br></br>
+            
 <code>
 //Declaring and initializing a Linked List
 
 //Linked list definition:
 struct LinkedList{
-	int value; // this will store the value
-	struct LinkedList * previous; // this will store the address of the previous block of memory
-	struct LinkedList * next; // this will store the address of the next block of memory
+    int value; // this will store the value
+    struct LinkedList * previous; // this will store the address of the previous block of memory
+    struct LinkedList * next; // this will store the address of the next block of memory
 };
 
 struct LinkedList* list = NULL; // creating a linked list
@@ -1053,67 +1053,67 @@ struct LinkedList* list = NULL; // creating a linked list
 int counter = 0;
 while(counter &lt; 10)
 {
-	if(list == NULL) // if this is the first element to be introduced on the linked list
-	{
-		list = (struct LinkedList* )malloc(sizeof(struct LinkedList)); // allocate memory.
-		list->value = counter; // add value
-		list->previous = NULL; // there is no previous element.
-		list->next = NULL; // we don't know if there will be a next element.
-	}
+    if(list == NULL) // if this is the first element to be introduced on the linked list
+    {
+        list = (struct LinkedList* )malloc(sizeof(struct LinkedList)); // allocate memory.
+        list->value = counter; // add value
+        list->previous = NULL; // there is no previous element.
+        list->next = NULL; // we don't know if there will be a next element.
+    }
 
-	else //enter here after the first element was added.
-	{
+    else //enter here after the first element was added.
+    {
 
-		list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); // allocate space for the next element
-		list->next->previous = list; // we're still on the previous element, so assign the link to the next element.previous
-		list = list->next; // next element become current element
-		list->value = counter; // add value
-		list->next = NULL;  // we don't know if there will be a next element.
-	}
-	counter++;
+        list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); // allocate space for the next element
+        list->next->previous = list; // we're still on the previous element, so assign the link to the next element.previous
+        list = list->next; // next element become current element
+        list->value = counter; // add value
+        list->next = NULL;  // we don't know if there will be a next element.
+    }
+    counter++;
 }
 
 //printing the linked list
 while(list != NULL) // list is currently pointing to the last element. So we will display it from last to first.
 {
-	printf("%d ", list->value);
-	list = list->previous; // go to the previous
+    printf("%d ", list->value);
+    list = list->previous; // go to the previous
 }
 </code>
-		</collections>
-		<collection-methods>There are no built in functions for working with collections.</collection-methods>
-		<dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
-		<read-from-file>
-			C programming language supports <red>four</red> pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
-			<br></br><br></br>
-			<blue>fgetc()</blue><br></br>
-			This function is used to read a single character from the file.<br></br><br></br>
-			<blue>fgets()</blue><br></br>
-			This function is used to read strings from files.
-			<br></br><br></br>
-			<blue>fscanf()</blue><br></br>
-			This function is used to read formatted input from a file.<br></br><br></br>
-			<blue>fread()</blue><br></br>
-			This function is used to read the block of raw bytes from files. This is used 
-			to read binary files.
-			<br></br><br></br>
-			<green>
-			Opening a file:
-			</green>
-			<br></br><br></br>
-			To open a file use: <code>fopen(filename, mode)</code>;
-			<br></br><br></br>
-			Where:<br></br><br></br>
-			<code>filename</code><br></br>	
-			The name of the actual file you want to open (or create), like <red>filename.txt</red>.
-			<br></br><br></br>
-			<code>mode</code><br></br>	
-			A single character, which represents what you want to do with the file 
-			(<red>read</red>, <red>write</red> or <red>append</red>):<br></br><br></br>
-			<blue>w</blue> - Writes to a file<br></br>
-			<blue>a</blue> - Appends new data to a file<br></br>
-			<blue>r</blue> - Reads from a file<br></br>
-	
+        </collections>
+        <collection-methods>There are no built in functions for working with collections.</collection-methods>
+        <dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
+        <read-from-file>
+            C programming language supports <red>four</red> pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
+            <br></br><br></br>
+            <blue>fgetc()</blue><br></br>
+            This function is used to read a single character from the file.<br></br><br></br>
+            <blue>fgets()</blue><br></br>
+            This function is used to read strings from files.
+            <br></br><br></br>
+            <blue>fscanf()</blue><br></br>
+            This function is used to read formatted input from a file.<br></br><br></br>
+            <blue>fread()</blue><br></br>
+            This function is used to read the block of raw bytes from files. This is used 
+            to read binary files.
+            <br></br><br></br>
+            <green>
+            Opening a file:
+            </green>
+            <br></br><br></br>
+            To open a file use: <code>fopen(filename, mode)</code>;
+            <br></br><br></br>
+            Where:<br></br><br></br>
+            <code>filename</code><br></br>    
+            The name of the actual file you want to open (or create), like <red>filename.txt</red>.
+            <br></br><br></br>
+            <code>mode</code><br></br>    
+            A single character, which represents what you want to do with the file 
+            (<red>read</red>, <red>write</red> or <red>append</red>):<br></br><br></br>
+            <blue>w</blue> - Writes to a file<br></br>
+            <blue>a</blue> - Appends new data to a file<br></br>
+            <blue>r</blue> - Reads from a file<br></br>
+    
 <code>
 /*Read file char by char*/
 
@@ -1124,7 +1124,7 @@ char ch;
 ptr = fopen("test.txt", "r");
 
 if (NULL == ptr) {
-	printf("file can't be opened \n");
+    printf("file can't be opened \n");
 }
 
 printf("content of this file are \n");
@@ -1132,11 +1132,11 @@ printf("content of this file are \n");
 // Printing what is written in file
 // character by character using loop.
 do {
-	ch = fgetc(ptr);
-	printf("%c", ch);
+    ch = fgetc(ptr);
+    printf("%c", ch);
 
-	// Checking if character is not EOF.
-	// If it is EOF stop reading.
+    // Checking if character is not EOF.
+    // If it is EOF stop reading.
 } while (ch != EOF); 
 
 </code>
@@ -1147,8 +1147,8 @@ Alternatively feof function can be used:
 feof() function takes file pointer as argument and returns true if pointer reaches the end of the file. 
 */
 while (!feof(ptr)) {
-	ch = fgetc(ptr);
-	printf("%c", ch);
+    ch = fgetc(ptr);
+    printf("%c", ch);
 }
 </code>
 
@@ -1161,7 +1161,7 @@ while (!feof(ptr)) {
 //Prototype: char * fgets(char *str, int size, FILE * ptr);
 
 while (fgets(str, 50, ptr) != NULL) {
-	printf("%s", str);
+    printf("%s", str);
 }
 </code>
 
@@ -1178,40 +1178,40 @@ The data in the buffer is printed on the console till the end of the file is rea
 
 char buf[100];
 while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
-	printf("%s\n", buf);
+    printf("%s\n", buf);
 </code>
-		
-		</read-from-file>
-		<write-to-file>
-			To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.
-			<br></br><br></br>
-			<green>
-			Opening a file:
-			</green>
-			<br></br><br></br>
-			Function Prototype: <code>fopen(filename, mode)</code>;
-			<br></br><br></br>
-			Where:<br></br><br></br>
-			<code>filename</code><br></br>	
-			The name of the actual file you want to open (or create), like <red>filename.txt</red>.
-			<br></br><br></br>
-			<code>mode</code><br></br>	
-			A single character, which represents what you want to do with the file 
-			(<red>read</red>, <red>write</red> or <red>append</red>):<br></br><br></br>
-			<blue>w</blue> - Writes to a file<br></br>
-			<blue>a</blue> - Appends new data to a file<br></br>
-			<blue>r</blue> - Reads from a file<br></br>
-			<br></br>
-			The <red>w</red> mode means that the file is opened for writing. 
-			<br></br>
-			To insert content to it, you can 
-			use the <code>fprintf()</code> function and add the pointer variable (<red>fptr</red> in our example) and some text:
-			<br></br><br></br>
-			If you write to a file that already exists, the old content is deleted, and the new content 
-			is inserted. 
-			<br></br>
-			This is important to know, as you might accidentally erase existing content.
-			<br></br>
+        
+        </read-from-file>
+        <write-to-file>
+            To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.
+            <br></br><br></br>
+            <green>
+            Opening a file:
+            </green>
+            <br></br><br></br>
+            Function Prototype: <code>fopen(filename, mode)</code>;
+            <br></br><br></br>
+            Where:<br></br><br></br>
+            <code>filename</code><br></br>    
+            The name of the actual file you want to open (or create), like <red>filename.txt</red>.
+            <br></br><br></br>
+            <code>mode</code><br></br>    
+            A single character, which represents what you want to do with the file 
+            (<red>read</red>, <red>write</red> or <red>append</red>):<br></br><br></br>
+            <blue>w</blue> - Writes to a file<br></br>
+            <blue>a</blue> - Appends new data to a file<br></br>
+            <blue>r</blue> - Reads from a file<br></br>
+            <br></br>
+            The <red>w</red> mode means that the file is opened for writing. 
+            <br></br>
+            To insert content to it, you can 
+            use the <code>fprintf()</code> function and add the pointer variable (<red>fptr</red> in our example) and some text:
+            <br></br><br></br>
+            If you write to a file that already exists, the old content is deleted, and the new content 
+            is inserted. 
+            <br></br>
+            This is important to know, as you might accidentally erase existing content.
+            <br></br>
 <code>
 FILE *fptr; //FILE is basically a data type, and we need to create a pointer variable to work with it 
 
@@ -1226,21 +1226,21 @@ fputs("Line wrote with fputs.", fp);
 
 // Close the file
 fclose(fptr); // this will close the file when we are done with it.
-</code>	
-		<br></br>
-		Closing the file:
-		<br></br><br></br>
-		It is considered as <red>good practice</red>, because it makes sure that:
-		<br></br><br></br>
-		<blue>
-		Changes are saved properly. <br></br>
-		Other programs can use the file (if you want). <br></br>
-		Clean up unnecessary memory space. <br></br><br></br>
-		</blue>
-		If you want to add content to a file without deleting the old content, 
-		you can use the <red>a</red> mode. <br></br>
-		The <red>a</red> mode appends content at the end of the file:<br></br>
-		
+</code>    
+        <br></br>
+        Closing the file:
+        <br></br><br></br>
+        It is considered as <red>good practice</red>, because it makes sure that:
+        <br></br><br></br>
+        <blue>
+        Changes are saved properly. <br></br>
+        Other programs can use the file (if you want). <br></br>
+        Clean up unnecessary memory space. <br></br><br></br>
+        </blue>
+        If you want to add content to a file without deleting the old content, 
+        you can use the <red>a</red> mode. <br></br>
+        The <red>a</red> mode appends content at the end of the file:<br></br>
+        
 <code>
 /*Example*/
 
@@ -1258,11 +1258,11 @@ fprintf(fptr, "\nHi everybody!");
 // Close the file
 fclose(fptr);
 </code>
-		</write-to-file>
-		<serialization>*General-Programming-Knowledge*</serialization>
-		<deserialization>*General-Programming-Knowledge*</deserialization>
-		<enums>
-			*General-Programming-Knowledge*
+        </write-to-file>
+        <serialization>*General-Programming-Knowledge*</serialization>
+        <deserialization>*General-Programming-Knowledge*</deserialization>
+        <enums>
+            *General-Programming-Knowledge*
 <code>
 //Syntax: enum flag{constant1, constant2, constant3, ....... };
 
@@ -1281,9 +1281,9 @@ int main()
     return 0;
 } 
 </code>
-		</enums>
-		<multi-threading>
-		*General-Programming-Knowledge*<br></br>
+        </enums>
+        <multi-threading>
+        *General-Programming-Knowledge*<br></br>
 <code>
 /*Example of using multi-threading in C Language*/
 
@@ -1312,11 +1312,11 @@ int main()
     exit(0); 
 }
 </code>
-		</multi-threading>
-		<exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
-		<bitwise-operators>
-			*General-Programming-Knowledge*
-			<br></br>
+        </multi-threading>
+        <exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
+        <bitwise-operators>
+            *General-Programming-Knowledge*
+            <br></br>
 <code>
 // Example on how to use the bitwise operators:
 
@@ -1361,23 +1361,23 @@ int main()
     */
 }
 </code>
-		</bitwise-operators>
-		<default-parameters>
-			*General-Programming-Knowledge*
-			<br></br>
-			There are no default parameters in C. <br></br><br></br>
-			But one way to achieve this is by passing <red>NULL</red> pointers and 
-			then set the values to the default if <red>NULL</red> is passed.
-		</default-parameters>
-		<interfaces>
-			*General-Programming-Knowledge*
-			<br></br>
-			In C - an <red>interface</red> can be implemented as a set of function declarations without 
-			any implementation details. <br></br><br></br>
-			<brown>
-			It defines a contract that concrete implementations must adhere to by providing 
-			definitions for all the functions declared in the <red>interface</red>.
-			</brown>
+        </bitwise-operators>
+        <default-parameters>
+            *General-Programming-Knowledge*
+            <br></br>
+            There are no default parameters in C. <br></br><br></br>
+            But one way to achieve this is by passing <red>NULL</red> pointers and 
+            then set the values to the default if <red>NULL</red> is passed.
+        </default-parameters>
+        <interfaces>
+            *General-Programming-Knowledge*
+            <br></br>
+            In C - an <red>interface</red> can be implemented as a set of function declarations without 
+            any implementation details. <br></br><br></br>
+            <brown>
+            It defines a contract that concrete implementations must adhere to by providing 
+            definitions for all the functions declared in the <red>interface</red>.
+            </brown>
 <code>
 // Declare an interface for a shape
 struct shape_interface {
@@ -1394,14 +1394,14 @@ Both of them are close to forming a class.
 
 */
 </code>
-		</interfaces>
-		<macros>*General-Programming-Knowledge*</macros>
-		<defines>*General-Programming-Knowledge*</defines>
-		<random-generators>
-			The <code>rand()</code> function returns the random integers whose range from <code>0</code> to 
-			<code>RAND_MAX</code>. <br></br><br></br>
-			The <code>RAND_MAX</code> is a symbolic constant that defines in <code>stdlib.h</code> header file, whose value 
-			is greater but less than <blue>32767</blue> depending on the C libraries.<br></br><br></br>
+        </interfaces>
+        <macros>*General-Programming-Knowledge*</macros>
+        <defines>*General-Programming-Knowledge*</defines>
+        <random-generators>
+            The <code>rand()</code> function returns the random integers whose range from <code>0</code> to 
+            <code>RAND_MAX</code>. <br></br><br></br>
+            The <code>RAND_MAX</code> is a symbolic constant that defines in <code>stdlib.h</code> header file, whose value 
+            is greater but less than <blue>32767</blue> depending on the C libraries.<br></br><br></br>
 <code>
 //Example of using rand() to generate random numbers
 
@@ -1418,19 +1418,19 @@ void main()
     printf (" \n The random number is: %d", rand());  
     printf ("\n The random number is: %d", rand());  
     getch();  
-}  		
+}          
 </code>
-			<br></br>
-			The <code>srand()</code> function is a C library function that determines the initial 
-			point to generate 
-			different series of <red>pseudo-random numbers</red>. 
-			<br></br><br></br>
-			A <code>srand()</code> function cannot be used without 
-			using a <code>rand()</code> function. 
-			<br></br><br></br>
-			The <code>srand()</code> function is required to set the value of the <red>seed</red> 
-			only once in a program to generate the different results of random integers before 
-			calling the <code>rand()</code> function. <br></br><br></br>
+            <br></br>
+            The <code>srand()</code> function is a C library function that determines the initial 
+            point to generate 
+            different series of <red>pseudo-random numbers</red>. 
+            <br></br><br></br>
+            A <code>srand()</code> function cannot be used without 
+            using a <code>rand()</code> function. 
+            <br></br><br></br>
+            The <code>srand()</code> function is required to set the value of the <red>seed</red> 
+            only once in a program to generate the different results of random integers before 
+            calling the <code>rand()</code> function. <br></br><br></br>
 <code>
 //Example of using srand() to generate pseudo-random numbers
 
@@ -1452,9 +1452,9 @@ int main()
     /* generate random number between 0 to 50 */  
 }  
 </code>
-		</random-generators>
-		<command-line-arguments>
-			*General-Programming-Knowledge*
+        </random-generators>
+        <command-line-arguments>
+            *General-Programming-Knowledge*
 <code>
 /*Example*/
 int main(int argc, char *argv[]) { /* ... */ }
@@ -1462,9 +1462,9 @@ int main(int argc, char *argv[]) { /* ... */ }
 //OR
 int main(int argc, char **argv) { /* ... */ }
 </code>
-		</command-line-arguments>
-		<ternary-operator>
-			*General-Programming-Knowledge*
+        </command-line-arguments>
+        <ternary-operator>
+            *General-Programming-Knowledge*
 <code>
 /*Using IF ELSE statements:*/
 
@@ -1493,15 +1493,15 @@ printf("%d", c);
 
 /*The output of both samples of code from above will result in: c = 3*/
 </code>
-		</ternary-operator>
-		<modular-programming>
-			*General-Programming-Knowledge*
-			<br></br>
-			In C language this is achieved by placing 
-			the interface definition in a header file and the implementation in a source 
-			file. <br></br>
-			The disciplined use of <code>static</code> keyword is practiced in order to hide implementation details.
-			<br></br><br></br>
+        </ternary-operator>
+        <modular-programming>
+            *General-Programming-Knowledge*
+            <br></br>
+            In C language this is achieved by placing 
+            the interface definition in a header file and the implementation in a source 
+            file. <br></br>
+            The disciplined use of <code>static</code> keyword is practiced in order to hide implementation details.
+            <br></br><br></br>
 <code>
 /*FILE module.h*/
  extern unsigned int Calculate_NoOfChars_In_string(char* str);
@@ -1509,12 +1509,12 @@ printf("%d", c);
 /*FILE module.c*/
 unsigned int Calculate_NoOfChars_In_string(char* str)
 {
-	unsigned int counter = 0;
-	while(str[counter]!="\0")
-	{
-		counter++;
-	}
-	return counter;
+    unsigned int counter = 0;
+    while(str[counter]!="\0")
+    {
+        counter++;
+    }
+    return counter;
 }
 
 /*FILE main.c*/
@@ -1523,17 +1523,17 @@ unsigned int Calculate_NoOfChars_In_string(char* str)
 
 int main()
 {
-	char strA[10] = "Some text.";
-	unsigned int length = Calculate_NoOfChars_In_string(strA);
-	print("String length is: %d\n", length);
+    char strA[10] = "Some text.";
+    unsigned int length = Calculate_NoOfChars_In_string(strA);
+    print("String length is: %d\n", length);
 }
 </code>
-		</modular-programming>
-		<string-methods>
-			C has many useful string functions, which can be used to perform certain operations 
-			on strings.<br></br><br></br>
-			To use them, you must include the <code>&lt;string.h&gt;</code> header file in your program.
-			<br></br><br></br>
+        </modular-programming>
+        <string-methods>
+            C has many useful string functions, which can be used to perform certain operations 
+            on strings.<br></br><br></br>
+            To use them, you must include the <code>&lt;string.h&gt;</code> header file in your program.
+            <br></br><br></br>
 <code>
 /* GET THE SIZE (IN CHARACTERS) OF STRINGS */
 
@@ -1576,12 +1576,12 @@ printf("%d\n", strcmp(str1, str2));  // Returns 0 (the strings are equal)
 // Compare str1 and str3, and print the result
 printf("%d\n", strcmp(str1, str3));  // Returns -4 (the strings are not equal)
 </code>
-		</string-methods>
-		<datatype-conversions>
-			*General-Programming-Knowledge*
-			<br></br>
-			It is one of the important concepts introduced in 'C' 
-			programming.<br></br>
+        </string-methods>
+        <datatype-conversions>
+            *General-Programming-Knowledge*
+            <br></br>
+            It is one of the important concepts introduced in 'C' 
+            programming.<br></br>
 <code>
 // Automatic conversion: int to float
 float myFloat = 9;
@@ -1614,36 +1614,36 @@ float percentage = (float) userScore / maxScore * 100.0;
 // Print the percentage
 printf("User's percentage is %.2f", percentage);
 </code>
-		</datatype-conversions>
-		<optional-parameters>*General-Programming-Knowledge*</optional-parameters>
-		<operators>
-			*General-Programming-Knowledge*
-			<green><br></br>Misc Operators:<br></br></green>
-				<br></br> 
-				<code>sizeof()</code><br></br> 
-				<red>It returns the size of a variable. <br></br>
-				<code>sizeof(a)</code>, 
-				where <code>a</code> is integer, will return <blue>4</blue>.</red>
-				<br></br><br></br>
-				<code>&#38;</code><br></br>
-				<red>It returns the <blue>address</blue> of a variable.<br></br> 
-				<code>&#38;a;</code> 
-				returns the actual 
-				address of the variable.</red>
-				<br></br><br></br>
-				<code>*</code><br></br>
-				<red>Pointer to a variable.<br></br>
-				<code>*a;</code></red>
-				<br></br><br></br>
-				<code>? :</code><br></br>
-				<red>Conditional Expression. <br></br>
-				If Condition is <code>true</code> <blue>?</blue> 
-				then value X <blue>:</blue> otherwise value Y; </red>
-				<br></br>
-		</operators>
-		<pre-post-incrementation>
-			*General-Programming-Knowledge*
-			<br></br>
+        </datatype-conversions>
+        <optional-parameters>*General-Programming-Knowledge*</optional-parameters>
+        <operators>
+            *General-Programming-Knowledge*
+            <green><br></br>Misc Operators:<br></br></green>
+                <br></br> 
+                <code>sizeof()</code><br></br> 
+                <red>It returns the size of a variable. <br></br>
+                <code>sizeof(a)</code>, 
+                where <code>a</code> is integer, will return <blue>4</blue>.</red>
+                <br></br><br></br>
+                <code>&#38;</code><br></br>
+                <red>It returns the <blue>address</blue> of a variable.<br></br> 
+                <code>&#38;a;</code> 
+                returns the actual 
+                address of the variable.</red>
+                <br></br><br></br>
+                <code>*</code><br></br>
+                <red>Pointer to a variable.<br></br>
+                <code>*a;</code></red>
+                <br></br><br></br>
+                <code>? :</code><br></br>
+                <red>Conditional Expression. <br></br>
+                If Condition is <code>true</code> <blue>?</blue> 
+                then value X <blue>:</blue> otherwise value Y; </red>
+                <br></br>
+        </operators>
+        <pre-post-incrementation>
+            *General-Programming-Knowledge*
+            <br></br>
 <code>
 //pre increment operator
 
@@ -1659,12 +1659,12 @@ int main()
  
     printf("x = %d\n", x);
     return 0;
-	
-	/*
-		OUTPUT: 
-		a = 11
-		x = 11
-	*/
+    
+    /*
+        OUTPUT: 
+        a = 11
+        x = 11
+    */
 </code>
 
 <code>
@@ -1682,37 +1682,37 @@ int main()
  
     printf("x = %d\n", x);
     return 0;
-	
-	/*
-		OUTPUT: 
-		a = 10
-		x = 11
-	*/
+    
+    /*
+        OUTPUT: 
+        a = 10
+        x = 11
+    */
 
 }
 </code>
-		</pre-post-incrementation>
-	</programming_language>
-	
-	<programming_language>
-		<name>C++</name>
-		<description>
-			C++ is a high-level, general-purpose programming language created by 
-			Danish computer scientist Bjarne Stroustrup. <br></br><br></br>
-			First released in 1985 as an extension of the C programming language, 
-			it has since expanded significantly over time; as of 1997, C++ has object-oriented, 
-			generic, and functional features. <br></br>
-			In addition to facilities for low-level memory 
-			manipulation for making things like microcomputers or to make operating systems 
-			like Linux or Windows. <br></br><br></br>
-			
-			It is almost always implemented as a compiled language, 
-			and many vendors provide C++ compilers, including the Free Software Foundation, 
-			LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
-		</description>
-		<oop>*General-Programming-Knowledge*</oop>
-		<encapsulation>
-			*General-Programming-Knowledge*
+        </pre-post-incrementation>
+    </programming_language>
+    
+    <programming_language>
+        <name>C++</name>
+        <description>
+            C++ is a high-level, general-purpose programming language created by 
+            Danish computer scientist Bjarne Stroustrup. <br></br><br></br>
+            First released in 1985 as an extension of the C programming language, 
+            it has since expanded significantly over time; as of 1997, C++ has object-oriented, 
+            generic, and functional features. <br></br>
+            In addition to facilities for low-level memory 
+            manipulation for making things like microcomputers or to make operating systems 
+            like Linux or Windows. <br></br><br></br>
+            
+            It is almost always implemented as a compiled language, 
+            and many vendors provide C++ compilers, including the Free Software Foundation, 
+            LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
+        </description>
+        <oop>*General-Programming-Knowledge*</oop>
+        <encapsulation>
+            *General-Programming-Knowledge*
 <code>
 //Example of encapsulation
 
@@ -1741,10 +1741,10 @@ class Employee
 
 int main() 
 {
-  Employee myObj;
-  myObj.setSalary(50000);
-  cout &lt;&lt; myObj.getSalary();
-  return 0;
+    Employee myObj;
+    myObj.setSalary(50000);
+    cout &lt;&lt; myObj.getSalary();
+    return 0;
 }
 </code>
         </encapsulation>
