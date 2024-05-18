@@ -4,7 +4,7 @@
     <programming_language>
         <name>General-Programming-Knowledge</name>
         <oop>
-            OOP stands for Object-Oriented Programming.
+            OOP stands for <red>Object-Oriented Programming</red>.
             <br></br><br></br>
             <blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions</red> 
             that perform operations on the <red>data</red>, 
@@ -623,8 +623,8 @@ int main()
             An operator needs one or more operands for the operation to be performed.<br></br>
             <br></br>
             Depending on how many operands are required to perform the operation, operands are called as 
-            <red>unary</red>, <red>binary</red> or <red>ternary</red> operators. <br></br>
-            They need one, two or three operands respectively.<br></br>
+            <red>unary</red>, <red>binary</red> or <red>ternary</red> operators.
+            They need <blue>one</blue>, <blue>two</blue> or <blue>three</blue> operands respectively.<br></br>
             <br></br>
             <red>Unary operators</red> − <code>++</code> (increment), <code>--</code> (decrement), <code>!</code> (NOT), <code>~</code> (compliment), <code>&#38;</code> (address of), <code>*</code> (dereference)
             <br></br><br></br>
@@ -979,6 +979,24 @@ int main()
             <blue>Data abstraction</blue> refers to providing only <blue>essential information</blue> about the 
             data to the outside world, hiding the background details or implementation. 
             <br></br><br></br>
+            Using <blue>data abstraction</blue>, we are not allowed to <red>access</red> the variables directly, however, 
+            one can call the <red>setter function</red> to set the values or the <red>getter function</red> to
+            get the values.
+            <br></br><br></br>
+            
+            <red>Advantages of Data Abstraction:</red>
+            <br></br><br></br>
+            <blue>
+            Helps the user to avoid writing the low-level code;<br></br>
+            Avoids code duplication and increases reusability.<br></br>
+            Can change the internal implementation of the class independently without 
+            affecting the user.<br></br>
+            Helps to increase the security of an application or program as only important 
+            details are provided to the user.<br></br>
+            It reduces the complexity as well as the redundancy of the code, therefore 
+            increasing the readability.
+            <br></br><br></br>
+            </blue>
         </abstraction>
     </programming_language>
     
@@ -2003,7 +2021,7 @@ int main()
         <abstraction>
             *General-Programming-Knowledge*
 <code>
-// Example of Abstraction
+// Example of Abstraction in C++
 
 #include &lt;iostream&gt;  
 using namespace std;
@@ -2042,24 +2060,6 @@ int main()
     */
 }
 </code>
-        We are not allowed to access the variables a and b directly, however, one can call 
-        the function set() to set the values in a and b and the function display() to 
-        display the values of a and b. 
-        <br></br><br></br>
-        
-        <red>Advantages of Data Abstraction:</red>
-        <br></br><br></br>
-        <green>
-        Helps the user to avoid writing the low-level code;<br></br>
-        Avoids code duplication and increases reusability.<br></br>
-        Can change the internal implementation of the class independently without 
-        affecting the user.<br></br>
-        Helps to increase the security of an application or program as only important 
-        details are provided to the user.<br></br>
-        It reduces the complexity as well as the redundancy of the code, therefore 
-        increasing the readability.
-        <br></br>
-        </green>
         </abstraction>
         <generic-programming>
             *General-Programming-Knowledge*
@@ -3289,7 +3289,7 @@ int main()
         <ternary-operator>*General-Programming-Knowledge*</ternary-operator>
         <modular-programming>*General-Programming-Knowledge*
             <br></br>
-            <red>Example of modular programming in C++</red>
+            <green>Example of modular programming in C++:</green>
 <code>
 //FILE: vectors_of_objects_mainfile.cpp
 //In this file we put everything together
