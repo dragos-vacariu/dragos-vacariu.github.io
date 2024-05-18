@@ -5815,29 +5815,58 @@ namespace project50_optional_parameters
             <br></br><br></br>
             The <code>partial</code> keyword is 
             used to build a <code>partial class</code>.
+            <br></br><br></br>
+            
+            A partial class its used to separate/split a class into two or more parts, 
+            across different files.
+            <br></br><br></br>
+            If the part of the class are in different files, those files must be contained in 
+            the same assembly (directory of project), otherwise
+            the compilation will fail. 
+            <br></br><br></br>
+            A partial class can also be used in techniques of splitting an interface into more 
+            parts successfully.
+             <br></br><br></br>
+             <green>
+             IMPORTANT:
+             </green>
+             <br></br><br></br>
+             <blue>
+             Without the <red>partial</red> keyword into the <red>class declaration</red>, 
+             the compiler will not 
+             know the intention of creating a <red>partial class</red>.
+             <br></br>
+             All the parts of a <red>partial class</red> needs to be contained by 
+             the <red>same namespace</red> 
+             and assembly.<br></br>
+             All the parts must use the <red>partial</red> keyword in their declaration.
+             <br></br>
+             All the parts must use the same <red>access modifier</red> in their declaration.
+             <br></br>
+             If any of the parts is declared as abstract, the entire class will be 
+             abstract (even if only a part was declared abstract).
+             <br></br>
+             If any of the parts is declared as sealed, the entire class will be sealed.
+             <br></br>
+             If any of the parts is declared to be inherited from a a class, the entire class 
+             will be inherited from that class. 
+             <br></br>
+             Different parts of the <red>partial class</red> cannot specify that they are inherited from 
+             different classes. (IN C# MULTIPLE CLASS INHERITANCE IS NOT ALLOWED).
+             <br></br>
+             Different parts of the <red>partial class</red> can specify that they <red>inherits</red> 
+             from different <red>interfaces</red>, so after the compilation the <red>partial class</red>
+             will be <red>inherited</red> from all the specified <red>interfaces</red> (even if they were 
+             specified in different parts of the <red>class</red>).
+             <br></br>
+             The members declared to a part of the <red>partial class</red> are available to all 
+             the part of the <red>partial class</red> (available in the <red>entire class</red>).
+             </blue>
+             
 <code>
 //Example of partial class in C#
 
 using System;
-
-/*A partial class its used to separate/split a class into two or more parts, across different files.
- If the part of the class are in different files, those files must be contained in the same assembly (directory of project), otherwise
- the compilation will fail. 
- A partial class can also be used in techniques of splitting an interface into more parts successfully.
- 
- IMPORTANT: Without the partial keyword into the class declaration, the compiler will not know the intention of creating a partial class.
- All the parts of a partial class needs to be contained by the same namespace and assembly.
- All the parts must use the partial keyword in their declaration.
- All the parts must use the same access modifier in their declaration.
- If any of the parts is declared as abstract, the entire class will be abstract (even if only a part was declared abstract).
- If any of the parts is declared as sealed, the entire class will be sealed.
- If any of the parts is declared to be inherited from a a class, the entire class will be inherited from that class. IMPORTANT, different
- parts of the partial class cannot specify that they are inherited from different classes. (IN C# MULTIPLE CLASS INHERITANCE IS NOT ALLOWED).
- Different parts of the partial class can specify that they inherits from different interfaces, so after the compilation the partial class
- will be inherited from all the specified interfaces (even if they were specified in different parts of the class).
- The members declared to a part of the partial class are available to all the part of the partial class (available in the entire class).
- */
-
 
 namespace project47_partial_classes
 {
