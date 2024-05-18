@@ -5975,32 +5975,50 @@ namespace project12_new_types_null_coalescing_operator
         <abstract-classes>
             *General-Programming-Knowledge*
             <br></br>
+            <green>In C#:</green> 
+             An <code>abstract class</code> is similar to an <code>interface</code>, 
+             dispite that it can contain 
+             <blue>variable_members(field members)</blue> , and that
+             an <code>abstract class</code> it's acting like a <code>class</code> when it comes to 
+             <blue>inheritance</blue>.
+             An <code>abstract class</code> can have implementation
+             for some or even for all its <blue>members/field</blue>, while the <code>interface</code> 
+             cannot.
+             <br></br><br></br>
+             An <code>abstract class</code> can use the (<code>public</code>) 
+            access modifiers while an <code>interface</code> cannot. 
+            <br></br><br></br>
+            An <code>interface</code> can be <blue>inherited</blue> only from another <code>interface</code>, 
+            while an <code>abstract class</code>
+            can be <blue>inherited</blue> either from an <code>interface</code> or <code>abstract class</code>. 
+            <br></br><br></br>
+            A <code>class</code> can <blue>inherit</blue> from multiple <code>interfaces</code> at the
+            same time whereas a <code>class</code> cannot be inherit from <blue>multiple classes</blue>.
+            <br></br><br></br>
+            <green>RULES FOR ABSTRACT CLASSES:</green>
+            <br></br><br></br>
+            <blue>
+             1. An <code>abstract class</code> cannot be <red>instanciated</red> (an instance of the class 
+             cannot be created).<br></br>
+             2. An <code>abstract class</code> can contain <red>abstract members</red>, and the 
+             <red>abstract members</red>
+             are not allowed to be implemented in
+             that <code>class</code>.<br></br>
+             3. An abstract class can inherit (can have children classes), and every child 
+             of the <code>class</code> must provide its
+             own implementations for the <red>abstract members</red> of the <red>parent class</red>.<br></br>
+             4. Any <code>class</code> provides single inheritance (the child of the class can have 
+             only one <red>parent/base class</red>).<br></br>
+             5. An abstract class can only be used as a <red>base class</red>. So an abstract 
+             class cannot be <code>sealed</code>.<br></br>
+             6. An abstract class CAN HAVE NO ABSTRACT MEMBERS, so it can provide 
+             implementation for all its fields and members.<br></br>
+             7. If a <code>class</code> that's inherited from an <code>abstract class</code> doesn't wish to 
+             provide implementation for the <red>parent class</red>
+             <red>abstract members</red>, then that class can be also set as <red>abstract</red>.<br></br>
+             </blue>
 <code>
 using System;
-
-/*
-
-An abstract class is similar to an interface, dispite that it can contain variable_members (field members), and
- an abstract class it's acting like a class when it comes to inheritance. An abstract class can have implementation
- for some or even for all its members/field, while the interface cannot. An abstract class can use the (public) 
-access modifiers while an interface cannot. An abstract class member is private by default while an interface
-member is public by default. An interface can be inherited ONLY from another interface, while an abstract class
-can be inherited either from an interface or abstract class. A class can be inherited from multiple interfaces in the
-same time whereas a class cannot be inherited from multiple classes.
-
-RULES FOR ABSTRACT CLASSES:
- 1.An abstract class cannot be instanciated (an instance of the class cannot be created).
- 2.An abstract class can contain abstract members, and the abstract members are not allowed to be implemented in
- that class.
- 3.An abstract class can inherit (can have children classes), and every child of the class must provide its
- own implementations for the abstract members of the parent class.
- 4.Any class provides single inheritance (the child of the class can have only one parent/base class).
- 5.An abstract class can only be used as a base class. SO an abstract class cannot be SEALED.
- 6.An abstract class CAN HAVE NO ABSTRACT MEMBERS, so it can provide implementation for all its fields and members.
- 7.If a class that's inherited from an abstract class doesn't wish to provide implementation for the parent class
- abstract members, then that class can be also set as abstract.
- 
- */
 
 namespace project32_abstract_classes
 {
