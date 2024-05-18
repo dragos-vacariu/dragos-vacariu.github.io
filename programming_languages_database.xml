@@ -3949,10 +3949,11 @@ namespace project25_polymorphism
             be executed inside 
             the pharanteses.
             <br></br><br></br>
-            <green>IMPORTANT:</green> 
+            <green>Sealing the inheritance:</green> 
             <br></br><br></br>
             To prevent a <code>class</code> of having children (<red>inheritance</red>), you can use the 
             <code>sealed</code> keyword.
+            <br></br><br></br>
             A <code>sealed class</code> cannot have children (cannot be <code>base class</code>).
 <code>
 //FILE: MyClass.cs
@@ -4355,8 +4356,8 @@ namespace queue_collection_type
             //Printing Information:
             Console.WriteLine("Number of objects in Queue: {0}\n", FirstQueue.Count());
             
-            // Console.WriteLine ("Name: {0}, Age: {1}", FirstQueue.Dequeue().name, FirstQueue.Dequeue().Age); //this is wrong, unless it is
-            //moved into a foreach loop:
+            //This usage is wrong, unless it is moved into a foreach loop:
+            // Console.WriteLine ("Name: {0}, Age: {1}", FirstQueue.Dequeue().name, FirstQueue.Dequeue().Age); 
             
             //A Queue is like an archieve, you need to extract the object from it, before using that object.
             Queue&lt;people&gt; SecondQueue = new Queue&lt;people&gt; ();
