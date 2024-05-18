@@ -838,7 +838,7 @@ int main()
             useful for setting initial values for attributes.<br></br>
         </constructors>
         <instantiation>
-            In <red>object-oriented programming<red>, an <red>instance</red> is a concrete realization of a class. 
+            In <red>object-oriented programming</red>, an <red>instance</red> is a concrete realization of a class. 
             <br></br><br></br>
             When you define a <code>class</code>, you're essentially creating a blueprint. 
             <br></br><br></br>
