@@ -4568,9 +4568,11 @@ namespace project5_structs_with_constructors
 </code>
         </constructors>
         <instantiation>*General-Programming-Knowledge*
-        <br></br>
-        When you create a new object in C# for a class using the new keyword, then it is called instantiation.
-        <br></br>
+            <br></br>
+            When you create a <code>new</code> object in C# for a <code>class</code> using 
+            the <code>new</code> 
+            keyword, then it is called <blue>instantiation</blue>.
+            <br></br>
 <code>
 Student s1 = new Student();
 </code>
@@ -5017,11 +5019,14 @@ namespace project37_read_write_to_files_handling_exceptions
                 //ReadToEnd will read all the content of the file (until the end).
             }
             
-            //If there was an exception come to this catch statement
+            /*
+            If there was an exception come to this catch statement
+            THIS IS A SPECIFIC CATCH, this is the child of EXCEPTION CLASS
+            try to handle the exception with this object.
+            This object is mostly for FileNotFoundException.
+            */
             
-            //THIS IS A SPECIFIC CATCH, this is the child of EXCEPTION CLASS
-            catch(FileNotFoundException fNotFound) //try to handle the exception with this object.
-                //This object is mostly for FileNotFoundException.
+            catch(FileNotFoundException fNotFound) 
             {
                 //An object of type FileNotFoundException contain more information about 
                 //the file that could not be found then an object of type 
@@ -5032,7 +5037,6 @@ namespace project37_read_write_to_files_handling_exceptions
             }
             
             //If the catch above was not able to handle the exception try this one:
-            
             //THIS IS THE GENERAL CATCH (Exception class is the parent of all the other classes above.)
             catch(Exception ex) //this can handle also the DirectoryNotFoundException.
             {
@@ -5054,8 +5058,9 @@ namespace project37_read_write_to_files_handling_exceptions
             //END OF EXCEPTION HANDLING.
             
             StreamWriter writeToFile = new StreamWriter(@"D:\writeToFile.txt");
-            writeToFile.WriteLine("Project37 Read write to files, exeption handling Finally!");
+            writeToFile.WriteLine("Project37 Read write to files, exception handling Finally!");
             writeToFile.Close(); //the filestream needs to be closed for the writing to work.
+            
             Console.Write("Press any key to continue . . . ");
             Console.ReadKey(true);
         }
@@ -5066,7 +5071,7 @@ namespace project37_read_write_to_files_handling_exceptions
         <bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
         <default-parameters>*General-Programming-Knowledge*
 <code>
-//Example:
+//Example of functions default-parameters:
 
 static void MyMethod(string country = "Norway") 
 {
@@ -5081,7 +5086,7 @@ static void Main(string[] args)
   MyMethod("USA");
 }
 
-//OUTPUT:
+// OUTPUT:
 // Sweden
 // India
 // Norway
@@ -5117,6 +5122,7 @@ namespace project30_interfaces
     {
         //int age; -> an interface cannot have such fields (variable fields).
         //public void Print(); -> an interface cannot contain public access modifier.
+        
         void Print(); //this is a function of the interface.
     }
     public interface Isecond_interface : Ithird_interface
@@ -5140,7 +5146,7 @@ namespace project30_interfaces
     }
     class Inherited_from_interface : Ifirst_interface, Isecond_interface
     {
-        /*A class that inherits from an interface HAS to provide implementations for all the interface methods
+        /* A class that inherits from an interface HAS to provide implementations for all the interface methods
          * members.
          */
         public void Print() //providing implementation for the interface function.
@@ -5151,7 +5157,8 @@ namespace project30_interfaces
              the interface members.
              IF A CLASS inherits from an interface which inherits from another interface, then the class has to
              provide implementation for both the parent interface and grandparent interface as well.
-             */
+            */
+            
             Console.WriteLine("Class inherited from an interface.");
         }
         public void Print2() //A method can be implemented like this. (The brackets can be empty.)
@@ -5459,9 +5466,14 @@ namespace project50_optional_parameters
         </optional-parameters>
         <partial-classes>
         A <red>partial class</red> is a unique feature of C#. 
+        <br></br><br></br>
         It can break the functionality of a single 
-        <code>class</code> into many files. When the application is compiled, these files are then 
-        reassembled into a single <code>class</code> file. The <code>partial</code> keyword is 
+        <code>class</code> into many files. 
+        <br></br><br></br>
+        When the application is compiled, these files are then 
+        reassembled into a single <code>class</code> file. 
+        <br></br><br></br>
+        The <code>partial</code> keyword is 
         used to build a <code>partial class</code>.
 <code>
 //Example of partial class in C#
