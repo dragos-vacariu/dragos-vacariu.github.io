@@ -3406,41 +3406,41 @@ class vectors_of_objects_class
 			</green>
 			<br></br>
 			<blue>length() or size()</blue><br></br>
-			It will return the <red>length</red> of the string.<br></br>
+			It will <red>return the length</red> of the string.<br></br>
 			<br></br>
 			<blue>array[index]</blue><br></br>
-			To access individual characters using array indexing.<br></br>
+			To <red>access</red> individual characters using array indexing.<br></br>
 			<br></br>
 			<blue>at()</blue><br></br>
-			Used to access a character at a specified index.<br></br>
+			Used to <red>access</red> a character at a specified index.<br></br>
 			<br></br>
 			<blue>+ Operator</blue><br></br>
 			<code>+</code> operator is used to <red>concatenate</red> two strings.<br></br>
 			<br></br>
 			<blue>append()</blue><br></br>
-			The <code>append()</code> function adds one string to the end of another.<br></br>
+			The <code>append()</code> function <red>adds one string</red> to the end of another.<br></br>
 			<br></br>
 			<blue>== Operator</blue><br></br>
 			You can compare strings using the <code>==</code> operator.<br></br>
 			<br></br>
 			<blue>compare()</blue><br></br>
-			The <code>compare()</code> function returns an integer value indicating the 
+			The <code>compare()</code> function <red>returns an integer</red> value indicating the 
 			comparison result.<br></br>
 			<br></br>
 			<blue>substr()</blue><br></br>
-			Use the <code>substr()</code> function to extract a substring from a string.<br></br>
+			Use the <code>substr()</code> function to <red>extract a substring</red> from a string.<br></br>
 			<br></br>
 			<blue>find()</blue><br></br>
-			The <code>find()</code> function returns the position of the first occurrence of a substring.<br></br>
+			The <code>find()</code> function <red>returns the position</red> of the first occurrence of a substring.<br></br>
 			<br></br>
 			<blue>replace()</blue><br></br>
-			Use the <code>replace()</code> function to modify a part of the string.<br></br>
+			Use the <code>replace()</code> function to <red>modify</red> a part of the string.<br></br>
 			<br></br>
 			<blue>insert()</blue><br></br>
-			The <code>insert()</code> function adds a substring at a specified position.<br></br>
+			The <code>insert()</code> function <red>adds a substring</red> at a specified position.<br></br>
 			<br></br>
 			<blue>erase()</blue><br></br>
-			Use the <code>erase()</code> function to remove a part of the string.<br></br>
+			Use the <code>erase()</code> function to <red>remove</red> a part of the string.<br></br>
 			<br></br>
 			<blue>c_str()</blue><br></br>
 			To obtain a <red>C-style string</red> from a <code>std::string</code>, you can use the 
