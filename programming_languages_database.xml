@@ -5013,18 +5013,20 @@ namespace project37_read_write_to_files_handling_exceptions
             StreamReader readFromFile = new StreamReader(@"D:\error.txt"); // @ -> using the escape sequence
             
             //EXCEPTION HANDLING:
-            try //try to do this without exception
+            
+            //try to do this without exception
+            try 
             {
                 Console.WriteLine(readFromFile.ReadToEnd()); 
                 //ReadToEnd will read all the content of the file (until the end).
             }
             
             /*
-            If there was an exception come to this catch statement
-            THIS IS A SPECIFIC CATCH, this is the child of EXCEPTION CLASS
-            try to handle the exception with this object.
-            This object is mostly for FileNotFoundException.
-            */
+             * If there was an exception come to this catch statement
+             * THIS IS A SPECIFIC CATCH, this is the child of EXCEPTION CLASS
+             * try to handle the exception with this object.
+             * This object is mostly for FileNotFoundException.
+             */
             
             catch(FileNotFoundException fNotFound) 
             {
@@ -5037,14 +5039,16 @@ namespace project37_read_write_to_files_handling_exceptions
             }
             
             //If the catch above was not able to handle the exception try this one:
-            //THIS IS THE GENERAL CATCH (Exception class is the parent of all the other classes above.)
+            //The Exception class is the parent of all the other classes above.
+            //So this will catch any kind of exception that might have occurred.
+            
             catch(Exception ex) //this can handle also the DirectoryNotFoundException.
             {
                 Console.WriteLine(ex.Message);
             }
             
-            //THIS BLOCK IS ALWAYS EXECUTED while for the catch blocks is not a certainty 
-            //which one is going to be executed.
+            //The finally is always executed regardless of the result whereas 
+            //the execution of catch blocks execution is not a certainty.
             
             finally 
             //the finally block contain the code that should be executed by all means necessary
@@ -5465,16 +5469,16 @@ namespace project50_optional_parameters
 </code>
         </optional-parameters>
         <partial-classes>
-        A <red>partial class</red> is a unique feature of C#. 
-        <br></br><br></br>
-        It can break the functionality of a single 
-        <code>class</code> into many files. 
-        <br></br><br></br>
-        When the application is compiled, these files are then 
-        reassembled into a single <code>class</code> file. 
-        <br></br><br></br>
-        The <code>partial</code> keyword is 
-        used to build a <code>partial class</code>.
+            A <red>partial class</red> is a unique feature of C#. 
+            <br></br><br></br>
+            It can break the functionality of a single 
+            <code>class</code> into many files. 
+            <br></br><br></br>
+            When the application is compiled, these files are then 
+            reassembled into a single <code>class</code> file. 
+            <br></br><br></br>
+            The <code>partial</code> keyword is 
+            used to build a <code>partial class</code>.
 <code>
 //Example of partial class in C#
 
