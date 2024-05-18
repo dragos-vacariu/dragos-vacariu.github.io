@@ -1010,6 +1010,14 @@ int main()
             <br></br>
             </blue>
         </abstraction>
+        <variable-arguments-lists>
+            In programming: A <red>function</red> that takes a variable number of arguments is called a 
+            <blue>variadic function</blue>. <br></br><br></br>
+            A <blue>variadic function</blue> must specify at least one fixed argument 
+            with an <blue>explicitly declared</blue> <red>data type</red>. <br></br><br></br>
+            Additional <red>arguments</red> can follow, and can vary in 
+            both <blue>quantity</blue> and <red>data type</red>.<br></br>
+        </variable-arguments-lists>
     </programming_language>
     
     <programming_language>
@@ -1041,6 +1049,8 @@ int main()
             </blue>
         </generic-programming>
         <variable-arguments-lists>
+            *General-Programming-Knowledge*
+            <br></br>
             C allows a function call to have a variable number of
             arguments with the variable argument list mechanism.<br></br>
             Use ellipsis <code>...</code> to denote a variable number of arguments to
@@ -1375,7 +1385,10 @@ int main()
 }
 </code>
         </multi-threading>
-        <exception-handling>C does not provide direct support to error handling (or exception handling).</exception-handling>
+        <exception-handling>
+            C does not provide direct support to 
+            <blue>error handling</blue> (or <red>exception handling</red>).
+        </exception-handling>
         <bitwise-operators>
             *General-Programming-Knowledge*
             <br></br>
@@ -2103,6 +2116,8 @@ int main()
 </code>
         </generic-programming>
         <variable-arguments-lists>
+            *General-Programming-Knowledge*
+            <br></br>
             The variable number of arguments in C++ is a feature that permits a function to 
             accept any number of arguments.<br></br>
             This type of function is called <red>variadic functions</red>.
@@ -3925,9 +3940,10 @@ namespace project45_generics
 }
 </code>
         </generic-programming>
-        <variable-arguments-lists>*General-Programming-Knowledge*
-        <br></br>
-        Use the param keyword to get the variable arguments in C#.
+        <variable-arguments-lists>
+            *General-Programming-Knowledge*
+            <br></br>
+            Use the param keyword to get the variable arguments in C#.
 <code>
 using System;
 
