@@ -6007,21 +6007,22 @@ namespace project12_new_types_null_coalescing_operator
              are not allowed to be implemented in
              that <code>class</code>.<br></br>
              <br></br>
-             3. An abstract class can inherit (can have children classes), and every child 
+             3. An <code>abstract class</code> can inherit (can have children classes), and every child 
              of the <code>class</code> must provide its
              own implementations for the <red>abstract members</red> of the <red>parent class</red>.<br></br>
              <br></br>
              4. Any <code>class</code> provides single inheritance (the child of the class can have 
              only one <red>parent/base class</red>).<br></br>
              <br></br>
-             5. An abstract class can only be used as a <red>base class</red>. So an abstract 
-             class cannot be <code>sealed</code>.<br></br>
-             6. An abstract class CAN HAVE NO ABSTRACT MEMBERS, so it can provide 
+             5. An <code>abstract class</code> can only be used as a <red>base class</red>. 
+             So an <code>abstract class</code> cannot be <code>sealed</code>.<br></br>
+             6. An <code>abstract class</code> CAN HAVE NO ABSTRACT MEMBERS, so it can provide 
              implementation for all its fields and members.<br></br>
              <br></br>
-             7. If a <code>class</code> that's inherited from an <code>abstract class</code> doesn't wish to 
-             provide implementation for the <red>parent class</red>
-             <red>abstract members</red>, then that class can be also set as <red>abstract</red>.<br></br>
+             7. If a <code>class</code> that's inherited from an <code>abstract class</code> 
+             doesn't wish to provide implementation for the <red>parent class</red>
+             <red>abstract members</red>, then that <code>class</code> can be also 
+             set as <red>abstract</red>.<br></br>
              </blue>
 <code>
 //Example of abstract class in C#:
