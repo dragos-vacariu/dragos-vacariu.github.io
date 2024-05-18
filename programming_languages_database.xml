@@ -5996,7 +5996,7 @@ namespace project12_new_types_null_coalescing_operator
             A <code>class</code> can <blue>inherit</blue> from multiple <code>interfaces</code> at the
             same time whereas a <code>class</code> cannot inherit from <blue>multiple classes</blue>.
             <br></br><br></br>
-            <green>RULES FOR ABSTRACT CLASSES:</green>
+            <green>Rules for abstract classes in C#:</green>
             <br></br><br></br>
             <blue>
              1. An <code>abstract class</code> cannot be <red>instanciated</red> (an instance of the class 
@@ -6016,10 +6016,8 @@ namespace project12_new_types_null_coalescing_operator
              <br></br>
              5. An <code>abstract class</code> can only be used as a <red>base class</red>. 
              So an <code>abstract class</code> cannot be <code>sealed</code>.<br></br>
-             6. An <code>abstract class</code> CAN HAVE NO ABSTRACT MEMBERS, so it can provide 
-             implementation for all its fields and members.<br></br>
              <br></br>
-             7. If a <code>class</code> that's inherited from an <code>abstract class</code> 
+             6. If a <code>class</code> that's inherited from an <code>abstract class</code> 
              doesn't wish to provide implementation for the <red>parent class</red>
              <red>abstract members</red>, then that <code>class</code> can be also 
              set as <red>abstract</red>.<br></br>
