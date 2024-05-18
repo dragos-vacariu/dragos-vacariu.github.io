@@ -1121,6 +1121,13 @@ int main()
             A <red>file</red> is a container in computer storage devices used for storing <red>data</red>.
             <br></br> 
         </write-to-file>
+        <inheritance>
+            <red>Inheritance</red> allows programmers to create <red>classes</red> that are built upon existing 
+            <red>classes</red>, to specify a <blue>new implementation while maintaining the same behaviors</blue> 
+            (realizing an interface), <blue>to reuse code</blue> and to <blue>independently extend original 
+            software</blue> via <code>public classes</code> and <code>interfaces</code>.
+            <br></br> 
+        </inheritance>
     </programming_language>
     
     <programming_language>
@@ -3884,19 +3891,23 @@ using System.Collections.Generic;
 
 /*
 
-In C# for an inherited class can be only one parent class (only single class inheritance is allowed).
+In C# for an inherited class can be only one parent class 
+(only single class inheritance is allowed).
 
-IN CASE OF INHERITED CLASSES: the parent class constructor gets automatically executed before 
-the child class constructor if the parent class constructor has no arguments.
+IN CASE OF INHERITED CLASSES: the parent class constructor gets automatically 
+executed before the child class constructor if the parent class constructor 
+has no arguments.
+
 Otherwise: if the parent class has a constructors with multiple arguments/parameters 
 it must be specified at the child class constructor declaration a syntax:base()
-and specify the arguments of the constructor that you want to be executed inside the pharanteses.
+and specify the arguments of the constructor that you want to be executed inside 
+the pharanteses.
  
 IMPORTANT: 
 To prevent a class of having children (inheritance), you can use the sealed keyword.
 A sealed class cannot have children (cannot be base class).
  
- */
+*/
 namespace inherited_classes
 {
     //These are called XML Comments:
@@ -3943,11 +3954,14 @@ namespace inherited_classes
         }
         
         //THIS IS OVERLOADED CONSTRUCTOR
+        
+        //the constructor needs to be public
+        //:base () -> it's used to explicitely specify which constructor should be 
+        //used for the parent class
+        
+        //The syntax must be used for each constructor of the child class.
+        //if the parent class constructor takes no arguments, then the syntax is optional.
         public Mates(string FS, string LS, uint AGE_m, char GRD) : base("CHILD CLASS CONTROLS THE PARENTS CLASS")
-            //the constructor needs to be public
-            //:base () -> it's used to explicitely specify which constructor should be used for the parent class
-            //THE SINTHAX must be used for each constructor of the child class.
-            //if the parent class constructor takes no arguments, then the sinthax is optional.
         {
             FirstName=FS;
             LastName=LS;
