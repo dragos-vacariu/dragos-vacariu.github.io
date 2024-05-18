@@ -4601,7 +4601,10 @@ public class DeserializeExample
              - if we create <blue>2</blue> <red>struct objects</red> (<red>object1</red> and 
              <blue>object2</blue>):
              <br></br>
-             <code>object1 = object2;</code><br></br>
+ <code>
+ object1 = object2;
+ </code>
+            <br></br>
              - in this case <red>object1</red> will have all the values that 
              <blue>object2</blue> has.<br></br>
              <br></br>
@@ -4610,7 +4613,10 @@ public class DeserializeExample
              - if we create <blue>2</blue> <red>class objects</red> (<red>object1</red> and 
              <blue>object2</blue>):
              <br></br>
-             <code>object1 = object2;</code><br></br>  
+ <code>
+ object1 = object2;
+ </code>
+             <br></br>  
              - in this case <red>object1</red>, will be poiting to the <blue>object2</blue>'s values 
              which are stored on the heap.<br></br>
 <code>
