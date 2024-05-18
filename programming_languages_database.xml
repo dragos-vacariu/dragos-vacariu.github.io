@@ -948,6 +948,15 @@ int main()
             written in terms of <red>data types to-be-specified-later</red> that are then instantiated 
             when needed for specific types provided as parameters.<br></br>
         </generic-programming>
+        <abstraction>
+            <blue>Data abstraction</blue> is one of the most essential and important features of <red>object-oriented 
+            programming</red>. <br></br><br></br>
+            <blue>Abstraction</blue> means displaying only essential information and hiding the 
+            details. <br></br><br></br>
+            <blue>Data abstraction</blue> refers to providing only <blue>essential information</blue> about the 
+            data to the outside world, hiding the background details or implementation. 
+            <br></br><br></br>
+        </abstraction>
     </programming_language>
     
     <programming_language>
@@ -1764,8 +1773,8 @@ C++ polymorphism means that a call to a member function will cause a different f
 
 Example: if a parent class function is set to be override-able, then a parent class pointer can have functionality of the a child class object.
 
-A pure virtual function is a function that is declared in the parent class and it really needs to be defined in
-each one of the child classes.
+A pure virtual function is a function that is declared in the parent class and it really needs 
+to be defined in each one of the child classes.
 
 Syntax: virtual void DisplayFunction () = 0;
 
@@ -1969,35 +1978,31 @@ int main()
 </code>
         </inheritance>
         <abstraction>
-            Data abstraction is one of the most essential and important features of object-oriented 
-            programming in C++. <br></br><br></br>
-            Abstraction means displaying only essential information and hiding the 
-            details. Data abstraction refers to providing only essential information about the 
-            data to the outside world, hiding the background details or implementation. 
-            <br></br><br></br>
-
+            *General-Programming-Knowledge*
 <code>
+// Example of Abstraction
+
 #include &lt;iostream&gt;  
 using namespace std;
  
-class implementAbstraction {
-private:
-    int a, b;
- 
-public:
-    // method to set values of
-    // private members
-    void set(int x, int y)
-    {
-        a = x;
-        b = y;
-    }
- 
-    void display()
-    {
-        cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
-        cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
-    }
+class implementAbstraction 
+{
+    private:
+        int a, b;
+     
+    public:
+        // method to set values of private members
+        void set(int x, int y)
+        {
+            a = x;
+            b = y;
+        }
+     
+        void display()
+        {
+            cout &lt;&lt; "a = " &lt;&lt; a &lt;&lt; endl;
+            cout &lt;&lt; "b = " &lt;&lt; b &lt;&lt; endl;
+        }
 };
  
 int main()
@@ -2008,9 +2013,9 @@ int main()
     return 0;
     
     /*
-    OUTPUT:
-    a = 10
-    b = 20
+        OUTPUT:
+        a = 10
+        b = 20
     */
 }
 </code>
