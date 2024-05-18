@@ -734,7 +734,15 @@ function formatSingleLineComments(line)
 		multiline_comment=true;
 	}
 	//if Python Comment
-	if( String(line).includes("#") && String(line).includes("#define")==false && String(line).includes("#include")==false )
+	if( String(line).includes("#") == true && 
+		String(line).includes("#define")==false && 
+		String(line).includes("#include")==false &&
+		String(line).includes("#ifndef")==false &&
+		String(line).includes("#undef")==false &&
+		String(line).includes("#if")==false &&
+		String(line).includes("#pragma")==false &&
+		String(line).includes("#error")==false
+		)
 	{
 		line = line.replace("#", "<comment>#");
 		line = line + "</comment>";
