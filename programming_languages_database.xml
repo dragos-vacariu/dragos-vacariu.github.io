@@ -855,29 +855,39 @@ int main()
             <green>About destructors:</green>
             <br></br><br></br>
             <blue>
-            - A destructor is also a special member function like a constructor.
+            - A destructor is also a special member function like a constructor. <br></br>
+            <brown>
             Destructor destroys the class objects created by the constructor. <br></br>
+            </brown>
             - Destructor has the same name as their <code>class</code> name preceded by a 
             tilde (<code>~</code>) symbol.<br></br>
             - It is <red>not possible</red> to define more than one destructor. <br></br>
-            - The destructor is the only one way to destroy the object created by the constructor. 
-            So the destructor <red>can-not be overloaded</red>.<br></br>
+            - The destructor is the only one way to destroy the <red>object</red> created by the constructor. 
+            <br></br>
+            <brown>
+            So the destructor <red>can-not be overloaded</red>.
+            </brown>
+            <br></br>
             - Destructor neither requires any argument nor returns any value.<br></br>
-            - It is automatically called when an object goes out of scope. <br></br>
+            - It is automatically called when an <red>object</red> goes <red>out of scope</red>. <br></br>
             - Destructor release memory space occupied by the <red>objects</red> created by the constructor.<br></br>
-            - In destructor, <red>objects</red> are destroyed in the reverse of an object creation.<br></br>
+            - In destructor, <red>objects</red> are destroyed in the reverse of an <red>object</red> creation.<br></br>
             </blue>
         </destructors>
         <function-overloading>
-            Function overloading is a feature of object-oriented programming where two or more 
-            functions can have the same name but different parameters. <br></br>
-            Function overloading can be considered as an example of a polymorphism feature.<br></br>
+            <red>Function overloading</red> is a feature of <red>object-oriented programming</red> 
+            where two or more 
+            functions can have the <red>same name but different parameters</red>. <br></br><br></br>
+            <red>Function overloading</red> can be considered as an example of a <red>polymorphism</red> 
+            feature.
             <br></br><br></br>
-            If multiple functions having same name but parameters of the functions should be different is 
-            known as Function Overloading.<br></br>
+            Multiple <red>functions</red> having same name but <red>different parameters</red> is 
+            known as <red>function overloading</red>.<br></br>
             If we have to perform only one operation and having same name of the functions increases 
             the readability of the program.<br></br><br></br>
+            <brown>
             Overloaded functions can be defined both outside and inside classes.<br></br>
+            </brown>
         </function-overloading>
         <operator-overloading>
             Operator overloading is a compile-time polymorphism. <br></br>
