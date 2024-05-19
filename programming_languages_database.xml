@@ -6410,8 +6410,11 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             <br></br>
         </oop>
         <reflection>
-            <blue>Reflection<blue> allows the <blue>inspection</blue> of <blue>meta data</blue>, 
-            <blue>assemblies</blue>, <blue>modules</blue> and <blue>type</blue>. 
+            *General-Programming-Knowledge*
+            <br></br>
+            <blue>Reflection</blue> allows the <blue>inspection</blue> of <blue>meta data</blue>, 
+            <blue>assemblies</blue>, <blue>modules</blue> and <blue>type</blue>.
+            <br></br><br></br>
             If the <red>object</red> is <red>derived</red> from a <red>base class</red> than
             <blue>reflection</blue> can also <blue>inspect</blue> the <red>parent/base class</red> data.
 <code>
