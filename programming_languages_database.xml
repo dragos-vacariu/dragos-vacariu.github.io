@@ -1217,7 +1217,8 @@ int main()
             <green>
                 Recursion vs Loops:
             </green>
-            Using the loop: the code is <blue>easier to read and understand</blue> 
+            <br></br><br></br>
+            <red>Using the loop:</red> the code is <blue>easier to read and understand</blue> 
             (reading code is always a lot harder than writing it), and <red>loops are 
             generally faster</red>.
             <br></br><br></br>
