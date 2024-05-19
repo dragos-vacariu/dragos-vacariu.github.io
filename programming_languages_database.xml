@@ -7061,7 +7061,26 @@ console.log(currentDirection);
 currentDirection = 'North'; // Error: "North" is not assignable to type 'CardinalDirections'.
 </code>
         </enums>
-        <constructors>*General-Programming-Knowledge*</constructors>
+        <constructors>
+            *General-Programming-Knowledge*
+            <green></green>
+            A <blue>constructor</blue> is a special function that creates and initializes an 
+            <blue>object instance</blue> of a class. 
+            <br></br><br></br>
+            In JavaScript, a <blue>constructor</blue> gets called when an <blue>object</blie> 
+            is created using the <code>new</code> keyword.
+<code>
+//Example of constructor in JavaScript:
+
+function User (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var user1 = new User('Bob', 25);
+var user2 = new User('Alice', 27);
+</code>
+        </constructors>
         <instantiation>*General-Programming-Knowledge*</instantiation>
         <destructors>*General-Programming-Knowledge*</destructors>
         <function-overloading>*General-Programming-Knowledge*
