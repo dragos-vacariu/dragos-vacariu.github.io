@@ -7426,7 +7426,8 @@ if (implementsInterface(myObject, MyInterface)) {
 </code>
         </interfaces>
         <random-generators>*General-Programming-Knowledge*<br></br>
-            Generate a random whole number between 1 and 10 (inclusive):
+            <br></br>
+            Generate a random whole number between <blue>1</blue> and <blue>10</blue> (inclusive):
             <br></br><br></br>
 <code>
 //Example of generating random numbers in JavaScript:
@@ -7460,7 +7461,7 @@ function Funct()
     /*
     Ternary operator is also called the short if, and has the same functionality 
     as an if statement, the only difference is that ternary operator sythax is shorter, 
-    and yet harder to be read, that way is much better to use if else statements instead.
+    and yet harder to be read, in that regard it's better to use if else statements.
     */
 
     //using switch()
@@ -7492,13 +7493,8 @@ function Funct()
 }
 </code>
         </ternary-operator>
-        <modular-programming>*General-Programming-Knowledge*
-            Minification of Javascript consists in reducing the amount of JavaScript files used in a webpage as well as reducing
-            the size of each file, in order to optimize the server amount of requests from the client machine.
-            <br></br><br></br>
-            Instead of using 4 JavaScript files, it will be used a single file, and instead of arranging the code in that file to
-            be readable, it will be arranged in such a way that the size will be reduced by removing unnecessary characters such used
-            spaces, newline characters and comments.
+        <modular-programming>
+            *General-Programming-Knowledge*
         </modular-programming>
         <string-methods>*General-Programming-Knowledge*
 <code>
@@ -7561,6 +7557,17 @@ a-b will result -10, becausse the string a will be automatically converted to a 
 </code>
         </operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+        <minification>
+            Minification of Javascript consists in <red>reducing the amount</red> of JavaScript 
+            <blue>files</blue> used in a webpage as well as <red>reducing the size</red> of 
+            each <blue>files</blue>, in order to optimize the server amount of requests from 
+            the client machine.
+            <br></br><br></br>
+            Example: Instead of using 4 JavaScript files, it will be used a single file, 
+            and instead of arranging the code in that file to be readable, it will be arranged in
+            such a way that the <red>size will be reduced</red> by removing unnecessary 
+            characters such used spaces, newline characters and comments.
+        </minification>
         <recursion>
             *General-Programming-Knowledge*
 <code>
