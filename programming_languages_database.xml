@@ -7246,15 +7246,13 @@ Another example of creating a namespace:
 */
 </code>
         </namespaces>
-        <exception-handling>*General-Programming-Knowledge*
+        <exception-handling>
+            *General-Programming-Knowledge*
 <code>
-/*
-Exceptions handling can be used to handle runtime errors:
+//Example of exception handling in JavaScript:
 
-try/catch blocks can catch exceptions but not syntax errors.
-*/
-
-try{
+try
+{
     //The code that can produce exception will be put here:
     document.write(sayHello()); //calling undefined function will cause an exception;
     
@@ -7273,12 +7271,6 @@ finally //this will be executed no matter what.
     document.write("&lt;br&gt;Finished. &lt;br&gt;");
 }
 
-//This line will create an execution error and because it's not caught the script execution will crash.
-//document.write(sayHello()); //calling undefined function;
-//document.write("Nothing happens here. Since the script crashed because of the error above.");
-
-
-
 //Throwing customized exceptions:
 
 function Fraction(a,b)
@@ -7287,14 +7279,17 @@ function Fraction(a,b)
     {
         if (b==0)
         {
-            throw { //creating a custom exception.
+            throw 
+            { 
+                //creating a custom exception.
                 //Completing the exception properties:
                 
                 error: "Divide by zero error." ,  //here is coma not semicolon
                 message: "Denominator cannot be ZERO."
             }
         }
-        else{
+        else
+        {
             return a/b;
         }
     }
@@ -7312,13 +7307,19 @@ document.write("&lt;br&gt;The result a/b is: " + Fraction(a,b) + "&lt;br&gt;");
 
 
 //Using window.onerror for handling errors:
+
 /*
-Once the window.onerror is initialized with a function which takes 3 arguments: msg, url, line. Any error
-that will occur will execute that code.
+Once the window.onerror is initialized with a function which takes 3 arguments: 
+msg, url, line. 
+
+Any error that will occur will execute that code.
 */
 
-window.onerror = function (msg, url, line){
-    //This code will be executed each time an error occur, without the need of try/catch blocks.
+window.onerror = function (msg, url, line)
+{
+    //This code will be executed each time an error occur
+    //without the need of try/catch blocks.
+    
     alert("Message: " + msg + "\nURL: " + url + "\nLine: " + line);
     return true;
 }
@@ -7327,15 +7328,17 @@ window.onerror = function (msg, url, line){
 UndefinedFunction();
 
 /*
-window.onerror is not displayed if it's places in a try/catch block, instead of that the try/catch will
-handle it by itself.
+window.onerror is not displayed if it's places in a try/catch block, 
+instead the try/catch will handle the exception it by itself.
 
 window.onerror is raised only when there is an unhandled exception.
 */
 
 //Handling an html element error:
-function ImageErrorHandler() //this function will be executed when the html image will have an error.
+function ImageErrorHandler() 
 {
+    //this function will be executed when the html image will have an error.
+    
     alert("The image is not present.");
 }
 </code>
