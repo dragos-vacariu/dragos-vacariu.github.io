@@ -6806,6 +6806,7 @@ and function A () {} is different from function a() {};
             TypeScript is a free and open-source <blue>high-level</blue> programming language developed by 
             Microsoft that adds <blue>static typing</blue> with optional type annotations to JavaScript.
             <br></br>
+            Example of using TypeScript data-types:
 <code>
 //String data-type:
 var name:string = "John";
