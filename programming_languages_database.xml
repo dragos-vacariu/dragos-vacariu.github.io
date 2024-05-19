@@ -6269,13 +6269,13 @@ namespace project32_abstract_classes
             </blue>
             <br></br>
             The objects can be classifed in 2 categories:<br></br>
-            </blue>
+            <blue>
             - standard built-in objects;<br></br>
             - custom objects;<br></br>
             </blue>
             <br></br>
-            In Javascript the concept called of <blue>"class"</blue> is different, so objects are not built 
-            based on <blue>classes</blue> alone, but based on <red>functions</red> or 
+            In Javascript the concept called of <blue>"class"</blue> is different, so objects are 
+            not built based on <blue>classes</blue> alone, but based on <red>functions</red> or 
             <red>literal notations</red> (or <red>singletons</red>).
             <br></br>
 <code>
