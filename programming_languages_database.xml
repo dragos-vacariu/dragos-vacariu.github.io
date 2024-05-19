@@ -6800,12 +6800,12 @@ this means that var A is different from var a;
 and function A () {} is different from function a() {};
 */
 </code>
-            In order to add <blue>static typing</blue> so that JavaScript can work with data types,
-            the TypeScript was introduced. 
+            In order to add <blue>static typing</blue> so that JavaScript can work with 
+            <blue>data types</blue>, the TypeScript was introduced. 
             <br></br><br></br>
             TypeScript is a free and open-source <blue>high-level</blue> programming language developed by 
             Microsoft that adds <blue>static typing</blue> with optional type annotations to JavaScript.
-            <br></br>
+            <br></br><br></br>
             Example of using TypeScript data-types:
 <code>
 //String data-type:
