@@ -6789,7 +6789,7 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
             <red>Abstract object constructors</red> are those <red>constructors</red> that 
             cannot be <blue>instantiated</blue>. That means that no <red>object</red> can be 
             created out of them. 
-            The purpose of using such constructors is to provide <red>inheritance</red> 
+            The purpose of using such <red>constructors</red> is to provide <red>inheritance</red> 
             to other prototypes. 
             <br></br><br></br>
             In this way the functionality can be shared amongst the <red>objects</red> without 
@@ -6798,7 +6798,7 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
             To block a constructor from being <blue>instantiated</blue>, an error will be 
             thrown in such case.
 <code>
-
+//Example of abstraction
 
 function House ()
 {
@@ -6829,6 +6829,7 @@ function Home(pn)
 //Creating the inheritance:
 
 //House is gonna be the base class for Home constructor
+
 Home.prototype = Object.create(House.prototype); 
 
 /*
