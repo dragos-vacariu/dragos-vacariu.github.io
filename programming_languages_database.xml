@@ -7835,18 +7835,21 @@ g('GFG');
     <programming_language>
         <name>Java</name>
         <description>
-            Java is a high-level, class-based, object-oriented programming language that is 
-            designed to have as few implementation dependencies as possible.<br></br><br></br>
-            It is a general-purpose programming language intended to let programmers write once, 
+            Java is a <blue>high-level</blue>, <blue>class-based</blue>, <blue>object-oriented</blue> 
+            programming language that is 
+            designed to have as few implementation <blue>dependencies</blue> as possible.<br></br><br></br>
+            It is a <blue>general-purpose</blue> programming language intended to let 
+            programmers write once, 
             run anywhere meaning that compiled Java code can run on all platforms that support 
             Java without the need to recompile. <br></br><br></br>
             
-            Java applications are typically compiled to bytecode that can run on any 
+            Java applications are typically compiled to <blue>bytecode</blue> that can run on any 
             Java virtual machine (JVM) regardless of the 
             underlying computer architecture. The syntax of Java is similar to C and C++, 
-            but has fewer low-level facilities than either of them. The Java runtime provides 
-            dynamic capabilities (such as reflection and runtime code modification) that are 
-            typically not available in traditional compiled languages.
+            but has fewer <blue>low-level facilities</bluw> than either of them. 
+            The Java runtime provides 
+            <blue>dynamic capabilities</blue> (such as <blue>reflection</blue> and runtime code 
+            modification) that are typically not available in traditional compiled languages.
         </description>
         <oop>*General-Programming-Knowledge*</oop>
         <encapsulation>*General-Programming-Knowledge*
