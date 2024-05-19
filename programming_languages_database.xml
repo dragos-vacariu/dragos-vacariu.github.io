@@ -6940,11 +6940,12 @@ array1.forEach((element) => console.log(element));
             <br></br>
             <green>In JavaScript:</green>
             <br></br><br></br>
-            An <code>array</code> is a collection of variables which can take 
-            any type of values. A JavaScript Array is much like a <blue>Vector</blue> or a <blue>List</blue>, 
+            An <red>array</red> is a collection of variables which can take 
+            any type of values. A JavaScript <red>Array</red> is much like a 
+            <blue>Vector</blue> or a <blue>List</blue>, 
             being <red>dynamic in length</red> (resizeable).
             <br></br><br></br>
-            For example: an array could store both <blue>strings</blue> and 
+            For example: an <red>array</red> could store both <blue>strings</blue> and 
             <blue>integer</blue> values in it.
             <br></br>
 <code>
@@ -6987,7 +6988,7 @@ So, you cannot create and initialize an array with a single element, using this 
              - mutator methods;<br></br>
              - non-mutator methods;<br></br>
             </blue>
-            <br></br><br></br>
+            <br></br>
             A <blue>mutator method</blue> is a method that change or modify the <red>array object</red>
             (in size or content).
             <br></br><br></br>
@@ -7027,7 +7028,9 @@ The original array will not be modified.
 It can be used for adding or removing a group of item after the specified index. 
 
 Non-mutator methods:
-.contains() - This method returns a boolean value specifying if the searched value is present in the array or not.
+.contains() - This method returns a boolean value specifying whether the searched value 
+is present in the array or not.
+
 .lastIndexOf() - This method returns the position of the last occurrence of a specified value.
 .indexOf() - This method returns the position of the first occurrence of a specified value.
 
