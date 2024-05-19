@@ -6275,18 +6275,18 @@ namespace project32_abstract_classes
             </blue>
             <br></br>
             In Javascript the concept called of <blue>"class"</blue> is different, so objects are 
-            not built based on <blue>classes</blue> alone, but based on <red>functions</red> or 
+            not built based on <blue>classes</blue> alone, but also based on <red>functions</red> or 
             <red>literal notations</red> (or <red>singletons</red>).
             <br></br>
 <code>
 //Example of creating objects in JavaScript:
 
-//Creating an object using an Object Constructor function:
+//Creating an object using an function as Object Constructor:
 
 function Employee (firstName, lastName) //This will be the constructor;
 {
-    this.firstName=firstName;
-    this.LastName=lastName;
+    this.firstName = firstName;
+    this.LastName = lastName;
     
     //This is an object method:
     this.getFullName = function () {
@@ -6300,6 +6300,26 @@ var emp = new Employee("Alan", "Walker");
 document.write("First Name: " + emp.firstName + "&lt;br&gt;");
 document.write("Last Name: " + emp.LastName + "&lt;br&gt;");
 document.write("Full Name: " + emp.getFullName() + "&lt;br&gt;");
+
+//Creating a class with Object Constructor:
+class Student
+{
+
+    constructor(firstName, lastName)
+    {
+        this.firstName = firstName;
+        this.LastName = lastName;
+    }
+    getFullName() 
+    {
+        return this.firstName + " " + this.LastName;
+    }
+}
+
+var stud = new Student("Alan", "Walker");
+document.write("First Name: " + stud.firstName + "&lt;br&gt;");
+document.write("Last Name: " + stud.LastName + "&lt;br&gt;");
+document.write("Full Name: " + stud.getFullName() + "&lt;br&gt;");
 
 //Creating an object using a Variable/Literal Notation or Singleton:
 
@@ -6324,7 +6344,6 @@ var objct = { //in this case we already create an object/instance.
 document.write("&lt;br&gt;First Name: " + objct.firstName + "&lt;br&gt;");
 document.write("Last Name: " + objct.lastName + "&lt;br&gt;");
 document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
-
 
 </code>
             <br></br><br></br>
