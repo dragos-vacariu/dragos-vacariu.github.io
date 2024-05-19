@@ -7067,7 +7067,7 @@ currentDirection = 'North'; // Error: "North" is not assignable to type 'Cardina
             A <blue>constructor</blue> is a special function that creates and initializes an 
             <blue>object instance</blue> of a class. 
             <br></br><br></br>
-            In JavaScript, a <blue>constructor</blue> gets called when an <blue>object</blie> 
+            In JavaScript, a <blue>constructor</blue> gets called when an <blue>object</blue> 
             is created using the <code>new</code> keyword.
 <code>
 //Example of constructor in JavaScript:
@@ -7167,14 +7167,16 @@ var alert = function(msg)
         <multi-threading>
             *General-Programming-Knowledge*
             <br></br><br></br>
-            <green>Multithreading in JavaScript</green>
+            <green>Multithreading in JavaScript:</green>
             <br></br><br></br>
             JavaScript is a <blue>single-threaded language</blue> which means it <red>does 
             not support multithreading</red>. <br></br>
             <br></br>
-            All the operations in JavaScript are non-blocking and are executed in the event loop. <br></br>
-            This <blue>single-threaded</blue> nature along with <red>event loop</red> allows JavaScript to 
-            handle <red>concurrent</red> operations at once.<br></br>
+            All the operations in JavaScript are non-blocking and are executed in the event loop. 
+            <br></br>
+            This <blue>single-threaded</blue> nature along with <red>event loop</red> allows 
+            JavaScript to handle <red>concurrent</red> operations at once.
+            <br></br>
         </multi-threading>
         <namespaces>*General-Programming-Knowledge*
 <code>
