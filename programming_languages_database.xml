@@ -6281,7 +6281,7 @@ namespace project32_abstract_classes
 <code>
 //Example of creating objects in JavaScript:
 
-//Creating an object using a function:
+//Creating an object using an Object Constructor function:
 
 function Employee (firstName, lastName) //This will be the constructor;
 {
@@ -6301,15 +6301,17 @@ document.write("First Name: " + emp.firstName + "&lt;br&gt;");
 document.write("Last Name: " + emp.LastName + "&lt;br&gt;");
 document.write("Full Name: " + emp.getFullName() + "&lt;br&gt;");
 
-//Creating an object using a variable/literal notation or singleton:
+//Creating an object using a Variable/Literal Notation or Singleton:
 
 var objct = { //in this case we already create an object/instance.
 
     //Here we are now describing the functionality of the object:
 
-    // In this case instead of equal sign for assignment we use colon operator and coma afterwards;
+    // In this case instead of equal sign for assignment 
+    //we use colon operator and coma afterwards;
+    
     firstName: "Alan", 
-     lastName: "Walker",
+    lastName: "Walker",
     
     getFullName: function ()
     {
@@ -6317,7 +6319,7 @@ var objct = { //in this case we already create an object/instance.
     }
 } 
 
-//Displaying the information about this object:
+//Displaying the information about this objct:
 
 document.write("&lt;br&gt;First Name: " + objct.firstName + "&lt;br&gt;");
 document.write("Last Name: " + objct.lastName + "&lt;br&gt;");
@@ -6352,7 +6354,7 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             Whereas this is not the case using <blue>constructor objects</blue>.
             <br></br><br></br>
             <green>
-            When to use Object Constructor or Object Literal:
+            When to use Object Constructor or Object Literal/Singleton:
             </green>
             <br></br><br></br>
             When multiple <red>instances</red> of an <red>object</red> are needed the <blue>object contructor</blue> will be used.
