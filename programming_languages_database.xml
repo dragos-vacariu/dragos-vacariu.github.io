@@ -30,6 +30,16 @@
             You should extract out the codes that are common for the application, 
             and place them at a single place and reuse them instead of repeating it.
             </red>
+            <br></br><br></br>
+            Typically an <blue>object-oriented</blue> programming language 
+            have <blue>4 fundamental concepts</blue>:
+            <br></br><br></br>
+            <blue>
+            1. Inheritance<br></br>
+            2. Polymorphism<br></br>
+            3. Encapsulation<br></br>
+            4. Abstraction<br></br>
+            </blue>
             <br></br>
         </oop>
         <encapsulation>
@@ -1256,7 +1266,7 @@ int main()
             exit statement in order to stop the recursion and to avoid <blue>infinite looping</blue> 
             and <blue>stack overflow</blue>.
             <br></br> <br></br> 
-            <green>Stack overflow</green>
+            <green>Stack overflow:</green>
             <br></br> <br></br> 
             <blue>Stack overflow</blue> is a <red>type of buffer overflow error</red> 
             which occurs when the <blue>stack memory</blue> gets exhausted and the computer program 
@@ -6344,16 +6354,6 @@ namespace project32_abstract_classes
             OOP in JavaScript:
             </green>
             <br></br><br></br>
-            JavaScript is an <blue>object-oriented</blue> programming language, 
-            having the <blue>4 concepts</blue> that any <blue>OOP</blue> language has:
-            <br></br><br></br>
-            <blue>
-            1. Inheritance<br></br>
-            2. Polymorphism<br></br>
-            3. Encapsulation<br></br>
-            4. Abstraction<br></br>
-            </blue>
-            <br></br>
             The objects can be classifed in <blue>2</blue> categories:<br></br>
             <blue>
             - standard built-in objects;<br></br>
@@ -7359,8 +7359,6 @@ Another example of creating a namespace:
         bar: function() {
         }
     };
-
-    ...
 
     yourNamespace.foo();
 */
