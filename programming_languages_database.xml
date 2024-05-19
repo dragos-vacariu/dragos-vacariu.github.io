@@ -59,6 +59,7 @@
             <blue>original</blue> one.
             <br></br><br></br>
             <green>There are several fundamentally different kinds of polymorphism:</green>
+            <br></br><br></br>
             <blue>Ad hoc polymorphism:</blue> when a function has different implementations 
             depending on a <red>limited range</red> of <blue>individually specified types</blue> 
             and combinations. 
@@ -70,7 +71,8 @@
             mention of any <red>specific type</red> and thus can be used transparently with any 
             number of <red>new types</red>. 
             In the <red>object-oriented</red> programming community, this is often known as 
-            <red>generics</red> or <blue>generic programming</blue>. 
+            <red>generics</red> or <blue>generic programming</blue>.
+            <br></br>
             In the <blue>functional programming</blue> community, 
             this is often shortened to <blue>polymorphism</blue>. 
             <br></br><br></br>
@@ -6620,6 +6622,7 @@ var collection = [new Shape(), new Circle(), new Square()];
 
 //Iterating through the collection using foreach loop:
 collection.forEach(function (shape) {
+
     document.write(shape.draw() + "&lt;br&gt;");
     
     //Expected result every object calls it's own implementation.
