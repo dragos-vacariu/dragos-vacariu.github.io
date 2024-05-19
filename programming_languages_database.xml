@@ -5898,6 +5898,7 @@ namespace project47_partial_classes
     {
         private string _Name;
         private int _Age;
+        
         public int Age
         {
             get {
@@ -5908,6 +5909,7 @@ namespace project47_partial_classes
                 _Age=value;
             }
         }
+        
         public string Name
         {
             get {
@@ -5918,6 +5920,7 @@ namespace project47_partial_classes
                 _Name=value;
             }
         }
+        
         //THE SECOND PART OF THE CLASS IS IN THE ASSEMBLY DIRECTORY (PROJECT DIRECTORY), 
         //WITH THE NAME PartialClassPartTwo, AND CONTAINS A METHOD CALLED PrintInfo().
     }
