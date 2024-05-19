@@ -6896,8 +6896,27 @@ class Shape {
 } 
 </code>
         </simple-data-types>
-        <loops>*General-Programming-Knowledge*
-       
+        <loops>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>
+            JavaScript also provides a forEach() function.
+            </green>
+            <br></br><br></br>
+            The <code>forEach()</code> method of Array instances executes a provided function once 
+            for each array element.
+            <br></br>
+<code>
+//Example of foreach loop in JavaScript
+const array1 = ['a', 'b', 'c'];
+
+array1.forEach((element) => console.log(element));
+
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+
+</code>
         </loops>
         <collections>*General-Programming-Knowledge*</collections>
         <collection-methods>*General-Programming-Knowledge*
