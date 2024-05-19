@@ -7559,14 +7559,15 @@ result = string1.lastIndexOf(b);
 
 </code>
         </string-methods>
-        <datatype-conversions>*General-Programming-Knowledge*
-            <br></br><br></br>
-            JavaScript variables can be converted to a new variable and another data type - 
-            the following functions can help with that: <br></br><br></br>
-            Number()        Returns a number, converted from its argument<br></br>
-            parseFloat()    Parses a string and returns a floating point number<br></br>
-            parseInt()        Parses a string and returns an integer<br></br>
-            String()        Converts to string<br></br>
+        <datatype-conversions>
+            *General-Programming-Knowledge*
+            <br></br>
+            JavaScript variables can be converted to different <blue>data types</blue> by using the 
+            following functions: <br></br><br></br>
+            <code>Number()</code> - Returns a number, converted from its argument<br></br>
+            <code>parseFloat()</code> - Parses a string and returns a floating point number<br></br>
+            <code>parseInt()</code> - Parses a string and returns an integer<br></br>
+            <code>String()</code>  - Converts to string<br></br>
         </datatype-conversions>
         <operators>*General-Programming-Knowledge*
 <code>
