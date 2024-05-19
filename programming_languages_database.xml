@@ -1832,6 +1832,8 @@ int main()
 </code>
         </modular-programming>
         <string-methods>
+            *General-Programming-Knowledge*
+            <br></br>
             C has many useful string functions, which can be used to perform certain operations 
             on strings.<br></br><br></br>
             To use them, you must include the <code>&lt;string.h&gt;</code> header file in your program.
@@ -3695,6 +3697,8 @@ class vectors_of_objects_class
 </code>
         </modular-programming>
         <string-methods>
+            *General-Programming-Knowledge*
+            <br></br>
             The <code>std::string</code> is a <code>class</code> in <red>C++ since C++98</red>. 
             <br></br>
             This <code>class</code> is the standard 
@@ -5574,6 +5578,7 @@ namespace ProjectA.TeamB
 </code>
         </modular-programming>
         <string-methods>
+            *General-Programming-Knowledge*
             <br></br>
              A <code>stringbuilder</code> is a <red>data type</red> just like <code>string</code>. 
              <br></br><br></br>
