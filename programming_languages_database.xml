@@ -7266,10 +7266,10 @@ var user1 = new User('Bob', 25);
              will <red>replace</red> the <blue>function</blue> 
              declared <red>sooner</red>, in the <blue>global namespace</blue>. 
              <br></br><br></br>
-             This process is called namespace <blue>pollution</blue> (or <blue>name collision</blue>). 
+             This process is called <blue>namespace pollution</blue> (or <blue>name collision</blue>). 
              <br></br><br></br>
-             Also if the scripts are written in different files, the <blue>file</blue> 
-             which is loaded <red>last</red> will <red>replace</red> the <blue>function</blue> 
+             Also if the scripts are written in different <blue>files</blue>, the <blue>file</blue> 
+             which is <red>loaded last</red> will <red>replace</red> the <blue>function</blue> 
              declared into the <blue>file</blue> which was <red>loaded first</red>.
              <br></br>
 <code>
@@ -7286,6 +7286,7 @@ function PrintSomething(a) //this function will replace the first function decla
 }
 
 PrintSomething(5);
+
 //OUTPUT:
 //This is the second function.
 </code>
@@ -7323,10 +7324,11 @@ PrintSomething(5);
             The <blue>global namespace</blue> in JavaScript can be accessed using <code>window.Object</code> 
             - where <red>Object</red> is an item in the <blue>global namespace</blue> <red>"window"</red>.
 <code>
-//Creating a namespace;
+//Example of creating a namespace in JavaScript:
 
-//Create a variable named NameSpace if such an object already exists, than my variable will
-//take its value, otherwise my variable will be an empty object {};
+//Create a variable named NameSpace 
+//if such an object already exists, than my variable will take its value,
+//otherwise my variable will be an empty object {};
 var NameSpace = NameSpace || {} 
 
 //Creating a nested namespace/object;
