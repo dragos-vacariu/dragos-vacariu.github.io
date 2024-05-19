@@ -1173,6 +1173,48 @@ int main()
             software</blue> via <code>public classes</code> and <code>interfaces</code>.
             <br></br> 
         </inheritance>
+        <recursion>
+            <blue>Recursion</blue> is a programming concept available to all programming languages.
+            <br></br> <br></br> 
+            <blue>Recursion</blue> is achieved by using <red>recursive functions</red>.
+            <br></br> <br></br> 
+            A <red>recursive function</red> is a function that calls itself.
+            <br></br> <br></br> 
+            <blue>Recursion</blue> is a concept where the solution to a problem depends on 
+            solutions to smaller instances of the same problem (as opposed to iteration).
+            <br></br> 
+            <red>
+            Example: 5! = (4!*5) = (3! * 4 * 5) = (2! *3 *4 *5) etc.
+            </red>
+            <br></br> <br></br> 
+            A <red>recursive function</red> needs to have a <blue>condition</blue> or 
+            exit statement in order to stop the recursion and to avoid <blue>infinite looping</blue> 
+            and <blue>stack overflow</blue>.
+            <br></br> <br></br> 
+            <green>Stack overflow</green>
+            <br></br> <br></br> 
+            <blue>Stack overflow</blue> is a <red>type of buffer overflow error</red> 
+            which occurs when the <blue>stack memory</blue> gets exhausted and the computer program 
+            still tries to use more <red>memory space</red>. 
+            <br></br> <br></br> 
+            All <blue>local variables</blue> are stored in the <blue>stack memory</blue>. 
+            Every <blue>function</blue> has it's own stack, once the <blue>function</blue> ends 
+            the <blue>stack</blue> is empties and everything stored is lost 
+            (<blue>local variables die</blue>).
+            <br></br> <br></br> 
+            The <blue>overall stack memory</blue> allocated by the program is only few megabytes. 
+            That's why in some programming languages we need to make use of 
+            <blue>dynamic memory allocation</blue>. 
+            <br></br> <br></br> 
+            <blue>Dynamic memory-allocation</blue> allows using the rest of the RAM memory, 
+            and enables 
+            using <blue>global variables</blue>, or <red>variables</red> stored in <red>heap</red> 
+            (<red>variables</red> that don't die).
+            These <red>variables</red> live through the lifetime of the program or can be 
+            <red>deallocated</red>
+            when no longer needed. 
+            <br></br> 
+        </recursion>
     </programming_language>
     
     <programming_language>
@@ -1927,6 +1969,9 @@ int main()
 }
 </code>
         </pre-post-incrementation>
+        <recursion>
+            *General-Programming-Knowledge*
+        </recursion>
     </programming_language>
     
     <programming_language>
@@ -3745,6 +3790,9 @@ int main()
         </decorators>
         <operators>*General-Programming-Knowledge*</operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+        <recursion>
+            *General-Programming-Knowledge*
+        </recursion>
     </programming_language>
     
     <programming_language>
@@ -6130,6 +6178,9 @@ namespace project32_abstract_classes
 }
 </code>
         </abstract-classes>
+        <recursion>
+            *General-Programming-Knowledge*
+        </recursion>
     </programming_language>
     
     <programming_language>
@@ -6846,76 +6897,7 @@ class Shape {
 </code>
         </simple-data-types>
         <loops>*General-Programming-Knowledge*
-<code>
-/*Recursion is a programming concept available to all programming languages including JavaScript.
-
-A recursive function, is a function that calls itself.
-A recursive function needs to have a condition or break statement in order to stop the recursion and 
-to avoid infinite loops and stack overflow.
-
-Recursion is a method where the solution to a problem depends on solutions to smaller instances 
-of the same problem (as opposed to iteration). Example: 5! = (4!*5) = (3! * 4 * 5) = (2! *3 *4 *5) etc.
-*/
-
-function RecursiveFunc(num)
-{
-    if (num &lt;= 1)
-    {
-        return 1;
-    }
-    else
-    {
-        return num * RecursiveFunc(num-1);
-        //This will be equivalent to n* n-1* n-2* n-3* ...... *1; when it reaches 
-        //1 all the functions will end
-        
-    }
-    
-    /*
-    Using the loop the whole code above is equivalent to:
-        var result=1;
-        while(num > 1)
-        {
-            result*=num;
-            num-=1;
-        }
-    */
-};
-
-document.write("This was a recursive function: " + RecursiveFunc(5) + "&lt;br&gt;");
-
-/*
-Recursion vs Loops:
-
-Use the loop. It's easier to read and understand (reading code is always a lot harder than writing it), 
-and is generally a lot faster.
-
-Recursion is useful when it is the natural way of viewing the problem, but you must be sure that there 
-is a manageable number of stack frames involved. A stack frame is a bunch of memory assigned to the stack 
-memory when a function is called, if the stack frames exceeds the stack memory capacity, the stack overflow
-error will terminate the program.
-*/
-
-document.write("&lt;br&gt;With Loops&lt;br&gt;");
-var i;
-for(i=0;i&lt;10;i++)
-    document.write(i+" ");
-    
-//The equivalent recursive function is:
-
-document.write("&lt;br&gt;With Recursion&lt;br&gt;");
-
-function Rec(a)
-{
-    if(a&lt;10)
-    {
-        document.write(a + " ");
-        Rec(a+1);
-    }
-};
-
-Rec(0);
-</code>        
+       
         </loops>
         <collections>*General-Programming-Knowledge*</collections>
         <collection-methods>*General-Programming-Knowledge*
@@ -7393,6 +7375,71 @@ a-b will result -10, becausse the string a will be automatically converted to a 
 </code>
         </operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+        <recursion>
+            *General-Programming-Knowledge*
+<code>
+//Example of using recursion in JavaScript
+
+function RecursiveFunc(num)
+{
+    if (num &lt;= 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return num * RecursiveFunc(num-1);
+        //This will be equivalent to n* n-1* n-2* n-3* ...... *1; when it reaches 
+        //1 all the functions will end
+        
+    }
+    
+    /*
+    Using the loop the whole code above is equivalent to:
+        var result=1;
+        while(num > 1)
+        {
+            result*=num;
+            num-=1;
+        }
+    */
+};
+
+document.write("This was a recursive function: " + RecursiveFunc(5) + "&lt;br&gt;");
+
+/*
+Recursion vs Loops:
+
+Use the loop. It's easier to read and understand (reading code is always a lot harder than writing it), 
+and is generally a lot faster.
+
+Recursion is useful when it is the natural way of viewing the problem, but you must be sure that there 
+is a manageable number of stack frames involved. A stack frame is a bunch of memory assigned to the stack 
+memory when a function is called, if the stack frames exceeds the stack memory capacity, the stack overflow
+error will terminate the program.
+*/
+
+document.write("&lt;br&gt;With Loops&lt;br&gt;");
+var i;
+for(i=0;i&lt;10;i++)
+    document.write(i+" ");
+    
+//The equivalent recursive function is:
+
+document.write("&lt;br&gt;With Recursion&lt;br&gt;");
+
+function Rec(a)
+{
+    if(a&lt;10)
+    {
+        document.write(a + " ");
+        Rec(a+1);
+    }
+};
+
+Rec(0);
+</code>
+        </recursion>
     </programming_language>
     
     <programming_language>
@@ -8787,6 +8834,9 @@ public class Project3 {
         <decorators>*General-Programming-Knowledge*</decorators>
         <operators>*General-Programming-Knowledge*</operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+        <recursion>
+            *General-Programming-Knowledge*
+        </recursion>>
     </programming_language>
     
     <programming_language>
@@ -10475,6 +10525,9 @@ input("\nPress any key to exit: ")
 #\d{3,5}    Match 3, 4, or 5 digits
 </code>        
         </regular-expressions>
+        <recursion>
+            *General-Programming-Knowledge*
+        </recursion>
     </programming_language>
     
 </content>
