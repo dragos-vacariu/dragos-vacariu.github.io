@@ -79,6 +79,8 @@
             <blue>Subtyping</blue> (also called <blue>subtype polymorphism</blue> or 
             <blue>inclusion polymorphism</blue>): when a name <blue>denotes instances</blue> of 
             many different <red>classes</red> related by some common <red>superclass</red>.
+            <br></br><br></br>
+            <blue>Polymorphism</blue> is one of the <red>4 OOP fundamental concepts</red>.
             <br></br>
         </polymorphism>
         <simple-data-types>
