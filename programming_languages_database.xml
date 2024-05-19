@@ -52,10 +52,10 @@
             <red>object types</red> which are <red>inherited</red> from the same 
             <red>base class</red>. 
             <br></br><br></br>
-            A <blue>polymorphic type<blue> is one whose <red>operations</red> can also be 
+            A <blue>polymorphic type</blue> is one whose <red>operations</red> can also be 
             applied to values of some other <red>type</red>, or <red>types</red>. 
-            When calling a <red>virtual</red> function from any <red>derived
-            class</red> the <red>overrided method</red> will be invoked not the 
+            When calling a <red>virtual</red> function from any 
+            <red>derived class</red> the <red>overrided method</red> will be invoked not the 
             <blue>original</blue> one.
             <br></br><br></br>
             <green>There are several fundamentally different kinds of polymorphism:</green>
