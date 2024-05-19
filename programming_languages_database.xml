@@ -7379,6 +7379,7 @@ myFunction(2,3,4,5);
         </default-parameters>
         <interfaces>
             *General-Programming-Knowledge*
+            <br></br>
             In JavaScript, an <red>interface</red> can be thought of as a set of 
             <blue>method signatures</blue> that a <red>class</red> must implement.
             <br></br><br></br>
@@ -7391,6 +7392,7 @@ const MyInterface = {
     method1: function () { },
     method2: function (param1, param2) { },
 };
+
 class MyClass {
     method1() {
         console.log("Method 1 called");
@@ -7426,7 +7428,11 @@ if (implementsInterface(myObject, MyInterface)) {
         <random-generators>*General-Programming-Knowledge*<br></br>
             Generate a random whole number between 1 and 10 (inclusive):
             <br></br><br></br>
-            <code>let x = Math.floor((Math.random() * 10) + 1);</code>
+<code>
+//Example of generating random numbers in JavaScript:
+
+let x = Math.floor((Math.random() * 10) + 1);
+</code>
         </random-generators>
         <ternary-operator>*General-Programming-Knowledge*
 <code>
