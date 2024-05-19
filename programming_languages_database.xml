@@ -1129,6 +1129,8 @@ int main()
             implementation</blue> is 
             essential in creating <red>maintainable</red>, <red>scalable</red>, and 
             <red>efficient</red> software systems.
+            <br></br>
+            <blue>Abstraction</blue> is one of the <red>4 OOP fundamental concepts</red>.
         </abstraction>
         <variable-arguments-lists>
             In programming: A <red>function</red> that takes a <red>variable number of arguments</red> 
@@ -1209,7 +1211,9 @@ int main()
             <red>classes</red>, to specify a <blue>new implementation while maintaining the same behaviors</blue> 
             (realizing an interface), <blue>to reuse code</blue> and to <blue>independently extend original 
             software</blue> via <code>public classes</code> and <code>interfaces</code>.
-            <br></br> 
+            <br></br><br></br>
+            <red>Inheritance</red> is one of the <blue>4 OOP fundamental concepts</blue>.
+            <br></br>
         </inheritance>
         <recursion>
             <blue>Recursion</blue> is a programming concept available to all programming languages.
