@@ -7096,7 +7096,8 @@ var user2 = new User('Alice', 27);
         </constructors>
         <instantiation>*General-Programming-Knowledge*</instantiation>
         <destructors>*General-Programming-Knowledge*</destructors>
-        <function-overloading>*General-Programming-Knowledge*
+        <function-overloading>
+            *General-Programming-Knowledge*
 <code>
 /*
 Prototype object of a constructor function it is used for creating static methods or methods 
@@ -7191,7 +7192,8 @@ var alert = function(msg)
             JavaScript to handle <red>concurrent</red> operations at once.
             <br></br>
         </multi-threading>
-        <namespaces>*General-Programming-Knowledge*
+        <namespaces>
+            *General-Programming-Knowledge*
 <code>
 /*
 In JavaScript there is no concept called function overriding. So when creating 2 functions with the same name and different
@@ -7438,7 +7440,8 @@ if (implementsInterface(myObject, MyInterface)) {
 }
 </code>
         </interfaces>
-        <random-generators>*General-Programming-Knowledge*<br></br>
+        <random-generators>
+            *General-Programming-Knowledge*<br></br>
             <br></br>
             Generate a random whole number between <blue>1</blue> and <blue>10</blue> (inclusive):
             <br></br><br></br>
@@ -7448,7 +7451,8 @@ if (implementsInterface(myObject, MyInterface)) {
 let x = Math.floor((Math.random() * 10) + 1);
 </code>
         </random-generators>
-        <ternary-operator>*General-Programming-Knowledge*
+        <ternary-operator>
+            *General-Programming-Knowledge*
 <code>
 //Example of working with ternary operator in JavaScript:
 
@@ -7506,9 +7510,8 @@ function Funct()
 }
 </code>
         </ternary-operator>
-        <modular-programming>
-            *General-Programming-Knowledge*
-        </modular-programming>
+        <modular-programming>*General-Programming-Knowledge*</modular-programming>
+        <optional-parameters>*General-Programming-Knowledge*</optional-parameters>
         <string-methods>
             *General-Programming-Knowledge*
             <br></br>
@@ -7569,7 +7572,8 @@ result = string1.lastIndexOf(b);
             <code>parseInt()</code> - Parses a string and returns an integer<br></br>
             <code>String()</code>  - Converts to string<br></br>
         </datatype-conversions>
-        <operators>*General-Programming-Knowledge*
+        <operators>
+            *General-Programming-Knowledge*
 <code>
 Plus operator:
 var a = 10;
