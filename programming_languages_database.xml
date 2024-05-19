@@ -7882,82 +7882,58 @@ g('GFG');
         <encapsulation>
             *General-Programming-Knowledge*
             <br></br>
+            <green>
+            Java:
+            </green>
+            <br></br><br></br>
             <blue>Encapsulation</blue> in Java is a mechanism of <blue>wrapping</blue> 
             the <red>data</red> (variables) 
             and <red>code</red> acting on the <red>data</red> (<blue>methods</blue>) 
             together as a single unit. 
             <br></br><br></br>
-            In encapsulation, the variables of a <blue>class</blue> will be 
+            In <blue>encapsulation</blue>, the variables of a <blue>class</blue> will be 
             hidden from other <blue>classes</blue>, and can be accessed only through 
             the <blue>methods</blue> of their current <blue>classes</blue>.
             <br></br><br></br>
             Therefore, it is also known as <blue>data hiding</blue>.
             <br></br>
 <code>
-
-//PACKAGE needs to be written before the IMPORTS;
-package project6;
-import java.util.Random;
-import java.util.Scanner;
-
-public class DiceClass 
+//Example of using Encapsulation in Java
+ 
+// Person Class
+class Person 
 {
-    int Faces;
-    int StartingValue;
+    // Encapsulating the name and age
+    // only approachable and used using
+    // methods defined
     
-    //Creating a constructor for the class:
-    
-    //A constructor is like a method/functions that is used
-    //to initialized all the ValueType Variables inside the class. 
-    //A constructor has the same name as the class, and it doesn't need a return type,
-    //because it's not meant to return anything.
-    public DiceClass(int numberOfFaces, int FirstValueOnDie) 
-            
+    private String name;
+    private int age;
+ 
+    public String getName() { return name; }
+ 
+    public void setName(String name) { this.name = name; }
+ 
+    public int getAge() { return age; }
+ 
+    public void setAge(int age) { this.age = age; }
+}
+ 
+public class Main 
+{
+    public static void main(String[] args)
     {
-        Faces = numberOfFaces;
-        StartingValue = FirstValueOnDie;
-    }
-    
-    //Public Functions/Methods:
-    private int RollTheDice()
-    {
-        //Creating a random generator seeded with time (by default);
-        Random newRandomGenerator = new Random(); // seeded by time;
-        
-        //Get a random number between 0 and Faces's Value;
-        int ShownValue = newRandomGenerator.nextInt(Faces);
-        
-        //Increase that value with the StartingValue
-        ShownValue+=StartingValue;
-        
-        //Return the result
-        return ShownValue;
-    }
-    
-    public void PrintTheDieValue()
-    {
-        Scanner myscanner = new Scanner(System.in);
-        String UserInput = "DEFAULT";
-        
-        while(UserInput.toUpperCase().compareTo("X")!=0)
-        {
-            if(UserInput.toUpperCase().compareTo("DEFAULT")!=0 &#38;&#38; UserInput.toUpperCase().compareTo("A")!=0)
-            {
-                System.out.printf("Please enter only \"A\" or \"X\n");
-            }
-            else
-            {
-              System.out.printf("Press \"A\" to roll the dice, OR press \"X\" to quit!\n");
-            }
-            UserInput = myscanner.next();
-            if(UserInput.toUpperCase().compareTo("A")==0)
-            {
-                System.out.printf("The value from dice is: %d\n", RollTheDice());
-            }
-        }
+        // person object created
+        Person person = new Person();
+        person.setName("John");
+        person.setAge(30);
+ 
+        // Using methods to get the values from the
+        // variables
+        System.out.println("Name: " + person.getName());
+        System.out.println("Age: " + person.getAge());
     }
 }
-
 </code>
         </encapsulation>
         <polymorphism>*General-Programming-Knowledge*
