@@ -9238,15 +9238,19 @@ public class Project3 {
     <programming_language>
         <name>Python</name>
         <description>
-            Python is a high-level, general-purpose programming language. Its design 
-            philosophy emphasizes code readability with the use of significant indentation.
+            Python is a <blue>high-level</blue>, <blue>general-purpose</blue> programming language. 
+            Its design 
+            philosophy emphasizes <blue>code readability</blue> with the use of 
+            <blue>significant indentation</blue>.
             <br></br><br></br>
 
-            Python is dynamically typed and garbage-collected. It supports multiple 
-            programming paradigms, including structured (particularly procedural), 
-            object-oriented and functional programming. It is often described as a 
-            "batteries included" language due to its comprehensive standard library.
-        
+            Python is <blue>dynamically typed</blue> and <blue>garbage-collected</blue>. 
+            It supports multiple 
+            <blue>programming paradigms</blue>, including <blue>structured</blue> 
+            (particularly <blue>procedural</blue>), 
+            <blue>object-oriented</blue> and <blue>functional</blue> programming. 
+            It is often described as a 
+            "batteries included" language due to its <blue>comprehensive standard library</blue>.
         </description>
         <oop>*General-Programming-Knowledge*
 <code>
