@@ -6255,9 +6255,11 @@ namespace project32_abstract_classes
         </description>
         <oop>
             *General-Programming-Knowledge*
+            <br></br>
             <green>
-            JavaScript:
+            OOP in JavaScript:
             </green>
+            <br></br><br></br>
             JavaScript is an <blue>object-oriented</blue> programming language, 
             having the 4 concept that any <blue>OOP</blue> language has:
             <br></br><br></br>
@@ -6268,7 +6270,7 @@ namespace project32_abstract_classes
             4. Abstraction<br></br>
             </blue>
             <br></br>
-            The objects can be classifed in 2 categories:<br></br>
+            The objects can be classifed in <blue>2</blue> categories:<br></br>
             <blue>
             - standard built-in objects;<br></br>
             - custom objects;<br></br>
@@ -6346,7 +6348,7 @@ document.write("Last Name: " + objct.lastName + "&lt;br&gt;");
 document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
 
 </code>
-            <br></br><br></br>
+            <br></br>
             <green>Differences between the Object Constructor and Object Literal/Singleton:
             </green>
             <br></br><br></br>
@@ -6354,15 +6356,15 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             using <red>=</red> operator, whereas in case of <blue>literal notation</blue> 
             we use <red>:</red> operator;
             <br></br><br></br>
-            In <blue>contructor</blue> case we use <red>;</red> to separate the properties, in 
-            <blue>literal notation</blue> we use , 
+            In case of <blue>contructor</blue> we use <red>;</red> to separate the properties, in 
+            <blue>literal notation</blue> we use <red>,</red> 
             instead.
             <br></br><br></br>
             With the <blue>constructor method</blue>, you first need to create an <red>instance</red> 
-            to can access its properties, but with <blue>literal notation</blue> the <red>instance</red> is already 
-            created and you can just access it. 
+            in order to access its properties, but with <blue>literal notation</blue> the 
+            <red>instance</red> is already created, so you can just access it. 
             <br></br><br></br>
-            Objects created using <blue>literal notation</blue> are <blue>singletons</blue>, 
+            <red>Objects</red> created using <blue>literal notation</blue> are <blue>singletons</blue>, 
             this mean that when a value is 
             changed for an <red>instance</red>, it affects all the <red>instances</red> created. 
             <br></br><br></br>
@@ -6378,7 +6380,7 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             <br></br><br></br>
             When multiple <red>instances</red> of an <red>object</red> are needed the <blue>object contructor</blue> will be used.
             <br></br>
-            When single instance of an <red>object</red> is needed the object literal can be used.
+            When single <red>instance</red> of an <red>object</red> is needed the <blue>object literal</blue> can be used.
             <br></br><br></br>
             <blue>Singleton</blue> means that the <red>object</red> cannot have multiple <red>instances</red> 
             without affecting 
