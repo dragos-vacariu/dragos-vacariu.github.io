@@ -950,7 +950,7 @@ int main()
         <function-overloading>
             <red>Function/Method overloading</red> refers to defining <red>multiple functions/methods</red> 
             with the same name but <blue>different parameters</blue> within the same <red>class</red>, 
-            while method <blue>overriding</blue> involves 
+            while <red>function/method</red> <blue>overriding</blue> involves 
             creating a <red>function/method</red> in the child class that has the same <blue>name</blue>, 
             <blue>parameters</blue>, and 
             <blue>return type</blue> as a <red>function/method</red> in the <red>parent class</red>.
@@ -7255,7 +7255,7 @@ var user1 = new User('Bob', 25);
             *General-Programming-Knowledge*
             <br></br>
             <green>
-                JavaScript does not support function overloading natively
+                JavaScript does not support function overloading natively.
             </green>
         </function-overloading>
         <operator-overloading>
