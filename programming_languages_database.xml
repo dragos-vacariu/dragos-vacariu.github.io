@@ -7039,6 +7039,28 @@ is present in the array or not.
         </collection-methods>
         <serialization>*General-Programming-Knowledge*</serialization>
         <deserialization>*General-Programming-Knowledge*</deserialization>
+        <enums>
+            *General-Programming-Knowledge*
+            In JavaScript <blue>enums</blue> are made available only with by the means of TypeScript.
+<code>
+//Example of using enums in TypeScript:
+
+enum CardinalDirections 
+{
+  North,
+  East,
+  South,
+  West
+}
+
+let currentDirection = CardinalDirections.North;
+// logs 0
+console.log(currentDirection);
+
+// throws error as 'North' is not a valid enum
+currentDirection = 'North'; // Error: "North" is not assignable to type 'CardinalDirections'.
+</code>
+        </enums>
         <constructors>*General-Programming-Knowledge*</constructors>
         <instantiation>*General-Programming-Knowledge*</instantiation>
         <destructors>*General-Programming-Knowledge*</destructors>
