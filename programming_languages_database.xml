@@ -1232,6 +1232,14 @@ int main()
             and will terminate the program.
             <br></br>
        </recursion>
+        <string-methods>
+            A <red>string</red> is a <blue>variable</blue> that holds a sequence of 
+            one or more <blue>alphanumeric characters</blue>.
+            <br></br><br></br> 
+            It is usually possible to manipulate a <red>string</red> to provide information or 
+            to alter the contents of a <red>string</red> using <blue>methods</blue>.
+            <br></br>
+        </string-methods>
     </programming_language>
     
     <programming_language>
@@ -7496,38 +7504,52 @@ function Funct()
         <modular-programming>
             *General-Programming-Knowledge*
         </modular-programming>
-        <string-methods>*General-Programming-Knowledge*
+        <string-methods>
+            *General-Programming-Knowledge*
+            <br></br>
+            JavaScript provides several function that facilitate <blue>string manipulation</blue>:
+            <br></br>
 <code>
-    /*
-    Example of global replacements in a string:
-    var string1 = "Blue bottle on a blue table."
-    var result = string1.replace(/blue/g , "green") // result will be: Blue bottle on a green table.
-    result = string1.replace(/blue/gi, "green") // result will be: green bottle on a green table.
-    
-    Regular Expresions:
-    // g - > comes from global, which will replace each occurance of the specified word, or expression in the string1
-    // i -> come from insesitive, which won't take in count if it's blue, or Blue or bLuE, or whatever.
-    //string.replace won't change the original string it will just return a string with the replacements made, but
-    //the original string will still hold the same value.
-    
-    Substring methods:
-    string1.substring(1, 4); will return the string: Blu, the forth character it won't be included:
-    string1.substring(4, 1); will produce the same result as above, because the function will swap the values 4 with 1, 
-    because the start value needs to be smaller than the end value. The value at the second parameter is not included
-    in the returned result.
-    
-    string1.substring(4); will return a string containing all the character from 4th character until the end of the 
-    string. so that will be: "e bottle on a blue table."
-    
-    string1.substr(1,4): has the same functionality as the function above, But it doesn't swap the parameters, and the 
-    second parameter specifies the last caracter to be returned.
-    
-    string1.slice(1,4): has the same functionality as the functions above, except that slice method won't swap the 
-    parameters, no matter if the start is greater than the end. (in that case it will return an empty string)
-    
-    string1.indexOf("B") : this function will return the index of "B" which is 0;
-    string1.lastIndexOf(b) : this will return the last index of specified value "b" which is: 17
-    */
+//Some string methods in JavaScript:
+
+var string1 = "Blue bottle on a blue table."
+var result = string1.replace(/blue/g , "green") 
+
+//.replace() This function replaces a substring within a string and returns the result.
+//result will be: Blue bottle on a green table.
+
+result = string1.replace(/blue/gi, "green") 
+//result will be: green bottle on a green table.
+
+result = string1.substring(1, 4); 
+
+//.substring() This function returns the part of this string from the start 
+//index up to and excluding the end index
+
+result = string1.substring(4, 1); 
+//string1.substring(4, 1) will produce the same result as above, because the function will 
+//swap the values 4 with 1, because the start value needs to be smaller than the end value. 
+//The value at the second parameter is not included in the returned result.
+
+result = string1.substring(4); 
+//will return a string containing all the character from 4th character until the end of the 
+//string. so that will be: "e bottle on a blue table."
+
+result = string1.substr(1,4);
+//.substr() has the same functionality .substring(), 
+//But it doesn't swap the parameters, and the second parameter 
+//specifies the last caracter to be returned.
+
+result = string1.slice(1,4); 
+//has the same functionality as the .substr()
+//if the start is greater than the end - empty string is returned
+
+result = string1.indexOf("B"); 
+//this function will return the index of "B" which is 0;
+
+result = string1.lastIndexOf(b); 
+//this will return the last index of specified value "b" which is: 17
+
 </code>
         </string-methods>
         <datatype-conversions>*General-Programming-Knowledge*
