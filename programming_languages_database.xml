@@ -7810,6 +7810,37 @@ function Rec(a)
 Rec(0);
 </code>
         </recursion>
+        <abstract-classes>
+            *General-Programming-Knowledge*
+            <br></br>
+            <brown>
+                In Javascript, the concept of an abstract class is not natively 
+                supported as it is in other languages but it is however 
+                available in TypeScript.
+            </brown>
+<code>
+//Abstract classes in TypeScript
+
+abstract class Shape {
+  name: string;
+  constructor(name: string) {
+     this.name = name;
+  }
+}
+
+class Circle extends Shape {
+  radius: number;
+  constructor(name: string, radius:number){
+     super(name);
+     this.radius = radius;
+  }
+    
+}
+
+const myShape = new Shape('My shape'); // This will throw an Error 
+const shortCircle = new Circle("Short Circle", 0.5); // This will work fine.
+</code>
+        </abstract-classes>
     </programming_language>
     
     <programming_language>
