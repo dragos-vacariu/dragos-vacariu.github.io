@@ -1137,6 +1137,7 @@ int main()
             <br></br><br></br>
             An <red>abstract object</red> is like a <blue>dead parent</blue>
             which has to allow <red>inheritance</red> to their children and nothing more.
+            <br></br>
         </abstraction>
         <variable-arguments-lists>
             In programming: A <red>function</red> that takes a <red>variable number of arguments</red> 
@@ -6784,16 +6785,18 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
         </inheritance>
         <abstraction>
             *General-Programming-Knowledge*
-            
-
-Abstract object constructors are those constructors that cannot be instantiated. That means 
-that no object can be created out of them. 
-The purpose of using such constructors is to provide inheritance to other prototypes. 
-
-In this way
-the functionality can be shared amongst the objects without needing any instances.
-
-To block a constructor from being instantiated, an error will be thrown in such case.
+            <br></br>
+            <red>Abstract object constructors</red> are those <red>constructors</red> that 
+            cannot be <blue>instantiated</blue>. That means that no <red>object</red> can be 
+            created out of them. 
+            The purpose of using such constructors is to provide <red>inheritance</red> 
+            to other prototypes. 
+            <br></br><br></br>
+            In this way the functionality can be shared amongst the <red>objects</red> without 
+            needing any instances.
+            <br></br><br></br>
+            To block a constructor from being <blue>instantiated</blue>, an error will be 
+            thrown in such case.
 <code>
 
 
