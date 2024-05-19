@@ -917,7 +917,7 @@ int main()
             </blue>
         </pre-post-incrementation>
         <constructors>
-            A <red>constructor</red> in C++ is a special method that is automatically called when an object 
+            A <red>constructor</red> is a special method that is automatically called when an object 
             of a <code>class</code> is created.
             <br></br><br></br>
             <red>Constructors</red> can also take <red>parameters</red> (just like 
@@ -925,7 +925,8 @@ int main()
             values for attributes.<br></br>
         </constructors>
         <instantiation>
-            In <red>object-oriented programming</red>, an <red>instance</red> is a concrete realization of a class. 
+            In <red>object-oriented programming</red>, an <red>instance</red> is a concrete realization 
+            of a <red>class</red>. 
             <br></br><br></br>
             When you define a <code>class</code>, you're essentially creating a blueprint. 
             <br></br><br></br>
@@ -6805,8 +6806,7 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
             In this way the functionality can be shared amongst the <red>objects</red> without 
             needing any <blue>instances</blue>.
             <br></br><br></br>
-            To block a constructor from being <blue>instantiated</blue>, an error will be 
-            thrown in such case.
+            Blocking a constructor from being <blue>instantiated</blue> will result in error.
 <code>
 //Example of abstraction
 
