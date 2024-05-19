@@ -7203,6 +7203,7 @@ currentDirection = 'North'; // Error: "North" is not assignable to type 'Cardina
         </enums>
         <constructors>
             *General-Programming-Knowledge*
+            <br></br>
             A <blue>constructor</blue> is a special function that creates and initializes an 
             <blue>object instance</blue> of a class. 
             <br></br><br></br>
@@ -7220,8 +7221,21 @@ var user1 = new User('Bob', 25);
 var user2 = new User('Alice', 27);
 </code>
         </constructors>
-        <instantiation>*General-Programming-Knowledge*</instantiation>
-        <destructors>*General-Programming-Knowledge*</destructors>
+        <instantiation>
+            *General-Programming-Knowledge*
+<code>
+//Instantiation in Javascript:
+
+var user1 = new User('Bob', 25);
+</code>
+        </instantiation>
+        <destructors>
+            *General-Programming-Knowledge*
+            <br></br>
+            <brown>
+            JavaScript doesn't have a concept of destructors like many OO languages.
+            </brown>
+        </destructors>
         <function-overloading>
             *General-Programming-Knowledge*
 <code>
