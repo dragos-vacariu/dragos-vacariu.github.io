@@ -6172,7 +6172,8 @@ namespace project32_abstract_classes
             PHP is a <red>back-end</red> development language (related to the server), JavaScript is a 
             <blue>front-end</blue> development language related to the client computer/machine.
         </description>
-        <oop>*General-Programming-Knowledge*
+        <oop>
+            *General-Programming-Knowledge*
             JavaScript is an object oriented programming language, having the 4 concept that any OOP 
             language has:
             <br></br><br></br>
@@ -6330,7 +6331,8 @@ for (var p in Class)
 }
 </code>
         </oop>
-        <encapsulation>*General-Programming-Knowledge*
+        <encapsulation>
+            *General-Programming-Knowledge*
 <code>
 
 function Car ()
@@ -6399,7 +6401,8 @@ c.setAcceleration(22); //using the setter
 document.write ("The car acceleration is " + c.getAcceleration() + "&lt;br&gt;"); //using the getter;
 </code>
         </encapsulation>
-        <polymorphism>*General-Programming-Knowledge*
+        <polymorphism>
+            *General-Programming-Knowledge*
 <code>
 /*
 Polymorphism is the act of creating a collection of different object types (also called as an interface) which are inherited from the same base class. 
@@ -6456,7 +6459,8 @@ collection.forEach(function (shape) {
 })
 </code>
         </polymorphism>
-        <inheritance>*General-Programming-Knowledge*
+        <inheritance>
+            *General-Programming-Knowledge*
 <code>
 /*
 Inheritance is one of the 4 OOP concepts aside: encapsulation, abstraction, polymorphism.
@@ -6568,7 +6572,8 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
 */
 </code>
         </inheritance>
-        <abstraction>*General-Programming-Knowledge*
+        <abstraction>
+            *General-Programming-Knowledge*
 <code>
 /*
 Abstraction is one of the 4 OOP concepts, and it is regarded to abstract objects, which are the objects
@@ -6705,6 +6710,8 @@ console.log(value.toString()); // myNumber: 10
 </code>
         </generic-programming>
         <variable-arguments-lists>
+            *General-Programming-Knowledge*
+            <br></br>
 <code>
 /*The argument object is used to store the value of arguments of a function.
 Accessing the argument object outside a function will result in undefined error.
