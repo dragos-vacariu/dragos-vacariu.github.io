@@ -6935,72 +6935,66 @@ array1.forEach((element) => console.log(element));
 
 </code>
         </loops>
-        <collections>*General-Programming-Knowledge*</collections>
-        <collection-methods>*General-Programming-Knowledge*
+        <collections>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>In JavaScript:</green>
+            <br></br>
+            An <code>array</code> is a collection of variables which can take 
+            any type of values. 
+            <br></br><br></br>
+            For example: an array could store both strings and integer values in it.
+            <br></br>
 <code>
+//Example of creating an array in JavaScript:
+
 //Creating an array without a constructor:
-
 var arr = ["James", 10, 2];
-/*
-An array is a collection of variable, and in JavaScript a variable can take any type of values. So
-that's why the array above has a string and 2 integers in it.
-*/
 
-document.write("The length of arr is: " + arr.length + "&lt;br&gt;");
-for (var i=0;i&lt;arr.length; i++)
-{
-    document.write(arr[i] + " ");
-}
-document.write("&lt;br&gt;&lt;br&gt;");
-
-//Creating an array using the constructor
-
-var arr2 = new Array(5); // the 5 between the parenthesis specifies the length.
-//The elements of arr2 are not initialized
-
-document.write("The length of arr2 is: " + arr2.length + "&lt;br&gt;");
-for (var i=0;i&lt;arr2.length; i++)
-{
-    document.write(arr2[i] + " ");
-}
-document.write("&lt;br&gt;&lt;br&gt;");
-
-//Another ways to create an array:
-var arr3 = []; //Creating an array (without constructor), the size is not specified.
+//Another ways to create an array without a constructor:
+var arr2 = []; //Creating an array (without constructor), the size is not specified.
 
 /*
 Dispite the other C-like languages, creating an array using this syntax make it resizeable.
 */
-arr3[0]= 22; //the array length is now 1.
-arr3[4]= 44; //the array length is now 2.
 
-document.write("The length of arr3 is: " + arr3.length + "&lt;br&gt;");
-for (var i=0;i&lt;arr3.length; i++)
-{
-    document.write(arr3[i] + " ");
-}
-document.write("&lt;br&gt;&lt;br&gt;");
+arr2[0]= 22; //the array length is now 1.
+arr2[1]= 44; //the array length is now 2.
 
-var arr4 = new Array(26,8,1994); //Creating an array using constructor, the elements are specified.
+//Creating an array using the constructor
+
+var arr3 = new Array(5); // the 5 between the parenthesis specifies the length.
+//The elements of arr3 are not initialized.
+
+//Creating an array using constructor, the elements are specified.
+var arr4 = new Array(26,8,1994); 
 
 /*
-The elements can be specified while creating an array using a constructor, by using multiple arguments when
-calling it. So, you cannot create and initialize an array with a single element, using this syntax. 
+The elements can be specified while creating an array using a constructor, 
+by using multiple arguments when calling it. 
+So, you cannot create and initialize an array with a single element, using this syntax. 
 */
 
+</code>
+        </collections>
+        <collection-methods>
+            *General-Programming-Knowledge*
+<code>
+
+//Creating an array using constructor.
+var arr4 = new Array(26,8,1994); 
+
+//.length property contains the current number of elements within the array
 document.write("The length of arr4 is: " + arr4.length + "&lt;br&gt;");
+
+//.pop() - This method removes and returns the last item from the array.
 document.write("This element was returned using pop method: " + arr4.pop() + "&lt;br&gt;");
-document.write("The new length of arr4 is: " + arr4.length + "&lt;br&gt;");
+
+//.shift() - This method removes and returns the first element of the array.
 document.write("This element was returned using shift method: " + arr4.shift() + "&lt;br&gt;");
-document.write("The new length of arr4 is: " + arr4.length + "&lt;br&gt;");
-for (var i=0;i&lt;arr4.length; i++)
-{
-    document.write(arr4[i] + " ");
-}
-document.write("&lt;br&gt;&lt;br&gt;");
 
 /*
-OTHER METHODS:
+MORE METHODS:
 
 These are Mutator methods:
 .push() - This method adds a new item at the end of the array.
@@ -7013,9 +7007,13 @@ List, being dynamic in length (resizeable).
 
 .reverse() - This method reverse the element order of an Array Object (the last element becomes the first, etc).
 .sort() - This method sorts the items of an array (alphabetical, descending or ascending, etc).
+
 .slice() - This method returns a shallow copy of a portion of an array into a new array object selected 
-from begin to end (end not included). The original array will not be modified. It can be used for adding
-or removing a group of item after the specified index. It takes 3 parameters:
+from begin to end (end not included). 
+
+The original array will not be modified. 
+It can be used for adding or removing a group of item after the specified index. 
+It takes 3 parameters:
     .splice(index, deleteCount, item1,.... itemX)
     where:
     index - specifies at what position to add or remove items;
