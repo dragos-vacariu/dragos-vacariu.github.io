@@ -6154,12 +6154,14 @@ namespace project32_abstract_classes
             regular expressions, standard data structures, and the Document Object Model (DOM).
             <br></br><br></br>
             
-            Difference between JavaScript and PHP is that JavaScript is running in the client 
-            computer's browser, and its performance depends only on the client computer's specifications. 
-            Whereas PHP is a programming language that runs on a server so when 
-            the client is using a PHP script its computer will make a request to the server with 
-            the purpose of getting the compilation result and transfer that information back to 
-            the client computer. 
+            Difference between <blue>JavaScript</blue> and <red>PHP</red> is that 
+            <blue>JavaScript</blue> is <blue>running in the client 
+            computer's browser</blue>, and its performance depends only on the client 
+            computer's specifications. 
+            Whereas <red>PHP</red> is a programming language that <red>runs on a server</red> so when 
+            the client is using a <red>PHP script</red> its computer will make a <red>request to 
+            the server</red> with the purpose of getting the <red>compilation result</red> and 
+            <red>transfer</red> that information back to the client computer. 
             <br></br><br></br>
             
             This action is significantly slower than the javascript because in case that 
@@ -6171,7 +6173,9 @@ namespace project32_abstract_classes
             <blue>front-end</blue> development language related to the client computer/machine.
         </description>
         <oop>*General-Programming-Knowledge*
-            JavaScript is an object oriented programming language, having the 4 concept that any OOP language has:<br></br><br></br>
+            JavaScript is an object oriented programming language, having the 4 concept that any OOP 
+            language has:
+            <br></br><br></br>
             1.Inheritance<br></br>
             2.Polymorphism<br></br>
             3.Encapsulation<br></br>
@@ -6181,8 +6185,9 @@ namespace project32_abstract_classes
             - standard built-in objects;<br></br>
             - custom objects;<br></br>
             <br></br><br></br>
-            In Javascript there is no concept called "class", so an object will not be built based on classes, but based on 
-            functions or literal notations (or singletons).<br></br>
+            In Javascript there is no concept called "class", so an object will not be built based on 
+            classes, but based on functions or literal notations (or singletons).
+            <br></br>
 <code>
 //Creating an object using a function:
 
