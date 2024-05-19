@@ -1130,8 +1130,13 @@ int main()
             implementation</blue> is 
             essential in creating <red>maintainable</red>, <red>scalable</red>, and 
             <red>efficient</red> software systems.
-            <br></br>
-            <blue>Abstraction</blue> is one of the <red>4 OOP fundamental concepts</red>.
+            <br></br><br></br>
+            <blue>Abstraction</blue> is one of the <red>4 OOP fundamental concepts</red>, 
+            and it is regarded to <red>abstract objects</red>, which are the <red>objects</red> 
+            that contain fields and methods to be <red>inherited</red> by their children. 
+            <br></br><br></br>
+            An <red>abstract object</red> is like a <blue>dead parent</blue>
+            which has to allow <red>inheritance</red> to their children and nothing more.
         </abstraction>
         <variable-arguments-lists>
             In programming: A <red>function</red> that takes a <red>variable number of arguments</red> 
@@ -6779,19 +6784,18 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
         </inheritance>
         <abstraction>
             *General-Programming-Knowledge*
-<code>
-/*
-Abstraction is one of the 4 OOP concepts, and it is regarded to abstract objects, which are the objects
-that contain fields and methods to be inherited by their children. An abstract object is like a dead parent
-which has to allow inheritance to their children and nothing more.
+            
 
 Abstract object constructors are those constructors that cannot be instantiated. That means 
 that no object can be created out of them. 
-The purpose of using such constructors is to provide inheritance to other prototypes. In this way
+The purpose of using such constructors is to provide inheritance to other prototypes. 
+
+In this way
 the functionality can be shared amongst the objects without needing any instances.
 
 To block a constructor from being instantiated, an error will be thrown in such case.
-*/
+<code>
+
 
 function House ()
 {
