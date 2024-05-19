@@ -1240,6 +1240,16 @@ int main()
             to alter the contents of a <red>string</red> using <blue>methods</blue>.
             <br></br>
         </string-methods>
+        <reflection>
+            <blue>Reflective programming</blue> or <blue>reflection</blue> is a mechanism that 
+            enables a <blue>process</blue> perform 
+            <blue>introspective operations</blue>, <red>examine</red> and <red>modify</red> its 
+            own <red>structure</red> and <red>behavior</red>.
+            <br></br>
+            The <blue>reflection</blue> APIs built into programming languages allows
+            developers to inspect code at runtime.
+            <br></br>
+        </reflection>
     </programming_language>
     
     <programming_language>
@@ -1999,6 +2009,9 @@ int main()
         <recursion>
             *General-Programming-Knowledge*
         </recursion>
+        <reflection>
+            *General-Programming-Knowledge*
+        </reflection>
     </programming_language>
     
     <programming_language>
@@ -3822,6 +3835,9 @@ int main()
         <recursion>
             *General-Programming-Knowledge*
         </recursion>
+        <reflection>
+            *General-Programming-Knowledge*
+        </reflection>
     </programming_language>
     
     <programming_language>
@@ -6211,6 +6227,9 @@ namespace project32_abstract_classes
         <recursion>
             *General-Programming-Knowledge*
         </recursion>
+        <reflection>
+            *General-Programming-Knowledge*
+        </reflection>
     </programming_language>
     
     <programming_language>
@@ -6389,11 +6408,14 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             The common way used for creating <red>objects</red> in all the <blue>OOP languages</blue> is by using 
             <blue>Object Constructor</blue>.
             <br></br>
+        </oop>
+        <reflection>
+            <blue>Reflection<blue> allows the <blue>inspection</blue> of <blue>meta data</blue>, 
+            <blue>assemblies</blue>, <blue>modules</blue> and <blue>type</blue>. 
+            If the <red>object</red> is <red>derived</red> from a <red>base class</red> than
+            <blue>reflection</blue> can also <blue>inspect</blue> the <red>parent/base class</red> data.
 <code>
-/*
-Reflection allows the inspection of meta data, assemblies, modules and type. If the object is derived from a base class than
-reflection can also inspect the parent/base class data.
-*/
+//Example of reflection in JavaScript
 
 var Class = function (objName, objID, objType) {
     //These are public fields:
@@ -6445,7 +6467,7 @@ for (var p in Class)
     }
 }
 </code>
-        </oop>
+        </reflection>
         <encapsulation>
             *General-Programming-Knowledge*
 <code>
@@ -9094,7 +9116,10 @@ public class Project3 {
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
         <recursion>
             *General-Programming-Knowledge*
-        </recursion>>
+        </recursion>
+        <reflection>
+            *General-Programming-Knowledge*
+        </reflection>
     </programming_language>
     
     <programming_language>
@@ -10786,6 +10811,9 @@ input("\nPress any key to exit: ")
         <recursion>
             *General-Programming-Knowledge*
         </recursion>
+        <reflection>
+            *General-Programming-Knowledge*
+        </reflection>
     </programming_language>
     
 </content>
