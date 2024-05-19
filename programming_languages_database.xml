@@ -7233,7 +7233,7 @@ var user1 = new User('Bob', 25);
             *General-Programming-Knowledge*
             <br></br>
             <brown>
-            JavaScript doesn't have a concept of destructors like many OO languages.
+            JavaScript doesn't have a concept of destructors like many OOP languages.
             </brown>
         </destructors>
         <function-overloading>
@@ -7317,7 +7317,12 @@ var alert = function(msg)
 
 </code>
         </function-overloading>
-        <operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+        <operator-overloading>
+            *General-Programming-Knowledge*
+            <green>
+                JavaScript doesn't support operator overloading.
+            </green>
+        </operator-overloading>
         <multi-threading>
             *General-Programming-Knowledge*
             <br></br><br></br>
