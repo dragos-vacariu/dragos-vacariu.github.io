@@ -41,12 +41,43 @@
             the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
             <red>set</red> methods.<br></br>
             <br></br>
-            <red>Encapsulation</red> is one of the 4 OOP fundamental concepts.
+            <red>Encapsulation</red> is one of the <blue>4 OOP fundamental concepts</blue>.
             <br></br>
         </encapsulation>
         <polymorphism>
             Polymorphism means <red>"many forms"</red>, and it occurs when we have many 
-            <red>classes</red> that are related to each other by <red>inheritance</red>.<br></br>
+            <red>classes</red> that are related to each other by <red>inheritance</red>.
+            <br></br><br></br>
+            <blue>Polymorphism</blue> is the act of creating a collection of different 
+            <red>object types</red> which are <red>inherited</red> from the same 
+            <red>base class</red>. 
+            <br></br><br></br>
+            A <blue>polymorphic type<blue> is one whose <red>operations</red> can also be 
+            applied to values of some other <red>type</red>, or <red>types</red>. 
+            When calling a <red>virtual</red> function from any <red>derived
+            class</red> the <red>overrided method</red> will be invoked not the 
+            <blue>original</blue> one.
+            <br></br><br></br>
+            <green>There are several fundamentally different kinds of polymorphism:</green>
+            <blue>Ad hoc polymorphism:</blue> when a function has different implementations 
+            depending on a <red>limited range</red> of <blue>individually specified types</blue> 
+            and combinations. 
+            <br></br><br></br>
+            <blue>Ad hoc polymorphism:</blue> is supported in many languages using 
+            <red>function overloading</red>.
+            <br></br><br></br>
+            <blue>Parametric polymorphism:</blue> when the code is written without 
+            mention of any <red>specific type</red> and thus can be used transparently with any 
+            number of <red>new types</red>. 
+            In the <red>object-oriented</red> programming community, this is often known as 
+            <red>generics</red> or <blue>generic programming</blue>. 
+            In the <blue>functional programming</blue> community, 
+            this is often shortened to <blue>polymorphism</blue>. 
+            <br></br><br></br>
+            <blue>Subtyping</blue> (also called <blue>subtype polymorphism</blue> or 
+            <blue>inclusion polymorphism</blue>): when a name <blue>denotes instances</blue> of 
+            many different <red>classes</red> related by some common <red>superclass</red>.
+            <br></br>
         </polymorphism>
         <simple-data-types>
             <code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
@@ -6512,6 +6543,8 @@ function Car ()
         _acceleration = value;
     }
     
+    //The third way of achieving encapsulation
+    
     //Privileged methods;
     this.getAcceleration = function() //this is a get function
     {
@@ -6549,22 +6582,7 @@ document.write ("The car acceleration is " + c.getAcceleration() + "&lt;br&gt;")
         <polymorphism>
             *General-Programming-Knowledge*
 <code>
-/*
-Polymorphism is the act of creating a collection of different object types (also called as an interface) which are inherited from the same base class. 
- A polymorphic type is one whose operations can also be applied to values of some other type, or types. When calling a virtual function from any derived
- class the method overrided will be invoked.
- 
-There are several fundamentally different kinds of polymorphism:
-Ad hoc polymorphism: when a function has different implementations depending on a limited range of individually specified types and combinations. 
-    Ad hoc polymorphism is supported in many languages using function overloading.
-Parametric polymorphism: when code is written without mention of any specific type and thus can be used transparently with any number of new types. 
-    In the object-oriented programming community, this is often known as generics or generic programming. In the functional programming community, 
-    this is often shortened to polymorphism. 
-Subtyping (also called subtype polymorphism or inclusion polymorphism): when a name denotes instances of 
-    many different classes related by some common superclass
-*/
-
-//Creating polymorphism in javascript:
+//Creating polymorphism in Javascript:
 
 //Creating a base class;
 var Shape = function() { }
