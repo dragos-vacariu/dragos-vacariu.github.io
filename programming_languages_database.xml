@@ -7843,7 +7843,6 @@ const shortCircle = new Circle("Short Circle", 0.5); // This will work fine.
         </abstract-classes>
         <decorators>
             *General-Programming-Knowledge*
-            <br></br>
 <code>
 // Working with decorators in Javascript
  
