@@ -7267,7 +7267,11 @@ catch(e) //e is the type of exception to be caught;
 }
 finally //this will be executed no matter what.
 {
-    /*The code in this block will be executed regardless if there was an exception or no.*/
+    /*
+    The code in this block will be executed regardless 
+    if there was an exception or not.
+    */
+    
     document.write("&lt;br&gt;Finished. &lt;br&gt;");
 }
 
@@ -7343,7 +7347,17 @@ function ImageErrorHandler()
 }
 </code>
         </exception-handling>
-        <bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
+        <bitwise-operators>
+            *General-Programming-Knowledge*
+<code>
+//Example of working with bitwise operators in JavaScript:
+let x = 5 | 1;
+let x = 5 ^ 1;
+let x = ~5;
+let x = 5 &lt;&lt; 1;
+let x = -5 &gt;&gt; 1;
+</code>
+        </bitwise-operators>
         <default-parameters>*General-Programming-Knowledge*</default-parameters>
         <interfaces>*General-Programming-Knowledge*</interfaces>
         <random-generators>*General-Programming-Knowledge*<br></br>
