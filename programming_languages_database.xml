@@ -6711,8 +6711,9 @@ console.log(value.toString()); // myNumber: 10
         </generic-programming>
         <variable-arguments-lists>
             *General-Programming-Knowledge*
-            <br></br>
 <code>
+//Example of using variable number of arguments in JavaScript:
+
 /*
 The argument object is used to store the value of arguments of a function.
 Accessing the argument object outside a function will result in undefined error.
@@ -6738,7 +6739,7 @@ function Myfct(a,b,c)
 
 /*
 The Myfct(a,b,c) function has 3 parameters: a,b,c 
-but it is called below using 5 arguments: 0,1,3,4,5.
+but it is called below using 5 arguments: 0,1,3,4,5
 */
 
 Myfct(0,1,3,4,5); 
@@ -6770,23 +6771,40 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
 </code>
         </variable-arguments-lists>
         <simple-data-types>
+            Javascript is a dynamical type language this means that any variable can store any 
+            data type.
+            <br></br><br></br>
+            <green>
+            Data Types:
+            </green>
+            <br></br><br></br>
+            Numbers: 22, 22.4, 44;<br></br>
+            Strings: "me", "you"; <br></br>
+            <red>
+            Strings can also be initialized using single quotes such as: 'me', 'you'
+            </red>
+            boolean: true, false;
+            <br></br><br></br>
+            All the variables are declared using the <code>var</code> keyword.
 <code>
-    Javascript is a dynamical type language this means that any variable can store any data type: 
-    Example: 
-    var A = 22;
-    A="My string";
-    This is perfectly valid, because the var size and type will be automatically converted as needed.
+//Example of using JavaScript dynamical typed variables:
 
-    Variables and function as in other programming languages they are case sensitive this means that var A is different
-    from var a; and function A () {} is different from function a() {};
+var A = 22;
+A="My string";
+//This is perfectly valid, because the var size and type 
+//will be automatically converted as needed.
 
-    Data Types: 
-    Numbers: 22, 22.4, 44;
-    Strings: "me", "you" //they can also be like single quoted: 
-    'me', 'you'
-    boolean: true, false; 
-    All the variables are declared using the var keyword.
+/*
+Variables and function as in other programming languages they are case sensitive 
+this means that var A is different from var a; 
+and function A () {} is different from function a() {};
+*/
 </code>
+            <br></br>
+            In order to add <blue>static typing</blue> so that it will work with data types TypeScript 
+            syntactic superset was introduced.
+            <br></br>
+            *General-Programming-Knowledge*
         </simple-data-types>
         <loops>*General-Programming-Knowledge*
 <code>
