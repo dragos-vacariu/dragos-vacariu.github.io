@@ -1213,8 +1213,24 @@ int main()
             These <red>variables</red> live through the lifetime of the program or can be 
             <red>deallocated</red>
             when no longer needed. 
-            <br></br> 
-        </recursion>
+            <br></br><br></br>
+            <green>
+                Recursion vs Loops:
+            </green>
+            Using the loop: the code is <blue>easier to read and understand</blue> 
+            (reading code is always a lot harder than writing it), and <red>loops are 
+            generally faster</red>.
+            <br></br><br></br>
+            <blue>Recursion</blue> is useful when it is the natural way of viewing the problem, 
+            but you must be sure that there is a <red>manageable number</red> of <blue>stack frames</blue> 
+            involved. 
+            <br></br><br></br>
+            A <blue>stack frame</blue> is a block of memory assigned to the stack 
+            when a <red>function</red> is called, if the <blue>stack frames</blue> exceeds the 
+            <blue>stack memory capacity</blue>, the <blue>stack overflow</blue> error will occur 
+            and will terminate the program.
+            <br></br>
+       </recursion>
     </programming_language>
     
     <programming_language>
@@ -7414,7 +7430,7 @@ function RecursiveFunc(num)
     }
     
     /*
-    Using the loop the whole code above is equivalent to:
+        Using the loop the whole code above can be implemented as :
         var result=1;
         while(num > 1)
         {
@@ -7426,24 +7442,16 @@ function RecursiveFunc(num)
 
 document.write("This was a recursive function: " + RecursiveFunc(5) + "&lt;br&gt;");
 
-/*
-Recursion vs Loops:
-
-Use the loop. It's easier to read and understand (reading code is always a lot harder than writing it), 
-and is generally a lot faster.
-
-Recursion is useful when it is the natural way of viewing the problem, but you must be sure that there 
-is a manageable number of stack frames involved. A stack frame is a bunch of memory assigned to the stack 
-memory when a function is called, if the stack frames exceeds the stack memory capacity, the stack overflow
-error will terminate the program.
-*/
+//Comparison to loops:
 
 document.write("&lt;br&gt;With Loops&lt;br&gt;");
 var i;
 for(i=0;i&lt;10;i++)
+{
     document.write(i+" ");
-    
-//The equivalent recursive function is:
+}
+
+//The equivalent recursive function of the for loop above is:
 
 document.write("&lt;br&gt;With Recursion&lt;br&gt;");
 
