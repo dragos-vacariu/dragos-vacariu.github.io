@@ -6586,8 +6586,10 @@ document.write ("The car acceleration is " + c.getAcceleration() + "&lt;br&gt;")
 
 //Creating a base class;
 var Shape = function() { }
+
 //Adding a function to the class:
-Shape.prototype.draw = function () {
+Shape.prototype.draw = function () 
+{
     return "I am a generic shape.";
 }
 
@@ -6603,9 +6605,10 @@ Circle.prototype.draw = function ()
     return "I am a circle shape.";
 }
 
-//Doing the same thing again:
-
+//Creating another class
 var Square = function () {}
+
+//Doing the inheritance:
 Square.prototype = Object.create(Shape.prototype);
 Square.prototype.draw = function () 
 {
@@ -6613,12 +6616,18 @@ Square.prototype.draw = function ()
 }
 
 //Creating a collection of objects:
-
 var collection = [new Shape(), new Circle(), new Square()];
 
-//Iterating through the collection / Creating a foreach loop:
+//Iterating through the collection using foreach loop:
 collection.forEach(function (shape) {
     document.write(shape.draw() + "&lt;br&gt;");
+    
+    //Expected result every object calls it's own implementation.
+    //OUTPUT:
+    //
+    //I am a generic shape.
+    //I am a circle shape.
+    //I am a square shape.
 })
 </code>
         </polymorphism>
