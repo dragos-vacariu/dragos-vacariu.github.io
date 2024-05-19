@@ -7260,6 +7260,35 @@ var user1 = new User('Bob', 25);
             <green>
                 JavaScript does not support function overloading.
             </green>
+            <br></br><br></br>
+             When creating <blue>2 functions</blue> with the <blue>same name</blue> and different
+             number of arguments in JavaScript, the <blue>function</blue> declared <red>later</red> 
+             will <red>replace</red> the <blue>function</blue> 
+             declared <red>sooner</red>, in the <blue>global namespace</blue>. 
+             <br></br><br></br>
+             This process is called namespace <blue>pollution</blue> (or <blue>name collision</blue>). 
+             <br></br><br></br>
+             Also if the scripts are written in different files, the <blue>file</blue> 
+             which is loaded <red>last</red> will <red>replace</red> the <blue>function</blue> 
+             declared into the <blue>file</blue> which was <red>loaded first</red>.
+             <br></br>
+<code>
+//Example of namespace pollution
+
+function PrintSomething()
+{
+    alert("This is the first function.");
+}
+
+function PrintSomething(a) //this function will replace the first function declared above;
+{
+    alert("This is the second function.");
+}
+
+PrintSomething(5);
+//OUTPUT:
+//This is the second function.
+</code>
         </function-overloading>
         <operator-overloading>
             *General-Programming-Knowledge*
@@ -7284,41 +7313,24 @@ var user1 = new User('Bob', 25);
         </multi-threading>
         <namespaces>
             *General-Programming-Knowledge*
+            <br></br>
+            In JavaScript: it is possible to declare <blue>2 functions</blue> with the same name, 
+            but not in the <blue>same namespace</blue>.
+            <br></br><br></br>
+            Similarly with creating <blue>2 variables</blue> with the same <blue>name</blue> but in 
+            different <red>scope</red> (<red>global</red> and <red>local</red>).
+            <br></br><br></br>
+            The <blue>global namespace</blue> in JavaScript can be accessed using <code>window.Object</code> 
+            - where <red>Object</red> is an item in the <blue>global namespace</blue> <red>"window"</red>.
 <code>
-/*
-In JavaScript there is no concept called function overriding. So when creating 2 functions with the same name and different
-number of arguments, the function declared later will replace the function declared sooner, in the global namespace. This
-process is called namespace pollution (or name collision). Also if the scripts are written in different files, the file 
-which is loaded last will replace the function declared into the file which was loaded first.
-
-It is possible to declare 2 functions with the same name, but not in the same namespace. Similarly with creating 2 
-variables with the same name but in different scope (global and local).
-
-The global namespace in JavaScript can be accessed using window.Object - where object is an item in the global 
-namespace "window".
-*/
-
-//Example of namespace pollution
-
-function PrintSomething()
-{
-    alert("This is the first function.");
-}
-
-function PrintSomething() //this function will replace the first function declared above;
-{
-    alert("This is the second function.");
-}
-
 //Creating a namespace;
 
-var NameSpace = NameSpace || {} // Create a variable named NameSpace if such an object already exists, than my variable will
+//Create a variable named NameSpace if such an object already exists, than my variable will
 //take its value, otherwise my variable will be an empty object {};
+var NameSpace = NameSpace || {} 
 
 //Creating a nested namespace/object;
-
-NameSpace.a = NameSpace.a || {} //If NameSpace.a exists than my variable NameSpace.a will take its value otherwise 
-//it will be an empty object {}.
+NameSpace.a = NameSpace.a || {} 
 
 //Creating an object into the nested namespace:
 NameSpace.a.print = function () 
@@ -7331,6 +7343,7 @@ NameSpace.a.print = function ()
 
 //Creating an instance of the nested namespace object.
 var a = new NameSpace.a.print;
+
 //Setting the object method for the onclick button.
 document.getElementById("but2").onclick = a.PrintMessage;
 
