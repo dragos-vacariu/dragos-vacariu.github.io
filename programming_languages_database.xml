@@ -6617,7 +6617,82 @@ document.write("Is h instance of Home: " + (h instanceof Home) + "&lt;br&gt;")
 h.printMsg();
 </code>
         </abstraction>
-        <generic-programming>*General-Programming-Knowledge*</generic-programming>
+        <generic-programming>
+            *General-Programming-Knowledge*
+            <br></br>
+            TypeScript is a syntactic superset of JavaScript which adds <blue>static typing</blue> which
+            also facilitates the use of generic-programming.
+            <br></br><br></br>
+            This basically means that TypeScript adds syntax on top of JavaScript, 
+            allowing developers to add <blue>data types</blue>.
+            <br></br><br></br>
+            <green>
+            Why should I use TypeScript?
+            </green>
+            <br></br><br></br>
+            JavaScript is a <blue>loosely typed language</blue>. It can be difficult to understand 
+            what types of data are being passed around in JavaScript.
+            <br></br><br></br>
+            In JavaScript, <blue>function parameters</blue> and <blue>variables</blue> don't have 
+            any information! 
+            So developers need to look at documentation, or guess based on the implementation.
+            <br></br><br></br>
+            TypeScript allows specifying the <blue>types of data</blue> being passed around within 
+            the code, and has the ability to report errors when the <blue>types</blue> don't match.
+            <br></br><br></br>
+            For example, TypeScript will report an error when passing a <code>string</code> into a 
+            function that expects a <blue>number</blue>. JavaScript will not.
+            <br></br><br></br>
+            TypeScript uses compile time <blue>type checking</blue>. Which means it checks if the 
+            specified <blue>types match</blue> 
+            <red>before</red> running the code, <red>not while</red> running the code.
+            <br></br><br></br>
+            <blue>Generics</blue> allow creating 'type variables' which can be used to 
+            create <blue>classes</blue>, <blue>functions</blue> and 
+            <blue>type aliases</blue> that don't need to explicitly define the types that they use.
+            <br></br>
+<code>
+//Example of generic programming in JavaScript using TypeScript:
+
+function createPair&lt;S, T&gt;(v1: S, v2: T): [S, T] 
+{
+  return [v1, v2];
+}
+console.log(createPair&lt;string, number&gt;('hello', 42)); 
+
+//OUTPUT: ['hello', 42]
+</code>
+
+<code>
+//Example of generic class implementation
+
+class NamedValue&lt;T&gt; 
+{
+  private _value: T | undefined;
+
+  constructor(private name: string) {}
+
+  public setValue(value: T) 
+  {
+    this._value = value;
+  }
+
+  public getValue(): T | undefined 
+  {
+    return this._value;
+  }
+
+  public toString(): string 
+  {
+    return `${this.name}: ${this._value}`;
+  }
+}
+
+let value = new NamedValue&lt;number&gt;('myNumber');
+value.setValue(10);
+console.log(value.toString()); // myNumber: 10
+</code>
+        </generic-programming>
         <variable-arguments-lists>
 <code>
 /*The argument object is used to store the value of arguments of a function.
