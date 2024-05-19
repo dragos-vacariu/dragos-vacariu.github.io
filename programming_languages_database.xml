@@ -7436,10 +7436,13 @@ let x = Math.floor((Math.random() * 10) + 1);
         </random-generators>
         <ternary-operator>*General-Programming-Knowledge*
 <code>
+//Example of working with ternary operator in JavaScript:
+
 function Funct()
 {
     var a = document.getElementById('textBox').value;
-    //Using if statement (if statement is used to execute code when a particular condition is true)
+    
+    //if statement is used to execute code when a particular condition is true
     if(isNaN(a))
     {
         document.getElementById('textBox').value+= " 'is not a number.'";
@@ -7450,32 +7453,41 @@ function Funct()
     }
 
     //using ternary operator to change the color of the textbox:
-    (isNaN(a)==true) ? alert("Entered ternary if.") //this part will be executed if the condition
-    //in pharanteses is evaluated to true. 
+    
+    (isNaN(a)==true) ? alert("Entered ternary if.")  //this part is if condition is true
                     : alert("Entered ternary else.") //this part is executed otherwise.
                     
     /*
-    Ternary operator is also called the short if, and has the same functionality as an if statement, the only thing that
-    differs is that ternary operator sinthax is shorter, and yet harder to be read, that way is much better to use if
-    else if statements instead.
+    Ternary operator is also called the short if, and has the same functionality 
+    as an if statement, the only difference is that ternary operator sythax is shorter, 
+    and yet harder to be read, that way is much better to use if else statements instead.
     */
 
     //using switch()
     if(isNaN(a) == false)
     {
         a = parseInt(a);
-        switch(a) //switch works only with constant values, integer, long, chars values. switch cannot be used with floats
-        //or doubles or strings just like in other programming languages.
+        
+        //switch works only with constant values: 
+        //integer, long, chars values. 
+        //switch cannot be used with floats, doubles or strings
+        
+        switch(a)
         {
-            case 1: {alert("you have entered 1."); break} // the break statement will break out of the switch.
+            case 1: {alert("you have entered 1."); break} 
             case 2: {alert("you have entered 2."); break}
             case 3: {alert("you have entered 3."); break}
             default : {alert("you have entered a number above 3 or below 1."); break}
-            //the default case is equivalent to else statement, it will be executed only of the cases above do not match.
+            
+            // the break statement will break out of the switch.
+            //the default case is equivalent to else statement, 
+            //it will be executed only of the cases above do not match.
         }    
     }
+    
     /*
-    switch is very similar to an if, else if, else block, and even better a switch statement is faster in execution.
+        switch is very similar to an if, else if, else block, 
+        generally a switch statement it's faster in execution.
     */
 }
 </code>
