@@ -56,18 +56,18 @@
             </green>
             <br></br><br></br>
             <blue>
-            - good programmer use <red>private</red> <red>fields</red> for a <red>class<red>. 
-            (A <red>field</red> is a variable declared in the <red>class<red>)
+            - good programmer use <red>private fields</red> for a <red>class</red>. 
+            (A <red>field</red> is a variable declared in the <red>class</red>)
             <br></br>
-            - good programmers use at least a <red>constructor</red> for a <red>class<red>. 
+            - good programmers use at least a <red>constructor</red> for a <red>class</red>. 
             (And that <red>constructor</red> is used to initialize the
             fields.)
             <br></br>
             - good programmers use <red>encapsulation</red> for controling the value 
             that get in or get out from the <red>fields</red>
             <br></br>
-            - a <red>method</red> inside a <red>class<red> is also called 
-            <red>property</red> of the <red>class<red>, 
+            - a <red>method</red> inside a <red>class</red> is also called 
+            <red>property</red> of the <red>class</red>, 
             there can be <red>public</red> or <red>private properties</red>
             </blue>
             <br></br><br></br>
