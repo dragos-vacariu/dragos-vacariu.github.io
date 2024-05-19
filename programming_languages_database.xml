@@ -6939,11 +6939,13 @@ array1.forEach((element) => console.log(element));
             *General-Programming-Knowledge*
             <br></br>
             <green>In JavaScript:</green>
-            <br></br>
-            An <code>array</code> is a collection of variables which can take 
-            any type of values. 
             <br></br><br></br>
-            For example: an array could store both strings and integer values in it.
+            An <code>array</code> is a collection of variables which can take 
+            any type of values. A JavaScript Array is much like a <blue>Vector</blue> or a <blue>List</blue>, 
+            being <red>dynamic in length</red> (resizeable).
+            <br></br><br></br>
+            For example: an array could store both <blue>strings</blue> and 
+            <blue>integer</blue> values in it.
             <br></br>
 <code>
 //Example of creating an array in JavaScript:
@@ -6979,6 +6981,18 @@ So, you cannot create and initialize an array with a single element, using this 
         </collections>
         <collection-methods>
             *General-Programming-Knowledge*
+            The collection methods in Javascript can be divided in 2 categories:
+            <br></br>
+            <blue>
+             - mutator methods;<br></br>
+             - non-mutator methods;<br></br>
+            </blue>
+            <br></br><br></br>
+            A <blue>mutator method</blue> is a method that change or modify the <red>array object</red>
+            (in size or content).
+            <br></br><br></br>
+            The <blue>non-mutator methods</blue> are the methods that don't perform 
+            any change on the <red>array object</red>.
 <code>
 
 //Creating an array using constructor.
@@ -7002,27 +7016,15 @@ These are Mutator methods:
 .unshift() - This method adds a new item at the beginning of the array.
 .shift() - This method removes and returns the first element of the array.
 
-All the methods above change the size of the array. In JavaScript an Array is much like a Vector or a 
-List, being dynamic in length (resizeable).
+.reverse() - This method reverse the element order of an Array Object 
+(the last element becomes the first, etc).
 
-.reverse() - This method reverse the element order of an Array Object (the last element becomes the first, etc).
 .sort() - This method sorts the items of an array (alphabetical, descending or ascending, etc).
 
-.slice() - This method returns a shallow copy of a portion of an array into a new array object selected 
-from begin to end (end not included). 
-
+.slice() - This method returns a shallow copy of a portion of an array into a new array object 
+selected from begin to end (end not included). 
 The original array will not be modified. 
 It can be used for adding or removing a group of item after the specified index. 
-It takes 3 parameters:
-    .splice(index, deleteCount, item1,.... itemX)
-    where:
-    index - specifies at what position to add or remove items;
-    deleteCount - specified the number of elements to be removed, if 0 no elements will be removed.
-    item1...itemX - optional, specifies the elements to be added at specified index in the array.
-
-The 3 methods above change the content of the array object.
-
-A mutator method is a method that change or modify the array object (in size or content).
 
 Non-mutator methods:
 .contains() - This method returns a boolean value specifying if the searched value is present in the array or not.
