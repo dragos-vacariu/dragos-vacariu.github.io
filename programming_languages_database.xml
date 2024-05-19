@@ -6771,8 +6771,8 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
 </code>
         </variable-arguments-lists>
         <simple-data-types>
-            Javascript is a dynamical type language this means that any variable can store any 
-            data type.
+            Javascript is a <blue>dynamical type</blue> language this means that any variable 
+            can store any <blue>data type</blue>.
             <br></br><br></br>
             <green>
             Data Values:
