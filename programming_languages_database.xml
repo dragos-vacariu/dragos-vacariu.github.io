@@ -6136,34 +6136,39 @@ namespace project32_abstract_classes
         <name>JavaScript</name>
         <description>
             JavaScript often abbreviated as JS, is a programming language and core 
-            technology of the Web, alongside HTML and CSS. 99% of websites use JavaScript 
-            on the client side for webpage behavior.<br></br><br></br>
-
+            technology of the Web, alongside HTML and CSS. <blue>99%</blue> of websites use JavaScript 
+            on the <blue>client side</blue> for webpage behavior.
+            <br></br><br></br>
             Web browsers have a dedicated JavaScript engine that executes the client code. 
             These engines are also utilized in some servers and a variety of apps. The most 
-            popular runtime system for non-browser usage is Node.js.<br></br><br></br>
-
-            JavaScript is a high-level, often just-in-time compiled language that conforms 
-            to the ECMAScript standard. It has dynamic typing, prototype-based 
-            object-orientation, and first-class functions. It is multi-paradigm, 
-            supporting event-driven, functional, and imperative programming styles. 
+            popular runtime system for non-browser usage is Node.js.
+            <br></br><br></br>
+            JavaScript is a <blue>high-level</blue>, often <blue>just-in-time</blue> 
+            compiled language that conforms 
+            to the ECMAScript standard. It has <blue>dynamic typing</blue>, <blue>prototype-based</blue>
+            <blue>object-orientation</blue>, and <blue>first-class functions</blue>. It is 
+            <blue>multi-paradigm</blue>, 
+            supporting <blue>event-driven</blue>, <blue>functional</blue>, and <blue>imperative</blue> 
+            programming styles. 
             It has application programming interfaces (APIs) for working with text, dates, 
             regular expressions, standard data structures, and the Document Object Model (DOM).
             <br></br><br></br>
             
-            Difference between JavaScript and PHP is that JavaScript is running in the client computer's browser, and its performance
-            depends only on the client computer's specifications. Whereas PHP is a programming language that runs on a server so when 
-            the client is using a PHP script its computer will make a request to the server with the purpose of getting the compilation
-            result and transfer that information back to the client computer. 
+            Difference between JavaScript and PHP is that JavaScript is running in the client 
+            computer's browser, and its performance depends only on the client computer's specifications. 
+            Whereas PHP is a programming language that runs on a server so when 
+            the client is using a PHP script its computer will make a request to the server with 
+            the purpose of getting the compilation result and transfer that information back to 
+            the client computer. 
             <br></br><br></br>
             
-            This action is significantly slower than the javascript
-            because in case that the server is busy, that action might take place in a matter of seconds, or minutes. While in case of
-            JavaScript the action completes almost instantaneos.
+            This action is significantly slower than the javascript because in case that 
+            the server is busy, that action might take place in a matter of seconds, or minutes. 
+            While in case of JavaScript the action completes almost instantaneos.
             <br></br><br></br>
             
-            PHP is a back-end development language (related to the server), JavaScript is a front-end development language
-            related to the client computer/machine.
+            PHP is a <red>back-end</red> development language (related to the server), JavaScript is a 
+            <blue>front-end</blue> development language related to the client computer/machine.
         </description>
         <oop>*General-Programming-Knowledge*
             JavaScript is an object oriented programming language, having the 4 concept that any OOP language has:<br></br><br></br>
