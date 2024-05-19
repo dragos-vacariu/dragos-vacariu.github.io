@@ -910,8 +910,9 @@ int main()
             A <red>constructor</red> in C++ is a special method that is automatically called when an object 
             of a <code>class</code> is created.
             <br></br><br></br>
-            <red>Constructors</red> can also take <red>parameters</red> (just like <red>regular functions</red>), which can be 
-            useful for setting initial values for attributes.<br></br>
+            <red>Constructors</red> can also take <red>parameters</red> (just like 
+            <red>regular functions</red>), which can be useful for setting initial 
+            values for attributes.<br></br>
         </constructors>
         <instantiation>
             In <red>object-oriented programming</red>, an <red>instance</red> is a concrete realization of a class. 
@@ -6722,7 +6723,8 @@ document.write("The following fields are inherited: &lt;br&gt;");
 document.write("Name: " + c.getName() + "&lt;br&gt;"); 
 document.write("Traction: " + c.getTraction() + "&lt;br&gt;"); 
 
-/*Adding a new method to the parent object will automatically 
+/*
+Adding a new method to the parent object will automatically 
 make it available to the child object.
 
 .hasOwnProperty() - this method will check whether a property/field/variable 
@@ -6818,7 +6820,10 @@ function Home(pn)
 }
 
 //Creating the inheritance:
-Home.prototype = Object.create(House.prototype); //House is gonna be the base class for Home constructor
+
+//House is gonna be the base class for Home constructor
+Home.prototype = Object.create(House.prototype); 
+
 /*
 Object.create - will create an object without using the constructor.
 */
@@ -7198,7 +7203,6 @@ currentDirection = 'North'; // Error: "North" is not assignable to type 'Cardina
         </enums>
         <constructors>
             *General-Programming-Knowledge*
-            <green></green>
             A <blue>constructor</blue> is a special function that creates and initializes an 
             <blue>object instance</blue> of a class. 
             <br></br><br></br>
