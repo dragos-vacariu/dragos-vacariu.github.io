@@ -7841,6 +7841,39 @@ const myShape = new Shape('My shape'); // This will throw an Error
 const shortCircle = new Circle("Short Circle", 0.5); // This will work fine.
 </code>
         </abstract-classes>
+        <decorators>
+            *General-Programming-Knowledge*
+            <br></br>
+<code>
+// Working with decorators in Javascript
+ 
+// "add" function takes the function as
+// a parameter for wrapping function 
+// "print" is wrapped 
+
+function add(fn) 
+{
+    return function(s) 
+    {
+        var gg = s + ' is Best';
+
+        // By concatenating we extend
+        // the function "add"
+        fn(gg);
+    }
+}
+ 
+// Decorated function
+function print(s) 
+{
+    document.write(s);
+}
+ 
+// Calling "add"
+var g = add(print);
+g('GFG'); 
+</code>
+        </decorators>
     </programming_language>
     
     <programming_language>
