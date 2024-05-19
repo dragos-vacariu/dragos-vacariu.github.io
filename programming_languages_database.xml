@@ -7358,7 +7358,25 @@ let x = 5 &lt;&lt; 1;
 let x = -5 &gt;&gt; 1;
 </code>
         </bitwise-operators>
-        <default-parameters>*General-Programming-Knowledge*</default-parameters>
+        <default-parameters>
+            *General-Programming-Knowledge*
+<code>
+//Example of default arguments/parameters in JavaScript:
+
+function myFunction(x, y) 
+{
+    //check whether second argument was passed to the function
+    if (y === undefined) 
+    {
+        y = 2;
+    }
+}
+
+//In JavaScript a function can be called with any number of arguments:
+myFunction(2);
+myFunction(2,3,4,5);
+</code>
+        </default-parameters>
         <interfaces>*General-Programming-Knowledge*</interfaces>
         <random-generators>*General-Programming-Knowledge*<br></br>
             Generate a random whole number between 1 and 10 (inclusive):
