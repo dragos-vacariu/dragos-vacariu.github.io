@@ -7513,27 +7513,29 @@ function Funct()
 //Some string methods in JavaScript:
 
 var string1 = "Blue bottle on a blue table."
-var result = string1.replace(/blue/g , "green") 
 
-//.replace() This function replaces a substring within a string and returns the result.
-//result will be: Blue bottle on a green table.
+var result = string1.replace(/blue/g , "green") 
+//.replace() This function replaces a substring within a string and 
+//returns the result.
+//Result will be: Blue bottle on a green table.
 
 result = string1.replace(/blue/gi, "green") 
 //result will be: green bottle on a green table.
 
 result = string1.substring(1, 4); 
-
 //.substring() This function returns the part of this string from the start 
 //index up to and excluding the end index
 
 result = string1.substring(4, 1); 
-//string1.substring(4, 1) will produce the same result as above, because the function will 
-//swap the values 4 with 1, because the start value needs to be smaller than the end value. 
+//string1.substring(4, 1) will produce the same result as above, 
+//because the function will swap the values 4 with 1, because the start 
+//value needs to be smaller than the end value. 
 //The value at the second parameter is not included in the returned result.
 
 result = string1.substring(4); 
-//will return a string containing all the character from 4th character until the end of the 
-//string. so that will be: "e bottle on a blue table."
+//will return a string containing all the character from 4th character 
+//until the end of the string. 
+//Result will be: "e bottle on a blue table."
 
 result = string1.substr(1,4);
 //.substr() has the same functionality .substring(), 
