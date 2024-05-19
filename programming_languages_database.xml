@@ -6383,10 +6383,10 @@ document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
             When single <red>instance</red> of an <red>object</red> is needed the <blue>object literal</blue> can be used.
             <br></br><br></br>
             <blue>Singleton</blue> means that the <red>object</red> cannot have multiple <red>instances</red> 
-            without affecting 
-            one another. That's why the <red>object literal</red> is a <blue>singleton</blue>.
+            without affecting one another. <br></br>
+            That's why the <red>object literal</red> is a <blue>singleton</blue>.
             <br></br><br></br>
-            The common used way of creating <red>object</red> in all the <blue>OOP languages</blue> is by using 
+            The common way used for creating <red>objects</red> in all the <blue>OOP languages</blue> is by using 
             <blue>Object Constructor</blue>.
             <br></br>
 <code>
