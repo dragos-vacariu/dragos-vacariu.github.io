@@ -948,13 +948,6 @@ int main()
             </blue>
         </destructors>
         <function-overloading>
-            <red>Function/Method overloading</red> refers to defining <red>multiple functions/methods</red> 
-            with the same name but <blue>different parameters</blue> within the same <red>class</red>, 
-            while <red>function/method</red> <blue>overriding</blue> involves 
-            creating a <red>function/method</red> in the child class that has the same <blue>name</blue>, 
-            <blue>parameters</blue>, and 
-            <blue>return type</blue> as a <red>function/method</red> in the <red>parent class</red>.
-            <br></br><br></br>
             <red>Function overloading</red> is a feature of <red>object-oriented programming</red> 
             where two or more 
             <red>functions</red> can have the <red>same name but different parameters</red>. <br></br><br></br>
@@ -965,7 +958,17 @@ int main()
             known as <red>function overloading</red>.<br></br>
             If we have to perform one operation then having same name for the <red>functions</red> 
             doing it <blue>increases 
-            the readability</blue> of the program.<br></br><br></br>
+            the readability</blue> of the program.
+            <br></br><br></br>
+            <green>Function Overloading vs. Function Overriding:</green>
+            <br></br><br></br>
+            <red>Function/Method overloading</red> refers to defining <red>multiple functions/methods</red> 
+            with the same name but <blue>different parameters</blue> within the same <red>class</red>, 
+            while <blue>function/method overriding</blue> involves 
+            creating a <red>function/method</red> in the child class that has the same <blue>name</blue>, 
+            <blue>parameters</blue>, and 
+            <blue>return type</blue> as a <red>function/method</red> in the <red>parent class</red>.
+            <br></br><br></br>
             <brown>
             Overloaded functions can be defined both outside and inside classes.<br></br>
             </brown>
