@@ -6775,15 +6775,15 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
             data type.
             <br></br><br></br>
             <green>
-            Data Types:
+            Data Values:
             </green>
             <br></br><br></br>
             Numbers: 22, 22.4, 44;<br></br>
             Strings: "me", "you"; <br></br>
+            boolean: true, false; <br></br>
             <red>
             Strings can also be initialized using single quotes such as: 'me', 'you'
             </red>
-            boolean: true, false;
             <br></br><br></br>
             All the variables are declared using the <code>var</code> keyword.
 <code>
@@ -6800,11 +6800,46 @@ this means that var A is different from var a;
 and function A () {} is different from function a() {};
 */
 </code>
+            In order to add <blue>static typing</blue> so that JavaScript can work with data types,
+            the TypeScript <red>syntactic superset</red> was introduced.
             <br></br>
-            In order to add <blue>static typing</blue> so that it will work with data types TypeScript 
-            syntactic superset was introduced.
-            <br></br>
-            *General-Programming-Knowledge*
+<code>
+//String data-type:
+var name:string = "John";
+
+//Number data-type:
+var score1:number = 50;
+var score2:number = 42.50
+
+//Array data-type
+var alphas:string[]; 
+alphas = ["1","2","3","4"] 
+
+//Tuple data-type
+var mytuple = []; 
+mytuple[0] = 120 
+mytuple[1] = 234
+
+//Union data-type
+var val:string|number 
+val = 12 
+
+//Interface data-type:
+interface IPerson { 
+   firstName:string, 
+   lastName:string, 
+   sayHi: ()=>string 
+} 
+
+//Classes
+class Shape { 
+   Area:number 
+   
+   constructor(a:number) { 
+      this.Area = a 
+   } 
+} 
+</code>
         </simple-data-types>
         <loops>*General-Programming-Knowledge*
 <code>
