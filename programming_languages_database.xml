@@ -6614,6 +6614,8 @@ var Square = function () {}
 
 //Doing the inheritance:
 Square.prototype = Object.create(Shape.prototype);
+
+//Overriding the base class function:
 Square.prototype.draw = function () 
 {
     return "I am a square shape.";
@@ -6627,7 +6629,7 @@ collection.forEach(function (shape) {
 
     document.write(shape.draw() + "&lt;br&gt;");
     
-    //Expected result every object calls it's own implementation.
+    //Expected result every object calls it's own implementation of .draw() function.
     //OUTPUT:
     //
     //I am a generic shape.
