@@ -6780,7 +6780,7 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
             <br></br><br></br>
             Numbers: <blue>22</blue>, <blue>22.4</blue>, <blue>44</blue>;<br></br>
             Strings: <blue>"me"</blue>, <blue>"you"</blue>; <br></br>
-            boolean: <blue>true<blue/>, <blue>false</blue>; <br></br>
+            boolean: <blue>true</blue>, <blue>false</blue>; <br></br>
             <red><br></br>
             Strings can also be initialized using single quotes such as: 'me', 'you'
             </red>
