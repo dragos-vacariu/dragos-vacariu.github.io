@@ -6793,7 +6793,7 @@ document.write(bb.number + " is perfectly valid" + "&lt;br&gt;");
             to other prototypes. 
             <br></br><br></br>
             In this way the functionality can be shared amongst the <red>objects</red> without 
-            needing any instances.
+            needing any <blue>instances</blue>.
             <br></br><br></br>
             To block a constructor from being <blue>instantiated</blue>, an error will be 
             thrown in such case.
