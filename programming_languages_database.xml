@@ -40,6 +40,9 @@
             If you want others to <red>read</red> or <red>modify</red> 
             the value of a <code>private</code> member, you can provide <code>public</code> <red>get</red> and 
             <red>set</red> methods.<br></br>
+            <br></br>
+            <red>Encapsulation</red> is one of the 4 OOP fundamental concepts.
+            <br></br>
         </encapsulation>
         <polymorphism>
             Polymorphism means <red>"many forms"</red>, and it occurs when we have many 
@@ -6280,7 +6283,7 @@ namespace project32_abstract_classes
             </green>
             <br></br><br></br>
             JavaScript is an <blue>object-oriented</blue> programming language, 
-            having the 4 concept that any <blue>OOP</blue> language has:
+            having the <blue>4 concepts</blue> that any <blue>OOP</blue> language has:
             <br></br><br></br>
             <blue>
             1. Inheritance<br></br>
@@ -6474,6 +6477,7 @@ for (var p in Class)
         <encapsulation>
             *General-Programming-Knowledge*
 <code>
+//Example of encapsulation in JavaScript:
 
 function Car ()
 {
@@ -6482,21 +6486,19 @@ function Car ()
     var _acceleration;
     
     //Creating properties: getters and setters
-    Object.defineProperty(this, "speed", {
-        get: function () {
+    Object.defineProperty(this, "speed", 
+    {
+        get: function () 
+        {
             return _speed;
         } 
         , //using the coma operator to separate between get and set properties:
-        set: function (value){
+        set: function (value)
+        {
+        
             _speed = value;
         }
     })
-    
-    /*
-    This concept of using fields (getters and setter or get and set functions) is called encapsulation, being on of the
-    4 OOP concepts. Encapsulation is used to control the methods in which private fields get initialized or return value.
-    Private variables limit the access to data, and encapsulation provides a way of working with that data.
-    */
     
     //The second way of creating getters and setters
     
@@ -6521,9 +6523,12 @@ function Car ()
     }
     
     /*
-    Remember that privileged methods can be accessed from anywhere, and apart of public methods, privileged methods
-    are the only methods that can access directly private fields and functions. In the case of public methods this is
-    not possible.
+    Privileged methods can be accessed from anywhere, and apart of public methods. 
+    
+    Privileged methods are the only methods that can access directly private 
+    fields and functions. 
+    
+    In the case of public methods this is not possible.
     */
     
 }
