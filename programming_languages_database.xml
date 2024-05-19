@@ -7125,9 +7125,14 @@ var alert = function(msg)
         <operator-overloading>*General-Programming-Knowledge*</operator-overloading>
         <multi-threading>*General-Programming-Knowledge*
         <br></br><br></br>
-        JavaScript is a single threaded language which does not support multithreading. <br></br>
+        <green>Multithreading in JavaScript</green>
+        <br></br><br></br>
+        JavaScript is a <blue>single-threaded language<blue> which means it <red>does 
+        not support multithreading</red>. <br></br>
+        <br></br>
         All the operations in JavaScript are non-blocking and are executed in the event loop. <br></br>
-        This single-threaded nature along with event loop allows JavaScript to handle concurrent operations at once.<br></br>
+        This <blue>single-threaded</blue> nature along with <red>event loop</red> allows JavaScript to 
+        handle <red>concurrent</red> operations at once.<br></br>
         </multi-threading>
         <namespaces>*General-Programming-Knowledge*
 <code>
