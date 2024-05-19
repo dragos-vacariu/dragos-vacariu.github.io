@@ -1178,7 +1178,7 @@ int main()
     <programming_language>
         <name>C</name>
         <description>
-            C is a general-purpose computer programming language.<br></br><br></br>
+            C is a <blue>general-purpose</blue> computer programming language.<br></br><br></br>
             It was created in the 1970s by Dennis Ritchie, and remains very widely used and 
             influential. <br></br><br></br>
             By design, C's features cleanly reflect the 
@@ -1932,16 +1932,16 @@ int main()
     <programming_language>
         <name>C++</name>
         <description>
-            C++ is a high-level, general-purpose programming language created by 
-            Danish computer scientist Bjarne Stroustrup. <br></br><br></br>
-            First released in 1985 as an extension of the C programming language, 
-            it has since expanded significantly over time; as of 1997, C++ has object-oriented, 
-            generic, and functional features. <br></br>
+            C++ is a <blue>high-level</blue>, <blue>general-purpose</blue> programming language 
+            created by Danish computer scientist Bjarne Stroustrup. <br></br><br></br>
+            First released in 1985 as an <blue>extension</blue> of the C programming language, 
+            it has since expanded significantly over time; as of 1997, C++ has <blue>object-oriented</blue>, 
+            <blue>generic</blue>, and <blue>functional</blue> features. <br></br>
             In addition to facilities for low-level memory 
             manipulation for making things like microcomputers or to make operating systems 
             like Linux or Windows. <br></br><br></br>
             
-            It is almost always implemented as a compiled language, 
+            It is almost always implemented as a <blue>compiled language</blue>, 
             and many vendors provide C++ compilers, including the Free Software Foundation, 
             LLVM, Microsoft, Intel, Embarcadero, Oracle, and IBM.
         </description>
@@ -3750,25 +3750,26 @@ int main()
     <programming_language>
         <name>C#</name>
         <description>
-            C# is a general-purpose high-level programming language supporting multiple 
-            paradigms. C# encompasses static typing, strong typing, lexically scoped, 
-            imperative, declarative, functional, generic, object-oriented (class-based), 
-            and component-oriented programming disciplines. <br></br><br></br>
-
+            C# is a <blue>general-purpose high-level</blue> programming language supporting multiple 
+            paradigms. C# encompasses <blue>static typing</blue>, <blue>strong typing</blue>, 
+            <blue>lexically scoped</blue>, <blue>imperative</blue>, <blue>declarative</blue>, 
+            <blue>functional</blue>, <blue>generic</blue>, <blue>object-oriented (class-based)</blue>, 
+            and <blue>component-oriented programming</blue> disciplines. 
+            <br></br><br></br>
             The C# programming language was designed by Anders Hejlsberg from Microsoft in 
-            2000. <br></br><br></br>
-
+            2000. 
+            <br></br><br></br>
             Microsoft introduced C# along with .NET Framework and Visual Studio, both of 
             which were closed-source. At the time, Microsoft had no open-source products. 
             <br></br><br></br>
-
             Four years later, in 2004, a free and open-source project called Mono began, 
             providing a cross-platform compiler and runtime environment for the C# 
-            programming language. <br></br><br></br>
-
+            programming language. 
+            <br></br><br></br>
             A decade later, Microsoft released Visual Studio Code (code editor), 
             Roslyn (compiler), and the unified .NET platform (software framework), 
-            all of which support C# and are free, open-source, and cross-platform. 
+            all of which support C# and are free, <blue>open-source</blue>, and 
+            <blue>cross-platform</blue>. 
             Mono also joined Microsoft but was not merged into .NET.<br></br><br></br>
         </description>
         <oop>*General-Programming-Knowledge*</oop>
@@ -6156,7 +6157,7 @@ namespace project32_abstract_classes
             result and transfer that information back to the client computer. 
             <br></br><br></br>
             
-            This action is significantly slower that the javascript
+            This action is significantly slower than the javascript
             because in case that the server is busy, that action might take place in a matter of seconds, or minutes. While in case of
             JavaScript the action completes almost instantaneos.
             <br></br><br></br>
@@ -6621,7 +6622,7 @@ h.printMsg();
             *General-Programming-Knowledge*
             <br></br>
             TypeScript is a syntactic superset of JavaScript which adds <blue>static typing</blue> which
-            also facilitates the use of generic-programming.
+            also facilitates the use of <blue>generic-programming</blue>.
             <br></br><br></br>
             This basically means that TypeScript adds syntax on top of JavaScript, 
             allowing developers to add <blue>data types</blue>.
@@ -6631,7 +6632,7 @@ h.printMsg();
             </green>
             <br></br><br></br>
             JavaScript is a <blue>loosely typed language</blue>. It can be difficult to understand 
-            what types of data are being passed around in JavaScript.
+            what <blue>types of data</blue> are being passed around within the script.
             <br></br><br></br>
             In JavaScript, <blue>function parameters</blue> and <blue>variables</blue> don't have 
             any information! 
@@ -6641,7 +6642,7 @@ h.printMsg();
             the code, and has the ability to report errors when the <blue>types</blue> don't match.
             <br></br><br></br>
             For example, TypeScript will report an error when passing a <code>string</code> into a 
-            function that expects a <blue>number</blue>. JavaScript will not.
+            function that expects a <blue>number</blue>. JavaScript will not do that.
             <br></br><br></br>
             TypeScript uses compile time <blue>type checking</blue>. Which means it checks if the 
             specified <blue>types match</blue> 
