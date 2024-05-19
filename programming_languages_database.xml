@@ -948,6 +948,13 @@ int main()
             </blue>
         </destructors>
         <function-overloading>
+            <red>Function/Method overloading</red> refers to defining <red>multiple functions/methods</red> 
+            with the same name but <blue>different parameters</blue> within the same <red>class</red>, 
+            while method <blue>overriding</blue> involves 
+            creating a <red>function/method</red> in the child class that has the same <blue>name</blue>, 
+            <blue>parameters</blue>, and 
+            <blue>return type</blue> as a <red>function/method</red> in the <red>parent class</red>.
+            <br></br><br></br>
             <red>Function overloading</red> is a feature of <red>object-oriented programming</red> 
             where two or more 
             <red>functions</red> can have the <red>same name but different parameters</red>. <br></br><br></br>
@@ -7246,84 +7253,10 @@ var user1 = new User('Bob', 25);
         </destructors>
         <function-overloading>
             *General-Programming-Knowledge*
-<code>
-/*
-Prototype object of a constructor function it is used for creating static methods or methods 
-which share their code between all of the instances.
-
-Advantages of using Prototype object for adding functions:
-
--no matter how many objects are created, functions are loaded only once into the memory. Every instance sharing the same code.
--it allows function overriding, if necessary.
-
-Syntax for creating function using prototype:
-ConstructorName.prototype.FunctionName = function () { function definition }
-*/
-
-
-//Creating a constructor for an object:
-function Computer (ProcessorSpeed, Memory)
-{
-    this.CPU_core = ProcessorSpeed;
-    var Memory = Memory;
-}
-
-var pc = new Computer (3.2, 200);
-var pc2 = new Computer (3.4, 2000);
-
-//Adding a function only to an instance of the object:
-pc.getName = function ()
-{
-    //This function is public and can access only with the public fields:
-    return this.CPU_core;
-}
-
-//Adding a private function to all the instances of the object:
-Computer.printMessage = function () //this function will be private.
-{
-    return "this is a message";
-}
-
-document.write("Instance function: " + pc.getName() + "&lt;br&gt;");
-//document.write("Instance function2: " + pc2.getName() + "&lt;br&gt;"); //this will throw an error
-//because getName() method is define only for pc instance.
-
-
-//document.write("Function Inst1: " + pc.printMessage() + "&lt;br&gt;"); //this will throw an error, because the function is private
-//document.write("Function Inst2: " + pc2.printMessage() + "&lt;br&gt;"); //this will throw an error, because the function is private
-
-
-//Adding a function using the prototype object:
-Computer.prototype.printMsg = function () //this code will be executed until the function will be overrided.
-{
-    alert("This function is created using prototype object.");
-}
-
-//Calling the function:
-pc.printMsg();
-pc2.printMsg();
-
-//Function Overriding:
-
-Computer.prototype.printMsg = function () //from this moment on, when calling printMsg() method, this code will be executed.
-{
-    alert("This function war overrided.");
-}
-
-//Calling the overrided function:
-pc.printMsg();
-
-/*
-Similarly built-in functions can be overrided as well:
-
-Example:
-var alert = function(msg)
-{
-    document.write (msg + "&lt;br&gt;")
-}
-*/
-
-</code>
+            <br></br>
+            <green>
+                JavaScript does not support function overloading natively
+            </green>
         </function-overloading>
         <operator-overloading>
             *General-Programming-Knowledge*
