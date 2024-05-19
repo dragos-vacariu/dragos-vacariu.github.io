@@ -6255,22 +6255,32 @@ namespace project32_abstract_classes
         </description>
         <oop>
             *General-Programming-Knowledge*
-            JavaScript is an object oriented programming language, having the 4 concept that any OOP 
-            language has:
+            <green>
+            JavaScript:
+            </green>
+            JavaScript is an <blue>object-oriented</blue> programming language, 
+            having the 4 concept that any <blue>OOP</blue> language has:
             <br></br><br></br>
-            1.Inheritance<br></br>
-            2.Polymorphism<br></br>
-            3.Encapsulation<br></br>
-            4.Abstraction<br></br>
-            <br></br><br></br>
+            <blue>
+            1. Inheritance<br></br>
+            2. Polymorphism<br></br>
+            3. Encapsulation<br></br>
+            4. Abstraction<br></br>
+            </blue>
+            <br></br>
             The objects can be classifed in 2 categories:<br></br>
+            </blue>
             - standard built-in objects;<br></br>
             - custom objects;<br></br>
-            <br></br><br></br>
-            In Javascript there is no concept called "class", so an object will not be built based on 
-            classes, but based on functions or literal notations (or singletons).
+            </blue>
+            <br></br>
+            In Javascript the concept called of <blue>"class"</blue> is different, so objects are not built 
+            based on <blue>classes</blue> alone, but based on <red>functions</red> or 
+            <red>literal notations</red> (or <red>singletons</red>).
             <br></br>
 <code>
+//Example of creating objects in JavaScript:
+
 //Creating an object using a function:
 
 function Employee (firstName, lastName) //This will be the constructor;
@@ -6283,20 +6293,22 @@ function Employee (firstName, lastName) //This will be the constructor;
         return this.firstName + " " + this.LastName;
     }
 }
+
 //Creating an instance of the object:
 
-var emp = new Employee("Black", "Yd");
+var emp = new Employee("Alan", "Walker");
 document.write("First Name: " + emp.firstName + "&lt;br&gt;");
 document.write("Last Name: " + emp.LastName + "&lt;br&gt;");
 document.write("Full Name: " + emp.getFullName() + "&lt;br&gt;");
 
 //Creating an object using a variable/literal notation or singleton:
 
-var objct = { //in this case we already create an object.
+var objct = { //in this case we already create an object/instance.
 
-//Here we are now describing the functionality of the object:
+    //Here we are now describing the functionality of the object:
 
-    firstName: "Alan", // In this case instead of equal sign we use colon operator and coma afterwards;
+    // In this case instead of equal sign for assignment we use colon operator and coma afterwards;
+    firstName: "Alan", 
      lastName: "Walker",
     
     getFullName: function ()
@@ -6305,56 +6317,55 @@ var objct = { //in this case we already create an object.
     }
 } 
 
-//Displaying the information about this objct:
+//Displaying the information about this object:
 
 document.write("&lt;br&gt;First Name: " + objct.firstName + "&lt;br&gt;");
 document.write("Last Name: " + objct.lastName + "&lt;br&gt;");
 document.write("Full Name: " + objct.getFullName() + "&lt;br&gt;");
 
-/*
-Differences between the 2 ways:
 
-In the constructor case the properties are separed by their values using = operator, whereas in case
-of literal notation we use : operator;
-
-In contructor case we use ; to separate the properties, in literal notation we use , instead.
-
-With the constructor method, you first need to create an object to can access its properties, but with literal
-notation the object is already created and you can simply access it. 
-
-Objects created using literal notation are singletons, this mean that when a value is changed for an object, it 
-affects all the objects created. This is happening because all the objects created from literal notation will
-reference the same set of values, so if any of them make a change, that change will affect the whole set of objects.
-Whereas this is not the case using constructor objects.
-*/
-
-document.write("&lt;br&gt;Why singletons?&lt;br&gt;");
-var a = { //Creating an object out of a;
-    value:20,
-}
-
-var b = a; //Creating an object using the variable a;
-document.write("&lt;br&gt;Before Changing value of obj2: &lt;br&gt;");
-document.write("Object1: " + a.value + "&lt;br&gt;");
-document.write("Object2: " + b.value + "&lt;br&gt;");
-b.value=32;
-document.write("&lt;br&gt;After Changing value of obj2: &lt;br&gt;");
-document.write("Object1: " + a.value + "&lt;br&gt;");
-document.write("Object2: " + b.value + "&lt;br&gt;");
-
-/*
-When to use Object Constructor or Object Literal
-
-When multiple instances of an object are needed the object contructor will be used.
-When single instance of an object is needed the object literal can be used.
-
-Singleton means that the object cannot have multiple instances without affecting one another. That's why object literal
-is a singleton.
-
-The common used way of creating object in all the OOP languages is by using Object Constructor.
-*/
 </code>
-
+            <br></br><br></br>
+            <green>Differences between the Object Constructor and Object Literal/Singleton:
+            </green>
+            <br></br><br></br>
+            In the <blue>constructor</blue> case the properties are separed by their values 
+            using <red>=</red> operator, whereas in case of <blue>literal notation</blue> 
+            we use <red>:</red> operator;
+            <br></br><br></br>
+            In <blue>contructor</blue> case we use <red>;</red> to separate the properties, in 
+            <blue>literal notation</blue> we use , 
+            instead.
+            <br></br><br></br>
+            With the <blue>constructor method</blue>, you first need to create an <red>instance</red> 
+            to can access its properties, but with <blue>literal notation</blue> the <red>instance</red> is already 
+            created and you can just access it. 
+            <br></br><br></br>
+            Objects created using <blue>literal notation</blue> are <blue>singletons</blue>, 
+            this mean that when a value is 
+            changed for an <red>instance</red>, it affects all the <red>instances</red> created. 
+            <br></br><br></br>
+            This is happening because all the <red>instances</red> created from <blue>literal notation</blue> 
+            will reference the same set of values, so if any of them make a change, that change will 
+            affect the whole set of <red>instances</red>.
+            <br></br>
+            Whereas this is not the case using <blue>constructor objects</blue>.
+            <br></br><br></br>
+            <green>
+            When to use Object Constructor or Object Literal:
+            </green>
+            <br></br><br></br>
+            When multiple <red>instances</red> of an <red>object</red> are needed the <blue>object contructor</blue> will be used.
+            <br></br>
+            When single instance of an <red>object</red> is needed the object literal can be used.
+            <br></br><br></br>
+            <blue>Singleton</blue> means that the <red>object</red> cannot have multiple <red>instances</red> 
+            without affecting 
+            one another. That's why the <red>object literal</red> is a <blue>singleton</blue>.
+            <br></br><br></br>
+            The common used way of creating <red>object</red> in all the <blue>OOP languages</blue> is by using 
+            <blue>Object Constructor</blue>.
+            <br></br>
 <code>
 /*
 Reflection allows the inspection of meta data, assemblies, modules and type. If the object is derived from a base class than
