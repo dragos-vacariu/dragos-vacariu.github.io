@@ -1212,6 +1212,12 @@ int main()
             (realizing an interface), <blue>to reuse code</blue> and to <blue>independently extend original 
             software</blue> via <code>public classes</code> and <code>interfaces</code>.
             <br></br><br></br>
+            <red>Inheritance</red> consist in <red>classes</red> that can inherit other <red>classes</red> 
+            behaviour and functionality. 
+            <br></br>
+            Example: A <red>class</red> that <blue>inherits</blue> from another <red>class</red> 
+            can have access to its <red>variables</red> and <red>methods</red> as if it were its own.
+            <br></br><br></br>
             <red>Inheritance</red> is one of the <blue>4 OOP fundamental concepts</blue>.
             <br></br>
         </inheritance>
@@ -6644,17 +6650,20 @@ collection.forEach(function (shape) {
         </polymorphism>
         <inheritance>
             *General-Programming-Knowledge*
+            <br></br>
+            In other programming languages a <red>class</red> <blue>inherits</blue> from 
+            another <red>class</red>, 
+            but in Javascript an <red>object</red> will only <blue>inherits</blue> from another 
+            <red>object</red> (this is called <blue>prototype based inheritance</blue>).
+            <br></br><br></br>
+            Also it's not possible for a <red>constructor</red> to
+            <blue>inherit</blue> from another <red>constructor</red>.
+            <br></br><br></br>
+            A <red>constructor</red> can <blue>inherit</blue> only from an <red>instance</red> 
+            of another (also called <red>object</red>).
+            <br></br>
 <code>
-/*
-Inheritance is one of the 4 OOP concepts aside: encapsulation, abstraction, polymorphism.
-
-Inheritance consist in classes that can inherit other classes behaviour and functionality. Example: A class that inherits
-from another class can have access to its variables and methods as if it were its own.
-
-In other programming languages a class inherits from another class, since in Javascript there is no classes, an object will
-only inherit from another object (this is called prototype based inheritance). Also there is NOT possible for a constructor to
-inherit from another constructor. A constructor can inherit only from an instance of another (also called object.)
-*/
+//Example of inheritance in JavaScript:
 
 //Creating a singleton object constructor:
 
@@ -6686,11 +6695,13 @@ Vehicle.prototype.getTraction = function()
 
 //Creating another singleton object:
 
-var car = function (speed, acceleration) 
-//Inheritance can also be made using the first singleton object(var Vehicle), as well, but the main 
-//fields should be initialized first, the example is below:
+//Inheritance can also be made using the first singleton object(var Vehicle), 
+//as well, but the main fields should be initialized first. 
+//Example:
+
+var car = function (speed, acceleration)
 {
- //this keyword refers to the current instance's field.
+    //this keyword refers to the current instance's field.
     this.speed = speed;
     this.acceleration = acceleration;
 }
@@ -6699,36 +6710,44 @@ var car = function (speed, acceleration)
 var vehicle = new Vehicle("Bike", "2 wheels");
 
 //Creating the inheritance:
-car.prototype = vehicle; //Now the any object of the car constructor is a child of the "vehicle" object.
+car.prototype = vehicle; 
+//Now the any object of the car constructor is a child of the "vehicle" object.
 
 //Creating an object of the constructor "car".
 var c = new car(22, 109); 
 
 document.write("The following fields are inherited: &lt;br&gt;");
-document.write("Name: " + c.getName() + "&lt;br&gt;"); //calling the function inherited from parent object.
-document.write("Traction: " + c.getTraction() + "&lt;br&gt;"); //calling the function inherited from parent object.
 
-/*Adding a new method to the parent object will automatically be available to the child object as well.
+//calling the functions inherited from parent object.
+document.write("Name: " + c.getName() + "&lt;br&gt;"); 
+document.write("Traction: " + c.getTraction() + "&lt;br&gt;"); 
 
-.hasOwnProperty() - this method will check whether a property/field/variable is defined on the actual 
-object or prototype. By that it can be found all the inherited properties.
+/*Adding a new method to the parent object will automatically 
+make it available to the child object.
+
+.hasOwnProperty() - this method will check whether a property/field/variable 
+is defined on the actual object or prototype. 
+
+By that it can be found all the inherited properties.
 */
 
 document.write("Is Name a Property of c Object: " + c.hasOwnProperty("name") + "&lt;br&gt;");
 document.write("Is Speed a Property of c Object: " + c.hasOwnProperty("speed") + "&lt;br&gt;");
 
-/*
-Another Example. Inheritance from the first object of the singleton:
-*/
+
+/* Another Example: Inheritance from the first object of the singleton: */
+
 document.write("Singleton Nume: " + Vehicle.name + "&lt;br&gt;");
 Vehicle.name = "Something";
 Vehicle.traction = "4 wheels";
+
 document.write("Singleton Nume: " + Vehicle.name + "&lt;br&gt;");
 
 function Class (num)
 {
     this.number = num;
 }
+
 Class.prototype = Vehicle;
 var clas = new Class(4)
 
@@ -6736,6 +6755,7 @@ document.write("Inherited From Singleton: " + clas.name + "&lt;br&gt;");
 
 /*
 Inheritance can be realized without singletons as well:
+
 function Class (num)
 {
     this.number = num;
