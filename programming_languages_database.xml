@@ -628,7 +628,7 @@ int main()
             
         </modular-programming>
         <datatype-conversions>
-            <green>Generally there are two types of conversion:</green>
+            <green>Generally there are two types of conversions:</green>
             <br></br><br></br>
             <blue>
             - implicit conversion (done automatically by the compiler)<br></br>
@@ -7575,19 +7575,24 @@ result = string1.lastIndexOf(b);
         <operators>
             *General-Programming-Knowledge*
 <code>
-Plus operator:
+//In JavaScript operator + can also be used for concatenation:
+//In JavaScript variables are converted implicitly to facilitate the operation:
+
+//Plus operator:
 var a = 10;
 var b = 20;
-a + b will result 30;
+//a + b will result 30;
 
-var a = "10";
-var b = 20;
-a + b will result 1020;  //b will be converted to string and then concatenated with a.
+a = "10";
+b = 20;
+//a + b will result 1020;  
+//'b' will be converted to string and then concatenated with 'a'.
 
-Minus operator:
-var a = "10";
-var b = 20;
-a-b will result -10, becausse the string a will be automatically converted to a number.
+//Minus operator:
+a = "10";
+b = 20;
+//a-b will result -10; 
+//because the string 'a' will be automatically converted to a number.
 </code>
         </operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
