@@ -7319,6 +7319,7 @@ var alert = function(msg)
         </function-overloading>
         <operator-overloading>
             *General-Programming-Knowledge*
+            <br></br>
             <green>
                 JavaScript doesn't support operator overloading.
             </green>
