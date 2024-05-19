@@ -6778,10 +6778,10 @@ document.write("The sum of all the arguments is: " + getSum(-2,10,4,21) + "&lt;b
             Data Values:
             </green>
             <br></br><br></br>
-            Numbers: 22, 22.4, 44;<br></br>
-            Strings: "me", "you"; <br></br>
-            boolean: true, false; <br></br>
-            <red>
+            Numbers: <blue>22</blue>, <blue>22.4</blue>, <blue>44</blue>;<br></br>
+            Strings: <blue>"me"</blue>, <blue>"you"</blue>; <br></br>
+            boolean: <blue>true<blue/>, <blue>false</blue>; <br></br>
+            <red><br></br>
             Strings can also be initialized using single quotes such as: 'me', 'you'
             </red>
             <br></br><br></br>
@@ -6801,7 +6801,10 @@ and function A () {} is different from function a() {};
 */
 </code>
             In order to add <blue>static typing</blue> so that JavaScript can work with data types,
-            the TypeScript <red>syntactic superset</red> was introduced.
+            the TypeScript was introduced. 
+            <br></br><br></br>
+            TypeScript is a free and open-source <blue>high-level</blue> programming language developed by 
+            Microsoft that adds <blue>static typing</blue> with optional type annotations to JavaScript.
             <br></br>
 <code>
 //String data-type:
