@@ -657,7 +657,7 @@ int main()
             things that 
             use it from making changes inside the library. Unless there is a change in the API, 
             there is a <red>low risk</red> for someone's code-breaking. <br></br>
-			For example, if you didn't have 
+                        For example, if you didn't have 
             explicit APIs and someone changed a function they thought was only used within that 
             same <red>library</red> (but it was used elsewhere), they could <red>accidentally break</red> 
             something.<br></br><br></br>
@@ -668,7 +668,7 @@ int main()
             This <red>conflict</red> can be <red>reduced</red> 
             if the <red>code is split</red> between more <red>functions</red>, <red>files</red>, <red>repos</red>, 
             etc. <br></br>
-			We can also provide 
+                        We can also provide 
             ownership to <red>specific code modules</red>, where a team member can break them down into 
             <red>smaller tasks</red>.<br></br><br></br>
             
@@ -6163,16 +6163,16 @@ using System;
 //IMPORTANT: the class parts must be in the same namespace.
 namespace project47_partial_classes 
 {
-	/// &lt;summary&gt;
-	/// Description of PartialClassPartTwo.
-	/// &lt;/summary&gt;
-	partial class MyClass //the partial keyword must be used for all the parts of the class.
-	{
-		public void PrintInfo()
-		{
-			Console.WriteLine("Name: {0} 	Age: {1}", _Name, _Age);
-		}
-	}
+        /// &lt;summary&gt;
+        /// Description of PartialClassPartTwo.
+        /// &lt;/summary&gt;
+        partial class MyClass //the partial keyword must be used for all the parts of the class.
+        {
+                public void PrintInfo()
+                {
+                        Console.WriteLine("Name: {0}         Age: {1}", _Name, _Age);
+                }
+        }
 }
 </code>
         </partial-classes>
@@ -6375,82 +6375,84 @@ so every type and object will have access to functionalities like:
 
 namespace project43_reflection
 {
-	class Program
-	{
-		public static void Main(string[] args)
-		{
-			//Getting the type:
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Getting the type:
             //T gets the type of the project43_reflection.ExampleClass.
-			Type T = Type.GetType("project43_reflection.ExampleClass");
-			
+            Type T = Type.GetType("project43_reflection.ExampleClass");
+                
             //Equivalent methods to get the type: 
-			//Type T = typeof (ExampleClass);
-			//ExampleClass ec = new ExampleClass();
-			//Type T = ec.GetType();
-			
-			//Getting the properties:
+            //Type T = typeof (ExampleClass);
+            //ExampleClass ec = new ExampleClass();
+            //Type T = ec.GetType();
+                
+            //Getting the properties:
             //T.GetProprieties returns an array of type PropertyInfo, containing all
             //the information about the proprieties of the class.
-			PropertyInfo [] proprietiesFound = T.GetProperties(); 
-			foreach(PropertyInfo k in proprietiesFound)
-			{
-				Console.WriteLine("Property Name: {0}	Property type: {1}", k.Name, k.PropertyType); 
+            PropertyInfo [] proprietiesFound = T.GetProperties(); 
+            
+            foreach(PropertyInfo k in proprietiesFound)
+            {
+                Console.WriteLine("Property Name: {0}   Property type: {1}", k.Name, k.PropertyType); 
                 //printing the proprieties of the class ExampleClass.
-			}
-			
-            Console.WriteLine();	
-			
+            }
+                
+            Console.WriteLine();        
+                
             //Getting the methods:
-			MethodInfo[] methodsFound = T.GetMethods();
-			foreach(MethodInfo k in methodsFound)
-			{
-				Console.WriteLine("Method Name: {0}		Method return type: {1}", k.Name, k.ReturnType);
-			}
-			Console.WriteLine();
-			
+            MethodInfo[] methodsFound = T.GetMethods();
+            foreach(MethodInfo k in methodsFound)
+            {
+                Console.WriteLine("Method Name: {0} Method return type: {1}", k.Name, k.ReturnType);
+            }
+            Console.WriteLine();
+                
             //Getting members:
-			MemberInfo [] membersFound = T.GetMembers();
-			foreach(MemberInfo k in membersFound)
-			{
-				Console.WriteLine("Member Name: {0}		Member type: {1}", k.Name,  k.MemberType);
-			}
-			
+            MemberInfo [] membersFound = T.GetMembers();
+            foreach(MemberInfo k in membersFound)
+            {
+                Console.WriteLine("Member Name: {0} Member type: {1}", k.Name,  k.MemberType);
+            }
+                
             Console.Write("Press any key to continue . . . ");
-			Console.ReadKey(true);
-		}
-	}
-	class ExampleClass
-	{
-		//Variables:
-		private int _age;
-		private string _name;
-		
+            Console.ReadKey(true);
+        }
+    }
+    
+    class ExampleClass
+    {
+        //Variables:
+        private int _age;
+        private string _name;
+            
         //Properties:
-		public string Name 
-		{
-			get{
-				return this._name;
-			}
-			set{
-				this._name=value;
-			}
-		}
-		public int Age
-		{
-			get{
-				return this._age;
-			}
-			set{
-				this._age=value;
-			}
-		}
-		
+        public string Name 
+        {
+            get{
+                    return this._name;
+            }
+            set{
+                    this._name=value;
+            }
+        }
+        public int Age
+        {
+            get{
+                    return this._age;
+            }
+            set{
+                    this._age=value;
+            }
+        }
+            
         //Methods:
-		public void Print()
-		{
-			Console.WriteLine("Name: {0}	Age: {1}", this._name, this._age);
-		}
-	}
+        public void Print()
+        {
+                Console.WriteLine("Name: {0}        Age: {1}", this._name, this._age);
+        }
+    }
 }
 </code>
         </reflection>
