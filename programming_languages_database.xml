@@ -8107,24 +8107,27 @@ public class GenericClass &lt;T&gt;
 
 </code>
 
-        <blue>Generics</blue> are related to using the correspondent object of a 
-        <blue>primitive data type</blue> as it is for:<br></br>
-        <blue>int</blue> (primitive) -> <red>Integer(object)</red><br></br>
-        <blue>double</blue> (primitive) -> <red>Double(object)</red><br></br>
-        etc...<br></br>
+        In Java each <blue>data type</blue> has an <red>object</red> correspondant: 
+        <br></br>
+        <blue>int</blue> (primitive) -> <red>Integer (object)</red><br></br>
+        <blue>double</blue> (primitive) -> <red>Double (object)</red><br></br>
+        etc...
+        <br></br><br></br>
+        We could use <blue>generics</blue> to wrap <blue>primitive types</blue> 
+        into <red>objects</red>.
+        <br></br><br></br>
+        Example: <blue>java.lang.Integer class</blue>  wraps a value of the 
+        <blue>primitive type int</blue> into an <red>object</red>. 
+        <br></br>
+        The <red>object</red> of type <blue>Integer</blue> contains a single <blue>field</blue> 
+        whose <blue>type</blue> is <blue>int</blue>
         <br></br><br></br>
         <blue>Generic methods</blue> are methods that can be called with arguments of 
         different types.
         Based on the <blue>types</blue> of the <blue>arguments</blue> passed to the 
         <blue>generic method</blue>, the compiler handles each <blue>method</blue> 
         call appropriately.
-        <br></br><br></br>
-        In Java each <blue>data type</blue> has an <red>object</red> correspondant. 
-        <br></br><br></br>
-        Example: <blue>java.lang.Integer class</blue>  wraps a value of the 
-        <blue>primitive type int</blue> in an <red>object</red>. 
-        An <red>object</red> of type <blue>Integer</blue> contains a single <blue>field</blue> 
-        whose <blue>type</blue> is <blue>int</blue>.
+.
 <code>
 //Example of generic class instantiation in Java:
 //Example of generic method/function definition in Java:
