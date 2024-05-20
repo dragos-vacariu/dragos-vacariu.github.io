@@ -8038,7 +8038,7 @@ package project26;
 
 /**
  *
- * @author Black2
+ * @author DrVa
  */
 public abstract class AbstractClass {
     private String PersonName;
@@ -8072,74 +8072,97 @@ public abstract class AbstractClass {
 
 </code>
         </abstraction>
-        <generic-programming>*General-Programming-Knowledge*
+        <generic-programming>
+            *General-Programming-Knowledge*
+            <br></br><br></br>
+            In Java a <blue>generic class</blue> declaration is similar to a 
+            regular non-generic <blue>class</blue> declaration, 
+            except that the <blue>class</blue> name is followed by a 
+            <red>&lt;type parameter&gt;</red> section.
+            <br></br><br></br>
+            For all generics the <red>&lt;type parameter&gt;</red> section can 
+            contain one or more <red>&lt;type parameters&gt;</red> separated by commas.
+            <br></br><br></br>
+            Such <red>generics<red> are called </blue>parameterized types</blue> because they 
+            accept one or more parameters.
 <code>
-/*
-A generic class declaration looks like a non-generic class declaration, except that the class name is 
-followed by a type parameter section.
+//Example of generic class declaration in Java:
 
-As with generic methods, the type parameter section of a generic class can have one or more type parameters 
-separated by commas. These classes are known as parameterized classes or parameterized types because they 
-accept one or more parameters.
- */
 package project29;
-//The sinthax for a generic class is just like a basic class dispite that it contains: &lt;T&gt;, which is the type
-//object, for the parameter.
-public class GenericClass &lt;T&gt; {
+
+public class GenericClass &lt;T&gt; 
+{
    private T t;
 
-   public void set(T t) {
+   public void set(T t) 
+   {
       this.t = t;
    }
 
-   public T get() {
+   public T get() 
+   {
       return t;
    }
 }
 
 </code>
 
+        <blue>Generics</blue> are related to using the correspondent object of a 
+        <blue>primitive data type</blue> as it is for:<br></br>
+        <blue>int</blue> (primitive) -> <red>Integer(object)</red><br></br>
+        <blue>double</blue> (primitive) -> <red>Double(object)</red><br></br>
+        etc...<br></br>
+        <br></br><br></br>
+        <blue>Generic methods</blue> are methods that can be called with arguments of 
+        different types.
+        Based on the <blue>types</blue> of the <blue>arguments</blue> passed to the 
+        <blue>generic method</blue>, the compiler handles each <blue>method</blue> 
+        call appropriately.
+        <br></br><br></br>
+        In Java each <blue>data type</blue> has an <red>object</red> correspondant. 
+        <br></br><br></br>
+        Example: <blue>java.lang.Integer class</blue>  wraps a value of the 
+        <blue>primitive type int</blue> in an <red>object</red>. 
+        An <red>object</red> of type <blue>Integer</blue> contains a single <blue>field</blue> 
+        whose <blue>type</blue> is <blue>int</blue>.
 <code>
-/*
-Generics is related to using the correspondant object of a primitive data type as it is for int (primitive) -> 
--> Integer(object), for double(primitive) -> Double(object) etc.
+//Example of generic class instantiation in Java:
+//Example of generic method/function definition in Java:
 
-Generic methods are methods that can be called with arguments of different types.
-Based on the types of the arguments passed to the generic method, the compiler handles each method 
-call appropriately. Following are the rules to define Generic Methods.
-
-This is possible only by using objects, but in Java each data type has an object correspondant. 
-
-The java.lang.Integer class wraps a value of the primitive type int in an object. An object of type Integer 
-contains a single field whose type is int.
-*/
 package project29;
 
 import java.util.Scanner;
 
-/**
+/*
  *
- * @author Black2
+ * @author DrVa
  */
-public class Project29 {
-
-    public static void main(String[] args) {
+ 
+public class Project29 
+{
+    public static void main(String[] args) 
+    {
         Integer [] myArray = new Integer[] {1,42,13,24,5};
         Character [] myCharArray = new Character[] {'D', 'N', 'C', 'A'};
         printArray(myArray);
         printArray(myCharArray);
+        
         //Using the GenericClass:
         GenericClass &lt;Integer&gt; FirstGeneric_Class = new GenericClass&lt;Integer&gt;();
         FirstGeneric_Class.set(2);
         System.out.printf("Value of GenericClass object: %d\n", FirstGeneric_Class.get());
+        
         //Keep the window opened until a key is pressed:
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
     }
+    
     //Creating a generic function:
-    public static &lt; E &gt; void printArray( E[] inputArray ) {
+    public static &lt; E &gt; void printArray( E[] inputArray ) 
+    {
       // Display array elements
-      for(E element : inputArray) {
+      for(E element : inputArray) 
+      {
          System.out.printf("%s ", element);
       }
       System.out.println();
