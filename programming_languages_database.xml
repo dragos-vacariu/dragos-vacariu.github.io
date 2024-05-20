@@ -8169,15 +8169,15 @@ public class Project29
         myscanner.next();
     }
     
-    //Creating a generic function:
+    //Creating a generic method/function:
     public static &lt; E &gt; void printArray( E[] inputArray ) 
     {
-      // Display array elements
-      for(E element : inputArray) 
-      {
+        // Display array elements
+        for(E element : inputArray) 
+        {
          System.out.printf("%s ", element);
-      }
-      System.out.println();
+        }
+        System.out.println();
     }
 }
 /*
