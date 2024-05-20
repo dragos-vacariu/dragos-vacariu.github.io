@@ -8075,6 +8075,10 @@ public abstract class AbstractClass {
         <generic-programming>
             *General-Programming-Knowledge*
             <br></br><br></br>
+            <green>Generic Programming in Java:</green>
+            <br></br><br></br>
+            <brown>Generic Classes:</brown>
+            <br></br><br></br>
             In Java a <blue>generic class</blue> declaration is similar to a 
             regular non-generic <blue>class</blue> declaration, 
             except that the <blue>class</blue> name is followed by a 
@@ -8109,8 +8113,8 @@ public class GenericClass &lt;T&gt;
 
         In Java each <blue>data type</blue> has an <red>object</red> correspondant: 
         <br></br>
-        <blue>int</blue> (primitive) -> <red>Integer (object)</red><br></br>
-        <blue>double</blue> (primitive) -> <red>Double (object)</red><br></br>
+        <blue>int</blue> (primitive) -> <red>Integer</red> (object)<br></br>
+        <blue>double</blue> (primitive) -> <red>Double</red> (object)<br></br>
         etc...
         <br></br><br></br>
         We could use <blue>generics</blue> to wrap <blue>primitive types</blue> 
@@ -8121,6 +8125,8 @@ public class GenericClass &lt;T&gt;
         <br></br>
         The <red>object</red> of type <blue>Integer</blue> contains a single <blue>field</blue> 
         whose <blue>type</blue> is <blue>int</blue>
+        <br></br><br></br>
+        <brown>Generic Methods:</brown>
         <br></br><br></br>
         <blue>Generic methods</blue> are methods that can be called with arguments of 
         different types.
