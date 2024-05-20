@@ -1353,6 +1353,30 @@ int main()
             developers to inspect code at runtime.
             <br></br>
         </reflection>
+        <read-from-file>
+            <blue>File handling</blue> is an important part of any application.
+            <br></br><br></br>
+            <blue>File handling</blue> is the process in which we <red>create</red>, 
+            <red>open</red>, <red>read</red>, <red>write</red>, and <red>close</red> 
+            operations on a <blue>file</blue>.
+            <br></br><br></br>
+            <green>Features of file handling:</green>
+            <blue>Reusability</blue>: The data stored in the <blue>file</blue> can be <red>accessed</red>, 
+            <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
+            <blue>high reusability</blue>.
+            <br></br>
+            <blue>Portability</blue>: Without losing any data, <blue>files</blue> can be transferred to 
+            another in the computer system. The risk of flawed coding is 
+            minimized with this feature.
+            <br></br>
+            <blue>Efficiency</blue>: A large amount of input may be required for some programs. 
+            <blue>File handling</blue> allows you to easily access a part of a file using few 
+            instructions which saves a lot of time and reduces the chance of errors.
+            <br></br>
+            <blue>Storage Capacity</blue>: <blue>Files</blue> allow you to store a large amount of data 
+            without having to worry about storing everything simultaneously in a program.
+            <br></br><br></br>
+        </read-from-file>
     </programming_language>
     
     <programming_language>
@@ -1496,6 +1520,7 @@ while(list != NULL) // list is currently pointing to the last element. So we wil
         <collection-methods>There are no built in functions for working with collections.</collection-methods>
         <dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
         <read-from-file>
+            *General-Programming-Knowledge*
             C programming language supports <red>four</red> pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
             <br></br><br></br>
             <blue>fgetc()</blue><br></br>
@@ -2835,6 +2860,7 @@ int main()
 </code>
         </dynamic-memory-allocation>
         <read-from-file>
+            *General-Programming-Knowledge*
             The <code>fstream</code> library can be used in C++ to work with files.
             <br></br><br></br>
             There are three classes included in the <code>fstream</code> library, 
@@ -8387,6 +8413,7 @@ and then you use that name to access each element.
 </code>
         </loops>
         <collections>
+            *General-Programming-Knowledge*
 <code>
 package project11;
 import java.util.Scanner;
@@ -8621,6 +8648,8 @@ public int hashCode()    //It returns the hash code number of the collection.
 </code>
         </collection-methods>
         <dynamic-memory-allocation>
+            *General-Programming-Knowledge*
+            <br></br>
             Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
             at runtime. <br></br>
             New objects are always created in heap space, and the references to these objects 
@@ -8628,8 +8657,92 @@ public int hashCode()    //It returns the hash code number of the collection.
             These objects have global access and we can access them from anywhere in the 
             application.<br></br>
         </dynamic-memory-allocation>
-        <read-from-file>For a concrete example - see the sample from Serialiation.</read-from-file>
-        <write-to-file>For a concrete example - see the sample from Serialiation.</write-to-file>
+        <read-from-file>
+            *General-Programming-Knowledge*
+<code>
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+
+public class ReadFile 
+{
+    public static void main(String[] args) 
+    {
+        try 
+        {
+            File myObj = new File("filename.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) 
+            {
+                String data = myReader.nextLine();
+                System.out.println(data);
+            }
+            myReader.close();
+        } 
+        catch (FileNotFoundException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+        </read-from-file>
+        <write-to-file>
+            Create a file:
+<code>
+import java.io.File;  // Import the File class
+import java.io.IOException;  // Import the IOException class to handle errors
+
+public class CreateFile 
+{
+    public static void main(String[] args) 
+    {
+        try 
+        {
+            File myObj = new File("filename.txt");
+            if (myObj.createNewFile()) 
+            {
+                System.out.println("File created: " + myObj.getName());
+            } 
+            else 
+            {
+                System.out.println("File already exists.");
+            }
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+            Write to a file:
+<code>
+import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;  // Import the IOException class to handle errors
+
+public class WriteToFile 
+{
+    public static void main(String[] args) 
+    {
+        try 
+        {
+            FileWriter myWriter = new FileWriter("filename.txt");
+            myWriter.write("Files in Java might be tricky, but it is fun enough!");
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } 
+        catch (IOException e) 
+        {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+}
+</code>
+        </write-to-file>
         <serialization>*General-Programming-Knowledge*
 <code>
 package project23;
