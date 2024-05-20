@@ -2081,35 +2081,41 @@ printf("%d\n", strcmp(str1, str3));
             It is one of the important concepts introduced in 'C' 
             programming.<br></br>
 <code>
-// Automatic conversion: int to float
+//Automatic conversion: int to float
 float myFloat = 9;
 
 printf("%f", myFloat); // 9.000000
 
-// the compiler automatically converts the int value 9 to a float value of 9.000000.
+//the compiler automatically converts the int value 
+//9 to a float value of 9.000000.
 
-// Automatic conversion: float to int
+//Automatic conversion: float to int
 int myInt = 9.99;
 
 printf("%d", myInt); // 9
 
-// the compiler automatically converts the float value of 9.99 to int value 9.
+//the compiler automatically converts the float value of 
+//9.99 to int value 9.
 </code>
 
 <code>
-//Calculate the percentage of a user's score in relation to the maximum score in a game:
+//Calculate the percentage of a user's score in relation to 
+//the maximum score in a game:
 
-// Set the maximum possible score in the game to 500
+//Set the maximum possible score in the game to 500
 int maxScore = 500;
 
-// The actual score of the user
+//The actual score of the user
 int userScore = 420;
 
-/* Calculate the percentage of the user's score in relation to the maximum available score.
-Convert userScore to float to make sure that the division is accurate */
+/* 
+Calculate the percentage of the user's score in relation to the 
+maximum available score.
+Convert userScore to float to make sure that the division is accurate.
+*/
 float percentage = (float) userScore / maxScore * 100.0;
 
-// Print the percentage
+//Print the percentage
 printf("User's percentage is %.2f", percentage);
 </code>
         </datatype-conversions>
