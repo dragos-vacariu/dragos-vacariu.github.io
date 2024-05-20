@@ -6380,7 +6380,8 @@ namespace project43_reflection
 		public static void Main(string[] args)
 		{
 			//Getting the type:
-			Type T = Type.GetType("project43_reflection.ExampleClass"); //T gets the type of the project43_reflection.ExampleClass.
+            //T gets the type of the project43_reflection.ExampleClass.
+			Type T = Type.GetType("project43_reflection.ExampleClass");
 			
             //Equivalent methods to get the type: 
 			//Type T = typeof (ExampleClass);
