@@ -121,6 +121,8 @@
             A <blue>data type</blue> is an attribute associated with a piece of 
             data (<blue>variable</blue>) that tells a computer system how to interpret its value.
             <br></br><br></br>
+            <green>Data-types in Programming:</green>
+            <br></br><br></br>
             <code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
             occupies <code>2 bytes</code> memory;
             <br></br><br></br>
@@ -1250,7 +1252,23 @@ int main()
             <br></br><br></br> 
             <red>Files</red> are not only used for storing the <red>data</red>, programs are also 
             stored in <red>files</red>.
+            <br></br><br></br>
+            <green>Features of file handling:</green>
+            <blue>Reusability</blue>: The data stored in the <blue>file</blue> can be <red>accessed</red>, 
+            <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
+            <blue>high reusability</blue>.
             <br></br>
+            <blue>Portability</blue>: Without losing any data, <blue>files</blue> can be transferred to 
+            another in the computer system. The risk of flawed coding is 
+            minimized with this feature.
+            <br></br>
+            <blue>Efficiency</blue>: A large amount of input may be required for some programs. 
+            <blue>File handling</blue> allows you to easily access a part of a file using few 
+            instructions which saves a lot of time and reduces the chance of errors.
+            <br></br>
+            <blue>Storage Capacity</blue>: <blue>Files</blue> allow you to store a large amount of data 
+            without having to worry about storing everything simultaneously in a program.
+            <br></br><br></br>
         </read-from-file>
         <write-to-file>
             When a program is terminated, the entire <red>data</red> is lost.
@@ -1353,30 +1371,6 @@ int main()
             developers to inspect code at runtime.
             <br></br>
         </reflection>
-        <read-from-file>
-            <blue>File handling</blue> is an important part of any application.
-            <br></br><br></br>
-            <blue>File handling</blue> is the process in which we <red>create</red>, 
-            <red>open</red>, <red>read</red>, <red>write</red>, and <red>close</red> 
-            operations on a <blue>file</blue>.
-            <br></br><br></br>
-            <green>Features of file handling:</green>
-            <blue>Reusability</blue>: The data stored in the <blue>file</blue> can be <red>accessed</red>, 
-            <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
-            <blue>high reusability</blue>.
-            <br></br>
-            <blue>Portability</blue>: Without losing any data, <blue>files</blue> can be transferred to 
-            another in the computer system. The risk of flawed coding is 
-            minimized with this feature.
-            <br></br>
-            <blue>Efficiency</blue>: A large amount of input may be required for some programs. 
-            <blue>File handling</blue> allows you to easily access a part of a file using few 
-            instructions which saves a lot of time and reduces the chance of errors.
-            <br></br>
-            <blue>Storage Capacity</blue>: <blue>Files</blue> allow you to store a large amount of data 
-            without having to worry about storing everything simultaneously in a program.
-            <br></br><br></br>
-        </read-from-file>
     </programming_language>
     
     <programming_language>
@@ -8648,8 +8642,6 @@ public int hashCode()    //It returns the hash code number of the collection.
 </code>
         </collection-methods>
         <dynamic-memory-allocation>
-            *General-Programming-Knowledge*
-            <br></br>
             Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
             at runtime. <br></br>
             New objects are always created in heap space, and the references to these objects 
@@ -8689,7 +8681,11 @@ public class ReadFile
 </code>
         </read-from-file>
         <write-to-file>
-            Create a file:
+            *General-Programming-Knowledge*
+            <green>Writing to files in Java:</green>
+            <br></br><br></br>
+            <red>Creating a file:</red>
+            <br></br>
 <code>
 import java.io.File;  // Import the File class
 import java.io.IOException;  // Import the IOException class to handle errors
@@ -8718,7 +8714,9 @@ public class CreateFile
     }
 }
 </code>
-            Write to a file:
+            <br></br>
+            <blue>Write to a file:</blue>
+            <br></br>
 <code>
 import java.io.FileWriter;   // Import the FileWriter class
 import java.io.IOException;  // Import the IOException class to handle errors
