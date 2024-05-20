@@ -942,14 +942,14 @@ int main()
             <br></br><br></br>
             <blue>
             Pre-Increment Operator<br></br>
-            <code>
-            a = ++x; // first x will be incremented then value of x is assigned to a;
-            </code>
+<code>
+a = ++x; // first x will be incremented then value of x is assigned to a;
+</code>
             <br></br>
             Post-Increment Operator<br></br>
-            <code>
-            a = x++; // first x value is assigned to a, then the value of x gets incremented;
-            </code>
+<code>
+a = x++; // first x value is assigned to a, then the value of x gets incremented;
+</code>
             </blue>
         </pre-post-incrementation>
         <constructors>
@@ -2256,14 +2256,20 @@ int main()
 /*
 
 The word polymorphism means having many forms. 
-Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance.
 
-C++ polymorphism means that a call to a member function will cause a different function to be executed depending on the type of object that invokes the function. 
+Typically, polymorphism occurs when there is a hierarchy of classes 
+and they are related by inheritance.
 
-Example: if a parent class function is set to be override-able, then a parent class pointer can have functionality of the a child class object.
+C++ polymorphism means that a call to a member function will cause a 
+different function to be executed depending on the type of object 
+that invokes the function. 
 
-A pure virtual function is a function that is declared in the parent class and it really needs 
-to be defined in each one of the child classes.
+Example: if a parent class function is set to be overridable, 
+then a parent class pointer can have functionality of the 
+child class object.
+
+A pure virtual function is a function that is declared in 
+the parent class and it should be defined in every child classes.
 
 Syntax: virtual void DisplayFunction () = 0;
 
@@ -2279,7 +2285,8 @@ class Shape
         int height;
 
     public:
-        virtual void DisplayInfo() //Each child class has to provide its own definition of this method.
+        //Each child class has to provide its own definition of this method.
+        virtual void DisplayInfo() 
         {
             cout &lt;&lt; "This is the parent class." &lt;&lt; endl;
         }
@@ -2337,8 +2344,9 @@ int main()
     Square square_object(4,3);
     
     /*
-    The pointer of type Shape can reference any of the Shape class children, 
-    but having only the functionality of Shape Class.
+    The pointer of type Shape can reference any of the 
+    Shape class children, but having only 
+    the functionality of Shape Class.
     */
     
     p=&#38;circle_object;
@@ -2351,7 +2359,8 @@ int main()
     return 0;
     
     /*
-    Using same variable we accessed different behaviour for each child class.
+    Using same variable we accessed different behaviour for 
+    each child class.
     */
 }
 </code>    
@@ -2943,7 +2952,8 @@ int main()
     // Read from the text file
     ifstream MyReadFile("filename.txt");
 
-    // Use a while loop together with the getline() function to read the file line by line
+    // Use a while loop together with the getline() 
+    //to read the file line by line
     while (getline (MyReadFile, myText)) 
     {
       // Output the text from the file
@@ -2951,7 +2961,8 @@ int main()
     }
 
     // Close the file
-    MyReadFile.close(); //It is considered good practice to close the file, 
+    MyReadFile.close(); 
+    //It is considered good practice to close the file, 
     //and it can clean up unnecessary memory space.
 }
 </code>
@@ -2992,7 +3003,8 @@ int main()
     MyFile &lt;&lt; "Files can be tricky, but it is fun enough!";
 
     // Close the file
-    MyFile.close(); //It is considered good practice to close the file, 
+    MyFile.close(); 
+    //It is considered good practice to close the file, 
     //and it can clean up unnecessary memory space.
 }
 </code>
@@ -3068,12 +3080,10 @@ int main()
     cout &lt;&lt; s2.branch &lt;&lt; endl;
 
     /*
-    
         OUTPUT: 
         James 
         28 
         IT
-    
     */
 }
 </code>
@@ -3161,10 +3171,8 @@ int main()
     cout &lt;&lt; s2.name &lt;&lt; " " &lt;&lt; s2.rollno &lt;&lt; " " &lt;&lt; s2.branch &lt;&lt; endl;
 
     /*
-    
         OUTPUT:
         James 28 IT
-    
     */
 }
 </code>
@@ -3172,7 +3180,7 @@ int main()
         <constructors>
             *General-Programming-Knowledge*
 <code>
-/*Example*/
+/*Example of constructor in C++*/
 
 #include &lt;iostream&gt; 
 
@@ -3184,7 +3192,8 @@ class MyClass   // The class
         MyClass()     // Constructor
         {     
             /*
-            The constructor has the same name as the class, it is always public, 
+            The constructor has the same name as the class, 
+            it is always public, 
             and it does not have any return value.
             */
 
@@ -3194,7 +3203,8 @@ class MyClass   // The class
 
 int main() 
 {
-      MyClass myObj;    // Create an object of MyClass (this will call the constructor)
+      MyClass myObj; 
+      // Create an object of MyClass (this will call the constructor)
       return 0;
 }
 </code>
@@ -3328,20 +3338,23 @@ int main()
 using namespace std;
 
 /*
-While processing a game loop, there are lots of statements to be checked, so in order to use those statements, variables
-that will hold a certain value will be created. 
+While processing a game loop, there are lots of statements to be checked, 
+so in order to use those statements, 
+variables that will hold a certain value will be created. 
 
 Example:
 int GamePlay =1;
 int PauseGame = 2;
 int ExitGame = 3;
 
-So in this way the statements can be checked, to see when the game should be paused, should run, or should exit. As you see
-above, the variables that are used needs to have different values.
+So in this way the statements can be checked, 
+to see when the game should be paused, should run, or should exit. 
+As you see above, the variables that are used needs to have different values.
 
-An ENUM is a way to enclose a bunch of constants, an ENUM guarantees that every variable inside it, will have different values.
+An enum is a way to enclose a bunch of constants, 
+An enum guarantees that every variable inside it, will have different values.
 
-Example: an ENUM with the variables above, can be created as follows:
+Example: an enum with the variables above, can be created as follows:
 enum GameStates {GamePlay, PauseGame, ExitGame};
 
 So the synthax is:
@@ -3349,43 +3362,49 @@ enum &lt;name&gt; {states/members};
 */
 
 //Creating a GLOBAL enum:
-enum GameStates {GamePlay, PauseGame, ExitGame}; //the elements will take as constant value the position inside the enum;
+enum GameStates {GamePlay, PauseGame, ExitGame}; 
+//the elements will take as constant value the position inside the enum;
 //In this case: GamePlay = 0; PauseGame=1; ExitGame=2;
 
 /*
 
-ENUM Members cannot be initialized with values: 
+enum members cannot be initialized with values: 
 Example GamePlay = 5, this will give compilation error.
 
-Instead the ENUM can be initialized only as follows:
+Instead the enum can be initialized only as follows:
 GameStates=ExitGame;
 
-In this case the active value of the ENUM will be ExitGame;
+In this case the active value of the enum will be ExitGame;
 The syntax is : &lt;enum name&gt; = &lt;enum member&gt;;
 
-An ENUM Class is an ENUM that will use the scope resolution and an object of the ENUM class for assignments as above.
+An enum class is an enum that will use the scope resolution and 
+an object of the enum class for assignments as above.
 
 Example:
 GameStates gameStates=GameStates::ExitGame;
 
-An ENUM Class will make possible that you can have multiple ENUMS with the same MEMBERS. 
+An enum class will make possible that you can have multiple 
+enums with the same members. 
 
 So we could have for example:
 enum class GameState {Exit, MainMenu};
 enum class SoftwareState (Exit, MainMenu);
 
-Without using an ENUM Class this could not be possible because, the TWO MEMBERS will conflict to each other
+Without using an enum class this could not be possible because, 
+the 2 members will conflict to each other
 (compilation error).
 
-Syntax to create an ENUM Class:
+Syntax to create an enum class:
 
 enum class &lt;name&gt; { member1, member2...}
-An ENUM cannot be forward declared, unless it's an ENUM Class. 
-So only ENUM Classes can be forward declared.
+An enum cannot be forward declared, unless it's an enum class. 
+So only enum classes can be forward declared.
 
-To change the default value of an ENUM Member which consist in it's position on the ENUM, you can do as follows:
+To change the default value of an ENUM Member which consist in it's position 
+on the enum, you can do as follows:
 
-enum GameState {MainMenu=5, GamePlay=7, GameExit, GamePaused}; //the two uninitialized members follow gets the value of the
+enum GameState {MainMenu=5, GamePlay=7, GameExit, GamePaused}; 
+//the two uninitialized members follow gets the value of the
 previous member+1; so GameExit will be 8, GamePause will be 9;
 
 */
