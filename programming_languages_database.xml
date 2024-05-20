@@ -1465,16 +1465,18 @@ int array_initialized[7] = [1,2,3,4,5,6,7];
 float array_floats[3] = [2.0f, 3.0f, 2.11f];
 </code>
             <br></br>
-            The <code>linked list</code> is a complex data type, which consists of a structure with at least 2 elements: value and pointer
+            The <code>linked list</code> is a complex data type, which consists of a structure with 
+            at least <blue>2 elements</blue>: <red>value</red> and <red>pointer</red>
             to the next element. <br></br>
-            The memory can be allocated dynamically for each element added to the list. 
+            The memory can be allocated <blue>dynamically</blue> for each element added to the list. 
             <br></br><br></br>
-            <brown>
-            The main benefit of a linked-list
-            consists in the possibility of adding a variable number of elements, being able to delete or add an element 
-            without making copies
-            or exchanges, but only by changing the addresses of the assigned pointers for the next / previous element.
-            </brown>
+
+            The main benefit of a <code>linked list</code>
+            consists in the possibility of adding a variable number of elements, being able to 
+            <red>delete</red> or <red>add</red> an element 
+            without making <red>copies</red>
+            or exchanges, but only by changing the addresses of the assigned <red>pointers</red> for 
+            the <blue>next</blue> / <blue>previous</blue> element.
             <br></br><br></br>
             
 <code>
@@ -1483,8 +1485,12 @@ float array_floats[3] = [2.0f, 3.0f, 2.11f];
 //Linked list definition:
 struct LinkedList{
     int value; // this will store the value
-    struct LinkedList * previous; // this will store the address of the previous block of memory
-    struct LinkedList * next; // this will store the address of the next block of memory
+    
+    // this will store the address of the previous block of memory
+    struct LinkedList * previous;
+    
+    // this will store the address of the next block of memory
+    struct LinkedList * next; 
 };
 
 struct LinkedList* list = NULL; // creating a linked list
@@ -1492,28 +1498,48 @@ struct LinkedList* list = NULL; // creating a linked list
 int counter = 0;
 while(counter &lt; 10)
 {
-    if(list == NULL) // if this is the first element to be introduced on the linked list
+    // if this is the first element to be introduced on the linked list
+    if(list == NULL)
     {
-        list = (struct LinkedList* )malloc(sizeof(struct LinkedList)); // allocate memory.
-        list->value = counter; // add value
-        list->previous = NULL; // there is no previous element.
-        list->next = NULL; // we don't know if there will be a next element.
+        // allocate memory.
+        list = (struct LinkedList* )malloc(sizeof(struct LinkedList));
+        
+        // add value
+        list->value = counter;
+        
+        // there is no previous element.
+        list->previous = NULL;
+        
+        // we don't know if there will be a next element.
+        list->next = NULL; 
     }
 
     else //enter here after the first element was added.
     {
-
-        list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); // allocate space for the next element
-        list->next->previous = list; // we're still on the previous element, so assign the link to the next element.previous
-        list = list->next; // next element become current element
-        list->value = counter; // add value
-        list->next = NULL;  // we don't know if there will be a next element.
+        // allocate space for the next element
+        list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); 
+        
+        // we're still on the previous element, 
+        //so assign the link to the next element.previous
+        list->next->previous = list;
+        
+        // next element become current element
+        list = list->next;
+        
+        // add value
+        list->value = counter;
+        
+        // we don't know if there will be a next element.
+        list->next = NULL;  
     }
     counter++;
 }
 
 //printing the linked list
-while(list != NULL) // list is currently pointing to the last element. So we will display it from last to first.
+
+// list is currently pointing to the last element. 
+//So we will display it from last to first.
+while(list != NULL) 
 {
     printf("%d ", list->value);
     list = list->previous; // go to the previous
