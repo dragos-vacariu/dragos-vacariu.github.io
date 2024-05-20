@@ -4178,10 +4178,6 @@ namespace project25_polymorphism
     {
         public static void Main(string[] args)
         {
-            /*
-             The idea of polymorphism is creating an array of type parent class, 
-             to which you can assign any object of type child classes.
-            */
             
             Parent [] objarray = new Parent[4];
             objarray[0]=new Parent();
@@ -4191,10 +4187,10 @@ namespace project25_polymorphism
             
             foreach(Parent k in objarray)
             {
-                k.DisplayInfo(); //each child has the proprieties of the parent class
+                k.DisplayInfo(); //each child has the properties of the parent class
                 
-                /* To see the information of each child class we could make a function which will 
-                 * hide the parent class function, and contain the updated information of
+                /* To see the information of each child class we could make a function which  
+                 * will hide the parent class function, and contain the updated information of
                  * the child class. But a better way doing that is marking the parent class 
                  * you'd wish to hide with virtual keyword, which will allow every child class
                  * overide the method by their own needs.
