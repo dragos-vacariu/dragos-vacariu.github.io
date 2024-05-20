@@ -8151,15 +8151,18 @@ public class Project29
 {
     public static void main(String[] args) 
     {
-        Integer [] myArray = new Integer[] {1,42,13,24,5};
-        Character [] myCharArray = new Character[] {'D', 'N', 'C', 'A'};
-        printArray(myArray);
-        printArray(myCharArray);
-        
-        //Using the GenericClass:
+        //Instantiating the GenericClass from previous example:
         GenericClass &lt;Integer&gt; FirstGeneric_Class = new GenericClass&lt;Integer&gt;();
         FirstGeneric_Class.set(2);
         System.out.printf("Value of GenericClass object: %d\n", FirstGeneric_Class.get());
+        
+        //Creating some arrays:
+        Integer [] myArray = new Integer[] {1,42,13,24,5};
+        Character [] myCharArray = new Character[] {'D', 'N', 'C', 'A'};
+        
+        //Calling the generic method printArray() on 2 different arrays:
+        printArray(myArray);
+        printArray(myCharArray);
         
         //Keep the window opened until a key is pressed:
         Scanner myscanner = new Scanner(System.in);
