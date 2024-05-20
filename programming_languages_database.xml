@@ -114,6 +114,10 @@
             <br></br>
         </polymorphism>
         <simple-data-types>
+            In programming, <blue>data type</blue> refers to the type of value a <blue>variable</blue> 
+            as and what type of mathematical, relational or logical <red>operations</red> can be applied 
+            without causing an error. 
+            <br></br><br></br>
             <code>short int</code> - has value range <red>[-32,768 to 32,767]</red> - format specifier <code>%hd</code> - 
             occupies <code>2 bytes</code> memory;
             <br></br><br></br>
