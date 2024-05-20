@@ -3551,7 +3551,8 @@ using namespace std;
 // it can be called with
 // 2 arguments or 3 arguments or 4 arguments.
 
-int sum(int x, int y, int z = 0, int w = 0) //assigning default values to z,w as 0
+//assigning default values to z,w as 0
+int sum(int x, int y, int z = 0, int w = 0) 
 {
     return (x + y + z + w);
 }
@@ -3575,15 +3576,21 @@ int main()
 <code>
 /*Example of an interface implementation*/
 
-class Box {
+class Box 
+{
    public:
-      // pure virtual function
-      virtual double getVolume() = 0;
+        // pure virtual function
+        virtual double getVolume() = 0;
       
    private:
-      double length;      // Length of a box
-      double breadth;     // Breadth of a box
-      double height;      // Height of a box
+        //Length of a box
+        double length;
+        
+        //Breadth of a box
+        double breadth;
+        
+        //Height of a box
+        double height; 
 };
 </code>
         </interfaces>
@@ -3767,7 +3774,8 @@ int main()
 //FILE: vectors_of_objects_mainfile.cpp
 //In this file we put everything together
 
-#include "vectors_of_objects_class.h" //by this inclusion we get access to: vectors_of_objects_class
+#include "vectors_of_objects_class.h" 
+//by this inclusion we get access to: vectors_of_objects_class
 
 //Function prototyping or declaration
 void createObjects(vector &lt;vectors_of_objects_class&gt;&#38;);
@@ -3776,7 +3784,8 @@ void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38;);
 //The main function is the entry point of the program
 int main()
 {
-    vector &lt;vectors_of_objects_class&gt; ObjectVector; //creating a vector of objects;
+    //creating a vector of objects;
+    vector &lt;vectors_of_objects_class&gt; ObjectVector; 
     
     //Calling the function that populates the vector of objects.
     createObjects(ObjectVector);
@@ -3787,7 +3796,7 @@ int main()
 }
 
 //Function definition
-void createObjects(vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) //defining the function
+void createObjects(vector &lt;vectors_of_objects_class&gt;&#38; newObjVec)
 {
     int age;
     string name;
@@ -3800,15 +3809,20 @@ void createObjects(vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) //def
         cin &gt;&gt; name; //get the name from the keyboard
         cout &lt;&lt; "People_" &lt;&lt; i &lt;&lt; " Age: ";
         cin &gt;&gt; age; //get the age from the keyboard
-        vectors_of_objects_class ObjectInVector(name, age); //creating the object with self made constructor
-        ObjectInVector.setAge(age); //calling the class function
-        ObjectInVector.setName(name); //calling the class function
-        newObjVec.push_back(ObjectInVector); //put the object into the vector;
+        
+         //creating the object with self made constructor
+        vectors_of_objects_class ObjectInVector(name, age);
+        
+         //calling the class functions
+        ObjectInVector.setAge(age);
+        ObjectInVector.setName(name);
+        newObjVec.push_back(ObjectInVector);
     }
     cout &lt;&lt; endl;
 }
 
-void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) //defining the function
+//defining the function
+void printObjectsInfo(const vector &lt;vectors_of_objects_class&gt;&#38; newObjVec) 
 {
     unsigned int sizeOfVector=newObjVec.size();
     for(int i=0;i&lt;sizeOfVector; i++)
@@ -3835,7 +3849,7 @@ vectors_of_objects_class::vectors_of_objects_class() //default constructor
 }
 
 //Adding an overloading constructor that takes 2 arguments
-vectors_of_objects_class::vectors_of_objects_class(string name, int age) //self made constructor
+vectors_of_objects_class::vectors_of_objects_class(string name, int age) 
 {
     //initializing the variables;
     newage=0;
@@ -3848,19 +3862,27 @@ vectors_of_objects_class::~vectors_of_objects_class()
 }
 
 //Adding methods
-string vectors_of_objects_class::getName() const //getter defined to access the private variable of the class
+
+//getter defined to access the private variable of the class
+string vectors_of_objects_class::getName() const 
 {
     return newname;
 }
-int vectors_of_objects_class::getAge() const //getter defined to access the private variables of the class
+
+//getter defined to access the private variables of the class
+int vectors_of_objects_class::getAge() const 
 {
     return newage;
 }
-void vectors_of_objects_class::setName(string name) //setter defined to set the private variables of the class
+
+//setter defined to set the private variables of the class
+void vectors_of_objects_class::setName(string name) 
 {
     newname=name;
 }
-void vectors_of_objects_class::setAge(int age) //setter defined to set the private variables of the class
+
+//setter defined to set the private variables of the class
+void vectors_of_objects_class::setAge(int age) 
 {
     newage=age;
 }
@@ -3871,7 +3893,9 @@ void vectors_of_objects_class::setAge(int age) //setter defined to set the priva
 //FILE: vectors_of_objects_class.h
 //In this file we declare an interface called: vectors_of_objects_class
 
-#ifndef VECTORS_OF_OBJECTS_CLASS_H //this will ensure that the header file is only included once
+
+//this will ensure that the header file is only included once
+#ifndef VECTORS_OF_OBJECTS_CLASS_H 
 #define VECTORS_OF_OBJECTS_CLASS_H
 
 #include &lt;iostream&gt;
@@ -3883,8 +3907,11 @@ using namespace std;
 class vectors_of_objects_class
 {
     public:
-        vectors_of_objects_class(); //default constructor
-        vectors_of_objects_class(string, int); //self made constructor
+        //default constructor
+        vectors_of_objects_class(); 
+        
+        //self made constructor
+        vectors_of_objects_class(string, int); 
 
         //Accessor functions:
         string getName () const;
@@ -4475,8 +4502,8 @@ namespace project1_introduction
             Console.WriteLine("An object is: " + "\"" + ANYTHING + "\"");
             
             /*
-             Console.WriteLine - automatically puts '\n' at the end of the line, because it is 
-             a function designed to be used only for writing a line.
+             Console.WriteLine - automatically puts '\n' at the end of the line,  
+             because it is a function designed to be used only for writing a line.
             */
             
             Console.Write(character + "\n");
@@ -4577,15 +4604,17 @@ namespace project6_foreach_loop
             }
             
             Console.WriteLine("\nDisplaying elements using FOREACH LOOP: ");
-             
-            foreach(int iter in myarray) // syntax forech (datatype iterator_name in data_collection)
+            
+            // syntax forech (datatype iterator_name in data_collection)
+            foreach(int iter in myarray) 
             {
                     Console.WriteLine("myarray[" + iter/3 + "]=" +iter);
             }
             
             Console.WriteLine("\nSimple task for FOREACH LOOP");
             
-            foreach(int iter in myarray) // syntax forech (datatype iterator_name in data_collection)
+            // syntax forech (datatype iterator_name in data_collection)
+            foreach(int iter in myarray) 
             {
                 if(iter%5==0 &#38;&#38; iter>0)
                 {
@@ -4649,9 +4678,11 @@ namespace queue_collection_type
             Console.WriteLine("Number of objects in Queue: {0}\n", FirstQueue.Count());
             
             //This usage is wrong, unless it is moved into a foreach loop:
-            // Console.WriteLine ("Name: {0}, Age: {1}", FirstQueue.Dequeue().name, FirstQueue.Dequeue().Age); 
+            //Console.WriteLine ("Name: {0}, Age: {1}", FirstQueue.Dequeue().name, 
+            //                      FirstQueue.Dequeue().Age); 
             
-            //A Queue is like an archieve, you need to extract the object from it, before using that object.
+            //A Queue is like an archieve, you need to extract the object from it, 
+            //before using that object.
             Queue&lt;people&gt; SecondQueue = new Queue&lt;people&gt; ();
             SecondQueue.Enqueue(p1);
             SecondQueue.Enqueue(p2);
