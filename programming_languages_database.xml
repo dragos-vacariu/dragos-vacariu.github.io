@@ -4146,7 +4146,8 @@ namespace project27_classes_encaptulation_and_exceptions_throwing
         
         public void SetName(string NewName)
         {
-            //string.IsNullOrEmpty (string_name) -> function that checks if a string is null or empty
+            //string.IsNullOrEmpty(string_name); // is a function 
+            //that checks if a string is null or empty
             if(string.IsNullOrEmpty(NewName))
             {
                 throw new Exception("The name cannot be NULL or EMPTY.");
