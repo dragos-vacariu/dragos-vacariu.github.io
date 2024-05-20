@@ -1633,8 +1633,9 @@ while (!feof(ptr))
 <code>
 //Reading whole content of the file as string:
 
-//fgets() reads one string at a time from the file. fgets() returns a string if it is
-//successfully read by function or returns NULL if can not read. 
+//fgets() reads one string at a time from the file. fgets() returns 
+//a string if it is successfully read by function or returns NULL
+//if it cannot read. 
 
 //Prototype: char * fgets(char *str, int size, FILE * ptr);
 
@@ -1650,7 +1651,8 @@ fscanf() reads formatted input from a stream.
 Approach:
 
 fscanf reads formatted data from the files and stores it in variables.
-The data in the buffer is printed on the console till the end of the file is reached.
+The data in the buffer is printed on the console till the end of the 
+file is reached.
 
 */
 
@@ -1732,8 +1734,8 @@ FILE *fptr;
 // Open a file in append mode
 fptr = fopen("filename.txt", "a"); 
 
-/*Just like with the w mode; if the file does not exist, the a mode will create a 
-new file with the "appended" content.*/
+/*Just like with the w mode; if the file does not exist, 
+the a mode will create a new file with the "appended" content.*/
 
 // Append some text to the file
 fprintf(fptr, "\nHi everybody!");
@@ -1866,19 +1868,23 @@ int main()
             </brown>
 <code>
 // Declare an interface for a shape
-struct shape_interface {
+struct shape_interface 
+{
   // Function pointers for the interface functions
   double (*area)(void*);
   double (*perimeter)(void*);
 }; 
 
 /*
-In OOP there are classes that store to both variables and methods of an object.
+In OOP there are classes that store to both the variables and 
+the methods of an object.
 
-In C we can have structs that store variables and structs that hold 
-function pointers to defined behaviours.
+In C we can have structs that store variables and function  
+pointers initialized with references of functions defined 
+outside the struct to hold the implementation for defined 
+behaviours.
 
-Both of them are close to forming a class.
+This is somehow similar to OOP.
 
 */
 </code>
