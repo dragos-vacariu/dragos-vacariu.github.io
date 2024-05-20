@@ -1254,16 +1254,17 @@ int main()
             stored in <red>files</red>.
             <br></br><br></br>
             <green>Features of file handling:</green>
+            <br></br><br></br>
             <blue>Reusability</blue>: The data stored in the <blue>file</blue> can be <red>accessed</red>, 
             <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
-            <blue>high reusability</blue>.
+            <blue>high reusability.</blue>.
             <br></br>
             <blue>Portability</blue>: Without losing any data, <blue>files</blue> can be transferred to 
             another in the computer system. The risk of flawed coding is 
             minimized with this feature.
             <br></br>
             <blue>Efficiency</blue>: A large amount of input may be required for some programs. 
-            <blue>File handling</blue> allows you to easily access a part of a file using few 
+            <blue>File handling</blue> allows you to easily access a part of a <blue>file</blue> using few 
             instructions which saves a lot of time and reduces the chance of errors.
             <br></br>
             <blue>Storage Capacity</blue>: <blue>Files</blue> allow you to store a large amount of data 
@@ -1369,7 +1370,15 @@ int main()
             <br></br>
             The <blue>reflection</blue> APIs built into programming languages allows
             developers to inspect code at runtime.
-            <br></br>
+            <br></br><br></br>
+            <blue>Reflection</blue> is used to obtain information about the software implementation 
+            (the <red>metadata</red>), while it is in runtime. 
+            <br></br><br></br>
+            Also <blue>reflection</blue> is the ability of inspecting the code's metadata 
+            in runtime.
+            The <red>metadata</red> is related to the implementation, contains the 
+            information about the <red>fields</red>, <red>methods</red>, <red>properties</red>, 
+            <red>variable</red>, etc. used inside the software.
         </reflection>
     </programming_language>
     
@@ -6352,6 +6361,97 @@ namespace project32_abstract_classes
         </recursion>
         <reflection>
             *General-Programming-Knowledge*
+<code>
+//Example of reflection in C#:
+
+using System;
+using System.Reflection; //using this namespace for reflection
+
+/*
+In C# every object is directly or indirectly inherited from System.Object class, 
+so every type and object will have access to functionalities like:
+ getType(), ToString(), etc
+*/
+
+namespace project43_reflection
+{
+	class Program
+	{
+		public static void Main(string[] args)
+		{
+			//Getting the type:
+			Type T = Type.GetType("project43_reflection.ExampleClass"); //T gets the type of the project43_reflection.ExampleClass.
+			
+            //Equivalent methods to get the type: 
+			//Type T = typeof (ExampleClass);
+			//ExampleClass ec = new ExampleClass();
+			//Type T = ec.GetType();
+			
+			//Getting the properties:
+            //T.GetProprieties returns an array of type PropertyInfo, containing all
+            //the information about the proprieties of the class.
+			PropertyInfo [] proprietiesFound = T.GetProperties(); 
+			foreach(PropertyInfo k in proprietiesFound)
+			{
+				Console.WriteLine("Property Name: {0}	Property type: {1}", k.Name, k.PropertyType); 
+                //printing the proprieties of the class ExampleClass.
+			}
+			
+            Console.WriteLine();	
+			
+            //Getting the methods:
+			MethodInfo[] methodsFound = T.GetMethods();
+			foreach(MethodInfo k in methodsFound)
+			{
+				Console.WriteLine("Method Name: {0}		Method return type: {1}", k.Name, k.ReturnType);
+			}
+			Console.WriteLine();
+			
+            //Getting members:
+			MemberInfo [] membersFound = T.GetMembers();
+			foreach(MemberInfo k in membersFound)
+			{
+				Console.WriteLine("Member Name: {0}		Member type: {1}", k.Name,  k.MemberType);
+			}
+			
+            Console.Write("Press any key to continue . . . ");
+			Console.ReadKey(true);
+		}
+	}
+	class ExampleClass
+	{
+		//Variables:
+		private int _age;
+		private string _name;
+		
+        //Properties:
+		public string Name 
+		{
+			get{
+				return this._name;
+			}
+			set{
+				this._name=value;
+			}
+		}
+		public int Age
+		{
+			get{
+				return this._age;
+			}
+			set{
+				this._age=value;
+			}
+		}
+		
+        //Methods:
+		public void Print()
+		{
+			Console.WriteLine("Name: {0}	Age: {1}", this._name, this._age);
+		}
+	}
+}
+</code>
         </reflection>
     </programming_language>
     
