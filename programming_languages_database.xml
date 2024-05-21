@@ -8596,12 +8596,15 @@ boolean                  false
         <green>
         Foreach loop:
         </green>
-        Java also contains a foreach loop:
-        
+        <br></br><br></br>  
+        Java also contains a <blue>foreach loop</blue>:
+        <br></br><br></br>
         The <blue>foreach loop</blue> is used exclusively for collections such as: 
         <red>arrays</red>, <red>vectors</red>, <red>lists</red>, etc. 
+        <br></br>
         By using a <blue>foreach loop</blue> you can iterate through all the items in that 
         collection and access their values without using indexes.
+        <br></br>
 <code>
 //Example of foreach loop in Java:
 
