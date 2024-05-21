@@ -8253,8 +8253,9 @@ class Splendor extends Bike
             <br></br><br></br>
             <green>Implements vs Extends:</green>
             <br></br><br></br>
-            - extends is for extending a class (class inheritance);<br></br>
-            - implements is for implementing an interface (class to interface inheritance);<br></br>
+            - <red>extends</red> is for extending a class (<red>class inheritance</red>);<br></br>
+            - <blue>implements</blue> is for implementing an interface 
+            (<blue>class to interface inheritance</blue>);<br></br>
             <br></br>
             <red>Interfaces</red>, exhibits the same characteristics to multiple classes.
             <br></br><br></br>
@@ -8268,7 +8269,16 @@ class Splendor extends Bike
             Also
             an <red>interface</red> cannot contain instance <blue>fields/variables</blue>. 
             The only fields that can appear in an 
-            <red>interface</red> must be declared both <red>static</red> and <red>final</red>. 
+            <red>interface</red> must be declared both <red>static</red> and <red>final</red>.
+            <br></br>
+            A <red>final</red> variable, also called a <blue>“constant”</blue>, is a variable 
+            whose value it cannot be
+            change after it's been initialized. 
+            <br></br>
+            A <red>static</red> variable is a variable 
+            shared among all the <red>instances</red> of a <red>class</red> and which can be accessed
+            from the <red>class</red> even with no <red>instances</red> by using: 
+            <code>ClassName.variable;</code>
             <br></br><br></br>
             An <red>interface</red> is not <red>extended</red> by a <red>class</red>; 
             it is <red>implemented</red> by a <red>class</red>.
