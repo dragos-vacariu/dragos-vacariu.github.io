@@ -366,8 +366,8 @@ free(A);
             of bytes or a string in order to instantiate the object for consumption. 
             <br></br><br></br>
             This is the 
-            reverse process of serialization, <red>i.e., converting a data structure or object into a 
-            series of bytes for storage or transmission across devices</red>.<br></br>
+            reverse process of serialization, i.e., converting a <red>data structure</red> or <red>object</red> into a 
+            series of bytes for storage or transmission across devices.<br></br>
         </deserialization>
         <enums>
             <red>Enumeration</red> (or <code>enum</code>) is a user defined data type. <br></br>
@@ -8999,7 +8999,7 @@ public class Project31
             There are many <red>methods</red> declared in the <blue>Collection</blue> interface:
             <br></br><br></br>
             <code>public boolean add(E e)</code><br></br>
-            It is used to <red>insert</red> an element in this collection.<br></br>
+            It is used to <red>insert</red> an element in this collection.
             <br></br><br></br>
             <code>public boolean addAll(Collection&lt;? extends E&gt; c)</code><br></br>
             It is used to <red>insert</red> the specified <blue>collection</blue> 
@@ -9346,12 +9346,16 @@ public class Main
     // Create a class constructor for the Main class
     public Main() 
     {
-        x = 5;  // Set the initial value for the class attribute x
+        x = 5;  
+        // Set the initial value for the class attribute x
     }
 
     public static void main(String[] args) 
     {
-        Main myObj = new Main(); // Create an object of class Main (This will call the constructor)
+        Main myObj = new Main(); 
+        // Create an object of class Main 
+        //(This will call the constructor)
+        
         System.out.println(myObj.x); // Print the value of x
     }
 }
@@ -9371,9 +9375,9 @@ ClassName objName = new ClassName();
             *General-Programming-Knowledge*
             <br></br>
             <green>Destructors in Java:</green><br></br>
-            It is also known as finalizers that are non-deterministic. 
-            In Java, the allocation and deallocation of objects handled by the garbage collector. 
-            The invocation of finalizers is not guaranteed because it invokes implicitly.
+            In Java: destructors are also known as <blue>finalizers</blue> that are non-deterministic. 
+            The allocation and deallocation of objects is handled by the garbage collector. 
+            The invocation of <blue>finalizers</blue> is not guaranteed because it invokes implicitly.
             <br></br><br></br>
             <brown>Advantages of Destructor:</brown><br></br>
             <blue>
