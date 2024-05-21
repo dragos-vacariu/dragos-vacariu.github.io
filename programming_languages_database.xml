@@ -8208,7 +8208,8 @@ public class Main
 }
 </code>
         </encapsulation>
-        <polymorphism>*General-Programming-Knowledge*
+        <polymorphism>
+            *General-Programming-Knowledge*
 <code>
 //Example of polymorphism in Java:
 
@@ -8235,7 +8236,8 @@ class Splendor extends Bike
 }  
 </code>
         </polymorphism>
-        <inheritance>*General-Programming-Knowledge*
+        <inheritance>
+            *General-Programming-Knowledge*
 <code>
 //Example of inheritance in Java:
 
@@ -8304,7 +8306,8 @@ public class Books extends Product
 }
 </code>
         </inheritance>
-        <abstraction>*General-Programming-Knowledge*
+        <abstraction>
+            *General-Programming-Knowledge*
             <br></br>
             <green>Abstraction in Java:</green>
             <br></br><br></br>
@@ -8435,11 +8438,6 @@ public class GenericClass &lt;T&gt;
 package project29;
 
 import java.util.Scanner;
-
-/*
- *
- * @author DrVa
- */
  
 public class Project29 
 {
@@ -8517,7 +8515,8 @@ class Test1
 }
 </code>
         </variable-arguments-lists>
-        <simple-data-types>*General-Programming-Knowledge*
+        <simple-data-types>
+            *General-Programming-Knowledge*
 <code>
 package project2;
 
@@ -8592,19 +8591,20 @@ boolean                  false
 </code>
         </simple-data-types>
         <complex-data-types>*General-Programming-Knowledge*</complex-data-types>
-        <loops>*General-Programming-Knowledge*
-        <green>
-        Foreach loop:
-        </green>
-        <br></br><br></br>  
-        Java also contains a <blue>foreach loop</blue>:
-        <br></br><br></br>
-        The <blue>foreach loop</blue> is used exclusively for collections such as: 
-        <red>arrays</red>, <red>vectors</red>, <red>lists</red>, etc. 
-        <br></br>
-        By using a <blue>foreach loop</blue> you can iterate through all the items in that 
-        collection and access their values without using indexes.
-        <br></br>
+        <loops>
+            *General-Programming-Knowledge*
+            <green>
+            Foreach loop:
+            </green>
+            <br></br><br></br>  
+            Java also contains a <blue>foreach loop</blue>:
+            <br></br><br></br>
+            The <blue>foreach loop</blue> is used exclusively for collections such as: 
+            <red>arrays</red>, <red>vectors</red>, <red>lists</red>, etc. 
+            <br></br>
+            By using a <blue>foreach loop</blue> you can iterate through all the items in that 
+            collection and access their values without using indexes.
+            <br></br>
 <code>
 //Example of foreach loop in Java:
 
@@ -8631,44 +8631,82 @@ public class Project7
         </loops>
         <collections>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Collections in Java:</green>
+            <br></br><br></br>
+            <brown>Arrays</brown>
+            <br></br><br></br>
+            An <red>array</red> is a collection of data of the same type, with 
+            <red>fixed size/capacity</red>.
 <code>
+//Example of arrays in Java:
+
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+cars[0] = "Opel";
+System.out.println(cars[0]);
+// Now outputs Opel instead of Volvo
+
+int[] myNum = {10, 20, 30, 40};
+System.out.println(myNum[1]);
+// Now outputs 20
+</code>
+            <br></br>
+            <brown>Vectors</brown>
+            <br></br><br></br>
+            A <red>vector</red> is a <blue>dynamic array</blue> that can change it's 
+            <red>size/capacity</red> and is 
+            capable of storing any type of <red>data/object</red>. Meaning that a <red>vector</red> 
+            of objects 
+            can mix different types together such as: <red>integers</red> and <red>strings</red>.
+            <br></br>
+            <br></br><br></br>
+            
+<code>
+//Example of working with vectors in Java:
+
 package project11;
 import java.util.Scanner;
 import java.util.Vector; //using this for Vector class.
-/**
- * AN ARRAY IS A COLLECTION OF DATA OF THE SAME TYPE, WITH FIXED SIZE AND CAPACITY.
- A VECTOR IS A DYNAMIC ARRAY, THAT CAN CHANGE IT's SIZE/CAPACITY, and ITS AUTOMATICALLY CHANGING IT's CAPACITY
- * IN JAVA A VECTOR CAN STORE ANY TYPE OF DATA/OBJECT.
- * A VECTOR OF OBJECTS CAN MIX DIFFERENT TYPES TOGETHER, LIKE INTEGERS AND STRINGS.
- */
-public class Project11 {
 
-    /**
-     * @param args the command line arguments
+public class Project11 
+{
+    /*
+     * the parameter args will store command line arguments
      */
-    public static void main(String[] args) {
-        Vector myVector = new Vector(3); //creating a vector (of objects by default) of size 3;
+    
+    public static void main(String[] args) 
+    {
+        //creating a vector (of objects by default) of size 3;
+        Vector myVector = new Vector(3); 
+        
         //Creating a vector of integers:
-    Vector &lt;Integer&gt; Vector2 = new Vector(); //using the default constructor, this vector will have
-        //by default the size 10;
+        Vector &lt;Integer&gt; Vector2 = new Vector(); 
+        //using the default constructor, this vector will have the size 10
+
         System.out.printf("The capacity of the myVector before adding elements: %d\n", myVector.capacity());
         System.out.printf("The size of myVector before adding elements: %d\n", myVector.size());
-    //A Vector of object can mix different types of data together.
+        
+        //A Vector of object can mix different types of data together.
         myVector.add(21);
         myVector.add(55);
         myVector.add(77);
         myVector.add(192);
         myVector.add("Name");
+        
         System.out.printf("The capacity of the myVector after adding 5 elements: %d\n", myVector.capacity());
         System.out.printf("The size of myVector after adding 5 elements: %d\n", myVector.size());
         System.out.printf("The capacity of the Vector2 is: %d\n", Vector2.capacity());
+        
         /*
-        THE CAPACITY INCREASES AUTOMATICALLY WHEN IT's EXCEEDING ITS INITIAL VALUE.
+        The capacity increases automatically when it exceeds its initial value.
         */
+        
         System.out.printf("The index of NAME is: %d\n", myVector.indexOf("Name"));
+        
         //Displaying elements:
         int i = 0;
-        //USING FOREACH LOOP TO ITERATE THROUGH THE VECTOR:
+        
+        //Using foreach loop to iterate through the vector:
         for(Object k : myVector)
         {
            if(i&lt;myVector.indexOf("Name"))
@@ -8681,9 +8719,11 @@ public class Project11 {
            }
            i++;
         }
-        //SOME VECTOR FUNCTIONS:
+        
+        //Some vector functions:
         Object [] array = myVector.toArray(); //converting vector into array;
-        //ITERATE THROUGH ARRAY:
+        
+        //Iterate through array:
         for(i=0;i&lt;array.length; i++)
         {
             System.out.printf("array[%d] = %s\n", i, array[i].toString());
@@ -8691,7 +8731,8 @@ public class Project11 {
         myVector.insertElementAt("NAME2", 3); //insert element at index 3;
         myVector.removeElementAt(4); // remove element at index 4;
         i=0;
-        //USING WHILE TO ITERATE THROUGH VECTOR:
+        
+        //Using while to iterate through vector:
         while(i&lt;myVector.size())
         {
             System.out.printf("myVector[%d] = %s\n", i, myVector.elementAt(i).toString());
@@ -8703,56 +8744,142 @@ public class Project11 {
     
 }
 </code>
-
+            <br></br>
+            <brown>ArrayLists</brown>
+            <br></br><br></br>
+            The <blue>ArrayList</blue> <red>class</red> extends <blue>AbstractList</blue> and 
+            <red>implements</red> the <red>List interface</red> . 
+            <blue>ArrayList</blue> supports <blue>dynamic arrays</blue> that can grow as needed. 
+            This gives us a new collection <blue>data type</blue> that can be used exactly as 
+            <red>Vectors</red>, <red>Lists</red>, <red>Stacks</red>, <red>Dictionaries</red>.
+            <br></br><br></br>
+            <blue>ArrayLists</blue> are created with an initial size of 10 elements. 
+            When this size is exceeded, the collection is automatically enlarged. 
+            When <red>objects</red> are removed, the <blue>ArrayList</blue> may be shrunk.
+            <br></br><br></br>
+            NOTE: <blue>ArrayLists</blue> cannot hold primitive data types such as <red>int</red>, 
+            <red>double</red>, <red>char</red>, and <red>long</red>.
+            To create an <blue>ArrayList</blue> that store primitive values such as those mentioned
+            above, the <blue>ArrayList</blue> must be created using the corresponding <red>object</red> 
+            of these primitives.
+            <br></br>
+            Example: 
+            - for <red>int</red> the corresponding class is <red>Integer</red>;
+            <br></br>
+            - for <red>double<red> the corresponding class is <red>Double</red>;
+            <br></br><br></br>
+            These <red>classes</red> wrap the <blue>primitive types</blue> into an <red>object</red>.
+            <br></br><br></br>
+            The methods available for the <blue>ArrayLists</blue> are similar to those of 
+            Vector, List, Stack, Dictionary. 
+            <br></br><br></br>
+            So you can call methods such as: <blue>Add()</blue>, <blue>Remove()</blue>, 
+            <blue>RemoveAt()</blue> etc.
 <code>
+//Example of working with ArrayLists in Java:
+
+package project20;
+
+import java.util.ArrayList; //used for ArrayList Collection type.
+import java.util.Scanner;
+
+public class Project20 {
+    public static void main(String[] args) 
+    {
+        ArrayList&lt;Integer&gt; al = new ArrayList();
+        al.add(22);
+        al.add(44);
+        al.add(59);
+        
+        //Accessing the elements:
+        for(int i: al)
+        {
+            System.out.printf("%d ", i);
+        }
+        
+        System.out.println();
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+    
+}
+
+</code>
+             <br></br>
+            <brown>Stacks</brown>
+            <br></br><br></br>
+            <red>Stack</red> is a subclass of <red>Vector</red> that implements the <blue>LIFO</blue> standard 
+            (<blue>last-in first-out</blue>).
+            <br></br><br></br>
+            <red>Stack</red> only defines the <blue>default constructor</blue>, which creates an 
+            empty <red>stack</red>.
+            <br></br><br></br>
+            <red>Stack</red> includes all the methods defined by <red>Vector</red>, and adds several of 
+            its own.
+            <br></br><br></br>
+            A <red>stack</red> has the same properties as a <red>vector</red>, it's 
+            <blue>dynamic in size</blue>, 
+            can store <red>objects</red>, so it can hold any type of data.
+            <br></br><br></br>
+            <blue>Stacks</blue> get automatically resized to fit the <red>objects</red> pushed in.
+<code>
+//Example of working with Stack.
+
 package project16;
-/*
-Stack is a subclass of Vector that implements a standard last-in, first-out.
-Stack only defines the default constructor, which creates an empty stack. Stack includes all the methods 
-defined by Vector, and adds several of its own.
-A stack has the same properties as a vector, it's dynamic in size, can store objects, so it can hold
-any type of data... they get automatically resized to fit the objects pushed in.
-*/
+
 import java.util.Scanner; //used for Scanner class;
 import java.util.Stack; //used for stack collection;
 
-/**
- *
- * @author Black2
- */
 public class Project16 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         Stack newStack = new Stack(); //Stack of objects
-    Stack&lt;Integer&gt; intStack; //Stack of integers;
-        //Adding object on stack...
+        Stack&lt;Integer&gt; intStack; //Stack of integers;
+        
+        //Adding objects to the Stack:
         newStack.add(5);
         newStack.add(5);
         newStack.add(33);
         newStack.add(135);
         newStack.add(25);
+        
+        //Accessing elements in the Stack:
         System.out.printf("The element on top of stack is: %d\n", newStack.peek());
         System.out.printf("The element on bottom of the stack is: %d\n", newStack.firstElement());
-        //Stacks have the same methods, fields and functionality as vectors.
+        //Stacks have the same methods, fields and functionalities as vectors.
+        
         Scanner myscanner = new Scanner (System.in);
         myscanner.next();
     }
-    
 }
 </code>
+             <br></br>
+            <brown>Dictionaries</brown>
+            <br></br><br></br>
 
+                The <blue>Dictionary class</blue> is an <blue>abstract class</blue> that 
+                defines a <blue>data structure</blue> for mapping <red>keys</red> to <red>values</red>.
+                <br></br>
+                This is useful in cases where you want to be able to access data via a particular 
+                <red>key</red> rather than an integer index.
+                <br></br><br></br>
+                Since the <blue>Dictionary class</blue> is abstract, it provides only the 
+                framework for a 
+                <red>key-mapped</red> <blue>data structure</blue> rather than a specific implementation.
+                <br></br><br></br>
+                Given a <red>key</red> and value, you can store the value in a Dictionary object. 
+                Once the value is stored, you can retrieve it by using its <red>key</red>. 
+                Thus, like a map, a <blue>dictionary</blue> can be thought of as a 
+                <red>list</red> of <red>key/value</red> pairs.
+                <br></br>
+                The <blue>Dictionary class</blue> is <blue>obsolete</blue>. 
+                You should implement the <blue>Map interface</blue> to 
+                obtain <red>key/value</red> storage functionality.
+                <br></br>
 <code>
-/*
-The Dictionary class is an abstract class that defines a data structure for mapping keys to values.
-This is useful in cases where you want to be able to access data via a particular key rather than an 
-integer index.
-Since the Dictionary class is abstract, it provides only the framework for a key-mapped data structure 
-rather than a specific implementation.
-Given a key and value, you can store the value in a Dictionary object. Once the value is stored, you can 
-retrieve it by using its key. Thus, like a map, a dictionary can be thought of as a list of key/value pairs.
-The Dictionary class is obsolete. You should implement the Map interface to obtain key/value storage 
-functionality.
-*/
+//Example of working with dictionaries:
+
 package project17;
 
 import java.util.Dictionary; //used for dictionary;
@@ -8760,19 +8887,17 @@ import java.util.Scanner; //used for Scanner class;
 import java.util.Hashtable; //used for the hashtable;
 import java.util.Enumeration; //used for enumeration;
 
-/**
- *
- * @author Black2
- */
 public class Project17 {
 
-    /**
+    /*
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         //It can be constructed like this also: Dictionary myDict = new Hashtable();
-        Dictionary &lt;Integer, String&gt; myDict = new Hashtable(); //creating a dictionary with Integer Keys, and
-        //String Content.
+        Dictionary &lt;Integer, String&gt; myDict = new Hashtable(); 
+        //creating a dictionary with Integer Keys, and String Content.
+
         myDict.put(1, "Alan Walker");
         myDict.put(2, "Adam Lambert");
         myDict.put(3, "Tokio Hotel");
@@ -8781,64 +8906,84 @@ public class Project17 {
         Enumeration&lt;Integer&gt; MyKeys = myDict.keys();
         Enumeration&lt;String&gt; MyNames = myDict.elements();
         System.out.printf("Size of Dictionary: %d\n", myDict.size());
+        
         //Using for loop to access dictionary:
         for(int i=0; i&lt;myDict.size(); i++)
         {
             System.out.printf("Name: %s     Key: %s\n", MyNames.nextElement(), MyKeys.nextElement());
         }
+        
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
     }
     
 }
 </code>
-
+        <br></br><br></br>
+        <green>Lists</green>
+        <br></br><br></br>
+        The <red>List</red> interface extends <red>Collection</red> and declares the 
+        behavior of a collection that stores a sequence of elements.
+        <br></br><br></br>
+        Elements can be inserted or accessed by their position in the <red>List</red> by using 
+        a zero-based index.
+        A <red>List</red> may contain duplicate elements.
+        <br></br><br></br>
+        In addition to the methods defined by <red>Collection</red>, the <red>List<red> defines 
+        some of its own.
+        <br></br><br></br>
+        Several of the <red>List</red> methods will throw an <blue>UnsupportedOperationException</blue> 
+        if the collection cannot be modified, and a <blue>ClassCastException</blue> is generated when one
+        object is <blue>incompatible</blue> with the other.
+        <br></br>
 <code>
-/*
-The ArrayList class extends AbstractList and implements the List interface. 
-ArrayList supports dynamic arrays that can grow as needed. This gives us a new collection data type that
-can be used exactly as Vectors, Lists, Stacks, Dictionaries etc. 
-Array lists are created with an initial size. When this size is exceeded, the collection is automatically 
-enlarged. When objects are removed, the array may be shrunk.
+//Example of working with Lists/LinkedLists
 
-SINTHAX: (all these sintaxes are correct)
-ArrayList al = new ArrayList(); //creates an array list;
-ArrayList&lt;Integer&gt; al = new ArrayList(); // creates an int arraylist;
-ArrayList&lt;Integer&gt; al = new ArrayList&lt;Integer&gt;(); // creates an int arraylist;
+package project31;
+import java.util.*; //import everything in java.util; 
 
-NOTE: TO create an int, double, float arraylist there must be used an object of that class, and for int
-the object is Integer, for double the object is Double.
+public class Project31 
+{
 
-Functions of an ArrayList are similar to functions of a Vector or List, or Stack, or Dictionary, you can 
-call Add() function, Remove(), RemoveAt() etc.
-*/
-package project20;
+    /**
+     * @param args the command line arguments
+     */
+    
+    public static void main(String[] args) 
+    {
+      List a1 = new ArrayList();
+      //List is an interface so it cannot be instanciated, but it can be initialized with an 
+      //object of type ArrayList() or LinkedList;
 
-import java.util.ArrayList; //including this here for ArrayList Collection type.
-import java.util.Scanner;
-
-/**
- *
- * @author Black2
- */
-public class Project20 {
-    public static void main(String[] args) {
-        ArrayList&lt;Integer&gt; al = new ArrayList();
-        al.add(22);
-        al.add(44);
-        al.add(59);
-        //Accessing the elements:
-        for(int i: al)
-        {
-            System.out.printf("%d ", i);
-        }
-        System.out.println();
-        Scanner myscanner = new Scanner(System.in);
-        myscanner.next();
-    }
+      a1.add("Zara");
+      a1.add("Mahnaz");
+      a1.add("Ayan");      
+      System.out.println("ArrayList Elements:");
+      System.out.print("\t" + a1);
+      System.out.println();
+      
+      //Creating and printing a linked list.
+      List l1 = new LinkedList();
+      
+      /*
+        The LinkedList class extends AbstractSequentialList and implements . 
+        the List interface and provides a linked-list data structure.
+      */
+      
+      l1.add("Zara");
+      l1.add("Mahnaz");
+      l1.add("Ayan");
+      System.out.println();
+      System.out.println("LinkedList Elements:");
+      System.out.print("\t" + l1);
+      System.out.println();
+      
+      //Keep the window opened until the next button press.
+      Scanner myscanner = new Scanner(System.in);
+      myscanner.next();
+   }
     
 }
-
 </code>
         </collections>
         <collection-methods>
@@ -8981,10 +9126,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author Black2
- */
 public class Project23 {
 
     /**
@@ -9179,10 +9320,6 @@ import java.util.Enumeration; //used for enumerations;
 import java.util.Scanner; // used for scanner class;
 import java.util.Vector; //used for vectors;
 
-/**
- *
- * @author Black2
- */
 public class Project15 {
 
     /**
@@ -9261,10 +9398,7 @@ the finally block is not mandatory. It is possible to have only try and catch bl
 package project22;
 import java.util.InputMismatchException;
 import java.util.Scanner;
-/**
- *
- * @author Black2
- */
+
 public class Project22 {
     public static void main(String[] args) {
         Scanner myscanner = new Scanner(System.in);
@@ -9346,10 +9480,6 @@ There can be inner interfaces also, this is the only way to write 2 interfaces i
  */
 package project13;
 
-/**
- *
- * @author DrVa
- */
 public interface ToDoListInterface { //this is the outer interface
     public interface Numbers{ //this is the inner interface
         int findMax(int a, int b, int c);
@@ -9435,10 +9565,6 @@ package project37;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- *
- * @author Black2
- */
 public class Project37 {
 
     /**
