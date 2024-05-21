@@ -9508,14 +9508,20 @@ public enum Directions
 
 */
 </code>
-
+            <br></br>
+            <green>Enumerations in Java:</green>
+            <br></br><br></br>
+            The <blue>Enumeration interface</blue> defines the <red>methods</red> by which you can 
+            enumerate 
+            (obtain one at a time) the elements in a <blue>collection</blue> of <red>objects</red>.
+            <br></br><br></br>
+            <blue>Enumerations</blue> must not be confused with <red>enums</red>.
+             They are different <red>types</red>, different <red>objects</red>, 
+            with different utility.
+            <br></br><br></br>
 <code>
-/*
-The Enumeration interface defines the methods by which you can enumerate (obtain one at a time) the elements 
-in a collection of objects.
-Enumerations must not be confused with enums. They are different types, different objects, with different
-utility.
- */
+//Example of working with Enumerations in Java:
+
 package project15;
 
 import java.util.Enumeration; //used for enumerations;
@@ -9527,16 +9533,24 @@ public class Project15 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-    //Creating an enumeration of objects;
-        Enumeration Days; //enumerations cannot be initialized with an object of type enumeration;
-    //because enumeration is abstract interface.
-    Enumeration &lt;Integer&gt; intEnumeration; //enumeration of integers;
-        Vector myVect = new Vector (3); //vector of objects
+    
+    public static void main(String[] args) 
+    {
+        //Creating an enumeration of objects;
+        Enumeration Days; 
+        //enumerations cannot be initialized with an object ;
+        //of type enumeration because enumeration is abstract interface.
+        
+        Enumeration &lt;Integer&gt; intEnumeration; //enumeration of integers;
+        
+        //vector of objects
+        Vector myVect = new Vector (3);
         myVect.add("Sunday");
         myVect.add("Monday");
         myVect.add("Friday");
-        Days = myVect.elements(); //the elements from vector gets transfered to enumeration.
+        
+        //the elements from vector gets transfered to enumeration.
+        Days = myVect.elements(); 
         while(Days.hasMoreElements())
         {
             System.out.println(Days.nextElement());
