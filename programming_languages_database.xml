@@ -8328,48 +8328,40 @@ public class Books extends Product
         If you <red>inherit</red> an <blue>abstract class</blue>, you have to provide implementations 
         to all the <blue>abstract methods</blue> in it.
 <code>
-package project26;
+//Example of abstraction using interfaces:
 
-/*
- *
- * @author DrVa
- */
-
-public abstract class AbstractClass 
+//Defining an interface
+interface Animal 
 {
-    private String PersonName;
-    private int PersonAge;
-   
-    //abstract functions can only be public.
-    public abstract void PrintMessage(); 
-    
-    //Getters:
-    public String GetPersonName()
-    {
-        return this.PersonName;
-    }
-    public int GetAge()
-    {
-        return this.PersonAge;
-    }
-    public AbstractClass(String Name, int Age)
-    {
-        this.PersonName = Name;
-        this.PersonAge = Age;
-    }
-    
-    //Setters:
-    public void SetAge(int Age)
-    {
-        this.PersonAge = Age;
-    }
-    public void SetName(String Name)
-    {
-        this.PersonName = Name;
-    }
-    
+    public void animalSound(); // interface method (does not have a body)
+    public void sleep(); // interface method (does not have a body)
 }
 
+// Pig "implements" the Animal interface
+class Pig implements Animal 
+{
+    public void animalSound() 
+    {
+        // The body of animalSound() is provided here
+        System.out.println("The pig says: wee wee");
+    }
+    
+    public void sleep() 
+    {
+        // The body of sleep() is provided here
+        System.out.println("Zzz");
+    }
+}
+
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        Pig myPig = new Pig();  // Create a Pig object
+        myPig.animalSound();
+        myPig.sleep();
+    }
+}
 </code>
         </abstraction>
         <generic-programming>
