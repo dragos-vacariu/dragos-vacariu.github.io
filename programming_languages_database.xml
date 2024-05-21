@@ -9338,16 +9338,17 @@ public class Project23
 <code>
 //Example of constructors in Java:
 
-// Create a Main class
+//Create a Main class
 public class Main 
 {
-    int x;  // Create a class attribute
+    //Create a class attribute
+    int x;  
 
-    // Create a class constructor for the Main class
+    //Create a class constructor for the Main class
     public Main() 
     {
         x = 5;  
-        // Set the initial value for the class attribute x
+        //Set the initial value for the class attribute x
     }
 
     public static void main(String[] args) 
@@ -9356,7 +9357,8 @@ public class Main
         // Create an object of class Main 
         //(This will call the constructor)
         
-        System.out.println(myObj.x); // Print the value of x
+        System.out.println(myObj.x); 
+        //Print the value of x
     }
 }
 
@@ -9375,9 +9377,13 @@ ClassName objName = new ClassName();
             *General-Programming-Knowledge*
             <br></br>
             <green>Destructors in Java:</green><br></br>
-            In Java: destructors are also known as <blue>finalizers</blue> that are non-deterministic. 
-            The allocation and deallocation of objects is handled by the garbage collector. 
-            The invocation of <blue>finalizers</blue> is not guaranteed because it invokes implicitly.
+            <br></br>
+            In Java: <red>destructors</red> are also known as <blue>finalizers</blue> that are 
+            non-deterministic. <br></br>
+            The allocation and deallocation of <red>objects</red> is handled by the 
+            <blue>garbage collector</blue>. <br></br>
+            The invocation of <blue>finalizers</blue> is not guaranteed because it 
+            invokes implicitly.
             <br></br><br></br>
             <brown>Advantages of Destructor:</brown><br></br>
             <blue>
@@ -9475,10 +9481,11 @@ public class Vec {
         <enums>*General-Programming-Knowledge*
             <green>Enums in Java:</green>
             <br></br>
-            In Java: enums can have constructors, and it needs to have contructors 
+            In Java: <red>enums</red> can have <red>constructors</red>, and it needs to have 
+            <red>constructors</red> 
             if they are provided with values. 
             <br></br><br></br>
-            Enums provides both <red>string</red> values and 
+            <red>Enums</red> provides both <red>string</red> values and 
             <red>int</red> values in the same patch.
             <br></br>
 <code>
@@ -9504,9 +9511,6 @@ public enum Directions
         return this.Degrees;
     }
 }
-/*
-
-*/
 </code>
             <br></br>
             <green>Enumerations in Java:</green>
@@ -9566,14 +9570,15 @@ public class Project15 {
             <br></br>
             <green>Multi-threading in Java:</green>
             <br></br><br></br>
-            In Java: Threads can be created by using two mechanisms : 
-            <br></br>
+            In Java: <blue>Threads</blue> can be created by using two mechanisms : 
+            <br></br><br></br>
             <blue>
-            1. Extending the Thread class 
-            2. Implementing the Runnable Interface
+            1. Extending the Thread class; <br></br>
+            2. Implementing the Runnable Interface;
             </blue>
             <br></br><br></br>
             <brown>Thread creation by extending the Thread class:</brown>
+            <br></br><br></br>
             We create a <red>class</red> that <red>extends</red> the <blue>java.lang.Thread</blue> <red>class</red>. 
             This <red>class</red> <blue>overrides</blue> the <red>run()</red> method available in 
             the Thread <red>class</red>.
@@ -9626,7 +9631,9 @@ public class Multithread {
         <br></br><br></br>
         We create a new <red>class</red> which <red>implements</red> <blue>java.lang.Runnable</blue> 
         <red>interface</red> and <red>override</red> <blue>run()</blue> 
-        method. Then we <red>instantiate</red> a <blue>Thread object</blue> and call 
+        method. 
+        <br></br>
+        Then we <red>instantiate</red> a <blue>Thread object</blue> and call 
         <blue>start()</blue> method on this object. 
         <br></br>
 <code>
