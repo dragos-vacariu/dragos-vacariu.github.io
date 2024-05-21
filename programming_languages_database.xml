@@ -8993,68 +8993,72 @@ public class Project31
 </code>
         </collections>
         <collection-methods>
-<code>
-public boolean add(E e)
-//It is used to insert an element in this collection.
-
-public boolean addAll(Collection&lt;? extends E&gt; c)
-//It is used to insert the specified collection elements in the invoking collection.
-
-public boolean remove(Object element)
-//It is used to delete an element from the collection.
-
-public boolean removeAll(Collection&lt;?&gt; c)
-//It is used to delete all the elements of the specified collection from the 
-//invoking collection.
-
-default boolean removeIf(Predicate&lt;? super E&gt; filter)
-//It is used to delete all the elements of the collection that satisfy the 
-//specified predicate.
-
-public boolean retainAll(Collection&lt;?&gt; c)
-//It is used to delete all the elements of invoking collection except the 
-//specified collection.
-
-public int size()
-//It returns the total number of elements in the collection.
-
-public void clear()
-//It removes the total number of elements from the collection.
-
-public boolean contains(Object element)
-//It is used to search an element.
-
-public boolean containsAll(Collection&lt;?&gt; c)
-//It is used to search the specified collection in the collection.
-
-public Iterator iterator()
-//It returns an iterator.
-
-public Object[] toArray()
-//It converts collection into array.
-
-public &lt;T&gt; T[] toArray(T[] a)
-//It converts collection into array. Here, the runtime type of the returned array 
-//is that of the specified array.
-
-public boolean isEmpty()
-//It checks if collection is empty.
-
-default Stream&lt;E&gt; parallelStream()
-//It returns a possibly parallel Stream with the collection as its source.
-
-default Stream&lt;E&gt; stream()
-//It returns a sequential Stream with the collection as its source.
-
-default Spliterator&lt;E&gt; spliterator()
-//It generates a Spliterator over the specified elements in the collection.
-
-public boolean equals(Object element)
-//It matches two collections.
-
-public int hashCode()
-//It returns the hash code number of the collection.
-</code>
+            The Collection in Java is a framework that provides an architecture to store and manipulate the 
+            group of objects.
+            <br></br><br></br>
+            There are many methods declared in the Collection interface:
+            <br></br><br></br>
+            <code>public boolean add(E e)</code><br></br>
+            It is used to insert an element in this collection.<br></br>
+            <br></br><br></br>
+            <code>public boolean addAll(Collection&lt;? extends E&gt; c)</code><br></br>
+            It is used to insert the specified collection elements in the invoking collection.<br></br>
+            <br></br><br></br>
+            <code>public boolean remove(Object element)</code><br></br>
+            It is used to delete an element from the collection.<br></br>
+            <br></br><br></br>
+            <code>public boolean removeAll(Collection&lt;?&gt; c)</code><br></br>
+            It is used to delete all the elements of the specified collection from the 
+            invoking collection.<br></br>
+            <br></br><br></br>
+            <code>default boolean removeIf(Predicate&lt;? super E&gt; filter)</code><br></br>
+            It is used to delete all the elements of the collection that satisfy the 
+            specified predicate.<br></br>
+            <br></br><br></br>
+            <code>public boolean retainAll(Collection&lt;?&gt; c)</code><br></br>
+            It is used to delete all the elements of invoking collection except the 
+            specified collection.<br></br>
+            <br></br><br></br>
+            <code>public int size()</code><br></br>
+            It returns the total number of elements in the collection.
+            <br></br><br></br>
+            <code>public void clear()</code><br></br>
+            It removes the total number of elements from the collection.
+            <br></br><br></br>
+            <code>public boolean contains(Object element)</code><br></br>
+            It is used to search an element.<br></br>
+            <br></br><br></br>
+            <code>public boolean containsAll(Collection&lt;?&gt; c)</code><br></br>
+            It is used to search the specified collection in the collection.
+            <br></br><br></br>
+            <code>public Iterator iterator()</code><br></br>
+            It returns an iterator.
+            <br></br><br></br>
+            <code>public Object[] toArray()</code><br></br>
+            It converts collection into array.
+            <br></br><br></br>
+            <code>public &lt;T&gt; T[] toArray(T[] a)</code>
+            It converts collection into array. Here, the runtime type of the returned array 
+            is that of the specified array.<br></br>
+            <br></br><br></br>
+            <code>public boolean isEmpty()</code><br></br>
+            It checks if collection is empty.
+            <br></br><br></br>
+            <code>default Stream&lt;E&gt; parallelStream()</code><br></br>
+            It returns a possibly parallel Stream with the collection as its source.
+            <br></br><br></br>
+            <code>default Stream&lt;E&gt; stream()</code>
+            It returns a sequential Stream with the collection as its source.
+            <br></br><br></br>
+            <code>default Spliterator&lt;E&gt; spliterator()<br></br>
+            It generates a Spliterator over the specified elements in the collection.
+            <br></br><br></br>
+            <code>public boolean equals(Object element)</code><br></br>
+            It matches two collections.
+            <br></br><br></br>
+            <code>public int hashCode()</code><br></br>
+            It returns the hash code number of the collection.
+            <br></br><br></br>
         </collection-methods>
         <dynamic-memory-allocation>
             <red>Heap space</red> is used for the <blue>dynamic memory allocation</blue> of 
