@@ -8993,10 +8993,10 @@ public class Project31
 </code>
         </collections>
         <collection-methods>
-            The </blue>Collection</blue> in Java is a framework that provides an architecture to 
+            The <blue>Collection</blue> in Java is a framework that provides an architecture to 
             store and manipulate the group of <red>objects</red>.
             <br></br><br></br>
-            There are many <red>methods</red> declared in the </blue>Collection</blue> interface:
+            There are many <red>methods</red> declared in the <blue>Collection</blue> interface:
             <br></br><br></br>
             <code>public boolean add(E e)</code><br></br>
             It is used to <red>insert</red> an element in this collection.<br></br>
@@ -9053,7 +9053,7 @@ public class Project31
             <code>default Stream&lt;E&gt; stream()</code><br></br>
             It returns a sequential <red>Stream</red> with the <blue>collection</blue> as its source.
             <br></br><br></br>
-            <code>default Spliterator&lt;E&gt; spliterator()<br></br>
+            <code>default Spliterator&lt;E&gt; spliterator()</code><br></br>
             It generates a <red>Spliterator</red> over the specified elements in the <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean equals(Object element)</code><br></br>
