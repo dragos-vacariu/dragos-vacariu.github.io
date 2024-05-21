@@ -9523,9 +9523,10 @@ public class Vec {
 }
 </code>
         </operator-overloading>
-        <enums>*General-Programming-Knowledge*
+        <enums>
+            *General-Programming-Knowledge*
             <green>Enums in Java:</green>
-            <br></br>
+            <br></br><br></br>
             In Java: <red>enums</red> can have <red>constructors</red>, and it needs to have 
             <red>constructors</red> 
             if they are provided with values. 
@@ -9612,7 +9613,7 @@ public class Project15 {
         </enums>
         <multi-threading>*General-Programming-Knowledge*
             <br></br>
-            <green>Multi-threading in Java:</green>
+            <green>Multithreading in Java:</green>
             <br></br><br></br>
             In Java: <blue>Threads</blue> can be created by using two mechanisms : 
             <br></br><br></br>
@@ -9890,6 +9891,8 @@ An interface can extend multiple interfaces.
         </interfaces>
         <random-generators>*General-Programming-Knowledge*
 <code>
+//Example of generating random numbers in Java:
+
 package project37;
 
 import java.util.Random;
@@ -9900,40 +9903,62 @@ public class Project37 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+     
+    public static void main(String[] args) 
+    {
         Scanner myscanner = new Scanner(System.in);
         System.out.printf("Thinking of a number between 0 and 100:\n\n");
+        
+        //Create a random generator
         Random rand = new Random();
+        
+        //Generate a random number between 0-100
         int Number = rand.nextInt(101);
+        
+        //This variable will the user input;
         int choice = 101;
+        
+        //this will count how many times 
+        //the user didn't guessed
         int NrOfTries=0;
+        
+        //Enter the loop by default:
         while(Number!=choice)
         {
             System.out.printf("What is the number?\n");
-            do{
+            do
+            {
                 System.out.printf("Number = ");
                 choice = myscanner.nextInt();
+                //get input from the user;
+                
             }while(choice&lt;0 || choice>100);
+            
+            //Compare the user input with the random number;
             if(Number==choice)
             {
                 System.out.printf("Congratulations, the number was: %d\n", Number);
             }
+            
             else if(Number&lt;choice)
             {
                System.out.printf("Your number is too high, try a lower one!\n");
             }
+            
             else
             {
                 System.out.printf("Your number is too low, try a higher one!\n");
             }
+            
             System.out.println();
             NrOfTries++;
         }
+        
         System.out.printf("You required %d tries to guess the number!\n", NrOfTries);
+        
         //Keep the console opened.
         myscanner.next();
     }
-    
 }
 </code>
         </random-generators>
@@ -9943,14 +9968,18 @@ package Args_main;
 
 //Working with command prompts arguments.
 
-//IMPORTING PACKAGE:
 import java.util.Scanner;
 
-public class Args_main{
-    public static void main(String[] args) { //args will store the command prompt arguments -- if any
+public class Args_main
+{
+    //args will store the command prompt arguments -- if any
+    public static void main(String[] args) 
+    { 
         //Supposingly we have some arguments in args[]
         
-        int [] lenNrs = Args_main.NumberOrNo(args); //convert them to numbers or get their string length
+        int [] lenNrs = Args_main.NumberOrNo(args); 
+        //convert them to numbers or get their string length
+        
         Sorting(lenNrs, args); //sort the numbers of lenghts
         
         System.out.printf("Sorting by length or value: \n\n");
