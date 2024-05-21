@@ -8767,7 +8767,7 @@ public class Project11
             Example: 
             - for <red>int</red> the corresponding class is <red>Integer</red>;
             <br></br>
-            - for <red>double<red> the corresponding class is <red>Double</red>;
+            - for <red>double</red> the corresponding class is <red>Double</red>;
             <br></br><br></br>
             These <red>classes</red> wrap the <blue>primitive types</blue> into an <red>object</red>.
             <br></br><br></br>
@@ -8823,6 +8823,7 @@ public class Project20 {
             can store <red>objects</red>, so it can hold any type of data.
             <br></br><br></br>
             <blue>Stacks</blue> get automatically resized to fit the <red>objects</red> pushed in.
+            <br></br>
 <code>
 //Example of working with Stack.
 
@@ -8931,12 +8932,12 @@ public class Project17 {
         a zero-based index.
         A <red>List</red> may contain duplicate elements.
         <br></br><br></br>
-        In addition to the methods defined by <red>Collection</red>, the <red>List<red> defines 
+        In addition to the methods defined by <red>Collection</red>, the <red>List</red> defines 
         some of its own.
         <br></br><br></br>
         Several of the <red>List</red> methods will throw an <blue>UnsupportedOperationException</blue> 
-        if the collection cannot be modified, and a <blue>ClassCastException</blue> is generated when one
-        object is <blue>incompatible</blue> with the other.
+        if the collection cannot be modified, and a <blue>ClassCastException</blue> is generated 
+        when one object is <blue>incompatible</blue> with the other.
         <br></br>
 <code>
 //Example of working with Lists/LinkedLists
