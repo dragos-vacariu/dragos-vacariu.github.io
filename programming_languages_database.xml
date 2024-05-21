@@ -9214,48 +9214,62 @@ public class Project23 {
      */
     
     //Making main function able to throw IOException, 
-    //so that I don't need to use try catch blocks.
-    public static void main(String[] args) throws IOException {
+    //so that we don't need to use try catch blocks.
+    public static void main(String[] args) throws IOException 
+    {
         File myfile = new File ("textFile.txt");
-        try{
+        try
+        {
+            //These statements needs to be placed inside a try catch block
+            //as they could produce an exception:
             
-            //THESE STATEMENTS NEEDS TO BE PLACED INSIDE A TRY CATCH BLOCK:
             PrintWriter myPrintWriter = new PrintWriter(myfile);
-            myPrintWriter.println("This is a TEXT File!");
+            myPrintWriter.println("This is a text file!");
             System.out.println("File has been successfully created!");
+            
             //Closing the file:
-            myPrintWriter.close(); //if the file doesn't get closed the modifications made to it 
+            myPrintWriter.close(); 
+            //if the file doesn't get closed the modifications made to it 
             //won't get saved.
         }
         catch(IOException e)
         {
             System.out.printf("File: %s\n", e);
         }
+        
         //Reading from the file:
-        try{
+        try
+        {
             Scanner readerfile = new Scanner(myfile);
             String Message = readerfile.nextLine();
-            //If this line is reached it means that there is no exception thrown.
+            
+            //If this line is reached it means that no exception 
+            //was thrown by readerfile.
             System.out.printf("FILE MESSAGE: %s\n", Message);
         }
         catch(IOException e)
         {
             System.out.println(e);
         }
+        
         //Creating a collection of HumanClass objects:
         ArrayList&lt;HumanClass&gt; myList = new ArrayList();
         myList.add(new HumanClass(22, "Adam Lambert"));
         myList.add(new HumanClass(44, "Jackie Chan"));
+        
         //Creating a file to store these objects:
         File myObjectsFile = new File ("objectFile.txt");
+        
         //Serializing an object:
-        try{
+        try
+        {
             FileOutputStream fo = new FileOutputStream(myObjectsFile);
             ObjectOutputStream os = new ObjectOutputStream(fo);
             for(HumanClass s:myList)
             {
-                //Writing objects to a file ca be made only using binary mode. So that file will not contain
-                //readable text.
+                //Writing objects to a file can be made only using binary mode. 
+                //So that file will not contain readable text
+                //and cannot be altered using text editors.
                 os.writeObject(s);
             }
         }
@@ -9263,18 +9277,24 @@ public class Project23 {
         {
             System.out.printf("File not found: %s", e);
         }
+        
         //Deserializing an object from the file:
         ArrayList&lt;HumanClass&gt; ObjectRead = new ArrayList();
         FileInputStream fi = new FileInputStream(myObjectsFile);
         ObjectInputStream oi = new ObjectInputStream(fi);
-        try{
-            while(true) //this loop will terminate when the catch block will terminate, and the catch block will
-                //terminate then EOFException will be thrown.
+        try
+        {
+            //the following loop will terminate when the catch block will terminate, 
+            //and when the catch block will terminate then EOFException will be thrown.
+            while(true) 
             {
-               HumanClass e = (HumanClass) oi.readObject(); //this will read until the file ends. 
-               //When it cannot read any more object from the file it will throw an EOFException that needs
-              //to be catched, and handled, otherwise the program will terminate.
-              ObjectRead.add(e);
+                //this will read until the file ends.
+                HumanClass e = (HumanClass) oi.readObject();  
+                
+                //When it cannot read any more objects from the file 
+                //it will throw an EOFException that needs to be catched, and handled,
+                // otherwise the program will terminate.
+                ObjectRead.add(e);
             }
         }
         catch(ClassNotFoundException e)
