@@ -9473,18 +9473,28 @@ public class Vec {
 </code>
         </operator-overloading>
         <enums>*General-Programming-Knowledge*
+            <green>Enums in Java:</green>
+            <br></br>
+            In Java: enums can have constructors, and it needs to have contructors 
+            if they are provided with values. 
+            <br></br><br></br>
+            Enums provides both <red>string</red> values and 
+            <red>int</red> values in the same patch.
+            <br></br>
 <code>
-/*
-Enums can have constructors, and it needs to have contructors if they are provided with values.
- */
+//Example of enums in Java:
+
 package project18;
 
-public enum Directions {
+public enum Directions 
+{
     //Defining the fields:
     South(0), West(180), North(90), East(260);
-    private final int Degrees; // a place to store the value for each field.
+    private final int Degrees; 
+    // a place to store the value for each field.
     
-    //This constructor has the role of initializing the above fields with their values:
+    //This constructor has the role of initializing 
+    //the above fields with their values:
     Directions(int degreesNew)
     {
         this.Degrees = degreesNew;
@@ -9495,8 +9505,7 @@ public enum Directions {
     }
 }
 /*
-Enums make the code more readable, and instead of providing value and later on trying to convert values
-from int to string, enums provides both string values and int values in the same patch.
+
 */
 </code>
 
@@ -9540,21 +9549,44 @@ public class Project15 {
 </code>
         </enums>
         <multi-threading>*General-Programming-Knowledge*
+            <br></br>
+            <green>Multi-threading in Java:</green>
+            <br></br><br></br>
+            In Java: Threads can be created by using two mechanisms : 
+            <br></br>
+            <blue>
+            1. Extending the Thread class 
+            2. Implementing the Runnable Interface
+            </blue>
+            <br></br><br></br>
+            <brown>Thread creation by extending the Thread class:</brown>
+            We create a <red>class</red> that <red>extends</red> the <blue>java.lang.Thread</blue> <red>class</red>. 
+            This <red>class</red> <blue>overrides</blue> the <red>run()</red> method available in 
+            the Thread <red>class</red>.
+            <br></br><br></br>
+            A <red>thread</red> begins its life inside <red>run()</red> method. 
+            We create an <red>object</red> of our 
+            new <red>class</red> and call <blue>start()</blue> method to start the 
+            execution of a <red>thread</red>. 
+            <blue>Start()</blue> invokes the <red>run()</red> method on the <blue>Thread</blue> object.
+            <br></br>
 <code>
+//Example of multithreading in Java 
+//by extending the Thread class:
 
-
-// Java code for thread creation by extending
-// the Thread class
-class MultithreadingDemo extends Thread {
+class MultithreadingDemo extends Thread 
+{
     public void run()
     {
-        try {
+        try 
+        {
             // Displaying the thread that is running
             System.out.println(
                 "Thread " + Thread.currentThread().getId()
                 + " is running");
         }
-        catch (Exception e) {
+        catch (Exception e) 
+        {
             // Throwing an exception
             System.out.println("Exception is caught");
         }
@@ -9566,9 +9598,56 @@ public class Multithread {
     public static void main(String[] args)
     {
         int n = 8; // Number of threads
-        for (int i = 0; i &lt; n; i++) {
+        for (int i = 0; i &lt; n; i++) 
+        {
             MultithreadingDemo object
                 = new MultithreadingDemo();
+            object.start();
+        }
+    }
+}
+</code>
+        <br></br>
+        <brown>Thread creation by implementing the Runnable Interface</brown>
+        <br></br><br></br>
+        We create a new <red>class</red> which <red>implements</red> <blue>java.lang.Runnable</blue> 
+        <red>interface</red> and <red>override</red> <blue>run()</blue> 
+        method. Then we <red>instantiate</red> a <blue>Thread object</blue> and call 
+        <blue>start()</blue> method on this object. 
+        <br></br>
+<code>
+//Example of multithreading in Java 
+//by implementing the Runnable interface:
+
+class MultithreadingDemo implements Runnable 
+{
+    public void run()
+    {
+        try 
+        {
+            // Displaying the thread that is running
+            System.out.println(
+                "Thread " + Thread.currentThread().getId()
+                + " is running");
+        }
+        catch (Exception e) 
+        {
+            // Throwing an exception
+            System.out.println("Exception is caught");
+        }
+    }
+}
+ 
+// Main Class
+class Multithread 
+{
+    public static void main(String[] args)
+    {
+        int n = 8; // Number of threads
+        for (int i = 0; i &lt; n; i++) 
+        {
+            Thread object
+                = new Thread(new MultithreadingDemo());
             object.start();
         }
     }
