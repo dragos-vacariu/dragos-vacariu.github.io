@@ -8114,6 +8114,26 @@ g('GFG');
             There cannot be multiple <blue>classes</blue> in the same file,
             unless some of them are inner <blue>classes</blue> 
             (<blue>class</blue> inside another <blue>class</blue>).
+<code>
+//Example of class definition in Java
+ 
+class Student 
+{
+    // data member (also instance variable)
+    int id;
+    // data member (also instance variable)
+    String name;
+
+    public static void main(String args[])
+    {
+        // creating an object of
+        // Student - process called instantiation
+        Student s1 = new Student();
+        System.out.println(s1.id);
+        System.out.println(s1.name);
+    }
+}
+</code>
         </oop>
         <encapsulation>
             *General-Programming-Knowledge*
@@ -8174,16 +8194,28 @@ public class Main
         </encapsulation>
         <polymorphism>*General-Programming-Knowledge*
 <code>
-class Bike{  
-  void run(){System.out.println("running");}  
+//Example of polymorphism in Java:
+
+class Bike
+{  
+    void run(){System.out.println("running");}  
 }  
-class Splendor extends Bike{  
-  void run(){System.out.println("running safely with 60km");}  
-  
-  public static void main(String args[]){  
-    Bike b = new Splendor();//upcasting  
-    b.run();  
-  }  
+
+class Splendor extends Bike
+{  
+    void run(){System.out.println("running safely with 60km");}  
+
+    public static void main(String args[])
+    {  
+        //Parent datatype instantiated with child object
+        Bike b = new Splendor();//upcasting  
+        b.run(); 
+        //even though b is Bike it's gonna act like Splendor
+    }
+    /*
+        OUTPUT:
+        running safely with 60km.
+    */
 }  
 </code>
         </polymorphism>
@@ -8191,14 +8223,17 @@ class Splendor extends Bike{
 <code>
 package project25;
 
-public class Product {
+public class Product 
+{
     private String name;
     private double Price;
+    
     public Product(String NewName, double NewPrice)
     {
         this.name = NewName;
         this.Price = NewPrice;
     }
+    
     //Getters:
     public String GetName()
     {
@@ -8218,17 +8253,20 @@ public class Product {
 <code>
 package project25;
 
-public class Books extends Product {
+public class Books extends Product 
+{
     private String Author;
     private int NrOfPages;
+    
     public Books(String NewAuthor, int NewNrOfPages, String NewName, double NewPrice)
     {
         super(NewName, NewPrice); 
-        //super refers to the parent class, so it will call the constructor of the parent class, and it will
-        //initialize the two fields Price and Name.
+        //super refers to the parent class, so it will call the constructor of the  
+        //parent class, and it will initialize the two fields Price and Name.
         this.Author = NewAuthor;
         this.NrOfPages = NewNrOfPages;
     }
+    
     //Getters:
     public String GetAuthor()
     {
@@ -8238,6 +8276,7 @@ public class Books extends Product {
     {
         return this.NrOfPages;
     }
+    
     //Overriding the function of the parent class
     @Override
     public String GetType()
