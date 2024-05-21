@@ -8638,6 +8638,7 @@ public class Project7
             <br></br><br></br>
             An <red>array</red> is a collection of data of the same type, with 
             <red>fixed size/capacity</red>.
+            <br></br>
 <code>
 //Example of arrays in Java:
 
@@ -8653,16 +8654,16 @@ System.out.println(myNum[1]);
             <br></br>
             <brown>Vectors</brown>
             <br></br><br></br>
-            A <red>vector</red> is a <blue>dynamic array</blue> that can change it's 
+            A <red>Vector</red> is a <blue>dynamic array</blue> that can change it's 
             <red>size/capacity</red> and is 
-            capable of storing any type of <red>data/object</red>. Meaning that a <red>vector</red> 
+            capable of storing any type of <red>data/object</red>. Meaning that a <red>Vector</red> 
             of objects 
             can mix different types together such as: <red>integers</red> and <red>strings</red>.
             <br></br>
             <br></br><br></br>
             
 <code>
-//Example of working with vectors in Java:
+//Example of working with Vectors in Java:
 
 package project11;
 import java.util.Scanner;
