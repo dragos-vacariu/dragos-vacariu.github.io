@@ -8994,34 +8994,90 @@ public class Project31
         </collections>
         <collection-methods>
 <code>
-public boolean add(E e)        //It is used to insert an element in this collection.
-public boolean addAll(Collection&lt;? extends E&gt; c)    //It is used to insert the specified collection elements in the invoking collection.
-public boolean remove(Object element)    //It is used to delete an element from the collection.
-public boolean removeAll(Collection&lt;?&gt; c)    //It is used to delete all the elements of the specified collection from the invoking collection.
-default boolean removeIf(Predicate&lt;? super E&gt; filter)    //It is used to delete all the elements of the collection that satisfy the specified predicate.
-public boolean retainAll(Collection&lt;?&gt; c)    //It is used to delete all the elements of invoking collection except the specified collection.
-public int size()    //It returns the total number of elements in the collection.
-public void clear()    //It removes the total number of elements from the collection.
-public boolean contains(Object element)    //It is used to search an element.
-public boolean containsAll(Collection&lt;?&gt; c)    //It is used to search the specified collection in the collection.
-public Iterator iterator()    //It returns an iterator.
-public Object[] toArray()    //It converts collection into array.
-public &lt;T&gt; T[] toArray(T[] a)    //It converts collection into array. Here, the runtime type of the returned array is that of the specified array.
-public boolean isEmpty()    //It checks if collection is empty.
-default Stream&lt;E&gt; parallelStream()    //It returns a possibly parallel Stream with the collection as its source.
-default Stream&lt;E&gt; stream()    //It returns a sequential Stream with the collection as its source.
-default Spliterator&lt;E&gt; spliterator()    //It generates a Spliterator over the specified elements in the collection.
-public boolean equals(Object element)    //It matches two collections.
-public int hashCode()    //It returns the hash code number of the collection.
+public boolean add(E e)
+//It is used to insert an element in this collection.
+
+public boolean addAll(Collection&lt;? extends E&gt; c)
+//It is used to insert the specified collection elements in the invoking collection.
+
+public boolean remove(Object element)
+//It is used to delete an element from the collection.
+
+public boolean removeAll(Collection&lt;?&gt; c)
+//It is used to delete all the elements of the specified collection from the 
+//invoking collection.
+
+default boolean removeIf(Predicate&lt;? super E&gt; filter)
+//It is used to delete all the elements of the collection that satisfy the 
+//specified predicate.
+
+public boolean retainAll(Collection&lt;?&gt; c)
+//It is used to delete all the elements of invoking collection except the 
+//specified collection.
+
+public int size()
+//It returns the total number of elements in the collection.
+
+public void clear()
+//It removes the total number of elements from the collection.
+
+public boolean contains(Object element)
+//It is used to search an element.
+
+public boolean containsAll(Collection&lt;?&gt; c)
+//It is used to search the specified collection in the collection.
+
+public Iterator iterator()
+//It returns an iterator.
+
+public Object[] toArray()
+//It converts collection into array.
+
+public &lt;T&gt; T[] toArray(T[] a)
+//It converts collection into array. Here, the runtime type of the returned array 
+//is that of the specified array.
+
+public boolean isEmpty()
+//It checks if collection is empty.
+
+default Stream&lt;E&gt; parallelStream()
+//It returns a possibly parallel Stream with the collection as its source.
+
+default Stream&lt;E&gt; stream()
+//It returns a sequential Stream with the collection as its source.
+
+default Spliterator&lt;E&gt; spliterator()
+//It generates a Spliterator over the specified elements in the collection.
+
+public boolean equals(Object element)
+//It matches two collections.
+
+public int hashCode()
+//It returns the hash code number of the collection.
 </code>
         </collection-methods>
         <dynamic-memory-allocation>
-            Heap space is used for the dynamic memory allocation of Java objects and JRE classes 
-            at runtime. <br></br>
-            New objects are always created in heap space, and the references to these objects 
-            are stored in stack memory. <br></br>
-            These objects have global access and we can access them from anywhere in the 
-            application.<br></br>
+            <red>Heap space</red> is used for the <blue>dynamic memory allocation</blue> of 
+            Java <red>objects</red> and JRE (Java Runtime Environment) <red>classes</red> 
+            at runtime. 
+            <br></br><br></br>
+            New <red>objects</red> are always created in <red>heap space</red>, and the 
+            <blue>references</blue> to these <red>objects</red> are stored in <red>stack memory</red>. 
+            <br></br>
+            These <red>objects</red> have <blue>global</blue> access and we can access them from 
+            anywhere in the application.<br></br>
+            <green>Dynamic memory allocation in Java:</green>
+            All Java <red>objects</red> are <blue>dynamically</blue> allocated. 
+            The variables used in the application are stored in stack but these variables 
+            only store <blue>references</blue> to <red>objects</red>. 
+            <br></br>
+            If the variable dies the object still exists as 
+            long as <blue>referenced</blue> by other variables.
+            <br></br><br></br>
+            This means is we always pass <red>objects</red> to other functions by 
+            <blue>reference</blue> 
+            (no copies are performed behind the scenes).
+            <br></br>
         </dynamic-memory-allocation>
         <read-from-file>
             *General-Programming-Knowledge*
