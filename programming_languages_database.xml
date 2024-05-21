@@ -9003,22 +9003,22 @@ public class Project31
             <br></br><br></br>
             <code>public boolean addAll(Collection&lt;? extends E&gt; c)</code><br></br>
             It is used to <red>insert</red> the specified <blue>collection</blue> 
-            elements in the invoking <blue>collection</blue>.<br></br>
+            elements in the invoking <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean remove(Object element)</code><br></br>
-            It is used to <red>delete</red> an element from the <blue>collection</blue>.<br></br>
+            It is used to <red>delete</red> an element from the <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean removeAll(Collection&lt;?&gt; c)</code><br></br>
             It is used to <red>delete</red> all the elements of the specified <blue>collection</blue> 
-            from the invoking <blue>collection</blue>.<br></br>
+            from the invoking <blue>collection</blue>.
             <br></br><br></br>
             <code>default boolean removeIf(Predicate&lt;? super E&gt; filter)</code><br></br>
             It is used to <red>delete</red> all the elements of the <blue>collection</blue> 
-            that satisfy the specified predicate.<br></br>
+            that satisfy the specified predicate.
             <br></br><br></br>
             <code>public boolean retainAll(Collection&lt;?&gt; c)</code><br></br>
             It is used to <red>delete</red> all the elements of invoking <blue>collection</blue> 
-            except the specified <blue>collection</blue>.<br></br>
+            except the specified <blue>collection</blue>.
             <br></br><br></br>
             <code>public int size()</code><br></br>
             It returns the <blue>total number</blue> of elements in the <blue>collection</blue>.
@@ -9027,7 +9027,7 @@ public class Project31
             It <red>removes</red> the total number of elements from the <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean contains(Object element)</code><br></br>
-            It is used to <red>search</red> an element.<br></br>
+            It is used to <red>search</red> an element.
             <br></br><br></br>
             <code>public boolean containsAll(Collection&lt;?&gt; c)</code><br></br>
             It is used to <red>search</red> the specified <blue>collection</blue> in the 
@@ -9042,21 +9042,23 @@ public class Project31
             <code>public &lt;T&gt; T[] toArray(T[] a)</code><br></br>
             It converts <blue>collection</blue> into <red>array</red>. Here, the runtime type of the 
             returned <red>array</red> 
-            is that of the specified <red>array</red>.<br></br>
+            is that of the specified <red>array</red>.
             <br></br><br></br>
             <code>public boolean isEmpty()</code><br></br>
             It checks if <blue>collection</blue> is empty.
             <br></br><br></br>
             <code>default Stream&lt;E&gt; parallelStream()</code><br></br>
-            It returns a possibly parallel <red>Stream</red> with the <blue>collection</blue> as its source.
+            It returns a possibly parallel <red>Stream</red> with the <blue>collection</blue> as 
+            its source.
             <br></br><br></br>
             <code>default Stream&lt;E&gt; stream()</code><br></br>
             It returns a sequential <red>Stream</red> with the <blue>collection</blue> as its source.
             <br></br><br></br>
             <code>default Spliterator&lt;E&gt; spliterator()</code><br></br>
-            It generates a <red>Spliterator</red> over the specified elements in the <blue>collection</blue>.
+            It generates a <red>Spliterator</red> over the specified elements in the 
+            <blue>collection</blue>.
             <br></br><br></br>
-            <code>public boolean equals(Object element)</code><br></br>
+            <code>public boolean equals(Object element)</code>
             It matches two <blue>collections</blue>.
             <br></br><br></br>
             <code>public int hashCode()</code><br></br>
@@ -9412,8 +9414,8 @@ public class DestructorExample
         </destructors>
         <function-overloading>*General-Programming-Knowledge*
 <code>
-// Java Program for Method overloading
-// By using Different Types of Arguments 
+// Example of Method overloading in Java
+// By using Different Types of Arguments
  
 // Class 1
 // Helper class
@@ -9437,8 +9439,8 @@ class Helper {
  
 // Class 2
 // Main class
-class GFG {
-    // Main driver method
+class GFG 
+{
     public static void main(String[] args)
     {
         // Calling method by passing
