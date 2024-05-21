@@ -9966,7 +9966,7 @@ public class Project37 {
         </random-generators>
         <command-line-arguments>*General-Programming-Knowledge*
 <code>
-//Working with command prompts arguments in Java:
+//Working with command-line arguments in Java:
 
 package Args_main;
 
