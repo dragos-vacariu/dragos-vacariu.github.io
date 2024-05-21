@@ -8603,7 +8603,7 @@ boolean                  false
             <red>arrays</red>, <red>vectors</red>, <red>lists</red>, etc. 
             <br></br>
             By using a <blue>foreach loop</blue> you can iterate through all the items in that 
-            collection and access their values without using indexes.
+            <blue>collection</blue> and access their values without using indexes.
             <br></br>
 <code>
 //Example of foreach loop in Java:
@@ -8637,7 +8637,7 @@ public class Project7
             <brown>Arrays</brown>
             <br></br><br></br>
             An <red>array</red> is a collection of data of the same type, with 
-            <red>fixed size/capacity</red>.
+            <blue>fixed</blue> <red>size/capacity</red>.
             <br></br>
 <code>
 //Example of arrays in Java:
@@ -8658,9 +8658,9 @@ System.out.println(myNum[1]);
             <red>size/capacity</red> and is 
             capable of storing any type of <red>data/object</red>. Meaning that a <red>Vector</red> 
             of objects 
-            can mix different types together such as: <red>integers</red> and <red>strings</red>.
+            can <blue>mix</blue> different <blue>types</blue> together such as: 
+            <red>integers</red> and <red>strings</red>.
             <br></br>
-            <br></br><br></br>
             
 <code>
 //Example of working with Vectors in Java:
@@ -8754,17 +8754,19 @@ public class Project11
             This gives us a new collection <blue>data type</blue> that can be used exactly as 
             <red>Vectors</red>, <red>Lists</red>, <red>Stacks</red>, <red>Dictionaries</red>.
             <br></br><br></br>
-            <blue>ArrayLists</blue> are created with an initial size of 10 elements. 
+            <blue>ArrayLists</blue> are created with an initial size of <blue>10</blue> elements. 
             When this size is exceeded, the collection is automatically enlarged. 
+            <br></br>
             When <red>objects</red> are removed, the <blue>ArrayList</blue> may be shrunk.
             <br></br><br></br>
             NOTE: <blue>ArrayLists</blue> cannot hold primitive data types such as <red>int</red>, 
             <red>double</red>, <red>char</red>, and <red>long</red>.
+            <br></br><br></br>
             To create an <blue>ArrayList</blue> that store primitive values such as those mentioned
             above, the <blue>ArrayList</blue> must be created using the corresponding <red>object</red> 
             of these primitives.
             <br></br>
-            Example: 
+            Example: <br></br>
             - for <red>int</red> the corresponding class is <red>Integer</red>;
             <br></br>
             - for <red>double</red> the corresponding class is <red>Double</red>;
@@ -8772,10 +8774,10 @@ public class Project11
             These <red>classes</red> wrap the <blue>primitive types</blue> into an <red>object</red>.
             <br></br><br></br>
             The methods available for the <blue>ArrayLists</blue> are similar to those of 
-            Vector, List, Stack, Dictionary. 
+            <red>Vector</red>, <red>List</red>, <red>Stack</red>, <red>Dictionary</red>. 
             <br></br><br></br>
             So you can call methods such as: <blue>Add()</blue>, <blue>Remove()</blue>, 
-            <blue>RemoveAt()</blue> etc.
+            <blue>RemoveAt()</blue>, etc.
 <code>
 //Example of working with ArrayLists in Java:
 
@@ -8804,7 +8806,6 @@ public class Project20 {
     }
     
 }
-
 </code>
              <br></br>
             <brown>Stacks</brown>
@@ -8819,8 +8820,8 @@ public class Project20 {
             its own.
             <br></br><br></br>
             A <red>stack</red> has the same properties as a <red>vector</red>, it's 
-            <blue>dynamic in size</blue>, 
-            can store <red>objects</red>, so it can hold any type of data.
+            <blue>dynamic in size</blue>, and
+            can store <red>objects</red> of any type.
             <br></br><br></br>
             <blue>Stacks</blue> get automatically resized to fit the <red>objects</red> pushed in.
             <br></br>
@@ -8870,8 +8871,9 @@ public class Project16 {
                 framework for a 
                 <red>key-mapped</red> <blue>data structure</blue> rather than a specific implementation.
                 <br></br><br></br>
-                Given a <red>key</red> and value, you can store the value in a Dictionary object. 
-                Once the value is stored, you can retrieve it by using its <red>key</red>. 
+                Given a <red>key</red> and <red>value</red>, you can store the <red>value</red> in a 
+                <blue>Dictionary object</blue>. 
+                Once the <red>value</red> is stored, you can retrieve it by using its <red>key</red>. 
                 Thus, like a map, a <blue>dictionary</blue> can be thought of as a 
                 <red>list</red> of <red>key/value</red> pairs.
                 <br></br>
@@ -8922,14 +8924,15 @@ public class Project17 {
     
 }
 </code>
-        <br></br><br></br>
+        <br></br>
         <brown>Lists</brown>
         <br></br><br></br>
         The <red>List</red> interface extends <red>Collection</red> and declares the 
         behavior of a collection that stores a sequence of elements.
         <br></br><br></br>
-        Elements can be inserted or accessed by their position in the <red>List</red> by using 
-        a zero-based index.
+        Elements can be inserted or accessed by their <blue>position</blue> in the <red>List</red> 
+        by using a zero-based index.
+        <br></br><br></br>
         A <red>List</red> may contain duplicate elements.
         <br></br><br></br>
         In addition to the methods defined by <red>Collection</red>, the <red>List</red> defines 
@@ -8955,8 +8958,8 @@ public class Project31
     public static void main(String[] args) 
     {
       List a1 = new ArrayList();
-      //List is an interface so it cannot be instanciated, but it can be initialized with an 
-      //object of type ArrayList() or LinkedList;
+      //List is an interface so it cannot be instanciated, but it can be 
+      //initialized with an object of type ArrayList() or LinkedList;
 
       a1.add("Zara");
       a1.add("Mahnaz");
@@ -8969,7 +8972,7 @@ public class Project31
       List l1 = new LinkedList();
       
       /*
-        The LinkedList class extends AbstractSequentialList and implements . 
+        The LinkedList class extends AbstractSequentialList and implements
         the List interface and provides a linked-list data structure.
       */
       
