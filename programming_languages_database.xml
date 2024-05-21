@@ -8993,71 +8993,74 @@ public class Project31
 </code>
         </collections>
         <collection-methods>
-            The Collection in Java is a framework that provides an architecture to store and manipulate the 
-            group of objects.
+            The </blue>Collection</blue> in Java is a framework that provides an architecture to 
+            store and manipulate the group of <red>objects</red>.
             <br></br><br></br>
-            There are many methods declared in the Collection interface:
+            There are many <red>methods</red> declared in the </blue>Collection</blue> interface:
             <br></br><br></br>
             <code>public boolean add(E e)</code><br></br>
-            It is used to insert an element in this collection.<br></br>
+            It is used to <red>insert</red> an element in this collection.<br></br>
             <br></br><br></br>
             <code>public boolean addAll(Collection&lt;? extends E&gt; c)</code><br></br>
-            It is used to insert the specified collection elements in the invoking collection.<br></br>
+            It is used to <red>insert</red> the specified <blue>collection</blue> 
+            elements in the invoking <blue>collection</blue>.<br></br>
             <br></br><br></br>
             <code>public boolean remove(Object element)</code><br></br>
-            It is used to delete an element from the collection.<br></br>
+            It is used to <red>delete</red> an element from the <blue>collection</blue>.<br></br>
             <br></br><br></br>
             <code>public boolean removeAll(Collection&lt;?&gt; c)</code><br></br>
-            It is used to delete all the elements of the specified collection from the 
-            invoking collection.<br></br>
+            It is used to <red>delete</red> all the elements of the specified <blue>collection</blue> 
+            from the invoking <blue>collection</blue>.<br></br>
             <br></br><br></br>
             <code>default boolean removeIf(Predicate&lt;? super E&gt; filter)</code><br></br>
-            It is used to delete all the elements of the collection that satisfy the 
-            specified predicate.<br></br>
+            It is used to <red>delete</red> all the elements of the <blue>collection</blue> 
+            that satisfy the specified predicate.<br></br>
             <br></br><br></br>
             <code>public boolean retainAll(Collection&lt;?&gt; c)</code><br></br>
-            It is used to delete all the elements of invoking collection except the 
-            specified collection.<br></br>
+            It is used to <red>delete</red> all the elements of invoking <blue>collection</blue> 
+            except the specified <blue>collection</blue>.<br></br>
             <br></br><br></br>
             <code>public int size()</code><br></br>
-            It returns the total number of elements in the collection.
+            It returns the total number of elements in the <blue>collection</blue>.
             <br></br><br></br>
             <code>public void clear()</code><br></br>
-            It removes the total number of elements from the collection.
+            It <red>removes</red> the total number of elements from the <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean contains(Object element)</code><br></br>
-            It is used to search an element.<br></br>
+            It is used to <red>search</red> an element.<br></br>
             <br></br><br></br>
             <code>public boolean containsAll(Collection&lt;?&gt; c)</code><br></br>
-            It is used to search the specified collection in the collection.
+            It is used to <red>search</red> the specified <blue>collection</blue> in the 
+            <blue>collection</blue>.
             <br></br><br></br>
             <code>public Iterator iterator()</code><br></br>
-            It returns an iterator.
+            It returns an <red>iterator</red>.
             <br></br><br></br>
             <code>public Object[] toArray()</code><br></br>
-            It converts collection into array.
+            It converts <blue>collection</blue> into <red>array</red>.
             <br></br><br></br>
             <code>public &lt;T&gt; T[] toArray(T[] a)</code><br></br>
-            It converts collection into array. Here, the runtime type of the returned array 
-            is that of the specified array.<br></br>
+            It converts <blue>collection</blue> into <red>array</red>. Here, the runtime type of the 
+            returned <red>array</red> 
+            is that of the specified <red>array</red>.<br></br>
             <br></br><br></br>
             <code>public boolean isEmpty()</code><br></br>
-            It checks if collection is empty.
+            It checks if <blue>collection</blue> is empty.
             <br></br><br></br>
             <code>default Stream&lt;E&gt; parallelStream()</code><br></br>
-            It returns a possibly parallel Stream with the collection as its source.
+            It returns a possibly parallel <red>Stream</red> with the <blue>collection</blue> as its source.
             <br></br><br></br>
             <code>default Stream&lt;E&gt; stream()</code><br></br>
-            It returns a sequential Stream with the collection as its source.
+            It returns a sequential <red>Stream</red> with the <blue>collection</blue> as its source.
             <br></br><br></br>
             <code>default Spliterator&lt;E&gt; spliterator()<br></br>
-            It generates a Spliterator over the specified elements in the collection.
+            It generates a <red>Spliterator</red> over the specified elements in the <blue>collection</blue>.
             <br></br><br></br>
             <code>public boolean equals(Object element)</code><br></br>
-            It matches two collections.
+            It matches two <blue>collections</blue>.
             <br></br><br></br>
             <code>public int hashCode()</code><br></br>
-            It returns the hash code number of the collection.
+            It returns the <red>hash</red> code number of the <blue>collection</blue>.
             <br></br><br></br>
         </collection-methods>
         <dynamic-memory-allocation>
