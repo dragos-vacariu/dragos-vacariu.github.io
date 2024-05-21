@@ -9964,9 +9964,9 @@ public class Project37 {
         </random-generators>
         <command-line-arguments>*General-Programming-Knowledge*
 <code>
-package Args_main;
+//Working with command prompts arguments in Java:
 
-//Working with command prompts arguments.
+package Args_main;
 
 import java.util.Scanner;
 
@@ -9980,37 +9980,47 @@ public class Args_main
         int [] lenNrs = Args_main.NumberOrNo(args); 
         //convert them to numbers or get their string length
         
-        Sorting(lenNrs, args); //sort the numbers of lenghts
+        Sorting(lenNrs, args); 
+        //sort the numbers or lengths
         
         System.out.printf("Sorting by length or value: \n\n");
         for (int i=0; i&lt;args.length; i++)
         {
-            System.out.printf("%d &lt;--&gt; %s\n", lenNrs[i], args[i]); //print results
+            //print results
+            System.out.printf("%d &lt;--&gt; %s\n", lenNrs[i], args[i]); 
         }
+        
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
         //cursor to the next line.
-        
     }
-    public static int[] NumberOrNo(String[] arguments) //we shall return an array
+    
+    //We shall return an array
+    public static int[] NumberOrNo(String[] arguments) 
     {
-        int[] someArray = new int[arguments.length]; //lets build an array of the same length as arguments array
+        //Build an array of the same length as arguments array
+        int[] someArray = new int[arguments.length]; 
         for (int i=0; i&lt;arguments.length; i++)
         {
-            try{
-                someArray[i] = Integer.parseInt(arguments[i]); //try to convert to int
+            try
+            {
+                //try to convert to int
+                someArray[i] = Integer.parseInt(arguments[i]); 
             }
-            catch (Exception e){
-                someArray[i] = arguments[i].length(); // if not succesfull then we are having a letter string / word
+            catch (Exception e)
+            {
+                //if not successful then we are having a letter string / word
+                someArray[i] = arguments[i].length(); 
                 //take out it's length
             }
         }
         return someArray;
     }
     
-    public static void Sorting (int[] nrsOrNo, String[] arguments) //no need to return anything, lists/arrays are always passed by reference
+    //no need to return anything, lists/arrays are always passed by reference
+    public static void Sorting (int[] nrsOrNo, String[] arguments) 
     {
-        //DO the sorting thing
+        //Do the sorting
         for (int i=0; i &lt; nrsOrNo.length; i++)
         {
             for (int j=0; j&lt;nrsOrNo.length; j++ )
