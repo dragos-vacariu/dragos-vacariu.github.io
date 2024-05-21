@@ -9057,7 +9057,7 @@ public int hashCode()
 </code>
         </collection-methods>
         <dynamic-memory-allocation>
-            <red>Heap space</red> is used for the <blue>dynamic memory allocation</blue> of 
+            <red>Heap</red> space is used for the <blue>dynamic memory allocation</blue> of 
             Java <red>objects</red> and JRE (Java Runtime Environment) <red>classes</red> 
             at runtime. 
             <br></br><br></br>
@@ -9082,16 +9082,9 @@ public int hashCode()
         <read-from-file>
             *General-Programming-Knowledge*
 <code>
-//Example of reading content from file in JAVA:
-
-// Import the File class
-import java.io.File;
-
-// Import this class to handle errors
-import java.io.FileNotFoundException;
-
-// Import the Scanner class to read text files  
-import java.util.Scanner; 
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
 
 public class ReadFile 
 {
@@ -9125,13 +9118,8 @@ public class ReadFile
             <red>Creating a file:</red>
             <br></br>
 <code>
-//Example of creating a file in Java: 
-
-// Import the File class
-import java.io.File;
-
-// Import the IOException class to handle errors
-import java.io.IOException;
+import java.io.File;  // Import the File class
+import java.io.IOException;  // Import the IOException class to handle errors
 
 public class CreateFile 
 {
@@ -9148,7 +9136,7 @@ public class CreateFile
             {
                 System.out.println("File already exists.");
             }
-        }
+        } 
         catch (IOException e) 
         {
             System.out.println("An error occurred.");
@@ -9161,13 +9149,8 @@ public class CreateFile
             <red>Write to a file:</red>
             <br></br>
 <code>
-//Example of writing content to a file in Java:
-
-// Import the FileWriter class
-import java.io.FileWriter;
-
-// Import the IOException class to handle errors
-import java.io.IOException;  
+import java.io.FileWriter;   // Import the FileWriter class
+import java.io.IOException;  // Import the IOException class to handle errors
 
 public class WriteToFile 
 {
@@ -9180,7 +9163,7 @@ public class WriteToFile
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } 
-        catch (IOException e)
+        catch (IOException e) 
         {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -9191,8 +9174,6 @@ public class WriteToFile
         </write-to-file>
         <serialization>*General-Programming-Knowledge*
 <code>
-//Example of serialization in Java:
-
 package project23;
 
 import java.io.EOFException;
@@ -9212,29 +9193,48 @@ public class Project23 {
     /**
      * @param args the command line arguments
      */
-    
-    //Making main function able to throw IOException, 
-    //so that we don't need to use try catch blocks.
-    public static void main(String[] args) throws IOException 
-    {
+    //Making main function able to throw IOException, such that I don't need to use try catch blocks.
+    public static void main(String[] args) throws IOException {
+        File myfile = new File ("textFile.txt");
+        try{
+            
+            //THESE STATEMENTS NEEDS TO BE PLACED INSIDE A TRY CATCH BLOCK:
+            PrintWriter myPrintWriter = new PrintWriter(myfile);
+            myPrintWriter.println("This is a TEXT File!");
+            System.out.println("File has been successfully created!");
+            //Closing the file:
+            myPrintWriter.close(); //if the file doesn't get closed the modifications made to it 
+            //won't get saved.
+        }
+        catch(IOException e)
+        {
+            System.out.printf("File: %s\n", e);
+        }
+        //Reading from the file:
+        try{
+            Scanner readerfile = new Scanner(myfile);
+            String Message = readerfile.nextLine();
+            //If this line is reached it means that there is no exception thrown.
+            System.out.printf("FILE MESSAGE: %s\n", Message);
+        }
+        catch(IOException e)
+        {
+            System.out.println(e);
+        }
         //Creating a collection of HumanClass objects:
         ArrayList&lt;HumanClass&gt; myList = new ArrayList();
         myList.add(new HumanClass(22, "Adam Lambert"));
         myList.add(new HumanClass(44, "Jackie Chan"));
-        
         //Creating a file to store these objects:
         File myObjectsFile = new File ("objectFile.txt");
-        
         //Serializing an object:
-        try
-        {
+        try{
             FileOutputStream fo = new FileOutputStream(myObjectsFile);
             ObjectOutputStream os = new ObjectOutputStream(fo);
             for(HumanClass s:myList)
             {
-                //Writing objects to a file can be made only using binary mode. 
-                //So that file will not contain readable text
-                //and cannot be altered using text editors.
+                //Writing objects to a file ca be made only using binary mode. So that file will not contain
+                //readable text.
                 os.writeObject(s);
             }
         }
@@ -9242,87 +9242,45 @@ public class Project23 {
         {
             System.out.printf("File not found: %s", e);
         }
-        
-        //Keep the console opened until a key is pressed.
-        Scanner myscanner = new Scanner(System.in);
-        myscanner.next();
-    }
-}
-</code>
-        </serialization>
-        <deserialization>*General-Programming-Knowledge*
-        <br></br>
-<code>
-<code>
-//Example of deserialization in Java:
-
-package project23;
-
-import java.io.EOFException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-
-public class Project23 
-{
-
-    /**
-     * @param args the command line arguments
-     */
-    
-    //Making main function able to throw IOException, 
-    //so that we don't need to use try catch blocks.
-    public static void main(String[] args) throws IOException 
-    {
         //Deserializing an object from the file:
         ArrayList&lt;HumanClass&gt; ObjectRead = new ArrayList();
         FileInputStream fi = new FileInputStream(myObjectsFile);
         ObjectInputStream oi = new ObjectInputStream(fi);
-        try
-        {
-            //the following loop will terminate when the catch block will terminate, 
-            //and when the catch block will terminate then EOFException will be thrown.
-            while(true) 
+        try{
+            while(true) //this loop will terminate when the catch block will terminate, and the catch block will
+                //terminate then EOFException will be thrown.
             {
-                //this will read until the file ends.
-                HumanClass e = (HumanClass) oi.readObject();  
-                
-                //When it cannot read any more objects from the file 
-                //it will throw an EOFException that needs to be catched, and handled,
-                //otherwise the program will terminate.
-                ObjectRead.add(e);
+               HumanClass e = (HumanClass) oi.readObject(); //this will read until the file ends. 
+               //When it cannot read any more object from the file it will throw an EOFException that needs
+              //to be catched, and handled, otherwise the program will terminate.
+              ObjectRead.add(e);
             }
         }
         catch(ClassNotFoundException e)
         {
              System.out.printf("File not found: %s", e);
         }
-        //Once the file was done reading, it will throw EOFException
-        catch(EOFException b) 
+        catch(EOFException b) //Once the file was done reading, it will catch this exception.
         {
             System.out.println("\nDone reading the objects:\n");
-            
-            //Print the objects:
+            //Let's print the objects now:
             for(HumanClass s:ObjectRead)
             {
                 System.out.printf("Name: %s, Age: %d\n", s.GetName(), s.GetAge());
             }
         }
-        
-        //Keep the console opened until a key is pressed.
+        //Keep the console opened until I press a key.
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
     }
+    
 }
+
 </code>
-</code>
+        </serialization>
+        <deserialization>*General-Programming-Knowledge*
+        <br></br>
+        For a concrete example - see the sample from Serialiation.
         </deserialization>
         <constructors>*General-Programming-Knowledge*</constructors>
         <instantiation>*General-Programming-Knowledge*</instantiation>
