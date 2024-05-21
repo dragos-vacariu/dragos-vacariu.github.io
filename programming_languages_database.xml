@@ -9037,7 +9037,7 @@ public class Project31
             <code>public Object[] toArray()</code><br></br>
             It converts collection into array.
             <br></br><br></br>
-            <code>public &lt;T&gt; T[] toArray(T[] a)</code>
+            <code>public &lt;T&gt; T[] toArray(T[] a)</code><br></br>
             It converts collection into array. Here, the runtime type of the returned array 
             is that of the specified array.<br></br>
             <br></br><br></br>
@@ -9047,7 +9047,7 @@ public class Project31
             <code>default Stream&lt;E&gt; parallelStream()</code><br></br>
             It returns a possibly parallel Stream with the collection as its source.
             <br></br><br></br>
-            <code>default Stream&lt;E&gt; stream()</code>
+            <code>default Stream&lt;E&gt; stream()</code><br></br>
             It returns a sequential Stream with the collection as its source.
             <br></br><br></br>
             <code>default Spliterator&lt;E&gt; spliterator()<br></br>
