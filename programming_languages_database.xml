@@ -9607,7 +9607,6 @@ public class Project15 {
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
     }
-    
 }
 </code>
         </enums>
@@ -9720,7 +9719,8 @@ class Multithread
 }
 </code>
         </multi-threading>
-        <exception-handling>*General-Programming-Knowledge*
+        <exception-handling>
+            *General-Programming-Knowledge*
 <code>
 //Example of exception handling in Java:
 //Example of throwing custom exceptions;
@@ -9774,6 +9774,7 @@ public class Project22
 }
 
 </code>
+             <br></br>
             <green>Creating Custom Exceptions classes in Java:</green>
             In order to create <blue>Custom Exception</blue> <red>classes</red> in Java, 
             you to create a <red>class</red> of 
@@ -9785,7 +9786,8 @@ package project22;
  * Making this class inherits from Exception class.
  */
 
-public class CustomExceptionOutRange extends Exception{
+public class CustomExceptionOutRange extends Exception
+{
     
 }
 </code>
