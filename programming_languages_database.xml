@@ -9065,8 +9065,10 @@ public int hashCode()
             <blue>references</blue> to these <red>objects</red> are stored in <red>stack memory</red>. 
             <br></br>
             These <red>objects</red> have <blue>global</blue> access and we can access them from 
-            anywhere in the application.<br></br>
+            anywhere in the application.
+            <br></br><br></br>
             <green>Dynamic memory allocation in Java:</green>
+            <br></br><br></br>
             All Java <red>objects</red> are <blue>dynamically</blue> allocated. 
             The variables used in the application are stored in stack but these variables 
             only store <blue>references</blue> to <red>objects</red>. 
