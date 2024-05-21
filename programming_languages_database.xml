@@ -1194,6 +1194,22 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <br></br><br></br>
             An <red>abstract object</red> is like a <blue>dead parent</blue>
             which has to allow <red>inheritance</red> to their children and nothing more.
+            <br></br><br></br>
+            <blue>Abstraction</blue> is the quality of dealing with ideas rather than events.
+            <br></br><br></br>
+            For example, when you consider the case of e-mail, complex details such as what happens 
+            as soon as you send an e-mail, the protocol your e-mail, server uses, are hidden from 
+            the user. 
+            <br></br><br></br>
+            Therefore, to send an e-mail you just need to type the content, mention the 
+            address of the receiver, and click send.
+            <br></br><br></br>
+            Similarly, in object-oriented programming, <blue>abstraction</blue> is a process of 
+            hiding the implementation details from the user, only the functionality will be 
+            provided to the user. 
+            <br></br><br></br>
+            In other words, the user will have the information on what the <red>object</red> does 
+            instead of how it does it.
             <br></br>
         </abstraction>
         <variable-arguments-lists>
@@ -8287,38 +8303,46 @@ public class Books extends Product
 </code>
         </inheritance>
         <abstraction>*General-Programming-Knowledge*
+        <br></br>
+        <green>Abstraction in Java:</green>
+        <br></br><br></br>
+        In Java, <blue>abstraction</blue> is achieved using <blue>abstract classes</blue> and 
+        <red>interfaces</red>.
+        <br></br><br></br>
+        A <red>class</red> which contains the <red>abstract</red> keyword in its declaration is 
+        known as <blue>abstract class</blue>.
+        <br></br><br></br>
+        <blue>Abstract classes</blue> may or may not contain <blue>abstract methods</blue>, 
+        i.e., methods without a body.
+        <br></br>
+        Example: ( <code>public void get();</code> )
+        <br></br><br></br>
+        But, if a <red>class</red> has at least one abstract method, then the <red>class</red> 
+        must be declared <red>abstract</red>.
+        <br></br><br></br>
+        If a <red>class</red> is declared <red>abstract</red>, it cannot be <red>instantiated</red>.
+        <br></br><br></br>
+        To use an <blue>abstract class</blue>, you have to <red>inherit</red> it from another 
+        <red>class</red>, provide implementations to the <blue>abstract methods</blue> in it.
+        <br></br><br></br>
+        If you <red>inherit</red> an <blue>abstract class</blue>, you have to provide implementations 
+        to all the <blue>abstract methods</blue> in it.
 <code>
-/*
-As per dictionary, abstraction is the quality of dealing with ideas rather than events. 
-For example, when you consider the case of e-mail, complex details such as what happens as soon as you send 
-an e-mail, the protocol your e-mail server uses are hidden from the user. Therefore, to send an e-mail you 
-just need to type the content, mention the address of the receiver, and click send.
-
-Likewise in Object-oriented programming, abstraction is a process of hiding the implementation details from 
-the user, only the functionality will be provided to the user. In other words, the user will have the 
-information on what the object does instead of how it does it.
-
-In Java, abstraction is achieved using Abstract classes and interfaces.
-A class which contains the abstract keyword in its declaration is known as abstract class.
-
-Abstract classes may or may not contain abstract methods, i.e., methods without body ( public void get(); )
-But, if a class has at least one abstract method, then the class must be declared abstract.
-If a class is declared abstract, it cannot be instantiated.
-To use an abstract class, you have to inherit it from another class, provide implementations to the abstract 
-methods in it.
-If you inherit an abstract class, you have to provide implementations to all the abstract methods in it.
-
- */
 package project26;
 
-/**
+/*
  *
  * @author DrVa
  */
-public abstract class AbstractClass {
+
+public abstract class AbstractClass 
+{
     private String PersonName;
     private int PersonAge;
-    public abstract void PrintMessage(); //abstract functions can only be public.
+   
+    //abstract functions can only be public.
+    public abstract void PrintMessage(); 
+    
     //Getters:
     public String GetPersonName()
     {
@@ -8333,6 +8357,7 @@ public abstract class AbstractClass {
         this.PersonName = Name;
         this.PersonAge = Age;
     }
+    
     //Setters:
     public void SetAge(int Age)
     {
