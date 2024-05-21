@@ -8263,7 +8263,7 @@ class Splendor extends Bike
             in an <red>interface</red> cannot <red>implement</red> any 
             of the declared <red>methods</red>. 
             <br></br>
-            Only the <red>class</red> that </blue>"implements"</blue> 
+            Only the <red>class</red> that <blue>"implements"</blue> 
             the <red>interface</red> can <red>implement</red> the <red>methods</red>. 
             <br></br><br></br>
             Also
