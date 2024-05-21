@@ -9082,9 +9082,16 @@ public int hashCode()
         <read-from-file>
             *General-Programming-Knowledge*
 <code>
-import java.io.File;  // Import the File class
-import java.io.FileNotFoundException;  // Import this class to handle errors
-import java.util.Scanner; // Import the Scanner class to read text files
+//Example of reading content from file in JAVA:
+
+// Import the File class
+import java.io.File;
+
+// Import this class to handle errors
+import java.io.FileNotFoundException;
+
+// Import the Scanner class to read text files  
+import java.util.Scanner; 
 
 public class ReadFile 
 {
@@ -9118,8 +9125,13 @@ public class ReadFile
             <red>Creating a file:</red>
             <br></br>
 <code>
-import java.io.File;  // Import the File class
-import java.io.IOException;  // Import the IOException class to handle errors
+//Example of creating a file in Java: 
+
+// Import the File class
+import java.io.File;
+
+// Import the IOException class to handle errors
+import java.io.IOException;
 
 public class CreateFile 
 {
@@ -9136,7 +9148,7 @@ public class CreateFile
             {
                 System.out.println("File already exists.");
             }
-        } 
+        }
         catch (IOException e) 
         {
             System.out.println("An error occurred.");
@@ -9149,8 +9161,13 @@ public class CreateFile
             <red>Write to a file:</red>
             <br></br>
 <code>
-import java.io.FileWriter;   // Import the FileWriter class
-import java.io.IOException;  // Import the IOException class to handle errors
+//Example of writing content to a file in Java:
+
+// Import the FileWriter class
+import java.io.FileWriter;
+
+// Import the IOException class to handle errors
+import java.io.IOException;  
 
 public class WriteToFile 
 {
@@ -9163,7 +9180,7 @@ public class WriteToFile
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
         } 
-        catch (IOException e) 
+        catch (IOException e)
         {
             System.out.println("An error occurred.");
             e.printStackTrace();
