@@ -9021,7 +9021,7 @@ public class Project31
             except the specified <blue>collection</blue>.<br></br>
             <br></br><br></br>
             <code>public int size()</code><br></br>
-            It returns the total number of elements in the <blue>collection</blue>.
+            It returns the <blue>total number</blue> of elements in the <blue>collection</blue>.
             <br></br><br></br>
             <code>public void clear()</code><br></br>
             It <red>removes</red> the total number of elements from the <blue>collection</blue>.
@@ -9331,9 +9331,85 @@ public class Project23
 }
 </code>
         </deserialization>
-        <constructors>*General-Programming-Knowledge*</constructors>
-        <instantiation>*General-Programming-Knowledge*</instantiation>
-        <destructors>*General-Programming-Knowledge*</destructors>
+        <constructors>
+            *General-Programming-Knowledge*
+<code>
+//Example of constructors in Java:
+
+// Create a Main class
+public class Main 
+{
+    int x;  // Create a class attribute
+
+    // Create a class constructor for the Main class
+    public Main() 
+    {
+        x = 5;  // Set the initial value for the class attribute x
+    }
+
+    public static void main(String[] args) 
+    {
+        Main myObj = new Main(); // Create an object of class Main (This will call the constructor)
+        System.out.println(myObj.x); // Print the value of x
+    }
+}
+
+// Outputs 5
+</code>
+        </constructors>
+        <instantiation>
+            *General-Programming-Knowledge*
+<code>
+//Example of instanciation in Java:
+
+ClassName objName = new ClassName();  
+</code>
+        </instantiation>
+        <destructors>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>Destructors in Java:</green><br></br>
+            It is also known as finalizers that are non-deterministic. 
+            In Java, the allocation and deallocation of objects handled by the garbage collector. 
+            The invocation of finalizers is not guaranteed because it invokes implicitly.
+            <br></br><br></br>
+            <brown>Advantages of Destructor:</brown><br></br>
+            <blue>
+            1. It releases the resources occupied by the <red>object</red>.<br></br>
+            2. No explicit call is required, it is automatically <red>invoked</red> at the end of the 
+            program execution.<br></br>
+            3. It does not accept any parameter and cannot be <red>overloaded</red>.<br></br>
+            </blue>
+            <br></br>
+            Java <blue>finalize()</blue> method works the same as the <red>destructor</red>. 
+            It is not a 
+            <red>destructor</red> however, but it provides extra security.
+            <br></br>            
+            For example: It ensures the use of 
+            external resources like closing the <red>file</red>, etc. before shutting down the 
+            program.
+            <br></br>
+<code>
+//Example of destructor in Java:
+
+public class DestructorExample  
+{  
+    public static void main(String[] args)  
+    {  
+        DestructorExample de = new DestructorExample ();  
+        de.finalize();  
+        de = null;  
+        System.gc();  
+        System.out.println("Inside the main() method");  
+    }
+    
+    protected void finalize()  
+    {  
+        System.out.println("Object is destroyed by the Garbage Collector");  
+    }  
+}   
+</code>
+        </destructors>
         <function-overloading>*General-Programming-Knowledge*
 <code>
 // Java Program for Method overloading
