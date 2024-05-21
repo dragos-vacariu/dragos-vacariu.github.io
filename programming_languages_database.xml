@@ -8238,6 +8238,41 @@ class Splendor extends Bike
         </polymorphism>
         <inheritance>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Inheritance in Java:</green>
+            <br></br><br></br>
+            Java does not support <blue>multiple inheritances</blue> with <red>classes</red>. 
+            But <blue>multiple 
+            inheritances</blue> is still possible through the use of <red>interfaces</red>.
+            <br></br>
+            Any Java <red>class</red> can <red>inherit</red> from a single <red>class</red> 
+            and/or <blue>multiple interfaces</blue>.
+            <br></br><br></br>
+            By <red>inheritance</red> the child <red>class</red> (class which inherits) <red>extends</red> 
+            the functionality of the parent <red>class</red>.
+            <br></br><br></br>
+            <green>Implements vs Extends:</green>
+            <br></br><br></br>
+            - extends is for extending a class (class inheritance);<br></br>
+            - implements is for implementing an interface (class to interface inheritance);<br></br>
+            <br></br>
+            <red>Interfaces</red>, exhibits the same characteristics to multiple classes.
+            <br></br><br></br>
+            The difference between an <red>interface</red> and a <red>class</red> is that 
+            in an <red>interface</red> cannot <red>implement</red> any 
+            of the declared <red>methods</red>. 
+            <br></br>
+            Only the <red>class</red> that </blue>"implements"</blue> 
+            the <red>interface</red> can <red>implement</red> the <red>methods</red>. 
+            <br></br><br></br>
+            Also
+            an <red>interface</red> cannot contain instance <blue>fields/variables</blue>. 
+            The only fields that can appear in an 
+            <red>interface</red> must be declared both <red>static</red> and <red>final</red>. 
+            <br></br><br></br>
+            An <red>interface</red> is not <red>extended</red> by a <red>class</red>; 
+            it is <red>implemented</red> by a <red>class</red>.
+
 <code>
 //Example of inheritance in Java:
 
@@ -9675,31 +9710,31 @@ class Multithread
 }
 </code>
         </multi-threading>
-        <namespaces>*General-Programming-Knowledge*</namespaces>
         <exception-handling>*General-Programming-Knowledge*
 <code>
-/*
-try{} catch{} finally{} blocks is a way that you can trace errors and instead of doing the default exit from
-the program you could follow another path.
-SINTHAX:
-try{ //doing the code that can throw an exception}
-catch(//this kind of exception) {//if the exception has been caught, do this code here}
-finally{//no matter if there was thrown an exception or not, just do this code here. THIS WILL ALWAYS BE EXECUTED}
- 
-the finally block is not mandatory. It is possible to have only try and catch blocks.
-*/
+//Example of exception handling in Java:
+//Example of throwing custom exceptions;
+
 package project22;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Project22 {
-    public static void main(String[] args) {
+public class Project22 
+{
+    public static void main(String[] args) 
+    {
         Scanner myscanner = new Scanner(System.in);
-        try{
+        try
+        {
+            //try block should contain the code that 
+            //might throw an exception:
             System.out.println("Enter an integer: ");
             int number = myscanner.nextInt();
-            //This code will run only if the line above doesn't produce an exception.
+            
+            //This code will run only if the line above doesn't 
+            //produce an exception.
             System.out.printf("You entered: %d\n\n", number);
+            
             //Throwing a Custom Exception:
             if(number>10||number&lt;0)
             {
@@ -9719,22 +9754,24 @@ public class Project22 {
         //This code gets executed anyhow.
         finally
         {
-            System.out.println("Thank you for running this!");
+            //the finally block is not mandatory
+            //It is possible to have only try and catch blocks
+            
+            System.out.println("Finally block reached.");
         }
         myscanner.next();
     }
-    
 }
 
 </code>
+            <green>Creating Custom Exceptions classes in Java:</green>
+            In order to create Custome Exception classes in Java, you to create a class of 
+            extends the Exception class.
 <code>
 /*
-This is the way of creating Custom Exceptions. You just create a class of the name you want and it make it
-extends the Exception class.
+This is the way of creating Custom Exceptions. 
 
-IMPLEMENTS vs EXTENDS:
-extends is for extending a class, for inheritance from another class.
-implements is for implementing an interface.
+
 
 Inheritance, extends the functionality of a class into another.
 Interfaces, exhibits the same characteristics to multiple classes.
