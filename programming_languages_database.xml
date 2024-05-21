@@ -10154,6 +10154,31 @@ public class Project3 {
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
         <recursion>
             *General-Programming-Knowledge*
+<code>
+//Example of using recursion in Java:
+
+public class Main 
+{
+    public static void main(String[] args) 
+    {
+        int result = sum(10);
+        System.out.println(result);
+    }
+    
+    //Use recursion to add all numbers up to 10:
+    public static int sum(int k) 
+    {
+        if (k > 0) 
+        {
+            return k + sum(k - 1);
+        } 
+        else 
+        {
+            return 0;
+        }
+    }
+}
+</code>
         </recursion>
         <reflection>
             *General-Programming-Knowledge*
