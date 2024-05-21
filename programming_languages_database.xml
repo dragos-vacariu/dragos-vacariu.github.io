@@ -9217,41 +9217,6 @@ public class Project23 {
     //so that we don't need to use try catch blocks.
     public static void main(String[] args) throws IOException 
     {
-        File myfile = new File ("textFile.txt");
-        try
-        {
-            //These statements needs to be placed inside a try catch block
-            //as they could produce an exception:
-            
-            PrintWriter myPrintWriter = new PrintWriter(myfile);
-            myPrintWriter.println("This is a text file!");
-            System.out.println("File has been successfully created!");
-            
-            //Closing the file:
-            myPrintWriter.close(); 
-            //if the file doesn't get closed the modifications made to it 
-            //won't get saved.
-        }
-        catch(IOException e)
-        {
-            System.out.printf("File: %s\n", e);
-        }
-        
-        //Reading from the file:
-        try
-        {
-            Scanner readerfile = new Scanner(myfile);
-            String Message = readerfile.nextLine();
-            
-            //If this line is reached it means that no exception 
-            //was thrown by readerfile.
-            System.out.printf("FILE MESSAGE: %s\n", Message);
-        }
-        catch(IOException e)
-        {
-            System.out.println(e);
-        }
-        
         //Creating a collection of HumanClass objects:
         ArrayList&lt;HumanClass&gt; myList = new ArrayList();
         myList.add(new HumanClass(22, "Adam Lambert"));
@@ -9278,6 +9243,43 @@ public class Project23 {
             System.out.printf("File not found: %s", e);
         }
         
+        //Keep the console opened until a key is pressed.
+        Scanner myscanner = new Scanner(System.in);
+        myscanner.next();
+    }
+}
+</code>
+        </serialization>
+        <deserialization>*General-Programming-Knowledge*
+        <br></br>
+<code>
+//Example of deserialization in Java:
+
+package project23;
+
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Project23 
+{
+
+    /**
+     * @param args the command line arguments
+     */
+    
+    //Making main function able to throw IOException, 
+    //so that we don't need to use try catch blocks.
+    public static void main(String[] args) throws IOException 
+    {
         //Deserializing an object from the file:
         ArrayList&lt;HumanClass&gt; ObjectRead = new ArrayList();
         FileInputStream fi = new FileInputStream(myObjectsFile);
@@ -9293,7 +9295,7 @@ public class Project23 {
                 
                 //When it cannot read any more objects from the file 
                 //it will throw an EOFException that needs to be catched, and handled,
-                // otherwise the program will terminate.
+                //otherwise the program will terminate.
                 ObjectRead.add(e);
             }
         }
@@ -9301,27 +9303,24 @@ public class Project23 {
         {
              System.out.printf("File not found: %s", e);
         }
-        catch(EOFException b) //Once the file was done reading, it will catch this exception.
+        //Once the file was done reading, it will throw EOFException
+        catch(EOFException b) 
         {
             System.out.println("\nDone reading the objects:\n");
-            //Let's print the objects now:
+            
+            //Print the objects:
             for(HumanClass s:ObjectRead)
             {
                 System.out.printf("Name: %s, Age: %d\n", s.GetName(), s.GetAge());
             }
         }
-        //Keep the console opened until I press a key.
+        
+        //Keep the console opened until a key is pressed.
         Scanner myscanner = new Scanner(System.in);
         myscanner.next();
     }
-    
 }
-
 </code>
-        </serialization>
-        <deserialization>*General-Programming-Knowledge*
-        <br></br>
-        For a concrete example - see the sample from Serialiation.
         </deserialization>
         <constructors>*General-Programming-Knowledge*</constructors>
         <instantiation>*General-Programming-Knowledge*</instantiation>
