@@ -9775,11 +9775,13 @@ public class Project22
 }
 
 </code>
-             <br></br>
+            <br></br>
             <green>Creating Custom Exceptions classes in Java:</green>
+            <br></br><br></br>
             In order to create <blue>Custom Exception</blue> <red>classes</red> in Java, 
             you to create a <red>class</red> of 
             <red>extends</red> the <red>Exception</red> class.
+            <br></br>
 <code>
 package project22;
 
@@ -9915,11 +9917,11 @@ public class Project37 {
         //Generate a random number between 0-100
         int Number = rand.nextInt(101);
         
-        //This variable will the user input;
+        //This variable will store user input;
         int choice = 101;
         
         //this will count how many times 
-        //the user didn't guessed
+        //the user guessed wrong
         int NrOfTries=0;
         
         //Enter the loop by default:
@@ -9972,7 +9974,7 @@ import java.util.Scanner;
 
 public class Args_main
 {
-    //args will store the command prompt arguments -- if any
+    //args will store the command prompt arguments - if any
     public static void main(String[] args) 
     { 
         //Supposingly we have some arguments in args[]
@@ -10039,7 +10041,32 @@ public class Args_main
 
 </code>
         </command-line-arguments>
-        <ternary-operator>*General-Programming-Knowledge*</ternary-operator>
+        <ternary-operator>
+            *General-Programming-Knowledge*
+<code>
+//Example of using ternary operator in Java:
+
+import java.io.*;
+
+class Ternary 
+{
+    public static void main(String[] args)
+    {
+        // variable declaration
+        int n1 = 5, n2 = 10, max;
+
+        System.out.println("First num: " + n1);
+        System.out.println("Second num: " + n2);
+
+        // Largest among n1 and n2
+        max = (n1 > n2) ? n1 : n2;
+
+        // Print the largest number
+        System.out.println("Maximum is = " + max);
+    }
+}
+</code>
+        </ternary-operator>
         <modular-programming>
             *General-Programming-Knowledge*
             <br></br>
@@ -10068,7 +10095,10 @@ public class Args_main
             Built-In Packages: The packages that come pre-installed when we configure the Java in our system are called the 
             built-in packages such as java.net, java.awt, javax.swing, java.sql.
         </modular-programming>
-        <string-methods>No information present in the database.</string-methods>
+        <string-methods>
+            The <red>String class</red> in Java has a set of built-in methods that 
+            can used on strings:
+        </string-methods>
         <datatype-conversions>*General-Programming-Knowledge*
 <code>
 package project3;
@@ -10117,7 +10147,6 @@ public class Project3 {
 
 </code>
         </datatype-conversions>
-        <partial-classes>*General-Programming-Knowledge*</partial-classes>
         <decorators>*General-Programming-Knowledge*</decorators>
         <operators>*General-Programming-Knowledge*</operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
@@ -10126,6 +10155,61 @@ public class Project3 {
         </recursion>
         <reflection>
             *General-Programming-Knowledge*
+<code>
+//Example of reflection in Java:
+
+import java.lang.Class;
+import java.lang.reflect.*;
+
+class Animal {
+}
+
+//put this class in different Dog.java file
+public class Dog extends Animal 
+{
+    public void display() 
+    {
+        System.out.println("I am a dog.");
+    }
+}
+
+//put this in Main.java file
+class Main 
+{
+    public static void main(String[] args) 
+    {
+        try 
+        {
+            // create an object of Dog
+            Dog d1 = new Dog();
+
+            // create an object of Class
+            // using getClass()
+            Class obj = d1.getClass();
+
+            //get name of the class
+            String name = obj.getName();
+            System.out.println("Name: " + name);
+
+            //get the access modifier of the class
+            int modifier = obj.getModifiers();
+
+            //convert the access modifier to string
+            String mod = Modifier.toString(modifier);
+            System.out.println("Modifier: " + mod);
+
+            //get the superclass of Dog
+            Class superClass = obj.getSuperclass();
+            System.out.println("Superclass: " + superClass.getName());
+        }
+
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+        }
+    }
+}
+</code>
         </reflection>
     </programming_language>
     
