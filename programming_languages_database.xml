@@ -10564,7 +10564,7 @@ public class Project3
             In order to implement a decorator in Java, the following steps
             needs to be followed:
             <br></br><br></br>
-            <red>1. Component Interface</red>
+            <red>1. Component Interface:</red>
             <br></br><br></br>
             Defining the <red>interface</red> or the <blue>abstract class</blue> 
             declaring the methods that will be 
@@ -10584,7 +10584,7 @@ public interface Car
 }
 </code>
         <br></br>
-        <red>Component Implementation</red>
+        <red>2. Component Implementation:</red>
         <br></br><br></br>
         The basic implementation of the component interface. 
         We can have BasicCar class as our component implementation.
@@ -10605,7 +10605,7 @@ public class BasicCar implements Car
 }
 </code>
         <br></br>
-        <red>2. Decorator</red> 
+        <red>3. Decorator:</red> 
         <br></br><br></br>
         Defining the <blue>decorator class</blue> that <red>implements</red> the component 
         <red>interface.</red> <br></br>
@@ -10636,7 +10636,7 @@ public class CarDecorator implements Car
 }
 </code>
         <br></br>
-        <red>4. Concrete Decorators</red>
+        <red>4. Concrete Decorators:</red>
         <br></br><br></br>
         <red>Extending</red> the <blue>base decorator</blue> functionality and modifying the 
         component behavior accordingly. We can have <red>concrete decorator classes</red> 
