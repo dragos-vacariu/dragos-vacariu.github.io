@@ -10506,16 +10506,16 @@ public class Project3
 
         //TypeCasting:
         a = (int)val1; 
-        // a gets the integer part of the floating number val1;
+        //a gets the integer part of the floating number val1;
 
         b = (int)val2; 
-        // b gets the integer part of the floating number val2;
+        //b gets the integer part of the floating number val2;
 
         System.out.printf("The value of a is: %d\nThe value of b is: %d\n", a, b);
 
         //The implicit casting is the casting made automatically by the compiler:
         val2 = 15; 
-        // so in this case the integer value 15 will be casted into a floating  
+        //so in this case the integer value 15 will be casted into a floating  
         //point value 15.00, this is done automatically by the compiler, 
         //so it's implicit casting.
 
@@ -10527,17 +10527,17 @@ public class Project3
 
         //Interesting fact:
         val2 = 20 / 15; 
-        // integer / integer will result an integer.
+        //integer / integer will result an integer.
 
         System.out.printf("The value of division is: %f\n", val2); 
-        // this will output the value: 1, 
+        //this will output the value: 1, 
         //even if 20/15 is 1.33333333, and even if it is stored in a float.
 
         //for the result of the operation to be a float at least one 
         //of those operands need to be casted to float:
 
         val2 = 20 / (1.0f * 15); 
-        // solution one for casting (1.0 * 15 will be converted to 
+        //solution one for casting (1.0 * 15 will be converted to 
         //float implicitly).
 
         System.out.printf("The value of division after casting is: %f\n", val2);
