@@ -9916,7 +9916,9 @@ public void doSomething(String name, int age, String city = "New York") {
         </default-parameters>
         <interfaces>
             *General-Programming-Knowledge*
+            <br></br>
             <green>Interfaces in Java:</green>
+            <br></br><br></br>
             An <red>interface</red> is a <blue>reference type</blue> in Java. 
             It is similar to <red>class</red>.
             <br></br><br></br>
@@ -9950,14 +9952,14 @@ public void doSomething(String name, int age, String city = "New York") {
             But a <red>class</red> 
             describes the attributes and behaviors of an <red>object</red>
             whereas and <red>interface</red> contains the declaration of the behaviors 
-            that a <red>class</red> needs to <red>implement.
+            that a <red>class</red> needs to <red>implement</red>.
             <br></br><br></br>
-            Just like <red>classes</red>, there can be only one <red>interface</red> in a .JAVA file. 
+            Just like <red>classes</red>, there can be only one <red>interface</red> in a .java file. 
             <br></br><br></br>
             Java does not allow that multiple <red>interfaces</red> and/or <red>classes</red> be 
             defined in the same file, unless they are <blue>nested</blue>.
             <br></br><br></br>
-            The only way to have multiple <red>classes</red> / <red>interfaces</red> defined in 
+            The only way to have multiple <red>classes</red>/<red>interfaces</red> defined in 
             one file is if 
             they are defined as <blue>nested types</blue>.
             <br></br><br></br>
