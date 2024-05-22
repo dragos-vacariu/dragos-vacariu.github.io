@@ -623,12 +623,8 @@ int main()
             They are parameters/arguments supplied to the program when it is invoked.<br></br>
             They are used to control programs from outside instead of hard coding those values 
             inside the code.
-            <br></br><br></br>
             </blue>
             <br></br><br></br>
-
-
-            <br></br>
         </command-line-arguments>
         <ternary-operator>
             <red>Ternary operator</red> is used for decision making instead of placing longer <red>if and else</red>
