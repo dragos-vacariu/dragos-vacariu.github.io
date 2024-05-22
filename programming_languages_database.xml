@@ -8286,9 +8286,14 @@ class Splendor extends Bike
             <br></br><br></br>
             An <red>interface</red> is not <red>extended</red> by a <red>class</red>; 
             it is <red>implemented</red> by a <red>class</red>.
+            <br></br><br></br>
+            <green>Class to class inheritance:</green>
+            <br></br>
 
 <code>
-//Example of inheritance in Java:
+//Example of class to class inheritance in Java:
+
+//FILE: Product.java
 
 package project25;
 
@@ -8319,8 +8324,11 @@ public class Product
 }
 
 </code>
+
 <code>
 package project25;
+
+//FILE: Books.java
 
 public class Books extends Product 
 {
@@ -8352,6 +8360,96 @@ public class Books extends Product
     {
         return "Book";
     }
+}
+</code>
+        <br></br>
+        <green>Interface to class inheritance:</green>
+        <br></br>
+<code>
+//Example of class implementing an interface in Java:
+
+//FILE: Project13.java
+
+package project13;
+
+import java.util.Scanner;
+
+//This class is obliged to provide implementations for: 
+//ToDoListInterface and ToDoListInterface.Numbers
+
+public class Project13 implements ToDoListInterface, ToDoListInterface.Numbers 
+{
+    /*
+     * @param args the command line arguments
+     */
+     
+    public static void main(String[] args) 
+    {
+        //Creating an object of the class:
+        Project13 InstanceOfClass = new Project13();
+        InstanceOfClass.PrintMessage("This is a function that came from an interface!");
+        System.out.printf("Max number is: %d\n", InstanceOfClass.findMax(12, 33, 21));
+        Scanner myscanner = new Scanner (System.in);
+        myscanner.next();
+    }
+    
+    //If Project13 class will not provide implementations for these methods
+    //the program will not compile.
+    public void PrintMessage(String Message){
+        System.out.println(Message);
+    }
+    public int findMax(int a, int b, int c)
+    {
+        //Using ternary operator:
+        return a>b? a>c? a : c : b>c? b : c;
+    }
+}
+</code>
+
+<code>
+//Example of defining a nested interface in Java:
+
+//FILE: ToDoListInterface.java
+
+package project13;
+
+//this is the outer interface
+public interface ToDoListInterface { 
+    
+    //this is the inner interface
+    public interface Numbers
+    { 
+        int findMax(int a, int b, int c);
+    }
+    void PrintMessage(String message);
+}
+</code>
+        <br></br>
+        <green>Interface to interface inheritance:</green>
+        <br></br>
+<code>
+//FILE: Sports.java
+public interface Sports 
+{
+    public void setHomeTeam(String name);
+    public void setVisitingTeam(String name);
+}
+
+//FILE: Football.java
+public interface Football extends Sports 
+{
+    public void homeTeamScored(int points);
+    public void visitingTeamScored(int points);
+    public void endOfQuarter(int quarter);
+}
+
+//FILE: Hockey.java
+public interface Hockey extends Sports 
+{
+    public void homeGoalScored();
+    public void visitingGoalScored();
+    public void endOfPeriod(int period);
+    public void overtimePeriod(int ot);
 }
 </code>
         </inheritance>
@@ -9807,7 +9905,8 @@ public void doSomething(String name, int age, String city = "New York") {
 }  
 </code>
         </default-parameters>
-        <interfaces>*General-Programming-Knowledge*
+        <interfaces>
+            *General-Programming-Knowledge*
 <code>
 /*
 Just like classes, there can be only one interface in a .JAVA file. Java does not allow that interfaces and
