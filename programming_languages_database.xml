@@ -8452,6 +8452,12 @@ public interface Hockey extends Sports
     public void overtimePeriod(int ot);
 }
 </code>
+            <br></br>
+            Whatever <red>class</red> will <red>implement</red> <red>interface</red> Hockey will have to 
+            provide implementation to all its methods + the <red>extended</red> methods from Sports 
+            <red>interface</red>.
+            <br></br>
+            Same goes for whatever <red>class</red> will implement Football.
         </inheritance>
         <abstraction>
             *General-Programming-Knowledge*
