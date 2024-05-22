@@ -10774,6 +10774,12 @@ class Main
 }
 </code>
         </reflection>
+        <abstract-classes>
+            *General-Programming-Knowledge*
+        </abstract-classes>
+        <optional-parameters>
+            *General-Programming-Knowledge*
+        </optional-parameters>
     </programming_language>
     
     <programming_language>
