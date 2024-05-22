@@ -561,7 +561,7 @@ int main()
         </defines>
         <command-line-arguments>
             Command-line <red>arguments</red> are passed to the main function 
-            as (<code>argc</code>, <code>argv</code>), or <code>args</code>. 
+            as (<code>argc</code>, <code>argv</code>), or (<code>args</code>). 
             <br></br>
             Command-line <red>arguments</red> are used to control the program from 
             the outside.
@@ -9430,7 +9430,8 @@ public class WriteToFile
 }
 </code>
         </write-to-file>
-        <serialization>*General-Programming-Knowledge*
+        <serialization>
+            *General-Programming-Knowledge*
 <code>
 //Example of serialization in Java:
 
@@ -9491,8 +9492,9 @@ public class Project23 {
 }
 </code>
         </serialization>
-        <deserialization>*General-Programming-Knowledge*
-        <br></br>
+        <deserialization>
+            *General-Programming-Knowledge*
+            <br></br>
 <code>
 //Example of deserialization in Java:
 
@@ -9652,7 +9654,8 @@ public class DestructorExample
 }   
 </code>
         </destructors>
-        <function-overloading>*General-Programming-Knowledge*
+        <function-overloading>
+            *General-Programming-Knowledge*
 <code>
 // Example of Method overloading in Java
 // By using Different Types of Arguments
@@ -9691,7 +9694,8 @@ class GFG
 }
 </code>
         </function-overloading>
-        <operator-overloading>*General-Programming-Knowledge*
+        <operator-overloading>
+            *General-Programming-Knowledge*
 <code>
 public class Vec {
    private float x, y, z;
@@ -9796,7 +9800,8 @@ public class Project15 {
 }
 </code>
         </enums>
-        <multi-threading>*General-Programming-Knowledge*
+        <multi-threading>
+            *General-Programming-Knowledge*
             <br></br>
             <green>Multithreading in Java:</green>
             <br></br><br></br>
@@ -9981,7 +9986,8 @@ public class CustomExceptionOutRange extends Exception
 </code>
         </exception-handling>
         <bitwise-operators>*General-Programming-Knowledge*</bitwise-operators>
-        <default-parameters>*General-Programming-Knowledge*
+        <default-parameters>
+            *General-Programming-Knowledge*
 <code>
 public void doSomething(String name, int age, String city = "New York") {  
   // code to perform some action  
@@ -10195,7 +10201,8 @@ public class Project13 implements ToDoListInterface, ToDoListInterface.Numbers
 }
 </code>
         </interfaces>
-        <random-generators>*General-Programming-Knowledge*
+        <random-generators>
+            *General-Programming-Knowledge*
 <code>
 //Example of generating random numbers in Java:
 
@@ -10268,7 +10275,8 @@ public class Project37 {
 }
 </code>
         </random-generators>
-        <command-line-arguments>*General-Programming-Knowledge*
+        <command-line-arguments>
+            *General-Programming-Knowledge*
 <code>
 //Working with command-line arguments in Java:
 
@@ -10375,37 +10383,13 @@ class Ternary
         </ternary-operator>
         <modular-programming>
             *General-Programming-Knowledge*
-            <br></br>
-            Java Module System provides an additional layer of encapsulation to our programs as we can specify which package 
-            can be utilized by the modules, and which modules could have entry to to them. 
-            <br></br><br></br>
-            Difference Between Module and Package<br></br>
-            The principal difference between the module and package is given below.<br></br>
-            <br></br><br></br>
-            1. Module: In easy words, we can say that the module is a set of related applications or It is 
-            a collection of related applications such that it affords an API handy to different modules that are 
-            internal and encapsulated.
-            <br></br><br></br>
-            Suppose permits take an example from the built-in module in Java let’s take java.util for example. <br></br>
-            If we expect java.util as a module we recognize that there are a variety of instructions and sub-packages 
-            inside the java.util. <br></br>
-            Now we’ve assumed that java.util is a package deal the modules could be like 
-            java.util.Collections and java.util.stream.
-            <br></br><br></br>
-            2. Package: A package is a set of classes, interfaces, and sub-packages that are similar. 
-            There are mainly two types of packages in Java, they are:
-            <br></br><br></br>
-            User Defined packages: The packages that contain the classes or interfaces which are built based on the user 
-            and it is nothing but they are just defined by the user.
-            <br></br><br></br>
-            Built-In Packages: The packages that come pre-installed when we configure the Java in our system are called the 
-            built-in packages such as java.net, java.awt, javax.swing, java.sql.
         </modular-programming>
         <string-methods>
             The <red>String class</red> in Java has a set of built-in methods that 
             can used on strings:
         </string-methods>
-        <datatype-conversions>*General-Programming-Knowledge*
+        <datatype-conversions>
+            *General-Programming-Knowledge*
 <code>
 package project3;
 import java.util.Scanner;
@@ -10453,7 +10437,9 @@ public class Project3 {
 
 </code>
         </datatype-conversions>
-        <decorators>*General-Programming-Knowledge*</decorators>
+        <decorators>
+            *General-Programming-Knowledge*
+        </decorators>
         <operators>*General-Programming-Knowledge*</operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
         <recursion>
