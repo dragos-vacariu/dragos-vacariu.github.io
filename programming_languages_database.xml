@@ -10386,7 +10386,6 @@ class Ternary
         </ternary-operator>
         <modular-programming>
             *General-Programming-Knowledge*
-            <br></br>
             <green>Modular Programming in Java:</green>
             <br></br><br></br>
             A module in Java is typically just a .jar file that has a <blue>module-info.java</blue> 
