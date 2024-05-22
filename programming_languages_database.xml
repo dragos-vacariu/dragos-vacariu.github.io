@@ -10776,6 +10776,43 @@ class Main
         </reflection>
         <abstract-classes>
             *General-Programming-Knowledge*
+            <br></br>
+<code>
+//Example of abstract class definition:
+
+abstract class Shape 
+{
+    int color;
+    // An abstract function
+    abstract void draw();
+}
+</code>
+
+<code>
+//Example of abstract class definition
+//and implementation:
+
+// Abstract class
+abstract class Sunstar 
+{
+    abstract void printInfo();
+}
+ 
+//Abstraction performed using extends
+class Employee extends Sunstar 
+{
+    void printInfo()
+    {
+        String name = "avinash";
+        int age = 21;
+        float salary = 222.2F;
+
+        System.out.println(name);
+        System.out.println(age);
+        System.out.println(salary);
+    }
+}
+</code>
         </abstract-classes>
         <optional-parameters>
             *General-Programming-Knowledge*
