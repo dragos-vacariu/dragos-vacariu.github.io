@@ -8367,7 +8367,26 @@ public class Books extends Product
         <br></br>
 <code>
 //Example of class implementing an interface in Java:
+//Example of defining a nested interface in Java:
 
+//FILE: ToDoListInterface.java
+
+package project13;
+
+//this is the outer interface
+public interface ToDoListInterface 
+{ 
+    
+    //this is the inner interface
+    public interface Numbers
+    { 
+        int findMax(int a, int b, int c);
+    }
+    void PrintMessage(String message);
+}
+</code>
+
+<code>
 //FILE: Project13.java
 
 package project13;
@@ -8403,25 +8422,6 @@ public class Project13 implements ToDoListInterface, ToDoListInterface.Numbers
         //Using ternary operator:
         return a>b? a>c? a : c : b>c? b : c;
     }
-}
-</code>
-
-<code>
-//Example of defining a nested interface in Java:
-
-//FILE: ToDoListInterface.java
-
-package project13;
-
-//this is the outer interface
-public interface ToDoListInterface { 
-    
-    //this is the inner interface
-    public interface Numbers
-    { 
-        int findMax(int a, int b, int c);
-    }
-    void PrintMessage(String message);
 }
 </code>
         <br></br>
