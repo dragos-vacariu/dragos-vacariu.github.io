@@ -571,32 +571,28 @@ int main()
             In languages such as C and C++ both <code>argc</code> and <code>argv</code> are being 
             used for this purpose as follows:
             <br></br><br></br>
-            <code>argv[argc]</code> is a <red>NULL</red> pointer. 
-            <br></br><br></br>
             The name of the program is 
             stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
             and the    last argument in <code>argv[n]</code>.
             <br></br><br></br>
-            <code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores
+            <code>argc</code> - <red>(Argument Count)</red> is an integer variable that stores
             the number of command-line 
             <red>arguments</red> passed by the user including the name of the program. 
-            <br></br>
             So if we pass a 
             value to a program, the value of <code>argc</code> would be <blue>2</blue> 
             (one for <red>argument</red> and one for 
             <red>program name</red>). 
             <br></br><br></br>
-            <blue>The value of argc should be non-negative.</blue>
+            <red>The value of argc should be non-negative.</red>
             
             <br></br><br></br>
-            <code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers 
+            <code>argv</code> - <red>(Argument Vector)</red> is an array of character pointers 
             listing all the <red>arguments</red>.
-            <br></br>
             If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
             to <code>argv[argc-1]</code> will 
-            contain pointers to strings.<br></br>
+            contain pointers to strings.<br></br><br></br>
             <code>argv[0]</code> is the name of the program. 
-            <br></br><br></br>
+            <br></br>
             After that until <code>argv[argc-1]</code> every element 
             is a command line argument.
             <br></br><br></br>
@@ -5791,7 +5787,7 @@ using System;
 
 namespace ComLineArg   
 {   
-    class Geeks 
+    class Program 
     {   
           
         // Main Method which accepts the 
@@ -5800,14 +5796,14 @@ namespace ComLineArg
         static void Main(string[] args)  
         {   
               
-            // To check the length of  
-            // Command line arguments   
+            //Check the length of  
+            //Command line arguments array
             if(args.Length > 0) 
             { 
                 Console.WriteLine("Arguments Passed by the Programmer:");   
               
-                // To print the command line  
-                // arguments using foreach loop 
+                //Print the command line  
+                //arguments using foreach loop 
                 foreach(Object obj in args)   
                 {   
                     Console.WriteLine(obj);        
