@@ -561,7 +561,7 @@ int main()
         </defines>
         <command-line-arguments>
             Command line <red>arguments</red> are passed to the main function 
-            as <code>argc</code> and/or <code>argv</code>. 
+            as (<code>argc</code>, <code>argv</code>), or <code>args</code>. 
             <br></br>
             Command line <red>arguments</red> are used to control the program from 
             the outside.
@@ -596,20 +596,28 @@ int main()
             <code>argv[0]</code> is the name of the program. 
             <br></br><br></br>
             After that until <code>argv[argc-1]</code> every element 
-            is command -line arguments.
+            is a command line argument.
             <br></br><br></br>
+            <brown>Properties of commandline arguments in C/C++:
+            <br></br><br></br>
+            <blue>
+            <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
+            <code>argv[0]</code> holds the name of the program.<br></br>
+            <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
+                the last argument.<br></br>
+            </blue>
             <green>C#/Java:</green>
             <br></br><br></br>
             In programming languages such as: C# and Java, only one variable is used to 
-            store the command line arguments: <code>argc</code>
+            store the command line arguments: <code>args</code>
             <br></br><br></br>
-            In these languages <code>argc</code> is declared as an <blue>array</blue> of <blue>string</blue> 
-            elements. The length of the <code>argc</code> <blue>array</blue> can be obtained by using the OOP 
+            In these languages <code>args</code> is declared as an <blue>array</blue> of <blue>string</blue> 
+            elements. The length of the <code>args</code> can be obtained by using the OOP 
             attributes of the <blue>string</blue>
             class defined in those languages: <code>args.length</code> (in Java) 
-            or <code>argc.Length</code> (in C#).
+            or <code>args.Length</code> (in C#).
             <br></br><br></br>
-            <green>Properties of Command Line Arguments:<br></br><br></br></green>
+            <green>Overall properties of Command Line Arguments:<br></br><br></br></green>
             <blue>
             They are passed to the <code>main()</code> function.<br></br>
             They are parameters/arguments supplied to the program when it is invoked.<br></br>
@@ -617,14 +625,8 @@ int main()
             inside the code.
             <br></br><br></br>
             </blue>
-            <red>Additional properties for C/C++:</red>
             <br></br><br></br>
-            <blue>
-            <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
-            <code>argv[0]</code> holds the name of the program.<br></br>
-            <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
-            the last argument.<br></br>
-            </blue>
+
 
             <br></br>
         </command-line-arguments>
