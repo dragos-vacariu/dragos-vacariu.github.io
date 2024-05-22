@@ -561,10 +561,16 @@ int main()
         </defines>
         <command-line-arguments>
             Command line <red>arguments</red> are passed to the main function 
-            as <code>argc</code> and <code>argv</code>. 
+            as <code>argc</code> and/or <code>argv</code>. 
             <br></br>
             Command line <red>arguments</red> are used to control the program from 
-            the outside. <code>argv[argc]</code> is a <red>NULL</red> pointer. 
+            the outside.
+            <br></br><br></br>
+            <green>For C/C++:</green>
+            In languages such as C and C++ both <code>argc</code> and <code>argv</code> are being 
+            used for this purpose as follows:
+            <br></br><br></br>
+            <code>argv[argc]</code> is a <red>NULL</red> pointer. 
             <br></br><br></br>
             The name of the program is 
             stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
@@ -590,18 +596,32 @@ int main()
             <br></br><br></br>
             After that until <code>argv[argc-1]</code> every element 
             is command -line arguments.<br></br><br></br>
-            
-            <green>Properties of Command Line Arguments in C:<br></br><br></br></green>
+            <green>C#/Java:</green>
+            <br></br><br></br>
+            In programming languages such as: C# and Java, only one variable is used to 
+            store the command line arguments: <code>argc</code>
+            <br></br><br></br>
+            In these languages <code>argc</code> is declared as an <blue>array</blue> of <blue>string</blue> 
+            elements. The length of the <code>argc</code> <blue>array</blue> can be obtained by using the OOP 
+            attributes of the <blue>string</blue>
+            class defined in those languages: <code>args.length</code> (in Java) 
+            or <code>argc.Length</code> (in C#).
+            <green>Properties of Command Line Arguments:<br></br><br></br></green>
             <blue>
             They are passed to the <code>main()</code> function.<br></br>
             They are parameters/arguments supplied to the program when it is invoked.<br></br>
             They are used to control programs from outside instead of hard coding those values 
             inside the code.<br></br><br></br>
+            </blue>
+            <red>Additional properties for C/C++:</red>
+            <br></br><br></br>
+            <blue>
             <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
             <code>argv[0]</code> holds the name of the program.<br></br>
             <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
             the last argument.<br></br>
             </blue>
+
             <br></br>
         </command-line-arguments>
         <ternary-operator>
