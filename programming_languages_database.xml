@@ -9978,6 +9978,15 @@ public interface Electronic
             from the <red>class</red> even with no <red>instances</red> by using: 
             <code>ClassName.variable;</code>
             <br></br><br></br>
+            The <blue>default methods</blue> can be defined inside the <red>interface</red> by using the 
+            <red>default</red>
+            keyword. These methods are non-abstract methods meaning they have an implementation.
+            <br></br><br></br>
+            The concept of <blue>default method</blue> is used to define a method with <red>default</red>
+            implementation. 
+            The <red>class</red> implementing the <red>interface</red> can override <blue>default method</blue> also 
+            to provide more specific implementation for the method.
+            <br></br><br></br>
             Defining an <red>interface</red> is similar to defining a <red>class</red>. 
             But a <red>class</red> 
             describes the attributes and behaviors of an <red>object</red>
