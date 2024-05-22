@@ -1095,9 +1095,11 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             compilation error. <br></br>
             <br></br>
             If a subclass of an <red>ABC</red> needs to be instantiated, it has to implement each of 
-            the <red>virtual functions</red>, which means that it supports the interface declared by the 
+            the <red>virtual/abstract functions</red>, which means that it supports the 
+            interface declared by the 
             <red>ABC</red>. <br></br><br></br>
-            Failing to <red>override</red> a pure <red>virtual function</red> in a <red>derived class</red>, 
+            Failing to <red>override</red> a pure <red>virtual/abstract function</red> in a 
+            <red>derived class</red>, 
             then attempting to <red>instantiate objects</red> of that <code>class</code>, is a compilation error.
             <br></br><br></br>
             An <red>object-oriented</red> system might use an <red>abstract base class</red> to provide a common and 
@@ -1106,9 +1108,10 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             formed that operate similarly.
             <br></br><br></br>
             The capabilities (i.e., the <red>public functions</red>) offered by the external applications 
-            are provided as pure <red>virtual functions</red> in the <red>abstract base class</red>. 
+            are provided as pure <red>virtual/abstract functions</red> in the <red>abstract base class</red>. 
             <br></br><br></br>
-            The implementations of these pure <red>virtual functions</red> are provided in the <red>derived 
+            The implementations of these pure <red>virtual/abstract functions</red> are provided in 
+            the <red>derived 
             classes</red> that correspond to the specific types of the application.<br></br>
         </abstract-classes>
         <optional-parameters>
@@ -10776,6 +10779,35 @@ class Main
         </reflection>
         <abstract-classes>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Abstract classes in Java:</green>
+            In Java the pure <blue>virtual functions/methods</blue> are called <blue>abstract 
+            functions/methods</blue>
+            due to the keyword <code>abstract</code> used for their definition.
+            <br></br><br></br>
+            <brown>
+            Important rules for abstract methods/classes in Java:
+            </brown>
+            <br></br><br></br>
+            <blue>
+            Any <red>class</red> that contains one or more <red>abstract methods</red>
+            must also be declared <red>abstract</red>.<br></br>
+            If a <red>class</red> contains an <red>abstract method</red> it needs to be 
+            <red>abstract</red> and vice versa is not true.<br></br>
+            If a <red>non-abstract class</red> extends an <red>abstract class</red>, then the 
+            <red>class</red> must implement all the abstract methods of the <red>abstract</red> 
+            <red>class</red> else the <red>concrete class</red> has to be declared as 
+            <red>abstract</red> as well.<br></br><br></br>
+            </blue>
+            The following are various <red>illegal</red> combinations of other <blue>modifiers</blue> 
+            for 
+            methods with respect to <blue>abstract modifiers</blue>: <br></br>
+            <code>final</code><br></br>
+            <code>abstract native</code><br></br>
+            <code>abstract synchronized</code><br></br>
+            <code>abstract static</code><br></br>
+            <code>abstract private</code><br></br>
+            <code>abstract strictfp</code>
             <br></br>
 <code>
 //Example of abstract class definition:
