@@ -10389,7 +10389,7 @@ class Ternary
             <br></br>
             <green>Modular Programming in Java:</green>
             <br></br><br></br>
-            A module in Java is typically just a .jar file that has a <blue>module-info.class</blue> 
+            A module in Java is typically just a .jar file that has a <blue>module-info.java</blue> 
             file at the root. 
             <br></br><br></br>
             Java modules help encapsulating <blue>packages</blue> and managing dependencies:<br></br>
@@ -10397,10 +10397,11 @@ class Ternary
             - a <blue>package</blue> is a container of <red>classes</red> and <red>interfaces</red>;<br></br>
             - a <blue>module</blue> is a container of <blue>packages</blue>;<br></br>
             <br></br>
-            In Java a <blue>module</blue> is somehow different that in C/C++. 
+            In Java a <blue>module</blue> is somehow different than in C/C++.
+            <br></br>            
             Since Java only allow one <red>class/interface</red>
-            be defined in per file, a <blue>module</blue> is more like a collection of files, 
-            than a pair of 2 files (.c and .h) as it is in C/C++.
+            be defined per file, a <blue>module</blue> is more like a collection of files, 
+            than a pair of <blue>2 files</blue> (.c and .h) as it is in C/C++.
             <br></br><br></br>
             In Java there cannot be any <red>functions</red>, <red>variable declarations</red> or
             implementations of any sort, outside
@@ -10409,7 +10410,7 @@ class Ternary
             <br></br><br></br>
             <brown>Example of modular project in Java:</brown>
             <br></br><br></br>
-            <red>The module <blue>exporting</blue> the implementation:</red>
+            <red>1. The module <blue>exporting</blue> the implementation:</red>
             <br></br>
 <code>
 //Example of modular project in Java:
@@ -10441,7 +10442,7 @@ public class Implementation_Class
 }
 </code>
             <br></br>
-            <red>The module <blue>importing</blue> the implementation:</red>
+            <red>2. The module <blue>importing</blue> the implementation:</red>
 <code>
 //FILEPATH: Main_Module/classes/module-info.java
 
