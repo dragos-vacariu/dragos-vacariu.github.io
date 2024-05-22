@@ -8326,9 +8326,9 @@ public class Product
 </code>
 
 <code>
-package project25;
-
 //FILE: Books.java
+
+package project25;
 
 public class Books extends Product 
 {
