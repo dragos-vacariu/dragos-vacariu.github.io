@@ -10781,6 +10781,7 @@ class Main
             *General-Programming-Knowledge*
             <br></br>
             <green>Abstract classes in Java:</green>
+            <br></br><br></br>
             In Java the pure <blue>virtual functions/methods</blue> are called <blue>abstract 
             functions/methods</blue>
             due to the keyword <code>abstract</code> used for their definition.
@@ -10799,9 +10800,8 @@ class Main
             <red>class</red> else the <red>concrete class</red> has to be declared as 
             <red>abstract</red> as well.<br></br><br></br>
             </blue>
-            The following are various <red>illegal</red> combinations of other <blue>modifiers</blue> 
-            for 
-            methods with respect to <blue>abstract modifiers</blue>: <br></br>
+            The following combinations of <blue>modifiers</blue> used on <blue>abstract methods</blue> 
+            declaration are <red>invalid</red>: <br></br>
             <code>final</code><br></br>
             <code>abstract native</code><br></br>
             <code>abstract synchronized</code><br></br>
@@ -10824,7 +10824,7 @@ abstract class Shape
 //Example of abstract class definition
 //and implementation:
 
-// Abstract class
+//Abstract class
 abstract class Sunstar 
 {
     abstract void printInfo();
