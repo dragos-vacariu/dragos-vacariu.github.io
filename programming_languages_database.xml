@@ -10558,6 +10558,133 @@ public class Project3
         </datatype-conversions>
         <decorators>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Decorators in Java:</green>
+            <br></br><br></br>
+            In order to implement a decorator in Java, the following steps
+            needs to be followed:
+            <br></br><br></br>
+            <red>1. Component Interface</red>
+            <br></br><br></br>
+            Defining the <red>interface</red> or the <blue>abstract class</blue> 
+            declaring the methods that will be 
+            implemented. 
+            <br></br>
+            In this case Car will be the component interface.
+            <br></br>
+<code>
+//the interface defining the methods 
+//that will be implemented.
+
+package com.journaldev.design.decorator;
+
+public interface Car 
+{
+    public void assemble();
+}
+</code>
+        <br></br>
+        <red>Component Implementation</red>
+        <br></br><br></br>
+        The basic implementation of the component interface. 
+        We can have BasicCar class as our component implementation.
+        <br></br>
+<code>
+//the basic implementation of 
+//the Car interface
+
+package com.journaldev.design.decorator;
+
+public class BasicCar implements Car 
+{
+    @Override
+    public void assemble() 
+    {
+        System.out.print("Basic Car.");
+    }
+}
+</code>
+        <br></br>
+        <red>2. Decorator</red> 
+        <br></br><br></br>
+        Defining the <blue>decorator class</blue> that <red>implements</red> the component 
+        <red>interface.</red> <br></br>
+        The component variable needs to be accessible to the child <blue>decorator classes</blue>, 
+        so it should be defined as <red>protected</red> variable .
+<code>
+//the decorator class implementing
+//Car interface
+
+package com.journaldev.design.decorator;
+
+public class CarDecorator implements Car 
+{
+
+    protected Car car;
+
+    public CarDecorator(Car c)
+    {
+        this.car=c;
+    }
+
+    @Override
+    public void assemble() 
+    {
+        this.car.assemble();
+    }
+
+}
+</code>
+        <br></br>
+        <red>4. Concrete Decorators</red>
+        <br></br><br></br>
+        <red>Extending</red> the <blue>base decorator</blue> functionality and modifying the 
+        component behavior accordingly. We can have <red>concrete decorator classes</red> 
+        as LuxuryCar and SportsCar.
+        <br></br>
+<code>
+//a second decorator extending the
+//functionality of the first decorator
+
+package com.journaldev.design.decorator;
+
+public class SportsCar extends CarDecorator 
+{
+    public SportsCar(Car c) 
+    {
+        super(c);
+    }
+
+    @Override
+    public void assemble()
+    {
+        super.assemble();
+        System.out.print(" Adding features of Sports Car.");
+    }
+}
+</code>
+
+<code>
+//using the decorator to modify the 
+//component behaviour
+
+package com.journaldev.design.decorator;
+
+public class LuxuryCar extends CarDecorator 
+{
+    public LuxuryCar(Car c) 
+    {
+        super(c);
+    }
+
+    @Override
+    public void assemble()
+    {
+        super.assemble();
+        System.out.print(" Adding features of Luxury Car.");
+    }
+}
+</code>
         </decorators>
         <operators>*General-Programming-Knowledge*</operators>
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
