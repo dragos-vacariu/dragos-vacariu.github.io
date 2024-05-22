@@ -567,6 +567,7 @@ int main()
             the outside.
             <br></br><br></br>
             <green>For C/C++:</green>
+            <br></br><br></br>
             In languages such as C and C++ both <code>argc</code> and <code>argv</code> are being 
             used for this purpose as follows:
             <br></br><br></br>
@@ -595,7 +596,8 @@ int main()
             <code>argv[0]</code> is the name of the program. 
             <br></br><br></br>
             After that until <code>argv[argc-1]</code> every element 
-            is command -line arguments.<br></br><br></br>
+            is command -line arguments.
+            <br></br><br></br>
             <green>C#/Java:</green>
             <br></br><br></br>
             In programming languages such as: C# and Java, only one variable is used to 
@@ -606,12 +608,14 @@ int main()
             attributes of the <blue>string</blue>
             class defined in those languages: <code>args.length</code> (in Java) 
             or <code>argc.Length</code> (in C#).
+            <br></br><br></br>
             <green>Properties of Command Line Arguments:<br></br><br></br></green>
             <blue>
             They are passed to the <code>main()</code> function.<br></br>
             They are parameters/arguments supplied to the program when it is invoked.<br></br>
             They are used to control programs from outside instead of hard coding those values 
-            inside the code.<br></br><br></br>
+            inside the code.
+            <br></br><br></br>
             </blue>
             <red>Additional properties for C/C++:</red>
             <br></br><br></br>
