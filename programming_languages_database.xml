@@ -10406,6 +10406,10 @@ class Ternary
             implementations of any sort, outside
             the <red>class</red>. <br></br>
             Everything should be <red>encapsulated</red> within the <red>class</red>.
+            <br></br><br></br>
+            <brown>Example of modular project in Java:</brown>
+            <br></br><br></br>
+            <red>The module <blue>exporting</blue> the implementation:</red>
             <br></br>
 <code>
 //Example of modular project in Java:
@@ -10414,7 +10418,7 @@ class Ternary
 
 module Implementation_Module 
 {
-    //the module exports the package:
+    //this module exports the package:
     exports Implementation_Package;
 }
 </code>
@@ -10424,19 +10428,20 @@ module Implementation_Module
 //Implementation_Module/classes/Implementation_Package/Implementation_Class.java
 
 package Implementation_Package;
-//The package contains the class with the implementation
+//This package contains the class with the implementation
 
 public class Implementation_Class 
 {
     public void PrintMessage() 
     {
-        //The class contains the implementation:
+        //This class contains the implementation:
         System.out.println("Hello from Implementation_Module");
     }
     
 }
 </code>
-
+            <br></br>
+            <red>The module <blue>importing</blue> the implementation:</red>
 <code>
 //FILEPATH: Main_Module/classes/module-info.java
 
