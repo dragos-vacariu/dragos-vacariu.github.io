@@ -10388,8 +10388,13 @@ class Ternary
             *General-Programming-Knowledge*
             <green>Modular Programming in Java:</green>
             <br></br><br></br>
-            A module in Java is typically just a .jar file that has a <blue>module-info.java</blue> 
+            A <blue>module</blue> in Java is typically just a .jar file that has a <blue>module-info.java</blue> 
             file at the root. 
+            <br></br><br></br>
+            A <blue>module</blue> is a directory containing other directories 
+            called <blue>packages</blue>, 
+            where every <blue>package</blue> contains <red>classes</red> stored in individual 
+            .java files.
             <br></br><br></br>
             Java modules help encapsulating <blue>packages</blue> and managing dependencies:<br></br>
             - a <red>class</red> is a container of <red>fields</red> and <red>methods</red>;<br></br>
@@ -10405,7 +10410,7 @@ class Ternary
             In Java there cannot be any <red>functions</red>, <red>variable declarations</red> or
             implementations of any sort, outside
             the <red>class</red>. <br></br>
-            Everything should be <red>encapsulated</red> within the <red>class</red>.
+            Everything has to be <red>encapsulated</red> within the <red>class</red>.
             <br></br><br></br>
             <brown>Example of modular project in Java:</brown>
             <br></br><br></br>
@@ -10427,6 +10432,7 @@ module Implementation_Module
 //FILEPATH: 
 //Implementation_Module/classes/Implementation_Package/Implementation_Class.java
 
+//A package is like a folder/directory
 package Implementation_Package;
 //This package contains the class with the implementation
 
@@ -10455,6 +10461,7 @@ module Main_Module
 <code>
 //FILEPATH: Main_Module/classes/Main_Package/Main_Class.java
 
+//A package is like a folder/directory
 package Main_Package;
 //Main_Package requires the implementation
 
