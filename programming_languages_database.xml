@@ -8254,8 +8254,11 @@ class Splendor extends Bike
             <green>Implements vs Extends:</green>
             <br></br><br></br>
             - <red>extends</red> is for extending a class (<red>class inheritance</red>);<br></br>
+            - <red>extends</red> can also be used for <red>interface inheritance</red>. 
+            An <red>interface</red> can <red>extend</red> another <red>interface</red>.
+            <br></br>
             - <blue>implements</blue> is for implementing an interface 
-            (<blue>class to interface inheritance</blue>);<br></br>
+            (<blue>interface to class inheritance</blue>);<br></br>
             <br></br>
             <red>Interfaces</red>, exhibits the same characteristics to multiple classes.
             <br></br><br></br>
@@ -8475,7 +8478,6 @@ public class GenericClass &lt;T&gt;
         Based on the <blue>types</blue> of the <blue>arguments</blue> passed to the 
         <blue>generic method</blue>, the compiler handles each <blue>method</blue> 
         call appropriately.
-.
 <code>
 //Example of generic class instantiation in Java:
 //Example of generic method/function definition in Java:
@@ -8620,20 +8622,20 @@ public class Project2
         myscanner.next();
     }   
 }
-/*
-DOCUMENTATION ABOUT DATATYPES DEFAULT INITIALIZATIONS IN JAVA:
-Data Type            Default Value (for fields)
-byte                     0
-short                    0
-int                      0
-long                     0L
-float                    0.0f
-double                   0.0d
-char                    '\u0000'
-String (or any object)   null
-boolean                  false
-*/
 </code>
+        <br></br>
+        <green>DEFAULT INITIALIZATIONS IN JAVA</green>
+        <br></br><br></br>
+            <code>Data Type            Default Value (for fields)</code><br></br>
+            <code>byte                     0</code><br></br>
+            <code>short                    0</code><br></br>
+            <code>int                      0</code><br></br>
+            <code>long                     0L</code><br></br>
+            <code>float                    0.0f</code><br></br>
+            <code>double                   0.0d</code><br></br>
+            <code>char                    '\u0000'</code><br></br>
+            <code>String (or any object)   null</code><br></br>
+            <code>boolean                  false</code><br></br>
         </simple-data-types>
         <complex-data-types>*General-Programming-Knowledge*</complex-data-types>
         <loops>
@@ -8661,6 +8663,7 @@ public class Project7
 {
     public static void main(String[] args) 
     {
+        int [] arrayC = {1,2,3,4,5,6,7,8,9,10};
         //Using foreach loop in Java:
         System.out.printf("Multiplication Table with 10:\n");
         for (int k : arrayC)
