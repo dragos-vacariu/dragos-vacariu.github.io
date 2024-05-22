@@ -600,7 +600,7 @@ int main()
             After that until <code>argv[argc-1]</code> every element 
             is a command line argument.
             <br></br><br></br>
-            <brown>Properties of commandline arguments in C/C++:</brown>
+            <brown>Properties of command line arguments in C/C++:</brown>
             <br></br><br></br>
             <blue>
             <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
@@ -609,7 +609,7 @@ int main()
                 the last argument.
             </blue>
             <br></br><br></br>
-            <green>C#/Java:</green>
+            <green>For Java/C#:</green>
             <br></br><br></br>
             In programming languages such as: C# and Java, only one variable is used to 
             store the command line arguments: <code>args</code>
@@ -1993,7 +1993,8 @@ int main()
         <command-line-arguments>
             *General-Programming-Knowledge*
 <code>
-/*Example*/
+/*Example of command line arguments in C:*/
+
 int main(int argc, char *argv[]) { /* ... */ }
 
 //OR
@@ -3820,7 +3821,18 @@ int main()
             This function sets the
             <red>seed</red> which is used by <red>rand</red> to generate <red>"random"</red> numbers.
         </random-generators>
-        <command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+        <command-line-arguments>
+            *General-Programming-Knowledge*
+<code>
+//Example of command line arguments in C++:
+
+int main(int argc, char *argv[])
+{
+     // Suitable Code
+     return 0;
+}
+</code>
+        </command-line-arguments>
         <ternary-operator>*General-Programming-Knowledge*</ternary-operator>
         <modular-programming>*General-Programming-Knowledge*
             <br></br>
@@ -5770,7 +5782,46 @@ namespace project68_random_numbers
 }
 </code>
         </random-generators>
-        <command-line-arguments>*General-Programming-Knowledge*</command-line-arguments>
+        <command-line-arguments>
+            *General-Programming-Knowledge*
+<code>
+//Example of command line arguments in C#:
+
+using System; 
+
+namespace ComLineArg   
+{   
+    class Geeks 
+    {   
+          
+        // Main Method which accepts the 
+        // command line arguments as  
+        // string type parameters   
+        static void Main(string[] args)  
+        {   
+              
+            // To check the length of  
+            // Command line arguments   
+            if(args.Length > 0) 
+            { 
+                Console.WriteLine("Arguments Passed by the Programmer:");   
+              
+                // To print the command line  
+                // arguments using foreach loop 
+                foreach(Object obj in args)   
+                {   
+                    Console.WriteLine(obj);        
+                }   
+            }   
+            else
+            { 
+                Console.WriteLine("No command line arguments found."); 
+            } 
+        }   
+    } 
+} 
+</code>
+        </command-line-arguments>
         <ternary-operator>
             *General-Programming-Knowledge*
 <code>
