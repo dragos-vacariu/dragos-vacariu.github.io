@@ -9942,6 +9942,36 @@ public void doSomething(String name, int age, String city = "New York") {
             <br></br><br></br>
             The method bodies may exist only for the <blue>default methods</blue> and/or 
             <blue>static methods</blue>.
+<code>
+//Example of interface with constants, 
+//default and static methods:
+
+public interface Electronic 
+{
+
+    // Constant variable
+    String LED = "LED";
+
+    // Abstract method
+    int getElectricityUse();
+
+    // Static method
+    static boolean isEnergyEfficient(String electtronicType) 
+    {
+        if (electtronicType.equals(LED)) 
+        {
+            return true;
+        }
+        return false;
+    }
+
+    //Default method
+    default void printDescription() 
+    {
+        System.out.println("Electronic Description");
+    }
+}
+</code>
             <br></br><br></br>
             A <red>static</red> variable or method is one which is shared among all the 
             <red>instances</red> of a <red>class</red> and which can be accessed
