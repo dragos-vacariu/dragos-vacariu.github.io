@@ -10386,6 +10386,78 @@ class Ternary
         </ternary-operator>
         <modular-programming>
             *General-Programming-Knowledge*
+            <green>Modular Programming in Java:</green>
+            A module in Java is typically just a .jar file that has a module-info.class 
+            file at the root. 
+            
+            Java modules help encapsulating packages and managing dependencies:
+            - a class is a container of fields and methods;
+            - a package is a container of classes and interfaces;
+            - a module is a container of packages;
+<code>
+//Example of modular project in Java:
+
+//FILEPATH: Implementation_Module/classes/module-info.java
+
+module Implementation_Module 
+{
+    //the module exports the package:
+    exports Implementation_Package;
+}
+</code>
+
+<code>
+//FILEPATH: 
+//Implementation_Module/classes/Implementation_Package/Implementation_Class.java
+
+package Implementation_Package;
+//The package contains the class with the implementation
+
+public class Implementation_Class 
+{
+    public void PrintMessage() 
+    {
+        //The class contains the implementation:
+        System.out.println("Hello from Implementation_Module");
+    }
+    
+}
+</code>
+
+<code>
+//FILEPATH: Main_Module/classes/module-info.java
+
+module Main_Module 
+{
+    //this module requires Implementation_Module:
+    requires Implementation_Module;
+}
+</code>
+
+<code>
+//FILEPATH: Main_Module/classes/Main_Package/Main_Class.java
+
+package Main_Package;
+//Main_Package requires the implementation
+
+import Implementation_Package.Implementation_Class;
+//Implementation is in this package.class
+
+public class Main_Class 
+{
+    public static void main(String[] args) 
+    {
+        //Accessing the implementation:
+        Implementation_Class obj = new Implementation_Class();
+        obj.PrintMessage();
+        
+        /*
+        OUTPUT:
+        Hello from Implementation_Module
+        */
+    }
+}
+</code>
         </modular-programming>
         <string-methods>
             The <red>String class</red> in Java has a set of built-in methods that 
