@@ -577,18 +577,20 @@ int main()
             stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
             and the    last argument in <code>argv[n]</code>.
             <br></br><br></br>
-            <code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores the number of 
-            command-line 
+            <code>argv</code> <red>(ARGument Vector)</red> is an integer variable that stores
+            the number of command-line 
             <red>arguments</red> passed by the user including the name of the program. 
             <br></br>
             So if we pass a 
-            value to a program, the value of <code>argc</code> would be <blue>2</blue> (one for <red>argument</red> and one for 
+            value to a program, the value of <code>argc</code> would be <blue>2</blue> 
+            (one for <red>argument</red> and one for 
             <red>program name</red>). 
             <br></br><br></br>
             <blue>The value of argc should be non-negative.</blue>
             
             <br></br><br></br>
-            <code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers listing all the <red>arguments</red>.
+            <code>argv</code> <red>(ARGument Vector)</red> is an array of character pointers 
+            listing all the <red>arguments</red>.
             <br></br>
             If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
             to <code>argv[argc-1]</code> will 
@@ -598,26 +600,29 @@ int main()
             After that until <code>argv[argc-1]</code> every element 
             is a command line argument.
             <br></br><br></br>
-            <brown>Properties of commandline arguments in C/C++:
+            <brown>Properties of commandline arguments in C/C++:</brown>
             <br></br><br></br>
             <blue>
             <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
             <code>argv[0]</code> holds the name of the program.<br></br>
             <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
-                the last argument.<br></br>
+                the last argument.
             </blue>
+            <br></br><br></br>
             <green>C#/Java:</green>
             <br></br><br></br>
             In programming languages such as: C# and Java, only one variable is used to 
             store the command line arguments: <code>args</code>
             <br></br><br></br>
-            In these languages <code>args</code> is declared as an <blue>array</blue> of <blue>string</blue> 
+            In these languages <code>args</code> is declared as an <blue>array</blue> of 
+            <blue>string</blue> 
             elements. The length of the <code>args</code> can be obtained by using the OOP 
             attributes of the <blue>string</blue>
             class defined in those languages: <code>args.length</code> (in Java) 
             or <code>args.Length</code> (in C#).
             <br></br><br></br>
-            <green>Overall properties of Command Line Arguments:<br></br><br></br></green>
+            <green>Overall properties of Command Line Arguments:</green>
+            <br></br><br></br>
             <blue>
             They are passed to the <code>main()</code> function.<br></br>
             They are parameters/arguments supplied to the program when it is invoked.<br></br>
