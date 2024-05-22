@@ -575,7 +575,7 @@ int main()
             stored in <code>argv[0]</code>, the first command-line <red>parameter</red> in <code>argv[1]</code>, 
             and the    last argument in <code>argv[n]</code>.
             <br></br><br></br>
-            <code>argc</code> - <red>(Argument Count)</red> is an integer variable that stores
+            <code>argc</code> - <red>argument count</red> is an integer variable that stores
             the number of command-line 
             <red>arguments</red> passed by the user including the name of the program. 
             So if we pass a 
@@ -586,13 +586,13 @@ int main()
             <red>The value of argc should be non-negative.</red>
             
             <br></br><br></br>
-            <code>argv</code> - <red>(Argument Vector)</red> is an array of character pointers 
+            <code>argv</code> - <red>argument vector</red> is an array of character pointers 
             listing all the <red>arguments</red>.
             If <code>argc</code> is greater than zero, the array elements from <code>argv[0]</code> 
             to <code>argv[argc-1]</code> will 
             contain pointers to strings.<br></br><br></br>
-            <code>argv[0]</code> is the name of the program. 
-            <br></br>
+            <code>argv[0]</code> <red>is the name of the program.</red> 
+            <br></br><br></br>
             After that until <code>argv[argc-1]</code> every element 
             is a command line argument.
             <br></br><br></br>
