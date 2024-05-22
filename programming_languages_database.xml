@@ -10387,6 +10387,100 @@ class Ternary
         <string-methods>
             The <red>String class</red> in Java has a set of built-in methods that 
             can used on strings:
+            <br></br><br></br>
+            <code>charAt()</code><br></br>
+            Returns the character at the specified <red>index</red> (position).
+            <br></br><br></br>
+            <code>compareTo()</code><br></br>
+            <red>Compares</red> two strings lexicographically.
+            <br></br><br></br>
+            <code>compareToIgnoreCase()</code><br></br>
+            <red>Compares</red> two strings lexicographically, ignoring case differences.
+            <br></br><br></br>
+            <code>concat()</code><br></br>
+            <red>Appends</red> a string to the end of another string.
+            <br></br><br></br>
+            <code>contains()</code><br></br>
+            <red>Checks</red> whether a string contains a sequence of characters.
+            <br></br><br></br>
+            <code>contentEquals()</code><br></br>
+            <red>Checks</red> whether a string contains the exact same sequence of characters of the specified 
+            CharSequence or StringBuffer.
+            <br></br><br></br>
+            <code>copyValueOf()</code><br></br>
+            Returns a String that represents the characters of the <red>character array</red>.
+            <br></br><br></br>
+            <code>endsWith()</code><br></br>
+            <red>Checks</red> whether a string ends with the specified character(s).
+            <br></br><br></br>
+            <code>equals()</code><br></br>
+            <red>Compares</red> two strings. Returns true if the strings are equal, and false if not.
+            <br></br><br></br>
+            <code>equalsIgnoreCase()</code><br></br>
+            <red>Compares</red> two strings, ignoring case considerations.
+            <br></br><br></br>
+            <code>format()</code><br></br>
+            Returns a <red>formatted string</red> using the specified locale, format string, and arguments.
+            <br></br><br></br>
+            <code>indexOf()</code><br></br>
+            Returns the <red>position</red> of the first found occurrence of specified characters in a string.
+            <br></br><br></br>
+            <code>isEmpty()</code><br></br>
+            <red>Checks</red> whether a string is empty or not.
+            <br></br><br></br>
+            <code>join()</code><br></br>
+            <red>Joins</red> one or more strings with a specified separator.
+            <br></br><br></br>
+            <code>lastIndexOf()</code><br></br>
+            Returns the <red>position</red> of the last found occurrence of specified characters in a string.
+            <br></br><br></br>
+            <code>length()</code><br></br>
+            Returns the <red>length</red> of a specified string.
+            <br></br><br></br>
+            <code>matches()</code><br></br>
+            <red>Searches</red> a string for a match against a regular expression, and returns the matches.
+            <br></br><br></br>
+            <code>replace()</code><br></br>
+            <red>Searches</red> a string for a specified value, and returns a new string where the 
+            specified values are replaced.
+            <br></br><br></br>
+            <code>replaceAll()</code><br></br>
+            <red>Replaces</red> each substring of this string that matches the given regular expression 
+            with the given replacement.
+            <br></br><br></br>
+            <code>replaceFirst()</code><br></br>
+            <red>Replaces</red> the first occurrence of a substring that matches the given regular expression 
+            with the given replacement.
+            <br></br><br></br>
+            <code>split()</code><br></br>
+            <red>Splits</red> a string into an array of substrings.
+            <br></br><br></br>
+            <code>startsWith()</code><br></br>
+            <red>Checks</red> whether a string starts with specified characters.
+            <br></br><br></br>
+            <code>subSequence()</code><br></br>
+            Returns a new <red>character sequence</red> that is a subsequence of this sequence.
+            <br></br><br></br>
+            <code>substring()</code><br></br>
+            Returns a new <red>string</red> which is the substring of a specified string.
+            <br></br><br></br>
+            <code>toCharArray()</code><br></br>
+            <red>Converts</red> this string to a new character array.
+            <br></br><br></br>
+            <code>toLowerCase()</code><br></br>
+            <red>Converts</red> a string to lower case letters.
+            <br></br><br></br>
+            <code>toString()</code><br></br>
+            Returns the <red>value</red> of a String object.
+            <br></br><br></br>
+            <code>toUpperCase()</code><br></br>
+            <red>Converts</red> a string to upper case letters.
+            <br></br><br></br>
+            <code>trim()</code><br></br>
+            <red>Removes</red> whitespace from both ends of a string.
+            <br></br><br></br>
+            <code>valueOf()</code><br></br>
+            Returns the <red>string representation</red> of the specified value.
         </string-methods>
         <datatype-conversions>
             *General-Programming-Knowledge*
