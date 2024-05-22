@@ -10386,14 +10386,16 @@ class Ternary
         </ternary-operator>
         <modular-programming>
             *General-Programming-Knowledge*
+            <br></br>
             <green>Modular Programming in Java:</green>
+            <br></br><br></br>
             A module in Java is typically just a .jar file that has a module-info.class 
             file at the root. 
-            
-            Java modules help encapsulating packages and managing dependencies:
-            - a class is a container of fields and methods;
-            - a package is a container of classes and interfaces;
-            - a module is a container of packages;
+            <br></br><br></br>
+            Java modules help encapsulating packages and managing dependencies:<br></br>
+            - a class is a container of fields and methods;<br></br>
+            - a package is a container of classes and interfaces;<br></br>
+            - a module is a container of packages;<br></br>
 <code>
 //Example of modular project in Java:
 
