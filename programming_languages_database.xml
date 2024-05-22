@@ -8260,9 +8260,10 @@ class Splendor extends Bike
             - <blue>implements</blue> is for implementing an interface 
             (<blue>interface to class inheritance</blue>);<br></br>
             <br></br>
-            <red>Interfaces</red>, exhibits the same characteristics to multiple classes.
+            Through <blue>implements</blue> the <red>interfaces</red> exhibit the same characteristics 
+            to the <red>classes</red> which are implementing them.
             <br></br><br></br>
-            The difference between an <red>interface</red> and a <red>class</red> is that 
+            The main difference between an <red>interface</red> and a <red>class</red> is that 
             in an <red>interface</red> cannot <red>implement</red> any 
             of the declared <red>methods</red>. 
             <br></br>
