@@ -10389,13 +10389,24 @@ class Ternary
             <br></br>
             <green>Modular Programming in Java:</green>
             <br></br><br></br>
-            A module in Java is typically just a .jar file that has a module-info.class 
+            A module in Java is typically just a .jar file that has a <blue>module-info.class</blue> 
             file at the root. 
             <br></br><br></br>
-            Java modules help encapsulating packages and managing dependencies:<br></br>
-            - a class is a container of fields and methods;<br></br>
-            - a package is a container of classes and interfaces;<br></br>
-            - a module is a container of packages;<br></br>
+            Java modules help encapsulating <blue>packages</blue> and managing dependencies:<br></br>
+            - a <red>class</red> is a container of <red>fields</red> and <red>methods</red>;<br></br>
+            - a <blue>package</blue> is a container of <red>classes</red> and <red>interfaces</red>;<br></br>
+            - a <blue>module</blue> is a container of <blue>packages</blue>;<br></br>
+            <br></br>
+            In Java a <blue>module</blue> is somehow different that in C/C++. 
+            Since Java only allow one <red>class/interface</red>
+            be defined in per file, a <blue>module</blue> is more like a collection of files, 
+            than a pair of 2 files (.c and .h) as it is in C/C++.
+            <br></br><br></br>
+            In Java there cannot be any <red>functions</red>, <red>variable declarations</red> or
+            implementations of any sort, outside
+            the <red>class</red>. <br></br>
+            Everything should be <red>encapsulated</red> within the <red>class</red>.
+            <br></br>
 <code>
 //Example of modular project in Java:
 
