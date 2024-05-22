@@ -9919,17 +9919,19 @@ public void doSomething(String name, int age, String city = "New York") {
             <br></br>
             <green>Interfaces in Java:</green>
             <br></br><br></br>
-            An <red>interface</red> is a <blue>reference type</blue> in Java. 
-            It is similar to <red>class</red>.
+            An <red>interface</red> is a <blue>reference type</blue> in Java that 
+            is similar to <red>class</red>.
             <br></br><br></br>
-            A <red>class</red> implements an interface, thereby <blue>inheriting</blue> the 
+            A <red>class</red> <blue>implements</blue> an <red>interface</red>, 
+            thereby <blue>inheriting</blue> the 
             <red>abstract methods</red> of the <red>interface</red>.
             <br></br><br></br>
-            An <red>interface</red> is basically a collection of abstract methods. 
+            An <red>interface</red> is basically a collection of <blue>abstract methods</blue>. 
             <br></br><br></br>
-            Along with <red>abstract methods</red>, an interface may also contain <red>constants</red>
-            (<red>final</red> variables), <red>static</red> variables,  
-            default methods, <red>static</red> methods, and <blue>nested types</blue>.
+            Along with the <red>abstract methods</red>, an <red>interface</red> may 
+            also contain <red>constants</red>
+            (<red>final variables</red>), <red>static variables</red>,  
+            <blue>default methods</blue>, <red>static methods</red>, and <blue>nested types</blue>.
             <br></br><br></br>
             A <blue>nested type</blue> is a <blue>type</blue> within a <blue>type</blue> such as 
             <red>class</red> within a <red>class</red> or <red>interface</red> defined
@@ -9938,10 +9940,9 @@ public void doSomething(String name, int age, String city = "New York") {
             A <red>final</red> variable, also called a <blue>“constant”</blue>, is a variable 
             whose value it cannot be
             change after it's been initialized. 
-            <br></br>
             <br></br><br></br>
             The method bodies may exist only for the <blue>default methods</blue> and/or 
-            <blue>static methods</blue>.
+            <red>static methods</red>.
 <code>
 //Example of interface with constants, 
 //default and static methods:
@@ -9972,25 +9973,28 @@ public interface Electronic
     }
 }
 </code>
-            <br></br><br></br>
-            A <red>static</red> variable or method is one which is shared among all the 
-            <red>instances</red> of a <red>class</red> and which can be accessed
+            <br></br>
+            A <red>static variable</red>  or <blue>method</blue> is one which is shared 
+            among all the 
+            <red>instances</red> of a <red>class</red> and which can be accessed directly
             from the <red>class</red> even with no <red>instances</red> by using: 
             <code>ClassName.variable;</code>
             <br></br><br></br>
             The <blue>default methods</blue> can be defined inside the <red>interface</red> by using the 
             <red>default</red>
-            keyword. These methods are non-abstract methods meaning they have an implementation.
+            keyword. These methods are <blue>non-abstract methods</blue> meaning they have an 
+            implementation.
             <br></br><br></br>
             The concept of <blue>default method</blue> is used to define a method with <red>default</red>
             implementation. 
-            The <red>class</red> implementing the <red>interface</red> can override <blue>default method</blue> also 
-            to provide more specific implementation for the method.
+            The <red>class</red> implementing the <red>interface</red> can override the 
+            <blue>default method</blue> also, in order
+            to provide a more specific implementation for the method.
             <br></br><br></br>
             Defining an <red>interface</red> is similar to defining a <red>class</red>. 
             But a <red>class</red> 
-            describes the attributes and behaviors of an <red>object</red>
-            whereas and <red>interface</red> contains the declaration of the behaviors 
+            describes the attributes and behaviors of an <red>object</red>,
+            whereas an <red>interface</red> contains the declaration of the behaviors 
             that a <red>class</red> needs to <red>implement</red>.
             <br></br><br></br>
             Just like <red>classes</red>, there can be only one <red>interface</red> in a .java file. 
@@ -10004,7 +10008,8 @@ public interface Electronic
             <br></br><br></br>
             Once that a <red>class</red> implements an <red>interface</red> that <red>class</red> is 
             obliged to 
-            provide implementations for all the methods within the <red>interface</red>:
+            provide implementations for all the <blue>abstract methods</blue> within 
+            the <red>interface</red>:
             <br></br><br></br>
             <green>
             Properties of Interfaces:
@@ -10013,7 +10018,7 @@ public interface Electronic
             An interface is implicitly <red>abstract</red>. You do not need to use the <red>abstract</red> 
             keyword while declaring an <red>interface</red>.
             <br></br><br></br>
-            Each method within an <red>interface</red> is implicitly <red>abstract</red>, so the 
+            Each method within the <red>interface</red> is implicitly <red>abstract</red>, so the 
             <red>abstract</red> keyword is also not needed for declaring the methods.
             <br></br><br></br>
             The methods declared within the <red>interface</red> are implicitly <red>public</red>.
@@ -10023,14 +10028,14 @@ public interface Electronic
             </green>
             <br></br><br></br>
             An <red>interface</red> can contain any number of methods.
-            <br></br>
+            <br></br><br></br>
             An <red>interface</red> is written in a file with a .java extension, with the name of 
             the 
             <red>interface</red> matching the name of the file.
             <br></br><br></br>
             The bytecode of an <red>interface</red> appears in a .class file.
-            <br></br>
-            <red>Interfaces</red> appear in packages, and their corresponding bytecode 
+            <br></br><br></br>
+            The <red>interfaces</red> appear in packages, and their corresponding bytecode 
             file must be in a directory structure that matches the package name.
             <br></br><br></br>
             <green>
@@ -10038,18 +10043,18 @@ public interface Electronic
             </green>
             <br></br><br></br>
             You cannot <blue>instantiate</blue> an <red>interface</red>.
-            <br></br>
+            <br></br><br></br>
             An <red>interface</red> does not contain any <red>constructors</red>.
-            <br></br>
+            <br></br><br></br>
             All of the <red>methods</red> in an <red>interface</red> are <red>abstract</red>.
-            <br></br>
+            <br></br><br></br>
             An <red>interface</red> cannot contain <red>instance</red> fields. 
             The only fields that can appear in an interface must be declared 
             both <red>static</red> and <red>final</red>.
-            <br></br>
+            <br></br><br></br>
             An <red>interface</red> is not extended by a <red>class</red>, it is implemented by a 
             <red>class</red>.
-            <br></br>
+            <br></br><br></br>
             An <red>interface</red> can <red>extend</red> multiple other <red>interfaces</red>.
             <br></br><br></br>
             Through <blue>implements</blue> the <red>interfaces</red> exhibit the same characteristics 
