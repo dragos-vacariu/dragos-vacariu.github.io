@@ -560,10 +560,10 @@ int main()
             We can define constants and <red>functions like macros</red> using <code>#define</code>.
         </defines>
         <command-line-arguments>
-            Command line <red>arguments</red> are passed to the main function 
+            Command-line <red>arguments</red> are passed to the main function 
             as (<code>argc</code>, <code>argv</code>), or <code>args</code>. 
             <br></br>
-            Command line <red>arguments</red> are used to control the program from 
+            Command-line <red>arguments</red> are used to control the program from 
             the outside.
             <br></br><br></br>
             <green>For C/C++:</green>
@@ -594,21 +594,21 @@ int main()
             <code>argv[0]</code> <red>is the name of the program.</red> 
             <br></br><br></br>
             After that until <code>argv[argc-1]</code> every element 
-            is a command line argument.
+            is a command-line argument.
             <br></br><br></br>
-            <brown>Properties of command line arguments in C/C++:</brown>
+            <brown>Properties of command-line arguments in C/C++:</brown>
             <br></br><br></br>
             <blue>
             <code>argv[argc]</code> is a <red>NULL</red> pointer.<br></br>
             <code>argv[0]</code> holds the name of the program.<br></br>
-            <code>argv[1]</code> points to the first command line argument and <code>argv[argc-1]</code> points to 
+            <code>argv[1]</code> points to the first command-line argument and <code>argv[argc-1]</code> points to 
                 the last argument.
             </blue>
             <br></br><br></br>
             <green>For Java/C#:</green>
             <br></br><br></br>
             In programming languages such as: C# and Java, only one variable is used to 
-            store the command line arguments: <code>args</code>
+            store the command-line arguments: <code>args</code>
             <br></br><br></br>
             In these languages <code>args</code> is declared as an <blue>array</blue> of 
             <blue>string</blue> 
@@ -617,7 +617,7 @@ int main()
             class defined in those languages: <code>args.length</code> (in Java) 
             or <code>args.Length</code> (in C#).
             <br></br><br></br>
-            <green>Overall properties of Command Line Arguments:</green>
+            <green>Overall properties of Command-Line Arguments:</green>
             <br></br><br></br>
             <blue>
             They are passed to the <code>main()</code> function.<br></br>
