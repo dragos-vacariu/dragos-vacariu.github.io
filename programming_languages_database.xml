@@ -9933,12 +9933,13 @@ public void doSomething(String name, int age, String city = "New York") {
             (<red>final variables</red>), <red>static variables</red>,  
             <blue>default methods</blue>, <red>static methods</red>, and <blue>nested types</blue>.
             <br></br><br></br>
-            A <blue>nested type</blue> is a <blue>type</blue> within a <blue>type</blue> such as 
-            <red>class</red> within a <red>class</red> or <red>interface</red> defined
+            A <blue>nested type</blue> is a <blue>type</blue> defined within a <blue>type</blue> 
+            such as: 
+            a <red>class</red> defined within a <red>class</red> or an <red>interface</red> defined
             within an <red>interface</red>.
             <br></br><br></br>
-            A <red>final</red> variable, also called a <blue>“constant”</blue>, is a variable 
-            whose value it cannot be
+            A <red>final</red> variable is also called a <blue>“constant”</blue>. It is a variable 
+            whose value cannot be
             change after it's been initialized. 
             <br></br><br></br>
             The method bodies may exist only for the <blue>default methods</blue> and/or 
@@ -10003,8 +10004,7 @@ public interface Electronic
             defined in the same file, unless they are <blue>nested</blue>.
             <br></br><br></br>
             The only way to have multiple <red>classes</red>/<red>interfaces</red> defined in 
-            one file is if 
-            they are defined as <blue>nested types</blue>.
+            one file is by having them defined as <blue>nested types</blue>.
             <br></br><br></br>
             Once that a <red>class</red> implements an <red>interface</red> that <red>class</red> is 
             obliged to 
