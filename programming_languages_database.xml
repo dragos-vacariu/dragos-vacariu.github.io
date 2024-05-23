@@ -11952,9 +11952,7 @@ print(type(x))
             Python programming language provides two types of loops: <red>For loop</red> and 
             <blue>While loop</blue>
             <br></br><br></br>
-            <green>
             Loops in Python provides multiple ways for the execution:
-            </green>
             <br></br><br></br>
             <red>While Loop:</red>
 <code>
