@@ -11339,8 +11339,8 @@ Employee.displayCount(emp2)
 
 Employee.displayEmployee(emp1)
 
-#Instead of using the normal statements to access attributes, 
-#you can use the following functions:
+#Instead of using the normal statements to access  
+#attributes, you can use the following functions:
 
 #So there is no need for GETTERS and SETTERS:
 hasattr(emp1, 'name')
@@ -11405,8 +11405,9 @@ input("\nPress any key to exit: ")
             A <red>class</red> can implement the special method <code>__del__()</code>, 
             called a <blue>destructor</blue>, that is invoked when the 
             <red>instance</red> is about to be destroyed.
-            
+            <br></br><br></br>
             <green>Built-In Class Attributes:</green>
+            <br></br><br></br>
             These built-in attributes can be accessed using dot operator(<code>.</code>) just 
             like any other class attribute.
             <br></br><br></br>
