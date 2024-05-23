@@ -11341,9 +11341,9 @@ Employee.displayCount(emp2)
 Employee.displayEmployee(emp1)
 
 #Instead of using the normal statements to access  
-#attributes, you can use the following functions:
+#attributes, you can use the following functions
+#similar to getters and setters:
 
-#So there is no need for GETTERS and SETTERS:
 hasattr(emp1, 'name')
 # Returns true if 'name' attribute exists
 
@@ -11356,8 +11356,8 @@ setattr(emp1, 'name', "Mark")
 delattr(emp1, 'name')    
 # Delete attribute 'name'
 
-#emp1.displayEmployee()
 #calling this method will now throw an exception
+#emp1.displayEmployee()
 #as emp1 has no name attribute anymore.
 
 #Accesing build-in class attributes:
