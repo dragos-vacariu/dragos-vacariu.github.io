@@ -11732,11 +11732,17 @@ input("\nPress any key to exit: ")
         </inheritance>
         <abstraction>
             *General-Programming-Knowledge*
+            <br></br>
             <green>Abstraction in Python:</green>
-            Abstraction in Python refers to the process of creating abstract 
-            classes and methods that provide a blueprint for other classes to inherit from.
+            <br></br><br></br>
+            <blue>Abstraction</blue> in Python refers to the process of creating 
+            <blue>abstract 
+            classes</blue> and <blue>methods</blue> that provide a blueprint for other 
+            <blue>classes</blue> to <red>inherit</red> from.
+            <br></br><br></br>
             It allows us to define common attributes and behaviors that can be shared among 
-            multiple classes.
+            multiple <blue>classes</blue>.
+            <br></br>
 <code>
 //Example of abstraction in Python:
 
@@ -11764,7 +11770,6 @@ class concreteclass(democlass):
 obj = concreteclass()
 obj.method1()
 obj.method2()
-
 </code>
         </abstraction>
         <generic-programming>*General-Programming-Knowledge*
