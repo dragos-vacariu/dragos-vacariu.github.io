@@ -49,13 +49,13 @@
             <br></br><br></br>
             A <blue>class</blue> variable is a variable that is shared by all <red>instances</red> 
             of a <red>class</red>.
-            <br></br><br></br>
+            <br></br>
             <blue>Class</blue> variables are defined within a <red>class</red> but 
             outside any of any <blue>class method</blue>. 
-            <br></br><br></br>
+            <br></br>
             Typically in OOP languages <blue>class variables</blue> are 
             defined using the <blue>static</blue> keyword.
-            <br></br><br></br>
+            <br></br>
             <blue>Class variables</blue> are not used as frequently as <red>instance variables</red>.
             <br></br><br></br>
             <brown>Instance variables:</brown>
