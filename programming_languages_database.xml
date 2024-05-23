@@ -2324,6 +2324,7 @@ int main()
         a = 11
         x = 11
     */
+}
 </code>
 
 <code>
@@ -2347,7 +2348,6 @@ int main()
         a = 10
         x = 11
     */
-
 }
 </code>
         </pre-post-incrementation>
