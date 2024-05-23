@@ -1825,7 +1825,9 @@ fclose(fptr);
 // this will close the file.
 </code>    
         <br></br>
+        <green>
         Closing the file:
+        </green>
         <br></br><br></br>
         It is considered as <red>good practice</red>, because it makes sure that:
         <br></br><br></br>
