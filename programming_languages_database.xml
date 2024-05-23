@@ -11523,13 +11523,27 @@ input("\nPress ENTER to exit.")
             <red>Polymorphism with built-in functions:</red>
             <br></br>
 <code>
-#Example of polymorphism with functions:
+#Example of polymorphism with 
+#built-in functions:
  
 # len() being used for a string
 print(len("geeks"))
  
 # len() being used for a list
 print(len([10, 20, 30]))
+</code>
+            <br></br>
+            <red>Polymorphism with user-defined functions:</red>
+            <br></br>
+<code>
+#Example of polymorphism with 
+#user-defined functions:
+ 
+def add(x, y, z = 0): 
+    return x + y+z
+ 
+print(add(2, 3))
+print(add(2, 3, 4))
 </code>
             <br></br>
             <red>Polymorphism with class methods:</red>
