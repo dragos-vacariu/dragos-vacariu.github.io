@@ -1438,10 +1438,12 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <br></br> 
         </write-to-file>
         <inheritance>
-            <red>Inheritance</red> allows programmers to create <red>classes</red> that are built upon existing 
-            <red>classes</red>, to specify a <blue>new implementation while maintaining the same behaviors</blue> 
-            (realizing an interface), <blue>to reuse code</blue> and to <blue>independently extend original 
-            software</blue> via <code>public classes</code> and <code>interfaces</code>.
+            <red>Inheritance</red> allows programmers to create <red>classes</red> that are built 
+            upon existing 
+            <red>classes</red>, to specify a <blue>new implementation</blue>  while maintaining the 
+            same behaviors
+            (realizing an interface), <blue>to reuse code</blue> and to <blue>independently extend</blue> 
+            original software via <code>public classes</code> and <code>interfaces</code>.
             <br></br><br></br>
             <red>Inheritance</red> consist in <red>classes</red> that can inherit other <red>classes</red> 
             behaviour and functionality. 
@@ -11588,7 +11590,7 @@ for country in (obj_ind, obj_usa):
             <br></br><br></br>
             Instead of starting from scratch, you can create a <blue>class</blue> by deriving 
             it from a preexisting <blue>class</blue> by listing the <red>parent class</red>
-            between <code>()</code> parentheses after the <blue>class</blue> name.
+            between <code>()</code> parentheses, after the <blue>class</blue> name.
             <br></br><br></br>
             By <red>inheritance</red>: the <red>child class</red> inherits the attributes of 
             its <blue>parent class</blue>, 
