@@ -42,18 +42,20 @@
             <brown>Attributes:</brown>
             <br></br><br></br>
             The attributes are data members (<red>class variables</red> and 
-            <blue>instance variables</blue>) and methods, accessed using <code>.</code> operator.
-            Attributes are also reffered to as: <red>fields/variables</red> and <blue>methods/properties</blue>.
+            <blue>instance variables</blue>) and <red>methods</red>, accessed using the <code>.</code> operator.
+            The attributes are also reffered to as: <red>fields/variables</red> and <blue>methods/properties</blue>.
             <br></br><br></br>
             <brown>Class variables:</brown>
             <br></br><br></br>
             A <blue>class</blue> variable is a variable that is shared by all <red>instances</red> 
-            of a <red>class</red>. 
+            of a <red>class</red>.
+            <br></br><br></br>
             <blue>Class</blue> variables are defined within a <red>class</red> but 
             outside any of any <blue>class method</blue>. 
-            <br></br>
+            <br></br><br></br>
             Typically in OOP languages <blue>class variables</blue> are 
             defined using the <blue>static</blue> keyword.
+            <br></br><br></br>
             <blue>Class variables</blue> are not used as frequently as <red>instance variables</red>.
             <br></br><br></br>
             <brown>Instance variables:</brown>
@@ -93,8 +95,9 @@
             <br></br><br></br>
             <brown>Object:</brown>
             <br></br><br></br>
-            An <red>instance</red> of the <red>class</red> is also called as an <red>object</red>. 
-            An <red>object</red> is a data structure that's defined by its <red>class</red>. 
+            An <red>instance</red> of the <red>class</red> is also called as an <red>object</red>.
+            An <red>object</red> is a data structure that's defined by its <red>class</red>.
+            <br></br><br></br>
             An <red>object</red> comprises from both data members (<red>class variables</red> 
             and <blue>instance variables</blue>) and <blue>methods</blue>.
             <br></br><br></br>
@@ -123,6 +126,7 @@
             <blue>Class members</blue> cannot be combined with <red>instance members</red>. 
             Meaning we cannot have a <blue>class method</blue>
             that would access an <red>instance member</red>. 
+            <br></br><br></br>
             <blue>Class methods</blue> cannot directly access <red>instance variables</red> 
             and <red>instance methods</red> but the reversed way is possible: 
             <red>instance methods</red> can access <blue>class variables</blue> and 
