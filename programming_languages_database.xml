@@ -11778,8 +11778,12 @@ obj.method2()
             <green>Generic-Programming in Python:</green>
             <br></br><br></br>
             Python <blue>generics</blue> are like hints in Python. They came out in Python 3.5
-            and newer versions. They let you say what <red>type</red> of things your variables, 
-            functions, and results are. It helps you write down what kind of things your 
+            and newer versions. 
+            <br></br>
+            They let you say what <red>type</red> of things your variables, 
+            functions, and results are. 
+            <br></br>
+            It helps you write down what kind of things your 
             code is dealing with, but it doesn't make the computer check it 
             while running the code.
             <br></br>
@@ -11844,7 +11848,8 @@ process_data(duck_list)
 # Quack!
 </code>
         </generic-programming>
-        <variable-arguments-lists>*General-Programming-Knowledge*
+        <variable-arguments-lists>
+            *General-Programming-Knowledge*
 <code>
 #Example of variable arguments in Python:
 
@@ -11937,86 +11942,90 @@ x = None
 print(type(x))
 </code>        
         </simple-data-types>
-        <complex-data-types>*General-Programming-Knowledge*</complex-data-types>
+        <complex-data-types>
+            The <blue>complex data type</blue> in Python is used to represent numbers with both 
+            <red>real</red> and <red>imaginary</red> parts. It is written in the 
+            form of <blue>a + bj</blue>, where <blue>a</blue> 
+            represents the real part and <blue>b</blue> represents the imaginary part.
+        </complex-data-types>
         <loops>
+            Python programming language provides two types of loops: <red>For loop</red> and 
+            <blue>While loop</blue>
+            <br></br><br></br>
+            <green>
+            Loops in Python provides multiple ways for the execution:
+            </green>
+            <br></br><br></br>
+            <red>While Loop:</red>
 <code>
-#This synthax of FOR loop works like FOREACH
+#Example of while loop execution:
 
-for letter in 'Python':     # letter is the variable in which will be stored
-#each element of the collection (String).
-   print ("Current Letter : {0}" .format(letter)) #This will print the current letter
-
-print("\n")
-fruits = ['banana', 'apple',  'mango']
-for fruit in fruits:
-   print ("Current fruit : {0}" .format(fruit))
-
-
-#This works as a normal FOR loop:
-for num in range(10,20):  #to iterate between 10 to 20
-    for i in range(2,num): #to iterate on the factors of the number
-        if num%i == 0:      #this "if statement" is in the inner loop.
-            j=num/i          #to calculate the second factor
-            print ("{0} equals {1} * {2}"  .format(num,i,j))
-            break #to move to the next number, the #first FOR
-    else:                  # this "else statement" is in the outer loop
-        print ("{0} is prime number" .format(num)) 
-
-#While Loops
-print("The following is WHILE loop:\n")
 count = 0
-while (count &lt; 9):
-   print ("The count is: {0}" .format(count))
-   count = count + 1        
-
-#Infinite While Loops
-var = 1
-while var == 1 :  # This constructs an infinite loop
-   num = input("Enter a number  :")
-   print ("You entered: {0}" .format(num))
-
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
-input("\nPress any key to exit: ")
-
+while (count &lt; 3):
+    count = count + 1
+    print("Hello")
 </code>
 
 <code>
-cars = ["Mitsubishi", "Subaru", "Peugeot", "Renault", "Lamborghini", "Ferrari"]
+#Example of while-else loop execution:
 
-#Printing the reverse list:
-for i in range (5,-1, -1):
-    print("{0}" .format(cars[i]))
+count = 0
+while (count &lt; 3):
+    count = count + 1
+    print("Hello")
+else:
+    print("Goodbye")
+</code>
 
-#Printing the reverse list 2 by 2:
-print()
-for i in range (5,-1, -2):
-    print("{0}" .format(cars[i]))
+<code>
+#Example of infinite while loop execution 
+#using try-except blocks:
 
-#Printing the list 2 by 2:
-print()
-for i in range (0,6, 2):
-    print("{0}" .format(cars[i]))    
+fruits = ["apple", "orange", "kiwi"]
+iter_obj = iter(fruits)
+while True:
+    try:
+        fruit = next(iter_obj)
+        print(fruit)
+    except StopIteration:
+        break
+</code>
+             <br></br>
+            <red>For Loop:</red>
+            <br></br>
+<code>
+#Example of for loop execution using range:
 
-#Slicing a loop:
-print()
-for car in cars[:3]:
-    print("{0}" .format(car))
-
-#Same syntax for a while:
-i=0;
-print()
-while (i&lt;10):
+n = 4
+for i in range(0, n):
     print(i)
-    i+=2
+</code>
 
-#Another way of for looping:
-print()
-for i in range (3):
-    print (i)
+<code>
+#Example of for loop execution using range:
 
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
-input("\nPress any key to exit: ")
+list = ["items", "inside", "the", "list"]
+for index in range(len(list)):
+    print(list[index])
+</code>
 
+<code>
+#Example of for-else loop execution using range:
+
+list = ["items", "inside", "the", "list"]
+for index in range(len(list)):
+    print(list[index])
+else:
+    print("List ended.")
+</code>
+
+<code>
+#Example of for loop execution as foreach:
+
+fruits = ["apple", "orange", "kiwi"]
+
+for fruit in fruits:
+    print(fruit)
 </code>
         </loops>
         <collections>*General-Programming-Knowledge*
