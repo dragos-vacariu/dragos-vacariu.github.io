@@ -12042,12 +12042,14 @@ for fruit in fruits:
             items in a <blue>list</blue> after it has been created.
             <br></br><br></br>
             A <blue>list</blue> is like a vector (<red>dynamic</red> in length) and it can be accessed 
-            in the same way, by index. The <blue>list</blue> collections are indexed starting from 
+            in the same way, by <red>index</red>. The <blue>list</blue> collections are indexed 
+            starting from 
             <blue>0</blue>, similar to any other <red>collection</red> from other programming languages.
             <br></br><br></br>
             In Python a <blue>list</blue> can be created using any type of data.
-            Dynamic length of a <blue>list</blue>, allows appending new elements at the end of the 
-            <blue>list</blue>, so that the size would change automatically.
+            The <red>dynamic</red> length of a <blue>list</blue>, allows appending new elements 
+            at the end of the 
+            <blue>list</blue>, so that the <red>size</red> would change automatically.
             <br></br>
 <code>
 #Example of working with lists in Python 3:
@@ -12140,6 +12142,7 @@ for a,b in names:
             Each <blue>key</blue> is separated from its <red>value</red> by a colon (<code>:</code>), 
             the items are separated by
             commas (<code>,</code>) and the whole thing is enclosed in curly braces <code>{}</code>. 
+            <br></br>
             An empty <blue>dictionary</blue>
             without any items is declared using only two curly braces such as: <code>{}</code>.
             <br></br><br></br>
@@ -12169,7 +12172,7 @@ for a,b in names:
             <br></br><br></br>
             Example: <code>dict = {['Name']: 'Zara'}</code>
             <br></br>
-            This case is not allowed as the key provided is of type <blue>list</blue>
+            This case is not allowed as the <blue>key</blue> provided is of type <blue>list</blue>.
             <br></br>
 <code>
 #Example of working with dictionaries in Python 3:
@@ -12286,8 +12289,8 @@ print("The sorted (by keys) zipped dictionary is: ", sorted(name))
             <brown>Sets:</brown>
             <br></br><br></br>
             <blue>Sets</blue> are like <blue>lists</blue> that cannot contain duplicate elements.
-            <blue>Sets</blue> can use the same <red>functions/methods</red> and attributes as 
-            <blue>lists</blue> and <blue>dictionaries</blue>
+            <blue>Sets</blue> can use the same <red>functions/methods</red> and <red>attributes</red> 
+            as <blue>lists</blue> and <blue>dictionaries</blue>
 <code>
 #Example of working with sets in Python 3:
 
@@ -12316,14 +12319,15 @@ input("\nPress any key to exit: ")
             - <blue>tuples</blue> use parenthesis <code>()</code>, whereas <red>lists</red> use 
             square brackets <code>[]</code>.<br></br>
             <red>Immutable</red> means constant once initialized it cannot be changed, meaning
-            no item can be changed, added or removed from it.
+            no item can be changed, <red>added</red> or <red>removed</red> from it.
             <br></br><br></br>
             <blue>Tuples</blue> can however be reinitialized with different values.
             <br></br><br></br>
             <blue>Tuples</blue> can be sliced meaning you are able to take portions of
             existing <blue>tuples</blue> to create new <blue>tuples</blue>.
             <br></br><br></br>
-            New <blue>tuples</blue> can be created by adding 2 existing <blue>tuples</blue> together.
+            New <blue>tuples</blue> can be created by adding <blue>2</blue> 
+            existing <blue>tuples</blue> together.
             <br></br><br></br>
             Any set of multiple <red>objects</red>, comma-separated, declared without identifying 
             symbols are by default set to <blue>tuples</blue>.
