@@ -57,7 +57,7 @@
             <br></br><br></br>
             <brown>Instance variables:</brown>
             <br></br><br></br>
-            An <red>instance variable</red> is a </blue>non-static<blue> variable that is defined 
+            An <red>instance variable</red> is a <blue>non-static</blue> variable that is defined 
             inside a <red>class</red> and belongs only to the current <red>instance</red> of a 
             <red>class</red>. <red>Instance variables</red>
             can be refered to by using <blue>this</blue> keyword in languages such as: C++, C#, Java,
@@ -105,7 +105,7 @@
             so that it produces the desired behaviour on <blue>complex data types</blue> such as 
             <red>objects</red>.
             <br></br><br></br>
-            <brown>Class members vs. Instance members:</brown>
+            <green>Class members vs. Instance members:</green>
             <br></br><br></br>
             A member is either a <red>variable</red> or a <red>method</red>. 
             A <red>method</red> belonging to the <red>class</red> is
@@ -114,7 +114,8 @@
             <blue>Class methods</blue> or <blue>variables</blue>
             cannot be reffered to by using <blue>this</blue> or <blue>self</blue> keywords. 
             <br></br><br></br>
-            <blue>Class methods</blue> and <blue>variables</blue> can be accessed without an instance
+            <blue>Class methods</blue> and <blue>variables</blue> can be accessed without an 
+            <red>instance</red>
             of the <red>class</red> by using the name of the <red>class</red> followed by the 
             <blue>.</blue> operator.
             <br></br><br></br>
