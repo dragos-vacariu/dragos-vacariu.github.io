@@ -1459,12 +1459,12 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             Using plugins to get run-time overriding and more;
             </blue>
 <code>
-//Example of generic function in C:
-
-/* Find min in v[0..size-1], assumes size is > 0 */
+//Example of generic programming in C:
 
 int min(void v[], int size, int (*compare)(void *, void *))
 {
+    /* Find min in v[0..size-1], assumes size is > 0 */
+    
     int i;
     int min = 0;
     
@@ -2273,12 +2273,13 @@ int main()
             *General-Programming-Knowledge*
             <br></br>
             <green>Polymorphism in C:</green>
+            <br></br><br></br>
             Even though C does not support OOP. A type of <blue>polymorphism</blue> can still 
             be achieved
             by using the <blue>generic pointer</blue>.
             <br></br><br></br>
             The type <code>void *</code> is used as a <blue>generic pointer</blue> in 
-            C (similar in concept to Object type in OOP). 
+            C (similar in concept to <red>Object</red> type in OOP). 
             <br></br><br></br>
             <blue>Pointers</blue> to any type can be assigned to a
             variable of type <code>void *</code>, which allows <blue>parametric polymorphism</blue>.
