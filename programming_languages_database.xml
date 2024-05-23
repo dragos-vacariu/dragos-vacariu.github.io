@@ -1304,22 +1304,22 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <br></br><br></br>
             <green>Features of file handling:</green>
             <br></br><br></br>
-            <blue>Reusability</blue>: <br></br>
+            <blue>Reusability:</blue><br></br>
             The data stored in the <blue>file</blue> can be <red>accessed</red>, 
             <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
             <blue>high reusability.</blue>.
-            <br></br>
-            <blue>Portability</blue>: <br></br>
+            <br></br><br></br>
+            <blue>Portability:</blue><br></br>
             Without losing any data, <blue>files</blue> can be transferred to 
             another in the computer system. The risk of flawed coding is 
             minimized with this feature.
-            <br></br>
-            <blue>Efficiency</blue>: <br></br>
+            <br></br><br></br>
+            <blue>Efficiency:</blue><br></br>
             A large amount of input may be required for some programs. 
             <blue>File handling</blue> allows you to easily access a part of a <blue>file</blue> using few 
             instructions which saves a lot of time and reduces the chance of errors.
-            <br></br>
-            <blue>Storage Capacity</blue>: <br></br>
+            <br></br><br></br>
+            <blue>Storage Capacity:</blue> <br></br>
             <blue>Files</blue> allow you to store a large amount of data 
             without having to worry about storing everything simultaneously in a program.
             <br></br><br></br>
