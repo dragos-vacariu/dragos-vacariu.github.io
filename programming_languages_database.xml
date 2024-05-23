@@ -11448,22 +11448,37 @@ else:
         </oop>
         <encapsulation>*General-Programming-Knowledge*
 <code>
-class Person: # for inheritance class Person(parent_class):
+#Example of encapsulation in Python:
+
+class Person:
+
     #Static fields are declared here
     name = "name"
     __age = 0 #this is a public field
     width = 0 #this is a private
-    #static field can become non-static field for a particular instance at a particular time when specified
+    
+    #static field can become non-static field for a particular instance 
+    #at a particular time when specified
+    
+    #Constructor:
     def __init__(self):
-        #This is the constructor: Only one constructor function is allowed
-        #Function overriding is forbidden
+        #This is the constructor: Only one constructor 
+        #function is allowed in Python.
+        
+        #Function overriding is forbidden.
         self.width = 104
         #Non-Static field get declared in the constructor
+    
+    #Encapsulation getters and setters:
+    
+    #Setters:
     def setName(self, Name): # this is a setter
         self.name = Name
-    #Encapsulation
+    
     def setAge(self, Age):
         self.__age = Age
+    
+    #Getters:
     def getAge(self):
         return self.__age
 
@@ -11471,15 +11486,19 @@ class Employee(Person):
     def __init__(self):
         super().__init__()
         self.name = "Employee"
+
 #Creating a class
 person = Person ()
 #seting the field of the class
+
 person.setName("Alin Popescu")
+
 #Accesing the public field of the class
 print (person.name)
 
 #setting the value of private field
 person.setAge(22)
+
 #getting the value of a private field
 print(person.getAge())
 
