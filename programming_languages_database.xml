@@ -31,8 +31,98 @@
             and place them at a single place and reuse them instead of repeating it.
             </red>
             <br></br><br></br>
+            <green>Terminology:</green>
+            <br></br><br></br>
+            <brown>Classes:</brown>
+            <br></br><br></br>
+            A <red>class</red> is a user-defined prototype for an <red>object</red> that defines a set 
+            of <blue>attributes</blue> that 
+            characterize any <red>object/instance</red> of the <red>class</red>.
+            <br></br><br></br>
+            <brown>Attributes:</brown>
+            <br></br><br></br>
+            The attributes are data members (<red>class variables</red> and 
+            <blue>instance variables</blue>) and methods, accessed using <code>.</code> operator.
+            <br></br><br></br>
+            <brown>Class variables:</brown>
+            <br></br><br></br>
+            A <blue>class</blue> variable is a variable that is shared by all <red>instances</red> 
+            of a <red>class</red>. 
+            <blue>Class</blue> variables are defined within a <red>class</red> but 
+            outside any of any <blue>class method</blue>. 
+            <br></br>
+            Typically in OOP languages <blue>class variables</blue> are 
+            defined using the <blue>static</blue> keyword.
+            <blue>Class variables</blue> are not used as frequently as <red>instance variables</red>.
+            <br></br><br></br>
+            <brown>Instance variables:</brown>
+            <br></br><br></br>
+            An <red>instance variable</red> is a </blue>non-static<blue> variable that is defined 
+            inside a <red>class</red> and belongs only to the current <red>instance</red> of a 
+            <red>class</red>. <red>Instance variables</red>
+            can be refered to by using <blue>this</blue> keyword in languages such as: C++, C#, Java,
+            JavaScript or by using <blue>self</blue> keyword in Python.
+            <br></br><br></br>
+            <brown>Data member:</brown>
+            <br></br><br></br>
+            A data member is a <red>class</red> variable or <blue>instance</blue> variable that 
+            holds data associated 
+            with a <red>class</red> and its <blue>objects</blue>.
+            <br></br><br></br>
+            <brown>Function overloading:</brown>
+            <br></br><br></br>
+            <blue>Function overloading</blue> is the assignment of more than one behavior to a 
+            particular <red>function</red>.
+            The operation performed varies by the types of <blue>objects</blue> or arguments involved.
+            <br></br><br></br>
+            <brown>Instance:</brown>
+            <br></br><br></br>
+            An <red>instance</red> is an individual <red>object</red> of a certain <red>class</red>. 
+            An <red>instance</red> of an <red>object</red> is created
+            by involking the <blue>constructor</blue> of the <red>object</red>. 
+            The process of creating an <red>object</red> is 
+            called
+            <red>instanciation</red> or <red>instancing</red>.
+            <br></br><br></br>
+            <brown>Method:</brown>
+            <br></br><br></br>
+            A <red>method</red> is another name given to a <red>function</red> that is defined 
+            within a <red>class</red> definition. <red>Methods</red>
+            can also belong to the <red>class</red> or to the <red>instance</red>.
+            <br></br><br></br>
+            <brown>Object:</brown>
+            <br></br><br></br>
+            An instance of the class is also called as an object. An object is 
+            a data structure that's defined by its class. 
+            An object comprises from both data members (class variables and instance variables) 
+            and methods.
+            <br></br><br></br>
+            <brown>Operator overloading:</brown>
+            <br></br><br></br>
+            The assignment of more than one function to a particular operator is called operator 
+            overloading. Via operator overloading, an operator can be customized
+            so that it produces the desired behaviour on complex data types such as objects.
+            <br></br><br></br>
+            <brown>Class members vs. Instance members:</brown>
+            <br></br><br></br>
+            A <red>class</red> member is either a <red>variable</red> or a <red>method</red>. 
+            A <red>method</red> belonging to the <red>class</red> is
+            defined in most OOP languages by using the <red>static</red> keyword. 
+            <red>Class methods</red> or <red>variables</red>
+            cannot be reffered to by using <blue>this</blue> or <blue>self</blue> keywords. 
+            <red>Class methods</red> and <red>variables</red> can be accessed without an instance
+            of the <red>class</red> by using the name of the <red>class</red> followed by the 
+            <blue>.</blue> operator.
+            <red>Class</red> members cannot be combined with <red>instance members</red>. 
+            Meaning we cannot have a <red>class</red>
+            method that would access an <red>instance member</red>. 
+            <blue>Static methods</blue> cannot directly access <red>instance</red> 
+            variables and <blue>instance methods</blue>.
+            <br></br><br></br>
+            <green>OOP Concepts:</green>
+            <br></br><br></br>
             Typically an <blue>object-oriented</blue> programming language 
-            have <blue>4 fundamental concepts</blue>:
+            has <blue>4 fundamental concepts</blue>:
             <br></br><br></br>
             <blue>
             1. Inheritance<br></br>
@@ -11170,36 +11260,10 @@ class Employee extends Sunstar
             "batteries included" language due to its <blue>comprehensive standard library</blue>.
         </description>
         <oop>*General-Programming-Knowledge*
+        
+        <green>Object Oriented Programming in Python:</green>
+
 <code>
-#Object Oriented Programming in Python (OOP)
-
-#Documentation:
-
-#Class: A user-defined prototype for an object that defines a set of attributes that characterize any object of the class.
-#The attributes are data members (class variables and instance variables) and methods, accessed via dot notation.
-
-#Class variable: A variable that is shared by all instances of a class. Class variables are defined within a class but
-#outside any of the class's methods. Class variables are not used as frequently as instance variables are.
-
-#Data member: A class variable or instance variable that holds data associated with a class and its objects.
-
-#Function overloading: The assignment of more than one behavior to a particular function. The operation performed varies
-#by the types of objects or arguments involved.
-
-#Instance variable: A variable that is defined inside a method and belongs only to the current instance of a class.
-
-#Inheritance: The transfer of the characteristics of a class to other classes that are derived from it.
-
-#Instance: An individual object of a certain class. An object obj that belongs to a class Circle, for example, is an
-#instance of the class Circle.
-
-#Instantiation: The creation of an instance of a class.
-
-#Method : A special kind of function that is defined in a class definition.
-
-#Object: A unique instance of a data structure that's defined by its class. An object comprises both data members (class variables and instance variables) and methods.
-
-#Operator overloading: The assignment of more than one function to a particular operator.
 
 #Creating a class:
 class Employee:
