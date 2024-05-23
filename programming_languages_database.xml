@@ -11278,9 +11278,13 @@ class Employee extends Sunstar
             <br></br><br></br>
             <red>Python</red> uses the <blue>self</blue> keyword to reffer to instance variables.
             <br></br><br></br>
-            In Python the variables/fields declared within a class but outside of any method
-            will become class variables and will be shared amongst all instances.
-
+            In Python the <blue>variables/fields</blue> declared within a <red>class</red> but outside of 
+            any <red>method<>/red
+            will become <red>class variables/fields</red> and will be shared amongst all <red>instances</red>.
+            The <blue>variables/fields</blue>
+            declared within the <blue>constructor</blue> will become
+            <blue>instance variables/fields</blue>.
+            <br></br>
 <code>
 #Example of class definition in Python:
 
@@ -11292,8 +11296,7 @@ class Employee:
     #This member is a class variable whose value 
     #is shared among all instances of a this class.
     empCount = 0 
-    #this is like a static variable. The class will 
-    #create only a variable for all the instances.
+    #this is similar to a static variable
 
     #Creating a constructor for the class:
     def __init__(self, name, salary):    
