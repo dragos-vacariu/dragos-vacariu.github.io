@@ -11272,40 +11272,54 @@ class Employee extends Sunstar
             It is often described as a 
             "batteries included" language due to its <blue>comprehensive standard library</blue>.
         </description>
-        <oop>*General-Programming-Knowledge*
-        
-        <green>Object Oriented Programming in Python:</green>
+        <oop>
+            *General-Programming-Knowledge*
+            <green>Object Oriented Programming in Python:</green>
+            <red>Python</red> uses the <blue>self</blue> keyword to reffer to instance variables.
+            <br></br><br></br>
+            In Python the variables/fields declared within a class but outside of any method
+            will become class variables and will be shared amongst all instances.
 
 <code>
+#Example of class definition in Python:
 
 #Creating a class:
 class Employee:
-   'Common base class for all employees' #This works like documentation of the class.
+    #This works like documentation of the class.
+    'Common base class for all employees' 
 
-   #This member is a class variable whose value is shared among all instances of a this class.
-   empCount = 0 #this is like a static variable. The class will create only a variable for all the instances.
+    #This member is a class variable whose value 
+    #is shared among all instances of a this class.
+    empCount = 0 
+    #this is like a static variable. The class will 
+    #create only a variable for all the instances.
 
     #Creating a constructor for the class:
-   def __init__(self, name, salary):    #the name of the constructor is always the same: "__init__"
-
-    #Here is the place where the members of the class gets created and initialized.
-      self.name = name
-      self.salary = salary
-      Employee.empCount += 1
+    def __init__(self, name, salary):    
+        #the name of the constructor is 
+        #always the same: "__init__"
+    
+        #Here is the place where the members of the 
+        #class gets created and initialized.
+        self.name = name
+        self.salary = salary
+        Employee.empCount += 1
    
-   def displayCount(self): #The first parameter of any function in the class is always "self"
-    #That means that the function will display information about that instance that calls it.
-     print ("Total Employee {0}" .format(Employee.empCount))
+    #The first parameter of any function
+    #in the class is always "self"
+    def displayCount(self):  
+        #That means that the function will display 
+        #information about that instance that calls it.
+        print ("Total Employee {0}" .format(Employee.empCount))
 
-   def displayEmployee(self):#The first parameter of any function in the class is always "self"
-    #That means that the function will display information about that instance that calls it.
-      print ("Name : {0}, Salary: {1}" .format(self.name,self.salary))
+    def displayEmployee(self):
+        print ("Name : {0}, Salary: {1}" .format(self.name,self.salary))
 
     #Implementing a destructor for the class.
-   def __del__(self):
-      #This code will be executed when calling 'del instance'
-          class_name = self.__class__.__name__
-          print ("Employee destroyed")
+    def __del__(self):
+        #This code will be executed when calling 'del instance'
+        class_name = self.__class__.__name__
+        print ("Employee destroyed")
 
 
 #Creating the instances:
@@ -11318,27 +11332,51 @@ emp2 = Employee("Manni", 5000)
 emp1.displayEmployee()
 emp2.displayEmployee()
 emp1.displayCount()
-Employee.displayCount(emp2) #This can work like this as well. But it needs to be specified an instance
-Employee.displayEmployee(emp1)  #This can work like this as well. But it needs to be specified an instance
 
-#Instead of using the normal statements to access attributes, you can use the following functions:
+Employee.displayCount(emp2) 
+#This can work like this as well. 
+#But it needs to be specified an instance
+
+Employee.displayEmployee(emp1)
+
+#Instead of using the normal statements to access attributes, 
+#you can use the following functions:
+
 #So there is no need for GETTERS and SETTERS:
-hasattr(emp1, 'name')    # Returns true if 'name' attribute exists
-getattr(emp1, 'name')    # Returns value of 'name' attribute
-setattr(emp1, 'name', "Mark") # Set attribute 'name' at 8
-# delattr(empl, 'name')    # Delete attribute 'name'
+hasattr(emp1, 'name')
+# Returns true if 'name' attribute exists
+
+getattr(emp1, 'name')    
+# Returns value of 'name' attribute
+
+setattr(emp1, 'name', "Mark") 
+# Set attribute 'name' at 8
+
+delattr(emp1, 'name')    
+# Delete attribute 'name'
 
 emp1.displayEmployee()
 
-
 #Built-In Class Attributes:
-#They can be accessed using dot operator like any other attribute,
+#They can be accessed using dot operator 
+#like any other attribute,
 
-#__dict__: Dictionary containing the class's namespace.
-#__doc__: Class documentation string or none, if undefined.
-#__name__: Class name.
-#__module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
-#__bases__: A possibly empty tuple containing the base classes, in the order of their occurrence in the base class list.
+#__dict__:  
+#Dictionary containing the class's namespace.
+
+#__doc__:   
+#Class documentation string or none, if undefined.
+
+#__name__:  
+#Class name.
+
+#__module__: 
+#Module name in which the class is defined. 
+#This attribute is "__main__" in interactive mode.
+
+#__bases__: 
+#A possibly empty tuple containing the base classes, 
+#in the order of their occurrence in the base class list.
 
 #Accesing those attributes:
 print ("Employee.__doc__: {0}" .format(Employee.__doc__))
@@ -11348,22 +11386,33 @@ print ("Employee.__bases__: {0}" .format( Employee.__bases__))
 print ("Employee.__dict__: {0}" .format( Employee.__dict__))
 
 
-#Python deletes unneeded objects (built-in types or class instances) automatically to free the memory space.
-#Python's garbage collector runs during program execution and is triggered when an object's reference count
-#reaches zero. An object's reference count changes as the number of aliases that point to it changes.
-#You normally will not notice when the garbage collector destroys an orphaned instance and reclaims its space.
+#Python deletes unneeded objects (built-in types or class 
+#instances) automatically to free the memory space.
 
-#A class can implement the special method __del__(), called a destructor, that is invoked when the instance is about to
-#be destroyed.
+#Python's garbage collector runs during program execution 
+#and is triggered when an object's reference count reaches zero. 
+#An object's reference count changes as the number of aliases 
+#that point to it changes.
+
+#You normally will not notice when the garbage collector 
+#destroys an orphaned instance and reclaims its space.
+
+#A class can implement the special method __del__(), 
+#called a destructor, that is invoked when the 
+#instance is about to be destroyed.
 
 #Example:
-del emp1 # this will delete the instance callded emp1.
+del emp1 
+#this will delete the instance callded emp1.
+
 emp2.displayEmployee()
-#emp1.displayEmployee() -> not defined anymore
+emp1.displayEmployee()
+#emp1 is not defined anymore
 
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
+
 input("\nPress any key to exit: ")
-
+#this statement will keep the command prompt open 
+#until the next button press:
 </code>        
         </oop>
         <encapsulation>*General-Programming-Knowledge*
