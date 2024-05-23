@@ -11355,43 +11355,36 @@ setattr(emp1, 'name', "Mark")
 delattr(emp1, 'name')    
 # Delete attribute 'name'
 
-emp1.displayEmployee()
+#emp1.displayEmployee()
+#calling this method will now throw an exception
+#as emp1 has no name attribute anymore.
 
-#Built-In Class Attributes:
-#They can be accessed using dot operator 
-#like any other attribute,
+#Accesing build-in class attributes:
+print ("Employee.__doc__: {0}" .format(Employee.__doc__))
+#__doc__ is the class documentation string or none, if undefined.
 
-#__dict__:  
-#Dictionary containing the class's namespace.
+print ("Employee.__name__: {0}" .format( Employee.__name__))
+#__name__ is the class name
 
-#__doc__:   
-#Class documentation string or none, if undefined.
+print ("Employee.__module__: {0}" .format( Employee.__module__))
+#__module__ is the module name in which the class is defined.
 
-#__name__:  
-#Class name.
-
-#__module__: 
-#Module name in which the class is defined. 
-#This attribute is "__main__" in interactive mode.
-
-#__bases__: 
-#A possibly empty tuple containing the base classes, 
+print ("Employee.__bases__: {0}" .format( Employee.__bases__))
+#__bases__ a possibly empty tuple containing the base classes
 #in the order of their occurrence in the base class list.
 
-#Accesing those attributes:
-print ("Employee.__doc__: {0}" .format(Employee.__doc__))
-print ("Employee.__name__: {0}" .format( Employee.__name__))
-print ("Employee.__module__: {0}" .format( Employee.__module__))
-print ("Employee.__bases__: {0}" .format( Employee.__bases__))
 print ("Employee.__dict__: {0}" .format( Employee.__dict__))
+#__dict__ is a dictionary containing the class's namespace.
 
 #Example:
 del emp1 
 #this will delete the instance callded emp1.
 
 emp2.displayEmployee()
-emp1.displayEmployee()
-#emp1 is not defined anymore
+
+#emp1.displayEmployee()
+#using emp1 will throw an exception
+#as it doesn't exist anymore
 
 input("\nPress any key to exit: ")
 #this statement will keep the command prompt open 
@@ -11412,6 +11405,43 @@ input("\nPress any key to exit: ")
             A <red>class</red> can implement the special method <code>__del__()</code>, 
             called a <blue>destructor</blue>, that is invoked when the 
             <red>instance</red> is about to be destroyed.
+            
+            <green>Built-In Class Attributes:</green>
+            These built-in attributes can be accessed using dot operator(<code>.</code>) just 
+            like any other class attribute.
+            <br></br><br></br>
+            <brown>The atttributes used in the example above are:</brown>
+            <br></br><br></br>
+            <code>__dict__</code> 
+            The attribute contains a <blue>dictionary</blue> containing the class's namespace.
+            <br></br><br></br>
+            <code>__doc__</code>   
+            The attribute contains the class documentation string or none, if undefined.
+            <br></br><br></br>
+            <code>__name__</code>  
+            The attribute contains the class name.
+            <br></br><br></br>
+            <code>__bases__</code>  
+            The attribute contains a possibly empty tuple containing the base classes, 
+            in the order of their occurrence in the base class list.
+            <br></br><br></br>
+            <code>__module__</code>  
+            The attribute contains the name of the module in which the class is defined. 
+            If the module is the one that is currently running then the module name will 
+            be <code>__main__</code>.
+            <br></br><br></br>
+            This is used for modular programming:
+<code>
+//Check whether the python script is run standalone
+//or was imported from a different file.
+
+if __name__ == "__main__": 
+    print ("Executed when invoked directly")
+else: 
+    print ("Executed when imported")
+</code>
+
+            
         </oop>
         <encapsulation>*General-Programming-Knowledge*
 <code>
