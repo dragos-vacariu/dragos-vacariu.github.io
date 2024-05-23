@@ -92,32 +92,39 @@
             <br></br><br></br>
             <brown>Object:</brown>
             <br></br><br></br>
-            An instance of the class is also called as an object. An object is 
-            a data structure that's defined by its class. 
-            An object comprises from both data members (class variables and instance variables) 
-            and methods.
+            An <red>instance</red> of the <red>class</red> is also called as an <red>object</red>. 
+            An <red>object</red> is a data structure that's defined by its <red>class</red>. 
+            An <red>object</red> comprises from both data members (<red>class variables</red> 
+            and <blue>instance variables</blue>) and <blue>methods</blue>.
             <br></br><br></br>
             <brown>Operator overloading:</brown>
             <br></br><br></br>
-            The assignment of more than one function to a particular operator is called operator 
-            overloading. Via operator overloading, an operator can be customized
-            so that it produces the desired behaviour on complex data types such as objects.
+            The assignment of more than one <blue>function</blue> to a particular 
+            <red>operator</red> is called <blue>operator 
+            overloading</blue>. Via <blue>operator overloading</blue>, an <red>operator</red> can be customized
+            so that it produces the desired behaviour on <blue>complex data types</blue> such as 
+            <red>objects</red>.
             <br></br><br></br>
             <brown>Class members vs. Instance members:</brown>
             <br></br><br></br>
-            A <red>class</red> member is either a <red>variable</red> or a <red>method</red>. 
+            A member is either a <red>variable</red> or a <red>method</red>. 
             A <red>method</red> belonging to the <red>class</red> is
-            defined in most OOP languages by using the <red>static</red> keyword. 
-            <red>Class methods</red> or <red>variables</red>
+            defined in most OOP languages by using the <red>static</red> keyword.
+            <br></br><br></br>
+            <blue>Class methods</blue> or <blue>variables</blue>
             cannot be reffered to by using <blue>this</blue> or <blue>self</blue> keywords. 
-            <red>Class methods</red> and <red>variables</red> can be accessed without an instance
+            <br></br><br></br>
+            <blue>Class methods</blue> and <blue>variables</blue> can be accessed without an instance
             of the <red>class</red> by using the name of the <red>class</red> followed by the 
             <blue>.</blue> operator.
-            <red>Class</red> members cannot be combined with <red>instance members</red>. 
-            Meaning we cannot have a <red>class</red>
-            method that would access an <red>instance member</red>. 
-            <blue>Static methods</blue> cannot directly access <red>instance</red> 
-            variables and <blue>instance methods</blue>.
+            <br></br><br></br>
+            <blue>Class members</blue> cannot be combined with <red>instance members</red>. 
+            Meaning we cannot have a <blue>class method</blue>
+            that would access an <red>instance member</red>. 
+            <blue>Class methods</blue> cannot directly access <red>instance variables</red> 
+            and <red>instance methods</red> but the reversed way is possible: 
+            <red>instance methods</red> can access <blue>class variables</blue> and 
+            <blue>class methods</blue> directly.
             <br></br><br></br>
             <green>OOP Concepts:</green>
             <br></br><br></br>
