@@ -11418,23 +11418,24 @@ input("\nPress any key to exit: ")
             The attribute contains a <blue>dictionary</blue> containing the class's namespace.
             <br></br><br></br>
             <code>__doc__</code>   
-            The attribute contains the class documentation string or none, if undefined.
+            The attribute contains the class <blue>documentation string</blue> or none, if undefined.
             <br></br><br></br>
             <code>__name__</code>  
             The attribute contains the class name.
             <br></br><br></br>
             <code>__bases__</code>  
-            The attribute contains a possibly empty tuple containing the base classes, 
+            The attribute contains a possibly empty <blue>tuple</blue> containing the base classes, 
             in the order of their occurrence in the base class list.
             <br></br><br></br>
             <code>__module__</code>  
-            The attribute contains the name of the module in which the class is defined. 
-            If the module is the one that is currently running then the module name will 
+            The attribute contains the <blue>name</blue> of the <blue>module</blue> in which 
+            the class is defined. 
+            If the <blue>module</blue> is the one that is currently running then the module name will 
             be <code>__main__</code>.
             <br></br><br></br>
-            This is used for modular programming:
+            <red>This is used for modular programming:</red>
 <code>
-//Check whether the python script is run standalone
+//Check whether the python script is ran standalone
 //or was imported from a different file.
 
 if __name__ == "__main__": 
