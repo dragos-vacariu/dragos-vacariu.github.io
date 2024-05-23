@@ -11805,23 +11805,39 @@ print(element(['a', 'b', 'c']))
 <code>
 #Example of Python 3 generics with classes:
 
-from typing import TypeVar, Generic
+from typing import TypeVar, Iterable
 
-T = TypeVar(Generic[T])
+#Declare type variable
+T = TypeVar('T')  
 
-class Container:
-    def __init__(self, content: T):
-        self.content = content
-    
-    def retrieve_content(self) -> T:
-        return self.content
+def process_data(data: Iterable[T]) -> None:
+    for item in data:
+        # Check if the object has a quack method, then call it
+        if hasattr(item, 'quack') and callable(item.quack):
+            item.quack()
+        else:
+            print(f"This object of type {type(item).__name__} doesn't quack like a duck!")
 
-#Usage
-container_int = Container(10)
-container_str = Container('GeeksforGeeks')
+#Example class
+class Duck:
+    def quack(self):
+        print("Quack!")
 
-print(container_int.retrieve_content()) 
-print(container_str.retrieve_content())  
+#Another class with similar behavior
+class AnotherBird:
+    def quack(self):
+        print("Quack!")
+
+#Using duck typing with process_data function
+duck_obj = Duck()
+another_bird_obj = AnotherBird()
+
+#Both objects "quack" like a duck
+duck_list = [duck_obj, another_bird_obj]  
+
+#We can pass duck_list to process_data because 
+#both objects have a quack method
+process_data(duck_list)   
 </code>
         </generic-programming>
         <variable-arguments-lists>*General-Programming-Knowledge*
