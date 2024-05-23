@@ -97,7 +97,7 @@
             <br></br><br></br>
             An <red>instance</red> of the <red>class</red> is also called as an <red>object</red>.
             An <red>object</red> is a data structure that's defined by its <red>class</red>.
-            <br></br><br></br>
+            <br></br>
             An <red>object</red> comprises from both data members (<red>class variables</red> 
             and <blue>instance variables</blue>) and <blue>methods</blue>.
             <br></br><br></br>
