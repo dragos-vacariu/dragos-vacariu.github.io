@@ -2292,7 +2292,7 @@ printf("User's percentage is %.2f", percentage);
                 <br></br><br></br>
                 <code>*</code><br></br>
                 <red>Pointer to a variable.<br></br>
-                <code>*a;</code> also known as deferefering the pointer a</red>
+                <code>*a;</code> also known as deferefering the pointer <code>a</code></red>
                 <br></br><br></br>
                 <code>? :</code><br></br>
                 <red>Conditional Expression. <br></br>
