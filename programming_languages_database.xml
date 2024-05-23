@@ -1498,6 +1498,40 @@ int min(void v[], int size, int (*compare)(void *, void *))
             <code>int printf(const char *format, ...);</code><br></br>
             <code>int scanf(const char *format, ...);</code><br></br>
             <code>int execlp(const char *file, const char *arg, ...);</code><br></br>
+<code>
+//Example of variodic functions in C:
+
+#include &lt;stdarg.h&gt;
+#include &lt;stdio.h&gt;
+
+int AddNumbers(int n, ...)
+{
+    // Variadic function to add numbers
+    
+    int Sum = 0;
+
+    //Declaring pointer to the argument list
+    //va_list type comes from stdarg.h
+    va_list ptr;
+
+    //Initializing argument to the list pointer
+    //va_start function comes from stdarg.h
+    va_start(ptr, n);
+
+    for (int i = 0; i &lt; n; i++)
+    {
+        //Accessing current variable and 
+        //pointing to next one
+        Sum += va_arg(ptr, int);
+        //va_arg function comes from stdarg.h
+    }
+    // Ending argument list traversal
+    va_end(ptr);
+    //va_end function comes from stdarg.h
+    
+    return Sum;
+}
+</code>
         </variable-arguments-lists>
         <simple-data-types>*General-Programming-Knowledge*</simple-data-types>
         <complex-data-types>*General-Programming-Knowledge*
