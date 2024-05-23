@@ -1860,7 +1860,6 @@ fclose(fptr);
         </write-to-file>
         <serialization>
             *General-Programming-Knowledge*
-            <br></br><br></br>
             C and C++ do not provide <blue>serialization</blue> as any sort of high-level construct, 
             but both languages support writing any of the built-in <blue>data types</blue>, as well as 
             plain old <blue>data structs</blue>, as binary data. 
@@ -1870,7 +1869,7 @@ fclose(fptr);
         </serialization>
         <deserialization>
             *General-Programming-Knowledge*
-            <br></br><br></br>
+            <br></br>
             C and C++ do not provide <blue>serialization</blue> as any sort of high-level construct, 
             but both languages support writing any of the built-in <blue>data types</blue>, as well as 
             plain old <blue>data structs</blue>, as binary data. 
@@ -1988,6 +1987,23 @@ int main()
             There are no default parameters in C. <br></br><br></br>
             But one way to achieve this is by passing <red>NULL</red> pointers and 
             then set the values to the default if <red>NULL</red> is passed.
+<code>
+//Example of function with default parameters in C:
+
+void OpenFile(char *path)
+{
+    FILE *outHandle;
+
+    if (path==NULL)
+    {
+        outHandle=fopen("DummyFile", "w");
+    }
+    else
+    {
+        outHandle=fopen(path, "w");
+    }
+}
+</code>
         </default-parameters>
         <interfaces>
             *General-Programming-Knowledge*
