@@ -11735,7 +11735,37 @@ input("\nPress any key to exit: ")
             <green>Abstraction in Python:</green>
             Abstraction in Python refers to the process of creating abstract 
             classes and methods that provide a blueprint for other classes to inherit from.
-            
+            It allows us to define common attributes and behaviors that can be shared among 
+            multiple classes.
+<code>
+//Example of abstraction in Python:
+
+from abc import ABC, abstractmethod
+
+#Defining abstract class:
+class democlass(ABC):
+    #Defining abstract method:
+    @abstractmethod
+    def method1(self):
+        print ("abstract method")
+        return
+    
+    #Defining concrete method:
+    def method2(self):
+        print ("concrete method")
+
+#Defining concrete class:
+class concreteclass(democlass):
+    def method1(self):
+        #Calling parent class method:
+        super().method1()
+        return
+      
+obj = concreteclass()
+obj.method1()
+obj.method2()
+
+</code>
         </abstraction>
         <generic-programming>*General-Programming-Knowledge*
 <code>
