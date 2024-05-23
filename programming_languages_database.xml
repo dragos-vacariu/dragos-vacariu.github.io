@@ -12033,7 +12033,7 @@ for fruit in fruits:
             <br></br><br></br>
             <brown>Lists:</brown>
             <br></br><br></br>
-            <blue>Lists</blue> are <red>ordered</red> and <red>changeable</red> collections which 
+            <blue>Lists</blue> are <red>ordered</red> and <red>changeable collections</red> which 
             allow <red>duplicate</red> values. 
             <red>Ordered</red> means that the items within a <blue>list</blue> have a 
             defined order, and that order will 
@@ -12041,9 +12041,9 @@ for fruit in fruits:
             and <red>remove</red> 
             items in a <blue>list</blue> after it has been created.
             <br></br><br></br>
-            A <blue>list</blue> is like a vector(dynamic in length) and it can be accessed 
-            in the same way, by index. The <blue>list</blue> collections are indexed starting from 0, similar to any 
-            other collection from other programming languages.
+            A <blue>list</blue> is like a vector (<red>dynamic<red> in length) and it can be accessed 
+            in the same way, by index. The <blue>list</blue> collections are indexed starting from 
+            <blue>0</blue>, similar to any other <red>collection</red> from other programming languages.
             <br></br><br></br>
             In Python a <blue>list</blue> can be created using any type of data.
             Dynamic length of a <blue>list</blue>, allows appending new elements at the end of the 
@@ -12134,8 +12134,8 @@ for a,b in names:
             <brown>Dictionaries:</brown>
             <br></br><br></br>
             <blue>Dictionaries</blue> are used to store data values in <code>key:value</code> pairs.
-            A <blue>dictionary</blue> is a collection which is ordered*, 
-            changeable and do not allow duplicates.
+            A <blue>dictionary</blue> is a <red>collection</red> which is <red>ordered</red>, 
+            <red>changeable</red> and do not allow duplicates.
             <br></br><br></br>
             Each <blue>key</blue> is separated from its <red>value</red> by a colon (<code>:</code>), 
             the items are separated by
@@ -12168,6 +12168,7 @@ for a,b in names:
             <blue>keys</blue> but something like <code>['key']</code> is not allowed.
             <br></br><br></br>
             Example: <code>dict = {['Name']: 'Zara'}</code>
+            <br></br>
             This case is not allowed as the key provided is of type <blue>list</blue>
             <br></br>
 <code>
@@ -12253,7 +12254,10 @@ for k in dict.values():
 #Keep the console opened until the next button pressed:
 input("Enter anything to quit.")
 </code>
-            Dictionaries can also be converted to lists as the following example demonstrates:
+            <br></br>
+            <blue>Dictionaries</blue> can also be converted to <blue>lists</blue> as the following 
+            example demonstrates:
+            <br></br>
 <code>
 //Example of splitting dictionaries to lists:
 
@@ -12302,21 +12306,30 @@ input("\nPress any key to exit: ")
             <br></br>
             <brown>Tuples:</brown>
             <br></br><br></br>
-            A <blue>tuple</blue> is a sequence of <red>immutable</red> Python objects. <blue>Tuples</blue> are 
-            sequences, just like <red>lists</red>. The differences between <blue>tuples</blue> 
-            and <red>lists</red> are:
-            - <blue>tuples</blue> cannot be changed whereas <red>lists</red> can be changed;
+            A <blue>tuple</blue> is a sequence of <red>immutable</red> Python objects. 
+            <blue>Tuples</blue> are 
+            sequences, just like <red>lists</red>. 
+            <br></br><br></br>
+            The differences between <blue>tuples</blue> 
+            and <red>lists</red> are:<br></br>
+            - <blue>tuples</blue> cannot be changed whereas <red>lists</red> can be changed;<br></br>
             - <blue>tuples</blue> use parenthesis <code>()</code>, whereas <red>lists</red> use 
-            square brackets <code>[]</code>.
+            square brackets <code>[]</code>.<br></br>
             <red>Immutable</red> means constant once initialized it cannot be changed, meaning
             no item can be changed, added or removed from it.
+            <br></br><br></br>
             <blue>Tuples</blue> can however be reinitialized with different values.
-            <blue>tuples</blue> can be sliced meaning you are able to take portions of
+            <br></br><br></br>
+            <blue>Tuples</blue> can be sliced meaning you are able to take portions of
             existing <blue>tuples</blue> to create new <blue>tuples</blue>.
+            <br></br><br></br>
             New <blue>tuples</blue> can be created by adding 2 existing <blue>tuples</blue> together.
+            <br></br><br></br>
             Any set of multiple <red>objects</red>, comma-separated, declared without identifying 
             symbols are by default set to <blue>tuples</blue>.
+            <br></br>
             <blue>Tuples</blue> can be accessed using indexes. 
+            <br></br>
 <code>
 #Example of working with tuples in Python 3:
 
@@ -12363,7 +12376,6 @@ x, y = 1, 2;
 
 input("\nPress any key to exit: ")
 </code>
-            
         </collections>
         <collection-methods>
 <code>
