@@ -1458,6 +1458,27 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             Using libraries to reuse code without copying and recompiling;<br></br>
             Using plugins to get run-time overriding and more;
             </blue>
+<code>
+//Example of generic function in C:
+
+/* Find min in v[0..size-1], assumes size is > 0 */
+
+int min(void v[], int size, int (*compare)(void *, void *))
+{
+    int i;
+    int min = 0;
+    
+    for (i = 1; i &lt; size; i++)
+    {
+        if ((*compare)(v[i], v[min]) &lt; 0)
+        {
+            min = i;
+        }
+    }
+    
+    return min;
+}
+</code>
         </generic-programming>
         <variable-arguments-lists>
             *General-Programming-Knowledge*
@@ -1531,67 +1552,70 @@ float array_floats[3] = [2.0f, 3.0f, 2.11f];
 <code>
 //Declaring and initializing a Linked List
 
-//Linked list definition:
-struct LinkedList{
-    int value; // this will store the value
-    
-    // this will store the address of the previous block of memory
-    struct LinkedList * previous;
-    
-    // this will store the address of the next block of memory
-    struct LinkedList * next; 
-};
-
-struct LinkedList* list = NULL; // creating a linked list
-
-int counter = 0;
-while(counter &lt; 10)
+void createAddElementsOnLinkedList()
 {
-    // if this is the first element to be introduced on the linked list
-    if(list == NULL)
+    //Linked list definition:
+    struct LinkedList{
+        int value; // this will store the value
+        
+        // this will store the address of the previous block of memory
+        struct LinkedList * previous;
+        
+        // this will store the address of the next block of memory
+        struct LinkedList * next; 
+    };
+
+    struct LinkedList* list = NULL; // creating a linked list
+
+    int counter = 0;
+    while(counter &lt; 10)
     {
-        // allocate memory.
-        list = (struct LinkedList* )malloc(sizeof(struct LinkedList));
-        
-        // add value
-        list->value = counter;
-        
-        // there is no previous element.
-        list->previous = NULL;
-        
-        // we don't know if there will be a next element.
-        list->next = NULL; 
+        // if this is the first element to be introduced on the linked list
+        if(list == NULL)
+        {
+            // allocate memory.
+            list = (struct LinkedList* )malloc(sizeof(struct LinkedList));
+            
+            // add value
+            list->value = counter;
+            
+            // there is no previous element.
+            list->previous = NULL;
+            
+            // we don't know if there will be a next element.
+            list->next = NULL; 
+        }
+
+        else //enter here after the first element was added.
+        {
+            // allocate space for the next element
+            list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); 
+            
+            // we're still on the previous element, 
+            //so assign the link to the next element.previous
+            list->next->previous = list;
+            
+            // next element become current element
+            list = list->next;
+            
+            // add value
+            list->value = counter;
+            
+            // we don't know if there will be a next element.
+            list->next = NULL;  
+        }
+        counter++;
     }
 
-    else //enter here after the first element was added.
+    //printing the linked list
+
+    // list is currently pointing to the last element. 
+    //So we will display it from last to first.
+    while(list != NULL) 
     {
-        // allocate space for the next element
-        list->next = (struct LinkedList* ) malloc(sizeof(struct LinkedList)); 
-        
-        // we're still on the previous element, 
-        //so assign the link to the next element.previous
-        list->next->previous = list;
-        
-        // next element become current element
-        list = list->next;
-        
-        // add value
-        list->value = counter;
-        
-        // we don't know if there will be a next element.
-        list->next = NULL;  
+        printf("%d ", list->value);
+        list = list->previous; // go to the previous
     }
-    counter++;
-}
-
-//printing the linked list
-
-// list is currently pointing to the last element. 
-//So we will display it from last to first.
-while(list != NULL) 
-{
-    printf("%d ", list->value);
-    list = list->previous; // go to the previous
 }
 </code>
         </collections>
@@ -2245,6 +2269,62 @@ int main()
         <reflection>
             *General-Programming-Knowledge*
         </reflection>
+        <polymorphism>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>Polymorphism in C:</green>
+            Even though C does not support OOP. A type of <blue>polymorphism</blue> can still 
+            be achieved
+            by using the <blue>generic pointer</blue>.
+            <br></br><br></br>
+            The type <code>void *</code> is used as a <blue>generic pointer</blue> in 
+            C (similar in concept to Object type in OOP). 
+            <br></br><br></br>
+            <blue>Pointers</blue> to any type can be assigned to a
+            variable of type <code>void *</code>, which allows <blue>parametric polymorphism</blue>.
+<code>
+//Example of parametric polymorphism in C:
+
+void swap(void v[], int i, int j)
+{
+    //interchange values between index i and j
+    void *tmp = v[i]; 
+    v[i] = v[j]; 
+    v[j] = tmp;
+}
+
+void qsort(void v[], int left, int right, int (*compare)(void *, void *))
+{
+    //sort to increasing order elements between index
+    //left and right from array v[]
+    
+    int i, last;
+    
+    /* do nothing if array contains */
+    /* less than two elements */
+    if (left >= right) 
+    {
+        return; 
+    }
+    
+    swap(v, left, (left + right)/2);
+    last = left;
+    
+    for (i = left+1; i&lt;= right; i++)
+    {
+        if ((*compare)(v[i], v[left]) &lt; 0)
+        {
+            swap(v, ++last, i);
+        }
+    }
+    swap(v, left, last);
+    
+    //Recursion
+    qsort(v, left, last-1, compare);
+    qsort(v, last+1, right, compare);
+}
+</code>
+        </polymorphism>
     </programming_language>
     
     <programming_language>
