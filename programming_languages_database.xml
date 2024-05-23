@@ -11452,7 +11452,8 @@ else:
 
             
         </oop>
-        <encapsulation>*General-Programming-Knowledge*
+        <encapsulation>
+            *General-Programming-Knowledge*
 <code>
 #Example of encapsulation in Python 3:
 
@@ -11729,7 +11730,13 @@ input("\nPress any key to exit: ")
         instance of a <blue>subclass</blue> of Class.
         <br></br>
         </inheritance>
-        <abstraction>*General-Programming-Knowledge*</abstraction>
+        <abstraction>
+            *General-Programming-Knowledge*
+            <green>Abstraction in Python:</green>
+            Abstraction in Python refers to the process of creating abstract 
+            classes and methods that provide a blueprint for other classes to inherit from.
+            
+        </abstraction>
         <generic-programming>*General-Programming-Knowledge*
 <code>
 from typing import TypeVar, List
