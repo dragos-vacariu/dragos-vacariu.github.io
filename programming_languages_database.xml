@@ -12041,7 +12041,7 @@ for fruit in fruits:
             and <red>remove</red> 
             items in a <blue>list</blue> after it has been created.
             <br></br><br></br>
-            A <blue>list</blue> is like a vector (<red>dynamic<red> in length) and it can be accessed 
+            A <blue>list</blue> is like a vector (<red>dynamic</red> in length) and it can be accessed 
             in the same way, by index. The <blue>list</blue> collections are indexed starting from 
             <blue>0</blue>, similar to any other <red>collection</red> from other programming languages.
             <br></br><br></br>
