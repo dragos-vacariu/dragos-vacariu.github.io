@@ -1330,7 +1330,8 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <red>Storing</red> in a <red>file</red> will preserve your data even if the 
             program terminates.
             <br></br><br></br>  
-            A <red>file</red> is a container in computer storage devices used for storing <red>data</red>.
+            A <red>file</red> is a container in computer storage devices used for storing 
+            <red>data</red>.
             <br></br> 
         </write-to-file>
         <inheritance>
@@ -1772,6 +1773,8 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
         
         </read-from-file>
         <write-to-file>
+            *General-Programming-Knowledge*
+            <br></br>
             To create a file, or write to a file you can use the <red>w</red> mode inside the <code>fopen()</code> function.
             <br></br><br></br>
             <green>
@@ -1853,8 +1856,26 @@ fprintf(fptr, "\nHi everybody!");
 fclose(fptr);
 </code>
         </write-to-file>
-        <serialization>*General-Programming-Knowledge*</serialization>
-        <deserialization>*General-Programming-Knowledge*</deserialization>
+        <serialization>
+            *General-Programming-Knowledge*
+            <br></br><br></br>
+            C and C++ do not provide <blue>serialization</blue> as any sort of high-level construct, 
+            but both languages support writing any of the built-in <blue>data types</blue>, as well as 
+            plain old <blue>data structs</blue>, as binary data. 
+            <br></br><br></br>
+            As such, it is usually trivial to write custom serialization functions.
+            <br></br>
+        </serialization>
+        <deserialization>
+            *General-Programming-Knowledge*
+            <br></br><br></br>
+            C and C++ do not provide <blue>serialization</blue> as any sort of high-level construct, 
+            but both languages support writing any of the built-in <blue>data types</blue>, as well as 
+            plain old <blue>data structs</blue>, as binary data. 
+            <br></br><br></br>
+            As such, it is usually trivial to write custom serialization functions.
+            <br></br>
+        </deserialization>
         <enums>
             *General-Programming-Knowledge*
 <code>
@@ -2309,9 +2330,6 @@ int main()
         <recursion>
             *General-Programming-Knowledge*
         </recursion>
-        <reflection>
-            *General-Programming-Knowledge*
-        </reflection>
         <polymorphism>
             *General-Programming-Knowledge*
             <br></br>
