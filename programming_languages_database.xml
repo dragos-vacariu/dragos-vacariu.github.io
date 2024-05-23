@@ -12031,6 +12031,106 @@ for fruit in fruits:
             <br></br>
             <green>Collections in Python:</green>
             <br></br><br></br>
+            <brown>Lists:</brown>
+            <br></br><br></br>
+            <blue>Lists</blue> are <red>ordered</red> and <red>changeable</red> collections which 
+            allow <red>duplicate</red> values. 
+            <red>Ordered</red> means that the items within a <blue>list</blue> have a 
+            defined order, and that order will 
+            not change. <red>Changeable</red> means that we can change, <red>add</red>, 
+            and <red>remove</red> 
+            items in a <blue>list</blue> after it has been created.
+            <br></br><br></br>
+            A <blue>list</blue> is like a vector(dynamic in length) and it can be accessed 
+            in the same way, by index. The <blue>list</blue> collections are indexed starting from 0, similar to any 
+            other collection from other programming languages.
+            <br></br><br></br>
+            In Python a <blue>list</blue> can be created using any type of data.
+            Dynamic length of a <blue>list</blue>, allows appending new elements at the end of the 
+            <blue>list</blue>, so that the size would change automatically.
+            <br></br>
+<code>
+#Example of working with lists in Python 3:
+
+#Defining a list:
+CharList = ['M','e','s','s','a','g','e']
+
+print('The list is: {0}' .format(CharList))
+
+#Accessing an element of the list:
+print('This is the 4th element {0}' .format(CharList[4]))
+
+#Changing an element of the list:
+CharList[4] = 'O'
+print("The new 4th element is: {0}" .format(CharList[4]))
+
+#Appending elements at the end of the list.
+CharList+= ['1', '2'] #this is used for temporarily change.
+print("The list now, looks like this: {0}" .format(CharList))
+
+CharList.append('3') #this is used for permanent change. 
+print("The list now, looks like this: {0}" .format(CharList))
+
+#Slicing lists:
+print("The sliced list is: {0}" .format(CharList[:5])) 
+#slicing a list can be done just like in case of strings.
+
+#Changing multiple items of the list:
+CharList[2:] = ['2', '3'] 
+#this synthax can only be used on lists, to add multiple
+#elements after a given index (will automatically erase 
+#the rest of the elements after that index)
+
+print(CharList)
+
+#Emptying the list:
+CharList[:] = []
+print(CharList)
+
+input("\nPress any key to exit: ")
+</code>
+
+<code>
+#Example of unpacking lists in Python:
+
+#Unpacking is the process in which every
+#list element gets assigned to individual variable
+
+item, name, price = ["Car", "Mustang Gt", "14000"]
+#This is an unpacked list, where each element is actually a variable.
+
+print("item: ", item, " name: ", name, " price: ", price);
+
+#The lists that have many more elements:
+print("\nThis is the second method: ")
+start, *middle, end = ["element1", "element2", "element3", "element4"]
+
+print(start) 
+#this will print the first element
+
+print(*middle) 
+#this will print all the middle elements
+
+print(end) 
+#this will print the last element
+</code>
+
+<code>
+#Example of zipping/combining lists together:
+
+Lst1 = ["Dragos", "Alan", "Robin"]
+Lst2 = ["Blake", "Walker", "Williams"]
+
+names = zip(Lst1, Lst2)
+
+#names will be a new list, a 2-dimensional list 
+#containing all the elements in Lst1 and Lst2 combined.
+
+#Iterating names:
+for a,b in names:
+    print("Name = ", a, b)
+
+</code>
             <brown>Dictionaries:</brown>
             <br></br><br></br>
             <blue>Dictionaries</blue> are used to store data values in <code>key:value</code> pairs.
@@ -12263,41 +12363,7 @@ x, y = 1, 2;
 
 input("\nPress any key to exit: ")
 </code>
-
-<code>
-#Unpacking a list of items:
-
-item, name, price = ["Car", "Mustang Gt", "14000"]
-#This is an unpacked list, where each element is actually a variable.
-
-print("item: ", item, " name: ", name, " price: ", price);
-
-#The lists that have many more elements:
-print("\nThis is the second method: ")
-start, *middle, end = ["element1", "element2", "element3", "element4"]
-print(start) # this will print the first element
-print(*middle) # this will print all the middle elements
-print(end) # this will print the last element
-</code>
-
-
-
-<code>
-#Zipping (combining) list together.
-
-Lst1 = ["Dragos", "Alan", "Robin"]
-Lst2 = ["Blake", "Walker", "Williams"]
-
-names = zip(Lst1,Lst2)
-
-#names will be a new list, a 2D list I might say, containing all the elements in
-#Lst1 and Lst2 combined.
-
-#Iterating names:
-for a,b in names:
-    print("Name = ", a, b)
-
-</code>
+            
         </collections>
         <collection-methods>
 <code>
