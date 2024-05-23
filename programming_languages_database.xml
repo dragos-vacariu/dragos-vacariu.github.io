@@ -2353,6 +2353,44 @@ int main()
         </pre-post-incrementation>
         <recursion>
             *General-Programming-Knowledge*
+<code>
+//Example of recursion in C:
+
+#include &lt;stdio.h&gt;  
+
+int fact (int);
+
+int main()  
+{  
+    int n, f;  
+    printf("Enter the number whose factorial you want to calculate?");  
+    scanf("%d",&n);  
+    
+    //Calling the recursive function:
+    f = fact(n);
+    
+    //Printing the result:
+    printf("factorial = %d",f);  
+}
+
+int fact(int n)  
+{
+    //Recursive function:
+    
+    if (n==0)  
+    {  
+        return 0;  
+    }  
+    else if ( n == 1)  
+    {  
+        return 1;  
+    }  
+    else   
+    {  
+        return n*fact(n-1);  
+    }  
+}  
+</code>
         </recursion>
         <polymorphism>
             *General-Programming-Knowledge*
