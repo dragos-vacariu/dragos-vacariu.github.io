@@ -11744,7 +11744,7 @@ input("\nPress any key to exit: ")
             multiple <blue>classes</blue>.
             <br></br>
 <code>
-//Example of abstraction in Python:
+#Example of abstraction in Python:
 
 from abc import ABC, abstractmethod
 
@@ -11772,8 +11772,20 @@ obj.method1()
 obj.method2()
 </code>
         </abstraction>
-        <generic-programming>*General-Programming-Knowledge*
+        <generic-programming>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>Generic-Programming in Python:</green>
+            <br></br><br></br>
+            Python <blue>generics</blue> are like hints in Python. They came out in Python 3.5
+            and newer versions. They let you say what <red>type</red> of things your variables, 
+            functions, and results are. It helps you write down what kind of things your 
+            code is dealing with, but it doesn't make the computer check it 
+            while running the code.
+            <br></br>
 <code>
+#Example of Python 3 generics with functions:
+
 from typing import TypeVar, List
 
 T = TypeVar('T')
@@ -11788,7 +11800,29 @@ print(element(['a', 'b', 'c']))
 # OUTPUT:
 # 1
 # a
-</code>        
+</code>
+
+<code>
+#Example of Python 3 generics with classes:
+
+from typing import TypeVar, Generic
+
+T = TypeVar(Generic[T])
+
+class Container:
+    def __init__(self, content: T):
+        self.content = content
+    
+    def retrieve_content(self) -> T:
+        return self.content
+
+#Usage
+container_int = Container(10)
+container_str = Container('GeeksforGeeks')
+
+print(container_int.retrieve_content()) 
+print(container_str.retrieve_content())  
+</code>
         </generic-programming>
         <variable-arguments-lists>*General-Programming-Knowledge*
 <code>
