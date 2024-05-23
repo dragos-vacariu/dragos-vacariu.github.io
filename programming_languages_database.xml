@@ -11838,15 +11838,21 @@ duck_list = [duck_obj, another_bird_obj]
 #We can pass duck_list to process_data because 
 #both objects have a quack method
 process_data(duck_list)   
+
+# OUTPUT: 
+# Quack!
+# Quack!
 </code>
         </generic-programming>
         <variable-arguments-lists>*General-Programming-Knowledge*
 <code>
-def myFun(*argv):
+#Example of variable arguments in Python:
+
+def Print(*argv):
     for arg in argv:
         print(arg)
 
-myFun('Hello', 'Welcome', 'to', 'GeeksforGeeks')
+Print('Hello', 'Welcome')
 </code>        
         </variable-arguments-lists>
         <simple-data-types>*General-Programming-Knowledge*
