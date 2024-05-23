@@ -11275,6 +11275,7 @@ class Employee extends Sunstar
         <oop>
             *General-Programming-Knowledge*
             <green>Object Oriented Programming in Python:</green>
+            <br></br><br></br>
             <red>Python</red> uses the <blue>self</blue> keyword to reffer to instance variables.
             <br></br><br></br>
             In Python the variables/fields declared within a class but outside of any method
