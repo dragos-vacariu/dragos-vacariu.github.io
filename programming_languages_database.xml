@@ -11287,7 +11287,7 @@ class Employee extends Sunstar
             <blue>instance variables/fields</blue>.
             <br></br>
 <code>
-#Example of class definition in Python:
+#Example of class definition in Python 3:
 
 #Creating a class:
 class Employee:
@@ -11349,13 +11349,13 @@ Employee.displayEmployee(emp1)
 #similar to getters and setters:
 
 hasattr(emp1, 'name')
-# Returns true if 'name' attribute exists
+#Returns true if 'name' attribute exists
 
 getattr(emp1, 'name')    
-# Returns value of 'name' attribute
+#Returns value of 'name' attribute
 
 setattr(emp1, 'name', "Mark") 
-# Set attribute 'name' at 8
+#Set attribute 'name' at 8
 
 delattr(emp1, 'name')    
 # Delete attribute 'name'
@@ -11452,7 +11452,7 @@ else:
         </oop>
         <encapsulation>*General-Programming-Knowledge*
 <code>
-#Example of encapsulation in Python:
+#Example of encapsulation in Python 3:
 
 class Person:
 
