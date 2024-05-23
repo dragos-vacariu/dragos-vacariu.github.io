@@ -192,7 +192,7 @@
             while on a <code>64-bit</code> computer system, it is <code>8 bytes</code>.
             </red>
             <br></br><br></br>
-            <code>Structures</code>: A collection of variables of different data types grouped 
+            <code>Structures</code> - A collection of variables of different data types grouped 
             together under a single name. 
             <br></br><br></br>
             <red>
@@ -1304,19 +1304,23 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <br></br><br></br>
             <green>Features of file handling:</green>
             <br></br><br></br>
-            <blue>Reusability</blue>: The data stored in the <blue>file</blue> can be <red>accessed</red>, 
+            <blue>Reusability</blue>: <br></br>
+            The data stored in the <blue>file</blue> can be <red>accessed</red>, 
             <red>updated</red>, and <red>deleted</red> anywhere and anytime providing  
             <blue>high reusability.</blue>.
             <br></br>
-            <blue>Portability</blue>: Without losing any data, <blue>files</blue> can be transferred to 
+            <blue>Portability</blue>: <br></br>
+            Without losing any data, <blue>files</blue> can be transferred to 
             another in the computer system. The risk of flawed coding is 
             minimized with this feature.
             <br></br>
-            <blue>Efficiency</blue>: A large amount of input may be required for some programs. 
+            <blue>Efficiency</blue>: <br></br>
+            A large amount of input may be required for some programs. 
             <blue>File handling</blue> allows you to easily access a part of a <blue>file</blue> using few 
             instructions which saves a lot of time and reduces the chance of errors.
             <br></br>
-            <blue>Storage Capacity</blue>: <blue>Files</blue> allow you to store a large amount of data 
+            <blue>Storage Capacity</blue>: <br></br>
+            <blue>Files</blue> allow you to store a large amount of data 
             without having to worry about storing everything simultaneously in a program.
             <br></br><br></br>
         </read-from-file>
@@ -1653,11 +1657,16 @@ void createAddElementsOnLinkedList()
 }
 </code>
         </collections>
-        <collection-methods>There are no built in functions for working with collections.</collection-methods>
+        <collection-methods>
+            There are no built-in functions for working with collections in C language.
+        </collection-methods>
         <dynamic-memory-allocation>*General-Programming-Knowledge*</dynamic-memory-allocation>
         <read-from-file>
             *General-Programming-Knowledge*
-            C programming language supports <red>four</red> pre-defined functions to read contents from a file, defined in <code>stdio.h</code> header file:
+            <green>File handling in C:</green>
+            <br></br><br></br>
+            C programming language supports <red>four</red> pre-defined functions to 
+            read contents from a file, defined in <code>stdio.h</code> header file:
             <br></br><br></br>
             <blue>fgetc()</blue><br></br>
             This function is used to read a single character from the file.<br></br><br></br>
