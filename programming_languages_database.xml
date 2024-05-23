@@ -43,6 +43,7 @@
             <br></br><br></br>
             The attributes are data members (<red>class variables</red> and 
             <blue>instance variables</blue>) and methods, accessed using <code>.</code> operator.
+            Attributes are also reffered to as: <red>fields/variables</red> and <blue>methods/properties</blue>.
             <br></br><br></br>
             <brown>Class variables:</brown>
             <br></br><br></br>
