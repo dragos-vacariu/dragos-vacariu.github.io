@@ -11581,19 +11581,32 @@ for country in (obj_ind, obj_usa):
     country.type()
 </code>
         </polymorphism>
-        <inheritance>*General-Programming-Knowledge*
+        <inheritance>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>Inheritance in Python:</green>
+            <br></br><br></br>
+            Instead of starting from scratch, you can create a <blue>class</blue> by deriving 
+            it from a preexisting <blue>class</blue> by listing the <red>parent class</red>
+            between <code>()</code> parentheses after the <blue>class</blue> name.
+            <br></br><br></br>
+            By <red>inheritance</red>: the <red>child class</red> inherits the attributes of 
+            its <blue>parent class</blue>, 
+            and those attributes can be used as if they were defined in the <red>child class</red>. 
+            <br></br><br></br>
+            A <red>child class</red> can also override data members and methods from the 
+            <blue>parent</blue>.
+            <br></br><br></br>
+            In Python a <red>child class</red> is often reffered to as <red>subclass</red> whereas a 
+            <blue>parent class</blue>
+            is reffered to as <blue>superclass</blue>.
+            <br></br>
 <code>
-#Instead of starting from scratch, you can create a class by deriving 
-#it from a preexisting class by listing the parent class in
-#parentheses after the new class name.
-
-#The child class inherits the attributes of its parent class, and you 
-#can use those attributes as if they were defined in the child class. 
-#A child class can also override data members and methods from the parent.
+#Example of inheritance in Python 3:
 
 #Defining a parent class
 class Parent:        
-    #Members declared here will be 
+    #Variables declared here will be 
     shared through all the instances
     
     #Creating a public member
@@ -11612,7 +11625,6 @@ class Parent:
     #Private members are only visible inside the class, 
     #and can be accessed only by class instances.
     #It's not inheritable
-
 
     #Defining a constructor:
     def __init__(self):
@@ -11671,14 +11683,6 @@ c.parentMethod()     # calls parent's method
 c.setAttr(200)       # again call parent's method
 c.getAttr()          # again call parent's method
 
-#Functions:
-#The issubclass(sub, sup) boolean function returns true 
-#if the given subclass sub is indeed a subclass of the superclass sup.
-
-#The isinstance(obj, Class) boolean function returns true if 
-#obj is an instance of class Class or is an instance of a
-#subclass of Class
-
 #You can always override your parent class methods. One reason 
 #for overriding parent's methods is because you may want
 #special or different functionality in your subclass.
@@ -11709,6 +11713,19 @@ p1.printPrivate()
 
 input("\nPress any key to exit: ")
 </code>
+        <br></br>
+        <green>Python built-in functions for classes/instances:</green>
+        <br></br><br></br>
+        <code>issubclass(sub, sup)</code><br></br>
+        It's a <blue>boolean function</blue> that returns <blue>true</blue> 
+        if the given <blue>subclass</blue> sub is indeed a <blue>subclass</blue> of the 
+        <blue>superclass sup</blue>.
+        <br></br><br></br>
+        <code>isinstance(obj, Class)</code><br></br>
+        Its a <blue>boolean function</blue> that returns <blue>true</blue> if 
+        the <code>obj</code> is an <red>instance</red> of <blue>class Class</blue> or is an 
+        instance of a <blue>subclass</blue> of Class.
+        <br></br>
         </inheritance>
         <abstraction>*General-Programming-Knowledge*</abstraction>
         <generic-programming>*General-Programming-Knowledge*
