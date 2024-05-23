@@ -11385,22 +11385,6 @@ print ("Employee.__module__: {0}" .format( Employee.__module__))
 print ("Employee.__bases__: {0}" .format( Employee.__bases__))
 print ("Employee.__dict__: {0}" .format( Employee.__dict__))
 
-
-#Python deletes unneeded objects (built-in types or class 
-#instances) automatically to free the memory space.
-
-#Python's garbage collector runs during program execution 
-#and is triggered when an object's reference count reaches zero. 
-#An object's reference count changes as the number of aliases 
-#that point to it changes.
-
-#You normally will not notice when the garbage collector 
-#destroys an orphaned instance and reclaims its space.
-
-#A class can implement the special method __del__(), 
-#called a destructor, that is invoked when the 
-#instance is about to be destroyed.
-
 #Example:
 del emp1 
 #this will delete the instance callded emp1.
@@ -11409,11 +11393,25 @@ emp2.displayEmployee()
 emp1.displayEmployee()
 #emp1 is not defined anymore
 
-
 input("\nPress any key to exit: ")
 #this statement will keep the command prompt open 
 #until the next button press:
 </code>        
+            
+            Python <blue>deletes</blue> unneeded <red>objects</red> (built-in <red>types</red> or 
+            <red>class instances</red>) automatically to <blue>free</blue> the memory space.
+            <br></br><br></br>
+            Python's <blue>garbage collector</blue> runs during program execution 
+            and is triggered when an <blue>object's reference count</blue> reaches zero. 
+            An <blue>object's reference count</blue> changes as the number of <blue>aliases</blue> 
+            that point to it changes.
+            <br></br><br></br>
+            You normally will not notice when the <blue>garbage collector</blue> 
+            destroys an <blue>orphaned instance</blue> and reclaims its space.
+            <br></br><br></br>
+            A <red>class</red> can implement the special method <code>__del__()</code>, 
+            called a <blue>destructor</blue>, that is invoked when the 
+            <red>instance</red> is about to be destroyed.
         </oop>
         <encapsulation>*General-Programming-Knowledge*
 <code>
