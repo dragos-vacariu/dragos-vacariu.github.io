@@ -13093,7 +13093,34 @@ Larger memory footprint'''
             The nonlocal keyword is used to work with variables inside nested functions.
             <br></br><br></br>
             The nonlocal keyword makes the variable belong to the outer function.
+            <br></br><br></br>
+            Within Python namespaces and scopes are in a tight relationship. For example: 
+            the global namespace can be seen as a collection of global variables which have 
+            global scope, meaning they can be accessed from anywhere in the program. The global
+            namespace contains local namespaces for each function/method/loop an other entities
+            defining local scopes.
+            <br></br><br></br>
+            Scope refers to the coding region from which a particular Python object is accessible. 
             <br></br>
+<code>
+#Example of namespace and scopes in Python:
+
+#var1 is in the global namespace
+#meaning var1 has global scope:
+var1 = 5
+
+def some_func():
+ 
+    #var2 is in the local namespace 
+    #meaning var1 has local scope:
+    var2 = 6
+    
+    def some_inner_func():
+ 
+        #var3 is in the nested local namespace
+        #meaning var3 has nested local scope:
+        var3 = 7
+</code>
         </namespaces>
         <exception-handling>*General-Programming-Knowledge*
 <code>
