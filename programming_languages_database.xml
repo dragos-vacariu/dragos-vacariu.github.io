@@ -13566,39 +13566,41 @@ input("\nPress any key to exit: ")
             <br></br>
         </string-methods>
         <datatype-conversions>No information present in the database.</datatype-conversions>
-        <decorators>*General-Programming-Knowledge*
+        <decorators>
+            *General-Programming-Knowledge*
 <code>
 import time
 
-def masoara_timp(fct):
+def measure_time(fct):
     if hasattr(fct, 'call_number') == False:
         fct.call_number = 1
         fct.call_time = 0
-    print("Apel decorator.")
+    
+    print("Decorator call.")
     def proxy():
-        print("Apel proxy.")
+        print("Proxy call.")
         t = time.time()
         fct()
         fct.call_time += time.time() - t
-        print("Functia " + str(fct.__name__) + " : s-a executat in : " + str(time.time() - t))
-        print("Apeluri functie " + str(fct.call_number))
-        print("Durata medie: " + str(fct.call_time / fct.call_number))
+        print("Function " + str(fct.__name__) + " : has executed within : " + str(time.time() - t))
+        print("Function calls " + str(fct.call_number))
+        print("Average duration: " + str(fct.call_time / fct.call_number))
         fct.call_number += 1
     return proxy
 
 
-#masoara_timp it's a decorator. 
+#measure_time it's a decorator. 
 
-@masoara_timp #this is equivalent to functie = masoara_timp(functie)
-def functie():
+@measure_time #this is equivalent to function = measure_time(function)
+def function():
     time.sleep(0.5)
-    print("se executa functia")
+    print("the function is executing.")
 
-functie()
-functie()
-functie()
-functie()
-functie()
+function()
+function()
+function()
+function()
+function()
 </code>        
         </decorators>
         <operators>*General-Programming-Knowledge*</operators>
