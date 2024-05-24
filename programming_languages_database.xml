@@ -12849,10 +12849,16 @@ del obj
         </destructors>
         <function-overloading>*General-Programming-Knowledge*</function-overloading>
         <operator-overloading>*General-Programming-Knowledge*</operator-overloading>
-        <multi-threading>*General-Programming-Knowledge*
+        <multi-threading>
+            *General-Programming-Knowledge*
 <code>
-import threading #used for threading
-import time #used for time
+#Example of multithreading in Python 3:
+
+import threading 
+#used for threading
+
+import time 
+#used for time
 
 def calculateSquare(numberList):
     for n in numberList:
@@ -12864,15 +12870,20 @@ def calculateCube(numberList):
         print(str(n) + " * " + str(n) + " * " + str(n) + " = " + str(n*n*n))
         time.sleep(0.2) #this will add a 0.2 seconds delay
 
+#Creating a list:
 numberList = [2,4,5,6,12,34]
+
 #Creating threads:
 thread1 = threading.Thread(target=calculateSquare, args =(numberList,))
 thread2 = threading.Thread(target=calculateCube, args =(numberList,))
 
-t_before = time.time() # this will get the time before starting the threads
+t_before = time.time() 
+#this will get the time before starting the threads
+
 calculateSquare(numberList)
 calculateCube(numberList)
 t_after = time.time()
+
 print("Example1 (without threading): Time for execution: " + str(t_after-t_before) + " seconds.")
 print()
 
@@ -12931,8 +12942,13 @@ input("\nPress any key to exit: ")
 </code>
 
 <code>
-import multiprocessing # used for multiprocessing
-import time # used for time
+#Example of multiprocessing in Python 3:
+
+import multiprocessing 
+#used for multiprocessing
+
+import time 
+#used for time
 
 def PrintHello():
     i=0
@@ -12952,34 +12968,45 @@ def Funct(n): # functions used with ".pool and .map" needs to take an extra argu
         print("Hello " + str(i))
         time.sleep(0.2)
         i+=1
-        
+
+#If the script is being ran standalone:
 if __name__ == "__main__":
     t_before = time.time()
     p1 = multiprocessing.Process(target=PrintHello, args=())
     p2 = multiprocessing.Process(target=PrintHi, args=())
     p1.start()
     p2.start()
-    p1.join() # wait for the process to finish
-    p2.join() # wait for the process to finish
+    p1.join() 
+    #wait for the process to finish
+    
+    p2.join() 
+    #wait for the process to finish
     t_after = time.time()
     print("Example1. Time for execution: " + str(t_after - t_before))
-#Executing single process:
+    
+    #Executing single process:
     t_before = time.time()
     p1 = multiprocessing.Process(target=PrintHello, args=())
     p1.start()
     p1.join() # wait for the process to finish
     t_after = time.time()
     print("Example2. Time for execution: " + str(t_after - t_before))
-#Pooling and mapping processes:
-# Functions used for "pooling and mapping" needs to take an extra argument for
-#iteration (how many times to run the same function).
+    
+    #Pooling and mapping processes:
+    #Functions used for "pooling and mapping" needs to 
+    #take an extra argument for
+    #iteration (how many times to run the same function).
+    
     t_before = time.time()
     p1 = multiprocessing.Pool()
     p1.map(Funct, range(1)) # run this function for 1 time.
-#The extra argument specifies how many times the function should be runned.
+    
+    #The extra argument specifies how many times the 
+    #function should be runned.
     t_after = time.time()
     print("Example2 with Pooling and Mapping. Time for execution: " + str(t_after - t_before))
-#Keep the console open until the next button pressed:
+    
+    #Keep the console open until the next button pressed:
     input("Press any key to quit.")
 
 '''Multi processing does almost the same thing as multi-threading: it is used
@@ -13020,7 +13047,14 @@ IPC a little more complicated with more overhead (communication model vs. shared
 Larger memory footprint'''
 </code>        
         </multi-threading>
-        <namespaces>*General-Programming-Knowledge*</namespaces>
+        <namespaces>
+            *General-Programming-Knowledge*
+            
+            Python Namespaces are collections of different objects that are associated with 
+            unique names whose lifespan depends on the scope of a variable. The scope is a 
+            region from where we can access a particular object. There are three levels 
+            of scopes: built-in (outermost), global, and local.
+        </namespaces>
         <exception-handling>*General-Programming-Knowledge*
 <code>
 #Exceptions handling:
@@ -13264,7 +13298,8 @@ if __name__ == "__main__": #if script is run from this file do this, otherwise i
 </code>        
         </command-line-arguments>
         <ternary-operator>*General-Programming-Knowledge*</ternary-operator>
-        <modular-programming>*General-Programming-Knowledge*
+        <modular-programming>
+            *General-Programming-Knowledge*
 <code>
 #This is a module (a module can be any .py file):
 
@@ -13537,9 +13572,45 @@ input("\nPress any key to exit: ")
         </regular-expressions>
         <recursion>
             *General-Programming-Knowledge*
+<code>
+#Example of recursion in Python:
+
+def tri_recursion(k):
+    if(k>0):
+        result = k+tri_recursion(k-1)
+        print(result)
+    
+    else:
+        result = 0
+    return result
+
+print("\n\nRecursion Example Results")
+tri_recursion(6)
+</code>
         </recursion>
         <reflection>
             *General-Programming-Knowledge*
+<code>
+#Example of reflection in Python:
+
+def reverse(sequence):  
+    sequence_type = type(sequence)  
+    empty_sequence = sequence_type()  
+      
+    if sequence == empty_sequence:  
+        return empty_sequence  
+      
+    rest = reverse(sequence[1:])  
+    first_sequence = sequence[0:1]  
+      
+    #Combine the result  
+    final_result = rest + first_sequence 
+      
+    return final_result  
+  
+print(reverse([10, 20, 30, 40]))  
+print(reverse("Reflection in Python"))  
+</code>
         </reflection>
     </programming_language>
     
