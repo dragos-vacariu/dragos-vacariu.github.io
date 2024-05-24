@@ -12534,11 +12534,22 @@ input("\nPress any key to exit: ")
             <br></br>
         </collection-methods>
         <dynamic-memory-allocation>
-            Memory is allocated to the objects at the run time. <br></br>
-            We use the Heap for implement dynamic memory management. <br></br>
-            We can use the memory throughout the program. <br></br><br></br>
-            As we know, everything in Python is an object means dynamic memory 
-            allocation inspires the Python memory management.<br></br>
+            <green>Dynamic memory allocation in Python:</green>
+            The memory is allocated to the <red>objects</red> at the run time. <br></br>
+            The <blue>heap</blue> is used to implement <blue>dynamic memory management</blue>. 
+            <br></br><br></br>
+            Everything in Python is an <red>object</red> which means the memory is
+            allocated <blue>dynamically</blue> and is managed by the 
+            <blue>Python Memory Management</blue>.
+            <br></br><br></br>
+            Python <blue>deletes</blue> unneeded <red>objects</red> (built-in <red>types</red> or 
+            <red>class instances</red>) automatically to <blue>free</blue> the memory space.
+            <br></br><br></br>
+            Python's <blue>garbage collector</blue> runs during program execution 
+            and is triggered when an <blue>object's reference count</blue> reaches zero. 
+            An <blue>object's reference count</blue> changes as the number of <blue>aliases</blue> 
+            that point to it changes.
+            <br></br>
         </dynamic-memory-allocation>
         <read-from-file>
 <code>
