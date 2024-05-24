@@ -13453,17 +13453,17 @@ input("\nPress any key to exit: ")
             <code>format()</code><br></br>
             <red>Formats</red> specified values in a string.
             <br></br><br></br>
-            format_map()</code><br></br>
+            <code>format_map()</code><br></br>
             <red>Formats</red> specified values in a string.
             <br></br><br></br>
             <code>index()</code><br></br>
             <red>Searches</red> the string for a specified value and returns the position 
             of where it was found.
             <br></br><br></br>
-            i<code>salnum()</code><br></br>
+            <code>salnum()</code><br></br>
             <red>Returns</red> True if all characters in the string are alphanumeric.
             <br></br><br></br>
-            i<code>salpha()</code><br></br>
+            <code>salpha()</code><br></br>
             <red>Returns</red> True if all characters in the string are in the alphabet.
             <br></br><br></br>
             <code>isascii()</code><br></br>
