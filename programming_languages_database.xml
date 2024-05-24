@@ -13610,7 +13610,6 @@ if __name__ == "__main__": #if script is run from this file do this, otherwise i
         </command-line-arguments>
         <ternary-operator>
             *General-Programming-Knowledge*
-            <br></br>
             <green>Ternary operator in Python:</green>
             <br></br><br></br>
             Python modifies the syntax for using <red>ternary operator</red> by adding 
