@@ -12923,7 +12923,7 @@ add('str', 'Hello ', 'Python')
             <br></br>
             <green>Overloading via decorator:</green>
             <br></br><br></br>
-            <blue>Method overloading can also be achieved by using a decorator. 
+            <blue>Method overloading</blue> can also be achieved by using a decorator. 
             The <blue>method everloading</blue> via <red>decorator</red> allows using all the 
             defined versions of the <red>method</red>.
             <br></br>
