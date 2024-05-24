@@ -13059,11 +13059,41 @@ Larger memory footprint'''
         </multi-threading>
         <namespaces>
             *General-Programming-Knowledge*
-            
-            Python Namespaces are collections of different objects that are associated with 
-            unique names whose lifespan depends on the scope of a variable. The scope is a 
-            region from where we can access a particular object. There are three levels 
-            of scopes: built-in (outermost), global, and local.
+            <br></br><br></br>
+            Python <blue>namespaces</blue> are <red>collections</red> of different 
+            <red>objects</red> that are associated with 
+            unique names whose lifespan depends on the <red>scope</red> of a variable.
+            <br></br>
+            A variable is only available from inside the region it is created. This is called scope.
+            <br></br><br></br>
+            The <red>scope</red> is a 
+            region from where we can access a particular <red>object</red>.
+            <br></br><br></br>
+            There are three levels 
+            of <red>scopes<red>: <blue>built-in</blue> (<blue>outermost</blue>), 
+            <blue>global</blue>, and <blue>local</blue>.
+            <br></br><br></br>
+            <brown>Built-in scope:</brown>
+            <br></br><br></br>
+            The built-in scope is automatically loaded by Python when you run a program or script. 
+            It contains names that are built into Python, such as keywords, functions, exceptions, 
+            and other attributes. 
+            <br></br><br></br>
+            <brown>Global scope:</brown>
+            <br></br><br></br>
+            A variable created in the main body of the Python 
+            code is a global variable and belongs to the global scope.
+            Global variables are available from within any scope, global and local.
+            The global keyword makes the variable global.
+            <br></br><br></br>
+            <brown>Local scope:</brown>
+            <br></br><br></br>
+            A variable created inside a function belongs to the local scope 
+            of that function, and can only be used inside that function.
+            The nonlocal keyword is used to work with variables inside nested functions.
+            <br></br><br></br>
+            The nonlocal keyword makes the variable belong to the outer function.
+            <br></br>
         </namespaces>
         <exception-handling>*General-Programming-Knowledge*
 <code>
