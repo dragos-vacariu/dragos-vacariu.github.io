@@ -12887,7 +12887,7 @@ product(4, 5, 5)
             <br></br>
 <code>
 #Example of efficient overloading
-behavior:
+#behavior:
 
 #Function to take multiple arguments
 def add(datatype, *args):
@@ -12987,16 +12987,16 @@ print(Ob3)
         <br></br>
         <green>Python Operators for Overloading:</green>
         <br></br><br></br>
-        <code>Operator      Magic Method</code><br></br>
+        <code>Operator:      Magic Method:</code><br></br>
         <code>+             __add__(self, other)</code><br></br>
         <code>–             __sub__(self, other)</code><br></br>
         <code>*             __mul__(self, other)</code><br></br>
         <code>/             __truediv__(self, other)</code><br></br>
-        <code>/</code><code>/             __floordiv__(self, other)</code><br></br>
+        <code>/</code><code>/            __floordiv__(self, other)</code><br></br>
         <code>%             __mod__(self, other)</code><br></br>
         <code>**            __pow__(self, other)</code><br></br>
-        <code>&gt;&gt;             __rshift__(self, other)</code><br></br>
-        <code>&lt;&lt;             __lshift__(self, other)</code><br></br>
+        <code>&gt;&gt;            __rshift__(self, other)</code><br></br>
+        <code>&lt;&lt;            __lshift__(self, other)</code><br></br>
         <code>&#38;             __and__(self, other)</code><br></br>
         <code>|             __or__(self, other)</code><br></br>
         <code>^             __xor__(self, other)</code><br></br>
@@ -13405,6 +13405,7 @@ input("\nPress ENTER to exit.")
         </exception-handling>
         <bitwise-operators>
             *General-Programming-Knowledge*
+            <br></br>
             <brown>Python bitwise operators work only on integers.</brown>
             <br></br>
 <code>
@@ -13414,13 +13415,13 @@ input("\nPress ENTER to exit.")
 a=60
 b=13
 
-print ("a:",a, "b:",b, "a&b:",a&b)
+print ("a:",a, "b:",b, "a&#38;b:",a&#38;b)
 print ("a:",a, "b:",b, "a|b:",a|b)
 print ("a:", bin(a))
 print ("b:", bin(b))
 
 #OUTPUT:
-#a: 60 b: 13 a&b: 12
+#a: 60 b: 13 a&#38;b: 12
 #a: 60 b: 13 a|b: 61
 #a: 0b111100
 #b: 0b1101
