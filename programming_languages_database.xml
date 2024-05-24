@@ -12695,7 +12695,7 @@ import sys
 import xml.etree.ElementTree
 #import used for XML formatting
 
-#Defining a person class
+#Defining a person class:
 class Person:
     def __init__(self, surname:str, firstname:str, age: int):
         self.surname = surname
@@ -13528,25 +13528,32 @@ input("\nPress any key to exit: ")
 
 class PdfParser(TextExtractor):  
       
-    """Extract text from a PDF"""  
+    #This PdfParser will act as an interface
     def load_data_source(self, path: str, file_name: str) -> str:  
-        """Overrides InformalParserInterface.load_data_source()"""  
+        #pass keyword specified that the  
+        #implementation will be added at later stage 
         pass  
   
     def extract_text(self, file_path):  
-        #implementation for extracting text from PDF files  
+        #pass keyword specified that the  
+        #implementation will be added at later stage
         pass  
   
 class EmlParser(TextExtractor):  
      
-    """Extract text from a PDF"""  
+    #This EmlParser will also act as an interface
     def load_data_source(self, path: str, file_name: str) -> str:  
-        """Overrides InformalParserInterface.load_data_source()"""  
+        #pass keyword specified that the  
+        #implementation will be added at later stage
         pass  
     
     def extract_email_text(self, file_path):  
-        #implementation for extracting text from EML files  
+        #pass keyword specified that the  
+        #implementation will be added at later stage
         pass  
+
+#the implementation in both interfaces will be added
+#at a later stage.
 </code>
         </interfaces>
         <random-generators>
