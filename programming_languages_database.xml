@@ -13071,7 +13071,7 @@ Larger memory footprint'''
             region from where we can access a particular <red>object</red>.
             <br></br><br></br>
             There are three levels 
-            of <red>scopes<red>: <blue>built-in</blue> (<blue>outermost</blue>), 
+            of <red>scopes</red>: <blue>built-in</blue> (<blue>outermost</blue>), 
             <blue>global</blue>, and <blue>local</blue>.
             <br></br><br></br>
             <brown>Built-in scope:</brown>
