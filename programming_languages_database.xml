@@ -13913,8 +13913,10 @@ function()
 function()
 </code>        
         </decorators>
+        <optional-parameters>*General-Programming-Knowledge*</optional-parameters>
         <operators>*General-Programming-Knowledge*</operators>
         <abstract-classes>
+            *General-Programming-Knowledge*
 <code>
 from p19_abs_class import PUNCT as abstract, PUNCT
 
