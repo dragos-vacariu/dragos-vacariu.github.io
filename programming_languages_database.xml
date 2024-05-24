@@ -13399,6 +13399,25 @@ input("\nPress ENTER to exit.")
         <bitwise-operators>
             *General-Programming-Knowledge*
             <brown>Python bitwise operators work only on integers.</brown>
+            <br></br>
+<code>
+#Example of using bitwise 
+#operators in Python:
+
+a=60
+b=13
+
+print ("a:",a, "b:",b, "a&b:",a&b)
+print ("a:",a, "b:",b, "a|b:",a|b)
+print ("a:", bin(a))
+print ("b:", bin(b))
+
+#OUTPUT:
+#a: 60 b: 13 a&b: 12
+#a: 60 b: 13 a|b: 61
+#a: 0b111100
+#b: 0b1101
+</code>
         </bitwise-operators>
         <default-parameters>
             *General-Programming-Knowledge*
@@ -13486,22 +13505,24 @@ input("\nPress any key to exit: ")
 
 class PdfParser(TextExtractor):  
       
-      """Extract text from a PDF"""  
+    """Extract text from a PDF"""  
     def load_data_source(self, path: str, file_name: str) -> str:  
         """Overrides InformalParserInterface.load_data_source()"""  
         pass  
   
     def extract_text(self, file_path):  
-        # implementation for extracting text from PDF files  
+        #implementation for extracting text from PDF files  
         pass  
   
 class EmlParser(TextExtractor):  
-     """Extract text from a PDF"""  
+     
+    """Extract text from a PDF"""  
     def load_data_source(self, path: str, file_name: str) -> str:  
         """Overrides InformalParserInterface.load_data_source()"""  
         pass  
+    
     def extract_email_text(self, file_path):  
-        # implementation for extracting text from EML files  
+        #implementation for extracting text from EML files  
         pass  
 </code>
         </interfaces>
@@ -13510,7 +13531,9 @@ class EmlParser(TextExtractor):
 <code>
 #Example of random generator in Python:
 
-#This program will print a random quotes from the .txt quotation file opened below. 
+#This program will print a random quotes from 
+#the .txt quotation file opened below. 
+
 from random import randint
 
 def ReadFromFile():
