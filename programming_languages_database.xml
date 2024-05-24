@@ -12982,16 +12982,16 @@ print(Ob3)
         <br></br>
         <green>Python Operators for Overloading:</green>
         <br></br><br></br>
-        <code>Operator    Magic Method</code><br></br>
+        <code>Operator      Magic Method</code><br></br>
         <code>+             __add__(self, other)</code><br></br>
         <code>–             __sub__(self, other)</code><br></br>
         <code>*             __mul__(self, other)</code><br></br>
         <code>/             __truediv__(self, other)</code><br></br>
-        <code>/</code><code>/            __floordiv__(self, other)</code><br></br>
+        <code>/</code><code>/             __floordiv__(self, other)</code><br></br>
         <code>%             __mod__(self, other)</code><br></br>
         <code>**            __pow__(self, other)</code><br></br>
-        <code>&gt;&gt;      __rshift__(self, other)</code><br></br>
-        <code>&lt;&lt;      __lshift__(self, other)</code><br></br>
+        <code>&gt;&gt;             __rshift__(self, other)</code><br></br>
+        <code>&lt;&lt;             __lshift__(self, other)</code><br></br>
         <code>&#38;             __and__(self, other)</code><br></br>
         <code>|             __or__(self, other)</code><br></br>
         <code>^             __xor__(self, other)</code><br></br>
