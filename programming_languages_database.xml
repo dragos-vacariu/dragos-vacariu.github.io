@@ -13588,6 +13588,13 @@ if __name__ == "__main__": #if script is run from this file do this, otherwise i
         </command-line-arguments>
         <ternary-operator>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Ternary operator in Python:</green>
+            <br></br><br></br>
+            Python modifies the syntax for using ternary operator by adding keywords instead
+            of operators. This increases readability:<br></br>
+            <code>?</code> operator is replaced by <code>if</code> keyword;<br></br>
+            <code>:</code> operator is replaced by <code>else</code> keyword;<br></br>
 <code>
 #Example of ternary operator in Python:
 
