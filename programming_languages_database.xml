@@ -12757,6 +12757,42 @@ new_data = marshal.loads(bytes)
 print('After deserialization : ', new_data)
 </code>        
         </deserialization>
+        <enums>
+            *General-Programming-Knowledge*
+            <br></br>
+            <green>Enums in Python:</green>
+            <br></br><br></br>
+            <red>Enumerations</red> in Python are implemented by using the module named 
+            <red>“enum“</red>.
+            <br></br><br></br>
+            <red>Enumerations</red> are created using classes. 
+            <red>Enums</red> have names and values 
+            associated with them.
+            <br></br><br></br>
+            <red>Enums</red> can be displayed as <red>string</red> or <red>repr</red>.<br></br>
+            <red>Enums</red> can be checked for their types using <red>type()</red>.<br></br>
+            The <blue>“name”</blue> keyword is used to display the name of the <red>enum</red>
+            member.
+            <br></br>
+<code>
+#Example of enums in Python:
+
+from enum import Enum
+ 
+class Season(Enum):
+    SPRING = 1
+    SUMMER = 2
+    AUTUMN = 3
+    WINTER = 4
+
+print(Season.SPRING)
+print(Season.SPRING.name)
+print(Season.SPRING.value)
+print(type(Season.SPRING))
+print(repr(Season.SPRING))
+print(list(Season))
+</code>
+        </enums>
         <constructors>*General-Programming-Knowledge*
 <code>
 # Python program to illustrate constructor
