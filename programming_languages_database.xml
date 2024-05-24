@@ -12848,7 +12848,43 @@ del obj
 </code>        
         </destructors>
         <function-overloading>*General-Programming-Knowledge*</function-overloading>
-        <operator-overloading>*General-Programming-Knowledge*</operator-overloading>
+        <operator-overloading>
+            *General-Programming-Knowledge*
+<code>
+#Example of operator overloading in Python:
+ 
+class complex:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+ 
+     #overloading the + operator for addition:
+    def __add__(self, other):
+        return self.a + other.a, self.b + other.b
+ 
+Ob1 = complex(1, 2)
+Ob2 = complex(2, 3)
+
+#Using the overloaded operator we can now
+#perform addition on complex objects:
+Ob3 = Ob1 + Ob2
+print(Ob3)
+</code>
+        <green>Python Operators for Overloading:</green>
+        <code>Operator    Magic Method</code><br></br>
+        <code>+             __add__(self, other)</code><br></br>
+        <code>–             __sub__(self, other)</code><br></br>
+        <code>*             __mul__(self, other)</code><br></br>
+        <code>/             __truediv__(self, other)</code><br></br>
+        <code>//            __floordiv__(self, other)</code><br></br>
+        <code>%             __mod__(self, other)</code><br></br>
+        <code>**            __pow__(self, other)</code><br></br>
+        <code>&gt;&gt;      __rshift__(self, other)</code><br></br>
+        <code>&lt;&lt;      __lshift__(self, other)</code><br></br>
+        <code>&             __and__(self, other)</code><br></br>
+        <code>|             __or__(self, other)</code><br></br>
+        <code>^             __xor__(self, other)</code><br></br>
+        </operator-overloading>
         <multi-threading>
             *General-Programming-Knowledge*
 <code>
