@@ -13950,7 +13950,25 @@ LINE.staticMe()
 input("\nPress ENTER to exit.")
 </code>
         </abstract-classes>
-        <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
+        <pre-post-incrementation>
+            In Python, the ++ increment operator does not exist.
+            <br></br>
+            In order to increment a variable <code>+=</code> operator is being used.
+            <br></br>
+<code>
+#Example of incrementing in Python:
+
+#Initializing a variable 
+x = 5
+  
+#Incrementing the variable by 1 
+#Equivalent to x = x + 1 
+x += 1 
+  
+#Displaying the result 
+print("Incremented value:", x) 
+</code>
+        </pre-post-incrementation>
         <regular-expressions>
 <code>
 #A regular expression is a special sequence of characters that helps you match or find other strings or sets
