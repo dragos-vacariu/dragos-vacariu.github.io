@@ -13064,7 +13064,8 @@ Larger memory footprint'''
             <red>objects</red> that are associated with 
             unique names whose lifespan depends on the <red>scope</red> of a variable.
             <br></br>
-            A variable is only available from inside the region it is created. This is called scope.
+            A variable is only available from inside the region it is created. 
+            This is called <red>scope</red>.
             <br></br><br></br>
             The <red>scope</red> is a 
             region from where we can access a particular <red>object</red>.
@@ -13075,32 +13076,41 @@ Larger memory footprint'''
             <br></br><br></br>
             <brown>Built-in scope:</brown>
             <br></br><br></br>
-            The built-in scope is automatically loaded by Python when you run a program or script. 
-            It contains names that are built into Python, such as keywords, functions, exceptions, 
-            and other attributes. 
+            The built-in <red>scope</red> is automatically loaded by Python when you run a 
+            program or script. 
+            It contains names that are built into Python, such as 
+            <blue>keywords</blue>, <blue>functions</blue>, <blue>exceptions</blue>, 
+            and other <red>attributes</red>. 
             <br></br><br></br>
             <brown>Global scope:</brown>
             <br></br><br></br>
             A variable created in the main body of the Python 
-            code is a global variable and belongs to the global scope.
-            Global variables are available from within any scope, global and local.
-            The global keyword makes the variable global.
+            code is a <red>global variable</red> and belongs to the <red>global scope</red>.
+            <red>Global variables</red> are available from within any <red>scope</red>, 
+            <red>global</red> and <red>local</red>.
+            The <red>global</red> keyword makes the variable <red>global</red>.
             <br></br><br></br>
             <brown>Local scope:</brown>
             <br></br><br></br>
-            A variable created inside a function belongs to the local scope 
+            A variable created inside a function belongs to the <red>local scope</red> 
             of that function, and can only be used inside that function.
-            The nonlocal keyword is used to work with variables inside nested functions.
+            The <blue>nonlocal</blue> keyword is used to work with variables 
+            inside nested functions. A nested function is a function defined within a function.
             <br></br><br></br>
-            The nonlocal keyword makes the variable belong to the outer function.
+            The <blue>nonlocal</blue> keyword makes the variable belong to the outer function.
             <br></br><br></br>
-            Within Python namespaces and scopes are in a tight relationship. For example: 
-            the global namespace can be seen as a collection of global variables which have 
-            global scope, meaning they can be accessed from anywhere in the program. The global
-            namespace contains local namespaces for each function/method/loop an other entities
-            defining local scopes.
+            Within Python <red>namespaces</red> and <red>scopes</red> are in a tight relationship. 
+            For example: 
+            the <red>global namespace</red> can be seen as a collection of <red>global variables</red> 
+            which have 
+            <red>global scope</red>, meaning they can be accessed from anywhere in the program. 
+            The <red>global
+            namespace</red> contains <red>local namespaces</red> for each function/method/loop an 
+            other entities
+            defining <red>local scopes</red>.
             <br></br><br></br>
-            Scope refers to the coding region from which a particular Python object is accessible. 
+            <red>Scope</red> refers to the coding region from which a particular Python object 
+            is accessible. 
             <br></br>
 <code>
 #Example of namespace and scopes in Python:
