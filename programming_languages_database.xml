@@ -12392,142 +12392,144 @@ input("\nPress any key to exit: ")
             <brown>List methods:</brown>
             <br></br><br></br>
             <code>append()</code><br></br>
-            Used for adding elements to the end of the List. 
+            Used for <red>adding</red> elements to the end of the List. 
             <br></br><br></br>
             <code>copy()</code><br></br>
-            It returns a shallow copy of a list
+            It <red>returns</red> a shallow copy of a list
             <br></br><br></br>
             <code>clear()</code><br></br>
-            This method is used for removing all items from the list. 
+            This method is used for <red>removing</red> all items from the list. 
             <br></br><br></br>
             <code>count()</code><br></br>
-            These methods count the elements.
+            These methods <red>count</red> the elements.
             <br></br><br></br>
             <code>extend()</code><br></br>
-            Adds each element of an iterable to the end of the List
+            <red>Adds</red> each element of an iterable to the end of the List
             <br></br><br></br>
             <code>index()</code><br></br>
-            Returns the lowest index where the element appears. 
+            <red>Returns</red> the lowest index where the element appears. 
             <br></br><br></br>
             <code>insert()</code><br></br>
             Inserts a given element at a given index in a list. 
             <br></br><br></br>
             <code>pop()</code><br></br>
-            Removes and returns the last value from the List or the given index value.
+            <red>Removes</red> and returns the last value from the List or the given index value.
             <br></br><br></br>
             <code>remove()</code><br></br>
             <br></br><br></br>
-            Removes a given object from the List. 
+            <red>Removes</red> a given object from the List. 
             <br></br><br></br>
             <code>reverse()</code><br></br>
-            Reverses objects of the List in place.
+            <red>Reverses</red> objects of the List in place.
             <br></br><br></br>
             <code>sort()</code><br></br>
-            Sort a List in ascending, descending, or user-defined order
+            <red>Sort</red> a List in ascending, descending, or user-defined order
             <br></br><br></br>
             <code>min()</code><br></br>
-            Calculates the minimum of all the elements of the List
+            <red>Calculates</red> the minimum of all the elements of the List
             <br></br><br></br>
             <code>max()</code><br></br>
-            Calculates the maximum of all the elements of the List
+            <red>Calculates</red> the maximum of all the elements of the List
             <br></br><br></br>
             <brown>Dictionary methods:</brown>
             <br></br><br></br>
             <code>clear()</code><br></br>
-            Removes all the elements from the dictionary
+            <red>Removes</red> all the elements from the dictionary
             <br></br><br></br>
             <code>copy()</code><br></br>
-            Returns a copy of the dictionary
+            <red>Returns</red> a copy of the dictionary
             <br></br><br></br>
             <code>fromkeys()</code><br></br>
-            Returns a dictionary with the specified keys and value
+            <red>Returns</red> a dictionary with the specified keys and value
             <br></br><br></br>
             <code>get()</code><br></br>
-            Returns the value of the specified key
+            <red>Returns</red> the value of the specified key
             <br></br><br></br>
             <code>items()</code><br></br>
-            Returns a list containing a tuple for each key value pair
+            <red>Returns</red> a list containing a tuple for each key value pair
             <br></br><br></br>
             <code>keys()</code><br></br>
-            Returns a list containing the dictionary's keys
+            <red>Returns</red> a list containing the dictionary's keys
             <br></br><br></br>
             <code>pop()</code><br></br>
-            Removes the element with the specified key
+            <red>Removes</red> the element with the specified key
             <br></br><br></br>
             <code>popitem()</code><br></br>
-            Removes the last inserted key-value pair
+            <red>Removes</red> the last inserted key-value pair
             <br></br><br></br>
             <code>setdefault()</code><br></br>
-            Returns the value of the specified key. If the key does not exist: 
+            <red>Returns</red> the value of the specified key. If the key does not exist: 
             insert the key, with the specified value
             <br></br><br></br>
             <code>update()</code><br></br>
-            Updates the dictionary with the specified key-value pairs
+            <red>Updates</red> the dictionary with the specified key-value pairs
             <br></br><br></br>
             <code>values()</code><br></br>
-            Returns a list of all the values in the dictionary
+            <red>Returns</red> a list of all the values in the dictionary
             <br></br><br></br>
             <brown>Set methods:</brown>
             <br></br><br></br>
             <code>add()</code><br></br>
-            Adds an element to the set
+            <red>Adds</red> an element to the set
             <br></br><br></br>
             <code>clear()</code><br></br>
-            Removes all the elements from the set
+            <red>Removes</red> all the elements from the set
             <br></br><br></br>
             <code>copy()</code><br></br>
-            Returns a copy of the set
+            <red>Returns</red> a copy of the set
             <br></br><br></br>
             <code>difference()</code><br></br>
-            Returns a set containing the difference between two or more sets
+            <red>Returns</red> a set containing the difference between two or more sets
             <br></br><br></br>
             <code>difference_update()</code><br></br>
-            Removes the items in this set that are also included in another, specified set
+            <red>Removes</red> the items in this set that are also included in another, specified set
             <br></br><br></br>
             <code>discard()</code><br></br>
-            Remove the specified item
+            <red>Remove</red> the specified item
             <br></br><br></br>
             <code>intersection()</code><br></br>
-            Returns a set, that is the intersection of two other sets
+            <red>Returns</red> a set, that is the intersection of two other sets
             <br></br><br></br>
             <code>intersection_update()</code><br></br>
-            Removes the items in this set that are not present in other, specified set(s)
+            <red>Removes</red> the items in this set that are not present in other, 
+            specified set(s)
             <br></br><br></br>
             <code>isdisjoint()</code><br></br>
-            Returns whether two sets have a intersection or not
+            <red>Returns</red> whether two sets have a intersection or not
             <br></br><br></br>
             <code>issubset()</code><br></br>
-            Returns whether another set contains this set or not
+            <red>Returns</red> whether another set contains this set or not
             <br></br><br></br>
             <code>issuperset(()</code><br></br>
-            Returns whether this set contains another set or not
+            <red>Returns</red> whether this set contains another set or not
             <br></br><br></br>
             <code>pop()</code><br></br>
-            Removes an element from the set
+            <red>Removes</red> an element from the set
             <br></br><br></br>
             <code>remove()</code><br></br>
-            Removes the specified element
+            <red>Removes</red> the specified element
             <br></br><br></br>
             <code>symmetric_difference()</code><br></br>
-            Returns a set with the symmetric differences of two sets
+            <red>Returns</red> a set with the symmetric differences of two sets
             <br></br><br></br>
             <code>symmetric_difference_update()</code><br></br>
-            Inserts the symmetric differences from this set and another
+            <red>Inserts</red> the symmetric differences from this set and another
             <br></br><br></br>
             <code>union()</code><br></br>
-            Return a set containing the union of sets
+            <red>Return</red> a set containing the union of sets
             <br></br><br></br>
             <code>update()</code><br></br>
-            Update the set with the union of this set and others
+            <red>Update</red> the set with the union of this set and others
             <br></br><br></br>
             <brown>Tuple methods:</brown>
             <br></br><br></br>
             <code>count()</code><br></br>
-            Returns the number of times a specified value occurs in a tuple
+            <red>Returns</red> the number of times a specified value occurs in a tuple
             <br></br><br></br>
             <code>index()</code><br></br>
-            Searches the tuple for a specified value and returns the position of where it was found
-            <br></br><br></br>
+            <red>Searches</red> the tuple for a specified value and returns the 
+            position of where it was found
+            <br></br>
         </collection-methods>
         <dynamic-memory-allocation>
             Memory is allocated to the objects at the run time. <br></br>
