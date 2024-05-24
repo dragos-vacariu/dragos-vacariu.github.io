@@ -1063,8 +1063,9 @@ int main()
             The increment operator can either
             increase the value of the variable by <blue>1</blue> before assigning it to the variable or 
             can increase the value of the variable by <blue>1</blue> after assigning the variable. 
+            Thus it can be classified into two types
             <br></br><br></br>
-            <green>Thus it can be classified into two types:</green>
+            <green>Classification of the increment operator:</green>
             <br></br><br></br>
             <blue>
             Pre-Increment Operator<br></br>
