@@ -12877,7 +12877,13 @@ def product(a, b, c):
 #This line will call the second product method
 product(4, 5, 5)
 </code>
-
+            <br></br>
+            Overloading behaviour in a single function:
+            <br></br>
+            A method can be implemented in such a way that it responds differently
+            based on the arguments passed to it. This will result in a behaviour
+            which is similarly obtained via method overloading in other programming
+            languages.
 <code>
 #Example of efficient overloading
 behavior:
@@ -12911,6 +12917,43 @@ add('int', 5, 6)
  
 #String
 add('str', 'Hello ', 'Python')
+</code>
+            <br></br>
+            Overloading via decorator allows using all the defined versions of the method.
+            <br></br>
+<code>
+#Overloading via decorator:
+
+from multipledispatch import dispatch
+#import dispatch
+
+@dispatch(int, int)
+def product(first, second):
+    result = first*second
+    print(result)
+ 
+@dispatch(int, int, int)
+def product(first, second, third):
+    result = first * second * third
+    print(result)
+ 
+@dispatch(float, float, float)
+def product(first, second, third):
+    result = first * second * third
+    print(result)
+ 
+ 
+#calling product method with 2 arguments
+product(2, 3)  
+#the output will be 6
+ 
+#calling product method with 3 arguments but all int
+product(2, 3, 2)  
+#the output will be 12
+ 
+#calling product method with 3 arguments but all float
+product(2.2, 3.4, 2.3)  
+#the output will be 17.985999999999997
 </code>
         </function-overloading>
         <operator-overloading>
