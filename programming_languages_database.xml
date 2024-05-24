@@ -12887,7 +12887,8 @@ t_after = time.time()
 print("Example1 (without threading): Time for execution: " + str(t_after-t_before) + " seconds.")
 print()
 
-#THIS THREAD EXAMPLE WORKS AS CALLING THE 2 FUNCTIONS WITHOUT THREADING (just like in the example above):
+#THIS THREAD EXAMPLE WORKS AS CALLING THE 2 FUNCTIONS WITHOUT THREADING (just like in the 
+example above):
 #because the second thread needs to wait until the first thread finishes its execution.
 #just like the functions in the example above do.
 #Get current time:
@@ -12918,8 +12919,11 @@ in order to increase the speed of execution.
 
 COMPARISON BETWEEN MULTI_THREADING AND MUTI_PROCESSING:
 
-Multi-threading shares the same stack memory as the whole program (this is one main difference comparing to multi-processing)
-Multi-threading returns a value to the same memory address (stack address) whereas the multi-processing doesn't because
+Multi-threading shares the same stack memory as the whole program (this is one main 
+difference comparing to multi-processing)
+
+Multi-threading returns a value to the same memory address (stack address) whereas 
+the multi-processing doesn't because
 it's has it's own stack memory (in which it will copy all the variables related to it).
 
 ADVANTAGES FOR USING MULTI_THREADING (instead of multi-processing):
@@ -12933,8 +12937,12 @@ DISADVANTAGES:
 
 cPython - subject to the GIL
 Not interruptible/killable
-If not following a command queue/message pump model (using the Queue module), then manual use of synchronization primitives become a necessity (decisions are needed for the granularity of locking)
-Code is usually harder to understand and to get right - the potential for race conditions increases dramatically
+If not following a command queue/message pump model (using the Queue module), then 
+manual use of synchronization primitives become a necessity (decisions are needed 
+for the granularity of locking)
+
+Code is usually harder to understand and to get right - the potential for race 
+conditions increases dramatically
 '''
 
 #THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
@@ -13034,11 +13042,13 @@ ADVANTAGES FOR USING MULTI_PROCESSING (instead of multi-threading):
 
 Separate memory space
 Code is usually straightforward
-Takes advantage of multiple CPUs & cores
+Takes advantage of multiple CPUs and cores
 Avoids GIL limitations for cPython
-Eliminates most needs for synchronization primitives unless if you use shared memory (instead, it's more of a communication model for IPC)
+Eliminates most needs for synchronization primitives unless if you use shared memory (
+instead, it's more of a communication model for IPC)
 Child processes are interruptible/killable
-Python multiprocessing module includes useful abstractions with an interface much like threading.Thread
+Python multiprocessing module includes useful abstractions with an interface much like 
+threading.Thread
 A must with cPython for CPU-bound processing
 
 DISADVANTAGES FOR USING MULTI_PROCESSING:
