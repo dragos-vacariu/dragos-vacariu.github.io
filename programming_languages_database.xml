@@ -12849,12 +12849,13 @@ del obj
         </destructors>
         <function-overloading>
             *General-Programming-Knowledge*
+            <br></br>
             <green>Function overloading in Python:</green>
             <br></br><br></br>
             In Python <blue>function overloading</blue> works different as compared to other 
             OOP programming
             languages: the <red>methods</red> can be <red>overloaded</red> but only the 
-            latest defined method can be used.
+            latest defined <red>method</red> can be used.
             <br></br>
 <code>
 #Example of function overloading in Python:
@@ -12878,12 +12879,13 @@ def product(a, b, c):
 product(4, 5, 5)
 </code>
             <br></br>
-            Overloading behaviour in a single function:
-            <br></br>
-            A method can be implemented in such a way that it responds differently
+            <green>Overloading behaviour in a single function:</green>
+            <br></br><br></br>
+            A <red>method</red> can be implemented in such a way that it responds differently
             based on the arguments passed to it. This will result in a behaviour
-            which is similarly obtained via method overloading in other programming
+            which is similarly obtained via <red>method overloading</red> in other programming
             languages.
+            <br></br>
 <code>
 #Example of efficient overloading
 behavior:
@@ -12919,7 +12921,11 @@ add('int', 5, 6)
 add('str', 'Hello ', 'Python')
 </code>
             <br></br>
-            Overloading via decorator allows using all the defined versions of the method.
+            <green>Overloading via decorator:</green>
+            <br></br><br></br>
+            <blue>Method overloading can also be achieved by using a decorator. 
+            The <blue>method everloading</blue> via <red>decorator</red> allows using all the 
+            defined versions of the <red>method</red>.
             <br></br>
 <code>
 #Overloading via decorator:
