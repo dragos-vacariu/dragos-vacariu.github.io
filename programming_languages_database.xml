@@ -12686,48 +12686,62 @@ input("\nPress any key to exit: ")
         <write-to-file>
             *General-Programming-Knowledge*
 <code>
+#Example of writing to file
+#in Python 3:
+
 import os
 
 import sys
 import xml.etree.ElementTree
+#import used for XML formatting
 
-class Persoana:
-    def __init__(self, nume:str, prenume:str, varsta: int):
-        self.nume = nume
-        self.varsta = varsta
-        self.prenume = prenume
+#Defining a person class
+class Person:
+    def __init__(self, surname:str, firstname:str, age: int):
+        self.surname = surname
+        self.age = age
+        self.firstname = firstname
 
     def __repr__(self):
-        return self.nume+ " " + self.prenume + " " + str(self.varsta)
+        return self.surname+ " " + self.firstname + " " + str(self.age)
 
-persoane = [
-                Persoana("Geere", "Richard", 64),
-                Persoana("Walker", "Alan", 24),
-                Persoana("Manson", "Mary", 34),
-                Persoana("Manson", "Deny", 36),
-                Persoana("Menance", "Denise", 54),
-                Persoana("Reyes", "Antonio", 22),
+#Creating a list of persons:
+people = [
+                Person("Geere", "Richard", 64),
+                Person("Walker", "Alan", 24),
+                Person("Manson", "Mary", 34),
+                Person("Manson", "Deny", 36),
+                Person("Menance", "Denise", 54),
+                Person("Reyes", "Antonio", 22),
             ]
 
-def write_xml(lista, filename):
-    root  = xml.etree.ElementTree.Element("Persoane")
-    for pers in lista:
-        node = xml.etree.ElementTree.Element("persoana", varsta = str(pers.varsta))
-        nume = xml.etree.ElementTree.SubElement(node, 'nume')
+#Define a function to write to an xml file:
+def write_xml(list, filename):
+    #Format the content of the list to XML format
+    root  = xml.etree.ElementTree.Element("people")
+    for pers in list:
+        node = xml.etree.ElementTree.Element("people", age = str(pers.age))
+        surname = xml.etree.ElementTree.SubElement(node, 'surname')
         prenume = xml.etree.ElementTree.SubElement(node, 'prenume')
-        nume.text = pers.nume
+        surname.text = pers.surname
         prenume.text = pers.prenume
         root.append(node)
+    
     tree = xml.etree.ElementTree.ElementTree(root)
+    
+    #Writing to the file:
     try:
         tree.write(filename, "UTF-8")
+    
     except EnvironmentError as err:
         print("{0}: import error: {1}".format(
             os.path.basename(sys.argv[0]), err))
         return False
+    
     return True
 
-write_xml(persoane, "fisier.xml")
+#Calling write_xml function:
+write_xml(people, "file.xml")
 </code>        
         </write-to-file>
         <serialization>
