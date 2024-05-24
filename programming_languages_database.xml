@@ -12553,6 +12553,7 @@ input("\nPress any key to exit: ")
             <br></br>
         </dynamic-memory-allocation>
         <read-from-file>
+            *General-Programming-Knowledge*
 <code>
 #Input and Output to files.
 
@@ -12682,6 +12683,7 @@ input("\nPress any key to exit: ")
 </code>
         </read-from-file>
         <write-to-file>
+            *General-Programming-Knowledge*
 <code>
 import os
 
@@ -12727,39 +12729,37 @@ def write_xml(lista, filename):
 write_xml(persoane, "fisier.xml")
 </code>        
         </write-to-file>
-        <serialization>*General-Programming-Knowledge*
+        <serialization>
+            *General-Programming-Knowledge*
 <code>
-import pickle  
-# Object to serialize  
-data = [1, 2, 3, 4, 5]  
-# Serialize object to a file  
+#Example of serialization in Python:
+
+import pickle
+
+#Object to serialize  
+data = [1, 2, 3, 4, 5]
+
+#Serialize object to a file  
 with open('data.pkl', 'wb') as file:  
-pickle.dump(data, file)  
-# Deserialize object from the file  
-with open('data.pkl', 'rb') as file:  
-loaded_data = pickle.load(file)  
-print(loaded_data)    
+pickle.dump(data, file) 
 </code>        
         </serialization>
-        <deserialization>*General-Programming-Knowledge*
+        <deserialization>
+            *General-Programming-Knowledge*
 <code>
-# importing the module
-import marshal  
- 
-data = {'name': 'sunny','age': 34,'address': 'nasik'} 
- 
-# dumps() return byte object stored in variable 'bytes' 
-bytes = marshal.dumps(data)    
-print('After serialization : ', bytes) 
- 
-# loads() convert byte object to value
-new_data = marshal.loads(bytes)    
-print('After deserialization : ', new_data)
+#Example of deserialization in Python:
+
+import pickle
+
+#Deserialize object from the file  
+with open('data.pkl', 'rb') as file:  
+loaded_data = pickle.load(file)
+
+print(loaded_data)    
 </code>        
         </deserialization>
         <enums>
             *General-Programming-Knowledge*
-            <br></br>
             <green>Enums in Python:</green>
             <br></br><br></br>
             <red>Enumerations</red> in Python are implemented by using the module named 
@@ -12793,39 +12793,58 @@ print(repr(Season.SPRING))
 print(list(Season))
 </code>
         </enums>
-        <constructors>*General-Programming-Knowledge*
+        <constructors>
+            *General-Programming-Knowledge*
 <code>
-# Python program to illustrate constructor
+#Example of constructor in Python:
+
 class Employee:
  
-    # Initializing (Calling constructor)
+    #Constructor definition:
     def __init__(self):
         print('Employee created.')
- 
-    # Deleting (Calling destructor)
-    def __del__(self):
-        print('Destructor called, Employee deleted.')
- 
+
+#Instantiation:
 obj = Employee()
 del obj
 </code>        
         </constructors>
-        <instantiation>*General-Programming-Knowledge*
+        <instantiation>
+            *General-Programming-Knowledge*
 <code>
+#Example of instantiation in Python: 
+
 class Person:
+    #Defining a constructor:
     def __init__(self, name, age):
         self.name = name
         self.age = age
 
+#Instantiation:
 person1 = Person("John", 25)
+
 print(person1.name)
 print(person1.age)
 </code>        
         </instantiation>
-        <destructors>*General-Programming-Knowledge*
+        <destructors>
+            *General-Programming-Knowledge*
 <code>
-def __del__(self):
-  # body of destructor
+#Example of destructor in Python:
+
+class Employee:
+ 
+    #Constructor definition:
+    def __init__(self):
+        print('Employee created.')
+ 
+    #Destructor definition:
+    def __del__(self):
+        print('Destructor called, Employee deleted.')
+
+#Instantiation:
+obj = Employee()
+del obj
 </code>        
         </destructors>
         <function-overloading>*General-Programming-Knowledge*</function-overloading>
