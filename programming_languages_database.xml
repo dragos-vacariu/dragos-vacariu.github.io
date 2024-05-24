@@ -13972,7 +13972,7 @@ input("\nPress ENTER to exit.")
 </code>
         </abstract-classes>
         <pre-post-incrementation>
-            In Python, the ++ increment operator does not exist.
+            In Python, the <code>++</code> increment operator does not exist.
             <br></br>
             In order to increment a variable <code>+=</code> operator is being used.
             <br></br>
@@ -14141,9 +14141,9 @@ input("\nPress any key to exit: ")
 <code>
 #Example of recursion in Python:
 
-def tri_recursion(k):
+def try_recursion(k):
     if(k>0):
-        result = k+tri_recursion(k-1)
+        result = k+try_recursion(k-1)
         print(result)
     
     else:
@@ -14151,7 +14151,7 @@ def tri_recursion(k):
     return result
 
 print("\n\nRecursion Example Results")
-tri_recursion(6)
+try_recursion(6)
 </code>
         </recursion>
         <reflection>
