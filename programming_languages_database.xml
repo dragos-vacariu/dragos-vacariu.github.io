@@ -13059,6 +13059,8 @@ Larger memory footprint'''
         </multi-threading>
         <namespaces>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Namespaces in Python:</green>
             <br></br><br></br>
             Python <blue>namespaces</blue> are <red>collections</red> of different 
             <red>objects</red> that are associated with 
