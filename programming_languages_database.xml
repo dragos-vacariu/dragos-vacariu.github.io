@@ -12722,9 +12722,9 @@ def write_xml(list, filename):
     for pers in list:
         node = xml.etree.ElementTree.Element("people", age = str(pers.age))
         surname = xml.etree.ElementTree.SubElement(node, 'surname')
-        prenume = xml.etree.ElementTree.SubElement(node, 'prenume')
+        firstname = xml.etree.ElementTree.SubElement(node, 'firstname')
         surname.text = pers.surname
-        prenume.text = pers.prenume
+        firstname.text = pers.firstname
         root.append(node)
     
     tree = xml.etree.ElementTree.ElementTree(root)
