@@ -12847,9 +12847,75 @@ obj = Employee()
 del obj
 </code>        
         </destructors>
-        <function-overloading>*General-Programming-Knowledge*</function-overloading>
+        <function-overloading>
+            *General-Programming-Knowledge*
+            <green>Function overloading in Python:</green>
+            <br></br><br></br>
+            In Python <blue>function overloading</blue> works different as compared to other 
+            OOP programming
+            languages: the <red>methods</red> can be <red>overloaded</red> but only the 
+            latest defined method can be used.
+            <br></br>
+<code>
+#Example of function overloading in Python:
+
+#First product takes 2 arguments:
+def product(a, b):
+    p = a * b
+    print(p)
+ 
+#Second product method 3 arguments:
+ 
+def product(a, b, c):
+    p = a * b*c
+    print(p)
+ 
+#Uncommenting the below line shows an error
+#product(4, 5)
+ 
+ 
+#This line will call the second product method
+product(4, 5, 5)
+</code>
+
+<code>
+#Example of efficient overloading
+behavior:
+
+#Function to take multiple arguments
+def add(datatype, *args):
+ 
+    #if datatype is int
+    #initialize answer as 0
+    if datatype == 'int':
+        answer = 0
+ 
+    #if datatype is str
+    #initialize answer as ''
+    if datatype == 'str':
+        answer = ''
+ 
+    #Traverse through the arguments
+    for x in args:
+ 
+        #This will do addition if the
+        #arguments are int. Or concatenation
+        #if the arguments are str
+        answer = answer + x
+ 
+    print(answer)
+ 
+ 
+#Integer
+add('int', 5, 6)
+ 
+#String
+add('str', 'Hello ', 'Python')
+</code>
+        </function-overloading>
         <operator-overloading>
             *General-Programming-Knowledge*
+            <br></br>
 <code>
 #Example of operator overloading in Python:
  
@@ -12870,6 +12936,7 @@ Ob2 = complex(2, 3)
 Ob3 = Ob1 + Ob2
 print(Ob3)
 </code>
+        <br></br>
         <green>Python Operators for Overloading:</green>
         <code>Operator    Magic Method</code><br></br>
         <code>+             __add__(self, other)</code><br></br>
