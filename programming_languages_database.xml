@@ -13565,7 +13565,9 @@ input("\nPress any key to exit: ")
             <red>Fills</red> the string with a specified number of 0 values at the beginning.
             <br></br>
         </string-methods>
-        <datatype-conversions>No information present in the database.</datatype-conversions>
+        <datatype-conversions>
+            *General-Programming-Knowledge*
+        </datatype-conversions>
         <decorators>
             *General-Programming-Knowledge*
 <code>
