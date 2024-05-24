@@ -12291,6 +12291,7 @@ print("The sorted (by keys) zipped dictionary is: ", sorted(name))
             <brown>Sets:</brown>
             <br></br><br></br>
             <blue>Sets</blue> are like <blue>lists</blue> that cannot contain duplicate elements.
+            <br></br>
             A <blue>set</blue> is one of 4 built-in <red>data types</red> in Python used 
             to store <blue>collections</blue> of data, 
             the other 3 are <blue>List</blue>, <blue>Tuple</blue>, and <blue>Dictionary</blue>, 
@@ -12389,7 +12390,9 @@ input("\nPress any key to exit: ")
         <collection-methods>
             <green>Collection Methods in Python:</green>
             <br></br><br></br>
-            <brown>List methods:</brown>
+            Python has a set of built-in <blue>methods</blue> that can be used on collections.
+            <br></br><br></br>
+            <green>List methods:</green>
             <br></br><br></br>
             <code>append()</code><br></br>
             Used for <red>adding</red> elements to the end of the List. 
@@ -12416,7 +12419,6 @@ input("\nPress any key to exit: ")
             <red>Removes</red> and returns the last value from the List or the given index value.
             <br></br><br></br>
             <code>remove()</code><br></br>
-            <br></br><br></br>
             <red>Removes</red> a given object from the List. 
             <br></br><br></br>
             <code>reverse()</code><br></br>
@@ -12431,7 +12433,7 @@ input("\nPress any key to exit: ")
             <code>max()</code><br></br>
             <red>Calculates</red> the maximum of all the elements of the List
             <br></br><br></br>
-            <brown>Dictionary methods:</brown>
+            <green>Dictionary methods:</green>
             <br></br><br></br>
             <code>clear()</code><br></br>
             <red>Removes</red> all the elements from the dictionary
@@ -12467,7 +12469,7 @@ input("\nPress any key to exit: ")
             <code>values()</code><br></br>
             <red>Returns</red> a list of all the values in the dictionary
             <br></br><br></br>
-            <brown>Set methods:</brown>
+            <green>Set methods:</green>
             <br></br><br></br>
             <code>add()</code><br></br>
             <red>Adds</red> an element to the set
@@ -12521,7 +12523,7 @@ input("\nPress any key to exit: ")
             <code>update()</code><br></br>
             <red>Update</red> the set with the union of this set and others
             <br></br><br></br>
-            <brown>Tuple methods:</brown>
+            <green>Tuple methods:</green>
             <br></br><br></br>
             <code>count()</code><br></br>
             <red>Returns</red> the number of times a specified value occurs in a tuple
