@@ -12535,6 +12535,7 @@ input("\nPress any key to exit: ")
         </collection-methods>
         <dynamic-memory-allocation>
             <green>Dynamic memory allocation in Python:</green>
+            <br></br><br></br>
             The memory is allocated to the <red>objects</red> at the run time. <br></br>
             The <blue>heap</blue> is used to implement <blue>dynamic memory management</blue>. 
             <br></br><br></br>
