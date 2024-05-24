@@ -13002,7 +13002,7 @@ print(Ob3)
         <br></br>
         <green>Python Operators for Overloading:</green>
         <br></br><br></br>
-        <code>Operator:      Magic Method:</code><br></br>
+        <red>Operator:</red><code>      </code><red>Magic Method:</red><br></br>
         <code>+             __add__(self, other)</code><br></br>
         <code>–             __sub__(self, other)</code><br></br>
         <code>*             __mul__(self, other)</code><br></br>
