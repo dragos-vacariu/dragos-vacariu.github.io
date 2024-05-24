@@ -12866,7 +12866,6 @@ def product(a, b):
     print(p)
  
 #Second product method 3 arguments:
- 
 def product(a, b, c):
     p = a * b*c
     print(p)
@@ -13287,7 +13286,8 @@ def some_func():
         var3 = 7
 </code>
         </namespaces>
-        <exception-handling>*General-Programming-Knowledge*
+        <exception-handling>
+            *General-Programming-Knowledge*
 <code>
 #Exceptions handling:
 
