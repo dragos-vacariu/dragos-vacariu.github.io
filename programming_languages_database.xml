@@ -14444,7 +14444,7 @@ print (c)
 #Type conversion using tuple(), set(), list():
 
 # initializing string
-s = 'geeks'
+s = 'python'
  
 # printing string converting to tuple
 c = tuple(s)
@@ -14506,18 +14506,29 @@ function()
         <abstract-classes>
             *General-Programming-Knowledge*
 <code>
+#Example of abstract classes and methods
+#in Python:
+
+#FILE: program19 abstract classes and static functions.py
+
 from p19_abs_class import PUNCT as abstract, PUNCT
 
-#p = PUNCT()  #cannot be done, abstract classes cannot be instraciated
+#p = PUNCT()
+#instantiation cannot be done on abstract classes
 
 class LINE(PUNCT):
-    def abstract_method(self): #providing definition for abstract parent method
+    def abstract_method(self): 
+        #providing definition for abstract parent method
         print("Abstract method is now redefined")
 
     #creating static methods:
-    @staticmethod #the following method will be static. Static = shared among the instances.
-    def staticMe(): #static method don't take self as argument
-        print("\nThis is a static method\nAll instances of the class share same method")
+    #the following method will be static. 
+    #Static methods are shared amongst all instances.
+    @staticmethod 
+    def staticMe(): 
+        #static methods don't take self as argument
+        print("\nThis is a static method\nAll \
+            instances of the class share same method")
 
 l = LINE()
 
@@ -14528,6 +14539,31 @@ l.staticMe()
 LINE.staticMe()
 
 input("\nPress ENTER to exit.")
+</code>
+
+<code>
+#Example of abstract classes and methods
+#in Python:
+
+#FILE: p19_abs_class.py
+
+from abc import abstractmethod, ABC  
+#importing this to be able to create 
+#abstact methods
+
+class PUNCT(ABC): #PUNCT will be abstract
+    #constructor
+    def __init__(self):
+        self.x=0 #non-static field
+        self.y=0 #non-static field
+
+    #the following decorator will make 
+    #the following method abstract:
+    @abstractmethod 
+    def abstract_method(self):
+        pass 
+        #pass means implementation 
+        #will to be provided later
 </code>
         </abstract-classes>
         <pre-post-incrementation>
