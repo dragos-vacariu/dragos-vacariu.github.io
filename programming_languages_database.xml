@@ -14068,10 +14068,9 @@ print("This is PrintFunct: {0}" .format(PrintFunct()))
 #is called using default argument (no value is passed).
 
 
-#when a function uses 2 default arguments,
-#you can use variable name to specify
-#in which variable the passed value 
-#should be stored.
+#when a function that uses more default arguments,
+#the variable name can be used to specify in
+#which variable the passed value should be stored.
 
 def PrintFunct2 (str="Default argument", str2="Default argument2"):
     print("{0} + {1}" .format(str, str2))
@@ -14137,11 +14136,33 @@ input("Press any key to quit.")
         </random-generators>
         <command-line-arguments>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Command line arguments in Python:</green>
+            <br></br><br></br>
+            In Python: the <blue>sys</blue> module provides functions and variables 
+            used to manipulate different parts of the <blue>Python Runtime Environment</blue>. 
+            This module also provides access to some variables used or maintained by the 
+            Python Interpreter that allows direct interaction with it.
+            <br></br><br></br>
+            One such variable is <blue>sys.argv</blue> which is a <red>list</red>
+            storing the name of the script file and the <blue>command line arguments</blue>:
+            - <blue>len(sys.argv)</blue> provides the number of command line arguments.
+            - <blue>sys.argv[0]</blue> is the name of the current Python script. 
 <code>
+#Example of working with command line
+#arguments in Python:
+
 import sys
 
-if __name__ == "__main__": #if script is run from this file do this, otherwise it means file imported by other module and you will ignore this.
-    if len(sys.argv) > 1: #there is always gonna be at least one element in this... at index 0 the name of the file is stored.
+#when the script is being ran from this file do this, 
+#otherwise it means the file was imported by other 
+#module and the statements in here should be ignored.
+
+if __name__ == "__main__":
+    #there is always gonna be at least one element in 
+    #sys.argv array. At index 0 is always stored the name 
+    #of the file.
+    if len(sys.argv) > 1: 
         print ("The script has the name "  + str(sys.argv[0]))
         print ("The arguments which were passed are: " + str(sys.argv[1:]))
 </code>        
