@@ -12601,6 +12601,8 @@ input("\nPress any key to exit: ")
             directory as the 
             .py script.
             <br></br><br></br>
+            <green>Modes for opening a file:</green>
+            <br></br><br></br>
             The other available modes for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
@@ -12625,7 +12627,7 @@ input("\nPress any key to exit: ")
             <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
             creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"w+" - Opens a <blue>file</blue> for both writing and reading. 
+            <blue>"w+"</blue> - Opens a <blue>file</blue> for both writing and reading. 
             Overwrites the existing <blue>file</blue> if
             the <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
             creates a new <blue>file</blue> for reading
@@ -12664,7 +12666,9 @@ input("\nPress any key to exit: ")
             If the <blue>file</blue> does not exist, it creates 
             a new <blue>file</blue> for reading and writing.
             <br></br><br></br>
-            The <blue>file</blue> object contains several <red>attributes</red>:
+            <green>File object attributes:</green>
+            <br></br><br></br>
+            The <blue>file object</blue> contains several <red>attributes</red>:
             <br></br>
             <code>file.closed</code><br></br>
             <blue>Returns</blue> <code>true</code> if file is closed, false otherwise.
