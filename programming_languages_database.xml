@@ -511,11 +511,12 @@ free(A);
             execute simultaneously (in parallel). 
             For instance, a <blue>single-core</blue> processor may be able to handle one <red>task</red> at a time. 
             By contrast, a <blue>quad-core</blue> processor could handle up to four 
-            simultaneous tasks.
+            simultaneous <red>tasks</red>.
             <br></br><br></br>
             <red>Threads</red> are <blue>virtual sequences</blue> of instructions given to a <red>CPU</red>. 
             A <red>thread</red> is a sequence of instructions given to the <red>CPU</red> by a program 
-            or application. The more <red>threads</red> a <red>CPU</red> can execute at once, the more tasks 
+            or application. The more <red>threads</red> a <red>CPU</red> can execute at once, the more 
+            <red>tasks</red> 
             it can complete.
             <blue>Hyperthreading</blue> allows <blue>multi-core processors</blue> to execute two 
             <red>thread</red> concurrently on each <red>core</red>, meaning a 
@@ -526,7 +527,7 @@ free(A);
             a time. 
             Even with one <red>thread</red>
             we can run many programs simultaneos from our perspective, but from <red>CPU</red>'s 
-            perspective, these tasks are not simultaneos. The <red>CPU</red> has to switch the 
+            perspective, these <red>tasks</red> are not simultaneos. The <red>CPU</red> has to switch the 
             <red>thread</red>
             between the <red>tasks</red> on every few microseconds, therefore
             moving its hand from doing one thing to doing the other thing so fast that a real person 
@@ -536,7 +537,7 @@ free(A);
             <br></br><br></br>
             By <blue>hyperthreading</blue> the <red>core</red> gets a second hand available, 
             and can perform 
-            <blue>2</blue> simultaneos tasks but using the same the shared resources of the 
+            <blue>2</blue> simultaneos <red>tasks</red> but using the same the shared resources of the 
             <red>core</red>, 
             meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
             but faster than doing single <red>task</red> on one <red>core</red>. 
@@ -551,7 +552,7 @@ free(A);
             <red>threads</red> concurrently. 
             <br></br><br></br>
             <red>Multiprocessing</red> is the utilization of two or more central processing 
-            units (<red>CPUs</red>) in achieving one task, meaning we can have <blue>2 cores</blue> 
+            units (<red>CPUs</red>) in achieving one <red>task</red>, meaning we can have <blue>2 cores</blue> 
             running same program sharing among themselves data. 
             <br></br>
             Similar to <blue>2 workers</blue> working on 
@@ -13421,7 +13422,7 @@ print(Ob3)
             <br></br>
             <green>Multithreading in Python:</green>
             <br></br><br></br>
-            In Python: <blue>multithreading</blue> is the action of executing tasks simultaneosly 
+            In Python: <blue>multithreading</blue> is the action of executing <red>tasks</red> simultaneosly 
             (in parallel) in order to increase the speed of execution.
             <br></br><br></br>
             <green>GIL or Global Interpreter Lock:</green>
@@ -13480,7 +13481,8 @@ print(Ob3)
             1. One GIL is used for all <blue>threads</blue>, and <blue>threads</blue> are limited by 
             GIL;
             <br></br><br></br>
-            2. <blue>Multithreading</blue> has no effect for CPU-bound tasks due to the GIL, 
+            2. <blue>Multithreading</blue> has no effect for CPU-bound <red>tasks</red> due to 
+            the <blue>GIL</blue>, 
             meaning we'll notice no improvements in the performance when it comes to these sort 
             of <red>tasks</red>;
             <br></br>
