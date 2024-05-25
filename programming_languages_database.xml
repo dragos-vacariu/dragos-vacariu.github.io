@@ -539,7 +539,7 @@ free(A);
             <blue>separate programs</blue>. This would allow the possibility to offload/distribute 
             these <red>processes</red> on separate <red>cores</red> which would increase performance.
             <br></br><br></br>
-            <green>Understanding threads and processing:</green>
+            <green>Understanding threading and processing:</green>
             <br></br><br></br>
             A <red>CPU</red> ( also called a <blue>central processing unit</blue> , <blue>main processor</blue>, 
             or just <blue>processor</blue>) is essentially the brain that processes and carries 
