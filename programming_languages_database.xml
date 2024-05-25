@@ -12577,7 +12577,7 @@ input("\nPress any key to exit: ")
             <br></br>
             Only the first <blue>11</blue> characters will be extracted from the <blue>file</blue>.
             <br></br><br></br>
-            The <blue>close()</blue> method of a <blue>file object</blue> <red>flushes</red> 
+            The <blue>close()</blue> method of a <blue>file object</blue>, <red>flushes</red> 
             any unwritten information and closes the <red>file object</red>, 
             after which no more reading or writing can be done. 
             <br></br><br></br>
@@ -12587,9 +12587,9 @@ input("\nPress any key to exit: ")
             It is a good practice to use the <blue>close()</blue> method to close a <blue>file</blue> 
             after finishing operating on the <blue>file</blue>.
             <br></br><br></br>
-            In order to open a <blue>file</blue> the <blue>open()</blue> method it used. 
-            <br></br>
-            This method takes 2 arguments:<br></br>
+            In order to open a <blue>file</blue> the <blue>open()</blue> method it is used. 
+            <br></br><br></br>
+            The <blue>open()</blue> method takes 2 arguments:<br></br>
             - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
             - the <blue>mode</blue> for opening;<br></br>
             <br></br>
@@ -12599,7 +12599,7 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             <green>Modes for opening a file:</green>
             <br></br><br></br>
-            The other available modes for opening a <blue>file</blue> are:
+            The other available <red>modes</red> for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
             The file pointer is placed at the beginning
@@ -12638,20 +12638,20 @@ input("\nPress any key to exit: ")
             <blue>"a"</blue> -     Opens a <blue>file</blue> for appending. 
             The <blue>file</blue> pointer is at the end of the file
             if the <blue>file</blue> exists. That is, the <blue>file</blue> is in 
-            the append mode. If the <blue>file</blue> does
+            the <red>append mode</red>. If the <blue>file</blue> does
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in binary 
             format. The <blue>file</blue> pointer is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists. 
-            That is, the <blue>file</blue> is in the append mode.
+            That is, the <blue>file</blue> is in the <red>append mode</red>.
             If the <blue>file</blue> does not exist, 
             it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
             The <blue>file</blue> pointer is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists. 
-            The <blue>file</blue> opens in the append mode. If the
+            The <blue>file</blue> opens in the <red>append mode</red>. If the
             <blue>file</blue> does not exist, it creates a new <blue>file</blue> 
             for reading and writing.
             <br></br><br></br>
@@ -12667,10 +12667,12 @@ input("\nPress any key to exit: ")
             The <blue>file object</blue> contains several <red>attributes</red>:
             <br></br><br></br>
             <code>file.closed</code><br></br>
-            <blue>Returns</blue> <code>true</code> if file is closed, false otherwise.
+            <blue>Returns</blue> <code>true</code> if <blue>file</blue> is closed, <code>false</code> 
+            otherwise.
             <br></br><br></br>
             <code>file.mode</code><br></br>
-            <blue>Returns</blue> access mode with which file was opened.
+            <blue>Returns</blue> the <red>access mode</red> with which the <blue>file</blue> was 
+            opened.
             <br></br><br></br>
             <code>file.name</code><br></br> 
             <blue>Returns</blue> name of the file.
