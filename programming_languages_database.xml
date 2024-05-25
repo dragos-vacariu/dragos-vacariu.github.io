@@ -479,16 +479,69 @@ free(A);
             <br></br><br></br>
         </enums>
         <multi-threading>
-            A <red>thread</red> is a single sequence stream within a process. Because threads have some of 
-            the properties of processes, they are sometimes called lightweight processes. 
+            A <red>thread</red> is a single <blue>sequence stream</blue> within a <red>process</red>. 
+            A <blue>stream</blue> can be thought of as a <red>path</red> or <red>channel</red> 
+            through which the data it's flowing in and out of the program. 
+            Because <red>threads</red> have some of the properties of <red>processes</red>, 
+            they are sometimes called <blue>lightweight processes</blue>.
             <br></br><br></br>
             <red>Threads</red> are not independent from each other unlike <red>processes</red>. 
             As a result, 
             <red>threads</red> shares with other <red>threads</red> their code section, 
             data section and OS resources like open files and signals. 
             <br></br>
-            But, like processes, a <red>thread</red> has its own program 
-            counter (PC), a register set, and a stack space. 
+            But, like <red>processes</red>, a <red>thread</red> has its own program 
+            counter (PC), a register set, and a <blue>stack space</blue>. 
+            <br></br><br></br>
+            <green>Understanding threads and processing:</green>
+            <br></br><br></br>
+            A <red>CPU</red> ( also called a <blue>central processing unit</blue> , <blue>main processor</blue>, 
+            or just <blue>processor</blue>) is essentially the brain that processes and carries 
+            out instructions. 
+            <br></br>
+            <red>CPUs</red> come in many different varieties, such as 
+            <blue>single-core</blue>, <blue>dual-core</blue>, 
+            <blue>quad-core</blue>, and other <blue>multi-core</blue> processors.
+            <br></br><br></br>
+            <red>Cores</red> are <blue>physical processing units</blue>. The number of <red>cores</red> 
+            in a system will determine how many <red>programs</red> and <red>tasks</red> it can 
+            execute simultaneously (in parallel). 
+            For instance, a <blue>single-core</blue> processor may be able to handle one <red>task</red> at a time. 
+            By contrast, a <blue>quad-core</blue> processor could handle up to four 
+            simultaneous tasks.
+            <br></br><br></br>
+            <red>Threads</red> are <blue>virtual sequences</blue> of instructions given to a <red>CPU</red>. 
+            A <red>thread</red> is a sequence of instructions given to the <red>CPU</red> by a program 
+            or application. The more <red>threads</red> a <red>CPU</red> can execute at once, the more tasks 
+            it can complete.
+            <blue>Hyperthreading</blue> allows <blue>multi-core processors</blue> to execute two 
+            <red>thread</red> concurrently on each <red>core</red>, meaning a 
+            <blue>quad-core processor</blue> could execute up to <blue>8 threads</blue> 
+            (<blue>2 threads</blue> on each <red>core</red>).
+            <br></br><br></br>
+            A <red>thread</red> can be seen as a single-handed person performing one <red>task</red> at 
+            a time. 
+            Even with one <red>thread</red>
+            we can run many programs simultaneos from our perspective, but from <red>CPU</red>'s 
+            perspective, these tasks are not simultaneos. The <red>CPU</red> has to switch the 
+            <red>thread</red>
+            between the <red>tasks</red> on every few microseconds, therefore
+            moving its hand from doing one thing to doing the other thing so fast that a real person 
+            would not be able to notice any difference (the music doesn't stop playing when 
+            writing the keyboard). 
+            <br></br><br></br>
+            By <blue>hyperthreading</blue> the <red>core</red> gets a second hand available, 
+            and can perform 
+            <blue>2</blue> simultaneos tasks but using the same the shared resources of the 
+            <red>core</red>, 
+            meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
+            but faster than doing single <red>task</red> on one <red>core</red>. 
+            Multithreading reffers to using multiple <red>threads</red> (<blue>2 threads</blue>) 
+            to one <red>core</red>.
+            Multithreading allows for better utilization of available system resources by 
+            dividing <red>tasks</red> into separate <red>threads</red> and running them in parallel.
+            Hyperthreading further increases performance by allowing processors to execute two 
+            <red>threads</red> concurrently. 
             <br></br><br></br>
             <green>
             Why Multithreading? 
@@ -12825,7 +12878,7 @@ input("\nPress any key to exit: ")
             This will open a <blue>file</blue> named <blue>file.txt</blue> placed in the same 
             directory as the .py script.
             <br></br><br></br>
-            <brown>Writing to a file using TXT format.</brown>
+            <brown>Writing to a file using TXT format:</brown>
             <br></br>
 <code>
 #Example of writing to a file in Python:
@@ -12852,7 +12905,7 @@ print(file1.read())
 file1.close()
 </code>
             <br></br>
-            <brown>Writing to a file using XML format.</brown>
+            <brown>Writing to a file using XML format:</brown>
             <br></br>
 <code>
 #Example of writing to XML file
@@ -13187,6 +13240,80 @@ print(Ob3)
         </operator-overloading>
         <multi-threading>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Multithreading in Python:</green>
+            <br></br><br></br>
+            In Python: <blue>multithreading</blue> is the action of executing tasks simultaneosly 
+            (in parallel) in order to increase the speed of execution.
+            <br></br><br></br>
+            <green>GIL or Global Interpreter Lock:</green>
+            <blue>Python Global Interpreter Lock</blue> or </blue>GIL</blue> is an important 
+            part of <blue>multithreading programming</blue>. 
+            It is a <bleu>mutex</blue> or a type of <blue>process lock</blue> used when 
+            working with multiple processes. 
+            It allows only one <blue>thread</blue> to hold the <blue>control</blue> of 
+            the <blue>Python interpreter</blue>. This means that only one thread can be in a state of 
+            execution at any point in time. The impact of the GIL isn’t visible to developers who execute 
+            <blue>single-threaded</blue> programs but it can be a performance bottleneck in 
+            <blue>CPU-bound</blue> and 
+            <blue>multi-threaded</blue> code.
+            Python uses <blue>reference counting</blue> for <blue>memory management</blue>. 
+            It means that 
+            <red>objects</red> created in Python have a <blue>reference count</blue> variable that 
+            keeps track of the number of <blue>references</blue> that point to the <red>object</red>. 
+            When this count reaches <blue>zero</blue> and no variable is referencing the 
+            <red>object</red> stored in the <blue>heap memory</blue>, 
+            the <blue>heap memory</blue> occupied by the <red>object</red> is released 
+            (<blue>deallocated</blue>).
+            <br></br><br></br>
+            The problem was that this <blue>reference count</blue> variable needed protection 
+            from <blue>race conditions</blue> where two <blue>threads</blue> increase or decrease its value 
+            simultaneously. If this happens, it can cause either <blue>leaked memory</blue> that 
+            is never released or, even worse, <blue>incorrectly release</blue> of the
+            the memory while a <blue>reference</blue> to that <red>object</red> still exists. 
+            This can cause <red>crashes</red> or other “weird” <red>bugs</red> within the Python programs.
+            <br></br><br></br>
+            <brown>GIL was introduced in order to fix these issues.</brown>
+            <br></br><br></br>
+            Generally, Python uses a <blue>single thread</blue> to run a <blue>single process</blue>.
+            We get the same performance result of the <blue>single-threaded</blue> and 
+            <blue>multi-threaded</blue> processes using the </blue>GIL</blue>. 
+            It restricts achieving <blue>multithreading</blue> in Python because it prevents 
+            the <blue>threads</blue> and works as a <blue>single thread</blue>.
+            <green>Multithreading vs. Multiprocessing:</green>
+            <br></br><br></br>
+            <blue>Multithreading</blue> shares the same <blue>stack memory</blue> as the whole 
+            program (this is one main difference comparing to <blue>Multiprocessing</blue>)
+            <br></br><br></br>
+            <blue>Multithreading</blue> returns a value to the same memory address 
+            (stack address) whereas the <blue>Multiprocessing</blue> doesn't because
+            it has it's own <blue>stack memory</blue> in which it will copy all 
+            the variables related to its process.
+            <br></br><br></br>
+            <green>Advantages for using Multithreading instead of Multiprocessing:</green>
+            <br></br><br></br>
+            <blue>Lightweight</blue> - low memory footprint;<br></br>
+            <blue>Shared memory</blue> - makes access to state from another context easier;<br></br>
+            Allows to easily make <blue>responsive</blue> UIs (user interfaces);<br></br>
+            Python C extension modules that properly release the GIL will run in parallel.
+            The GIL restricts the concurrent execution of Python threads within the same process
+            Great option for I/O-bound applications;<br></br>
+
+<green>Disadvantages of Threads:</green>:
+
+- One GIL is used for all threads, and threads are limited by GIL;
+- Multithreading has no effect for CPU-bound tasks due to the GIL, meaning we'll notice no improvements
+in the performance when it comes to these sort of tasks;
+CPU-bound tasks are those that require a significant amount of computational resource. 
+
+- threads are not interruptible/killable, special attention has to be paid to memory leaks. 
+A memory leak occurs when programmers allocate memory on the heap and forget to deallocate it.
+
+- Increased potential for race conditions. A race condition is an undesirable situation 
+that occurs when a device or system attempts to perform two or more operations at the same time.
+
+- Multithreading code is usually harder to understand and to get right;
+
 <code>
 #Example of multithreading in Python 3:
 
@@ -13220,68 +13347,51 @@ calculateSquare(numberList)
 calculateCube(numberList)
 t_after = time.time()
 
-print("Example1 (without threading): Time for execution: " + str(t_after-t_before) + " seconds.")
-print()
+print("Example 1: No threading - time for execution: " 
+    + str(t_after-t_before) + " seconds.\n")
 
-#THIS THREAD EXAMPLE WORKS AS CALLING THE 2 FUNCTIONS WITHOUT THREADING (just like in the 
-example above):
-#because the second thread needs to wait until the first thread finishes its execution.
-#just like the functions in the example above do.
+#The following thread example works as calling 
+#the 2 functions without threading (similar to the example above),
+#because the second thread needs to wait until the first thread 
+#finishes its execution just like the functions in the example 
+#above do.
+
 #Get current time:
 t1_before = time.time() # this will get the time before starting the threads
 thread1.start()
-thread1.join() #wait for the thread1 to finish its work.
-thread2.start()
-thread2.join() #wait for the thread2 to finish its work.
-t1_after = time.time()
-print("Example2 (inefficient threading) : Time for execution: " + str(t1_after-t1_before) + " seconds.")
-print()
+thread1.join() 
+#wait for the thread1 to finish its work.
 
-#THIS WAY IS FASTER BUT PRINTING IS A MESS (BECAUSE THE 2 FUNCTIONS EXECUTE SIMULTANEOUS):
+thread2.start()
+thread2.join() 
+#wait for the thread2 to finish its work.
+t1_after = time.time()
+
+print("Example 2: Inefficient threading - time for execution: " 
+        + str(t1_after-t1_before) + " seconds.\")
+
+#The following way is faster but printing is a mess 
+#(because the 2 functions are executed in parallel).
+
 #After finishing, the thread needs to be reinitialized.
+#Reinintializing threads:
 thread1 = threading.Thread(target=calculateSquare, args =(numberList,))
 thread2 = threading.Thread(target=calculateCube, args =(numberList,))
-t2_before = time.time() # this will get the time before starting the threads
+t2_before = time.time() 
+#this will get the time before starting the threads.
+
 thread1.start()
 thread2.start()
-thread1.join() #wait for the thread1 to finish its work.
-thread2.join() #wait for the thread2 to finish its work.
+thread1.join() 
+#wait for the thread1 to finish its work.
+
+thread2.join() 
+#wait for the thread2 to finish its work.
+
 t2_after = time.time()
-print("Example3 (good threading) : Time for execution: " + str(t2_after-t2_before) + " seconds.")
+print("Example 3: Good threading - time for execution: " 
+    + str(t2_after-t2_before) + " seconds.")
 
-#INFORMATION:
-'''Multi-Threading - is the action of executing tasks simultaneosly (in parallel)
-in order to increase the speed of execution.
-
-COMPARISON BETWEEN MULTI_THREADING AND MUTI_PROCESSING:
-
-Multi-threading shares the same stack memory as the whole program (this is one main 
-difference comparing to multi-processing)
-
-Multi-threading returns a value to the same memory address (stack address) whereas 
-the multi-processing doesn't because
-it's has it's own stack memory (in which it will copy all the variables related to it).
-
-ADVANTAGES FOR USING MULTI_THREADING (instead of multi-processing):
-Lightweight - low memory footprint
-Shared memory - makes access to state from another context easier
-Allows you to easily make responsive UIs
-cPython C extension modules that properly release the GIL will run in parallel
-Great option for I/O-bound applications
-
-DISADVANTAGES:
-
-cPython - subject to the GIL
-Not interruptible/killable
-If not following a command queue/message pump model (using the Queue module), then 
-manual use of synchronization primitives become a necessity (decisions are needed 
-for the granularity of locking)
-
-Code is usually harder to understand and to get right - the potential for race 
-conditions increases dramatically
-'''
-
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
 input("\nPress any key to exit: ")
 </code>
 
