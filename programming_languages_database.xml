@@ -14601,6 +14601,11 @@ print("Incremented value:", x)
             <red>matching</red> or <red>finding</red> other <red>strings</red> or <red>sets of 
             strings</red>, using a specialized syntax held in a pattern.
             <br></br><br></br>
+            <green>Regular expressions in Python:</green>
+            <br></br><br></br>
+            The <blue>re</blue> module offers a set of functions that allow working with 
+            <blue>regular expressions</blue>:
+            <br></br><br></br>
             The <code>match()</code> function attempts to <red>match</red> RE (Regular Expression) 
             pattern to <red>string</red> with optional flags.
             <br></br>
@@ -14618,18 +14623,19 @@ print("Incremented value:", x)
             <code>flags</code><br></br>
             You can specify different flags using bitwise <red>OR</red> (<red>|</red>). 
             <br></br><br></br>
-            The <red>re.match</red> function returns a <blue>match object</blue> on success, 
+            The <code>re.match()</code> function returns a <blue>match object</blue> on success, 
             <code>None</code> on failure. 
-            <br></br><br></br>
+            <br></br>
             The <code>search()</code> function searches for first occurrence of 
             RE pattern within <red>string</red> with optional flags.
-            <br></br><br></br>
+            <br></br>
             The <code>match()</code> checks for a match only at the beginning of the string, while 
             <code>search()</code> checks for a <red>match</red> anywhere in the <red>string</red>.
-            <br></br><br></br>
+            <br></br>
             The <code>sub()</code> function replaces all occurrences of the pattern in the 
             <red>string</red> with <code>repl</code>.
-            <red>Syntax:<red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code>
+            <br></br>
+            <red>Syntax:</red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code>
             <br></br><br></br>
             Where:
             <br></br><br></br>
