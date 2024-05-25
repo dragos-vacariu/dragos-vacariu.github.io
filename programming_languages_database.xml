@@ -12613,7 +12613,7 @@ input("\nPress any key to exit: ")
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in <red>binary format</red>. 
-            The <blue>file</blue> pointer is placed
+            The <blue>file pointer</blue> is placed
             at the beginning of the <blue>file</blue>. 
             <br></br>
             This is the <red>default mode</red>.
@@ -12621,7 +12621,7 @@ input("\nPress any key to exit: ")
             <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
             <red>binary format</red>. 
             <br></br>
-            The <blue>file</blue> pointer placed at the beginning of the <blue>file</blue>.
+            The <blue>file pointers</blue> placed at the beginning of the <blue>file</blue>.
             <br></br><br></br>
             <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in <red>binary format</red>. 
             Overwrites the file if the <blue>file</blue> exists. 
@@ -12643,8 +12643,8 @@ input("\nPress any key to exit: ")
             If the <blue>file</blue> does not exist, creates a
             new <blue>file</blue> for reading and writing.
             <br></br><br></br>
-            <blue>"a"</blue> -     Opens a <blue>file</blue> for appending. 
-            The <blue>file</blue> pointer is at the end of the <blue>file</blue>
+            <blue>"a"</blue> - Opens a <blue>file</blue> for appending. 
+            The <blue>file pointer</blue> is at the end of the <blue>file</blue>
             if the <blue>file</blue> exists. 
             <br></br>
             The <blue>file</blue> is opened in 
@@ -12652,7 +12652,7 @@ input("\nPress any key to exit: ")
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in <red>binary format</red>. 
-            The <blue>file</blue> pointer is at the
+            The <blue>file pointer</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             The <blue>file</blue> is opened in the <red>append mode</red>.
@@ -12660,7 +12660,7 @@ input("\nPress any key to exit: ")
             it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
-            The <blue>file</blue> pointer is at the
+            The <blue>file pointer</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             The <blue>file</blue> opens in the <red>append mode</red>. If the
