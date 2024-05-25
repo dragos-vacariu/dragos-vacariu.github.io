@@ -659,15 +659,17 @@ free(A);
             whereas 
             <red>multiprocessing</red> 
             creates a separate address space for each process.
-            <br></br>
+            <br></br><br></br>
             In <red>multiprocessing</red> each <red>process</red> has its own memory 
-            address space (<blue>stack memory</blue>): so when returning a value
+            address space (<blue>stack memory</blue>). So when returning a value
             from a <red>process</red>, the value returned will not be 
             seen by the rest of the program unless it is saved in a <blue>file</blue>, in a 
-            <blue>shared memory address</blue>, 
-            or in a <blue>message pipe</blue>. 
+            <blue>shared memory address</blue>, or in a <blue>message pipe</blue>. 
             Whereas <blue>multithreading</blue> is able to return values which can be used 
             later in the main program.
+            <br></br>
+            A <blue>pipe</blue> is a technique for passing information from one program <red>process</red> 
+            or command to another.
             <br></br><br></br>
             A <red>process</red> is treated as an individual program, (it even creates a 
             <red>process</red> in the task mananger),
