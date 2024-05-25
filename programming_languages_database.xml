@@ -583,37 +583,40 @@ free(A);
             are two mechanism defined for <blue>concurent programming</blue> in order to ensure 
             that two or more <red>concurrent processes/threads</red> do not simultaneously execute 
             some particular program segment known as <blue>critical section</blue>.
+            <br></br><br></br>
             A <blue>critical section</blue> refers to the parts of the 
             program where the <blue>shared resources</blue> are being accessed by different 
-            <red>threads/processes</red>. So the <blue>2 workers</blue> working on the same 
-            <red>task</red> collide to each other.
+            <red>threads/processes</red>. So the <blue>2 workers</blue> or the <blue>2 hands</blue> 
+            working on the same <red>task</red> collide to each other.
             <br></br><br></br>
             While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
             increase the computing power of a system, there are some key differences between 
             these approaches. 
             <br></br><br></br>
-            Main Differences:
+            <brown>
+            Differences between multithreading and multiprocessing:
+            </brown>
             <br></br><br></br>
             <red>Multiprocessing</red> uses two or more <red>CPUs</red> to increase computing power, 
             whereas 
-            <blue>multithreading</blue> uses a single process with multiple code segments to increase 
-            computing power.
+            <blue>multithreading</blue> uses a single <red>process</red> with multiple code segments 
+            to increase computing power.
             <br></br><br></br>
-            <blue>Multithreading</blue> focuses on generating computing threads from a single 
-            process, 
+            <blue>Multithreading</blue> focuses on generating computing <red>threads</red> from a 
+            single <red>process</red>, 
             whereas <red>multiprocessing</red> increases computing power by adding 
             <red>CPUs</red>.
             <br></br><br></br>
             <red>Multiprocessing</red> is used to create a more reliable system, whereas 
             multithreading 
-            is used to create threads that run parallel to each other.
+            is used to create <red>threads</red> that run parallel to each other.
             <br></br><br></br>
             <blue>Multithreading</blue> is quick to create and requires few resources, 
             whereas <red>multiprocessing</red> 
             requires a significant amount of time and specific resources to create.
             <br></br><br></br>
             <red>Multiprocessing</red> executes many <red>processes</red> simultaneously, 
-            whereas <blue>multithreading</blue> executes many threads simultaneously.
+            whereas <blue>multithreading</blue> executes many <red>threads</red> simultaneously.
             <br></br><br></br>
             <blue>Multithreading</blue> uses a common address space for all the <blue>threads</blue>, 
             whereas 
@@ -631,8 +634,9 @@ free(A);
             <red>process</red> in the task mananger),
             <red>Processes</red> can be sent through different <red>cores</red>, that would speed 
             up the program even more.
-            Creating multiple <red>processes</red> is costly compare to threads. Since for each 
-            <red>process</red> there is allocated another <blue>stack memory</blue> space.
+            Creating multiple <red>processes</red> is costly compare to <red>threads</red>. 
+            Since for each <red>process</red> there is allocated another <blue>stack memory</blue> 
+            space.
             <br></br><br></br>
             <green>Advantages of multithreading:</green>
             <br></br><br></br>
