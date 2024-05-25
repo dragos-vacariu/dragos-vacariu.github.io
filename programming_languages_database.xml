@@ -754,26 +754,29 @@ free(A);
             <br></br><br></br>
             <green>Choosing between multithreading and multiprocessing:</green>
             <br></br><br></br>
-            <blue>1. Multithreading is efficient for make user interaction (UI) programs responsive.</blue>
+            <blue>1. Multithreading can proove optimal for make user interaction (UI) 
+            programs responsive.</blue>
             <br></br>
             These programs have to wait for the user to interact with them, so using <red>threads</red> 
             provides enough computing power. 
-            <br></br>
-            As example: <blue>Multithreading</blue> can proove optimal for creating an online writing 
+            <br></br><br></br>
+            <red>For instance</red>: <blue>Multithreading</blue> can proove optimal for creating an 
+            online writing 
             program in which one <red>thread</red> could track the user's keystrokes, 
             a second <red>thread</red> could display the text for the user to read and a third 
             <red>thread</red> could check the inputted text to identify spelling and grammar errors.
             <br></br><br></br>
-            <blue>2. Multithreading is efficient for creating I/O-bound or network-bound 
+            <blue>2. Multithreading can proove optimal for creating I/O-bound or network-bound 
             applications.</blue>
             <br></br>
             <red>Threads</red> can provide all the computing power needed to access web servers 
             and download content from the internet. 
-            <br></br>
-            As example: many data scientists use <blue>multithreading</blue> to create web 
+            <br></br><br></br>
+            <red>For instance</red>: many data scientists use <blue>multithreading</blue> to create web 
             scraping applications.
             <br></br><br></br>
-            <blue>3. Multiprocessing is efficient for creating computation-intensive programs.</blue>
+            <blue>3. Multiprocessing can proove optimal for creating computation-intensive 
+            programs.</blue>
             <br></br>
             <red>Multiprocessing</red> can help analyzing large volumes of data quickly.
             <br></br><br></br>
