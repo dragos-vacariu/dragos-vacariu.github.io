@@ -13850,40 +13850,41 @@ def some_func():
         </namespaces>
         <exception-handling>
             *General-Programming-Knowledge*
+            <br></br>
+            <green>Exception handling in Python:</green>
+            <br></br><br></br>
+            An <red>exception</red> is an event, which occurs during the execution of a program 
+            that disrupts the normal flow of the program's
+            instructions. In general, when a Python script encounters a situation 
+            that it cannot cope with, it raises an <red>exception</red>.
+            <br></br><br></br>
+            An <red>exception</red> is a Python object that represents an error.
+            <br></br>
 <code>
-#Exceptions handling:
-
-
-
-
-#An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's
-#instructions. In general, when a Python script encounters a situation that it cannot cope with, it raises an exception.
-#An exception is a Python object that represents an error.
+#Example of exception handling 
+#in Python:
 
 #Handling exceptions:
 try:
-   fh = open("dragos1.txt", "a")
-   fh.write("This was added by 'handling exceptions' Program.")
+    fh = open("file.txt", "a")
+    fh.write("This line was added by Python Program.")
 except IOError:
-   print ("Error: can't find file or read data from {0}" .format(fh.name))
+    print ("Error: can't find file or read 
+        data from {0}" .format(fh.name))
 else:
-   print ("Written content in the file successfully!")
-   fh.close()
+    print ("Written content in the file successfully!")
+    fh.close()
 
 #Example 2:
 try:
     fh = open("file.txt", "r")
     fh.read(12)
 except IOError:
-    print ("Error: can\'t find file or read data from {0}" .format(fh.name))
+    print ("Error: can\'t find file or read data 
+        from {0}" .format(fh.name))
 finally:
     print ("Not working!")
 
-#When an exception is thrown in the try block, the execution immediately passes to the finally block. After all the statements
-#in the finally block are executed, the exception is raised again and is handled in the except statements if present in the
-#next higher layer of the try-except statement.
-
-#You can raise exceptions in several ways by using the raise statement. The general syntax for the raise statement is as follows.
 
 level=1
 if level &lt; 1:
@@ -13900,39 +13901,10 @@ class MyError(Exception):
 try:
     raise MyError(2*2)
 except MyError as e:
-     print ("My exception occurred, value: {0}" .format (e.value))
+     print ("My exception occurred, value: 
+        {0}" .format (e.value))
 
-
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
 input("\nPress any key to exit: ")
-</code>        
-
-<code>
-try:
-    lis = ['a', 'b']
-    print(str(lis[4]))
-except Exception as exp: # equivalent to except:
-    print("Exception class: " + str(type(exp)) + "\nMessage: " + str(exp))
-    #an exception created in the except block or finally will not be treated or caught.
-else:
-    print("No exception caught!")
-finally:
-    print("Operation done.")
-
-#raise Exception ("Custom error") # this will throw an exception
-
-assert 5&lt;8, "Nothing to do" #this is fine since condition is true
-#assert 5&gt;8, "Condition is false" # this will raise an exception because the condition is false.
-
-#assert can be used for debugging. can be turned off when running python script with -O
-
-#LAMBDA functions:
-
-DoubleValue = lambda value: value*2
-
-print(DoubleValue(2)) #calling the lambda function
-
-input("\nPress ENTER to exit.")
 </code>
             <br></br>
             <green>Python Exceptions:</green>
