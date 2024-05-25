@@ -606,7 +606,7 @@ free(A);
             Both <blue>multithreading</blue> and <red>multiprocessing</red> give birth to few challenges 
             when it comes to <blue>concurent programming</blue>.
             <br></br><br></br>
-            <brown>The race condition:</brown>
+            <brown>The Race Condition:</brown>
             <br></br><br></br>
             A <blue>race condition</blue> occurs when two or more <red>processes/threads</red> 
             can access <blue>shared data</blue> and they try to change it at the same time. 
@@ -616,7 +616,7 @@ free(A);
             <br></br><br></br>
             <brown>Process/Thread Syncronization:</brown>
             <br></br><br></br>
-            <red>Process synchronization</red> and <blue>Thread synchronization</blue> 
+            <red>Process Synchronization</red> and <blue>Thread Synchronization</blue> 
             are two mechanism defined for <blue>concurent programming</blue> in order to ensure 
             that two or more <red>concurrent processes/threads</red> do not simultaneously execute 
             some particular program segment known as <blue>critical section</blue>.
@@ -631,7 +631,7 @@ free(A);
             these approaches. 
             <br></br><br></br>
             <brown>
-            Differences between multithreading and multiprocessing:
+            Differences between Multithreading and Multiprocessing:
             </brown>
             <br></br><br></br>
             <red>Multiprocessing</red> uses two or more <red>CPUs</red> to increase computing power, 
@@ -659,6 +659,7 @@ free(A);
             whereas 
             <red>multiprocessing</red> 
             creates a separate address space for each process.
+            <br></br>
             In <red>multiprocessing</red> each <red>process</red> has its own memory 
             address space (<blue>stack memory</blue>): so when returning a value
             from a <red>process</red>, the value returned will not be 
@@ -667,13 +668,19 @@ free(A);
             or in a <blue>message pipe</blue>. 
             Whereas <blue>multithreading</blue> is able to return values which can be used 
             later in the main program.
+            <br></br><br></br>
             A <red>process</red> is treated as an individual program, (it even creates a 
             <red>process</red> in the task mananger),
             <red>Processes</red> can be sent through different <red>cores</red>, that would speed 
             up the program even more.
+            <br></br><br></br>
             Creating multiple <red>processes</red> is costly compare to <red>threads</red>. 
             Since for each <red>process</red> there is allocated another <blue>stack memory</blue> 
             space.
+            <br></br><br></br>
+            <blue>Multithreading</blue> is recommended for IO(input/output) operations (file inputting/outputting, 
+            http requests, etc).Whereas <red>multiprocessing</red> is recommended for CPU 
+            intensive operations (calculations).
             <br></br><br></br>
             <green>Advantages of multithreading:</green>
             <br></br><br></br>
