@@ -709,9 +709,10 @@ free(A);
             5. All <blue>threads</blue> share one <red>process memory pool</red>  and the same 
             <blue>address space</blue>.<br></br>
             6. <blue>Threads</blue> are more lightweight and have lower <blue>overhead</blue>. 
-            <blue>Overhead</blue> is any combination of excess or indirect 
-            computation time, memory, bandwidth, 
-            or other resources that are required to perform a specific <red>task</red>.<br></br> 
+            Any combination of excess or indirect computation time, memory, bandwidth, or other 
+            resources that are required to perform a specific <red>task</red> is refered to as 
+            <blue>overhead</blue>.
+            <br></br> 
             7. The cost of communication between <blue>threads</blue> is relatively low.
             Meaning that <blue>threads</blue> can communicate with each other more easily 
             than <red>processes</red> can.
@@ -721,17 +722,13 @@ free(A);
             <green>Disadvantages of multithreading:</green>
             <br></br><br></br>
             1. A <blue>multithreading</blue> system cannot be interrupted/killed. Special attention has to
-            be paid to memory leaks.<br></br>
-            A memory leak occurs when programmers allocate memory on the <red>heap</red> and 
-            forget to deallocate it.
+            be paid to <blue>memory leaks</blue>.
+            A <blue>memory leak</blue> occurs when programmers allocate memory on 
+            the <red>heap</red> and forget to deallocate it.<br></br>
             2. The code can be more challenging to understand.<br></br>
-            3. The overhead associated with managing different 
-            <blue>threads</blue> may be too costly 
-            for basic <red>tasks</red>.<br></br>
-            4. Increased potential for race conditions. 
-            <br></br>
-            A race condition is an undesirable situation 
-            that occurs when a device or system attempts to perform two or more operations at the same time.
+            3. The <blue>overhead</blue> associated with managing different 
+            <blue>threads</blue> may be too costly for basic <red>tasks</red>.<br></br>
+            4. Increased potential for <blue>race conditions</blue>. 
             <br></br>
             5. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
             challenging because the code can be complex.
@@ -741,18 +738,19 @@ free(A);
             1. It uses simple coding that's easy to understand.<br></br>
             2. Child <red>processes</red> can be interrupted.<br></br>
             3. It completes <red>tasks</red> faster and analyzes large amounts of data.<br></br>
-            4. It uses multiple <red>CPUs</red> to improve a system's overall power.<br></br>
+            4. It uses multiple <red>CPUs</red> to improve a system's overall processing power.<br></br>
             5. It removes synchronization primitives.<br></br>
             6. It's more cost-effective than single processor systems.
             <br></br><br></br>
             <green>Disadvantages of multiprocessing:</green>
             <br></br><br></br>
-            1. It requires more memory storage and overhead than <blue>threads</blue> to move 
-            data between <red>processes</red>.<br></br>
+            1. It requires more memory storage and <blue>overhead</blue> than <blue>threads</blue> 
+            in order to move data between the <red>processes</red>.<br></br>
             2. Spawning <red>processes</red> take longer than spawning <blue>threads</blue>.<br></br>
             3. An <red>inter-process communication</red> (<red>IPC</red>) model must be implemented to 
-            share objects between <red>processes</red>.<br></br>
-            4. The entire memory is copied into each subprocess, which can also create more overhead.
+            share objects between the <red>processes</red>.<br></br>
+            4. The entire memory is copied into each subprocess, which can also create more 
+            <blue>overhead</blue>.
             <br></br><br></br>
             <green>
             Why Multithreading? 
