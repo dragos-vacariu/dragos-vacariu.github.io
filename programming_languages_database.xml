@@ -537,17 +537,104 @@ free(A);
             meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
             but faster than doing single <red>task</red> on one <red>core</red>. 
             <br></br><br></br>
-            Multithreading reffers to using multiple <red>threads</red> (<blue>2 threads</blue>) 
+            <blue>Multithreading</blue> reffers to using multiple <red>threads</red> 
+            (<blue>2 threads</blue>) 
             to one <red>core</red>.
-            Multithreading allows for better utilization of available system resources by 
+            <blue>Multithreading</blue> allows for better utilization of available system resources by 
             dividing <red>tasks</red> into separate <red>threads</red> and running them in parallel.
-            Hyperthreading further increases performance by allowing processors to execute two 
+            <blue>Hyperthreading</blue> further increases performance by allowing processors to 
+            execute two 
             <red>threads</red> concurrently. 
             <br></br><br></br>
-            <blue>Multiprocessing</blue> is the utilization of two or more central processing 
+            <red>Multiprocessing</red> is the utilization of two or more central processing 
             units (<red>CPUs</red>) in achieving one task, meaning we can have <blue>2 cores</blue> 
             running same program sharing among themselves data. Similar to 2 workers working on 
             same task, passing around their tools from one to the other.
+            <br></br><br></br>
+            <green>Multithreading vs. multiprocessing:</green>
+            <br></br><br></br>
+            While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
+            increase the computing power of a system, there are some key differences between 
+            these approaches. 
+            <br></br><br></br>
+            Here are some of the primary ways these methods differ from one another:
+            <br></br><br></br>
+            <red>Multiprocessing</red> uses two or more <red>CPUs</red> to increase computing power, 
+            whereas 
+            <blue>multithreading</blue> uses a single process with multiple code segments to increase 
+            computing power.
+            <br></br><br></br>
+            <blue>Multithreading</blue> focuses on generating computing threads from a single 
+            process, 
+            whereas <red>multiprocessing</red> increases computing power by adding 
+            <red>CPUs</red>.
+            <br></br><br></br>
+            <red>Multiprocessing</red> is used to create a more reliable system, whereas 
+            multithreading 
+            is used to create threads that run parallel to each other.
+            <br></br><br></br>
+            <blue>Multithreading</blue> is quick to create and requires few resources, 
+            whereas <red>multiprocessing</red> 
+            requires a significant amount of time and specific resources to create.
+            <br></br><br></br>
+            <red>Multiprocessing</red> executes many <red>processes</red> simultaneously, 
+            whereas <blue>multithreading</blue> executes many threads simultaneously.
+            <br></br><br></br>
+            <blue>Multithreading</blue> uses a common address space for all the <blue>threads</blue>, 
+            whereas 
+            <red>multiprocessing</red> 
+            creates a separate address space for each process.
+            <br></br><br></br>
+            <green>Advantages of multithreading:</green>
+            <br></br><br></br>
+            Here are some of the key benefits of <blue>multithreading</blue>:
+            <br></br><br></br>
+            1. It requires less memory storage.<br></br>
+            2. Accessing memory is easier since <blue>threads</blue> share the same 
+            parent <red>process</red>.<br></br>
+            3. Switching between <blue>threads</blue> is fast and efficient.
+            4. It's faster to generate new <blue>threads</blue> within an existing <red>process</red> 
+            than to create 
+            an entirely new <red>process</red>.<br></br>
+            5. All <blue>threads</blue> share one <red>process</red> memory pool and the same 
+            address space.<br></br>
+            <blue>threads</blue> are more lightweight and have lower overhead.<br></br>
+            6. The cost of communication between <blue>threads</blue> is relatively low.<br></br>
+            7. Creating responsive user interfaces (UIs) is easy.
+            <br></br><br></br>
+            <green>Disadvantages of multithreading:</green>
+            <br></br><br></br>
+            Here are some potential drawbacks associated with <blue>multithreading</blue>:
+            <br></br><br></br>
+            1. A <blue>multithreading</blue> system cannot be interrupted.<br></br>
+            2. The code can be more challenging to understand.<br></br>
+            2. The overhead associated with managing different <blue>threads</blue> may be too costly 
+            for basic <red>tasks</red>.<br></br>
+            3. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
+            challenging because the code can be complex.
+            <br></br><br></br>
+            <green>Advantages of multiprocessing:</green>
+            <br></br><br></br>
+            Here are some of the benefits of <red>multiprocessing</red> :
+            <br></br><br></br>
+            1. It uses simple coding that's easy to understand.<br></br>
+            2. It helps you overcome global interpreter lock (GIL) limitations in CPython.<br></br>
+            3. Child <red>processes</red> can be interrupted.<br></br>
+            4. It completes tasks faster and analyzes large amounts of data.<br></br>
+            5. It uses multiple CPUs to improve a system's overall power.<br></br>
+            6. It removes synchronization primitives.<br></br>
+            7. It's more cost-effective than single processor systems.<br></br>
+            <br></br><br></br>
+            <green>Disadvantages of multiprocessing:</green>
+            <br></br><br></br>
+            Here are some potential drawbacks associated with <red>multiprocessing</red> :
+            <br></br><br></br>
+            1. It requires more memory storage and overhead than threads to move data between 
+            <red>processes</red>.<br></br>
+            2. Spawning <red>processes</red> take longer than spawning threads.<br></br>
+            3. An <red>inter-process communication</red> (<red>IPC</red>) model must be implemented to 
+            share objects between <red>processes</red>.<br></br>
+            4. The entire memory is copied into each subprocess, which can also create more overhead.
             <br></br><br></br>
             <green>
             Why Multithreading? 
@@ -560,13 +647,41 @@ free(A);
             multiple <red>threads</red>, one <red>thread</red> to format the text, other 
             <red>thread</red> to process inputs, etc. 
             <br></br><br></br>
-            <red>Threads</red> operate faster than processes due to following reasons: <br></br><br></br>
+            <red>Threads</red> operate faster than <red>processes</red> due to following reasons: 
+            <br></br><br></br>
             <blue>
-            1) <red>Thread</red> creation is much faster. <br></br>
-            2) Context switching between <red>threads</red> is much faster. <br></br>
-            3) <red>Threads</red> can be terminated easily <br></br>
-            4) Communication between <red>threads</red> is faster.<br></br>
+            1. <red>Thread</red> creation is much faster. <br></br>
+            2. Context switching between <red>threads</red> is much faster. <br></br>
+            3. <red>Threads</red> can be terminated easily <br></br>
+            4. Communication between <red>threads</red> is faster.<br></br>
             </blue>
+            <br></br><br></br>
+            <green>Tips for choosing between multithreading and multiprocessing:</green>
+            <br></br><br></br>
+            Here are some tips to help deciding whether to use multithreading or multiprocessing:
+            <br></br><br></br>
+            <brown>1. Use multithreading to make user interaction (UI) programs responsive.</brown>
+            <br></br><br></br>
+            These programs have to wait for the user to interact with them, so using threads 
+            provides enough computing power. For example, you might choose to use multithreading 
+            if you create an online writing program so that one thread tracks the user's keystrokes, 
+            a second thread displays the text for the user to read and a third thread proofreads 
+            the text to identify spelling and grammar errors.
+            <br></br><br></br>
+            <brown>2. Use multithreading to create I/O-bound or network-bound applications.</brown>
+            <br></br><br></br>
+            Threads can provide you with all the computing power you need to access web servers 
+            and download content from the internet. For example, many data scientists use 
+            multithreading to create web scraping applications.
+            <br></br><br></br>
+            <brown>3. Use multiprocessing to create computation-intensive programs.</brown>
+            <br></br><br></br>
+            Multiprocessing can help you analyze large volumes of data quickly.
+            <br></br><br></br>
+            <brown>4. Use multiprocessing to develop programs that are CPU intensive.</brown>
+            <br></br><br></br>
+            Multiprocessing can help you speed up processes and provide reliable solutions 
+            for programs that involve several CPU tasks.
         </multi-threading>
         <bitwise-operators>
             The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
