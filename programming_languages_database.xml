@@ -1827,6 +1827,11 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             is on function level. Once the function ends, the variables die, and all the data
             stored in them is lost, so if everything should be kept alive, it has to be returned
             back to the caller function and stored.
+            <br></br>
+            <green>Default Parameters/Arguments in Python:</green>
+            <br></br><br></br>
+            All parameters/arguments in the Python are passed by <blue>reference</blue>. 
+            <br></br>
         </functions>
     </programming_language>
     
@@ -13875,6 +13880,7 @@ def some_func():
 #in Python:
 
 #Handling exceptions:
+#Example 1:
 try:
     fh = open("file.txt", "a")
     fh.write("This line was added by Python Program.")
@@ -13896,11 +13902,13 @@ finally:
     print ("Not working!")
 
 
+#Raising an exception:
 level=1
 if level &lt; 1:
       raise Exception('level &lt; 1')
 
 #Creating user-defined exception:
+#Example 3:
 class MyError(Exception):
      def __init__(self, value):
          self.value = value
@@ -14045,10 +14053,6 @@ print ("b:", bin(b))
         </bitwise-operators>
         <default-parameters>
             *General-Programming-Knowledge*
-            <br></br>
-            <green>Default Parameters/Arguments in Python:</green>
-            <br></br><br></br>
-            All parameters/arguments in the Python are passed by <blue>reference</blue>. 
             <br></br>
 <code>
 #Example of default arguments/parameters
