@@ -13586,7 +13586,8 @@ print(Ob3)
             of <red>tasks</red>;
             <br></br>
             CPU-bound <red>tasks</red> are those that require a significant amount of computational 
-            resource. 
+            resource.
+            <br></br>
 <code>
 #Example of multithreading in Python 3:
 
