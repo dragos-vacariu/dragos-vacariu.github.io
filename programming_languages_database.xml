@@ -502,7 +502,7 @@ free(A);
             <blue>Non-determinism</blue>: Due to the unpredictable order of execution, 
             <blue>concurrent programs</blue> can 
             give different results on different runs, making debugging and testing more complex. 
-            <blue>Non-determinism</blue> arises from the uncertain order in which <red>threads</red> 
+            This concept arises from the uncertain order in which <red>threads</red> 
             or <red>processes</red> access <blue>shared resources</blue> and interact with each other.
             <br></br><br></br>
             <blue>Synchronization</blue>: Concurrent programs use <blue>synchronization mechanisms</blue> 
@@ -517,8 +517,8 @@ free(A);
             <br></br><br></br>
             A <red>thread</red> is a single <blue>sequence stream</blue> within a <red>process</red>.
             <br></br><br></br>
-            A <blue>stream</blue> can be thought of as a <red>path</red> or <red>channel</red> 
-            through which the data it's flowing in and out of the program.
+            A <blue>stream</blue> can be thought of as a <red>path</red> or <red>channel</red>, 
+            through which the data is flowing in and out of the program.
             <br></br><br></br>
             Because <red>threads</red> have some of the properties of <red>processes</red>, 
             they are sometimes called <blue>lightweight processes</blue>.
@@ -527,10 +527,19 @@ free(A);
             As a result, 
             <red>threads</red> share with other <red>threads</red> their <blue>code section</blue>, 
             <blue>data section</blue> and <blue>OS resources</blue> such as: opened <blue>files</blue> 
-            and <blue>signals</blue>. 
-            <br></br>
-            But, like <red>processes</red>, a <red>thread</red> has its own <blue>program 
+            and <blue>signals</blue>.
+            <br></br><br></br>
+            <blue>Signals</blue> are software generated interrupts that are sent to a <red>process</red> 
+            when an event happens.
+            <br></br><br></br>
+            Similar to <red>processes</red>, a <red>thread</red> has its own <blue>program 
             counter</blue> (PC), a <blue>register set</blue>, and a <blue>stack space</blue>.
+            <br></br><br></br>
+            The <blue>program counter</blue> (also called <blue>"instruction pointer"</blue>) is 
+            part of the hardware; more specifically, it's a <blue>processor register</blue>. 
+            The whole purpose of this <blue>register</blue> is 
+            to point to the current <blue>instruction</blue> in the memory that is being executed by 
+            the <blue>processor</blue>.
             <br></br><br></br>
             A <red>process</red> is the <red>instance</red> of a computer program that is being 
             executed by 
