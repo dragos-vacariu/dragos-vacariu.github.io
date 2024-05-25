@@ -12579,23 +12579,20 @@ input("\nPress any key to exit: ")
             Only the first <blue>11</blue> characters will be extracted from the <blue>file</blue>.
             <br></br><br></br>
             The <blue>close()</blue> method of a <blue>file object</blue> <red>flushes</red> 
-            any unwritten information 
-            and closes the <red>file object</red>, after which no more reading or 
-            writing can be done. 
+            any unwritten information and closes the <red>file object</red>, 
+            after which no more reading or writing can be done. 
             <br></br><br></br>
             Python automatically closes a <blue>file</blue> when the reference object of 
-            a <blue>file</blue> 
-            is reassigned to another <blue>file</blue>.
+            a <blue>file</blue> is reassigned to another <blue>file</blue>.
             <br></br><br></br>
             It is a good practice to use the <blue>close()</blue> method to close a <blue>file</blue> 
-            after
-            finishing operating on the <blue>file</blue>.
+            after finishing operating on the <blue>file</blue>.
             <br></br><br></br>
             In order to open a <blue>file</blue> the <blue>open()</blue> method it used. 
             <br></br>
             This method takes 2 arguments:<br></br>
-            - the filepath of the <blue>file</blue> to be opened;<br></br>
-            - the mode for opening;<br></br>
+            - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
+            - the <blue>mode</blue> for opening;<br></br>
             Example: <code>open("file.txt", "w")</code><br></br>
             This will open a <blue>file</blue> named <blue>file.txt</blue> placed in the same 
             directory as the 
