@@ -14716,8 +14716,8 @@ input("\nPress any key to exit: ")
             Matches end of line.
             <br></br><br></br>
             <code>.</code><code>           </code>
-            Matches any single character except newline.
-            Using <code>m</code> option allows it to match newline as well.
+            Matches any single character except <blue>newline</blue>.
+            Using <code>m</code> option allows it to match <blue>newline</blue> as well.
             <br></br><br></br>
             <code>[...]</code><code>       </code>
             Matches any single character in brackets.
@@ -14828,8 +14828,7 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             <code>\10</code><code>         </code>
             Matches <blue>nth</blue> grouped subexpression if it matched already.
-            Otherwise refers 
-            to the octal representation of a character code.
+            Otherwise refers to the octal representation of a character code.
             <br></br><br></br>
 
             <brown>Option flags:</brown>
@@ -14887,7 +14886,7 @@ input("\nPress any key to exit: ")
 
             <brown>Special Character Classes:</brown>
             <br></br><br></br>
-            <code>.</code><code>       </code>Match any character except newline.
+            <code>.</code><code>       </code>Match any character except <blue>newline</blue>.
             <br></br><br></br>
             <code>\d</code><code>      </code>Match a digit: <blue>[0-9]</blue>.
             <br></br><br></br>
