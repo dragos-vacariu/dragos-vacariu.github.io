@@ -614,7 +614,7 @@ free(A);
             for basic <red>tasks</red>.<br></br>
             3. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
             challenging because the code can be complex.
-            <br></br><br></br>
+            <br></br><br></br><br></br>
             <green>Advantages of multiprocessing:</green>
             <br></br><br></br>
             Here are some of the benefits of <red>multiprocessing</red> :
@@ -626,7 +626,7 @@ free(A);
             4. It completes <red>tasks</red> faster and analyzes large amounts of data.<br></br>
             5. It uses multiple <red>CPUs</red> to improve a system's overall power.<br></br>
             6. It removes synchronization primitives.<br></br>
-            7. It's more cost-effective than single processor systems.<br></br>
+            7. It's more cost-effective than single processor systems.
             <br></br><br></br>
             <green>Disadvantages of multiprocessing:</green>
             <br></br><br></br>
@@ -13419,32 +13419,33 @@ print(Ob3)
             <blue>Multithreading</blue> returns a value to the same memory address 
             (stack address) whereas the <blue>Multiprocessing</blue> doesn't because
             it has it's own <blue>stack memory</blue> in which it will copy all 
-            the variables related to its process.
+            the variables related to its process.<br></br>
             <br></br><br></br>
             <green>Advantages for using Multithreading instead of Multiprocessing:</green>
             <br></br><br></br>
             <blue>Lightweight</blue> - low memory footprint;<br></br>
             <blue>Shared memory</blue> - makes access to state from another context easier;<br></br>
             Allows to easily make <blue>responsive</blue> UIs (user interfaces);<br></br>
-            Python C extension modules that properly release the GIL will run in parallel.
-            The GIL restricts the concurrent execution of Python threads within the same process
+            Python C extension modules that properly release the GIL will run in parallel.<br></br>
+            The GIL restricts the concurrent execution of Python threads within the same process;<br></br>
             Great option for I/O-bound applications;<br></br>
-
-<green>Disadvantages of Threads:</green>:
-
-- One GIL is used for all threads, and threads are limited by GIL;
-- Multithreading has no effect for CPU-bound tasks due to the GIL, meaning we'll notice no improvements
-in the performance when it comes to these sort of tasks;
-CPU-bound tasks are those that require a significant amount of computational resource. 
-
-- threads are not interruptible/killable, special attention has to be paid to memory leaks. 
-A memory leak occurs when programmers allocate memory on the heap and forget to deallocate it.
-
-- Increased potential for race conditions. A race condition is an undesirable situation 
-that occurs when a device or system attempts to perform two or more operations at the same time.
-
-- Multithreading code is usually harder to understand and to get right;
-
+            <br></br><br></br>
+            <green>Disadvantages of Threads:</green>:
+            <br></br><br></br>
+            1. One GIL is used for all threads, and threads are limited by GIL;
+            <br></br>
+            2. Multithreading has no effect for CPU-bound tasks due to the GIL, meaning we'll notice no improvements
+            in the performance when it comes to these sort of tasks;
+            CPU-bound tasks are those that require a significant amount of computational resource. 
+            <br></br><br></br>
+            3. threads are not interruptible/killable, special attention has to be paid to memory leaks. 
+            A memory leak occurs when programmers allocate memory on the heap and forget to deallocate it.
+            <br></br><br></br>
+            4. Increased potential for race conditions. A race condition is an undesirable situation 
+            that occurs when a device or system attempts to perform two or more operations at the same time.
+            <br></br><br></br>
+            5. Multithreading code is usually harder to understand and to get right;
+            <br></br>
 <code>
 #Example of multithreading in Python 3:
 
