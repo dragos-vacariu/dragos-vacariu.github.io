@@ -14716,7 +14716,7 @@ input("\nPress any key to exit: ")
             Matches end of line.
             <br></br><br></br>
             <code>.</code><code>           </code>
-            Matches any single character except newline.<br></br>
+            Matches any single character except newline.
             Using <code>m</code> option allows it to match newline as well.
             <br></br><br></br>
             <code>[...]</code><code>       </code>
@@ -14752,12 +14752,12 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             <code>(?imx)</code><code>      </code>
             Temporarily toggles on <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> 
-            options within a <blue>regular expression</blue>. <br></br>
+            options within a <blue>regular expression</blue>. 
             If in parentheses, only that area is affected.
             <br></br><br></br>
             <code>(?-imx)</code><code>     </code>
             Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue>  options 
-            within a <blue>regular expression</blue>. <br></br>
+            within a <blue>regular expression</blue>. 
             If in parentheses, only that area is affected.
             <br></br><br></br>
             <code>(?: re)</code><code>     </code>
@@ -14815,20 +14815,20 @@ input("\nPress any key to exit: ")
             Matches point where last match finished.
             <br></br><br></br>
             <code>\b</code><code>          </code>
-            Matches word boundaries when outside brackets. <br></br>
+            Matches word boundaries when outside brackets. 
             Matches backspace <code>(0x08)</code> when inside brackets.
             <br></br><br></br>
             <code>\B</code><code>          </code>
             Matches nonword boundaries.
             <br></br><br></br>
-            <code>\n</code>, <code>\t</code><code>         </code>
+            <code>\n</code>, <code>\t</code><code>      </code>
             Matches newlines, carriage returns, tabs, etc.
             <br></br><br></br>
-            <code>\1...\9</code><code>      </code>
+            <code>\1...\9</code><code>     </code>
             Matches <blue>nth</blue> grouped subexpression.
             <br></br><br></br>
-            <code>\10</code><code>          </code>
-            Matches <blue>nth</blue> grouped subexpression if it matched already.<br></br> 
+            <code>\10</code><code>         </code>
+            Matches <blue>nth</blue> grouped subexpression if it matched already.
             Otherwise refers 
             to the octal representation of a character code.
             <br></br><br></br>
@@ -14852,26 +14852,28 @@ input("\nPress any key to exit: ")
             Makes a period <blue>(dot)</blue> match any character, including a <blue>newline</blue>.
             <br></br><br></br>
             <code>re.U</code><code>      </code>
-            Interprets letters according to the Unicode character set. <br></br>
+            Interprets letters according to the Unicode character set. 
             This flag affects the behavior of <blue>\w</blue>, <blue>\W</blue>, 
             <blue>\b</blue>, <blue>\B</blue>.
             <br></br><br></br>
             <code>re.X</code><code>      </code>
-            Permits "cuter" regular expression syntax. <br></br>
-            It ignores <blue>whitespace</blue> 
+            Permits "cuter" regular expression syntax. It ignores <blue>whitespace</blue> 
             (except inside a set <code>[]</code> or when escaped by a <blue>backslash</blue>) 
             and treats unescaped <code>#</code> as a comment marker.
             <br></br><br></br>
 
             <brown>Character classes:</brown>
             <br></br><br></br>
-            <code>[Pp]ython</code><code>      </code>Match <blue>"Python"</blue> or <blue>"python"</blue>.
+            <code>[Pp]ython</code><code>      </code>Match <blue>"Python"</blue> or <blue>
+            "python"</blue>.
             <br></br><br></br>
-            <code>rub[ye]</code><code>        </code>Match <blue>"ruby"</blue> or <blue>"rube"</blue>.
+            <code>rub[ye]</code><code>        </code>Match <blue>"ruby"</blue> or 
+            <blue>"rube"</blue>.
             <br></br><br></br>
             <code>[aeiou]</code><code>        </code>Match any one lowercase vowel.
             <br></br><br></br>
-            <code>[0-9]</code><code>          </code>Match any digit; same as <blue>[0123456789]</blue>.
+            <code>[0-9]</code><code>          </code>Match any digit; same as 
+            <blue>[0123456789]</blue>.
             <br></br><br></br>
             <code>[a-z]</code><code>          </code>Match any lowercase <blue>ASCII</blue> letter.
             <br></br><br></br>
@@ -14903,11 +14905,14 @@ input("\nPress any key to exit: ")
 
             <brown>Repetition Cases:</brown>
             <br></br><br></br>
-            <code>ruby?</code><code>      </code>Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the <blue>y</blue> is optional.
+            <code>ruby?</code><code>      </code>Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the 
+            <blue>y</blue> is optional.
             <br></br><br></br>
-            <code>ruby*</code><code>      </code>Match <blue>"rub"</blue> plus <blue>0</blue> or more <blue>ys</blue>.
+            <code>ruby*</code><code>      </code>Match <blue>"rub"</blue> plus <blue>0</blue> or more 
+            <blue>ys</blue>.
             <br></br><br></br>
-            <code>ruby+</code><code>      </code>Match <blue>"rub"</blue> plus <blue>1</blue> or more <blue>ys</blue>.
+            <code>ruby+</code><code>      </code>Match <blue>"rub"</blue> plus <blue>1</blue> or more 
+            <blue>ys</blue>.
             <br></br><br></br>
             <code>\d{3}</code><code>      </code>Match exactly 3 digits.
             <br></br><br></br>
