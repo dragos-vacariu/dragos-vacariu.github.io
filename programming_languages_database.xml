@@ -14706,225 +14706,225 @@ print ("Phone Num : {0}" .format(num))
 
 input("\nPress any key to exit: ")
 </code>   
-<br></br>
-Following table lists the regular expression syntax that is available in Python :
-<br></br><br></br>
-<code>^</code><br></br>
-Matches beginning of line.
-<br></br><br></br>
-<code>$</code><br></br>
-Matches end of line.
-<br></br><br></br>
-<code>.</code><br></br>
-Matches any single character except newline. 
-Using m option allows it to match newline as well.
-<br></br><br></br>
-<code>[...]</code><br></br>
-Matches any single character in brackets.
-<br></br><br></br>
-<code>[^...]</code><br></br>
-Matches any single character not in brackets.
-<br></br><br></br>
-<code>re*</code><br></br>
-Matches 0 or more occurrences of preceding expression.
-<br></br><br></br>
-<code>re+</code><br></br>
-Matches 1 or more occurrence of preceding expression.
-<br></br><br></br>
-<code>re?</code><br></br>
-Matches 0 or 1 occurrence of preceding expression.
-<br></br><br></br>
-<code>re{ n}</code><br></br>
-Matches exactly n number of occurrences of preceding expression.
-<br></br><br></br>
-<code>re{ n,}</code><br></br>
-Matches n or more occurrences of preceding expression.
-<br></br><br></br>
-<code>re{ n, m}</code><br></br>
-Matches at least n and at most m occurrences of preceding expression.
-<br></br><br></br>
-<code>a| b</code><br></br>
-Matches either a or b.
-<br></br><br></br>
-<code>(re)</code><br></br>
-Groups regular expressions and remembers matched text.
-<br></br><br></br>
-<code>(?imx)</code><br></br>
-Temporarily toggles on i, m, or x options within a regular expression. 
-If in parentheses, only that area is affected.
-<br></br><br></br>
-<code>(?-imx)</code><br></br>
-Temporarily toggles off i, m, or x options within a regular expression. 
-If in parentheses, only that area is affected.
-<br></br><br></br>
-<code>(?: re)</code><br></br>
-Groups regular expressions without remembering matched text.
-<br></br><br></br>
-<code>(?imx: re)</code><br></br>
-Temporarily toggles on i, m, or x options within parentheses.
-<br></br><br></br>
-<code>(?-imx: re)</code><br></br>
-Temporarily toggles off i, m, or x options within parentheses.
-<br></br><br></br>
-<code>(?#...)</code><br></br>
-Comment.
-<br></br><br></br>
-<code>(?= re)</code><br></br>
-Specifies position using a pattern. Doesn't have a range.
-<br></br><br></br>
-<code>(?! re)</code><br></br>
-Specifies position using pattern negation. Doesn't have a range.
-<br></br><br></br>
-<code>(?> re)</code><br></br>
-Matches independent pattern without backtracking.
-<br></br><br></br>
-<code>\w</code><br></br>
-Matches word characters.
-<br></br><br></br>
-<code>\W</code><br></br>
-Matches nonword characters.
-<br></br><br></br>
-<code>\s</code><br></br>
-Matches whitespace. Equivalent to [\t\n\r\f].
-<br></br><br></br>
-<code>\S</code><br></br>
-Matches nonwhitespace.
-<br></br><br></br>
-<code>\d</code><br></br>
-Matches digits. Equivalent to [0-9].
-<br></br><br></br>
-<code>\D</code><br></br>
-Matches nondigits.
-<br></br><br></br>
-<code>\A</code><br></br>
-Matches beginning of string.
-<br></br><br></br>
-<code>\Z</code><br></br>
-Matches end of string. If a newline exists, it matches just before newline.
-<br></br><br></br>
-<code>\z</code><br></br>
-Matches end of string.
-<br></br><br></br>
-<code>\G</code><br></br>
-Matches point where last match finished.
-<br></br><br></br>
-<code>\b</code><br></br>
-Matches word boundaries when outside brackets. 
-Matches backspace (0x08) when inside brackets.
-<br></br><br></br>
-<code>\B</code><br></br>
-Matches nonword boundaries.
-<br></br><br></br>
-<code>\n</code>, <code>\t</code>, etc.<br></br>
-Matches newlines, carriage returns, tabs, etc.
-<br></br><br></br>
-<code>\1...\9</code><br></br>
-Matches nth grouped subexpression.
-<br></br><br></br>
-<code>\10</code><br></br>
-Matches nth grouped subexpression if it matched already. Otherwise refers 
-to the octal representation of a character code.
-<br></br><br></br>
+            <br></br>
+            <green>Regular expressions available in Python:</green>
+            <br></br><br></br>
+            <code>^</code><br></br>
+            Matches beginning of line.
+            <br></br><br></br>
+            <code>$</code><br></br>
+            Matches end of line.
+            <br></br><br></br>
+            <code>.</code><br></br>
+            Matches any single character except newline. 
+            Using m option allows it to match newline as well.
+            <br></br><br></br>
+            <code>[...]</code><br></br>
+            Matches any single character in brackets.
+            <br></br><br></br>
+            <code>[^...]</code><br></br>
+            Matches any single character not in brackets.
+            <br></br><br></br>
+            <code>re*</code><br></br>
+            Matches 0 or more occurrences of preceding expression.
+            <br></br><br></br>
+            <code>re+</code><br></br>
+            Matches 1 or more occurrence of preceding expression.
+            <br></br><br></br>
+            <code>re?</code><br></br>
+            Matches 0 or 1 occurrence of preceding expression.
+            <br></br><br></br>
+            <code>re{ n}</code><br></br>
+            Matches exactly n number of occurrences of preceding expression.
+            <br></br><br></br>
+            <code>re{ n,}</code><br></br>
+            Matches n or more occurrences of preceding expression.
+            <br></br><br></br>
+            <code>re{ n, m}</code><br></br>
+            Matches at least n and at most m occurrences of preceding expression.
+            <br></br><br></br>
+            <code>a| b</code><br></br>
+            Matches either a or b.
+            <br></br><br></br>
+            <code>(re)</code><br></br>
+            Groups regular expressions and remembers matched text.
+            <br></br><br></br>
+            <code>(?imx)</code><br></br>
+            Temporarily toggles on i, m, or x options within a regular expression. 
+            If in parentheses, only that area is affected.
+            <br></br><br></br>
+            <code>(?-imx)</code><br></br>
+            Temporarily toggles off i, m, or x options within a regular expression. 
+            If in parentheses, only that area is affected.
+            <br></br><br></br>
+            <code>(?: re)</code><br></br>
+            Groups regular expressions without remembering matched text.
+            <br></br><br></br>
+            <code>(?imx: re)</code><br></br>
+            Temporarily toggles on i, m, or x options within parentheses.
+            <br></br><br></br>
+            <code>(?-imx: re)</code><br></br>
+            Temporarily toggles off i, m, or x options within parentheses.
+            <br></br><br></br>
+            <code>(?#...)</code><br></br>
+            Comment.
+            <br></br><br></br>
+            <code>(?= re)</code><br></br>
+            Specifies position using a pattern. Doesn't have a range.
+            <br></br><br></br>
+            <code>(?! re)</code><br></br>
+            Specifies position using pattern negation. Doesn't have a range.
+            <br></br><br></br>
+            <code>(?> re)</code><br></br>
+            Matches independent pattern without backtracking.
+            <br></br><br></br>
+            <code>\w</code><br></br>
+            Matches word characters.
+            <br></br><br></br>
+            <code>\W</code><br></br>
+            Matches nonword characters.
+            <br></br><br></br>
+            <code>\s</code><br></br>
+            Matches whitespace. Equivalent to [\t\n\r\f].
+            <br></br><br></br>
+            <code>\S</code><br></br>
+            Matches nonwhitespace.
+            <br></br><br></br>
+            <code>\d</code><br></br>
+            Matches digits. Equivalent to [0-9].
+            <br></br><br></br>
+            <code>\D</code><br></br>
+            Matches nondigits.
+            <br></br><br></br>
+            <code>\A</code><br></br>
+            Matches beginning of string.
+            <br></br><br></br>
+            <code>\Z</code><br></br>
+            Matches end of string. If a newline exists, it matches just before newline.
+            <br></br><br></br>
+            <code>\z</code><br></br>
+            Matches end of string.
+            <br></br><br></br>
+            <code>\G</code><br></br>
+            Matches point where last match finished.
+            <br></br><br></br>
+            <code>\b</code><br></br>
+            Matches word boundaries when outside brackets. 
+            Matches backspace (0x08) when inside brackets.
+            <br></br><br></br>
+            <code>\B</code><br></br>
+            Matches nonword boundaries.
+            <br></br><br></br>
+            <code>\n</code>, <code>\t</code>, etc.<br></br>
+            Matches newlines, carriage returns, tabs, etc.
+            <br></br><br></br>
+            <code>\1...\9</code><br></br>
+            Matches nth grouped subexpression.
+            <br></br><br></br>
+            <code>\10</code><br></br>
+            Matches nth grouped subexpression if it matched already. Otherwise refers 
+            to the octal representation of a character code.
+            <br></br><br></br>
 
-Option flags:
-<br></br><br></br>
-<code>re.I</code><br></br>
-Performs case-insensitive matching.
-<br></br><br></br>
-<code>re.L</code><br></br>
-Interprets words according to the current locale. 
-This interpretation affects the alphabetic group (\w and \W), 
-as well as word boundary behavior (\b and \B).
-<br></br><br></br>
-<code>re.M</code><br></br>
-Makes $ match the end of a line (not just the end of the string) 
-and makes ^ match the start of any line (not just the start of the string).
-<br></br><br></br>
-<code>re.S</code><br></br>
-Makes a period (dot) match any character, including a newline.
-<br></br><br></br>
-<code>re.U</code><br></br>
-Interprets letters according to the Unicode character set. 
-This flag affects the behavior of \w, \W, \b, \B.
-<br></br><br></br>
-<code>re.X</code><br></br>
-Permits "cuter" regular expression syntax. It ignores whitespace 
-(except inside a set [] or when escaped by a backslash) and treats 
-unescaped # as a comment marker.
-<br></br><br></br>
+            <brown>Option flags:</brown>
+            <br></br><br></br>
+            <code>re.I</code><br></br>
+            Performs case-insensitive matching.
+            <br></br><br></br>
+            <code>re.L</code><br></br>
+            Interprets words according to the current locale. 
+            This interpretation affects the alphabetic group (\w and \W), 
+            as well as word boundary behavior (\b and \B).
+            <br></br><br></br>
+            <code>re.M</code><br></br>
+            Makes $ match the end of a line (not just the end of the string) 
+            and makes ^ match the start of any line (not just the start of the string).
+            <br></br><br></br>
+            <code>re.S</code><br></br>
+            Makes a period (dot) match any character, including a newline.
+            <br></br><br></br>
+            <code>re.U</code><br></br>
+            Interprets letters according to the Unicode character set. 
+            This flag affects the behavior of \w, \W, \b, \B.
+            <br></br><br></br>
+            <code>re.X</code><br></br>
+            Permits "cuter" regular expression syntax. It ignores whitespace 
+            (except inside a set [] or when escaped by a backslash) and treats 
+            unescaped # as a comment marker.
+            <br></br><br></br>
 
-Character classes:
-<br></br><br></br>
-<code>[Pp]ython    
-Match "Python" or "python".
-<br></br><br></br>
-<code>rub[ye]</code><br></br>
-Match "ruby" or "rube".
-<br></br><br></br>
-<code>[aeiou]</code><br></br>
- Match any one lowercase vowel.
- <br></br><br></br>
-<code>[0-9]</code><br></br>
-Match any digit; same as [0123456789].
-<br></br><br></br>
-<code>[a-z]</code><br></br>
-Match any lowercase ASCII letter.
-<br></br><br></br>
-<code>[A-Z]</code><br></br>
-Match any uppercase ASCII letter.
-<br></br><br></br>
-<code>[a-zA-Z0-9]</code><br></br>
-Match any of the above.
-<br></br><br></br>
-<code>[^aeiou]</code><br></br>
-Match anything other than a lowercase vowel.
-<br></br><br></br>
-<code>[^0-9]</code><br></br>
-Match anything other than a digit.
-<br></br><br></br>
+            <brown>Character classes:</brown>
+            <br></br><br></br>
+            <code>[Pp]ython</code><br></br>
+            Match "Python" or "python".
+            <br></br><br></br>
+            <code>rub[ye]</code><br></br>
+            Match "ruby" or "rube".
+            <br></br><br></br>
+            <code>[aeiou]</code><br></br>
+            Match any one lowercase vowel.
+            <br></br><br></br>
+            <code>[0-9]</code><br></br>
+            Match any digit; same as [0123456789].
+            <br></br><br></br>
+            <code>[a-z]</code><br></br>
+            Match any lowercase ASCII letter.
+            <br></br><br></br>
+            <code>[A-Z]</code><br></br>
+            Match any uppercase ASCII letter.
+            <br></br><br></br>
+            <code>[a-zA-Z0-9]</code><br></br>
+            Match any of the above.
+            <br></br><br></br>
+            <code>[^aeiou]</code><br></br>
+            Match anything other than a lowercase vowel.
+            <br></br><br></br>
+            <code>[^0-9]</code><br></br>
+            Match anything other than a digit.
+            <br></br><br></br>
 
-Special Character Classes:
-<br></br><br></br>    
-Match any character except newline.
-<br></br><br></br>
-<code>\d</code><br></br>
-Match a digit: [0-9].
-<br></br><br></br>
-<code>\D</code><br></br>
-Match a nondigit: [^0-9].
-<br></br><br></br>
-<code>\s</code><br></br>
-Match a whitespace character: [ \t\r\n\f].
-<br></br><br></br>
-<code>\S</code><br></br>
-Match nonwhitespace: [^ \t\r\n\f].
-<br></br><br></br>
-<code>\w</code><br></br>
-Match a single word character: [A-Za-z0-9_].
-<br></br><br></br>
-<code>\W</code><br></br>
-Match a nonword character: [^A-Za-z0-9_].
-<br></br><br></br>
+            <brown>Special Character Classes:</brown>
+            <br></br><br></br>    
+            Match any character except newline.
+            <br></br><br></br>
+            <code>\d</code><br></br>
+            Match a digit: [0-9].
+            <br></br><br></br>
+            <code>\D</code><br></br>
+            Match a nondigit: [^0-9].
+            <br></br><br></br>
+            <code>\s</code><br></br>
+            Match a whitespace character: [ \t\r\n\f].
+            <br></br><br></br>
+            <code>\S</code><br></br>
+            Match nonwhitespace: [^ \t\r\n\f].
+            <br></br><br></br>
+            <code>\w</code><br></br>
+            Match a single word character: [A-Za-z0-9_].
+            <br></br><br></br>
+            <code>\W</code><br></br>
+            Match a nonword character: [^A-Za-z0-9_].
+            <br></br><br></br>
 
-Repetition Cases:
-<code>ruby?</code><br></br>
-Match "rub" or "ruby": the y is optional.
-<br></br><br></br>
-<code>ruby*</code><br></br>
-Match "rub" plus 0 or more ys.
-<br></br><br></br>
-<code>ruby+</code><br></br>
-Match "rub" plus 1 or more ys.
-<br></br><br></br>
-<code>\d{3}</code><br></br>
-Match exactly 3 digits.
-<br></br><br></br>
-<code>\d{3,}</code><br></br>
-Match 3 or more digits.
-<br></br><br></br>
-<code>\d{3,5}</code><br></br>
-Match 3, 4, or 5 digits.
-<br></br><br></br>
+            <brown>Repetition Cases:</brown>
+            <code>ruby?</code><br></br>
+            Match "rub" or "ruby": the y is optional.
+            <br></br><br></br>
+            <code>ruby*</code><br></br>
+            Match "rub" plus 0 or more ys.
+            <br></br><br></br>
+            <code>ruby+</code><br></br>
+            Match "rub" plus 1 or more ys.
+            <br></br><br></br>
+            <code>\d{3}</code><br></br>
+            Match exactly 3 digits.
+            <br></br><br></br>
+            <code>\d{3,}</code><br></br>
+            Match 3 or more digits.
+            <br></br><br></br>
+            <code>\d{3,5}</code><br></br>
+            Match 3, 4, or 5 digits.
+            <br></br><br></br>
         </regular-expressions>
         <recursion>
             *General-Programming-Knowledge*
