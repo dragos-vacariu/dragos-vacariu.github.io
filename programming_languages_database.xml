@@ -14538,8 +14538,8 @@ class LINE(PUNCT):
     @staticmethod 
     def staticMe(): 
         #static methods don't take self as argument
-        print("\nThis is a static method\nAll \
-            instances of the class share same method")
+        print("\nThis is a static method\nAll " + \
+            "instances of the class share same method")
 
 l = LINE()
 
@@ -14785,7 +14785,7 @@ print(reverse("Reflection in Python"))
 </code>
         </reflection>
         <lambda-anonymous-functions>
-            <green>Anonymous functions in Python:</green>
+            <green>Lambda/Anonymous Functions in Python:</green>
             <br></br><br></br>
             In Python the <red>functions</red> declared using the 
             <red>lambda</red> keyword are called <blue>anonymous</blue> 
