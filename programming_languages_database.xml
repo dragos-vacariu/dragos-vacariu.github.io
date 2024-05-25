@@ -14608,6 +14608,7 @@ print("Incremented value:", x)
             <br></br><br></br>
             The <code>match()</code> function attempts to <red>match</red> RE (Regular Expression) 
             pattern to <red>string</red> with optional flags.
+            <br></br>
             It returns a <blue>match object</blue> on success, 
             <code>None</code> on failure. 
             <br></br>
@@ -14622,9 +14623,7 @@ print("Incremented value:", x)
             <br></br><br></br>
             <brown>The match() function:</brown>
             <br></br><br></br>
-            <red>Syntax:</red> <code>re.match(pattern, string, flags=0)</code>
-            <br></br><br></br>
-            Where:
+            <red>Syntax:</red> <code>re.match(pattern, string, flags=0)</code> where:
             <br></br><br></br>
             <code>pattern</code><br></br>
             This is the <blue>regular expression</blue> to be <red>matched</red>.
@@ -14638,9 +14637,7 @@ print("Incremented value:", x)
             <br></br><br></br>
             <brown>The sub() function:</brown>
             <br></br><br></br>
-            <red>Syntax:</red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code>
-            <br></br><br></br>
-            Where:
+            <red>Syntax:</red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code> where:
             <br></br><br></br>
             <code>pattern</code><br></br>
             Denotes the <red>string/pattern</red> that needs to be <red>replaced</red>.
