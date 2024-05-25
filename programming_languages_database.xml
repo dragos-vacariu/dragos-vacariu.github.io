@@ -14599,7 +14599,7 @@ print("Incremented value:", x)
         <regular-expressions>
             A <blue>regular expression</blue> is a special sequence of characters that helps 
             <red>matching</red> or <red>finding</red> other <red>strings</red> or <red>sets of 
-            strings<red>, using a specialized syntax held in a pattern.
+            strings</red>, using a specialized syntax held in a pattern.
             <br></br><br></br>
             The <code>match()</code> function attempts to <red>match</red> RE (Regular Expression) 
             pattern to <red>string</red> with optional flags.
