@@ -667,13 +667,13 @@ free(A);
             <red>Multiprocessing</red> executes many <red>processes</red> simultaneously, 
             whereas <blue>multithreading</blue> executes many <red>threads</red> simultaneously.
             <br></br><br></br>
-            <blue>Multithreading</blue> uses a common address space for all the <blue>threads</blue>, 
-            whereas 
+            <blue>Multithreading</blue> uses a common <blue>address space</blue> for all 
+            the <blue>threads</blue>, whereas 
             <red>multiprocessing</red> 
             creates a separate address space for each <red>process</red>.
             <br></br><br></br>
             In <red>multiprocessing</red> each <red>process</red> has its own memory 
-            address space (<blue>stack memory</blue>). So when returning a value
+            <blue>address space</blue> (<blue>stack memory</blue>). So when returning a value
             from a <red>process</red>, the value returned will not be 
             seen by the rest of the program unless it is saved in a <blue>file</blue>, in a 
             <blue>shared memory address</blue>, or in a <blue>message pipe</blue>, 
@@ -706,11 +706,17 @@ free(A);
             4. It's faster to generate new <blue>threads</blue> within an existing <red>process</red> 
             than to create 
             an entirely new <red>process</red>.<br></br>
-            5. All <blue>threads</blue> share one <red>process</red> memory pool and the same 
-            address space.<br></br>
-            6. <blue>Threads</blue> are more lightweight and have lower overhead.<br></br>
-            7. The cost of communication between <blue>threads</blue> is relatively low.<br></br>
-            8. Creating responsive user interfaces (UIs) is easy.
+            5. All <blue>threads</blue> share one <red>process memory pool</red>  and the same 
+            <blue>address space</blue>.<br></br>
+            6. <blue>Threads</blue> are more lightweight and have lower <blue>overhead</blue>. 
+            <blue>Overhead</blue> is any combination of excess or indirect 
+            computation time, memory, bandwidth, 
+            or other resources that are required to perform a specific <red>task</red>.<br></br> 
+            7. The cost of communication between <blue>threads</blue> is relatively low.
+            Meaning that <blue>threads</blue> can communicate with each other more easily 
+            than <red>processes</red> can.
+            <br></br>
+            8. Creating responsive user interactions (UIs) is easy.
             <br></br><br></br>
             <green>Disadvantages of multithreading:</green>
             <br></br><br></br>
