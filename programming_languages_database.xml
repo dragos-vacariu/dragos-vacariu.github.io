@@ -658,12 +658,14 @@ free(A);
             <br></br><br></br>
             <green>Tips for choosing between multithreading and multiprocessing:</green>
             <br></br><br></br>
-            Here are some tips to help deciding whether to use multithreading or multiprocessing:
+            Here are some tips to help deciding whether to use multithreading or 
+            <red>multiprocessing</red>:
             <br></br><br></br>
             <brown>1. Use multithreading to make user interaction (UI) programs responsive.</brown>
             <br></br><br></br>
             These programs have to wait for the user to interact with them, so using threads 
-            provides enough computing power. For example, you might choose to use multithreading 
+            provides enough computing power. For example, you might choose to use 
+            <blue>multithreading</blue> 
             if you create an online writing program so that one thread tracks the user's keystrokes, 
             a second thread displays the text for the user to read and a third thread proofreads 
             the text to identify spelling and grammar errors.
@@ -672,11 +674,11 @@ free(A);
             <br></br><br></br>
             Threads can provide you with all the computing power you need to access web servers 
             and download content from the internet. For example, many data scientists use 
-            multithreading to create web scraping applications.
+            <blue>multithreading</blue> to create web scraping applications.
             <br></br><br></br>
             <brown>3. Use multiprocessing to create computation-intensive programs.</brown>
             <br></br><br></br>
-            Multiprocessing can help you analyze large volumes of data quickly.
+            <red>multiprocessing</red> can help you analyze large volumes of data quickly.
             <br></br><br></br>
             <brown>4. Use multiprocessing to develop programs that are CPU intensive.</brown>
             <br></br><br></br>
