@@ -13552,6 +13552,7 @@ print(Ob3)
             It means that 
             <red>objects</red> created in Python have a <blue>reference count</blue> variable that 
             keeps track of the number of <blue>references</blue> that point to the <red>object</red>. 
+            <br></br>
             When this count reaches <blue>zero</blue> and no variable is referencing the 
             <red>object</red> stored in the <blue>heap memory</blue>, 
             the <blue>heap memory</blue> occupied by the <red>object</red> is released 
@@ -13573,15 +13574,6 @@ print(Ob3)
             <blue>multithreading</blue> processes using the <blue>GIL</blue>. 
             It restricts achieving <blue>multithreading</blue> in Python because it prevents 
             the <blue>threads</blue> and works as a <blue>single thread</blue>.
-            <green>Multithreading vs. Multiprocessing:</green>
-            <br></br><br></br>
-            <blue>Multithreading</blue> shares the same <blue>stack memory</blue> as the whole 
-            program (this is one main difference comparing to <blue>Multiprocessing</blue>)
-            <br></br><br></br>
-            <blue>Multithreading</blue> returns a value to the same memory address 
-            (stack address) whereas the <blue>Multiprocessing</blue> doesn't because
-            it has it's own <blue>stack memory</blue> in which it will copy all 
-            the variables related to its process.<br></br>
             <br></br><br></br>
             <green>Python-related Multithreading Drawbacks:</green>
             <br></br><br></br>
