@@ -693,9 +693,9 @@ free(A);
             space.
             <br></br><br></br>
             <blue>Multithreading</blue> is recommended for IO (input/output) operations such as: 
-            file inputting/outputting, http requests, etc, whereas 
+            <blue>file inputting/outputting</blue> and <blue>http requests</blue>, whereas 
             <red>multiprocessing</red> is recommended for CPU intensive operations 
-            such as: calculations.
+            such as: <blue>calculations</blue>.
             <br></br><br></br>
             <green>Advantages of multithreading:</green>
             <br></br><br></br>
