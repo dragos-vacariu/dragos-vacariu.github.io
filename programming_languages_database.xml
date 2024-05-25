@@ -14121,40 +14121,18 @@ class EmlParser(TextExtractor):
 <code>
 #Example of random generator in Python:
 
-#This program will print a random quotes from 
-#the .txt quotation file opened below. 
-
 from random import randint
 
-def ReadFromFile():
-    MyFile = open(r"D:\my files\quotations.txt", "r")
-    Line=MyFile.read(1000000)
-    i=0
-    numberOfQuotes=0
-    MyList=[]
-    buff=""
-    while(i&lt;len(Line)):
-        if(Line[i]=="\n"):
-            MyList.append(buff)
-            buff=""
-            numberOfQuotes+=1
-        else:
-            buff+=Line[i]
-        i+=1
-    #Getting a random number between 0 and numberOfQuotes
-    choice = randint(0,numberOfQuotes)
+def RandomGenerator():
+    #Getting a random number between 0 and 100
+    choice = randint(0, 100)
     #Printing the choice:
-    print(MyList[choice])
+    print("The random number is: " + str(choice))
 
 #Calling the function:
-while(input("Press C to continue, or Q to quit: ")=="C"):
-    print()
-    ReadFromFile()
-    print()
+RandomGenerator()
 
-#Keep the console opened until the next button pressed:
 input("Press any key to quit.")
-
 </code>
         </random-generators>
         <command-line-arguments>
