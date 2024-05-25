@@ -13642,7 +13642,7 @@ thread2.join()
 t1_after = time.time()
 
 print("Example 2: Inefficient threading - time for execution: " 
-        + str(t1_after-t1_before) + " seconds.\")
+        + str(t1_after-t1_before) + " seconds.\n")
 
 #The following way is faster but printing is a mess 
 #(because the 2 functions are executed in parallel).
