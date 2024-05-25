@@ -12790,6 +12790,7 @@ input("\nPress any key to exit: ")
         </read-from-file>
         <write-to-file>
             *General-Programming-Knowledge*
+            <br></br>
             <green>Writing to files in Python:</green>
             <br></br><br></br>
             The <blue>write()</blue> method writes any string to an open file.
@@ -12816,8 +12817,13 @@ input("\nPress any key to exit: ")
             In order to open a <blue>file</blue> the <blue>open()</blue> method it is used. 
             <br></br><br></br>
             The <blue>open()</blue> method takes <blue>2</blue> arguments:<br></br>
+            <br></br>
             - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
-            - the <blue>mode</blue> for opening;<br></br>
+            - the <blue>mode</blue> for opening;
+             <br></br><br></br>
+            <red>Example:</red> <code>open("file.txt", "w")</code><br></br>
+            This will open a <blue>file</blue> named <blue>file.txt</blue> placed in the same 
+            directory as the .py script.
             <br></br><br></br>
             <brown>Writing to a file using TXT format.</brown>
             <br></br>
