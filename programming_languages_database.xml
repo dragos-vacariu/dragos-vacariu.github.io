@@ -530,7 +530,8 @@ free(A);
             <red>thread</red>
             between the <red>tasks</red> on every few microseconds, therefore
             moving its hand from doing one thing to doing the other thing so fast that a real person 
-            would not be able to notice any difference. Example: the music doesn't stop playing when 
+            would not be able to notice any difference. <br></br>
+            <red>Example:</red> the music doesn't stop playing when 
             writing the keyboard. 
             <br></br><br></br>
             By <blue>hyperthreading</blue> the <red>core</red> gets a second hand available, 
