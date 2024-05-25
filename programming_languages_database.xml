@@ -557,11 +557,12 @@ free(A);
             Similar to 2 workers working on 
             same task, passing around their tools from one to the other.
             <br></br><br></br>
-            A <red>process</red> is the instance of a computer program that is being executed by 
-            one or many <red>threads</red>. By multiprocessing a program can be divided into 
-            independent processes, which can run individually as separate programs. This would allowThese
-            the possibility to distribute these processes on separate cores which would 
-            increase performance.
+            A <red>process</red> is the <red>instance</red> of a computer program that is being 
+            executed by 
+            one or many <red>threads</red>. By <red>multiprocessing</red> a program can be divided 
+            into independent <red>processes</red>, which can run individually as 
+            <blue>separate programs</blue>. This would allow the possibility to offload/distribute 
+            these <red>processes</red> on separate <red>cores</red> which would increase performance.
             <br></br><br></br>
             <green>Multithreading vs. multiprocessing:</green>
             <br></br><br></br>
@@ -579,11 +580,13 @@ free(A);
             <brown>Process/Thread Syncronization:</brown>
             <br></br><br></br>
             <red>Process synchronization</red> and <blue>Thread synchronization</blue> 
-            are two mechanism defined for concurrent programming in order to ensure 
-            that two or more concurrent <red>processes/threads</red> do not simultaneously execute 
+            are two mechanism defined for <blue>concurent programming</blue> in order to ensure 
+            that two or more <red>concurrent processes/threads</red> do not simultaneously execute 
             some particular program segment known as <blue>critical section</blue>.
             A <blue>critical section</blue> refers to the parts of the 
-            program where the <blue>shared resource</blue> is accessed.
+            program where the <blue>shared resources</blue> are being accessed by different 
+            <red>threads/processes</red>. So the <blue>2 workers</blue> working on the same 
+            <red>task</red> collide to each other.
             <br></br><br></br>
             While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
             increase the computing power of a system, there are some key differences between 
