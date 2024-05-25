@@ -12555,7 +12555,6 @@ input("\nPress any key to exit: ")
         </dynamic-memory-allocation>
         <read-from-file>
             *General-Programming-Knowledge*
-            <br></br>
             <green>Read files in Python:</green>
             <br></br><br></br>
             The <blue>read()</blue> method reads a <red>string</red> from an opened <blue>file</blue>. 
@@ -12572,9 +12571,9 @@ input("\nPress any key to exit: ")
             within the <blue>file</blue>.
             <br></br><br></br>
             Passing an argument to the <blue>read()</blue> method will ensure that everything is 
-            read up to the given position within the <blue>file</blue> content.
-            <br></br>
-            Example: <code>MyFile.read(11)</code> 
+            read, until to the given position within the <blue>file</blue> content.
+            <br></br><br></br>
+            <red>Example:</red> <code>MyFile.read(11)</code> 
             <br></br>
             Only the first <blue>11</blue> characters will be extracted from the <blue>file</blue>.
             <br></br><br></br>
@@ -12582,7 +12581,7 @@ input("\nPress any key to exit: ")
             any unwritten information and closes the <red>file object</red>, 
             after which no more reading or writing can be done. 
             <br></br><br></br>
-            Python automatically closes a <blue>file</blue> when the reference object of 
+            Python automatically closes a <blue>file</blue> when the <red>reference object</red> of 
             a <blue>file</blue> is reassigned to another <blue>file</blue>.
             <br></br><br></br>
             It is a good practice to use the <blue>close()</blue> method to close a <blue>file</blue> 
@@ -12593,10 +12592,10 @@ input("\nPress any key to exit: ")
             This method takes 2 arguments:<br></br>
             - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
             - the <blue>mode</blue> for opening;<br></br>
-            Example: <code>open("file.txt", "w")</code><br></br>
+            <br></br>
+            <red>Example:</red> <code>open("file.txt", "w")</code><br></br>
             This will open a <blue>file</blue> named <blue>file.txt</blue> placed in the same 
-            directory as the 
-            .py script.
+            directory as the .py script.
             <br></br><br></br>
             <green>Modes for opening a file:</green>
             <br></br><br></br>
@@ -12604,8 +12603,8 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
             The file pointer is placed at the beginning
-            of the file. This is the default mode. It throws an error if the <blue>file</blue> does 
-            not exist.
+            of the file. This is the <red>default mode</red>. It throws an <red>error</red> if 
+            the <blue>file</blue> does not exist.
             <br></br><br></br>
             <blue>"w"</blue> - Opens a file for writing only. Overwrites the <blue>file</blue> if 
             the <blue>file</blue> exists.
@@ -12613,7 +12612,7 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in binary format. 
             The <blue>file</blue> pointer is placed
-            at the beginning of the <blue>file</blue>. This is the default mode.
+            at the beginning of the <blue>file</blue>. This is the <red>default mode</red>.
             <br></br><br></br>
             <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
             binary format. The <blue>file</blue>
@@ -12666,7 +12665,7 @@ input("\nPress any key to exit: ")
             <green>File object attributes:</green>
             <br></br><br></br>
             The <blue>file object</blue> contains several <red>attributes</red>:
-            <br></br>
+            <br></br><br></br>
             <code>file.closed</code><br></br>
             <blue>Returns</blue> <code>true</code> if file is closed, false otherwise.
             <br></br><br></br>
