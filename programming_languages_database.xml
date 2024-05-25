@@ -12771,18 +12771,18 @@ print("The current working directory is: {0}" .format(os.getcwd()))
 
 #Renaming directories:
 #Check if a directory exists:
-if os.path.exists(r"C:\Users\Black2\Desktop\python\dragos dir2"):
-    os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir2") 
+if os.path.exists(r"C:\Users\Black2\Desktop\python\directory dir2"):
+    os.rmdir(r"C:\Users\Black2\Desktop\python\directory dir2") 
     #removing the directory
 
-os.rename(r"C:\Users\Black2\Desktop\python\dragos dir",
-             r"C:\Users\Black2\Desktop\python\dragos dir2")
+os.rename(r"C:\Users\Black2\Desktop\python\directory dir",
+             r"C:\Users\Black2\Desktop\python\directory dir2")
 #renaming the file
 
 MyFile.close()
 #closing the file
 
-os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir2")
+os.rmdir(r"C:\Users\Black2\Desktop\python\directory dir2")
 #removing the directory
 
 input("\nPress any key to exit: ")
