@@ -14919,22 +14919,22 @@ input("\nPress any key to exit: ")
 
             <brown>Repetition Cases:</brown>
             <br></br><br></br>
-            <code>ruby?</code><br></br>
+            <code>ruby?</code><code>      </code>
             Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the <blue>y</blue> is optional.
             <br></br><br></br>
-            <code>ruby*</code><br></br>
+            <code>ruby*</code><code>      </code>
             Match <blue>"rub"</blue> plus <blue>0</blue> or more <blue>ys</blue>.
             <br></br><br></br>
-            <code>ruby+</code><br></br>
+            <code>ruby+</code><code>      </code>
             Match <blue>"rub"</blue> plus <blue>1</blue> or more <blue>ys</blue>.
             <br></br><br></br>
-            <code>\d{3}</code><br></br>
+            <code>\d{3}</code><code>      </code>
             Match exactly 3 digits.
             <br></br><br></br>
-            <code>\d{3,}</code><br></br>
+            <code>\d{3,}</code><code>      </code>
             Match 3 or more digits.
             <br></br><br></br>
-            <code>\d{3,5}</code><br></br>
+            <code>\d{3,5}</code><code>      </code>
             Match 3, 4, or 5 digits.
             <br></br><br></br>
         </regular-expressions>
