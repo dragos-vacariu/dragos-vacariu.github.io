@@ -479,6 +479,42 @@ free(A);
             <br></br><br></br>
         </enums>
         <multi-threading>
+            <blue>Concurrent Programming</blue> is a technique in which two or more 
+            <red>processes</red> start, run in an interleaved fashion through context switching 
+            and complete in an overlapping time period by managing access to 
+            shared resources e.g. on a <blue>single core</blue> of <red>CPU</red>.
+            <br></br><br></br>
+            This doesn’t necessarily mean that multiple <red>processes</red> will be running 
+            at the same instant – even if the results might make it seem like it.
+            <br></br><br></br>
+            <blue>Concurrent Programming</blue> is an essential technique for design applications 
+            that can execute <red>tasks</red> simultaneously, in order to increasing overall 
+            <red>efficiency</red> and <red>responsiveness</red>.
+            <br></br><br></br>
+            <green>Principles of Concurent Programming:</green>
+            <br></br><br></br>
+            The are some basic principles and concepts behind <blue>concurrent programming</blue>: 
+            <br></br><br></br>
+            <blue>Parallelism</blue>: Concurrent programs can run multiple <red>processes</red> or 
+            <red>threads</red> simultaneously, 
+            utilizing multiple processing units available in today's computer systems.
+            <br></br><br></br>
+            <blue>Non-determinism</blue>: Due to the unpredictable order of execution, 
+            <blue>concurrent programs</blue> can 
+            give different results on different runs, making debugging and testing more complex. 
+            <blue>Non-determinism</blue> arises from the uncertain order in which <red>threads</red> 
+            or <red>processes</red> access <blue>shared resources</blue> and interact with each other.
+            <br></br><br></br>
+            <blue>Synchronization</blue>: Concurrent programs use <blue>synchronization mechanisms</blue> 
+            to coordinate access to <blue>shared resources</blue> and ensure mutually exclusive 
+            access or <blue>resource protection</blue> to prevent data inconsistency and 
+            <blue>race conditions</blue>.
+            <br></br><br></br>
+            <green>Implementation Techniques:</green>
+            <br></br><br></br>
+            <blue>Concurrent Programming</blue> can be implemented through the use of 
+            <red>multithreading</red> and <blue>multiprocessing</blue>.
+            <br></br><br></br>
             A <red>thread</red> is a single <blue>sequence stream</blue> within a <red>process</red>.
             <br></br><br></br>
             A <blue>stream</blue> can be thought of as a <red>path</red> or <red>channel</red> 
@@ -489,9 +525,9 @@ free(A);
             <br></br><br></br>
             <red>Threads</red> are not independent from each other unlike <red>processes</red>. 
             As a result, 
-            <red>threads</red> shares with other <red>threads</red> their code section, 
-            data section and OS resources such as: opened <blue>files</blue> and 
-            <blue>signals</blue>. 
+            <red>threads</red> share with other <red>threads</red> their <blue>code section</blue>, 
+            <blue>data section</blue> and <blue>OS resources</blue> such as: opened <blue>files</blue> 
+            and <blue>signals</blue>. 
             <br></br>
             But, like <red>processes</red>, a <red>thread</red> has its own <blue>program 
             counter</blue> (PC), a <blue>register set</blue>, and a <blue>stack space</blue>. 
