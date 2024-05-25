@@ -536,12 +536,18 @@ free(A);
             <red>core</red>, 
             meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
             but faster than doing single <red>task</red> on one <red>core</red>. 
+            <br></br><br></br>
             Multithreading reffers to using multiple <red>threads</red> (<blue>2 threads</blue>) 
             to one <red>core</red>.
             Multithreading allows for better utilization of available system resources by 
             dividing <red>tasks</red> into separate <red>threads</red> and running them in parallel.
             Hyperthreading further increases performance by allowing processors to execute two 
             <red>threads</red> concurrently. 
+            <br></br><br></br>
+            <blue>Multiprocessing</blue> is the utilization of two or more central processing 
+            units (<red>CPUs</red>) in achieving one task, meaning we can have <blue>2 cores</blue> 
+            running same program sharing among themselves data. Similar to 2 workers working on 
+            same task, passing around their tools from one to the other.
             <br></br><br></br>
             <green>
             Why Multithreading? 
