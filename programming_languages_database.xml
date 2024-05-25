@@ -14141,13 +14141,16 @@ input("Press any key to quit.")
             <br></br><br></br>
             In Python: the <blue>sys</blue> module provides functions and variables 
             used to manipulate different parts of the <blue>Python Runtime Environment</blue>. 
+            <br></br><br></br>
             This module also provides access to some variables used or maintained by the 
-            Python Interpreter that allows direct interaction with it.
+            <blue>Python Interpreter</blue> that allows direct interaction with it.
             <br></br><br></br>
             One such variable is <blue>sys.argv</blue> which is a <red>list</red>
             storing the name of the script file and the <blue>command line arguments</blue>:
-            - <blue>len(sys.argv)</blue> provides the number of command line arguments.
+            <br></br>
+            - <blue>len(sys.argv)</blue> provides the number of command line arguments.<br></br>
             - <blue>sys.argv[0]</blue> is the name of the current Python script. 
+            <br></br>
 <code>
 #Example of working with command line
 #arguments in Python:
