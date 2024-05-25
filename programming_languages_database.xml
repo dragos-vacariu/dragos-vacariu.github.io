@@ -13422,15 +13422,6 @@ print(Ob3)
             it has it's own <blue>stack memory</blue> in which it will copy all 
             the variables related to its process.<br></br>
             <br></br><br></br>
-            <green>Advantages for using Multithreading instead of Multiprocessing:</green>
-            <br></br><br></br>
-            1. <blue>Lightweight</blue> - low memory footprint;<br></br>
-            2. <blue>Shared memory</blue> - makes access to state from another context easier;<br></br>
-            3. Allows to easily make <blue>responsive</blue> UIs (user interfaces);<br></br>
-            3. Python C extension modules that properly release the GIL will run in parallel.<br></br>
-            4. The GIL restricts the concurrent execution of Python threads within the same process;<br></br>
-            5. Great option for I/O-bound applications;<br></br>
-            <br></br><br></br>
             <green>Python Multithreading Drawbacks:</green>
             <br></br><br></br>
             1. One GIL is used for all <blue>threads</blue>, and <blue>threads</blue> are limited by 
