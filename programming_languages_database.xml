@@ -14866,76 +14866,55 @@ input("\nPress any key to exit: ")
 
             <brown>Character classes:</brown>
             <br></br><br></br>
-            <code>[Pp]ython</code><br></br>
-            Match <blue>"Python"</blue> or <blue>"python"</blue>.
+            <code>[Pp]ython</code><code>      </code>Match <blue>"Python"</blue> or <blue>"python"</blue>.
             <br></br><br></br>
-            <code>rub[ye]</code><br></br>
-            Match <blue>"ruby"</blue> or <blue>"rube"</blue>.
+            <code>rub[ye]</code><code>        </code>Match <blue>"ruby"</blue> or <blue>"rube"</blue>.
             <br></br><br></br>
-            <code>[aeiou]</code><br></br>
-            Match any one lowercase vowel.
+            <code>[aeiou]</code><code>        </code>Match any one lowercase vowel.
             <br></br><br></br>
-            <code>[0-9]</code><br></br>
-            Match any digit; same as <blue>[0123456789]</blue>.
+            <code>[0-9]</code><code>          </code>Match any digit; same as <blue>[0123456789]</blue>.
             <br></br><br></br>
-            <code>[a-z]</code><br></br>
-            Match any lowercase <blue>ASCII</blue> letter.
+            <code>[a-z]</code><code>          </code>Match any lowercase <blue>ASCII</blue> letter.
             <br></br><br></br>
-            <code>[A-Z]</code><br></br>
-            Match any uppercase <blue>ASCII</blue> letter.
+            <code>[A-Z]</code><code>          </code>Match any uppercase <blue>ASCII</blue> letter.
             <br></br><br></br>
-            <code>[a-zA-Z0-9]</code><br></br>
-            Match any of the above.
+            <code>[a-zA-Z0-9]</code><code>    </code>Match any of the above.
             <br></br><br></br>
-            <code>[^aeiou]</code><br></br>
-            Match anything other than a lowercase vowel.
+            <code>[^aeiou]</code><code>       </code>Match anything other than a lowercase vowel.
             <br></br><br></br>
-            <code>[^0-9]</code><br></br>
-            Match anything other than a digit.
+            <code>[^0-9]</code><code>         </code>Match anything other than a digit.
             <br></br><br></br>
 
             <brown>Special Character Classes:</brown>
-            <br></br><br></br>    
-            Match any character except newline.
             <br></br><br></br>
-            <code>\d</code><br></br>
-            Match a digit: <blue>[0-9]</blue>.
+            <code>.</code><code>       </code>Match any character except newline.
             <br></br><br></br>
-            <code>\D</code><br></br>
-            Match a nondigit: <blue>[^0-9]</blue>.
+            <code>\d</code><code>      </code>Match a digit: <blue>[0-9]</blue>.
             <br></br><br></br>
-            <code>\s</code><br></br>
-            Match a whitespace character: <blue>[ \t\r\n\f]</blue>.
+            <code>\D</code><code>      </code>Match a nondigit: <blue>[^0-9]</blue>.
             <br></br><br></br>
-            <code>\S</code><br></br>
-            Match nonwhitespace: <blue>[^ \t\r\n\f]</blue>.
+            <code>\s</code><code>      </code>Match a whitespace character: <blue>[ \t\r\n\f]</blue>.
             <br></br><br></br>
-            <code>\w</code><br></br>
-            Match a single word character: <blue>[A-Za-z0-9_]</blue>.
+            <code>\S</code><code>      </code>Match nonwhitespace: <blue>[^ \t\r\n\f]</blue>.
             <br></br><br></br>
-            <code>\W</code><br></br>
-            Match a nonword character: <blue>[^A-Za-z0-9_]</blue>.
+            <code>\w</code><code>      </code>Match a single word character: <blue>[A-Za-z0-9_]</blue>.
+            <br></br><br></br>
+            <code>\W</code><code>      </code>Match a nonword character: <blue>[^A-Za-z0-9_]</blue>.
             <br></br><br></br>
 
             <brown>Repetition Cases:</brown>
             <br></br><br></br>
-            <code>ruby?</code><code>      </code>
-            Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the <blue>y</blue> is optional.
+            <code>ruby?</code><code>      </code>Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the <blue>y</blue> is optional.
             <br></br><br></br>
-            <code>ruby*</code><code>      </code>
-            Match <blue>"rub"</blue> plus <blue>0</blue> or more <blue>ys</blue>.
+            <code>ruby*</code><code>      </code>Match <blue>"rub"</blue> plus <blue>0</blue> or more <blue>ys</blue>.
             <br></br><br></br>
-            <code>ruby+</code><code>      </code>
-            Match <blue>"rub"</blue> plus <blue>1</blue> or more <blue>ys</blue>.
+            <code>ruby+</code><code>      </code>Match <blue>"rub"</blue> plus <blue>1</blue> or more <blue>ys</blue>.
             <br></br><br></br>
-            <code>\d{3}</code><code>      </code>
-            Match exactly 3 digits.
+            <code>\d{3}</code><code>      </code>Match exactly 3 digits.
             <br></br><br></br>
-            <code>\d{3,}</code><code>      </code>
-            Match 3 or more digits.
+            <code>\d{3,}</code><code>     </code>Match 3 or more digits.
             <br></br><br></br>
-            <code>\d{3,5}</code><code>      </code>
-            Match 3, 4, or 5 digits.
+            <code>\d{3,5}</code><code>    </code>Match 3, 4, or 5 digits.
             <br></br><br></br>
         </regular-expressions>
         <recursion>
