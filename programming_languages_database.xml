@@ -557,13 +557,39 @@ free(A);
             Similar to 2 workers working on 
             same task, passing around their tools from one to the other.
             <br></br><br></br>
+            A <red>process</red> is the instance of a computer program that is being executed by 
+            one or many <red>threads</red>. By multiprocessing a program can be divided into 
+            independent processes, which can run individually as separate programs. This would allowThese
+            the possibility to distribute these processes on separate cores which would 
+            increase performance.
+            <br></br><br></br>
             <green>Multithreading vs. multiprocessing:</green>
+            <br></br><br></br>
+            Both <blue>multithreading</blue> and <red>multiprocessing</red> give birth to few challenges 
+            when it comes to <blue>concurent programming</blue>.
+            <br></br><br></br>
+            <brown>The race condition:</brown>
+            <br></br><br></br>
+            A <blue>race condition</blue> occurs when two or more <red>processes/threads</red> 
+            can access <blue>shared data</blue> and they try to change it at the same time. 
+            As a result, the values of variables 
+            may be unpredictable and vary depending on the timings of context switches 
+            of the <red>processes/threads</red>.
+            <br></br><br></br>
+            <brown>Process/Thread Syncronization:</brown>
+            <br></br><br></br>
+            <red>Process synchronization</red> and <blue>Thread synchronization</blue> 
+            are two mechanism defined for concurrent programming in order to ensure 
+            that two or more concurrent <red>processes/threads</red> do not simultaneously execute 
+            some particular program segment known as <blue>critical section</blue>.
+            A <blue>critical section</blue> refers to the parts of the 
+            program where the <blue>shared resource</blue> is accessed.
             <br></br><br></br>
             While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
             increase the computing power of a system, there are some key differences between 
             these approaches. 
             <br></br><br></br>
-            Here are some of the primary ways these methods differ from one another:
+            Main Differences:
             <br></br><br></br>
             <red>Multiprocessing</red> uses two or more <red>CPUs</red> to increase computing power, 
             whereas 
@@ -590,6 +616,20 @@ free(A);
             whereas 
             <red>multiprocessing</red> 
             creates a separate address space for each process.
+            In <red>multiprocessing</red> each <red>process</red> has its own memory 
+            address space (<blue>stack memory</blue>): so when returning a value
+            from a <red>process</red>, the value returned will not be 
+            seen by the rest of the program unless it is saved in a <blue>file</blue>, in a 
+            <blue>shared memory address</blue>, 
+            or in a <blue>message pipe</blue>. 
+            Whereas <blue>multithreading</blue> is able to return values which can be used 
+            later in the main program.
+            A <red>process</red> is treated as an individual program, (it even creates a 
+            <red>process</red> in the task mananger),
+            <red>Processes</red> can be sent through different <red>cores</red>, that would speed 
+            up the program even more.
+            Creating multiple <red>processes</red> is costly compare to threads. Since for each 
+            <red>process</red> there is allocated another <blue>stack memory</blue> space.
             <br></br><br></br>
             <green>Advantages of multithreading:</green>
             <br></br><br></br>
@@ -608,24 +648,30 @@ free(A);
             <br></br><br></br>
             <green>Disadvantages of multithreading:</green>
             <br></br><br></br>
-            1. A <blue>multithreading</blue> system cannot be interrupted.<br></br>
+            1. A <blue>multithreading</blue> system cannot be interrupted/killed. Special attention has to
+            be paid to memory leaks.<br></br>
+            A memory leak occurs when programmers allocate memory on the <red>heap</red> and 
+            forget to deallocate it.
             2. The code can be more challenging to understand.<br></br>
-            2. The overhead associated with managing different 
+            3. The overhead associated with managing different 
             <blue>threads</blue> may be too costly 
             for basic <red>tasks</red>.<br></br>
-            3. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
+            4. Increased potential for race conditions. 
+            <br></br>
+            A race condition is an undesirable situation 
+            that occurs when a device or system attempts to perform two or more operations at the same time.
+            <br></br>
+            5. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
             challenging because the code can be complex.
             <br></br><br></br><br></br>
             <green>Advantages of multiprocessing:</green>
             <br></br><br></br>
             1. It uses simple coding that's easy to understand.<br></br>
-            2. It helps you overcome <blue>Global Interpreter Lock</blue> (<blue>GIL</blue>) 
-            limitations in CPython.<br></br>
-            3. Child <red>processes</red> can be interrupted.<br></br>
-            4. It completes <red>tasks</red> faster and analyzes large amounts of data.<br></br>
-            5. It uses multiple <red>CPUs</red> to improve a system's overall power.<br></br>
-            6. It removes synchronization primitives.<br></br>
-            7. It's more cost-effective than single processor systems.
+            2. Child <red>processes</red> can be interrupted.<br></br>
+            3. It completes <red>tasks</red> faster and analyzes large amounts of data.<br></br>
+            4. It uses multiple <red>CPUs</red> to improve a system's overall power.<br></br>
+            5. It removes synchronization primitives.<br></br>
+            6. It's more cost-effective than single processor systems.
             <br></br><br></br>
             <green>Disadvantages of multiprocessing:</green>
             <br></br><br></br>
@@ -13422,7 +13468,7 @@ print(Ob3)
             it has it's own <blue>stack memory</blue> in which it will copy all 
             the variables related to its process.<br></br>
             <br></br><br></br>
-            <green>Python Multithreading Drawbacks:</green>
+            <green>Python-related Multithreading Drawbacks:</green>
             <br></br><br></br>
             1. One GIL is used for all <blue>threads</blue>, and <blue>threads</blue> are limited by 
             GIL;
@@ -13433,20 +13479,6 @@ print(Ob3)
             <br></br>
             CPU-bound <red>tasks</red> are those that require a significant amount of computational 
             resource. 
-            <br></br><br></br>
-            3. <red>Threads</red> are not interruptible/killable, special attention has to be paid 
-            to memory leaks.
-            <br></br>
-            A memory leak occurs when programmers allocate memory on the <red>heap</red> and 
-            forget to deallocate it.
-            <br></br><br></br>
-            4. Increased potential for race conditions. 
-            <br></br>
-            A race condition is an undesirable situation 
-            that occurs when a device or system attempts to perform two or more operations at the same time.
-            <br></br><br></br>
-            5. Multithreading code is usually harder to understand and to get right;
-            <br></br>
 <code>
 #Example of multithreading in Python 3:
 
@@ -13527,7 +13559,29 @@ print("Example 3: Good threading - time for execution: "
 
 input("\nPress any key to exit: ")
 </code>
-
+            <br></br>
+            <green>Multiprocessing in Python:</green>
+            <br></br><br></br>
+            <blue>Multiprocessing</blue> refers to the ability of a system to support more than 
+            one processor at the same time. Applications in a <blue>multiprocessing</blue> system 
+            are broken to smaller routines that run independently. The operating system 
+            allocates these <red>threads</red> to the processors improving performance 
+            of the system.
+            
+            <br></br><br></br>
+            The <blue>Pool class</blue> in Python's <blue>multiprocessing</blue> module provides 
+            convenient means of managing a pool of worker processes. It comes with built-in 
+            <red>methods</red> 
+            that offer structured ways to distribute <red>tasks</red> among these <red>processes</red>.
+            The <blue>Pool class</blue> represents a pool of worker <red>processes</red>. It has 
+            methods which allows 
+            <red>tasks</red> to be offloaded/distributed to the worker <red>cores/processes</red> 
+            in few different ways. 
+            <br></br><br></br>
+            <green>Python-related Multiprocessing Advantages:</green>
+            <br></br><br></br>
+            1. It helps you overcome <blue>Global Interpreter Lock</blue> (<blue>GIL</blue>) 
+            limitations in CPython.<br></br>
 <code>
 #Example of multiprocessing in Python 3:
 
@@ -13543,13 +13597,21 @@ def PrintHello():
         print("Hello " + str(i))
         time.sleep(0.2)
         i+=1
+
 def PrintHi():
     i=0
     while(i&lt;50):
         print("Hi " + str(i))
         time.sleep(0.2)
         i+=1
-def Funct(n): # functions used with ".pool and .map" needs to take an extra argument
+
+#Functions used with ".pool and .map" needs 
+#to take an extra argument
+
+#The Python Multiprocessing Pool provides 
+#reusable worker processes in Python.
+
+def Funct(n):
     i=0
     while(i&lt;50):
         print("Hello " + str(i))
@@ -13567,17 +13629,20 @@ if __name__ == "__main__":
     #wait for the process to finish
     
     p2.join() 
-    #wait for the process to finish
+    #Wait for the process to finish
     t_after = time.time()
-    print("Example1. Time for execution: " + str(t_after - t_before))
+    print("Example 1. Time for execution: " + str(t_after - t_before))
     
     #Executing single process:
     t_before = time.time()
     p1 = multiprocessing.Process(target=PrintHello, args=())
     p1.start()
-    p1.join() # wait for the process to finish
+    p1.join() 
+    #wait for the process to finish
+    
     t_after = time.time()
-    print("Example2. Time for execution: " + str(t_after - t_before))
+    print("Example 2: Without Pooling and Mapping - time for execution: " 
+            + str(t_after - t_before))
     
     #Pooling and mapping processes:
     #Functions used for "pooling and mapping" needs to 
@@ -13586,54 +13651,16 @@ if __name__ == "__main__":
     
     t_before = time.time()
     p1 = multiprocessing.Pool()
-    p1.map(Funct, range(1)) # run this function for 1 time.
+    p1.map(Funct, range(1)) 
+    #run this function for 1 time.
     
     #The extra argument specifies how many times the 
     #function should be runned.
     t_after = time.time()
-    print("Example2 with Pooling and Mapping. Time for execution: " + str(t_after - t_before))
+    print("Example 2: With Pooling and Mapping - time for execution: " 
+        + str(t_after - t_before))
     
-    #Keep the console open until the next button pressed:
     input("Press any key to quit.")
-
-'''Multi processing does almost the same thing as multi-threading: it is used
-for speeding up the execution of tasks, by executing them simultaneosly (in parallel).
-
-SIMILARITIES:
-Both multi-processing and multi-threading are used to speed up the execution of multiple
-tasks (the both execute individual multi-tasking in parallel).
-
-THE DIFFERENCES:
-Each process has its own memory address space (stack memory): so when returning a value
-from a process, the value returned will not be seen by the rest of the program
-unless it is saved in a file, in a shared memory address, or in a message pipe.
-Whereas threading is able to return values which can be used later in the main program.
-
-A process is treated as an individual program, (it even creates a process in the
-task mananger),
-
-Processes can be sent through different cores, that would speed up the program even more.
-
-Creating multiple processes is costly compare to threads. Since for each process
-there is allocated another stack memory space.
-
-ADVANTAGES FOR USING MULTI_PROCESSING (instead of multi-threading):
-
-Separate memory space
-Code is usually straightforward
-Takes advantage of multiple CPUs and cores
-Avoids GIL limitations for cPython
-Eliminates most needs for synchronization primitives unless if you use shared memory (
-instead, it's more of a communication model for IPC)
-Child processes are interruptible/killable
-Python multiprocessing module includes useful abstractions with an interface much like 
-threading.Thread
-A must with cPython for CPU-bound processing
-
-DISADVANTAGES FOR USING MULTI_PROCESSING:
-
-IPC a little more complicated with more overhead (communication model vs. shared memory/objects)
-Larger memory footprint'''
 </code>        
         </multi-threading>
         <namespaces>
