@@ -13371,9 +13371,10 @@ print(Ob3)
             (in parallel) in order to increase the speed of execution.
             <br></br><br></br>
             <green>GIL or Global Interpreter Lock:</green>
-            <blue>Python Global Interpreter Lock</blue> or </blue>GIL</blue> is an important 
+            <br></br><br></br>
+            <blue>Python Global Interpreter Lock</blue> or <blue>GIL</blue> is an important 
             part of <blue>multithreading programming</blue>. 
-            It is a <bleu>mutex</blue> or a type of <blue>process lock</blue> used when 
+            It is a <blue>mutex</blue> or a type of <blue>process lock</blue> used when 
             working with multiple processes. 
             It allows only one <blue>thread</blue> to hold the <blue>control</blue> of 
             the <blue>Python interpreter</blue>. This means that only one thread can be in a state of 
