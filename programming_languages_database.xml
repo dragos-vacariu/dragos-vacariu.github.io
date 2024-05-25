@@ -600,16 +600,17 @@ free(A);
             than to create 
             an entirely new <red>process</red>.<br></br>
             5. All <blue>threads</blue> share one <red>process</red> memory pool and the same 
-            address space.
-            <blue>Threads</blue> are more lightweight and have lower overhead.<br></br>
-            6. The cost of communication between <blue>threads</blue> is relatively low.<br></br>
-            7. Creating responsive user interfaces (UIs) is easy.
+            address space.<br></br>
+            6. <blue>Threads</blue> are more lightweight and have lower overhead.<br></br>
+            7. The cost of communication between <blue>threads</blue> is relatively low.<br></br>
+            8. Creating responsive user interfaces (UIs) is easy.
             <br></br><br></br>
             <green>Disadvantages of multithreading:</green>
             <br></br><br></br>
             1. A <blue>multithreading</blue> system cannot be interrupted.<br></br>
             2. The code can be more challenging to understand.<br></br>
-            2. The overhead associated with managing different <blue>threads</blue> may be too costly 
+            2. The overhead associated with managing different 
+            <blue>threads</blue> may be too costly 
             for basic <red>tasks</red>.<br></br>
             3. <blue>Debugging</blue> and <blue>troubleshooting</blue> issues may become more 
             challenging because the code can be complex.
@@ -619,18 +620,19 @@ free(A);
             Here are some of the benefits of <red>multiprocessing</red> :
             <br></br><br></br>
             1. It uses simple coding that's easy to understand.<br></br>
-            2. It helps you overcome global interpreter lock (GIL) limitations in CPython.<br></br>
+            2. It helps you overcome <blue>Global Interpreter Lock</blue> (<blue>GIL</blue>) 
+            limitations in CPython.<br></br>
             3. Child <red>processes</red> can be interrupted.<br></br>
-            4. It completes tasks faster and analyzes large amounts of data.<br></br>
-            5. It uses multiple CPUs to improve a system's overall power.<br></br>
+            4. It completes <red>tasks</red> faster and analyzes large amounts of data.<br></br>
+            5. It uses multiple <red>CPUs</red> to improve a system's overall power.<br></br>
             6. It removes synchronization primitives.<br></br>
             7. It's more cost-effective than single processor systems.<br></br>
             <br></br><br></br>
             <green>Disadvantages of multiprocessing:</green>
             <br></br><br></br>
-            1. It requires more memory storage and overhead than threads to move data between 
-            <red>processes</red>.<br></br>
-            2. Spawning <red>processes</red> take longer than spawning threads.<br></br>
+            1. It requires more memory storage and overhead than <blue>threads</blue> to move 
+            data between <red>processes</red>.<br></br>
+            2. Spawning <red>processes</red> take longer than spawning <blue>threads</blue>.<br></br>
             3. An <red>inter-process communication</red> (<red>IPC</red>) model must be implemented to 
             share objects between <red>processes</red>.<br></br>
             4. The entire memory is copied into each subprocess, which can also create more overhead.
