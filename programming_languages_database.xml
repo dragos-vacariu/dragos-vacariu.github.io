@@ -13869,7 +13869,7 @@ try:
     fh = open("file.txt", "a")
     fh.write("This line was added by Python Program.")
 except IOError:
-    print ("Error: can't find file or read 
+    print ("Error: can't find file or read \
         data from {0}" .format(fh.name))
 else:
     print ("Written content in the file successfully!")
@@ -13880,7 +13880,7 @@ try:
     fh = open("file.txt", "r")
     fh.read(12)
 except IOError:
-    print ("Error: can\'t find file or read data 
+    print ("Error: can\'t find file or read data \
         from {0}" .format(fh.name))
 finally:
     print ("Not working!")
@@ -13901,7 +13901,7 @@ class MyError(Exception):
 try:
     raise MyError(2*2)
 except MyError as e:
-     print ("My exception occurred, value: 
+     print ("My exception occurred, value: \
         {0}" .format (e.value))
 
 input("\nPress any key to exit: ")
