@@ -13853,37 +13853,7 @@ def some_func():
 <code>
 #Exceptions handling:
 
-#EXCEPTION NAME    DESCRIPTION
-#Exception    Base class for all exceptions
-#StopIteration    Raised when the next() method of an iterator does not point to any object.
-#SystemExit    Raised by the sys.exit() function.
-#StandardError    Base class for all built-in exceptions except StopIteration and SystemExit.
-#ArithmeticError    Base class for all errors that occur for numeric calculation.
-#OverflowError    Raised when a calculation exceeds maximum limit for a numeric type.
-#FloatingPointError    Raised when a floating point calculation fails.
-#ZeroDivisionError    Raised when division or modulo by zero takes place for all numeric types.
-#AssertionError    Raised in case of failure of the Assert statement.
-#AttributeError    Raised in case of failure of attribute reference or assignment.
-#EOFError    Raised when there is no input from either the raw_input() or input() function and the end of file is reached.
-#ImportError    Raised when an import statement fails.
-#KeyboardInterrupt    Raised when the user interrupts program execution, usually by pressing Ctrl+c.
-#LookupError    Base class for all lookup errors.
-#IndexError     Raised when an index is not found in a sequence.
-#KeyError       Raised when the specified key is not found in the dictionary.
-#NameError    Raised when an identifier is not found in the local or global namespace.
-#UnboundLocalError   Raised when trying to access a local variable in a function or method but no value has been assigned to it.
-#EnvironmentError   Same as above
-#IOError        Raised when an input/ output operation fails, such as the print statement or the open() function when trying to open
-#a file that does not exist.
-#IOError    Same as above.
-#SyntaxError    Raised when there is an error in Python syntax.
-#IndentationError   Raised when indentation is not specified properly.
-#SystemError    Raised when the interpreter finds an internal problem, but when this error is encountered the Python interpreter does not exit.
-#SystemExit    Raised when Python interpreter is quit by using the sys.exit() function. If not handled in the code, causes the interpreter to exit.
-#TypeError    Raised when an operation or function is attempted that is invalid for the specified data type.
-#ValueError    Raised when the built-in function for a data type has the valid type of arguments, but the arguments have invalid values specified.
-#RuntimeError    Raised when a generated error does not fall into any category.
-#NotImplementedError    Raised when an abstract method that needs to be implemented in an inherited class is not actually implemented.
+
 
 
 #An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's
@@ -13964,6 +13934,108 @@ print(DoubleValue(2)) #calling the lambda function
 
 input("\nPress ENTER to exit.")
 </code>
+            <br></br>
+            <green>Python Exceptions:</green>
+            <br></br><br></br>
+            <code>Exception</code><br></br>
+            <red>Base class</red> for all exceptions.
+            <br></br><br></br>
+            <code>StopIteration</code><br></br>
+            <red>Raised</red> when the <blue>next()</blue> method of an <red>iterator</red> does not 
+            point to any <red>object</red>.
+            <br></br><br></br>
+            <code>SystemExit</code><br></br>
+            <red>Raised</red> by the <blue>sys.exit()</blue> function.
+            <br></br><br></br>
+            <code>StandardError</code><br></br>
+            <red>Base class</red> for all built-in exceptions except <blue>StopIteration</blue> 
+            and <blue>SystemExit</blue>.
+            <br></br><br></br>
+            <code>ArithmeticError</code><br></br>
+            <red>Base class</red> for all errors that occur for numeric calculation.
+            <br></br><br></br>
+            <code>OverflowError</code><br></br>
+            <red>Raised</red> when a calculation exceeds maximum limit for a numeric type.
+            <br></br><br></br>
+            <code>FloatingPointError</code><br></br>
+            <red>Raised</red> when a floating point calculation fails.
+            <br></br><br></br>
+            <code>ZeroDivisionError</code><br></br>
+            <red>Raised</red> when division or modulo by zero takes place for all numeric types.
+            <br></br><br></br>
+            <code>AssertionError</code><br></br>
+            <red>Raised</red> in case of failure of the <blue>Assert</blue> statement.
+            <br></br><br></br>
+            <code>AttributeError</code><br></br>
+            <red>Raised</red> in case of failure of attribute reference or assignment.
+            <br></br><br></br>
+            <code>EOFError</code><br></br>
+            <red>Raised</red> when there is no input from either the <blue>raw_input()</blue> or 
+            <blue>input()</blue> function and the end of file is reached.
+            <br></br><br></br>
+            <code>ImportError</code><br></br>
+            <red>Raised</red> when an import statement fails.
+            <br></br><br></br>
+            <code>KeyboardInterrupt</code><br></br>
+            <red>Raised</red> when the user interrupts program execution, usually by pressing 
+            <blue>Ctrl+C</blue>.
+            <br></br><br></br>
+            <code>LookupError</code><br></br>
+            <red>Base class</red> for all lookup errors.
+            <br></br><br></br>
+            <code>IndexError</code><br></br>
+            <red>Raised</red> when an <red>index</red> is not found in a <red>sequence</red>.
+            <br></br><br></br>
+            <code>KeyError</code><br></br>
+            <red>Raised</red> when the specified <red>key</red> is not found in the <red>dictionary</red>.
+            <br></br><br></br>
+            <code>NameError</code><br></br>
+            <red>Raised</red> when an identifier is not found in the local or global namespace.
+            <br></br><br></br>
+            <code>UnboundLocalError</code><br></br>
+            <red>Raised</red> when trying to access a local variable in a function or method but 
+            no value has been assigned to it.
+            <br></br><br></br>
+            <code>EnvironmentError</code><br></br>
+            Same as above
+            <br></br><br></br>
+            <code>IOError</code><br></br>
+            <red>Raised</red> when an input/output operation fails, such as the <blue>print</blue> 
+            statement or the <blue>open()</blue> function when trying to <red>open</red>
+            a <red>file</red> that does not exist.
+            <br></br><br></br>
+            <code>IOError</code><br></br>
+            Same as above.
+            <br></br><br></br>
+            <code>SyntaxError</code><br></br>
+            <red>Raised</red> when there is an error in Python syntax.
+            <br></br><br></br>
+            <code>IndentationError</code><br></br>
+            <red>Raised</red> when <red>indentation</red> is not specified properly.
+            <br></br><br></br>
+            <code>SystemError</code><br></br>
+            <red>Raised</red> when the interpreter finds an internal problem, but when 
+            this error is encountered the Python interpreter does not exit.
+            <br></br><br></br>
+            <code>SystemExit</code><br></br>
+            <red>Raised</red> when Python interpreter is quit by using the <blue>sys.exit()</blue> 
+            function. If not handled in the code, causes the interpreter to exit.
+            <br></br><br></br>
+            <code>TypeError</code><br></br>
+            <red>Raised</red> when an operation or function is attempted that is invalid 
+            for the specified data type.
+            <br></br><br></br>
+            <code>ValueError</code><br></br>
+            <red>Raised</red> when the built-in function for a data type has the valid 
+            type of arguments, but the arguments have invalid values specified.
+            <br></br><br></br>
+            <code>RuntimeError</code><br></br>
+            <red>Raised</red> when a generated error does not fall into any category.
+            <br></br><br></br>
+            <code>NotImplementedError</code><br></br>
+            <red>Raised</red> when an abstract method that needs to be implemented in an 
+            <red>inherited class</red> is not actually implemented.
+            <br></br>
         </exception-handling>
         <bitwise-operators>
             *General-Programming-Knowledge*
