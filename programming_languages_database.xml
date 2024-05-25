@@ -587,12 +587,12 @@ free(A);
             <red>Example:</red> the music doesn't stop playing when 
             writing the keyboard. 
             <br></br><br></br>
-            By <blue>hyperthreading</blue> the <red>core</red> gets a second hand available, 
+            By <blue>hyperthreading</blue>, the <red>core</red> gets a second hand available, 
             and can perform 
             <blue>2</blue> simultaneos <red>tasks</red> but using the same the shared resources of the 
             <red>core</red>, 
-            meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
-            but faster than doing single <red>task</red> on one <red>core</red>. 
+            meaning it's slower than doing simultaneos <red>tasks</red> on different <red>cores</red>, 
+            but faster than doing single <red>tasks</red> on one <red>core</red>. 
             <br></br><br></br>
             <blue>Multithreading</blue> refers to using multiple <red>threads</red> 
             (<blue>2 threads</blue>) 
@@ -635,9 +635,12 @@ free(A);
             <red>threads/processes</red>. So the <blue>2 workers</blue> or the <red>2 hands</red> 
             working on the same <red>task</red> collide to each other.
             <br></br><br></br>
-            While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
-            increase the computing power of a system, there are some key differences between 
-            these approaches. 
+            By using <red>Process Synchronization</red> and <blue>Thread Synchronization</blue> 
+            the race condition can be avoided.
+            <br></br><br></br>
+            Both <blue>multithreading</blue> and <red>multiprocessing</red> can be used to 
+            increase the computing power of a system, but there are some key differences between 
+            these two approaches. 
             <br></br><br></br>
             <brown>
             Differences between Multithreading and Multiprocessing:
