@@ -14815,7 +14815,7 @@ input("\nPress any key to exit: ")
             <code>\B</code><br></br>
             Matches nonword boundaries.
             <br></br><br></br>
-            <code>\n</code>, <code>\t</code>, etc.<br></br>
+            <code>\n</code>, <code>\t</code><br></br>
             Matches newlines, carriage returns, tabs, etc.
             <br></br><br></br>
             <code>\1...\9</code><br></br>
@@ -14907,6 +14907,7 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
 
             <brown>Repetition Cases:</brown>
+            <br></br><br></br>
             <code>ruby?</code><br></br>
             Match "rub" or "ruby": the y is optional.
             <br></br><br></br>
