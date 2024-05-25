@@ -14618,7 +14618,7 @@ print("Incremented value:", x)
             <code>flags</code><br></br>
             You can specify different flags using bitwise <red>OR</red> (<red>|</red>). 
             <br></br><br></br>
-            The <red>re.match<red> function returns a <blue>match object</blue> on success, 
+            The <red>re.match</red> function returns a <blue>match object</blue> on success, 
             <code>None</code> on failure. 
             <br></br><br></br>
             The <code>search()</code> function searches for first occurrence of 
@@ -14628,24 +14628,25 @@ print("Incremented value:", x)
             <code>search()</code> checks for a <red>match</red> anywhere in the <red>string</red>.
             <br></br><br></br>
             The <code>sub()</code> function replaces all occurrences of the pattern in the 
-            <red>string</red> with 'repl'.
+            <red>string</red> with <code>repl</code>.
             <red>Syntax:<red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code>
-            where:
             <br></br><br></br>
-            <code>pattern</code> 
+            Where:
+            <br></br><br></br>
+            <code>pattern</code><br></br>
             Denotes the <red>string/pattern</red> that needs to be <red>replaced</red>.
             <br></br><br></br>
-            <code>repl</code> 
+            <code>repl</code><br></br>
             Denotes the <red>string/pattern</red> with which the pattern is <red>replaced</red>.
             <br></br><br></br>
-            <code>string</code> 
+            <code>string</code><br></br>
             Denotes the <red>string</red> on which the <code>re.sub()</code> operation will 
             be executed.
             <br></br><br></br>
-            <code>count</code> 
+            <code>count</code><br></br>
             Denotes the number of replacements that should occur.
             <br></br><br></br>
-            <code>flags</code> 
+            <code>flags</code><br></br>
             Serves to modify the behavior of the <blue>regular expression</blue> operation.
             <br></br>
 <code>
