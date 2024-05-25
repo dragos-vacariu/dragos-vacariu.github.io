@@ -2304,11 +2304,11 @@ int main()
 }
 </code>
         <br></br>
-        In C/C++: one of the main workhorse functions that makes multiprocessing possible 
-        is <code>fork()</code>.
+        In C/C++: one of the main workhorse functions that makes <blue>multiprocessing</blue> 
+        possible is <code>fork()</code>.
         <br></br><br></br>
-        <code>fork()</code> is a function that clone a process, spawning an 
-        identical copy of it.
+        <code>fork()</code> is a function that clone a <red>process</red>, spawning an identical 
+        copy of it.
         <br></br>
 <code>
 //Example of multi-processing in C/C++:
@@ -2321,7 +2321,8 @@ int main()
 int main(int argc, char **argv)
 {
     pid_t pid = fork ();
-    if (pid != 0) {
+    if (pid != 0) 
+    {
         waitpid (pid, NULL, 0);
     }
     printf ("Hello, World!\n");
@@ -4120,6 +4121,41 @@ int main ()
       }
    }
    pthread_exit(NULL);
+}
+</code>
+        <br></br>
+        In C/C++: one of the main workhorse functions that makes <blue>multiprocessing</blue> 
+        possible is <code>fork()</code>.
+        <br></br><br></br>
+        <code>fork()</code> is a function that clone a <red>process</red>, spawning an identical 
+        copy of it.
+        <br></br>
+<code>
+//Example of multi-processing in C/C++:
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/wait.h&gt;
+
+int main(int argc, char ** argv)
+{
+    pid_t pid = fork();
+    
+    if (pid == 0) 
+    { 
+        //we are in the child process
+        printf("Hello from the child process!\n");
+        exit (0); 
+        //terminates the child process
+    } 
+    else 
+    {
+        //now in the parent process
+        waitpid(pid, NULL, 0);
+        printf("The child process has exited. Hello from the parent!\n");
+    }
+    return 0;
 }
 </code>
         </concurrent-programming>
