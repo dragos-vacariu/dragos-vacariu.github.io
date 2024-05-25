@@ -648,13 +648,14 @@ free(A);
             <br></br><br></br>
             <red>Multiprocessing</red> uses two or more <red>CPUs</red> to increase computing power, 
             whereas 
-            <blue>multithreading</blue> uses a single <red>process</red> with multiple code segments 
-            to increase computing power.
+            <blue>multithreading</blue> uses a single <red>process</red> with multiple 
+            <blue>code segments</blue> to increase computing power.
             <br></br><br></br>
             <blue>Multithreading</blue> focuses on generating computing <red>threads</red> from a 
             single <red>process</red>, 
             whereas <red>multiprocessing</red> increases computing power by adding 
-            <red>CPUs</red>.
+            <red>CPUs</red>. Meaning via <red>multiprocessing</red> we can distribute proccesses on 
+            separate <red>CPUs</red>, whereas this is not possible with <blue>multithreading</blue>.
             <br></br><br></br>
             <red>Multiprocessing</red> is used to create a more reliable system, whereas 
             multithreading 
