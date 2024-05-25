@@ -12562,13 +12562,13 @@ input("\nPress any key to exit: ")
             It is important to note that Python <red>strings</red> can contain <red>binary data</red>, 
             apart from <red>text data</red>.
             <br></br><br></br>
-            When reading characters from a <blue>file</blue> the <blue>cursor</blue> will move across 
-            the
+            When reading characters from a <blue>file</blue> the <blue>pointer/cursor</blue> will 
+            move across the
             content of a <blue>file</blue>, and if it reaches the end, it will need to be reseted 
             using <blue>seek()</blue> function, before being able to read again.
             <br></br><br></br>
-            The method <blue>tell()</blue> returns the current position of the <blue>cursor</blue> 
-            within the <blue>file</blue>.
+            The method <blue>tell()</blue> returns the current position of the 
+            <blue>pointer/cursor</blue> within the <blue>file</blue>.
             <br></br><br></br>
             Passing an argument to the <blue>read()</blue> method will ensure that everything is 
             read until to the given position within the <blue>file</blue> content.
@@ -12589,7 +12589,7 @@ input("\nPress any key to exit: ")
             <br></br><br></br>
             In order to open a <blue>file</blue> the <blue>open()</blue> method it is used. 
             <br></br><br></br>
-            The <blue>open()</blue> method takes 2 arguments:<br></br>
+            The <blue>open()</blue> method takes <blue>2</blue> arguments:<br></br>
             - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
             - the <blue>mode</blue> for opening;<br></br>
             <br></br>
@@ -12602,7 +12602,7 @@ input("\nPress any key to exit: ")
             The other available <red>modes</red> for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
-            The <blue>file pointer</blue> is placed at the beginning of the <blue>file</blue>. 
+            The <blue>file pointer/cursor</blue> is placed at the beginning of the <blue>file</blue>. 
             <br></br>
             This is the <red>default mode</red>. It throws an <red>error</red> if 
             the <blue>file</blue> does not exist.
@@ -12613,7 +12613,7 @@ input("\nPress any key to exit: ")
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in <red>binary format</red>. 
-            The <blue>file pointer</blue> is placed
+            The <blue>file pointer/cursor</blue> is placed
             at the beginning of the <blue>file</blue>. 
             <br></br>
             This is the <red>default mode</red>.
@@ -12644,7 +12644,7 @@ input("\nPress any key to exit: ")
             new <blue>file</blue> for reading and writing.
             <br></br><br></br>
             <blue>"a"</blue> - Opens a <blue>file</blue> for appending. 
-            The <blue>file pointer</blue> is at the end of the <blue>file</blue>
+            The <blue>file pointer/cursor</blue> is at the end of the <blue>file</blue>
             if the <blue>file</blue> exists. 
             <br></br>
             The <blue>file</blue> is opened in 
@@ -12652,7 +12652,7 @@ input("\nPress any key to exit: ")
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in <red>binary format</red>. 
-            The <blue>file pointer</blue> is at the
+            The <blue>file pointer/cursor</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             The <blue>file</blue> is opened in the <red>append mode</red>.
@@ -12660,7 +12660,7 @@ input("\nPress any key to exit: ")
             it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
-            The <blue>file pointer</blue> is at the
+            The <blue>file pointer/cursor</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             The <blue>file</blue> opens in the <red>append mode</red>. If the
@@ -12670,8 +12670,8 @@ input("\nPress any key to exit: ")
             <blue>"ab+"</blue> - Opens a <blue>file</blue> for both <red>appending</red> and <red>reading</red> 
             in <red>binary format</red>. 
             <br></br>
-            The cursor within the <red>file</red> is poiting to the end of the <blue>file</blue> 
-            if the <blue>file</blue> exists. 
+            The <blue>pointer/cursor</blue> within the <red>file</red> is poiting to the end of the 
+            <blue>file</blue> if the <blue>file</blue> exists. 
             If the <blue>file</blue> does not exist, it creates 
             a new <blue>file</blue> for reading and writing.
             <br></br><br></br>
