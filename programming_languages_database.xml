@@ -14709,125 +14709,125 @@ input("\nPress any key to exit: ")
             <br></br>
             <green>Regular expressions available in Python:</green>
             <br></br><br></br>
-            <code>^</code><br></br>
+            <code>^</code><code>           </code>
             Matches beginning of line.
             <br></br><br></br>
-            <code>$</code><br></br>
+            <code>$</code><code>           </code>
             Matches end of line.
             <br></br><br></br>
-            <code>.</code><br></br>
+            <code>.</code><code>           </code>
             Matches any single character except newline.<br></br>
             Using <code>m</code> option allows it to match newline as well.
             <br></br><br></br>
-            <code>[...]</code><br></br>
+            <code>[...]</code><code>       </code>
             Matches any single character in brackets.
             <br></br><br></br>
-            <code>[^...]</code><br></br>
+            <code>[^...]</code><code>      </code>
             Matches any single character not in brackets.
             <br></br><br></br>
-            <code>re*</code><br></br>
+            <code>re*</code><code>         </code>
             Matches <blue>0</blue> or more occurrences of preceding expression.
             <br></br><br></br>
-            <code>re+</code><br></br>
+            <code>re+</code><code>         </code>
             Matches <blue>1</blue> or more occurrence of preceding expression.
             <br></br><br></br>
-            <code>re?</code><br></br>
+            <code>re?</code><code>         </code>
             Matches <blue>0</blue> or <blue>1</blue> occurrence of preceding expression.
             <br></br><br></br>
-            <code>re{ n}</code><br></br>
+            <code>re{ n}</code><code>      </code>
             Matches exactly <blue>n</blue> number of occurrences of preceding expression.
             <br></br><br></br>
-            <code>re{ n,}</code><br></br>
+            <code>re{ n,}</code><code>     </code>
             Matches <blue>n</blue> or more occurrences of preceding expression.
             <br></br><br></br>
-            <code>re{ n, m}</code><br></br>
+            <code>re{ n, m}</code><code>   </code>
             Matches at least <blue>n</blue> and at most <blue>m</blue> occurrences 
             of preceding expression.
             <br></br><br></br>
-            <code>a| b</code><br></br>
+            <code>a| b</code><code>        </code>
             Matches either a or b.
             <br></br><br></br>
-            <code>(re)</code><br></br>
+            <code>(re)</code><code>        </code>
             Groups regular expressions and remembers matched text.
             <br></br><br></br>
-            <code>(?imx)</code><br></br>
+            <code>(?imx)</code><code>      </code>
             Temporarily toggles on <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> 
             options within a <blue>regular expression</blue>. <br></br>
             If in parentheses, only that area is affected.
             <br></br><br></br>
-            <code>(?-imx)</code><br></br>
+            <code>(?-imx)</code><code>     </code>
             Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue>  options 
             within a <blue>regular expression</blue>. <br></br>
             If in parentheses, only that area is affected.
             <br></br><br></br>
-            <code>(?: re)</code><br></br>
+            <code>(?: re)</code><code>     </code>
             Groups regular expressions without remembering matched text.
             <br></br><br></br>
-            <code>(?imx: re)</code><br></br>
+            <code>(?imx: re)</code><code>  </code>
             Temporarily toggles on <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> options 
             within parentheses.
             <br></br><br></br>
-            <code>(?-imx: re)</code><br></br>
+            <code>(?-imx: re)</code><code> </code>
             Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> options 
             within parentheses.
             <br></br><br></br>
-            <code>(?</code><code>#</code><code>...)</code><br></br>
+            <code>(?</code><code>#</code><code>...)</code><code>        </code>
             Comment.
             <br></br><br></br>
-            <code>(?= re)</code><br></br>
+            <code>(?= re)</code><code>     </code>
             Specifies position using a pattern. Doesn't have a <blue>range</blue>.
             <br></br><br></br>
-            <code>(?! re)</code><br></br>
+            <code>(?! re)</code><code>     </code>
             Specifies position using pattern negation. Doesn't have a <blue>range</blue>.
             <br></br><br></br>
-            <code>(?> re)</code><br></br>
+            <code>(?> re)</code><code>     </code>
             Matches independent pattern without backtracking.
             <br></br><br></br>
-            <code>\w</code><br></br>
+            <code>\w</code><code>          </code>
             Matches word characters.
             <br></br><br></br>
-            <code>\W</code><br></br>
+            <code>\W</code><code>          </code>
             Matches nonword characters.
             <br></br><br></br>
-            <code>\s</code><br></br>
+            <code>\s</code><code>          </code>
             Matches whitespace. Equivalent to <code>[\t\n\r\f]</code>.
             <br></br><br></br>
-            <code>\S</code><br></br>
+            <code>\S</code><code>          </code>
             Matches nonwhitespace.
             <br></br><br></br>
-            <code>\d</code><br></br>
+            <code>\d</code><code>          </code>
             Matches digits. Equivalent to <code>[0-9]</code>.
             <br></br><br></br>
-            <code>\D</code><br></br>
+            <code>\D</code><code>          </code>
             Matches nondigits.
             <br></br><br></br>
-            <code>\A</code><br></br>
+            <code>\A</code><code>          </code>
             Matches beginning of string.
             <br></br><br></br>
-            <code>\Z</code><br></br>
+            <code>\Z</code><code>          </code>
             Matches end of string. If a <blue>newline</blue> exists, it matches just 
             before <blue>newline</blue>.
             <br></br><br></br>
-            <code>\z</code><br></br>
+            <code>\z</code><code>          </code>
             Matches end of string.
             <br></br><br></br>
-            <code>\G</code><br></br>
+            <code>\G</code><code>          </code>
             Matches point where last match finished.
             <br></br><br></br>
-            <code>\b</code><br></br>
+            <code>\b</code><code>          </code>
             Matches word boundaries when outside brackets. <br></br>
             Matches backspace <code>(0x08)</code> when inside brackets.
             <br></br><br></br>
-            <code>\B</code><br></br>
+            <code>\B</code><code>          </code>
             Matches nonword boundaries.
             <br></br><br></br>
-            <code>\n</code>, <code>\t</code><br></br>
+            <code>\n</code>, <code>\t</code><code>         </code>
             Matches newlines, carriage returns, tabs, etc.
             <br></br><br></br>
-            <code>\1...\9</code><br></br>
+            <code>\1...\9</code><code>      </code>
             Matches <blue>nth</blue> grouped subexpression.
             <br></br><br></br>
-            <code>\10</code><br></br>
+            <code>\10</code><code>          </code>
             Matches <blue>nth</blue> grouped subexpression if it matched already.<br></br> 
             Otherwise refers 
             to the octal representation of a character code.
@@ -14835,29 +14835,28 @@ input("\nPress any key to exit: ")
 
             <brown>Option flags:</brown>
             <br></br><br></br>
-            <code>re.I</code><br></br>
+            <code>re.I</code><code>      </code>
             Performs case-insensitive matching.
             <br></br><br></br>
-            <code>re.L</code><br></br>
-            Interprets words according to the current locale. <br></br>
+            <code>re.L</code><code>      </code> Interprets words according to the current locale. 
             This interpretation affects the alphabetic group (<blue>\w</blue> and <blue>\W</blue>), 
             as well as word boundary behavior (<blue>\b</blue> and <blue>\B</blue>).
             <br></br><br></br>
-            <code>re.M</code><br></br>
+            <code>re.M</code><code>      </code>
             Makes <code>$</code> match the end of a line (not just the end of the <blue>string</blue>).
             <br></br>
             Also makes <code>^</code> match the start of any line 
             (not just the start of the <blue>string</blue>).
             <br></br><br></br>
-            <code>re.S</code><br></br>
+            <code>re.S</code><code>      </code>
             Makes a period <blue>(dot)</blue> match any character, including a <blue>newline</blue>.
             <br></br><br></br>
-            <code>re.U</code><br></br>
+            <code>re.U</code><code>      </code>
             Interprets letters according to the Unicode character set. <br></br>
             This flag affects the behavior of <blue>\w</blue>, <blue>\W</blue>, 
             <blue>\b</blue>, <blue>\B</blue>.
             <br></br><br></br>
-            <code>re.X</code><br></br>
+            <code>re.X</code><code>      </code>
             Permits "cuter" regular expression syntax. <br></br>
             It ignores <blue>whitespace</blue> 
             (except inside a set <code>[]</code> or when escaped by a <blue>backslash</blue>) 
