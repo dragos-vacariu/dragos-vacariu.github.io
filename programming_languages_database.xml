@@ -14647,6 +14647,8 @@ print("Incremented value:", x)
             Serves to modify the behavior of the <blue>regular expression</blue> operation.
             <br></br>
 <code>
+#Example of working with regular expresions
+#in Python:
 
 import re 
 #This library is used for
@@ -14682,7 +14684,8 @@ if searchObj:
 else:
    print ("No match!!")
 
-phone = "2004-959-559 # This is Phone Number"
+phone = "2004-959-559 
+#This is Phone Number"
 
 #Delete Python-style comments
 num = re.sub(r'#.*$', "", phone)
