@@ -14716,8 +14716,8 @@ input("\nPress any key to exit: ")
             Matches end of line.
             <br></br><br></br>
             <code>.</code><br></br>
-            Matches any single character except newline. 
-            Using m option allows it to match newline as well.
+            Matches any single character except newline.<br></br>
+            Using <code>m</code> option allows it to match newline as well.
             <br></br><br></br>
             <code>[...]</code><br></br>
             Matches any single character in brackets.
@@ -14726,22 +14726,23 @@ input("\nPress any key to exit: ")
             Matches any single character not in brackets.
             <br></br><br></br>
             <code>re*</code><br></br>
-            Matches 0 or more occurrences of preceding expression.
+            Matches <blue>0</blue> or more occurrences of preceding expression.
             <br></br><br></br>
             <code>re+</code><br></br>
-            Matches 1 or more occurrence of preceding expression.
+            Matches <blue>1</blue> or more occurrence of preceding expression.
             <br></br><br></br>
             <code>re?</code><br></br>
-            Matches 0 or 1 occurrence of preceding expression.
+            Matches <blue>0</blue> or <blue>1</blue> occurrence of preceding expression.
             <br></br><br></br>
             <code>re{ n}</code><br></br>
-            Matches exactly n number of occurrences of preceding expression.
+            Matches exactly <blue>n</blue> number of occurrences of preceding expression.
             <br></br><br></br>
             <code>re{ n,}</code><br></br>
-            Matches n or more occurrences of preceding expression.
+            Matches <blue>n</blue> or more occurrences of preceding expression.
             <br></br><br></br>
             <code>re{ n, m}</code><br></br>
-            Matches at least n and at most m occurrences of preceding expression.
+            Matches at least <blue>n</blue> and at most <blue>m</blue> occurrences 
+            of preceding expression.
             <br></br><br></br>
             <code>a| b</code><br></br>
             Matches either a or b.
@@ -14750,30 +14751,34 @@ input("\nPress any key to exit: ")
             Groups regular expressions and remembers matched text.
             <br></br><br></br>
             <code>(?imx)</code><br></br>
-            Temporarily toggles on i, m, or x options within a regular expression. 
+            Temporarily toggles on <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> 
+            options within a <blue>regular expression</blue>. <br></br>
             If in parentheses, only that area is affected.
             <br></br><br></br>
             <code>(?-imx)</code><br></br>
-            Temporarily toggles off i, m, or x options within a regular expression. 
+            Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue>  options 
+            within a <blue>regular expression</blue>. <br></br>
             If in parentheses, only that area is affected.
             <br></br><br></br>
             <code>(?: re)</code><br></br>
             Groups regular expressions without remembering matched text.
             <br></br><br></br>
             <code>(?imx: re)</code><br></br>
-            Temporarily toggles on i, m, or x options within parentheses.
+            Temporarily toggles on <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> options 
+            within parentheses.
             <br></br><br></br>
             <code>(?-imx: re)</code><br></br>
-            Temporarily toggles off i, m, or x options within parentheses.
+            Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> options 
+            within parentheses.
             <br></br><br></br>
-            <code>(?#...)</code><br></br>
+            <code>(?</code><code>#</code><code>...)</code><br></br>
             Comment.
             <br></br><br></br>
             <code>(?= re)</code><br></br>
-            Specifies position using a pattern. Doesn't have a range.
+            Specifies position using a pattern. Doesn't have a <blue>range</blue>.
             <br></br><br></br>
             <code>(?! re)</code><br></br>
-            Specifies position using pattern negation. Doesn't have a range.
+            Specifies position using pattern negation. Doesn't have a <blue>range</blue>.
             <br></br><br></br>
             <code>(?> re)</code><br></br>
             Matches independent pattern without backtracking.
@@ -14785,13 +14790,13 @@ input("\nPress any key to exit: ")
             Matches nonword characters.
             <br></br><br></br>
             <code>\s</code><br></br>
-            Matches whitespace. Equivalent to [\t\n\r\f].
+            Matches whitespace. Equivalent to <code>[\t\n\r\f]</code>.
             <br></br><br></br>
             <code>\S</code><br></br>
             Matches nonwhitespace.
             <br></br><br></br>
             <code>\d</code><br></br>
-            Matches digits. Equivalent to [0-9].
+            Matches digits. Equivalent to <code>[0-9]</code>.
             <br></br><br></br>
             <code>\D</code><br></br>
             Matches nondigits.
@@ -14800,7 +14805,8 @@ input("\nPress any key to exit: ")
             Matches beginning of string.
             <br></br><br></br>
             <code>\Z</code><br></br>
-            Matches end of string. If a newline exists, it matches just before newline.
+            Matches end of string. If a <blue>newline</blue> exists, it matches just 
+            before <blue>newline</blue>.
             <br></br><br></br>
             <code>\z</code><br></br>
             Matches end of string.
@@ -14809,8 +14815,8 @@ input("\nPress any key to exit: ")
             Matches point where last match finished.
             <br></br><br></br>
             <code>\b</code><br></br>
-            Matches word boundaries when outside brackets. 
-            Matches backspace (0x08) when inside brackets.
+            Matches word boundaries when outside brackets. <br></br>
+            Matches backspace <code>(0x08)</code> when inside brackets.
             <br></br><br></br>
             <code>\B</code><br></br>
             Matches nonword boundaries.
@@ -14819,10 +14825,11 @@ input("\nPress any key to exit: ")
             Matches newlines, carriage returns, tabs, etc.
             <br></br><br></br>
             <code>\1...\9</code><br></br>
-            Matches nth grouped subexpression.
+            Matches <blue>nth</blue> grouped subexpression.
             <br></br><br></br>
             <code>\10</code><br></br>
-            Matches nth grouped subexpression if it matched already. Otherwise refers 
+            Matches <blue>nth</blue> grouped subexpression if it matched already.<br></br> 
+            Otherwise refers 
             to the octal representation of a character code.
             <br></br><br></br>
 
@@ -14832,46 +14839,50 @@ input("\nPress any key to exit: ")
             Performs case-insensitive matching.
             <br></br><br></br>
             <code>re.L</code><br></br>
-            Interprets words according to the current locale. 
-            This interpretation affects the alphabetic group (\w and \W), 
-            as well as word boundary behavior (\b and \B).
+            Interprets words according to the current locale. <br></br>
+            This interpretation affects the alphabetic group (<blue>\w</blue> and <blue>\W</blue>), 
+            as well as word boundary behavior (<blue>\b</blue> and <blue>\B</blue>).
             <br></br><br></br>
             <code>re.M</code><br></br>
-            Makes $ match the end of a line (not just the end of the string) 
-            and makes ^ match the start of any line (not just the start of the string).
+            Makes <code>$</code> match the end of a line (not just the end of the <blue>string</blue>).
+            <br></br>
+            Also makes <code>^</code> match the start of any line 
+            (not just the start of the <blue>string</blue>).
             <br></br><br></br>
             <code>re.S</code><br></br>
-            Makes a period (dot) match any character, including a newline.
+            Makes a period <blue>(dot)</blue> match any character, including a <blue>newline</blue>.
             <br></br><br></br>
             <code>re.U</code><br></br>
-            Interprets letters according to the Unicode character set. 
-            This flag affects the behavior of \w, \W, \b, \B.
+            Interprets letters according to the Unicode character set. <br></br>
+            This flag affects the behavior of <blue>\w</blue>, <blue>\W</blue>, 
+            <blue>\b</blue>, <blue>\B</blue>.
             <br></br><br></br>
             <code>re.X</code><br></br>
-            Permits "cuter" regular expression syntax. It ignores whitespace 
-            (except inside a set [] or when escaped by a backslash) and treats 
-            unescaped # as a comment marker.
+            Permits "cuter" regular expression syntax. <br></br>
+            It ignores <blue>whitespace</blue> 
+            (except inside a set <code>[]</code> or when escaped by a <blue>backslash</blue>) 
+            and treats unescaped <code>#</code> as a comment marker.
             <br></br><br></br>
 
             <brown>Character classes:</brown>
             <br></br><br></br>
             <code>[Pp]ython</code><br></br>
-            Match "Python" or "python".
+            Match <blue>"Python"</blue> or <blue>"python"</blue>.
             <br></br><br></br>
             <code>rub[ye]</code><br></br>
-            Match "ruby" or "rube".
+            Match <blue>"ruby"</blue> or <blue>"rube"</blue>.
             <br></br><br></br>
             <code>[aeiou]</code><br></br>
             Match any one lowercase vowel.
             <br></br><br></br>
             <code>[0-9]</code><br></br>
-            Match any digit; same as [0123456789].
+            Match any digit; same as <blue>[0123456789]</blue>.
             <br></br><br></br>
             <code>[a-z]</code><br></br>
-            Match any lowercase ASCII letter.
+            Match any lowercase <blue>ASCII</blue> letter.
             <br></br><br></br>
             <code>[A-Z]</code><br></br>
-            Match any uppercase ASCII letter.
+            Match any uppercase <blue>ASCII</blue> letter.
             <br></br><br></br>
             <code>[a-zA-Z0-9]</code><br></br>
             Match any of the above.
@@ -14888,34 +14899,34 @@ input("\nPress any key to exit: ")
             Match any character except newline.
             <br></br><br></br>
             <code>\d</code><br></br>
-            Match a digit: [0-9].
+            Match a digit: <blue>[0-9]</blue>.
             <br></br><br></br>
             <code>\D</code><br></br>
-            Match a nondigit: [^0-9].
+            Match a nondigit: <blue>[^0-9]</blue>.
             <br></br><br></br>
             <code>\s</code><br></br>
-            Match a whitespace character: [ \t\r\n\f].
+            Match a whitespace character: <blue>[ \t\r\n\f]</blue>.
             <br></br><br></br>
             <code>\S</code><br></br>
-            Match nonwhitespace: [^ \t\r\n\f].
+            Match nonwhitespace: <blue>[^ \t\r\n\f]</blue>.
             <br></br><br></br>
             <code>\w</code><br></br>
-            Match a single word character: [A-Za-z0-9_].
+            Match a single word character: <blue>[A-Za-z0-9_]</blue>.
             <br></br><br></br>
             <code>\W</code><br></br>
-            Match a nonword character: [^A-Za-z0-9_].
+            Match a nonword character: <blue>[^A-Za-z0-9_]</blue>.
             <br></br><br></br>
 
             <brown>Repetition Cases:</brown>
             <br></br><br></br>
             <code>ruby?</code><br></br>
-            Match "rub" or "ruby": the y is optional.
+            Match <blue>"rub"</blue> or <blue>"ruby"</blue>: the <blue>y</blue> is optional.
             <br></br><br></br>
             <code>ruby*</code><br></br>
-            Match "rub" plus 0 or more ys.
+            Match <blue>"rub"</blue> plus <blue>0</blue> or more <blue>ys</blue>.
             <br></br><br></br>
             <code>ruby+</code><br></br>
-            Match "rub" plus 1 or more ys.
+            Match <blue>"rub"</blue> plus <blue>1</blue> or more <blue>ys</blue>.
             <br></br><br></br>
             <code>\d{3}</code><br></br>
             Match exactly 3 digits.
