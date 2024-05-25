@@ -618,8 +618,6 @@ free(A);
             <br></br><br></br><br></br>
             <green>Advantages of multiprocessing:</green>
             <br></br><br></br>
-            Here are some of the benefits of <red>multiprocessing</red> :
-            <br></br><br></br>
             1. It uses simple coding that's easy to understand.<br></br>
             2. It helps you overcome <blue>Global Interpreter Lock</blue> (<blue>GIL</blue>) 
             limitations in CPython.<br></br>
@@ -663,8 +661,9 @@ free(A);
             <blue>1. Use multithreading to make user interaction (UI) programs responsive.</blue>
             <br></br>
             These programs have to wait for the user to interact with them, so using <red>threads</red> 
-            provides enough computing power. For example, you might choose to use 
-            <blue>multithreading</blue> 
+            provides enough computing power. 
+            <br></br>
+            For example, you might choose to use <blue>multithreading</blue> 
             if you create an online writing program so that one <red>thread</red> tracks the 
             user's keystrokes, 
             a second <red>thread</red> displays the text for the user to read and a third 
@@ -684,8 +683,8 @@ free(A);
             <br></br><br></br>
             <blue>4. Use multiprocessing to develop programs that are <red>CPU</red> intensive.</blue>
             <br></br>
-            <red>Multiprocessing</red> can help you speed up processes and provide reliable solutions 
-            for programs that involve several <red>CPU</red> tasks.
+            <red>Multiprocessing</red> can help you speed up <red>processes</red> and provide 
+            reliable solutions for programs that involve several <red>CPU</red> tasks.
             <br></br><br></br>
         </multi-threading>
         <bitwise-operators>
@@ -13398,7 +13397,8 @@ print(Ob3)
             (<blue>deallocated</blue>).
             <br></br><br></br>
             The problem was that this <blue>reference count</blue> variable needed protection 
-            from <blue>race conditions</blue> where two <blue>threads</blue> increase or decrease its value 
+            from <blue>race conditions</blue> where two <blue>threads</blue> increase or decrease 
+            its value 
             simultaneously. If this happens, it can cause either <blue>leaked memory</blue> that 
             is never released or, even worse, <blue>incorrectly release</blue> of the
             the memory while a <blue>reference</blue> to that <red>object</red> still exists. 
@@ -13409,7 +13409,7 @@ print(Ob3)
             <br></br><br></br>
             Generally, Python uses a <blue>single thread</blue> to run a <blue>single process</blue>.
             We get the same performance result of the <blue>single-threaded</blue> and 
-            <blue>multi-threaded</blue> processes using the <blue>GIL</blue>. 
+            <blue>multithreading</blue> processes using the <blue>GIL</blue>. 
             It restricts achieving <blue>multithreading</blue> in Python because it prevents 
             the <blue>threads</blue> and works as a <blue>single thread</blue>.
             <green>Multithreading vs. Multiprocessing:</green>
@@ -13424,25 +13424,34 @@ print(Ob3)
             <br></br><br></br>
             <green>Advantages for using Multithreading instead of Multiprocessing:</green>
             <br></br><br></br>
-            <blue>Lightweight</blue> - low memory footprint;<br></br>
-            <blue>Shared memory</blue> - makes access to state from another context easier;<br></br>
-            Allows to easily make <blue>responsive</blue> UIs (user interfaces);<br></br>
-            Python C extension modules that properly release the GIL will run in parallel.<br></br>
-            The GIL restricts the concurrent execution of Python threads within the same process;<br></br>
-            Great option for I/O-bound applications;<br></br>
+            1. <blue>Lightweight</blue> - low memory footprint;<br></br>
+            2. <blue>Shared memory</blue> - makes access to state from another context easier;<br></br>
+            3. Allows to easily make <blue>responsive</blue> UIs (user interfaces);<br></br>
+            3. Python C extension modules that properly release the GIL will run in parallel.<br></br>
+            4. The GIL restricts the concurrent execution of Python threads within the same process;<br></br>
+            5. Great option for I/O-bound applications;<br></br>
             <br></br><br></br>
-            <green>Disadvantages of Threads:</green>:
+            <green>Python Multithreading Drawbacks:</green>
             <br></br><br></br>
-            1. One GIL is used for all threads, and threads are limited by GIL;
+            1. One GIL is used for all <blue>threads</blue>, and <blue>threads</blue> are limited by 
+            GIL;
+            <br></br><br></br>
+            2. <blue>Multithreading</blue> has no effect for CPU-bound tasks due to the GIL, 
+            meaning we'll notice no improvements in the performance when it comes to these sort 
+            of <red>tasks</red>;
             <br></br>
-            2. Multithreading has no effect for CPU-bound tasks due to the GIL, meaning we'll notice no improvements
-            in the performance when it comes to these sort of tasks;
-            CPU-bound tasks are those that require a significant amount of computational resource. 
+            CPU-bound <red>tasks</red> are those that require a significant amount of computational 
+            resource. 
             <br></br><br></br>
-            3. threads are not interruptible/killable, special attention has to be paid to memory leaks. 
-            A memory leak occurs when programmers allocate memory on the heap and forget to deallocate it.
+            3. <red>Threads</red> are not interruptible/killable, special attention has to be paid 
+            to memory leaks.
+            <br></br>
+            A memory leak occurs when programmers allocate memory on the <red>heap</red> and 
+            forget to deallocate it.
             <br></br><br></br>
-            4. Increased potential for race conditions. A race condition is an undesirable situation 
+            4. Increased potential for race conditions. 
+            <br></br>
+            A race condition is an undesirable situation 
             that occurs when a device or system attempts to perform two or more operations at the same time.
             <br></br><br></br>
             5. Multithreading code is usually harder to understand and to get right;
