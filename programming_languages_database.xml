@@ -14771,7 +14771,7 @@ input("\nPress any key to exit: ")
             Temporarily toggles off <blue>i</blue>, <blue>m</blue>, or <blue>x</blue> options 
             within parentheses.
             <br></br><br></br>
-            <code>(?</code><code>#</code><code>...)</code><code>     </code>Comment.
+            <code>(?</code><code>#</code><code>...)</code><code>      </code>Comment.
             <br></br><br></br>
             <code>(?= re)</code><code>     </code>
             Specifies position using a pattern. Doesn't have a <blue>range</blue>.
