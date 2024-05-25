@@ -12602,12 +12602,14 @@ input("\nPress any key to exit: ")
             The other available <red>modes</red> for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
-            The file pointer is placed at the beginning
-            of the file. This is the <red>default mode</red>. It throws an <red>error</red> if 
+            The file pointer is placed at the beginning of the file. 
+            <br></br>
+            This is the <red>default mode</red>. It throws an <red>error</red> if 
             the <blue>file</blue> does not exist.
             <br></br><br></br>
             <blue>"w"</blue> - Opens a file for writing only. Overwrites the <blue>file</blue> if 
             the <blue>file</blue> exists.
+            <br></br>
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in binary format. 
@@ -12615,49 +12617,57 @@ input("\nPress any key to exit: ")
             at the beginning of the <blue>file</blue>. This is the <red>default mode</red>.
             <br></br><br></br>
             <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
-            binary format. The <blue>file</blue>
-            pointer placed at the beginning of the <blue>file</blue>.
+            binary format. 
+            <br></br>
+            The <blue>file</blue> pointer placed at the beginning of the <blue>file</blue>.
             <br></br><br></br>
             <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in binary format. 
-            Overwrites the file if the
-            <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
+            Overwrites the file if the <blue>file</blue> exists. 
+            <br></br>
+            If the <blue>file</blue> does not exist, 
             creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"w+"</blue> - Opens a <blue>file</blue> for both writing and reading. 
             Overwrites the existing <blue>file</blue> if
-            the <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
-            creates a new <blue>file</blue> for reading
+            the <blue>file</blue> exists. 
+            <br></br>
+            If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for reading
             and writing.
             <br></br><br></br>
             <blue>"wb+"</blue> - Opens a <blue>file</blue> for both writing and reading in 
-            binary format. Overwrites
-            the existing <blue>file</blue> if the <blue>file</blue> exists. 
+            binary format. Overwrites the existing <blue>file</blue> if the <blue>file</blue> exists. 
+            <br></br>
             If the <blue>file</blue> does not exist, creates a
             new <blue>file</blue> for reading and writing.
             <br></br><br></br>
             <blue>"a"</blue> -     Opens a <blue>file</blue> for appending. 
             The <blue>file</blue> pointer is at the end of the file
-            if the <blue>file</blue> exists. That is, the <blue>file</blue> is in 
+            if the <blue>file</blue> exists. 
+            <br></br>
+            The <blue>file</blue> is opened in 
             the <red>append mode</red>. If the <blue>file</blue> does
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in binary 
             format. The <blue>file</blue> pointer is at the
-            end of the <blue>file</blue> if the <blue>file</blue> exists. 
-            That is, the <blue>file</blue> is in the <red>append mode</red>.
+            end of the <blue>file</blue> if the <blue>file</blue> exists.
+            <br></br>
+            The <blue>file</blue> is opened in the <red>append mode</red>.
             If the <blue>file</blue> does not exist, 
             it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
             The <blue>file</blue> pointer is at the
-            end of the <blue>file</blue> if the <blue>file</blue> exists. 
+            end of the <blue>file</blue> if the <blue>file</blue> exists.
+            <br></br>
             The <blue>file</blue> opens in the <red>append mode</red>. If the
             <blue>file</blue> does not exist, it creates a new <blue>file</blue> 
             for reading and writing.
             <br></br><br></br>
             <blue>"ab+"</blue> - Opens a <blue>file</blue> for both <red>appending</red> and <red>reading</red> 
-            in binary format. The cursor within 
-            the <red>file</red> is poiting to the end of the <blue>file</blue> 
+            in binary format. 
+            <br></br>
+            The cursor within the <red>file</red> is poiting to the end of the <blue>file</blue> 
             if the <blue>file</blue> exists. 
             If the <blue>file</blue> does not exist, it creates 
             a new <blue>file</blue> for reading and writing.
