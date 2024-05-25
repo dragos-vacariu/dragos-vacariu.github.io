@@ -13803,7 +13803,7 @@ if __name__ == "__main__":
             <br></br><br></br>
             There are three levels 
             of <red>scopes</red>: <blue>built-in</blue> (<blue>outermost</blue>), 
-            <blue>global</blue>, and <blue>local</blue>.
+            <red>global</red>, and <blue>local</blue>.
             <br></br><br></br>
             <brown>Built-in scope:</brown>
             <br></br><br></br>
@@ -13818,12 +13818,12 @@ if __name__ == "__main__":
             A variable created in the main body of the Python 
             code is a <red>global variable</red> and belongs to the <red>global scope</red>.
             <red>Global variables</red> are available from within any <red>scope</red>, 
-            <red>global</red> and <red>local</red>.
+            <red>global</red> and <blue>local</blue>.
             The <red>global</red> keyword makes the variable <red>global</red>.
             <br></br><br></br>
             <brown>Local scope:</brown>
             <br></br><br></br>
-            A variable created inside a function belongs to the <red>local scope</red> 
+            A variable created inside a function belongs to the <blue>local scope</blue> 
             of that function, and can only be used inside that function.
             The <blue>nonlocal</blue> keyword is used to work with variables 
             inside nested functions. A nested function is a function defined within a function.
@@ -13835,13 +13835,13 @@ if __name__ == "__main__":
             and their corresponding <red>objects</red> (values).
             <br></br><br></br>
             A Python statement can access variables in a 
-            <red>local namespace</red> and in the <red>global namespace</red>. 
-            If a <red>local</red> and a <red>global variable</red> have the same name,
-            the <red>local variable</red> shadows the <red>global variable</red>.
+            <blue>local namespace</blue> and in the <red>global namespace</red>. 
+            If a <blue>local</blue> and a <red>global variable</red> have the same name,
+            the <blue>local variable</blue> shadows the <red>global variable</red>.
             <br></br><br></br>
             Python makes educated guesses on whether variables are 
-            <red>local</red> or <red>global</red>. It assumes that any variable assigned 
-            with a value within a function is <red>local</red>.
+            <blue>local</blue> or <red>global</red>. It assumes that any variable assigned 
+            with a value within a function is <blue>local</blue>.
             Therefore, in order to assign a value to a <red>global variable</red> 
             within a function, you must first use the <red>global</red> specifier.
             <br></br><br></br>
@@ -13851,9 +13851,9 @@ if __name__ == "__main__":
             which have 
             <red>global scope</red>, meaning they can be accessed from anywhere in the program. 
             The <red>global
-            namespace</red> contains <red>local namespaces</red> for each function/method/loop an 
+            namespace</red> contains <blue>local namespaces</blue> for each function/method/loop an 
             other entities
-            defining <red>local scopes</red>.
+            defining <blue>local scopes</blue>.
             <br></br><br></br>
             <red>Scope</red> refers to the coding region from which a particular Python object 
             is accessible. 
@@ -14789,7 +14789,7 @@ print(reverse("Reflection in Python"))
             <br></br><br></br>
             In Python the <red>functions</red> declared using the 
             <red>lambda</red> keyword are called <blue>anonymous</blue> 
-            because they are not declared with a no-name within in a single line.
+            because they are declared with a no-name within in a single line.
             <br></br>
 <code>
 #Example of lambda/anonymous functions:
