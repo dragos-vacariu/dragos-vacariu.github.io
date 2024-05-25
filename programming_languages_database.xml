@@ -541,7 +541,7 @@ free(A);
             meaning it's slower that doing simultaneos <red>tasks</red> on different <red>cores</red>, 
             but faster than doing single <red>task</red> on one <red>core</red>. 
             <br></br><br></br>
-            <blue>Multithreading</blue> reffers to using multiple <red>threads</red> 
+            <blue>Multithreading</blue> refers to using multiple <red>threads</red> 
             (<blue>2 threads</blue>) 
             to one <red>core</red>.
             <blue>Multithreading</blue> allows for better utilization of available system resources by 
@@ -554,8 +554,8 @@ free(A);
             units (<red>CPUs</red>) in achieving one task, meaning we can have <blue>2 cores</blue> 
             running same program sharing among themselves data. 
             <br></br>
-            Similar to 2 workers working on 
-            same task, passing around their tools from one to the other.
+            Similar to <blue>2 workers</blue> working on 
+            same <red>task</red>, passing around their tools from one to the other.
             <br></br><br></br>
             A <red>process</red> is the <red>instance</red> of a computer program that is being 
             executed by 
@@ -586,7 +586,7 @@ free(A);
             <br></br><br></br>
             A <blue>critical section</blue> refers to the parts of the 
             program where the <blue>shared resources</blue> are being accessed by different 
-            <red>threads/processes</red>. So the <blue>2 workers</blue> or the <blue>2 hands</blue> 
+            <red>threads/processes</red>. So the <blue>2 workers</blue> or the <red>2 hands</red> 
             working on the same <red>task</red> collide to each other.
             <br></br><br></br>
             While <blue>multithreading</blue> and <red>multiprocessing</red> can both be used to 
@@ -11510,7 +11510,7 @@ class Employee extends Sunstar
             *General-Programming-Knowledge*
             <green>Object Oriented Programming in Python:</green>
             <br></br><br></br>
-            <red>Python</red> uses the <blue>self</blue> keyword to reffer to 
+            <red>Python</red> uses the <blue>self</blue> keyword to refer to 
             <blue>instance</blue> variables.
             <br></br><br></br>
             In Python the <blue>variables/fields</blue> declared within a <red>class</red> but outside of 
