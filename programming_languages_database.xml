@@ -680,10 +680,11 @@ free(A);
             <br></br><br></br>
             <red>multiprocessing</red> can help you analyze large volumes of data quickly.
             <br></br><br></br>
-            <brown>4. Use multiprocessing to develop programs that are CPU intensive.</brown>
+            <brown>4. Use multiprocessing to develop programs that are <red>CPU</red> intensive.</brown>
             <br></br><br></br>
-            Multiprocessing can help you speed up processes and provide reliable solutions 
-            for programs that involve several CPU tasks.
+            <red>Multiprocessing</red> can help you speed up processes and provide reliable solutions 
+            for programs that involve several <red>CPU</red> tasks.
+            <br></br><br></br>
         </multi-threading>
         <bitwise-operators>
             The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
