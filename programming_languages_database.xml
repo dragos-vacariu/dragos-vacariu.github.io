@@ -13671,26 +13671,25 @@ input("\nPress any key to exit: ")
             <br></br>
             <green>Multiprocessing in Python:</green>
             <br></br><br></br>
+            By using <blue>multiprocessing</blue> in Python the 
+            <blue>Global Interpreter Lock</blue> limitations can be overcome.
+            <br></br><br></br>
             <blue>Multiprocessing</blue> refers to the ability of a system to support more than 
             one processor at the same time. Applications in a <blue>multiprocessing</blue> system 
             are broken to smaller routines that run independently. The operating system 
-            allocates these <red>threads</red> to the processors improving performance 
+            allocates these <red>threads</red> to the processor cores improving the performance 
             of the system.
-            
             <br></br><br></br>
             The <blue>Pool class</blue> in Python's <blue>multiprocessing</blue> module provides 
-            convenient means of managing a pool of worker processes. It comes with built-in 
-            <red>methods</red> 
-            that offer structured ways to distribute <red>tasks</red> among these <red>processes</red>.
+            convenient means of managing a pool of worker <red>processes</red>. It comes with 
+            built-in <red>methods</red> that offer structured ways to distribute <red>tasks</red> 
+            among these <red>processes</red>.
+            <br></br><br></br>
             The <blue>Pool class</blue> represents a pool of worker <red>processes</red>. It has 
             methods which allows 
             <red>tasks</red> to be offloaded/distributed to the worker <red>cores/processes</red> 
             in few different ways. 
-            <br></br><br></br>
-            <green>Python-related Multiprocessing Advantages:</green>
-            <br></br><br></br>
-            1. It helps you overcome <blue>Global Interpreter Lock</blue> (<blue>GIL</blue>) 
-            limitations in CPython.<br></br>
+            <br></br>
 <code>
 #Example of multiprocessing in Python 3:
 
