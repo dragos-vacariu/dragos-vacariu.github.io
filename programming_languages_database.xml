@@ -14597,24 +14597,66 @@ print("Incremented value:", x)
 </code>
         </pre-post-incrementation>
         <regular-expressions>
+            A <blue>regular expression</blue> is a special sequence of characters that helps 
+            <red>matching</red> or <red>finding</red> other <red>strings</red> or <red>sets of 
+            strings<red>, using a specialized syntax held in a pattern.
+            <br></br><br></br>
+            The <code>match()</code> function attempts to <red>match</red> RE (Regular Expression) 
+            pattern to <red>string</red> with optional flags.
+            <br></br>
+            <red>Syntax:</red> <code>re.match(pattern, string, flags=0)</code><br></br>
+            where:<br></br><br></br>
+            <code>pattern</code>    
+            This is the <blue>regular expression</blue> to be <red>matched</red>.
+            <br></br><br></br>
+            <code>string</code>        
+            This is the <red>string</red>, which would be searched to <red>match</red> the pattern 
+            at the beginning of <red>string</red>.
+            <br></br><br></br>
+            <code>flags</code>        
+            You can specify different flags using bitwise <red>OR</red> (<red>|</red>). 
+            <br></br><br></br>
+            The <red>re.match<red> function returns a <blue>match object</blue> on success, 
+            <code>None</code> on failure. 
+            <br></br><br></br>
+            The <code>search()</code> function searches for first occurrence of 
+            RE pattern within <red>string</red> with optional flags.
+            <br></br><br></br>
+            The <code>match()</code> checks for a match only at the beginning of the string, while 
+            <code>search()</code> checks for a <red>match</red> anywhere in the <red>string</red>.
+            <br></br><br></br>
+            The <code>sub()</code> function replaces all occurrences of the pattern in the 
+            <red>string</red> with 'repl'.
+            <red>Syntax:<red> <code>re.sub(pattern, repl, string, count=0, flags=0)</code>
+            where:
+            <br></br><br></br>
+            <code>pattern</code> 
+            Denotes the <red>string/pattern</red> that needs to be <red>replaced</red>.
+            <br></br><br></br>
+            <code>repl</code> 
+            Denotes the <red>string/pattern</red> with which the pattern is <red>replaced</red>.
+            <br></br><br></br>
+            <code>string</code> 
+            Denotes the <red>string</red> on which the <code>re.sub()</code> operation will 
+            be executed.
+            <br></br><br></br>
+            <code>count</code> 
+            Denotes the number of replacements that should occur.
+            <br></br><br></br>
+            <code>flags</code> 
+            Serves to modify the behavior of the <blue>regular expression</blue> operation.
+            <br></br>
 <code>
-#A regular expression is a special sequence of characters that helps you match or find other strings or sets
-#of strings, using a specialized syntax held in a pattern.
 
-#The match() function -> This function attempts to match RE pattern to string with optional flags.
-#Syntax: re.match(pattern, string, flags=0)
-#pattern    This is the regular expression to be matched.
-#string        This is the string, which would be searched to match the pattern at the beginning of string.
-#flags        You can specify different flags using bitwise OR (|). These are modifiers, which are listed in the table below.
-
-#The re.match function returns a match object on success, None on failure. We usegroup(num) or groups()
-#function of match object to get matched expression.
-
-import re #This library is used for regular expressions (re)
+import re 
+#This library is used for
+#regular expressions (re)
 
 line = "Cats are smarter than dogs"
 
-matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I) #find something at the beginning of the string and return a match object.
+matchObj = re.match( r'(.*) are (.*?) .*', line, re.M|re.I) 
+#find something at the beginning of the string and 
+#return a match object.
 
 if matchObj:
    print ("matchObj.group() : {0}" .format(matchObj.group()))
@@ -14631,8 +14673,8 @@ if matchObj:
 else:
    print ("No match!!")
 
-#The search() function - This function searches for first occurrence of RE pattern within string with optional flags.
-searchObj = re.search( r'dogs*', line, re.M|re.I) #re* -> Matches 0 or more occurrences of preceding expression.
+searchObj = re.search( r'dogs*', line, re.M|re.I) 
+#re* -> Matches 0 or more occurrences of preceding expression.
 if searchObj:
    print ("searchObj.group() : {0}" .format(searchObj.group()))
    #print ("searchObj.group(1) : {0}" .format (searchObj.group(1)))
@@ -14640,107 +14682,237 @@ if searchObj:
 else:
    print ("No match!!")
 
-#Match checks for a match only at the beginning of the string, while search checks for a match anywhere in the string.
-
-#The sub() function - replaces all occurrences of the pattern in the string with 'repl'
-#Syntax: re.sub(pattern, repl, string, max=0)
-
 phone = "2004-959-559 # This is Phone Number"
 
-# Delete Python-style comments
+#Delete Python-style comments
 num = re.sub(r'#.*$', "", phone)
 print ("Phone Num : {0}" .format(num))
 
-# Remove anything other than digits
+#Remove anything other than digits
 num = re.sub(r'\D', "", phone)    
 print ("Phone Num : {0}" .format(num))
 
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
 input("\nPress any key to exit: ")
+</code>   
+<br></br>
+Following table lists the regular expression syntax that is available in Python :
+<br></br><br></br>
+<code>^</code><br></br>
+Matches beginning of line.
+<br></br><br></br>
+<code>$</code><br></br>
+Matches end of line.
+<br></br><br></br>
+<code>.</code><br></br>
+Matches any single character except newline. 
+Using m option allows it to match newline as well.
+<br></br><br></br>
+<code>[...]</code><br></br>
+Matches any single character in brackets.
+<br></br><br></br>
+<code>[^...]</code><br></br>
+Matches any single character not in brackets.
+<br></br><br></br>
+<code>re*</code><br></br>
+Matches 0 or more occurrences of preceding expression.
+<br></br><br></br>
+<code>re+</code><br></br>
+Matches 1 or more occurrence of preceding expression.
+<br></br><br></br>
+<code>re?</code><br></br>
+Matches 0 or 1 occurrence of preceding expression.
+<br></br><br></br>
+<code>re{ n}</code><br></br>
+Matches exactly n number of occurrences of preceding expression.
+<br></br><br></br>
+<code>re{ n,}</code><br></br>
+Matches n or more occurrences of preceding expression.
+<br></br><br></br>
+<code>re{ n, m}</code><br></br>
+Matches at least n and at most m occurrences of preceding expression.
+<br></br><br></br>
+<code>a| b</code><br></br>
+Matches either a or b.
+<br></br><br></br>
+<code>(re)</code><br></br>
+Groups regular expressions and remembers matched text.
+<br></br><br></br>
+<code>(?imx)</code><br></br>
+Temporarily toggles on i, m, or x options within a regular expression. 
+If in parentheses, only that area is affected.
+<br></br><br></br>
+<code>(?-imx)</code><br></br>
+Temporarily toggles off i, m, or x options within a regular expression. 
+If in parentheses, only that area is affected.
+<br></br><br></br>
+<code>(?: re)</code><br></br>
+Groups regular expressions without remembering matched text.
+<br></br><br></br>
+<code>(?imx: re)</code><br></br>
+Temporarily toggles on i, m, or x options within parentheses.
+<br></br><br></br>
+<code>(?-imx: re)</code><br></br>
+Temporarily toggles off i, m, or x options within parentheses.
+<br></br><br></br>
+<code>(?#...)</code><br></br>
+Comment.
+<br></br><br></br>
+<code>(?= re)</code><br></br>
+Specifies position using a pattern. Doesn't have a range.
+<br></br><br></br>
+<code>(?! re)</code><br></br>
+Specifies position using pattern negation. Doesn't have a range.
+<br></br><br></br>
+<code>(?> re)</code><br></br>
+Matches independent pattern without backtracking.
+<br></br><br></br>
+<code>\w</code><br></br>
+Matches word characters.
+<br></br><br></br>
+<code>\W</code><br></br>
+Matches nonword characters.
+<br></br><br></br>
+<code>\s</code><br></br>
+Matches whitespace. Equivalent to [\t\n\r\f].
+<br></br><br></br>
+<code>\S</code><br></br>
+Matches nonwhitespace.
+<br></br><br></br>
+<code>\d</code><br></br>
+Matches digits. Equivalent to [0-9].
+<br></br><br></br>
+<code>\D</code><br></br>
+Matches nondigits.
+<br></br><br></br>
+<code>\A</code><br></br>
+Matches beginning of string.
+<br></br><br></br>
+<code>\Z</code><br></br>
+Matches end of string. If a newline exists, it matches just before newline.
+<br></br><br></br>
+<code>\z</code><br></br>
+Matches end of string.
+<br></br><br></br>
+<code>\G</code><br></br>
+Matches point where last match finished.
+<br></br><br></br>
+<code>\b</code><br></br>
+Matches word boundaries when outside brackets. 
+Matches backspace (0x08) when inside brackets.
+<br></br><br></br>
+<code>\B</code><br></br>
+Matches nonword boundaries.
+<br></br><br></br>
+<code>\n</code>, <code>\t</code>, etc.<br></br>
+Matches newlines, carriage returns, tabs, etc.
+<br></br><br></br>
+<code>\1...\9</code><br></br>
+Matches nth grouped subexpression.
+<br></br><br></br>
+<code>\10</code><br></br>
+Matches nth grouped subexpression if it matched already. Otherwise refers 
+to the octal representation of a character code.
+<br></br><br></br>
 
-#Following table lists the regular expression syntax that is available in Python :
+Option flags:
+<br></br><br></br>
+<code>re.I</code><br></br>
+Performs case-insensitive matching.
+<br></br><br></br>
+<code>re.L</code><br></br>
+Interprets words according to the current locale. 
+This interpretation affects the alphabetic group (\w and \W), 
+as well as word boundary behavior (\b and \B).
+<br></br><br></br>
+<code>re.M</code><br></br>
+Makes $ match the end of a line (not just the end of the string) 
+and makes ^ match the start of any line (not just the start of the string).
+<br></br><br></br>
+<code>re.S</code><br></br>
+Makes a period (dot) match any character, including a newline.
+<br></br><br></br>
+<code>re.U</code><br></br>
+Interprets letters according to the Unicode character set. 
+This flag affects the behavior of \w, \W, \b, \B.
+<br></br><br></br>
+<code>re.X</code><br></br>
+Permits "cuter" regular expression syntax. It ignores whitespace 
+(except inside a set [] or when escaped by a backslash) and treats 
+unescaped # as a comment marker.
+<br></br><br></br>
 
-#Pattern    Description
-#^    Matches beginning of line.
-#$    Matches end of line.
-#.    Matches any single character except newline. Using m option allows it to match newline as well.
-#[...]    Matches any single character in brackets.
-#[^...]    Matches any single character not in brackets
-#re*    Matches 0 or more occurrences of preceding expression.
-#re+    Matches 1 or more occurrence of preceding expression.
-#re?    Matches 0 or 1 occurrence of preceding expression.
-#re{ n}    Matches exactly n number of occurrences of preceding expression.
-#re{ n,}    Matches n or more occurrences of preceding expression.
-#re{ n, m}    Matches at least n and at most m occurrences of preceding expression.
-#a| b    Matches either a or b.
-#(re)    Groups regular expressions and remembers matched text.
-#(?imx)    Temporarily toggles on i, m, or x options within a regular expression. If in parentheses, only that area is affected.
-#(?-imx)    Temporarily toggles off i, m, or x options within a regular expression. If in parentheses, only that area is affected.
-#(?: re)    Groups regular expressions without remembering matched text.
-#(?imx: re)    Temporarily toggles on i, m, or x options within parentheses.
-#(?-imx: re)    Temporarily toggles off i, m, or x options within parentheses.
-#(?#...)    Comment.
-#(?= re)    Specifies position using a pattern. Doesn't have a range.
-#(?! re)    Specifies position using pattern negation. Doesn't have a range.
-#(?> re)    Matches independent pattern without backtracking.
-#\w    Matches word characters.
-#\W    Matches nonword characters.
-#\s    Matches whitespace. Equivalent to [\t\n\r\f].
-#\S    Matches nonwhitespace.
-#\d    Matches digits. Equivalent to [0-9].
-#\D    Matches nondigits.
-#\A    Matches beginning of string.
-#\Z    Matches end of string. If a newline exists, it matches just before newline.
-#\z    Matches end of string.
-#\G    Matches point where last match finished.
-#\b    Matches word boundaries when outside brackets. Matches backspace (0x08) when inside brackets.
-#\B    Matches nonword boundaries.
-#\n, \t, etc.    Matches newlines, carriage returns, tabs, etc.
-#\1...\9    Matches nth grouped subexpression.
-#\10    Matches nth grouped subexpression if it matched already. Otherwise refers to the octal representation of a character code.
+Character classes:
+<br></br><br></br>
+<code>[Pp]ython    
+Match "Python" or "python".
+<br></br><br></br>
+<code>rub[ye]</code><br></br>
+Match "ruby" or "rube".
+<br></br><br></br>
+<code>[aeiou]</code><br></br>
+ Match any one lowercase vowel.
+ <br></br><br></br>
+<code>[0-9]</code><br></br>
+Match any digit; same as [0123456789].
+<br></br><br></br>
+<code>[a-z]</code><br></br>
+Match any lowercase ASCII letter.
+<br></br><br></br>
+<code>[A-Z]</code><br></br>
+Match any uppercase ASCII letter.
+<br></br><br></br>
+<code>[a-zA-Z0-9]</code><br></br>
+Match any of the above.
+<br></br><br></br>
+<code>[^aeiou]</code><br></br>
+Match anything other than a lowercase vowel.
+<br></br><br></br>
+<code>[^0-9]</code><br></br>
+Match anything other than a digit.
+<br></br><br></br>
 
-#Option flags:
+Special Character Classes:
+<br></br><br></br>    
+Match any character except newline.
+<br></br><br></br>
+<code>\d</code><br></br>
+Match a digit: [0-9].
+<br></br><br></br>
+<code>\D</code><br></br>
+Match a nondigit: [^0-9].
+<br></br><br></br>
+<code>\s</code><br></br>
+Match a whitespace character: [ \t\r\n\f].
+<br></br><br></br>
+<code>\S</code><br></br>
+Match nonwhitespace: [^ \t\r\n\f].
+<br></br><br></br>
+<code>\w</code><br></br>
+Match a single word character: [A-Za-z0-9_].
+<br></br><br></br>
+<code>\W</code><br></br>
+Match a nonword character: [^A-Za-z0-9_].
+<br></br><br></br>
 
-#Modifier    Description
-#re.I    Performs case-insensitive matching.
-#re.L    Interprets words according to the current locale. This interpretation affects the alphabetic group (\w and \W), as well as word boundary behavior (\b and \B).
-#re.M    Makes $ match the end of a line (not just the end of the string) and makes ^ match the start of any line (not just the start of the string).
-#re.S    Makes a period (dot) match any character, including a newline.
-#re.U    Interprets letters according to the Unicode character set. This flag affects the behavior of \w, \W, \b, \B.
-#re.X    Permits "cuter" regular expression syntax. It ignores whitespace (except inside a set [] or when escaped by a backslash) and treats unescaped # as a comment marker.
-
-#Character classes
-#Example    Description
-#[Pp]ython    Match "Python" or "python"
-#rub[ye]    Match "ruby" or "rube"
-#[aeiou]    Match any one lowercase vowel
-#[0-9]    Match any digit; same as [0123456789]
-#[a-z]    Match any lowercase ASCII letter
-#[A-Z]    Match any uppercase ASCII letter
-#[a-zA-Z0-9]    Match any of the above
-#[^aeiou]    Match anything other than a lowercase vowel
-#[^0-9]    Match anything other than a digit
-
-#Special Character Classes
-#Example    Description
-#.    Match any character except newline
-#\d    Match a digit: [0-9]
-#\D    Match a nondigit: [^0-9]
-#\s    Match a whitespace character: [ \t\r\n\f]
-#\S    Match nonwhitespace: [^ \t\r\n\f]
-#\w    Match a single word character: [A-Za-z0-9_]
-#\W    Match a nonword character: [^A-Za-z0-9_]
-
-
-#Repetition Cases
-#Example    Description
-#ruby?    Match "rub" or "ruby": the y is optional
-#ruby*    Match "rub" plus 0 or more ys
-#ruby+    Match "rub" plus 1 or more ys
-#\d{3}    Match exactly 3 digits
-#\d{3,}    Match 3 or more digits
-#\d{3,5}    Match 3, 4, or 5 digits
-</code>        
+Repetition Cases:
+<code>ruby?</code><br></br>
+Match "rub" or "ruby": the y is optional.
+<br></br><br></br>
+<code>ruby*</code><br></br>
+Match "rub" plus 0 or more ys.
+<br></br><br></br>
+<code>ruby+</code><br></br>
+Match "rub" plus 1 or more ys.
+<br></br><br></br>
+<code>\d{3}</code><br></br>
+Match exactly 3 digits.
+<br></br><br></br>
+<code>\d{3,}</code><br></br>
+Match 3 or more digits.
+<br></br><br></br>
+<code>\d{3,5}</code><br></br>
+Match 3, 4, or 5 digits.
+<br></br><br></br>
         </regular-expressions>
         <recursion>
             *General-Programming-Knowledge*
