@@ -527,8 +527,8 @@ free(A);
             <red>thread</red>
             between the <red>tasks</red> on every few microseconds, therefore
             moving its hand from doing one thing to doing the other thing so fast that a real person 
-            would not be able to notice any difference (the music doesn't stop playing when 
-            writing the keyboard). 
+            would not be able to notice any difference. Example: the music doesn't stop playing when 
+            writing the keyboard. 
             <br></br><br></br>
             By <blue>hyperthreading</blue> the <red>core</red> gets a second hand available, 
             and can perform 
@@ -548,7 +548,9 @@ free(A);
             <br></br><br></br>
             <red>Multiprocessing</red> is the utilization of two or more central processing 
             units (<red>CPUs</red>) in achieving one task, meaning we can have <blue>2 cores</blue> 
-            running same program sharing among themselves data. Similar to 2 workers working on 
+            running same program sharing among themselves data. 
+            <br></br>
+            Similar to 2 workers working on 
             same task, passing around their tools from one to the other.
             <br></br><br></br>
             <green>Multithreading vs. multiprocessing:</green>
@@ -587,24 +589,20 @@ free(A);
             <br></br><br></br>
             <green>Advantages of multithreading:</green>
             <br></br><br></br>
-            Here are some of the key benefits of <blue>multithreading</blue>:
-            <br></br><br></br>
             1. It requires less memory storage.<br></br>
             2. Accessing memory is easier since <blue>threads</blue> share the same 
             parent <red>process</red>.<br></br>
-            3. Switching between <blue>threads</blue> is fast and efficient.
+            3. Switching between <blue>threads</blue> is fast and efficient.<br></br>
             4. It's faster to generate new <blue>threads</blue> within an existing <red>process</red> 
             than to create 
             an entirely new <red>process</red>.<br></br>
             5. All <blue>threads</blue> share one <red>process</red> memory pool and the same 
-            address space.<br></br>
-            <blue>threads</blue> are more lightweight and have lower overhead.<br></br>
+            address space.
+            <blue>Threads</blue> are more lightweight and have lower overhead.<br></br>
             6. The cost of communication between <blue>threads</blue> is relatively low.<br></br>
             7. Creating responsive user interfaces (UIs) is easy.
             <br></br><br></br>
             <green>Disadvantages of multithreading:</green>
-            <br></br><br></br>
-            Here are some potential drawbacks associated with <blue>multithreading</blue>:
             <br></br><br></br>
             1. A <blue>multithreading</blue> system cannot be interrupted.<br></br>
             2. The code can be more challenging to understand.<br></br>
@@ -626,8 +624,6 @@ free(A);
             7. It's more cost-effective than single processor systems.<br></br>
             <br></br><br></br>
             <green>Disadvantages of multiprocessing:</green>
-            <br></br><br></br>
-            Here are some potential drawbacks associated with <red>multiprocessing</red> :
             <br></br><br></br>
             1. It requires more memory storage and overhead than threads to move data between 
             <red>processes</red>.<br></br>
@@ -658,30 +654,30 @@ free(A);
             <br></br><br></br>
             <green>Tips for choosing between multithreading and multiprocessing:</green>
             <br></br><br></br>
-            Here are some tips to help deciding whether to use multithreading or 
-            <red>multiprocessing</red>:
-            <br></br><br></br>
-            <brown>1. Use multithreading to make user interaction (UI) programs responsive.</brown>
-            <br></br><br></br>
-            These programs have to wait for the user to interact with them, so using threads 
+            <blue>1. Use multithreading to make user interaction (UI) programs responsive.</blue>
+            <br></br>
+            These programs have to wait for the user to interact with them, so using <red>threads</red> 
             provides enough computing power. For example, you might choose to use 
             <blue>multithreading</blue> 
-            if you create an online writing program so that one thread tracks the user's keystrokes, 
-            a second thread displays the text for the user to read and a third thread proofreads 
-            the text to identify spelling and grammar errors.
+            if you create an online writing program so that one <red>thread</red> tracks the 
+            user's keystrokes, 
+            a second <red>thread</red> displays the text for the user to read and a third 
+            <red>thread</red> proofreads the text to identify spelling and grammar errors.
             <br></br><br></br>
-            <brown>2. Use multithreading to create I/O-bound or network-bound applications.</brown>
-            <br></br><br></br>
-            Threads can provide you with all the computing power you need to access web servers 
-            and download content from the internet. For example, many data scientists use 
+            <blue>2. Use multithreading to create I/O-bound or network-bound applications.</blue>
+            <br></br>
+            <red>Threads</red> can provide you with all the computing power you need to access 
+            web servers and download content from the internet. 
+            <br></br>
+            For example, many data scientists use 
             <blue>multithreading</blue> to create web scraping applications.
             <br></br><br></br>
-            <brown>3. Use multiprocessing to create computation-intensive programs.</brown>
+            <blue>3. Use multiprocessing to create computation-intensive programs.</blue>
+            <br></br>
+            <red>Multiprocessing</red> can help you analyze large volumes of data quickly.
             <br></br><br></br>
-            <red>multiprocessing</red> can help you analyze large volumes of data quickly.
-            <br></br><br></br>
-            <brown>4. Use multiprocessing to develop programs that are <red>CPU</red> intensive.</brown>
-            <br></br><br></br>
+            <blue>4. Use multiprocessing to develop programs that are <red>CPU</red> intensive.</blue>
+            <br></br>
             <red>Multiprocessing</red> can help you speed up processes and provide reliable solutions 
             for programs that involve several <red>CPU</red> tasks.
             <br></br><br></br>
