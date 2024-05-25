@@ -479,19 +479,22 @@ free(A);
             <br></br><br></br>
         </enums>
         <multi-threading>
-            A <red>thread</red> is a single <blue>sequence stream</blue> within a <red>process</red>. 
+            A <red>thread</red> is a single <blue>sequence stream</blue> within a <red>process</red>.
+            <br></br><br></br>
             A <blue>stream</blue> can be thought of as a <red>path</red> or <red>channel</red> 
-            through which the data it's flowing in and out of the program. 
+            through which the data it's flowing in and out of the program.
+            <br></br><br></br>
             Because <red>threads</red> have some of the properties of <red>processes</red>, 
             they are sometimes called <blue>lightweight processes</blue>.
             <br></br><br></br>
             <red>Threads</red> are not independent from each other unlike <red>processes</red>. 
             As a result, 
             <red>threads</red> shares with other <red>threads</red> their code section, 
-            data section and OS resources like open files and signals. 
+            data section and OS resources such as: opened <blue>files</blue> and 
+            <blue>signals</blue>. 
             <br></br>
-            But, like <red>processes</red>, a <red>thread</red> has its own program 
-            counter (PC), a register set, and a <blue>stack space</blue>. 
+            But, like <red>processes</red>, a <red>thread</red> has its own <blue>program 
+            counter</blue> (PC), a <blue>register set</blue>, and a <blue>stack space</blue>. 
             <br></br><br></br>
             <green>Understanding threads and processing:</green>
             <br></br><br></br>
@@ -13370,14 +13373,18 @@ print(Ob3)
             <br></br><br></br>
             <blue>Python Global Interpreter Lock</blue> or <blue>GIL</blue> is an important 
             part of <blue>multithreading programming</blue>. 
-            It is a <blue>mutex</blue> or a type of <blue>process lock</blue> used when 
-            working with multiple processes. 
+            <br></br><br></br>
+            <blue>Python Global Interpreter Lock</blue> it's a <blue>mutex</blue> or a type 
+            of <blue>process lock</blue> used when working with multiple <red>processes</red>. 
             It allows only one <blue>thread</blue> to hold the <blue>control</blue> of 
-            the <blue>Python interpreter</blue>. This means that only one thread can be in a state of 
-            execution at any point in time. The impact of the GIL isn’t visible to developers who execute 
+            the <blue>Python interpreter</blue>. 
+            This means that only one <blue>thread</blue> can be in a state of 
+            execution at any point in time. 
+            <br></br><br></br>
+            The impact of the GIL isn’t visible to developers who execute 
             <blue>single-threaded</blue> programs but it can be a performance bottleneck in 
-            <blue>CPU-bound</blue> and 
-            <blue>multi-threaded</blue> code.
+            <blue>CPU-bound</blue> and <blue>multi-threaded</blue> code.
+            <br></br><br></br>
             Python uses <blue>reference counting</blue> for <blue>memory management</blue>. 
             It means that 
             <red>objects</red> created in Python have a <blue>reference count</blue> variable that 
@@ -13392,13 +13399,14 @@ print(Ob3)
             simultaneously. If this happens, it can cause either <blue>leaked memory</blue> that 
             is never released or, even worse, <blue>incorrectly release</blue> of the
             the memory while a <blue>reference</blue> to that <red>object</red> still exists. 
-            This can cause <red>crashes</red> or other “weird” <red>bugs</red> within the Python programs.
+            This can cause <red>crashes</red> or other “weird” <red>bugs</red> within the 
+            Python programs.
             <br></br><br></br>
             <brown>GIL was introduced in order to fix these issues.</brown>
             <br></br><br></br>
             Generally, Python uses a <blue>single thread</blue> to run a <blue>single process</blue>.
             We get the same performance result of the <blue>single-threaded</blue> and 
-            <blue>multi-threaded</blue> processes using the </blue>GIL</blue>. 
+            <blue>multi-threaded</blue> processes using the <blue>GIL</blue>. 
             It restricts achieving <blue>multithreading</blue> in Python because it prevents 
             the <blue>threads</blue> and works as a <blue>single thread</blue>.
             <green>Multithreading vs. Multiprocessing:</green>
