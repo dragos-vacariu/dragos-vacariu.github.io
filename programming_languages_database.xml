@@ -14163,7 +14163,8 @@ input("Press any key to quit.")
             One such variable is <code>sys.argv</code> which is a <red>list</red>
             storing the name of the script file and the <blue>command line arguments</blue>:
             <br></br>
-            - <code>len(sys.argv)</code> provides the number of command line arguments.<br></br>
+            - <code>len(sys.argv)</code> provides the number of <blue>command line arguments</blue>.
+            <br></br>
             - <code>sys.argv[0]</code> is the name of the current Python script. 
             <br></br>
 <code>
