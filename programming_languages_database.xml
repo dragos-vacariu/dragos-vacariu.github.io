@@ -12558,91 +12558,116 @@ input("\nPress any key to exit: ")
             <br></br>
             <green>Read files in Python:</green>
             <br></br><br></br>
-            The <blue>read()</blue> method reads a string from an opened file. 
-            It is important to note that Python strings can have binary data, apart from text data.
-            <br></br><br></br>
-            <red>IMPORTANT:</red>
+            The <blue>read()</blue> method reads a <red>string</red> from an opened <blue>file</blue>. 
             <br></br>
-            When reading characters from a file the cursor will move across the
-            content of a file, so if it reaches the end, it will need to be reset using
-            <blue>seek()</blue> function.
+            It is important to note that Python <red>strings</red> can contain <red>binary data</red>, 
+            apart from <red>text data</red>.
             <br></br><br></br>
-            The method <blue>tell()</blue> returns the current position of the cursor within the file.
+            When reading characters from a <blue>file</blue> the <blue>cursor</blue> will move across 
+            the
+            content of a <blue>file</blue>, and if it reaches the end, it will need to be reseted 
+            using <blue>seek()</blue> function, before being able to read again.
+            <br></br><br></br>
+            The method <blue>tell()</blue> returns the current position of the <blue>cursor</blue> 
+            within the <blue>file</blue>.
             <br></br><br></br>
             Passing an argument to the <blue>read()</blue> method will ensure that everything is 
-            read up to the given position within the file content.
+            read up to the given position within the <blue>file</blue> content.
             <br></br>
             Example: <code>MyFile.read(11)</code> 
             <br></br>
-            Only the first <blue>11</blue> characters will be extracted from the file.
+            Only the first <blue>11</blue> characters will be extracted from the <blue>file</blue>.
             <br></br><br></br>
-            The <blue>close()</blue> method of a file object flushes any unwritten information 
+            The <blue>close()</blue> method of a <blue>file object</blue> <red>flushes</red> 
+            any unwritten information 
             and closes the <red>file object</red>, after which no more reading or 
             writing can be done. 
             <br></br><br></br>
-            Python automatically closes a file when the reference object of a file 
-            is reassigned to another file.
+            Python automatically closes a <blue>file</blue> when the reference object of 
+            a <blue>file</blue> 
+            is reassigned to another <blue>file</blue>.
             <br></br><br></br>
-            It is a good practice to use the <blue>close()</blue> method to close a file after
-            finishing operating on the file.
+            It is a good practice to use the <blue>close()</blue> method to close a <blue>file</blue> 
+            after
+            finishing operating on the <blue>file</blue>.
             <br></br><br></br>
-            In order to open a file the <blue>open()</blue> method it used. 
+            In order to open a <blue>file</blue> the <blue>open()</blue> method it used. 
             <br></br>
             This method takes 2 arguments:<br></br>
-            - the filepath of the file to be opened;<br></br>
+            - the filepath of the <blue>file</blue> to be opened;<br></br>
             - the mode for opening;<br></br>
             Example: <code>open("file.txt", "w")</code><br></br>
-            This will open a file named <blue>file.txt</blue> placed in the same directory as the 
+            This will open a <blue>file</blue> named <blue>file.txt</blue> placed in the same 
+            directory as the 
             .py script.
             <br></br><br></br>
-            The other available modes for opening a file are:
+            The other available modes for opening a <blue>file</blue> are:
             <br></br><br></br>
-            <blue>"r"</blue> - Opens a file for reading only. 
+            <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
             The file pointer is placed at the beginning
-            of the file. This is the default mode. It throws an error if the file does not exist.
+            of the file. This is the default mode. It throws an error if the <blue>file</blue> does 
+            not exist.
             <br></br><br></br>
-            <blue>"w"</blue> - Opens a file for writing only. Overwrites the file if the file exists.
-            If the file does not exist, creates a new file for writing.
+            <blue>"w"</blue> - Opens a file for writing only. Overwrites the <blue>file</blue> if 
+            the <blue>file</blue> exists.
+            If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"rb"</blue> - Opens a file for reading only in binary format. The file pointer is placed
-            at the beginning of the file. This is the default mode.
+            <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in binary format. 
+            The <blue>file</blue> pointer is placed
+            at the beginning of the <blue>file</blue>. This is the default mode.
             <br></br><br></br>
-            <blue>"rb+"</blue> - Opens a file for both reading and writing in binary format. The file
-            pointer placed at the beginning of the file.
+            <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
+            binary format. The <blue>file</blue>
+            pointer placed at the beginning of the <blue>file</blue>.
             <br></br><br></br>
-            <blue>"wb"</blue> - Opens a file for writing only in binary format. Overwrites the file if the
-            file exists. If the file does not exist, creates a new file for writing.
+            <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in binary format. 
+            Overwrites the file if the
+            <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
+            creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"w+" - Opens a file for both writing and reading. Overwrites the existing file if
-            the file exists. If the file does not exist, creates a new file for reading
+            <blue>"w+" - Opens a <blue>file</blue> for both writing and reading. 
+            Overwrites the existing <blue>file</blue> if
+            the <blue>file</blue> exists. If the <blue>file</blue> does not exist, 
+            creates a new <blue>file</blue> for reading
             and writing.
             <br></br><br></br>
-            <blue>"wb+"</blue> - Opens a file for both writing and reading in binary format. Overwrites
-            the existing file if the file exists. If the file does not exist, creates a
-            new file for reading and writing.
+            <blue>"wb+"</blue> - Opens a <blue>file</blue> for both writing and reading in 
+            binary format. Overwrites
+            the existing <blue>file</blue> if the <blue>file</blue> exists. 
+            If the <blue>file</blue> does not exist, creates a
+            new <blue>file</blue> for reading and writing.
             <br></br><br></br>
-            <blue>"a"</blue> -     Opens a file for appending. The file pointer is at the end of the file
-            if the file exists. That is, the file is in the append mode. If the file does
-            not exist, it creates a new file for writing.
+            <blue>"a"</blue> -     Opens a <blue>file</blue> for appending. 
+            The <blue>file</blue> pointer is at the end of the file
+            if the <blue>file</blue> exists. That is, the <blue>file</blue> is in 
+            the append mode. If the <blue>file</blue> does
+            not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"ab"</blue> - Opens a file for appending in binary format. The file pointer is at the
-            end of the file if the file exists. That is, the file is in the append mode.
-            If the file does not exist, it creates a new file for writing.
+            <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in binary 
+            format. The <blue>file</blue> pointer is at the
+            end of the <blue>file</blue> if the <blue>file</blue> exists. 
+            That is, the <blue>file</blue> is in the append mode.
+            If the <blue>file</blue> does not exist, 
+            it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"a+"</blue> - Opens a file for both appending and reading. 
-            The file pointer is at the
-            end of the file if the file exists. The file opens in the append mode. If the
-            file does not exist, it creates a new file for reading and writing.
+            <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
+            The <blue>file</blue> pointer is at the
+            end of the <blue>file</blue> if the <blue>file</blue> exists. 
+            The <blue>file</blue> opens in the append mode. If the
+            <blue>file</blue> does not exist, it creates a new <blue>file</blue> 
+            for reading and writing.
             <br></br><br></br>
-            <blue>"ab+"</blue> - Opens a file for both <red>appending</red> and <red>reading</red> 
-            in binary format. The cursor within the <red>file</red> is poiting to the end of the file 
-            if the file exists. 
-            If the file does not exist, it creates a new file for reading and writing.
+            <blue>"ab+"</blue> - Opens a <blue>file</blue> for both <red>appending</red> and <red>reading</red> 
+            in binary format. The cursor within 
+            the <red>file</red> is poiting to the end of the <blue>file</blue> 
+            if the <blue>file</blue> exists. 
+            If the <blue>file</blue> does not exist, it creates 
+            a new <blue>file</blue> for reading and writing.
             <br></br><br></br>
-            The file object contains several <red>attributes</red>:
+            The <blue>file</blue> object contains several <red>attributes</red>:
             <br></br>
             <code>file.closed</code><br></br>
-            <blue>Returns</blue> true if file is closed, false otherwise.
+            <blue>Returns</blue> <code>true</code> if file is closed, false otherwise.
             <br></br><br></br>
             <code>file.mode</code><br></br>
             <blue>Returns</blue> access mode with which file was opened.
@@ -12651,7 +12676,8 @@ input("\nPress any key to exit: ")
             <blue>Returns</blue> name of the file.
             <br></br><br></br>
             <code>file.softspace</code><br></br>
-            <blue>Returns</blue> false if space explicitly required with print, true otherwise.
+            <blue>Returns</blue> <code>false</code> if space explicitly required with print, 
+            <code>true</code> otherwise.
             <br></br><br></br>
 <code>
 #Example of reading content from files
