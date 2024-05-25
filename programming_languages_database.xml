@@ -12562,10 +12562,10 @@ input("\nPress any key to exit: ")
             It is important to note that Python <red>strings</red> can contain <red>binary data</red>, 
             apart from <red>text data</red>.
             <br></br><br></br>
-            When reading characters from a <blue>file</blue> the <blue>pointer/cursor</blue> will 
-            move across the
+            When reading/writing characters from a <blue>file</blue> the <blue>pointer/cursor</blue> 
+            will move across the
             content of a <blue>file</blue>, and if it reaches the end, it will need to be reseted 
-            using <blue>seek()</blue> function, before being able to read again.
+            using <blue>seek()</blue> function, before being able to read/write again.
             <br></br><br></br>
             The method <blue>tell()</blue> returns the current position of the 
             <blue>pointer/cursor</blue> within the <blue>file</blue>.
@@ -12602,20 +12602,20 @@ input("\nPress any key to exit: ")
             The other available <red>modes</red> for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
-            The <blue>file pointer/cursor</blue> is placed at the beginning of the <blue>file</blue>. 
             <br></br>
+            The <blue>file pointer/cursor</blue> is placed at the beginning of the <blue>file</blue>. 
             This is the <red>default mode</red>. It throws an <red>error</red> if 
             the <blue>file</blue> does not exist.
             <br></br><br></br>
             <blue>"w"</blue> - Opens a <blue>file</blue> for writing only. 
-            Overwrites the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
+            Overwrites the <blue>file</blue> if the <blue>file</blue> exists.
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in <red>binary format</red>. 
+            <br></br>
             The <blue>file pointer/cursor</blue> is placed
             at the beginning of the <blue>file</blue>. 
-            <br></br>
             This is the <red>default mode</red>.
             <br></br><br></br>
             <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
@@ -12624,45 +12624,45 @@ input("\nPress any key to exit: ")
             The <blue>file pointers</blue> placed at the beginning of the <blue>file</blue>.
             <br></br><br></br>
             <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in <red>binary format</red>. 
-            Overwrites the file if the <blue>file</blue> exists. 
             <br></br>
+            Overwrites the file if the <blue>file</blue> exists. 
             If the <blue>file</blue> does not exist, 
             creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"w+"</blue> - Opens a <blue>file</blue> for both writing and reading. 
+            <blue>"w+"</blue> - Opens a <blue>file</blue> for both writing and reading.
+            <br></br>
             Overwrites the existing <blue>file</blue> if
             the <blue>file</blue> exists. 
-            <br></br>
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for reading
             and writing.
             <br></br><br></br>
             <blue>"wb+"</blue> - Opens a <blue>file</blue> for both writing and reading in 
-            <red>binary format</red>. Overwrites the existing <blue>file</blue> if 
-            the <blue>file</blue> exists. 
+            <red>binary format</red>. 
             <br></br>
+            Overwrites the existing <blue>file</blue> if 
+            the <blue>file</blue> exists. 
             If the <blue>file</blue> does not exist, creates a
             new <blue>file</blue> for reading and writing.
             <br></br><br></br>
-            <blue>"a"</blue> - Opens a <blue>file</blue> for appending. 
+            <blue>"a"</blue> - Opens a <blue>file</blue> for appending. <br></br>
             The <blue>file pointer/cursor</blue> is at the end of the <blue>file</blue>
             if the <blue>file</blue> exists. 
-            <br></br>
             The <blue>file</blue> is opened in 
             the <red>append mode</red>. If the <blue>file</blue> does
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
             <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in <red>binary format</red>. 
+            <br></br>
             The <blue>file pointer/cursor</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
-            <br></br>
             The <blue>file</blue> is opened in the <red>append mode</red>.
             If the <blue>file</blue> does not exist, 
             it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading. 
+            <blue>"a+"</blue> - Opens a <blue>file</blue> for both appending and reading.
+            <br></br>
             The <blue>file pointer/cursor</blue> is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
-            <br></br>
             The <blue>file</blue> opens in the <red>append mode</red>. If the
             <blue>file</blue> does not exist, it creates a new <blue>file</blue> 
             for reading and writing.
@@ -12698,20 +12698,15 @@ input("\nPress any key to exit: ")
 #Example of reading content from files
 #in Python:
 
-#The write() method writes any string to an open file. It is important to note that
-#Python strings can have binary data and not just text.
-#IMPORTANT - The write() method does not add a newline character ('\n')
-MyFile.write("This program is written in Python language. By Program: 'files for inputting and outputting'")
+MyFile.write("This program is written in Python language.")
 #The string above will be written after the files gets closed (in the next line)
 MyFile.close();
-
 
 MyFile = open("file.txt", "r")
 
 Msg = MyFile.read(11) 
 #Only the first 11 character will be extracted from the file.
 print(Msg)
-
 
 Msg = MyFile.read(11) 
 #This will print the next 11 character in the file
@@ -12727,7 +12722,6 @@ position = MyFile.seek(0, 0);
 
 Msg = MyFile.read(11)
 print(Msg)
-
 
 import os 
 #needed for the os functions.
@@ -12791,15 +12785,71 @@ MyFile.close()
 os.rmdir(r"C:\Users\Black2\Desktop\python\dragos dir2")
 #removing the directory
 
-#THIS STATEMENT WILL THE COMMAND PROMPT OPEN UNTIL THE NEXT BUTTON PRESS:
 input("\nPress any key to exit: ")
-
 </code>
         </read-from-file>
         <write-to-file>
             *General-Programming-Knowledge*
+            <green>Writing to files in Python:</green>
+            <br></br><br></br>
+            The <blue>write()</blue> method writes any string to an open file.
+            The <blue>write()</blue> method does not add a newline character ('\n')
+            <br></br><br></br>
+            It is important to note that
+            Python <red>strings</red> can have <blue>binary data</blue> and not just text.
+            <br></br><br></br>
+            When reading/writing characters from a <blue>file</blue> the <blue>pointer/cursor</blue> 
+            will move across the
+            content of a <blue>file</blue>, and if it reaches the end, it will need to be reseted 
+            using <blue>seek()</blue> function, before being able to read/write again.
+            <br></br><br></br>
+            The <blue>close()</blue> method of a <blue>file object</blue>, <red>flushes</red> 
+            any unwritten information and closes the <red>file object</red>, 
+            after which no more reading or writing can be done. 
+            <br></br><br></br>
+            Python automatically closes a <blue>file</blue> when the <red>reference object</red> of 
+            a <blue>file</blue> is reassigned to another <blue>file</blue>.
+            <br></br><br></br>
+            It is a good practice to use the <blue>close()</blue> method to close a <blue>file</blue> 
+            after finishing operating on the <blue>file</blue>.
+            <br></br><br></br>
+            In order to open a <blue>file</blue> the <blue>open()</blue> method it is used. 
+            <br></br><br></br>
+            The <blue>open()</blue> method takes <blue>2</blue> arguments:<br></br>
+            - the <blue>filepath</blue> of the <blue>file</blue> to be opened;<br></br>
+            - the <blue>mode</blue> for opening;<br></br>
+            <br></br><br></br>
+            <brown>Writing to a file using TXT format.</brown>
+            <br></br>
 <code>
-#Example of writing to file
+#Example of writing to a file in Python:
+ 
+#Opening a file
+file1 = open('myfile.txt', 'w')
+L = ["This is Delhi \n", "This is Paris \n", "This is London \n"]
+s = "Hello\n"
+ 
+#Writing a string to file
+file1.write(s)
+ 
+#Writing multiple strings
+#at a time
+file1.writelines(L)
+ 
+#Closing file
+file1.close()
+ 
+#Checking if the data is
+#written to file or not
+file1 = open('myfile.txt', 'r')
+print(file1.read())
+file1.close()
+</code>
+            <br></br>
+            <brown>Writing to a file using XML format.</brown>
+            <br></br>
+<code>
+#Example of writing to XML file
 #in Python 3:
 
 import os
