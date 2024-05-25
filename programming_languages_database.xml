@@ -12571,7 +12571,7 @@ input("\nPress any key to exit: ")
             within the <blue>file</blue>.
             <br></br><br></br>
             Passing an argument to the <blue>read()</blue> method will ensure that everything is 
-            read, until to the given position within the <blue>file</blue> content.
+            read until to the given position within the <blue>file</blue> content.
             <br></br><br></br>
             <red>Example:</red> <code>MyFile.read(11)</code> 
             <br></br>
@@ -12612,16 +12612,18 @@ input("\nPress any key to exit: ")
             <br></br>
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in binary format. 
+            <blue>"rb"</blue> - Opens a <blue>file</blue> for reading only in <red>binary format</red>. 
             The <blue>file</blue> pointer is placed
-            at the beginning of the <blue>file</blue>. This is the <red>default mode</red>.
+            at the beginning of the <blue>file</blue>. 
+            <br></br>
+            This is the <red>default mode</red>.
             <br></br><br></br>
             <blue>"rb+"</blue> - Opens a <blue>file</blue> for both reading and writing in 
-            binary format. 
+            <red>binary format</red>. 
             <br></br>
             The <blue>file</blue> pointer placed at the beginning of the <blue>file</blue>.
             <br></br><br></br>
-            <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in binary format. 
+            <blue>"wb"</blue> - Opens a <blue>file</blue> for writing only in <red>binary format</red>. 
             Overwrites the file if the <blue>file</blue> exists. 
             <br></br>
             If the <blue>file</blue> does not exist, 
@@ -12635,7 +12637,8 @@ input("\nPress any key to exit: ")
             and writing.
             <br></br><br></br>
             <blue>"wb+"</blue> - Opens a <blue>file</blue> for both writing and reading in 
-            binary format. Overwrites the existing <blue>file</blue> if the <blue>file</blue> exists. 
+            <red>binary format</red>. Overwrites the existing <blue>file</blue> if 
+            the <blue>file</blue> exists. 
             <br></br>
             If the <blue>file</blue> does not exist, creates a
             new <blue>file</blue> for reading and writing.
@@ -12648,8 +12651,8 @@ input("\nPress any key to exit: ")
             the <red>append mode</red>. If the <blue>file</blue> does
             not exist, it creates a new <blue>file</blue> for writing.
             <br></br><br></br>
-            <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in binary 
-            format. The <blue>file</blue> pointer is at the
+            <blue>"ab"</blue> - Opens a <blue>file</blue> for appending in <red>binary format</red>. 
+            The <blue>file</blue> pointer is at the
             end of the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             The <blue>file</blue> is opened in the <red>append mode</red>.
@@ -12665,7 +12668,7 @@ input("\nPress any key to exit: ")
             for reading and writing.
             <br></br><br></br>
             <blue>"ab+"</blue> - Opens a <blue>file</blue> for both <red>appending</red> and <red>reading</red> 
-            in binary format. 
+            in <red>binary format</red>. 
             <br></br>
             The cursor within the <red>file</red> is poiting to the end of the <blue>file</blue> 
             if the <blue>file</blue> exists. 
@@ -12688,8 +12691,8 @@ input("\nPress any key to exit: ")
             <blue>Returns</blue> name of the <blue>file</blue>.
             <br></br><br></br>
             <code>file.softspace</code><br></br>
-            <blue>Returns</blue> <code>false</code> if space explicitly required with print, 
-            <code>true</code> otherwise.
+            <blue>Returns</blue> a <red>boolean</red> that indicates whether a space character 
+            needs to be printed before another value when using the <red>print</red> statement.
             <br></br><br></br>
 <code>
 #Example of reading content from files
