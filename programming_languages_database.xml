@@ -12602,13 +12602,13 @@ input("\nPress any key to exit: ")
             The other available <red>modes</red> for opening a <blue>file</blue> are:
             <br></br><br></br>
             <blue>"r"</blue> - Opens a <blue>file</blue> for reading only. 
-            The file pointer is placed at the beginning of the file. 
+            The <blue>file pointer</blue> is placed at the beginning of the <blue>file</blue>. 
             <br></br>
             This is the <red>default mode</red>. It throws an <red>error</red> if 
             the <blue>file</blue> does not exist.
             <br></br><br></br>
-            <blue>"w"</blue> - Opens a file for writing only. Overwrites the <blue>file</blue> if 
-            the <blue>file</blue> exists.
+            <blue>"w"</blue> - Opens a <blue>file</blue> for writing only. 
+            Overwrites the <blue>file</blue> if the <blue>file</blue> exists.
             <br></br>
             If the <blue>file</blue> does not exist, creates a new <blue>file</blue> for writing.
             <br></br><br></br>
@@ -12641,7 +12641,7 @@ input("\nPress any key to exit: ")
             new <blue>file</blue> for reading and writing.
             <br></br><br></br>
             <blue>"a"</blue> -     Opens a <blue>file</blue> for appending. 
-            The <blue>file</blue> pointer is at the end of the file
+            The <blue>file</blue> pointer is at the end of the <blue>file</blue>
             if the <blue>file</blue> exists. 
             <br></br>
             The <blue>file</blue> is opened in 
@@ -12685,7 +12685,7 @@ input("\nPress any key to exit: ")
             opened.
             <br></br><br></br>
             <code>file.name</code><br></br> 
-            <blue>Returns</blue> name of the file.
+            <blue>Returns</blue> name of the <blue>file</blue>.
             <br></br><br></br>
             <code>file.softspace</code><br></br>
             <blue>Returns</blue> <code>false</code> if space explicitly required with print, 
