@@ -478,7 +478,7 @@ free(A);
             assign names to integral constants, the names make a program easy to read and maintain.
             <br></br><br></br>
         </enums>
-        <multi-threading>
+        <concurrent-programming>
             <blue>Concurrent Programming</blue> is a technique in which two or more 
             <red>processes</red> start, run in an interleaved fashion through context switching 
             and complete in an overlapping time period by managing access to 
@@ -776,7 +776,7 @@ free(A);
             <red>Multiprocessing</red> can help you speed up <red>processes</red> and provide 
             reliable solutions for programs that involve several <red>CPU</red> tasks.
             <br></br><br></br>
-        </multi-threading>
+        </concurrent-programming>
         <bitwise-operators>
             The <code>&#38;</code> (bitwise <red>AND</red>) in C takes two numbers as operands and does <red>AND</red> on every bit 
             of two numbers. <br></br>
@@ -2272,8 +2272,9 @@ int main()
 } 
 </code>
         </enums>
-        <multi-threading>
-            *General-Programming-Knowledge*<br></br>
+        <concurrent-programming>
+            *General-Programming-Knowledge*
+            <br></br>
 <code>
 /*Example of using multi-threading in C Language*/
 
@@ -2302,7 +2303,31 @@ int main()
     exit(0); 
 }
 </code>
-        </multi-threading>
+        <br></br>
+        In C/C++: one of the main workhorse functions that makes multiprocessing possible 
+        is <code>fork()</code>.
+        <br></br><br></br>
+        <code>fork()</code> is a function that clone a process, spawning an 
+        identical copy of it.
+        <br></br>
+<code>
+//Example of multi-processing in C/C++:
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/wait.h&gt;
+
+int main(int argc, char **argv)
+{
+    pid_t pid = fork ();
+    if (pid != 0) {
+        waitpid (pid, NULL, 0);
+    }
+    printf ("Hello, World!\n");
+}
+</code>
+        </concurrent-programming>
         <exception-handling>
             C does not provide direct support to 
             <blue>error handling</blue> (or <red>exception handling</red>).
@@ -4052,7 +4077,7 @@ int main()
 }
 </code>
         </enums>
-        <multi-threading>
+        <concurrent-programming>
             *General-Programming-Knowledge*
             <br></br>
             C++ <red>multithreading</red> involves creating and using <red>thread</red> objects, seen as <code>std::thread</code> 
@@ -4097,7 +4122,7 @@ int main ()
    pthread_exit(NULL);
 }
 </code>
-        </multi-threading>
+        </concurrent-programming>
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
@@ -5898,7 +5923,7 @@ namespace Software
 }
 </code>
         </enums>
-        <multi-threading>
+        <concurrent-programming>
             *General-Programming-Knowledge*
 <code>
 //Example of using multi-threading in C#
@@ -5955,7 +5980,7 @@ namespace MultithreadingApplication
    }
 }
 </code>
-        </multi-threading>
+        </concurrent-programming>
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
@@ -8225,7 +8250,7 @@ PrintSomething(5);
                 JavaScript doesn't support operator overloading.
             </green>
         </operator-overloading>
-        <multi-threading>
+        <concurrent-programming>
             *General-Programming-Knowledge*
             <br></br><br></br>
             <green>Multithreading in JavaScript:</green>
@@ -8238,7 +8263,7 @@ PrintSomething(5);
             This <blue>single-threaded</blue> nature along with <red>event loop</red> allows 
             JavaScript to handle <red>concurrent</red> operations at once.
             <br></br>
-        </multi-threading>
+        </concurrent-programming>
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
@@ -10381,7 +10406,7 @@ public class Project15 {
 }
 </code>
         </enums>
-        <multi-threading>
+        <concurrent-programming>
             *General-Programming-Knowledge*
             <br></br>
             <green>Multithreading in Java:</green>
@@ -10490,7 +10515,7 @@ class Multithread
     }
 }
 </code>
-        </multi-threading>
+        </concurrent-programming>
         <exception-handling>
             *General-Programming-Knowledge*
 <code>
@@ -13453,7 +13478,7 @@ print(Ob3)
         <code>|             __or__(self, other)</code><br></br>
         <code>^             __xor__(self, other)</code><br></br>
         </operator-overloading>
-        <multi-threading>
+        <concurrent-programming>
             *General-Programming-Knowledge*
             <br></br>
             <green>Multithreading in Python:</green>
@@ -13707,7 +13732,7 @@ if __name__ == "__main__":
     
     input("Press any key to quit.")
 </code>        
-        </multi-threading>
+        </concurrent-programming>
         <namespaces>
             *General-Programming-Knowledge*
             <br></br>
