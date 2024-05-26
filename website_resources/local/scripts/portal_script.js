@@ -867,6 +867,7 @@ function FullScreenZoom()
 
 function changeToModernPage()
 {
+    console.log("changeToModernPage this.value = " + this.value)
     if(this.value == false)
     {
         updateCookie("page", "modern");
@@ -876,6 +877,7 @@ function changeToModernPage()
 
 function changeToClassicPage()
 {
+    console.log("changeToClassicPage this.value = " + this.value)
     if(this.value == false)
     {
         updateCookie("page", "classic");
