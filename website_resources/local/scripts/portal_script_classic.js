@@ -795,12 +795,20 @@ function formatMultiLineComments(codeElementListOfLines)
 
 function changeToModernPage()
 {
-    window.location.href = "./portal_modern.html";
+    if(this.value == false)
+    {
+        updateCookie("page", "classic");
+        window.location.href = "./portal.html";
+    }
 }
 
 function changeToClassicPage()
 {
-    window.location.href = "./portal_classic.html";
+    if(this.value == false)
+    {
+        updateCookie("page", "modern");
+        window.location.href = "./portal_classic.html";
+    }
 }
 
 loadXMLDoc(online_xml_file);

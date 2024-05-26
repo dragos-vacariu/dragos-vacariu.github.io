@@ -65,8 +65,18 @@ function setCookie()
         
         //Process and restore the values stored in the cookie
         
+        //Checking if pairs[0] is a PAGE VIEW:
+        if(pairs[0] == "page"
+        {
+            //Modern is the default page that opens up
+            //only one case to be covered
+            if(pairs[1] == "classic") 
+            {
+                changeToClassicPage();
+            }
+        }
         //Checking if pairs[0] is a VIEW:
-        if(pairs[0] == "view")
+        else if(pairs[0] == "view")
         {
             if(pairs[1] == "paragraph")
             {
@@ -856,12 +866,20 @@ function FullScreenZoom()
 
 function changeToModernPage()
 {
-    window.location.href = "./portal_modern.html";
+    if(this.value == false)
+    {
+        updateCookie("page", "classic");
+        window.location.href = "./portal.html";
+    }
 }
 
 function changeToClassicPage()
 {
-    window.location.href = "./portal_classic.html";
+    if(this.value == false)
+    {
+        updateCookie("page", "modern");
+        window.location.href = "./portal_classic.html";
+    }
 }
 
 //When fullscreen changes call my function to handle the zooming
