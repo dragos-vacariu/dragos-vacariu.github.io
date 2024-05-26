@@ -60,9 +60,6 @@ function checkSwitchPageView()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
     foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    console.log(cookie_elements);
-    console.log();
-    console.log(foundPageView)
     if(foundPageView >=0)
     {
         window.location.href = "./portal_classic.html";
