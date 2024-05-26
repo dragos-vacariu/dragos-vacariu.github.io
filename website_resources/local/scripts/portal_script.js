@@ -66,6 +66,7 @@ function setCookie()
         //Process and restore the values stored in the cookie
         
         //Checking if pairs[0] is a PAGE VIEW:
+        console.log(pairs)
         if(pairs[0] == "page")
         {
             //Modern is the default page that opens up
