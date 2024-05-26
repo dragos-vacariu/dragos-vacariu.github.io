@@ -797,7 +797,7 @@ function changeToModernPage()
 {
     if(this.value == false)
     {
-        updateCookie("page", "classic");
+        updateCookie("page", "modern");
         window.location.href = "./portal.html";
     }
 }
@@ -806,7 +806,7 @@ function changeToClassicPage()
 {
     if(this.value == false)
     {
-        updateCookie("page", "modern");
+        updateCookie("page", "classic");
         window.location.href = "./portal_classic.html";
     }
 }
