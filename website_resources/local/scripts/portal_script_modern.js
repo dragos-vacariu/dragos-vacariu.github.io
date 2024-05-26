@@ -5,6 +5,7 @@ var concept_collection = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
+const page_selection = document.getElementById("page_selection");
 const cookie_element_separator = "<br>"; 
 
 const paragraph_view_value = "paragraph view";
@@ -17,7 +18,7 @@ const tag_selection_off = "background-image: linear-gradient(to right, white, #f
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
 const programming_language_div_style = [
-    "background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
+    "background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.4)); padding: 1; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
     "background-image: linear-gradient(to bottom, rgba(0,0,255,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;", 
     "background-image: linear-gradient(to bottom, rgba(255,0,0,0.1), rgba(255,255,255,0.4));  padding: 1vw; margin: 1vw;", 
     "background-image: linear-gradient(to bottom, rgba(0,255,0,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;",
@@ -223,6 +224,11 @@ function loadXMLDoc(xml_file)
                 }
                 programming_languages.push(Programming_Lang);
             }
+            /*Adding page selection buttons*/
+            page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
+            page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
+            
+            
             /*Adding the overall language selection functions*/
             overall_language_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllLanguageElements) );
             overall_language_selection.appendChild( createLiElement("select all", true, selectionOfAllLanguageElements) );
@@ -787,5 +793,81 @@ function formatMultiLineComments(codeElementListOfLines)
     }
     return codeElementListOfLines;
 }
+
+function FullscreenMode(e) 
+{
+    var fullscreen_element = document.getElementById("page_table");
+    if (document.fullscreenElement == null)
+    {
+        if (fullscreen_element.requestFullscreen) 
+        {
+            fullscreen_element.requestFullscreen();
+        } 
+        else if (fullscreen_element.webkitRequestFullscreen) 
+        { /* Safari */
+            fullscreen_element.webkitRequestFullscreen();
+        } 
+        else if (fullscreen_element.msRequestFullscreen) 
+        { /* IE11 */
+            fullscreen_element.msRequestFullscreen();
+        }
+    }
+    else
+    {
+
+        if (document.exitFullscreen) 
+        {
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen) 
+        { /* Safari */
+            document.webkitExitFullscreen();
+        } 
+        else if (document.msExitFullscreen) 
+        { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
+}
+
+function Enter_FullScreen(e)
+{
+	if (e.key == "f")
+	{
+		FullscreenMode(); 
+	}
+}
+
+function FullScreenZoom()
+{
+   if (document.fullscreenElement != null)
+   {
+          /*Fullscreen turned on -> Zooming in:*/
+        document.getElementById("content_div").style.height = "98%";
+        document.getElementById("menu_div").style.height = "98%";
+   }
+   else
+   {
+          /*Fullscreen turned off - > Zooming out:*/
+        document.getElementById("content_div").style.height = "40vw";
+        document.getElementById("menu_div").style.height = "40vw";
+   }
+}
+
+function changeToModernPage()
+{
+    window.location.href = "./portal_modern.html";
+}
+
+function changeToClassicPage()
+{
+    window.location.href = "./portal_classic.html";
+}
+
+//When fullscreen changes call my function to handle the zooming
+document.addEventListener("fullscreenchange", FullScreenZoom, false);
+
+//When this button is pressed call this function
+document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
 
 loadXMLDoc(online_xml_file);
