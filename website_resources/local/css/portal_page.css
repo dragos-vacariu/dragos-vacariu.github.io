@@ -1,67 +1,67 @@
 #page_block h4{
-	position:relative;
-	width:98%;
-	height: auto;
-	top:0%;
-	margin-left:1%;
-	margin-top:1%;
-	text-align: center;
-	border-style:solid;
-	border-width:0.2vw;
-	border-color:black;
-	font-family:Verdana;
-	font-size:14px;
-	color:#663300;
-	background-color: rgba(153,85,00, 0.1);
-	background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
-	text-shadow: 1px 1px white;
-	box-shadow: 0.1vw 1vw 0.5vw lightgray;
+    position:relative;
+    width:98%;
+    height: auto;
+    top:0%;
+    margin-left:1%;
+    margin-top:1%;
+    text-align: center;
+    border-style:solid;
+    border-width:0.2vw;
+    border-color:black;
+    font-family:Verdana;
+    font-size:14px;
+    color:#663300;
+    background-color: rgba(153,85,00, 0.1);
+    background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
+    text-shadow: 1px 1px white;
+    box-shadow: 0.1vw 1vw 0.5vw lightgray;
 }
 
 #page_block h4 p{
-	font-family:Verdana;
-	font-size:16px;
-	color: #221100;
-	border-style: none;
-	margin: 0%;
-	margin-bottom: 1%;
-	padding: 10px;
-	text-shadow: 1px 1px white;
+    font-family:Verdana;
+    font-size:16px;
+    color: #221100;
+    border-style: none;
+    margin: 0%;
+    margin-bottom: 1%;
+    padding: 10px;
+    text-shadow: 1px 1px white;
 }
 
 #page_block h4 info{
-	font-family:Tahoma;
-	font-size:14px;
-	color: #221100;
-	border-style: none;
-	margin: 0%;
-	margin-bottom: 1%;
-	padding: 10px;
-	text-shadow: 1px 1px white;
-	text-decoration: none;
+    font-family:Tahoma;
+    font-size:14px;
+    color: #221100;
+    border-style: none;
+    margin: 0%;
+    margin-bottom: 1%;
+    padding: 10px;
+    text-shadow: 1px 1px white;
+    text-decoration: none;
 }
 
 #page_block h4 info a{
-	font-family:Tahoma;
-	color: darkgreen;
-	border-style: none;
-	text-decoration: none;
+    font-family:Tahoma;
+    color: darkgreen;
+    border-style: none;
+    text-decoration: none;
 }
 
 #page_block h4 info a:hover{
-	color: darkblue;
+    color: darkblue;
 }
 
 #page_block h4 q{
-	font-family:Calibri;
-	font-size:15px;
-	color: #221100;
-	border-style: none;
-	margin: 0%;
-	margin-bottom: 1%;
-	padding: 10px;
-	text-shadow: 1px 1px white;
-	text-decoration: none;
+    font-family:Calibri;
+    font-size:15px;
+    color: #221100;
+    border-style: none;
+    margin: 0%;
+    margin-bottom: 1%;
+    padding: 10px;
+    text-shadow: 1px 1px white;
+    text-decoration: none;
 }
 
 #page_block h4 q:before {
@@ -73,129 +73,129 @@
 }
 
 #page_block h4 q blue{
-	font-family: Consolas;
-	font-size:12px;
-	color: blue;
+    font-family: Consolas;
+    font-size:12px;
+    color: blue;
 }
 
 #page_block h4 .selection_title{
-	font-family:Verdana;
-	font-size:16px;
-	color: #775500;
-	border-style: none;
-	margin: 0%;
-	padding: 10px;
-	text-shadow: 1px 1px white;
+    font-family:Verdana;
+    font-size:16px;
+    color: #775500;
+    border-style: none;
+    margin: 0%;
+    padding: 10px;
+    text-shadow: 1px 1px white;
 }
 
 #page_block h4 form{
-	padding: 0%;
-	margin: 0%;
+    padding: 0%;
+    margin: 0%;
 
 }
 
 #page_block #menu {
-	position: relative;
-	width: 98%;
-	font-family:Verdana;
-	font-size:16px;
-	color: #005500;
-	margin: 0%;
-	margin-left: 1%;
-	margin-top: 3%;
-	text-shadow: 1px 1px white;
-	list-style: none;
-	padding: 0%;
+    position: relative;
+    width: 98%;
+    font-family:Verdana;
+    font-size:16px;
+    color: #005500;
+    margin: 0%;
+    margin-left: 1%;
+    margin-top: 3%;
+    text-shadow: 1px 1px white;
+    list-style: none;
+    padding: 0%;
 }
 
 .selection_list {
-	position: relative;
-	width: 100%;
-	padding: 0%;
-	margin-left: 1%;
-	list-style: none;
-	margin:1px;
-	padding: 2px;
-	text-align: left;
+    position: relative;
+    width: 100%;
+    padding: 0%;
+    margin-left: 1%;
+    list-style: none;
+    margin:1px;
+    padding: 2px;
+    text-align: left;
 }
 
 .selection_list li{
-	display: inline-block;
-	width: auto; 
-	list-style: none;
-	text-align: left;
-	margin-right: 2px;
-	border: solid 1px black;
-	padding: 5px;
-	background-color: white;
-	font-size: 13px;
-	font-family:Georgia;
-	color: darkred;
-	font-weight: bold;
+    display: inline-block;
+    width: auto; 
+    list-style: none;
+    text-align: left;
+    margin-right: 2px;
+    border: solid 1px white;
+    padding: 5px;
+    background-image: linear-gradient(to right, white, #ffeecc);
+    font-size: 12px;
+    font-family:Georgia;
+    color: #995500;
+    text-shadow: 0px 0px white;
 }
 
 #page_block #table_content{
-	background-color: rgba(255,255,255, 0.3);
-	width: 100%; 
-	text-align: center;
-	table-layout: fixed;
-	word-wrap: break-word;
+    background-color: rgba(255,255,255, 0.3);
+    width: 100%; 
+    text-align: center;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 #page_block #table_content tr td{
-	border: none 2px black; /*value of this property will affect the code table also*/
-	padding: 0.5vw 1vw;
+    border: none 2px black; /*value of this property will affect the code table also*/
+    padding: 0.5vw 1vw;
 }
 
 #page_block #paragraph_content{
-	background-color: rgba(255,255,255, 0.3);
-	position: relative;
-	width: 98%; 
-	margin-right: 0%;
-	margin-left: 1%;
-	margin-bottom: 1%;
-	margin-top: 1%;
-	padding: 0%;
-	border: solid 1px white;
+    background-color: rgba(255,255,255, 0.3);
+    position: relative;
+    width: 98%; 
+    margin-right: 0%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding: 0%;
+    border: solid 1px white;
 }
 
 #page_block #paragraph_content p{
-	position: relative;
-	width: auto; 
+    position: relative;
+    width: auto; 
 }
 
 #page_block code{
-	font-family: Consolas;
-	font-size: 16px;
-	white-space: pre-wrap;
-	color: blue;
+    font-family: Consolas;
+    font-size: 16px;
+    white-space: pre-wrap;
+    color: blue;
 }
 
 #page_block code table{
-	border: none 1px black;
-	width: 100%;
-	table-layout: fixed;
-	word-wrap: break-word;
-	padding:0px;
-	margin: 0px;
-	height: auto;
+    border: none 1px black;
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    padding:0px;
+    margin: 0px;
+    height: auto;
 }
 #page_block code table td{
-	text-align: left;
-	border: none 1px black;
-	/*properties set explicitly within the script
-	padding: 0px;
-	margin: 0px;
-	width: auto;
-	*/
+    text-align: left;
+    border: none 1px black;
+    /*properties set explicitly within the script
+    padding: 0px;
+    margin: 0px;
+    width: auto;
+    */
 }
 
 #page_block code box{
-	background-color: rgba(255,255,255,0.4);
-	border: 1px solid black;
-	display: block;
-	padding: 0px;
-	margin: 15px 0px;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid black;
+    display: block;
+    padding: 0px;
+    margin: 15px 0px;
 }
 
 #page_block code lineNumber {
@@ -210,40 +210,40 @@
 }
 
 #page_block code comment{
-	color: #aa0000;
+    color: #aa0000;
 }
 
 #page_block red{
-	color: #aa0000;
-	font-family: Tahoma;
-	font-size: 15px;
+    color: #aa0000;
+    font-family: Tahoma;
+    font-size: 15px;
 }
 
 #page_block brown{
-	color: #774400;
-	font-family: Tahoma;
-	font-size: 16px;
-	text-shadow: 0.5px 0.5px white;
+    color: #774400;
+    font-family: Tahoma;
+    font-size: 16px;
+    text-shadow: 0.5px 0.5px white;
 }
 
 #page_block green{
-	color: #007700;
-	font-family: Tahoma;
-	font-size: 18px;
+    color: #007700;
+    font-family: Tahoma;
+    font-size: 18px;
 }
 
 #page_block blue{
-	color: #7700aa;
-	font-family: Tahoma;
-	font-size: 15px;
+    color: #7700aa;
+    font-family: Tahoma;
+    font-size: 15px;
 }
 
 #page_block bold{
-	font-weight: bold;
+    font-weight: bold;
 }
 
 #page_block highlight{
-	font-weight: bold;
-	color: red;
-	font-family: Verdana;
+    font-weight: bold;
+    color: red;
+    font-family: Verdana;
 }
