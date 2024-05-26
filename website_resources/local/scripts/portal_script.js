@@ -73,7 +73,7 @@ function setCookie()
             //only one case to be covered
             if(pairs[1] == "classic") 
             {
-                changeToClassicPage();
+                window.location.href = "./portal_classic.html";
             }
         }
         //Checking if pairs[0] is a VIEW:
