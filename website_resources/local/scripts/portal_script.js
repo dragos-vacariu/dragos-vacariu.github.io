@@ -56,6 +56,16 @@ function cookieHandling()
     }
 }
 
+function checkSwitchPageView()
+{
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    foundPageView = cookie_elements.find(element => element == "page=classic");
+    if(foundPageView >=0)
+    {
+        window.location.href = "./portal_classic.html";
+    }
+}
+
 function setCookie()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
@@ -65,18 +75,8 @@ function setCookie()
         
         //Process and restore the values stored in the cookie
         
-        //Checking if pairs[0] is a PAGE VIEW:
-        if(pairs[0] == "page")
-        {
-            //Modern is the default page that opens up
-            //only one case to be covered
-            if(pairs[1] == "classic") 
-            {
-                window.location.href = "./portal_classic.html";
-            }
-        }
         //Checking if pairs[0] is a VIEW:
-        else if(pairs[0] == "view")
+        if(pairs[0] == "view")
         {
             if(pairs[1] == "paragraph")
             {
@@ -881,6 +881,9 @@ function changeToClassicPage()
         window.location.href = "./portal_classic.html";
     }
 }
+
+//Check if user expects to use different version of the webpage;
+checkSwitchPageView();
 
 //When fullscreen changes call my function to handle the zooming
 document.addEventListener("fullscreenchange", FullScreenZoom, false);
