@@ -66,7 +66,6 @@ function setCookie()
         //Process and restore the values stored in the cookie
         
         //Checking if pairs[0] is a PAGE VIEW:
-        console.log(pairs)
         if(pairs[0] == "page")
         {
             //Modern is the default page that opens up
@@ -867,7 +866,6 @@ function FullScreenZoom()
 
 function changeToModernPage()
 {
-    console.log("changeToModernPage this.value = " + this.value)
     if(this.value == false)
     {
         updateCookie("page", "modern");
@@ -877,7 +875,6 @@ function changeToModernPage()
 
 function changeToClassicPage()
 {
-    console.log("changeToClassicPage this.value = " + this.value)
     if(this.value == false)
     {
         updateCookie("page", "classic");
