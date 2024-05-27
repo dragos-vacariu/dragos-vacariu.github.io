@@ -33,66 +33,59 @@
         </nav>
         <div id="page_block">
             <h2>Portal</h2>
-            <table id = "page_table">
-                <tr>
-                    <td style = "width: 25%; vertical-align: top;">
-                        
-                    </td>
-                    <td style = "vertical-align: top;">
-                         <div id="fullscreen_button">
-                            <img src=".\website_resources\local\images\fullscreen_icon2.png"></img>
-                        </div>
-                        <div id="content_div">
-                        
-                            <p>
-                                <description>The portal is implemented as means to facilitate 
-                                browsing the information extracted from a database.<br>
-                                The buttons can be used to change the view and to select or deselect the information considered 
-                                relevant/not relevant.<br><br>
-                                </description>
-                                <info>
-                                The materials stored in the database were gathered from various public sources and free tutorial platforms such us: <a href="http://www.w3schools.com">W3School</a>, <a href="http://www.youtube.com">YouTube<a>, 
-                                <a href="https://www.geeksforgeeks.org/">GeeksForGeeks</a>, <a href="https://ro.wikipedia.org/">Wikipedia</a> or taken from the personal achieve of exercises, projects, training materials and code samples.</info><br><br>
-                                <q>Results of various studies state that a person could become an expert in nearly any 
-                                field as long as they were willing to devote the requisite <blue>10,000 hours</blue> to studying and 
-                                practicing the subject or skill.
-                                <br><br>
-                                <blue>10 000 hours / 8h per day / 20 days per month / 12 months per year &#8773; 5.2 years</blue></q>
-                            </p>
-                            <div id="menu_div">
-                                <ul id="menu">
-                                    <p>Page View:</p> 
-                                    <li id = "page_selection" class = "selection_list">
-                                    </li>
-                                    <p>Content View:</p> 
-                                    <li id = "view_selection" class = "selection_list">
-                                        
-                                    </li>
-                                    <p>Language Selection:</p>
-                                    <li id = "programming_language_selection" class = "selection_list">
-                                        
-                                    </li>
-                                    <p>Overall Language Selection:</p>
-                                    <li id="overall_language_selection" class = "selection_list">
-                                        
-                                    </li>
-                                    <p> Overall Concept Selection:</p>
-                                    <li id="overall_concept_selection" class = "selection_list">
-                                       
-                                    </li>
-                                    <p>Concept Selection:</p>
-                                    <li id="concept_selection" class = "selection_list">
-                                        
-                                    </li>
-                                </ul>
-                            </div>
-                            <table id="table_content" hidden="hidden">
-                            </table>
-                            <p id = "paragraph_content"></p>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div id="page_content">
+                <div id="menu_div">
+                    <ul id="menu">
+                        <p>Page View:</p> 
+                        <li id = "page_selection" class = "selection_list">
+                        </li>
+                        <p>Content View:</p> 
+                        <li id = "view_selection" class = "selection_list">
+                            
+                        </li>
+                        <p>Language Selection:</p>
+                        <li id = "programming_language_selection" class = "selection_list">
+                            
+                        </li>
+                        <p>Overall Language Selection:</p>
+                        <li id="overall_language_selection" class = "selection_list">
+                            
+                        </li>
+                        <p> Overall Concept Selection:</p>
+                        <li id="overall_concept_selection" class = "selection_list">
+                           
+                        </li>
+                        <p>Concept Selection:</p>
+                        <li id="concept_selection" class = "selection_list">
+                            
+                        </li>
+                    </ul>
+                </div>
+                <div id="content">
+                    <div id="database_info">
+                        <description>The portal is implemented as means to facilitate 
+                        browsing the information extracted from a database.<br>
+                        The buttons can be used to change the view and to select or deselect the information considered 
+                        relevant/not relevant.<br><br>
+                        </description>
+                        <info>
+                        The materials stored in the database were gathered from various public sources and free tutorial platforms 
+                        such us: <a href="http://www.w3schools.com">W3School</a>, <a href="http://www.youtube.com">YouTube<a>, 
+                        <a href="https://www.geeksforgeeks.org/">GeeksForGeeks</a>, <a href="https://ro.wikipedia.org/">Wikipedia</a> 
+                        or taken from the personal achieve of exercises, projects, training materials and code samples.
+                        </info>
+                        <br><br>
+                        <q>Results of various studies state that a person could become an expert in nearly any 
+                        field as long as they were willing to devote the requisite <blue>10,000 hours</blue> to studying and 
+                        practicing the subject or skill.
+                        <br><br>
+                        <blue>10 000 hours / 8h per day / 20 days per month / 12 months per year &#8773; 5.2 years</blue></q>
+                    </div>
+                    <table id="table_content" hidden="hidden">
+                    </table>
+                    <p id = "paragraph_content"></p>
+                </div>
+            </div>
         </div>
         <footer>
             <h4>{{pageObject.footer_copyright}}</h4>
@@ -127,5 +120,5 @@
         </footer>        
     </body>
     <!--Local scripts-->
-    <script src="./website_resources/local/scripts/portal_script.js"></script>
+    <script src="./website_resources/local/scripts/portal_script_mod.js"></script>
 </html>

@@ -1,54 +1,69 @@
 #page_block {
-    position:relative;
-    width:98%;
-    height: auto;
-    top:0%;
-}
-
-#page_block #page_table {
     position: relative;
     width: 98%;
     color:#663300;
-    border: solid 2px darkred;
+    border: solid 1px #995500;
     margin-left:1%;
     margin-top:1%;
     font-family:Verdana;
     font-size:14px;
-    color:#663300;
     background-color: white;
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
     text-shadow: 1px 1px white;
-    table-layout: fixed;
     word-wrap: break-word;
-    height: 40vw;
+    min-height: 60vw;
+    height: auto;
+    top: 0px;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+#page_block #page_content
+{
+    position:static;
+    width:100%;
+    /*display flex will make child elements stay side by side*/
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    /*
+    Alternative way: display: inline-block; will do the same thing
+    display: inline-block; 
+    */
 }
 
 /*Selecting only tr elements whose parent is  #page_table*/
 #page_block #page_table>tr {
-    border: solid 2px darkred;
+    border: solid 2px #995500;
 }
 
 /*Selecting only td elements whose parent is  #page_table*/
 #page_block #page_table>td { 
-    border: solid 2px darkred;
+    border: solid 2px #995500;
     /*vertical-align: top; */ /*this property is set in the html file*/
 }
 
-#page_block #page_table #menu_div
+#page_block #menu_div
 {
     position: sticky;
-    width:30%;
+    width:30%; /*width not really needed flex will control the width*/
     left: 0%;
-    height: 40vw;
-    margin: 2px;
+    top:0%;
+    margin:0%;
+    height: 98vh; /*height in percent of viewport height*/
     padding: 0%;
-    top:5%;
-    float:left;
+    border: none 2px #995500;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /*flex and md-flex sets the width*/
+    -ms-flex:  0.3;  /* IE 10 */  
+    flex: 0.3; /*0.5 means 25% as 1 means 50:50*/
 }
 
-#page_block #page_table #menu_div #menu {
-    position: absolute;
+#page_block #menu_div #menu {
+    position: relative;
     width: 98%;
+    top:0%;
     font-family:Verdana;
     font-size:16px;
     color: #005500;
@@ -56,9 +71,10 @@
     text-shadow: 1px 1px white;
     list-style: none;
     padding: 0%;
+    height: auto;
 }
 
-#page_block #page_table #menu_div .selection_list {
+#page_block #menu_div .selection_list {
     position: relative;
     width: 100%;
     padding: 0%;
@@ -72,7 +88,7 @@
     font-size: 14px;
 }
 
-#page_block #page_table #menu_div  p{
+#page_block #menu_div  p{
     position: relative;
     width: 90%;
     margin-left: 1%;
@@ -87,12 +103,12 @@
     border: none;
 }
 
-#page_block #page_table #menu_div  .selection_list:hover
+#page_block #menu_div .selection_list:hover
 {
     cursor: default;
 }
 
-#page_block #page_table #menu_div .selection_list li{
+#page_block #menu_div .selection_list li{
     display: inline-block;
     width: auto; 
     list-style: none;
@@ -107,59 +123,48 @@
     text-shadow: 0px 0px white;
 }
 
-#page_block #page_table #content_div
-{
+#page_block #content{
     position: relative;
-    width: 99%;
-    height: 40vw;
-    margin: 2px;
-    top: 0px;
-    border: solid 2px gold;
-    font-weight: bold;
-    height: auto;
+    width: 68%;
+    border: none 2px pink;
+    /*flex and md-flex sets the width*/
+   -ms-flex: 1;  /* IE 10 */ 
+    flex: 1;
 }
 
-#page_block #page_table #fullscreen_button{
-    position: absolute ; /*this element will stay on screen at all times*/
-    width:15px;
-    height:auto;
-    right:2.5%;
-    z-index:1000000000000000000000000000; /*this element will always be on top*/
-}
-
-#page_block #page_table #fullscreen_button img{
-    position: relative ; /*this element will stay on screen at all times*/
-    width:15px;
-    height:15px;
-}
-
-#content_div p{
+#page_block #database_info{
+    position:relative;
+    width: 96%;
+    margin: 1%;
+    padding: 1%;
     font-family:Verdana;
     font-size:16px;
     color: #221100;
-    border-style: none;
-    width: 46%;
-    left:30%;
-    margin: 1%;
-    padding: 10px;
+    border: none 2px blue;
     text-shadow: 1px 1px white;
+    text-align: center;
 }
 
-#content_div info{
+#page_block #database_info info{
+    position: relative;
+    margin: 0%;
+    margin-bottom: 1%;
+    padding: 10px;
+    text-shadow: 1px 1px white;
+    text-decoration: none;
+    text-align: center;
     font-family:Tahoma;
     font-size:14px;
     color: #221100;
     border-style: none;
-    margin: 0%;
-    margin-bottom: 1%;
-    padding: 10px;
-    text-shadow: 1px 1px white;
-    text-decoration: none;
+    left: 0%;
+
 }
 
-#content_div description{
+#page_block #database_info description{
+    position: relative;
     font-family:Tahoma;
-    font-size:16px;
+    font-size:15px;
     color: #221100;
     border-style: none;
     margin: 0%;
@@ -169,18 +174,20 @@
     text-decoration: none;
 }
 
-#content_div info a{
+#page_block #database_info info a{
+    position: relative;
     font-family:Tahoma;
     color: darkgreen;
     border-style: none;
     text-decoration: none;
 }
 
-#page_block #page_table #content_div info a:hover{
+#page_block #database_info info a:hover{
     color: darkblue;
 }
 
-#page_block #page_table #content_div q{
+#page_block #database_info q{
+    position: relative;
     font-family:Calibri;
     font-size:15px;
     color: #221100;
@@ -192,21 +199,22 @@
     text-decoration: none;
 }
 
-#page_block #page_table #content_div q:before {
+#page_block #database_info q:before {
   content: none;
 }
 
-#page_block #page_table #content_div q:after {
+#page_block #database_info q:after {
   content: none;
 }
 
-#page_block #page_table #content_div q blue{
+#page_block #database_info q blue{
+    position: relative;
     font-family: Consolas;
     font-size:12px;
     color: blue;
 }
 
-#content_div .selection_title{
+#page_block .selection_title{
     font-family:Verdana;
     font-size:14px;
     color: #775500;
@@ -216,7 +224,7 @@
     text-shadow: 1px 1px white;
 }
 
-#page_block #page_table #table_content{
+#page_block #table_content{
     background-color: rgba(255,255,255, 0.3);
     width: 98%;
     margin: 1%;
@@ -225,33 +233,33 @@
     word-wrap: break-word;
 }
 
-#table_content tr td{
+#page_block #table_content tr td{
     border: none 2px black; /*value of this property will affect the code table also*/
     padding: 0.5vw 1vw;
 }
 
-#paragraph_content{
+#page_block #paragraph_content{
+    position:relative;
+    width: 96%; 
+    margin: 1%;
+    padding: 1%;
     background-color: rgba(255,255,255, 0.3);
-    position: relative;
-    width: 60%; 
-    margin: 0%;
-    padding: 0%;
-    border: solid 1px white;
+    border: solid 1px #995500;
 }
 
-#paragraph_content p{
+#page_block #paragraph_content p{
     position: relative;
     width: auto; 
 }
 
-#page_block #page_table #content_div code{
+#page_block code{
     font-family: Consolas;
     font-size: 16px;
     white-space: pre-wrap;
     color: blue;
 }
 
-#page_block #page_table #content_div code table{
+#page_block code table{
     border: none 1px black;
     width: 100%;
     table-layout: fixed;
@@ -260,7 +268,7 @@
     margin: 0px;
     height: auto;
 }
-#page_block #page_table #content_div code table td{
+#page_block code table td{
     text-align: left;
     border: none 1px black;
     /*properties set explicitly within the script
@@ -270,7 +278,7 @@
     */
 }
 
-#page_block #page_table #content_div code box{
+#page_block code box{
     background-color: rgba(255,255,255,0.4);
     border: 1px solid black;
     display: block;
@@ -278,7 +286,7 @@
     margin: 15px 0px;
 }
 
-#page_block #page_table #content_div code lineNumber {
+#page_block code lineNumber {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
@@ -290,30 +298,30 @@
     font-weight: bold;
 }
 
-#page_block #page_table #content_div code comment{
+#page_block code comment{
     color: #aa0000;
 }
 
-#page_block #page_table #content_div red{
+#page_block red{
     color: #aa0000;
     font-family: Tahoma;
     font-size: 15px;
 }
 
-#page_block #page_table #content_div brown{
+#page_block brown{
     color: #774400;
     font-family: Tahoma;
     font-size: 16px;
     text-shadow: 0.5px 0.5px white;
 }
 
-#page_block #page_table #content_div green{
+#page_block green{
     color: #007700;
     font-family: Tahoma;
     font-size: 18px;
 }
 
-#page_block #page_table #content_div blue{
+#page_block blue{
     color: #7700aa;
     font-family: Tahoma;
     font-size: 15px;
@@ -331,27 +339,27 @@
 
 
 /*Styling the scroll bar*/
-#page_block #page_table #menu_div::-webkit-scrollbar, 
+#page_block #menu_div::-webkit-scrollbar, 
 #page_block #page_table #content_div::-webkit-scrollbar {
     width: 10px;
 }
 
 /* Track */
-#page_block #page_table #menu_div::-webkit-scrollbar-track, 
+#page_block #menu_div::-webkit-scrollbar-track, 
 #page_block #page_table #content_div::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
 }
  
 /* Handle */
-#page_block #page_table #menu_div::-webkit-scrollbar-thumb, 
+#page_block #menu_div::-webkit-scrollbar-thumb, 
 #page_block #page_table #content_div::-webkit-scrollbar-thumb{
     background: #995500; 
     border-radius: 10px;
 }
 
 /* Handle on hover */
-#page_block #page_table #menu_div::-webkit-scrollbar-thumb:hover, 
+#page_block #menu_div::-webkit-scrollbar-thumb:hover, 
 #page_block #page_table #content_div::-webkit-scrollbar-thumb:hover {
     background: #aa7700; 
 }
