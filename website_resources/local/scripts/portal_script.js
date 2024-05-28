@@ -70,7 +70,7 @@ function setCookie()
         var pairs = cookie_elements[i].split("=");
         
         //Process and restore the values stored in the cookie
-        
+        console.log(pairs);
         //Checking if pairs[0] is a VIEW:
         if(pairs[0] == "navigation")
         {
