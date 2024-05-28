@@ -12,20 +12,10 @@ const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
 
 //different styles for list tag selection:
-const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white;";
-const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black;";
+const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
+const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
-
-const programming_language_div_style = [
-    "background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.4)); padding: 1; margin: 1vw;", /*This is for General-Programming-Knowledge which is not visible nor available for selection*/
-    "background-image: linear-gradient(to bottom, rgba(0,0,255,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;", 
-    "background-image: linear-gradient(to bottom, rgba(255,0,0,0.1), rgba(255,255,255,0.4));  padding: 1vw; margin: 1vw;", 
-    "background-image: linear-gradient(to bottom, rgba(0,255,0,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;",
-    "background-image: linear-gradient(to bottom, rgba(0,255,255,0.1), rgba(255,255,255,0.4));  padding: 1vw; margin: 1vw;", 
-    "background-image: linear-gradient(to bottom, rgba(255,0,255,0.1), rgba(255,255,255,0.4)); padding: 1vw; margin: 1vw;", 
-    "background-image: linear-gradient(to bottom, rgba(255,255,0,0.1), rgba(255,255,255,0.4));  padding: 1vw; margin: 1vw;"
-];
 
 const  view_selection = document.getElementById("view_selection");
 
@@ -37,9 +27,9 @@ const table_content = document.getElementById("table_content");
 
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-const language_title_style = "color: #663300; font-size: 17px; font-weight: bold; text-transform: uppercase; border: double 2px white; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(0,0,0,0.1));";
-const concept_title_style = "vertical-align: top; color: darkred; font-size: 16px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 2px white; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));";
-const concept_value_style = "vertical-align: top; color: black; font-family: Tahoma; font-size: 15px; text-align: left; border: solid 1px white; ";
+const language_title_style = "color: #663300; font-size: 20px; font-weight: bold; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); text-align: center;  background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); margin: 1% 0%; letter-spacing: 2px;";
+const concept_title_style = "vertical-align: top; color: darkred; font-size: 18px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 1px rgba(143,55,0, 0.1); background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); margin: 1% 0%;";
+const concept_value_style = "vertical-align: top; color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; border: solid 1px rgba(143,55,0, 0.1); margin: 1% 0%;";
 
 function cookieHandling()
 {
@@ -347,8 +337,7 @@ function fillTable()
             {
                 cell = row.insertCell();
                 cell.innerHTML = programming_languages[index].name;
-                var composed_style = programming_language_div_style[index].replace("linear-gradient(to bottom,", "linear-gradient(to right,");
-                cell.style = language_title_style + composed_style;
+                cell.style = language_title_style;
                 cell.style.width = String(100 - firstColumnWidth / active_columns + "%");
             }
         }
@@ -385,7 +374,7 @@ function fillTable()
                         */
                     
                         cell = row.insertCell(); //empty cell
-                        cell.style = concept_value_style + programming_language_div_style[index];
+                        cell.style = concept_value_style;
                                                 
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
@@ -608,7 +597,6 @@ function fillParagraph()
             if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
             {
                 var div = document.createElement("div");
-                div.style = programming_language_div_style[index];
                 var p = document.createElement("p");
                 p.innerHTML = language.name;
                 p.style = language_title_style;
@@ -701,7 +689,7 @@ function format_XML_Document_Content(xml_Document_Content)
             {
                 //Insert lineNumber and content in different table columns
                 lines[i] = "<tr>" + "<td style='width:26px; text-align:left; padding:0px;" +
-                "margin:0px; border: solid 1px black;'>" +
+                "margin:0px; border: solid 1px rgba(0,0,0,0.1);'>" +
                 "<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + 
                 "<td style='text-align:left; padding:0px; margin:0px;'>" + lines[i] + 
                 "</td>" + "</tr>";
@@ -889,6 +877,6 @@ checkSwitchPageView();
 document.addEventListener("fullscreenchange", FullScreenZoom, false);
 
 //When this button is pressed call this function
-document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
+//document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
 
 loadXMLDoc(online_xml_file);
