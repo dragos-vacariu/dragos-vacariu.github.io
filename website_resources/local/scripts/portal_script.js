@@ -57,8 +57,7 @@ function cookieHandling()
     else
     {
         /*set the view with default values*/
-        setNavigation(); // this will set the navigation
-        setView();
+        setNavigation(); // this will set the navigation and the view
     }
 }
 
@@ -171,7 +170,6 @@ function setCookie()
         concept_selection.children[ItemByItem_Active_Concept].style = tag_selection_off;
     }
     setNavigation();
-    setView();
 }
 
 function updateCookie(property, value)
@@ -1020,6 +1018,7 @@ function setNavigation()
         //menu_div flex width set back to normal
         document.getElementById("menu_div").style.flex = "0.3";
     }
+    setView();
 }
 
 
