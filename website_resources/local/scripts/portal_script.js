@@ -43,7 +43,7 @@ const table_content = document.getElementById("table_content");
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
 const language_title_style = "color: #663300; font-size: 20px; font-weight: bold; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); text-align: center;  background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); margin: 1% 0%; letter-spacing: 2px;";
-const concept_title_style = "vertical-align: top; color: darkred; font-size: 18px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 1px rgba(143,55,0, 0.1); background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); margin: 1% 0%;";
+const concept_title_style = "vertical-align: top; color: darkred; font-size: 18px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 1px rgba(143,55,0, 0.1); background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); margin: 1% 0%; width: 100%;";
 const concept_value_style = "vertical-align: top; color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; border: solid 1px rgba(143,55,0, 0.1); margin: 1% 0%;";
 
 function cookieHandling()
@@ -65,23 +65,26 @@ function cookieHandling()
 function setCookie()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
+    var ItemByItem_Active_Concept = -1;
     for(var i=0; i<cookie_elements.length; i++)
     {
         var pairs = cookie_elements[i].split("=");
         
         //Process and restore the values stored in the cookie
-        console.log(pairs);
+        
         //Checking if pairs[0] is a VIEW:
         if(pairs[0] == "navigation")
         {
-            if(pairs[1] == "ItemByItem")
+            var split = pairs[1].split("@")
+            if(split[0] == "ItemByItem")
             {
                 navigation_type_selection.children[0].value = true;
                 navigation_type_selection.children[0].style = tag_selection_on;
                 navigation_type_selection.children[1].value = false;
                 navigation_type_selection.children[1].style = tag_selection_off;
+                ItemByItem_Active_Concept = ParseInt(String(split[1]));
             }
-            else if((pairs[1] == "FullContent"))
+            else if((split[0] == "FullContent"))
             {
                 navigation_type_selection.children[0].value = false;
                 navigation_type_selection.children[0].style = tag_selection_off;
@@ -155,6 +158,15 @@ function setCookie()
                 }
             }
         }
+    }
+    //Setting the active concept value in case of ItemByItem navigation:
+    if(ItemByItem_Active_Concept >= 0)
+    {
+        for(var index=0; index<concept_selection.children.length; index++)
+        {
+            concept_selection.children[index].value = false;
+        }
+        concept_selection.children[ItemByItem_Active_Concept].value =true;
     }
     setNavigation();
     setView();
@@ -330,7 +342,7 @@ function removeTable()
 function fillTable()
 {    
     //Calculate the number of columns to be displayed
-    var active_columns = 1; 
+    var active_columns = 0; 
     for(var j=0; j<programming_language_selection.children.length; j++)
     {
         if(programming_language_selection.children[j].value == true)
@@ -342,12 +354,7 @@ function fillTable()
     
     //Draw a column for the concept - the first row cell in the concept column will be empty
     var row = table_content.insertRow();
-    var cell = row.insertCell(); //empty cell
-    var firstColumnWidth = 16; // start from (16 + active_columns) % for the first column
-    cell.style.backgroundColor = defaultTableHeaderStyleBackground;
-    cell.style.border = "none 0px white";
-    cell.style.width = String(firstColumnWidth + (active_columns*2) ) + "%";
-    
+    var cell = row.insertCell();
     //Draw separate column for each programming language selected to be displayed
     for(var index=0; index < programming_languages.length; index++)
     {        
@@ -357,10 +364,9 @@ function fillTable()
             if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
                 programming_language_selection.children[i].value==true)
             {
-                cell = row.insertCell();
                 cell.innerHTML = programming_languages[index].name;
                 cell.style = language_title_style;
-                cell.style.width = String(100 - firstColumnWidth / active_columns + "%");
+                cell.style.width = String(100 / active_columns + "%");
             }
         }
     }
@@ -375,10 +381,11 @@ function fillTable()
             row = table_content.insertRow();
             cell = row.insertCell(); //empty cell
             
-            /*Insert the concept name in the first column*/
-            cell.innerHTML = concept_collection[concept_index];
-            cell.style = concept_title_style;
-            
+            /*Insert the concept name within the cell*/
+            var span = document.createElement("div");
+            span.innerHTML = concept_collection[concept_index];
+            span.style = concept_title_style;
+            cell.appendChild(span);
             /*For each language in the table selected to be displayed - insert a column*/
             for(var index=0; index < programming_languages.length; index++)
             {
@@ -394,19 +401,18 @@ function fillTable()
                         array that satisfies the provided testing function. If no elements satisfy the testing 
                         function, -1 is returned.
                         */
-                    
-                        cell = row.insertCell(); //empty cell
-                        cell.style = concept_value_style;
+                        
+                        cell.style += concept_value_style;
                                                 
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
-                            cell.innerHTML = programming_languages[index].concepts[found_element_index].concept_value;
+                            cell.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(cell, programming_languages[index].concepts[found_element_index]);
                         }
                         else
                         {
-                            cell.innerHTML = "NA";
+                            cell.innerHTML += "NA";
                         }
                     }
                 }
@@ -453,7 +459,11 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
                         //add this extra style only to the concept elements
                         this.parentElement.children[index].style.display = "block";
                     }
-                    updateCookie(this.innerHTML, this.value);
+                    else
+                    {
+                        
+                    }
+                    updateCookie("navigation", "ItemByItem@" + String(index));
                 }
                 //each time a new item is selected just scroll to the beggining
                 window.scrollTo(0, 200);
