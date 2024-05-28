@@ -82,7 +82,7 @@ function setCookie()
                 navigation_type_selection.children[0].style = tag_selection_on;
                 navigation_type_selection.children[1].value = false;
                 navigation_type_selection.children[1].style = tag_selection_off;
-                ItemByItem_Active_Concept = ParseInt(String(split[1]));
+                ItemByItem_Active_Concept = parseInt(String(split[1]));
             }
             else if((split[0] == "FullContent"))
             {
@@ -379,13 +379,7 @@ function fillTable()
         {
             /*Insert a new row for each concept selected to be displayed*/
             row = table_content.insertRow();
-            cell = row.insertCell(); //empty cell
             
-            /*Insert the concept name within the cell*/
-            var span = document.createElement("div");
-            span.innerHTML = concept_collection[concept_index];
-            span.style = concept_title_style;
-            cell.appendChild(span);
             /*For each language in the table selected to be displayed - insert a column*/
             for(var index=0; index < programming_languages.length; index++)
             {
@@ -401,7 +395,12 @@ function fillTable()
                         array that satisfies the provided testing function. If no elements satisfy the testing 
                         function, -1 is returned.
                         */
-                        
+                        cell = row.insertCell(); //empty cell
+                        /*Insert the concept name within the cell*/
+                        var span = document.createElement("div");
+                        span.innerHTML = concept_collection[concept_index];
+                        span.style = concept_title_style;
+                        cell.appendChild(span);
                         cell.style += concept_value_style;
                                                 
                         /*If the concept exists for this language*/
@@ -439,6 +438,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
         li.onclick = function () 
         {
             //if ItemByItem navigation:
+            var counter = 0;
             if(navigation_type_selection.children[0].value == true)
             {
                 
@@ -446,8 +446,16 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
                 {
                     if(this.parentElement.children[index] != this)
                     {
-                        this.parentElement.children[index].value = false;
-                        this.parentElement.children[index].style = tag_selection_off;
+                        if(this.parentElement == programming_language_selection && counter == 0)
+                        {
+                            //this will allow a maximum of 2 item selection
+                            counter++;
+                        }
+                        else
+                        {
+                            this.parentElement.children[index].value = false;
+                            this.parentElement.children[index].style = tag_selection_off;
+                        }
                     }
                     else
                     {
