@@ -354,7 +354,7 @@ function fillTable()
     
     //Draw a column for the concept - the first row cell in the concept column will be empty
     var row = table_content.insertRow();
-    var cell = row.insertCell();
+    var cell = null;
     //Draw separate column for each programming language selected to be displayed
     for(var index=0; index < programming_languages.length; index++)
     {        
@@ -364,6 +364,7 @@ function fillTable()
             if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
                 programming_language_selection.children[i].value==true)
             {
+                cell = row.insertCell();
                 cell.innerHTML = programming_languages[index].name;
                 cell.style = language_title_style;
                 cell.style.width = String(100 / active_columns + "%");
