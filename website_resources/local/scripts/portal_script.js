@@ -402,7 +402,7 @@ function fillTable()
                         span.innerHTML = concept_collection[concept_index];
                         span.style = concept_title_style;
                         cell.appendChild(span);
-                        cell.style += concept_value_style;
+                        cell.style = concept_value_style;
                                                 
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
