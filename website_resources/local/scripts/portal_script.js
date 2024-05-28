@@ -453,6 +453,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
                         //add this extra style only to the concept elements
                         this.parentElement.children[index].style.display = "block";
                     }
+                    updateCookie(this.innerHTML, this.value);
                 }
                 //each time a new item is selected just scroll to the beggining
                 window.scrollTo(0, 200);
@@ -471,8 +472,8 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
                     this.style = tag_selection_on;
                     this.style.display = "inline-block";
                 }
+                updateCookie(this.innerHTML, this.value);
             }
-            updateCookie(this.innerHTML, this.value);
             setView();
         }
     }
