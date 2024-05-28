@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./website_resources/local/css/portal_page.css">
         <!--The local script is placed in the bottom the page-->
     </head>
-    <body onkeypress = "Enter_FullScreen(event)">
+    <body>
         <header>
             <div id="header_title">
                     <h2>{{pageObject.page_title}}</h2>
@@ -38,20 +38,25 @@
                     <ul id="menu">
                         <p>Page View:</p> 
                         <li id = "page_selection" class = "selection_list">
+                            
                         </li>
-                        <p>Content View:</p> 
+                        <p id="view_selection_title">Content View:</p> 
                         <li id = "view_selection" class = "selection_list">
                             
                         </li>
-                        <p>Language Selection:</p>
+                        <p>Navigation Type:</p> 
+                        <li id = "navigation_type_selection" class = "selection_list">
+                            
+                        </li>
+                        <p id="programming_language_selection_title">Language Selection:</p>
                         <li id = "programming_language_selection" class = "selection_list">
                             
                         </li>
-                        <p>Overall Language Selection:</p>
+                        <p id="overall_language_selection_title">Overall Language Selection:</p>
                         <li id="overall_language_selection" class = "selection_list">
                             
                         </li>
-                        <p> Overall Concept Selection:</p>
+                        <p id="overall_concept_selection_title">Overall Concept Selection:</p>
                         <li id="overall_concept_selection" class = "selection_list">
                            
                         </li>

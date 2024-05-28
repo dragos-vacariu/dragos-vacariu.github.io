@@ -5,11 +5,7 @@ var concept_collection = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
-const page_selection = document.getElementById("page_selection");
 const cookie_element_separator = "<br>"; 
-
-const paragraph_view_value = "paragraph view";
-const table_view_value = "table view";
 
 //different styles for list tag selection:
 const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
@@ -17,10 +13,29 @@ const tag_selection_off = "background-image: linear-gradient(to right, white, #f
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
-const  view_selection = document.getElementById("view_selection");
+const view_selection = document.getElementById("view_selection");
+const page_selection = document.getElementById("page_selection");
+const navigation_type_selection = document.getElementById("navigation_type_selection");
 
-view_selection.appendChild(createLiElement(table_view_value, false, switchToTableView));
-view_selection.appendChild(createLiElement(paragraph_view_value, true, switchToParagraphView));
+/*Text values for view selection*/
+const paragraph_view_text = "paragraph";
+const table_view_text = "table";
+
+/*Text values for navigation type selection*/
+const navigation_itemByitem_text = "Item By Item";
+const navigation_fullContent_text = "Full Content";
+
+/*Adding page selection buttons*/
+page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
+page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
+
+/*Adding view selection buttons*/
+view_selection.appendChild(createLiElement(table_view_text, false, switchToTableView));
+view_selection.appendChild(createLiElement(paragraph_view_text, true, switchToParagraphView));
+
+/*Adding navigation type selection buttons*/
+navigation_type_selection.appendChild(createLiElement(navigation_itemByitem_text, true, switchToItemByItemNavigation));
+navigation_type_selection.appendChild(createLiElement(navigation_fullContent_text, false, switchToFullContentNavigation));
 
 const paragraph_content = document.getElementById("paragraph_content");
 const table_content = document.getElementById("table_content");
@@ -42,17 +57,8 @@ function cookieHandling()
     else
     {
         /*set the view with default values*/
+        setNavigation(); // this will set the navigation
         setView();
-    }
-}
-
-function checkSwitchPageView()
-{
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    if(foundPageView >=0)
-    {
-        window.location.href = "./portal_classic.html";
     }
 }
 
@@ -66,7 +72,24 @@ function setCookie()
         //Process and restore the values stored in the cookie
         
         //Checking if pairs[0] is a VIEW:
-        if(pairs[0] == "view")
+        if(pairs[0] == "navigation")
+        {
+            if(pairs[1] == "ItemByItem")
+            {
+                navigation_type_selection.children[0].value = true;
+                navigation_type_selection.children[0].style = tag_selection_on;
+                navigation_type_selection.children[1].value = false;
+                navigation_type_selection.children[1].style = tag_selection_off;
+            }
+            else if((pairs[1] == "FullContent"))
+            {
+                navigation_type_selection.children[0].value = false;
+                navigation_type_selection.children[0].style = tag_selection_off;
+                navigation_type_selection.children[1].value = true;
+                navigation_type_selection.children[1].style = tag_selection_on
+            }
+        }
+        else if(pairs[0] == "view")
         {
             if(pairs[1] == "paragraph")
             {
@@ -133,6 +156,7 @@ function setCookie()
             }
         }
     }
+    setNavigation();
     setView();
 }
 
@@ -224,10 +248,6 @@ function loadXMLDoc(xml_file)
                 }
                 programming_languages.push(Programming_Lang);
             }
-            /*Adding page selection buttons*/
-            page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
-            page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
-            
             
             /*Adding the overall language selection functions*/
             overall_language_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllLanguageElements) );
@@ -236,7 +256,8 @@ function loadXMLDoc(xml_file)
             /*Adding the overall concept selection functions*/
             overall_concept_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllConceptElements) );
             overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
-                        
+            
+            //Adding programming languages to the selection
             for(var index=0; index< programming_languages.length; index++)
             {
                 /*Grabbing all concepts available for all the programming languages*/
@@ -261,11 +282,12 @@ function loadXMLDoc(xml_file)
                     }
                 }
             }
-            
             /*Adding the concept collection to selection*/
             for(var i=0; i< concept_collection.length; i++)
             {
                 concept_selection.appendChild(createLiElement(concept_collection[i], true));
+                //Make sure it's inline-block
+                concept_selection.children[i].style.display = "inline-block";
             }
             /*read cookie and/or hanndle the display of the elements*/
             cookieHandling();
@@ -410,15 +432,45 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
     {
         li.onclick = function () 
         {
-            if(this.value == true)
+            //if ItemByItem navigation:
+            if(navigation_type_selection.children[0].value == true)
             {
-                this.value = false;
-                this.style = tag_selection_off;
+                
+                for(var index=0; index < this.parentElement.children.length; index++)
+                {
+                    if(this.parentElement.children[index] != this)
+                    {
+                        this.parentElement.children[index].value = false;
+                        this.parentElement.children[index].style = tag_selection_off;
+                    }
+                    else
+                    {
+                        this.value = true;
+                        this.style = tag_selection_on;
+                    }
+                    if(this.parentElement!=programming_language_selection)
+                    {
+                        //add this extra style only to the concept elements
+                        this.parentElement.children[index].style.display = "block";
+                    }
+                }
+                //each time a new item is selected just scroll to the beggining
+                window.scrollTo(0, 200);
             }
-            else
+            else if(navigation_type_selection.children[1].value == true)
             {
-                this.value = true;
-                this.style = tag_selection_on;
+                if(this.value == true)
+                {
+                    this.value = false;
+                    this.style = tag_selection_off;
+                    this.style.display = "inline-block";
+                }
+                else
+                {
+                    this.value = true;
+                    this.style = tag_selection_on;
+                    this.style.display = "inline-block";
+                }
             }
             updateCookie(this.innerHTML, this.value);
             setView();
@@ -494,7 +546,7 @@ function switchToTableView()
     {
         for(var i = 0; i < view_selection.children.length; i++)
         {
-            if (view_selection.children[i].innerHTML != table_view_value)
+            if (view_selection.children[i].innerHTML != table_view_text)
             {
                 view_selection.children[i].value = false;
                 view_selection.children[i].style = tag_selection_off;
@@ -522,7 +574,7 @@ function switchToParagraphView()
     {
         for(var i = 0; i < view_selection.children.length; i++)
         {
-            if (view_selection.children[i].innerHTML != paragraph_view_value)
+            if (view_selection.children[i].innerHTML != paragraph_view_text)
             {
                 view_selection.children[i].value = false;
                 view_selection.children[i].style = tag_selection_off;
@@ -574,11 +626,11 @@ function setView()
     {
         if(view_selection.children[i].value == true)
         {
-            if(view_selection.children[i].innerHTML == paragraph_view_value)
+            if(view_selection.children[i].innerHTML == paragraph_view_text)
             {
                 showParagraph();
             }
-            else if (view_selection.children[i].innerHTML == table_view_value)
+            else if (view_selection.children[i].innerHTML == table_view_text)
             {
                 showTable();
             }
@@ -792,64 +844,14 @@ function formatMultiLineComments(codeElementListOfLines)
     return codeElementListOfLines;
 }
 
-function FullscreenMode(e) 
+function checkSwitchPageView()
 {
-    var fullscreen_element = document.getElementById("page_table");
-    if (document.fullscreenElement == null)
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
+    if(foundPageView >=0)
     {
-        if (fullscreen_element.requestFullscreen) 
-        {
-            fullscreen_element.requestFullscreen();
-        } 
-        else if (fullscreen_element.webkitRequestFullscreen) 
-        { /* Safari */
-            fullscreen_element.webkitRequestFullscreen();
-        } 
-        else if (fullscreen_element.msRequestFullscreen) 
-        { /* IE11 */
-            fullscreen_element.msRequestFullscreen();
-        }
+        window.location.href = "./portal_classic.html";
     }
-    else
-    {
-
-        if (document.exitFullscreen) 
-        {
-            document.exitFullscreen();
-        } 
-        else if (document.webkitExitFullscreen) 
-        { /* Safari */
-            document.webkitExitFullscreen();
-        } 
-        else if (document.msExitFullscreen) 
-        { /* IE11 */
-            document.msExitFullscreen();
-        }
-    }
-}
-
-function Enter_FullScreen(e)
-{
-	if (e.key == "f")
-	{
-		FullscreenMode(); 
-	}
-}
-
-function FullScreenZoom()
-{
-   if (document.fullscreenElement != null)
-   {
-          /*Fullscreen turned on -> Zooming in:*/
-        document.getElementById("content_div").style.height = "98%";
-        document.getElementById("menu_div").style.height = "98%";
-   }
-   else
-   {
-          /*Fullscreen turned off - > Zooming out:*/
-        document.getElementById("content_div").style.height = "40vw";
-        document.getElementById("menu_div").style.height = "40vw";
-   }
 }
 
 function changeToModernPage()
@@ -870,13 +872,212 @@ function changeToClassicPage()
     }
 }
 
+function switchToItemByItemNavigation()
+{
+    //Check if navigation type selection item is true
+    if(navigation_type_selection.children[1].value == true)
+    {
+        for(var i = 0; i < navigation_type_selection.children.length; i++)
+        {
+            if (navigation_type_selection.children[i].innerHTML != navigation_itemByitem_text)
+            {
+                navigation_type_selection.children[i].value = false;
+                navigation_type_selection.children[i].style = tag_selection_off;
+            }
+            else
+            {
+                navigation_type_selection.children[i].value = true;
+                navigation_type_selection.children[i].style = tag_selection_on;
+            }
+        }
+        updateCookie("navigation", "ItemByItem");
+        setNavigation();
+    }
+}
+
+function switchToFullContentNavigation()
+{
+    //Check if navigation type selection item is true
+    if(navigation_type_selection.children[0].value == true)
+    {
+        for(var i = 0; i < navigation_type_selection.children.length; i++)
+        {
+            if (navigation_type_selection.children[i].innerHTML != navigation_fullContent_text)
+            {
+                navigation_type_selection.children[i].value = false;
+                navigation_type_selection.children[i].style = tag_selection_off;
+            }
+            else
+            {
+                navigation_type_selection.children[i].value = true;
+                navigation_type_selection.children[i].style = tag_selection_on;
+            }
+        }
+        updateCookie("navigation", "FullContent");
+        setNavigation();
+    }
+}
+
+function setNavigation()
+{
+    //if navigation is item by item
+    if(navigation_type_selection.children[0].value == true)
+    {
+        //Hide the overall selection elements;
+        if (overall_concept_selection.getAttribute("hidden")==false ||
+            overall_concept_selection.getAttribute("hidden")==null) 
+        {
+            overall_concept_selection.setAttribute("hidden", "hidden");
+            document.getElementById("overall_concept_selection_title").setAttribute("hidden", "hidden");
+        }
+        if (overall_language_selection.getAttribute("hidden")==false ||
+            overall_language_selection.getAttribute("hidden")==null) 
+        {
+            overall_language_selection.setAttribute("hidden", "hidden");
+            document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
+        }
+        /*Deselect the multiple selections:*/
+        var counter = 0;
+        for(var index=0; index < programming_language_selection.children.length; index++)
+        {
+            //keep the first selected element but deselect all the others;
+            if(programming_language_selection.children[index].value == true && counter > 0)
+            {
+                programming_language_selection.children[index].value = false;
+                programming_language_selection.children[index].style = tag_selection_off;
+            }
+            else if(programming_language_selection.children[index].value == true && counter == 0)
+            {
+                counter++;
+            }
+            else
+            {
+                /*Nothing to do, the element is already deselected*/
+            }
+        }
+        counter=0;
+        for(var index=0; index < concept_selection.children.length; index++)
+        {
+            //keep the first selected element but deselect all the others;
+            if(concept_selection.children[index].value == true && counter > 0)
+            {
+                concept_selection.children[index].value = false;
+                concept_selection.children[index].style = tag_selection_off;
+            }
+            else if(concept_selection.children[index].value == true && counter == 0)
+            {
+                counter++;
+            }
+            else
+            {
+                /*Nothing to do, the element is already deselected*/
+            }
+            concept_selection.children[index].style.display = "block";
+        }
+        //menu_div flex width is decreased by 10%
+        document.getElementById("menu_div").style.flex = "0.2";
+    }
+    else if(navigation_type_selection.children[1].value == true)
+    {
+        //Show the overall selecton elements;
+        if (overall_concept_selection.getAttribute("hidden")=="hidden") 
+        {
+            overall_concept_selection.removeAttribute("hidden");
+            document.getElementById("overall_concept_selection_title").removeAttribute("hidden", "hidden");
+        }
+        if (overall_language_selection.getAttribute("hidden")=="hidden") 
+        {
+            overall_language_selection.removeAttribute("hidden");
+            document.getElementById("overall_language_selection_title").removeAttribute("hidden", "hidden");
+        }
+        for(var index=0; index < concept_selection.children.length; index++)
+        {
+            concept_selection.children[index].style.display = "inline-block";
+        }
+        //menu_div flex width set back to normal
+        document.getElementById("menu_div").style.flex = "0.3";
+    }
+}
+
+
 //Check if user expects to use different version of the webpage;
 checkSwitchPageView();
 
+loadXMLDoc(online_xml_file);
+
+/*
+//Fullscreen no longer available:
+
+function FullscreenMode(e) 
+{
+    //Function not used - fullscreen no longer available
+    var fullscreen_element = document.getElementById("page_table");
+    if (document.fullscreenElement == null)
+    {
+        if (fullscreen_element.requestFullscreen) 
+        {
+            fullscreen_element.requestFullscreen();
+        } 
+        else if (fullscreen_element.webkitRequestFullscreen) 
+        { 
+            //Safari
+            fullscreen_element.webkitRequestFullscreen();
+        } 
+        else if (fullscreen_element.msRequestFullscreen) 
+        { 
+            // IE11
+            fullscreen_element.msRequestFullscreen();
+        }
+    }
+    else
+    {
+
+        if (document.exitFullscreen) 
+        {
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen) 
+        { 
+            //Safari
+            document.webkitExitFullscreen();
+        } 
+        else if (document.msExitFullscreen) 
+        { 
+            // IE11
+            document.msExitFullscreen();
+        }
+    }
+}
+
+function Enter_FullScreen(e)
+{
+    //Function not used - fullscreen no longer available
+    if (e.key == "f")
+    {
+        FullscreenMode(); 
+    }
+}
+
+function FullScreenZoom()
+{
+    //Function not used - fullscreen no longer available
+   if (document.fullscreenElement != null)
+   {
+        //Fullscreen turned on -> Zooming in:
+        document.getElementById("content_div").style.height = "98%";
+        document.getElementById("menu_div").style.height = "98%";
+   }
+   else
+   {
+        //Fullscreen turned off - > Zooming out:
+        document.getElementById("content_div").style.height = "40vw";
+        document.getElementById("menu_div").style.height = "40vw";
+   }
+}
+
 //When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);
+document.addEventListener("fullscreenchange", FullScreenZoom, false); //fullscreen no longer available
 
 //When this button is pressed call this function
-//document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
-
-loadXMLDoc(online_xml_file);
+document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
+*/
