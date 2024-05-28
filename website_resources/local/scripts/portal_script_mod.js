@@ -12,8 +12,8 @@ const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
 
 //different styles for list tag selection:
-const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white;";
-const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black;";
+const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
+const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
