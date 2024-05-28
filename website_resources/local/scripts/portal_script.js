@@ -165,8 +165,10 @@ function setCookie()
         for(var index=0; index<concept_selection.children.length; index++)
         {
             concept_selection.children[index].value = false;
+            concept_selection.children[index].style = tag_selection_off;
         }
-        concept_selection.children[ItemByItem_Active_Concept].value =true;
+        concept_selection.children[ItemByItem_Active_Concept].value = true;
+        concept_selection.children[ItemByItem_Active_Concept].style = tag_selection_off;
     }
     setNavigation();
     setView();
