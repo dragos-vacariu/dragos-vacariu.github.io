@@ -447,9 +447,10 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
                 {
                     if(this.parentElement.children[index] != this)
                     {
-                        if(this.parentElement == programming_language_selection && counter == 0)
+                        //to be implemented
+                        if(this.parentElement == programming_language_selection && counter == -1)
                         {
-                            //this will allow a maximum of 2 item selection
+                            //this will allow a maximum of 2 item selection on table view
                             counter++;
                         }
                         else
