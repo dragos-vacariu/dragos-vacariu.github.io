@@ -5,7 +5,7 @@
     border: solid 1px #995500;
     margin-left:1%;
     margin-top:1%;
-    font-family:Verdana;
+    font-family:Tahoma;
     font-size:14px;
     background-color: white;
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
@@ -30,17 +30,6 @@
     Alternative way: display: inline-block; will do the same thing
     display: inline-block; 
     */
-}
-
-/*Selecting only tr elements whose parent is  #page_table*/
-#page_block #page_table>tr {
-    border: solid 2px #995500;
-}
-
-/*Selecting only td elements whose parent is  #page_table*/
-#page_block #page_table>td { 
-    border: solid 2px #995500;
-    /*vertical-align: top; */ /*this property is set in the html file*/
 }
 
 #page_block #menu_div
@@ -139,7 +128,7 @@
     padding: 1%;
     font-family:Verdana;
     font-size:16px;
-    color: #221100;
+    color: #663300;
     border: none 2px blue;
     text-shadow: 1px 1px white;
     text-align: center;
@@ -155,7 +144,7 @@
     text-align: center;
     font-family:Tahoma;
     font-size:14px;
-    color: #221100;
+    color: #663300;
     border-style: none;
     left: 0%;
 
@@ -165,7 +154,7 @@
     position: relative;
     font-family:Tahoma;
     font-size:15px;
-    color: #221100;
+    color: #663300;
     border-style: none;
     margin: 0%;
     margin-bottom: 1%;
@@ -190,7 +179,7 @@
     position: relative;
     font-family:Calibri;
     font-size:15px;
-    color: #221100;
+    color: #663300;
     border-style: none;
     margin: 0%;
     margin-bottom: 1%;
@@ -214,37 +203,34 @@
     color: blue;
 }
 
-#page_block .selection_title{
-    font-family:Verdana;
-    font-size:14px;
-    color: #775500;
-    border-style: none;
-    margin: 0%;
-    padding: 10px;
-    text-shadow: 1px 1px white;
-}
-
 #page_block #table_content{
+    /*properties overwritten in the script*/
     background-color: rgba(255,255,255, 0.3);
     width: 98%;
     margin: 1%;
     text-align: center;
     table-layout: fixed;
     word-wrap: break-word;
+    /*background-color and other properties are set from the script*/
 }
 
-#page_block #table_content tr td{
-    border: none 2px black; /*value of this property will affect the code table also*/
+/*Selecting only tr elements whose parent is  #table_content*/
+#page_block #table_content>tr{
+    /*properties overwritten in the script*/
+    border: none 2px black;
     padding: 0.5vw 1vw;
+    background-color: red;
 }
 
+/*Selecting only td elements whose parent is  #table_content*/
 #page_block #paragraph_content{
     position:relative;
-    width: 96%; 
+    width: 98%; 
     margin: 1%;
-    padding: 1%;
+    padding: 0px;
+    border: solid 1px rgba(143,55,0, 0.1);
+    /*background-color and other properties are set from the script*/
     background-color: rgba(255,255,255, 0.3);
-    border: solid 1px #995500;
 }
 
 #page_block #paragraph_content p{
@@ -270,7 +256,7 @@
 }
 #page_block code table td{
     text-align: left;
-    border: none 1px black;
+    border: solid 1px rgba(0,0,0,0.1);
     /*properties set explicitly within the script
     padding: 0px;
     margin: 0px;
@@ -280,7 +266,7 @@
 
 #page_block code box{
     background-color: rgba(255,255,255,0.4);
-    border: 1px solid black;
+    border: solid 1px rgba(0,0,0,0.1);
     display: block;
     padding: 0px;
     margin: 15px 0px;
@@ -290,12 +276,13 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
-    color: black;
+    color: rgba(0,0,0,0.5);
     margin:0px;
     padding:0px;
     font-family: Courier New;
     height: auto;
     font-weight: bold;
+    /*border and other properties are set from the script*/
 }
 
 #page_block code comment{
@@ -303,16 +290,20 @@
 }
 
 #page_block red{
-    color: #aa0000;
-    font-family: Tahoma;
-    font-size: 15px;
+    color: #dd0000;
+    font-family: Calibri;
+    font-size: 17px;
 }
 
 #page_block brown{
-    color: #774400;
+    /*brown is more like black*/
+    color: #221100;
     font-family: Tahoma;
     font-size: 16px;
     text-shadow: 0.5px 0.5px white;
+    background-color: rgba(255,255,0,0.3);
+    padding: 2px;
+    border: solid 1px rgba(0,0,0,0.1);
 }
 
 #page_block green{
@@ -322,9 +313,9 @@
 }
 
 #page_block blue{
-    color: #7700aa;
-    font-family: Tahoma;
-    font-size: 15px;
+    color: #aa00cc;
+    font-family: Calibri;
+    font-size: 17px;
 }
 
 #page_block bold{
@@ -339,27 +330,27 @@
 
 
 /*Styling the scroll bar*/
-#page_block #menu_div::-webkit-scrollbar, 
-#page_block #page_table #content_div::-webkit-scrollbar {
+#page_block #menu_div::-webkit-scrollbar 
+{
     width: 10px;
 }
 
 /* Track */
-#page_block #menu_div::-webkit-scrollbar-track, 
-#page_block #page_table #content_div::-webkit-scrollbar-track {
+#page_block #menu_div::-webkit-scrollbar-track 
+{
     box-shadow: inset 0 0 5px grey; 
     border-radius: 10px;
 }
  
 /* Handle */
-#page_block #menu_div::-webkit-scrollbar-thumb, 
-#page_block #page_table #content_div::-webkit-scrollbar-thumb{
+#page_block #menu_div::-webkit-scrollbar-thumb 
+{
     background: #995500; 
     border-radius: 10px;
 }
 
 /* Handle on hover */
-#page_block #menu_div::-webkit-scrollbar-thumb:hover, 
-#page_block #page_table #content_div::-webkit-scrollbar-thumb:hover {
+#page_block #menu_div::-webkit-scrollbar-thumb:hover
+{
     background: #aa7700; 
 }
