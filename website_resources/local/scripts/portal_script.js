@@ -27,7 +27,7 @@ page_selection.appendChild( createLiElement("Classic", false, changeToClassicPag
 
 /*Adding view selection buttons*/
 view_selection.appendChild(createLiElement("regular", false, switchToRegularView));
-view_selection.appendChild(createLiElement("dual-compare", true, switchToCompareView));
+view_selection.appendChild(createLiElement("multi-compare", true, switchToCompareView));
 
 /*Adding selection type buttons*/
 selection_type.appendChild(createLiElement(single_selection_type_text, true, switchSelectionTypeSingle));
@@ -738,8 +738,8 @@ function switchToRegularView()
 
 function switchToCompareView()
 {
-    //Check if regular view is true
-    if(view_selection.children[0].value == true)
+    //Check if regular view is true and selection type is multiple else this mode will be unavailable
+    if(view_selection.children[0].value == true && selection_type.children[1].value == true)
     {
         //toggle switches
         for(var i = 0; i < view_selection.children.length; i++)
@@ -753,25 +753,6 @@ function switchToCompareView()
             {
                 view_selection.children[i].value = true;
                 view_selection.children[i].style = tag_selection_on;
-            }
-        }
-        /*If selection type is single*/
-        if(selection_type.children[0].value==true)
-        {
-            //Check how many selected languages
-            var active_items = getActiveElements(programming_language_selection.children);
-            var counter = 0;
-            //If there are more selected elements than allowed by the view and selection type
-            while(active_items > 2 && counter < programming_language_selection.children.length)
-            {
-                //Deselect items until they reaching the target
-                if(programming_language_selection.children[counter].value == true)
-                {
-                    programming_language_selection.children[counter].value = false;
-                    programming_language_selection.children[counter].style = tag_selection_off;
-                    active_items--;
-                }
-                counter++;
             }
         }
         showTable();
@@ -1015,7 +996,11 @@ function setSelectionType()
     //if selection type is single
     if(selection_type.children[0].value == true)
     {
-        view_selection.children[1].innerHTML = "dual-compare";
+        view_selection.children[1].value = false;
+        view_selection.children[1].style = tag_selection_off;
+        view_selection.children[1].style.opacity = 0.3;
+        view_selection.children[0].value = true;
+        view_selection.children[0].style = tag_selection_on;
         //Hide the overall selection elements;
         if (overall_concept_selection.getAttribute("hidden")==false ||
             overall_concept_selection.getAttribute("hidden")==null) 
@@ -1029,15 +1014,13 @@ function setSelectionType()
             overall_language_selection.setAttribute("hidden", "hidden");
             document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
         }
-        //Maximum selection is 2 elements for compare view and 1 for regular view;
-        var max_selection = view_selection.children[0].value == true ? 1 : 2;
         var active_items = getActiveElements(programming_language_selection.children);
         /*Deselect the multiple selections:*/
         var counter = 0;
         //If there are more selected elements than allowed by the view and selection type
-        while(active_items > max_selection && counter < programming_language_selection.children.length)
+        while(active_items > 1 && counter < programming_language_selection.children.length)
         {
-            //Deselect items until they reaching the target
+            //Deselect items until reaching the target
             if(programming_language_selection.children[counter].value == true)
             {
                 programming_language_selection.children[counter].value = false;
@@ -1071,7 +1054,7 @@ function setSelectionType()
     }
     else if(selection_type.children[1].value == true)
     {
-        view_selection.children[1].innerHTML = "multi-compare";
+        view_selection.children[1].style.opacity = 1;
         //Show the overall selecton elements;
         if (overall_concept_selection.getAttribute("hidden")=="hidden") 
         {
