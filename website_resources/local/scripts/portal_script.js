@@ -15,29 +15,24 @@ const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
 const view_selection = document.getElementById("view_selection");
 const page_selection = document.getElementById("page_selection");
-const navigation_type_selection = document.getElementById("navigation_type_selection");
-
-/*Text values for view selection*/
-const paragraph_view_text = "paragraph";
-const table_view_text = "table";
+const selection_type = document.getElementById("selection_type");
 
 /*Text values for navigation type selection*/
-const navigation_itemByitem_text = "Item By Item";
-const navigation_fullContent_text = "Full Content";
+const single_selection_type_text = "single";
+const multiple_selection_type_text = "multiple";
 
 /*Adding page selection buttons*/
 page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
 page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
 
 /*Adding view selection buttons*/
-view_selection.appendChild(createLiElement(table_view_text, false, switchToTableView));
-view_selection.appendChild(createLiElement(paragraph_view_text, true, switchToParagraphView));
+view_selection.appendChild(createLiElement("regular", false, switchToRegularView));
+view_selection.appendChild(createLiElement("dual-compare", true, switchToCompareView));
 
 /*Adding navigation type selection buttons*/
-navigation_type_selection.appendChild(createLiElement(navigation_itemByitem_text, true, switchToItemByItemNavigation));
-navigation_type_selection.appendChild(createLiElement(navigation_fullContent_text, false, switchToFullContentNavigation));
+selection_type.appendChild(createLiElement(single_selection_type_text, true, switchSelectionTypeSingle));
+selection_type.appendChild(createLiElement(multiple_selection_type_text, false, switchSelectionTypeMultiple));
 
-const paragraph_content = document.getElementById("paragraph_content");
 const table_content = document.getElementById("table_content");
 
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
@@ -57,7 +52,7 @@ function cookieHandling()
     else
     {
         /*set the view with default values*/
-        setNavigation(); // this will set the navigation and the view
+        setSelectionType(); // this will set the navigation and the view
     }
 }
 
@@ -75,33 +70,33 @@ function setCookie()
         if(pairs[0] == "navigation")
         {
             var split = pairs[1].split("@")
-            if(split[0] == "ItemByItem")
+            if(split[0] == single_selection_type_text)
             {
-                navigation_type_selection.children[0].value = true;
-                navigation_type_selection.children[0].style = tag_selection_on;
-                navigation_type_selection.children[1].value = false;
-                navigation_type_selection.children[1].style = tag_selection_off;
+                selection_type.children[0].value = true;
+                selection_type.children[0].style = tag_selection_on;
+                selection_type.children[1].value = false;
+                selection_type.children[1].style = tag_selection_off;
                 ItemByItem_Active_Concept = parseInt(String(split[1]));
             }
-            else if((split[0] == "FullContent"))
+            else if((split[0] == multiple_selection_type_text))
             {
-                navigation_type_selection.children[0].value = false;
-                navigation_type_selection.children[0].style = tag_selection_off;
-                navigation_type_selection.children[1].value = true;
-                navigation_type_selection.children[1].style = tag_selection_on
+                selection_type.children[0].value = false;
+                selection_type.children[0].style = tag_selection_off;
+                selection_type.children[1].value = true;
+                selection_type.children[1].style = tag_selection_on
             }
         }
         else if(pairs[0] == "view")
         {
-            if(pairs[1] == "paragraph")
+            if(pairs[1] == "compare")
             {
-                //Set paragraph view to true
-                switchToParagraphView();
+                //Set compare view to true
+                switchToCompareView();
             }
             else
             {
-                //Set table view to true
-                switchToTableView();
+                //Set regular view to true
+                switchToRegularView();
             }
         }
         else
@@ -169,7 +164,7 @@ function setCookie()
         concept_selection.children[ItemByItem_Active_Concept].value = true;
         concept_selection.children[ItemByItem_Active_Concept].style = tag_selection_off;
     }
-    setNavigation();
+    setSelectionType();
 }
 
 function updateCookie(property, value)
@@ -319,14 +314,18 @@ function showTable()
     var hidden = table_content.getAttribute("hidden");
     if (hidden) 
     {
-        removeTable();
-        fillTable();
         table_content.removeAttribute("hidden");
+    }
+    removeTable();
+    if(view_selection.children[0].value == true)
+    {
+        /*View selection is Regular*/
+        fillTableRegular();
     }
     else
     {
-        removeTable();
-        fillTable();
+        /*View selection is Dual Compare*/
+        fillTableCompare();
     }
 }
 
@@ -339,7 +338,7 @@ function removeTable()
     }
 }
 
-function fillTable()
+function fillTableCompare()
 {    
     //Calculate the number of columns to be displayed
     var active_columns = 0; 
@@ -408,6 +407,68 @@ function fillTable()
                         if(found_element_index >= 0) 
                         {
                             cell.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
+                            
+                            //Don't copy general knowledge on compare. As those informations are available to all languages.
+                            cell.innerHTML = String(cell.innerHTML).replace(copy_GeneralKnowledge_token, "");
+                        }
+                        else
+                        {
+                            cell.innerHTML += "NA";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+function fillTableRegular()
+{    
+    var row = null;
+    var cell = null;
+    
+    //draw the table
+    for(var index=0; index < programming_languages.length; index++)
+    {
+        for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
+        {
+            /*check if the language is selected to be displayed*/
+            if(programming_language_selection.children[lang_selection_index].innerHTML == programming_languages[index].name && programming_language_selection.children[lang_selection_index].value==true)
+            {
+                /*Insert a new row for each language title selected to be displayed*/
+                row = table_content.insertRow();
+                cell = row.insertCell();
+                cell.innerHTML = programming_languages[index].name;
+                cell.style = language_title_style;
+                cell.style.paddingTop = "1%";
+                /*For each concept the language has*/
+                for(var concept_index=0; concept_index < concept_collection.length; concept_index++)
+                {
+                    /*If the concept is selected to be displayed*/
+                    if(concept_collection[concept_index] == concept_selection.children[concept_index].innerHTML &&
+                        concept_selection.children[concept_index].value == true)
+                    {
+                        var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+                        
+                        /*
+                        The findIndex() method of Array instances returns the index of the first element in an 
+                        array that satisfies the provided testing function. If no elements satisfy the testing 
+                        function, -1 is returned.
+                        */
+                        row = table_content.insertRow();
+                        cell = row.insertCell(); //empty cell
+
+                        /*Insert the concept name within the cell*/
+                        var span = document.createElement("div");
+                        span.innerHTML = concept_collection[concept_index];
+                        span.style = concept_title_style;
+                        cell.appendChild(span);
+                        cell.style = concept_value_style;
+                                                
+                        /*If the concept exists for this language*/
+                        if(found_element_index >= 0) 
+                        {
+                            cell.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(cell, programming_languages[index].concepts[found_element_index]);
                         }
                         else
@@ -440,7 +501,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 
 function conceptSelectionBehavior()
 {
-    if(navigation_type_selection.children[0].value == true)
+    if(selection_type.children[0].value == true)
     {
         
         for(var index=0; index < this.parentElement.children.length; index++)
@@ -461,7 +522,7 @@ function conceptSelectionBehavior()
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 200);
     }
-    else if(navigation_type_selection.children[1].value == true)
+    else if(selection_type.children[1].value == true)
     {
         if(this.value == true)
         {
@@ -477,51 +538,65 @@ function conceptSelectionBehavior()
         }
         updateCookie(this.innerHTML, this.value);
     }
-    setView();
+    showTable();
 }
 
 function languageSelectionBehaviour()
 {
-    //if navigation is ItemByItem
-    if(navigation_type_selection.children[0].value == true)
+    //if Selection Type is Single and View is Compare:
+    if(selection_type.children[0].value == true && view_selection.children[1].value == true)
     {
-        //if view is table
-        if(view_selection.children[0].value==true)
+
+        var active_elements = getActiveElements(this.parentElement.children);            
+        //if 2 elements are already selected and this element is supposed to get selected now
+        if(this.value == false && active_elements == 2)
         {
-            //if deselected element clicked and less than 2 elements are selected in table view allow selection
-            var active_elements = getActiveElements(this.parentElement.children);            
-            if(this.value == false && active_elements >-1 && active_elements <2)
+            for(var i=0; i<programming_language_selection.children.length; i++)
+            {
+                //Deselect one element to allow selection of another;
+                if(programming_language_selection.children[i].value==true)
+                {
+                    programming_language_selection.children[i].value = false;
+                    programming_language_selection.children[i].style = tag_selection_off;
+                    break;
+                }
+            }
+
+        }
+        if(this.value == false)
+        {
+            this.value = true;
+            this.style = tag_selection_on;
+        }
+        else if(this.value == true)
+        {
+            this.value = false;
+            this.style = tag_selection_off;
+        }
+    }
+    //else if Selection type is single:
+    else if (selection_type.children[0].value == true)
+    {
+        //Deselect the old item and select the new one:
+        for(var index=0; index < this.parentElement.children.length; index++)
+        {
+            if(this.parentElement.children[index] != this)
+            {
+                this.parentElement.children[index].value = false;
+                this.parentElement.children[index].style = tag_selection_off;
+            }
+            else
             {
                 this.value = true;
                 this.style = tag_selection_on;
             }
-            else if(this.value == true)
-            {
-                this.value = false;
-                this.style = tag_selection_off;
-            }
-        }
-        else
-        {
-            //On paragraph view allow only one item selection
-            for(var index=0; index < this.parentElement.children.length; index++)
-            {
-                if(this.parentElement.children[index] != this)
-                {
-                    this.parentElement.children[index].value = false;
-                    this.parentElement.children[index].style = tag_selection_off;
-                }
-                else
-                {
-                    this.value = true;
-                    this.style = tag_selection_on;
-                }
-            }
+            updateCookie("navigation", "ItemByItem@" + String(index));
         }
     }
-    else if(navigation_type_selection.children[1].value == true)
+    //If Selection type is multiple and view is whatever:
+    else
     {
-        //On full content navigation allow everything
+        //Allow multiple selections
         if(this.value == true)
         {
             this.value = false;
@@ -534,7 +609,7 @@ function languageSelectionBehaviour()
         }
         updateCookie(this.innerHTML, this.value);
     }
-    setView();
+    showTable();
 }
 
 function getActiveElements(element)
@@ -568,7 +643,7 @@ function deselectionOfAllConceptElements()
             updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
         }
     }
-    setView();
+    showTable();
 }
 
 function selectionOfAllConceptElements() 
@@ -582,7 +657,7 @@ function selectionOfAllConceptElements()
             updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
         }
     }
-    setView();
+    showTable();
 }
 
 function deselectionOfAllLanguageElements() 
@@ -596,7 +671,7 @@ function deselectionOfAllLanguageElements()
             updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
         }
     }
-    setView();
+    showTable();
 }
 
 function selectionOfAllLanguageElements() 
@@ -610,17 +685,18 @@ function selectionOfAllLanguageElements()
             updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
         }
     }
-    setView();
+    showTable();
 }
 
-function switchToTableView()
+function switchToRegularView()
 {
-    //Check if paragraph view is true
+    //Check if compare view is true
     if(view_selection.children[1].value == true)
     {
+        //Toggle the selection
         for(var i = 0; i < view_selection.children.length; i++)
         {
-            if (view_selection.children[i].innerHTML != table_view_text)
+            if (i != 0)
             {
                 view_selection.children[i].value = false;
                 view_selection.children[i].style = tag_selection_off;
@@ -629,26 +705,41 @@ function switchToTableView()
             {
                 view_selection.children[i].value = true;
                 view_selection.children[i].style = tag_selection_on;
+            }
+        }
+        /*If selection type is single*/
+        if(selection_type.children[0].value==true)
+        {
+            //Check how many selected languages
+            var active_items = getActiveElements(programming_language_selection.children);
+            var counter = 0;
+            //If there are more selected elements than allowed by the view and selection type
+            while(active_items > 1 && counter < programming_language_selection.children.length)
+            {
+                //Deselect items until they reaching the target
+                if(programming_language_selection.children[counter].value == true)
+                {
+                    programming_language_selection.children[counter].value = false;
+                    programming_language_selection.children[counter].style = tag_selection_off;
+                    active_items--;
+                }
+                counter++;
             }
         }
         showTable();
-        updateCookie("view", "table");
-        var hidden = paragraph_content.getAttribute("hidden");
-        if (!hidden) 
-        {
-            paragraph_content.setAttribute("hidden", "hidden");
-        }
+        updateCookie("view", "regular");
     }
 }
 
-function switchToParagraphView()
+function switchToCompareView()
 {
-    //Check if table view is true
+    //Check if regular view is true
     if(view_selection.children[0].value == true)
     {
+        //toggle switches
         for(var i = 0; i < view_selection.children.length; i++)
         {
-            if (view_selection.children[i].innerHTML != paragraph_view_text)
+            if (i != 1)
             {
                 view_selection.children[i].value = false;
                 view_selection.children[i].style = tag_selection_off;
@@ -659,113 +750,34 @@ function switchToParagraphView()
                 view_selection.children[i].style = tag_selection_on;
             }
         }
-        showParagraph();
-        updateCookie("view", "paragraph");
-        var hidden = table_content.getAttribute("hidden");
-        if (!hidden) 
+        /*If selection type is single*/
+        if(selection_type.children[0].value==true)
         {
-            table_content.setAttribute("hidden", "hidden");
-        }
-    }
-}
-
-function showParagraph()
-{
-    var hidden = paragraph_content.getAttribute("hidden");
-    if (hidden) 
-    {
-        removeParagraph();
-        fillParagraph();
-        paragraph_content.removeAttribute("hidden");
-    }
-    else
-    {
-        removeParagraph();
-        fillParagraph();
-    }
-}
-
-function removeParagraph()
-{
-    while (paragraph_content.children[0] != null) {
-        paragraph_content.removeChild(paragraph_content.children[0]); // always remove the first element in the collection
-        //removing element at index 0 will make the next one index 0
-    }
-
-}
-
-function setView()
-{
-    for(var i=0; i< view_selection.children.length; i++)
-    {
-        if(view_selection.children[i].value == true)
-        {
-            if(view_selection.children[i].innerHTML == paragraph_view_text)
+            //Check how many selected languages
+            var active_items = getActiveElements(programming_language_selection.children);
+            var counter = 0;
+            //If there are more selected elements than allowed by the view and selection type
+            while(active_items > 2 && counter < programming_language_selection.children.length)
             {
-                showParagraph();
-            }
-            else if (view_selection.children[i].innerHTML == table_view_text)
-            {
-                showTable();
-            }
-            break;
-        }
-    }
-}
-
-function fillParagraph()
-{
-    var index = 0;
-    programming_languages.forEach(async (language) => {
-        for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
-        {
-            /*if language is selected to be displayed*/
-            if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
-            {
-                var div = document.createElement("div");
-                var p = document.createElement("p");
-                p.innerHTML = language.name;
-                p.style = language_title_style;
-                div.appendChild(p);
-                for(var concept_index=0; concept_index < language.concepts.length; concept_index++)
+                //Deselect items until they reaching the target
+                if(programming_language_selection.children[counter].value == true)
                 {
-                    var found_element_index = concept_collection.findIndex(element => element == language.concepts[concept_index].concept_name);
-                    /*
-                    The findIndex() method of Array instances returns the index of the first element in an 
-                    array that satisfies the provided testing function. If no elements satisfy the testing 
-                    function, -1 is returned.
-                    */
-                    if(found_element_index >= 0  && concept_selection.children[found_element_index].value == true)
-                    {
-                        if(programming_language_selection.children[lang_selection_index].innerHTML == language.name && programming_language_selection.children[lang_selection_index].value==true)
-                        {    
-                            var p = document.createElement("p")
-                            p.innerHTML = language.concepts[concept_index].concept_name + ":"
-                            p.style = concept_title_style;
-                            div.appendChild(p);
-                            
-                            
-                            p = document.createElement("p")
-                            p.innerHTML += language.concepts[concept_index].concept_value;
-                            checkCopyConceptFromGeneralKnowledge(p, language.concepts[concept_index]);
-                            
-                            p.style = concept_value_style;
-                            div.appendChild(p);
-                        }
-                    }
+                    programming_language_selection.children[counter].value = false;
+                    programming_language_selection.children[counter].style = tag_selection_off;
+                    active_items--;
                 }
-                paragraph_content.appendChild(div);
+                counter++;
             }
         }
-        index++;
-    });
+        showTable();
+        updateCookie("view", "compare");
+    }
 }
 
 function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 {
-    //Enter here if this is paragraph or table cell
-    if(String(html_element.tagName).toLowerCase() == "p" ||
-        String(html_element.tagName).toLowerCase() == "td")
+    //Enter here if this table cell
+    if(String(html_element.tagName).toLowerCase() == "td")
     {
         if(String(html_element.innerHTML).includes(copy_GeneralKnowledge_token))
         {
@@ -787,7 +799,7 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
             else
             {
                 /*If something happened and cannot find General-Programming-Knowledge just clear this substring*/
-                p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
+                html_element.innerHTML = String(html_element.innerHTML).replace(copy_GeneralKnowledge_token, "");
             }
             
         }
@@ -946,57 +958,58 @@ function changeToClassicPage()
     }
 }
 
-function switchToItemByItemNavigation()
+function switchSelectionTypeSingle()
 {
     //Check if navigation type selection item is true
-    if(navigation_type_selection.children[1].value == true)
+    if(selection_type.children[1].value == true)
     {
-        for(var i = 0; i < navigation_type_selection.children.length; i++)
+        for(var i = 0; i < selection_type.children.length; i++)
         {
-            if (navigation_type_selection.children[i].innerHTML != navigation_itemByitem_text)
+            if (selection_type.children[i].innerHTML != single_selection_type_text)
             {
-                navigation_type_selection.children[i].value = false;
-                navigation_type_selection.children[i].style = tag_selection_off;
+                selection_type.children[i].value = false;
+                selection_type.children[i].style = tag_selection_off;
             }
             else
             {
-                navigation_type_selection.children[i].value = true;
-                navigation_type_selection.children[i].style = tag_selection_on;
+                selection_type.children[i].value = true;
+                selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("navigation", "ItemByItem");
-        setNavigation();
+        updateCookie("navigation", "single");
+        setSelectionType();
     }
 }
 
-function switchToFullContentNavigation()
+function switchSelectionTypeMultiple()
 {
     //Check if navigation type selection item is true
-    if(navigation_type_selection.children[0].value == true)
+    if(selection_type.children[0].value == true)
     {
-        for(var i = 0; i < navigation_type_selection.children.length; i++)
+        for(var i = 0; i < selection_type.children.length; i++)
         {
-            if (navigation_type_selection.children[i].innerHTML != navigation_fullContent_text)
+            if (selection_type.children[i].innerHTML != multiple_selection_type_text)
             {
-                navigation_type_selection.children[i].value = false;
-                navigation_type_selection.children[i].style = tag_selection_off;
+                selection_type.children[i].value = false;
+                selection_type.children[i].style = tag_selection_off;
             }
             else
             {
-                navigation_type_selection.children[i].value = true;
-                navigation_type_selection.children[i].style = tag_selection_on;
+                selection_type.children[i].value = true;
+                selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("navigation", "FullContent");
-        setNavigation();
+        updateCookie("navigation", "multiple");
+        setSelectionType();
     }
 }
 
-function setNavigation()
+function setSelectionType()
 {
-    //if navigation is item by item
-    if(navigation_type_selection.children[0].value == true)
+    //if selection type is single
+    if(selection_type.children[0].value == true)
     {
+        view_selection.children[1].innerHTML = "dual-compare";
         //Hide the overall selection elements;
         if (overall_concept_selection.getAttribute("hidden")==false ||
             overall_concept_selection.getAttribute("hidden")==null) 
@@ -1010,25 +1023,24 @@ function setNavigation()
             overall_language_selection.setAttribute("hidden", "hidden");
             document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
         }
+        //Maximum selection is 2 elements for compare view and 1 for regular view;
+        var max_selection = view_selection.children[0].value == true ? 1 : 2;
+        var active_items = getActiveElements(programming_language_selection.children);
         /*Deselect the multiple selections:*/
         var counter = 0;
-        for(var index=0; index < programming_language_selection.children.length; index++)
+        //If there are more selected elements than allowed by the view and selection type
+        while(active_items > max_selection && counter < programming_language_selection.children.length)
         {
-            //keep the first selected element but deselect all the others;
-            if(programming_language_selection.children[index].value == true && counter > 0)
+            //Deselect items until they reaching the target
+            if(programming_language_selection.children[counter].value == true)
             {
-                programming_language_selection.children[index].value = false;
-                programming_language_selection.children[index].style = tag_selection_off;
+                programming_language_selection.children[counter].value = false;
+                programming_language_selection.children[counter].style = tag_selection_off;
+                active_items--;
             }
-            else if(programming_language_selection.children[index].value == true && counter == 0)
-            {
-                counter++;
-            }
-            else
-            {
-                /*Nothing to do, the element is already deselected*/
-            }
+            counter++;
         }
+        
         counter=0;
         for(var index=0; index < concept_selection.children.length; index++)
         {
@@ -1051,8 +1063,9 @@ function setNavigation()
         //menu_div flex width is decreased by 10%
         document.getElementById("menu_div").style.flex = "0.2";
     }
-    else if(navigation_type_selection.children[1].value == true)
+    else if(selection_type.children[1].value == true)
     {
+        view_selection.children[1].innerHTML = "multi-compare";
         //Show the overall selecton elements;
         if (overall_concept_selection.getAttribute("hidden")=="hidden") 
         {
@@ -1071,7 +1084,7 @@ function setNavigation()
         //menu_div flex width set back to normal
         document.getElementById("menu_div").style.flex = "0.3";
     }
-    setView();
+    showTable();
 }
 
 
