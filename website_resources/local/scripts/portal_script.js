@@ -75,16 +75,12 @@ function setCookie()
             if(pairs[1] == single_selection_type_text)
             {
                 selection_type.children[0].value = true;
-                selection_type.children[0].style = tag_selection_on;
                 selection_type.children[1].value = false;
-                selection_type.children[1].style = tag_selection_off;
             }
             else if((pairs[1] == multiple_selection_type_text))
             {
-                selection_type.children[0].value = false;
-                selection_type.children[0].style = tag_selection_off;
                 selection_type.children[1].value = true;
-                selection_type.children[1].style = tag_selection_on
+                selection_type.children[0].value = false;
             }
         }
         //Checking if pairs[0] is a VIEW:
