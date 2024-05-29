@@ -69,7 +69,7 @@ function setCookie()
         
         //Process and restore the values stored in the cookie
         
-        //Checking if pairs[0] is a VIEW:
+        //Checking if pairs[0] is a SELECTION:
         if(pairs[0] == "selection")
         {
             if(pairs[1] == single_selection_type_text)
@@ -87,6 +87,7 @@ function setCookie()
                 selection_type.children[1].style = tag_selection_on
             }
         }
+        //Checking if pairs[0] is a VIEW:
         else if(pairs[0] == "view")
         {
             if(pairs[1] == "compare")
