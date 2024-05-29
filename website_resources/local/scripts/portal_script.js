@@ -17,7 +17,7 @@ const view_selection = document.getElementById("view_selection");
 const page_selection = document.getElementById("page_selection");
 const selection_type = document.getElementById("selection_type");
 
-/*Text values for navigation type selection*/
+/*Text values for selection type*/
 const single_selection_type_text = "single";
 const multiple_selection_type_text = "multiple";
 
@@ -29,7 +29,7 @@ page_selection.appendChild( createLiElement("Classic", false, changeToClassicPag
 view_selection.appendChild(createLiElement("regular", false, switchToRegularView));
 view_selection.appendChild(createLiElement("dual-compare", true, switchToCompareView));
 
-/*Adding navigation type selection buttons*/
+/*Adding selection type buttons*/
 selection_type.appendChild(createLiElement(single_selection_type_text, true, switchSelectionTypeSingle));
 selection_type.appendChild(createLiElement(multiple_selection_type_text, false, switchSelectionTypeMultiple));
 
@@ -37,9 +37,10 @@ const table_content = document.getElementById("table_content");
 
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-const language_title_style = "color: #663300; font-size: 20px; font-weight: bold; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); text-align: center;  background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); margin: 1% 0%; letter-spacing: 2px;";
-const concept_title_style = "vertical-align: top; color: darkred; font-size: 18px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 1px rgba(143,55,0, 0.1); background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); margin: 1% 0%; width: 100%;";
-const concept_value_style = "vertical-align: top; color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; border: solid 1px rgba(143,55,0, 0.1); margin: 1% 0%;";
+const language_title_style = "color: #663300; font-family: Tahoma; font-size: 20px; text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); letter-spacing: 2px;";
+const concept_title_style = "color: darkred; font-family: Tahoma; font-size: 18px; text-align: left; text-transform: capitalize; border: double 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: 1px; ";
+const concept_value_style = "color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
+const cell_style = "vertical-align: top;";
 
 function cookieHandling()
 {
@@ -52,7 +53,7 @@ function cookieHandling()
     else
     {
         /*set the view with default values*/
-        setSelectionType(); // this will set the navigation and the view
+        setSelectionType(); // this will set the selection and the view
     }
 }
 
@@ -67,7 +68,7 @@ function setCookie()
         //Process and restore the values stored in the cookie
         
         //Checking if pairs[0] is a VIEW:
-        if(pairs[0] == "navigation")
+        if(pairs[0] == "selection")
         {
             var split = pairs[1].split("@")
             if(split[0] == single_selection_type_text)
@@ -153,7 +154,7 @@ function setCookie()
             }
         }
     }
-    //Setting the active concept value in case of ItemByItem navigation:
+    //Setting the active concept value in case of single selection:
     if(ItemByItem_Active_Concept >= 0)
     {
         for(var index=0; index<concept_selection.children.length; index++)
@@ -397,24 +398,26 @@ function fillTableCompare()
                         */
                         cell = row.insertCell(); //empty cell
                         /*Insert the concept name within the cell*/
-                        var span = document.createElement("div");
-                        span.innerHTML = concept_collection[concept_index];
-                        span.style = concept_title_style;
-                        cell.appendChild(span);
-                        cell.style = concept_value_style;
-                                                
+                        var p = document.createElement("p");
+                        p.innerHTML = concept_collection[concept_index] + ":";
+                        p.style = concept_title_style;
+                        cell.appendChild(p);
+                        p = document.createElement("p");
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
-                            cell.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
+                            p.innerHTML = programming_languages[index].concepts[found_element_index].concept_value;
                             
                             //Don't copy general knowledge on compare. As those informations are available to all languages.
-                            cell.innerHTML = String(cell.innerHTML).replace(copy_GeneralKnowledge_token, "");
+                            p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
                         }
                         else
                         {
-                            cell.innerHTML += "NA";
+                            p.innerHTML += "NA";
                         }
+                        p.style = concept_value_style;
+                        cell.appendChild(p);
+                        cell.style = cell_style;
                     }
                 }
             }
@@ -459,22 +462,24 @@ function fillTableRegular()
                         cell = row.insertCell(); //empty cell
 
                         /*Insert the concept name within the cell*/
-                        var span = document.createElement("div");
-                        span.innerHTML = concept_collection[concept_index];
-                        span.style = concept_title_style;
-                        cell.appendChild(span);
-                        cell.style = concept_value_style;
-                                                
+                        var p = document.createElement("p");
+                        p.innerHTML = concept_collection[concept_index] + ":";
+                        p.style = concept_title_style;
+                        cell.appendChild(p);
+                        p = document.createElement("p");
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
-                            cell.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
-                            checkCopyConceptFromGeneralKnowledge(cell, programming_languages[index].concepts[found_element_index]);
+                            p.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
+                            checkCopyConceptFromGeneralKnowledge(p, programming_languages[index].concepts[found_element_index]);
                         }
                         else
                         {
-                            cell.innerHTML += "NA";
+                            p.innerHTML += "NA";
                         }
+                        p.style = concept_value_style;
+                        cell.appendChild(p);
+                        cell.style = cell_style;
                     }
                 }
             }
@@ -517,7 +522,7 @@ function conceptSelectionBehavior()
                 this.style = tag_selection_on;
             }
             this.parentElement.children[index].style.display = "block";
-            updateCookie("navigation", "ItemByItem@" + String(index));
+            updateCookie("selection", "single" + String(index));
         }
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 200);
@@ -590,7 +595,7 @@ function languageSelectionBehaviour()
                 this.value = true;
                 this.style = tag_selection_on;
             }
-            updateCookie("navigation", "ItemByItem@" + String(index));
+            updateCookie("selection", "ItemByItem@" + String(index));
         }
     }
     //If Selection type is multiple and view is whatever:
@@ -777,7 +782,8 @@ function switchToCompareView()
 function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 {
     //Enter here if this table cell
-    if(String(html_element.tagName).toLowerCase() == "td")
+    if(String(html_element.tagName).toLowerCase() == "td" || 
+        String(html_element.tagName).toLowerCase() == "p")
     {
         if(String(html_element.innerHTML).includes(copy_GeneralKnowledge_token))
         {
@@ -960,7 +966,7 @@ function changeToClassicPage()
 
 function switchSelectionTypeSingle()
 {
-    //Check if navigation type selection item is true
+    //Check if selection type is multiple
     if(selection_type.children[1].value == true)
     {
         for(var i = 0; i < selection_type.children.length; i++)
@@ -976,14 +982,14 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("navigation", "single");
+        updateCookie("selection", "single");
         setSelectionType();
     }
 }
 
 function switchSelectionTypeMultiple()
 {
-    //Check if navigation type selection item is true
+    //Check if selection type is single
     if(selection_type.children[0].value == true)
     {
         for(var i = 0; i < selection_type.children.length; i++)
