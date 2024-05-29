@@ -7,6 +7,8 @@ const overall_concept_selection = document.getElementById("overall_concept_selec
 const overall_language_selection = document.getElementById("overall_language_selection");
 const cookie_element_separator = "<br>"; 
 
+const disabledElementOpacity = 0.3;
+
 //different styles for list tag selection:
 const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
 const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
@@ -508,21 +510,26 @@ function conceptSelectionBehavior()
 {
     if(selection_type.children[0].value == true)
     {
-        
-        for(var index=0; index < this.parentElement.children.length; index++)
+        //opacity is used to specify whether a concept is available or not for the selected programming language
+        if(this.style.opacity != disabledElementOpacity) //if opacity != 0.3, it means concept is available for this programming language
         {
-            if(this.parentElement.children[index] != this)
+            for(var index=0; index < this.parentElement.children.length; index++)
             {
-                this.parentElement.children[index].value = false;
-                this.parentElement.children[index].style = tag_selection_off;
+                var opacity = this.parentElement.children[index].style.opacity;
+                if(this.parentElement.children[index] != this)
+                {
+                    this.parentElement.children[index].value = false;
+                    this.parentElement.children[index].style = tag_selection_off;
+                }
+                else
+                {
+                    this.value = true;
+                    this.style = tag_selection_on;
+                }
+                this.parentElement.children[index].style.opacity = opacity;
+                this.parentElement.children[index].style.display = "block";
+                updateCookie("selection", "single" + String(index));
             }
-            else
-            {
-                this.value = true;
-                this.style = tag_selection_on;
-            }
-            this.parentElement.children[index].style.display = "block";
-            updateCookie("selection", "single" + String(index));
         }
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 200);
@@ -548,39 +555,8 @@ function conceptSelectionBehavior()
 
 function languageSelectionBehaviour()
 {
-    //if Selection Type is Single and View is Compare:
-    if(selection_type.children[0].value == true && view_selection.children[1].value == true)
-    {
-
-        var active_elements = getActiveElements(this.parentElement.children);            
-        //if 2 elements are already selected and this element is supposed to get selected now
-        if(this.value == false && active_elements == 2)
-        {
-            for(var i=0; i<programming_language_selection.children.length; i++)
-            {
-                //Deselect one element to allow selection of another;
-                if(programming_language_selection.children[i].value==true)
-                {
-                    programming_language_selection.children[i].value = false;
-                    programming_language_selection.children[i].style = tag_selection_off;
-                    break;
-                }
-            }
-
-        }
-        if(this.value == false)
-        {
-            this.value = true;
-            this.style = tag_selection_on;
-        }
-        else if(this.value == true)
-        {
-            this.value = false;
-            this.style = tag_selection_off;
-        }
-    }
-    //else if Selection type is single:
-    else if (selection_type.children[0].value == true)
+    //if Selection type is single:
+    if (selection_type.children[0].value == true)
     {
         //Deselect the old item and select the new one:
         for(var index=0; index < this.parentElement.children.length; index++)
@@ -596,6 +572,22 @@ function languageSelectionBehaviour()
                 this.style = tag_selection_on;
             }
             updateCookie("selection", "ItemByItem@" + String(index));
+        }
+        active_language = programming_languages.find(element => element.name == this.innerHTML);
+        if(active_language != undefined)
+        {
+            for(var index=0; index < concept_selection.children.length; index++)
+            {
+                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
+                if(elementIndex < 0)
+                {
+                     concept_selection.children[index].style.opacity = disabledElementOpacity;
+                }
+                else
+                {
+                    concept_selection.children[index].style.opacity = 1;
+                }
+            }
         }
     }
     //If Selection type is multiple and view is whatever:
@@ -619,22 +611,18 @@ function languageSelectionBehaviour()
 
 function getActiveElements(element)
 {
-    counter = 0;
+    activeElements=[];
     if(element.length != undefined)
     {
         for(var i=0; i< element.length; i++)
         {
             if(element[i].value ==true)
             {
-                counter++;
+                activeElements.push(element[i])
             }
         }
     }
-    else
-    {
-        counter = -1;
-    }
-    return counter;
+    return activeElements;
 }
 
 function deselectionOfAllConceptElements() 
@@ -710,25 +698,6 @@ function switchToRegularView()
             {
                 view_selection.children[i].value = true;
                 view_selection.children[i].style = tag_selection_on;
-            }
-        }
-        /*If selection type is single*/
-        if(selection_type.children[0].value==true)
-        {
-            //Check how many selected languages
-            var active_items = getActiveElements(programming_language_selection.children);
-            var counter = 0;
-            //If there are more selected elements than allowed by the view and selection type
-            while(active_items > 1 && counter < programming_language_selection.children.length)
-            {
-                //Deselect items until they reaching the target
-                if(programming_language_selection.children[counter].value == true)
-                {
-                    programming_language_selection.children[counter].value = false;
-                    programming_language_selection.children[counter].style = tag_selection_off;
-                    active_items--;
-                }
-                counter++;
             }
         }
         showTable();
@@ -998,7 +967,7 @@ function setSelectionType()
     {
         view_selection.children[1].value = false;
         view_selection.children[1].style = tag_selection_off;
-        view_selection.children[1].style.opacity = 0.3;
+        view_selection.children[1].style.opacity = disabledElementOpacity;
         view_selection.children[0].value = true;
         view_selection.children[0].style = tag_selection_on;
         //Hide the overall selection elements;
@@ -1018,21 +987,19 @@ function setSelectionType()
         /*Deselect the multiple selections:*/
         var counter = 0;
         //If there are more selected elements than allowed by the view and selection type
-        while(active_items > 1 && counter < programming_language_selection.children.length)
+        while(active_items.length - counter > 1)
         {
             //Deselect items until reaching the target
-            if(programming_language_selection.children[counter].value == true)
-            {
-                programming_language_selection.children[counter].value = false;
-                programming_language_selection.children[counter].style = tag_selection_off;
-                active_items--;
-            }
+            active_items[counter].value = false;
+            active_items[counter].style = tag_selection_off;
             counter++;
         }
-        
+        active_language = programming_languages.find(element=> element.name == active_items[active_items.length-1].innerHTML);
         counter=0;
+        console.log(active_language.name);
         for(var index=0; index < concept_selection.children.length; index++)
         {
+            if(concept_selection.children[index].innerHTML )
             //keep the first selected element but deselect all the others;
             if(concept_selection.children[index].value == true && counter > 0)
             {
@@ -1048,6 +1015,16 @@ function setSelectionType()
                 /*Nothing to do, the element is already deselected*/
             }
             concept_selection.children[index].style.display = "block";
+            //Check if concept exists for the active language
+            if(active_language != undefined)
+            {
+                
+                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
+                if(elementIndex < 0)
+                {
+                     concept_selection.children[index].style.opacity = disabledElementOpacity;
+                }
+            }
         }
         //menu_div flex width is decreased by 10%
         document.getElementById("menu_div").style.flex = "0.2";
@@ -1069,6 +1046,7 @@ function setSelectionType()
         for(var index=0; index < concept_selection.children.length; index++)
         {
             concept_selection.children[index].style.display = "inline-block";
+            concept_selection.children[index].style.opacity = 1;
         }
         //menu_div flex width set back to normal
         document.getElementById("menu_div").style.flex = "0.3";
