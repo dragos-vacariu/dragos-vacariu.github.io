@@ -72,14 +72,12 @@ function setCookie()
         //Checking if pairs[0] is a VIEW:
         if(pairs[0] == "selection")
         {
-            var split = pairs[1].split("@")
             if(split[0] == single_selection_type_text)
             {
                 selection_type.children[0].value = true;
                 selection_type.children[0].style = tag_selection_on;
                 selection_type.children[1].value = false;
                 selection_type.children[1].style = tag_selection_off;
-                ItemByItem_Active_Concept = parseInt(String(split[1]));
             }
             else if((split[0] == multiple_selection_type_text))
             {
@@ -155,17 +153,6 @@ function setCookie()
                 }
             }
         }
-    }
-    //Setting the active concept value in case of single selection:
-    if(ItemByItem_Active_Concept >= 0)
-    {
-        for(var index=0; index<concept_selection.children.length; index++)
-        {
-            concept_selection.children[index].value = false;
-            concept_selection.children[index].style = tag_selection_off;
-        }
-        concept_selection.children[ItemByItem_Active_Concept].value = true;
-        concept_selection.children[ItemByItem_Active_Concept].style = tag_selection_off;
     }
     setSelectionType();
 }
