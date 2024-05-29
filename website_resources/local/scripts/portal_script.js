@@ -920,7 +920,7 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("selection", "single");
+        updateCookie("selection", single_selection_type_text);
         setSelectionType();
     }
 }
@@ -943,7 +943,7 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("navigation", "multiple");
+        updateCookie("selection", multiple_selection_type_text);
         setSelectionType();
     }
 }
