@@ -461,6 +461,10 @@ function fillTableRegular()
                         {
                             p.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(p, programming_languages[index].concepts[found_element_index]);
+                            
+                            //tooltip to be added:
+                            //p.innerHTML = p.innerHTML.replaceAll("<red>", '<red>,,<span class="tooltiptext">' + programming_languages[0].concepts[4].concept_value + '</span>')
+                        
                         }
                         else
                         {
