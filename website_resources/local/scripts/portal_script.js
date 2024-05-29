@@ -286,18 +286,18 @@ function loadXMLDoc(xml_file)
                     }
                     if(index<4) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
-                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true));
+                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true, languageSelectionBehaviour));
                     }
                     else
                     {
-                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false));
+                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false, languageSelectionBehaviour));
                     }
                 }
             }
             /*Adding the concept collection to selection*/
             for(var i=0; i< concept_collection.length; i++)
             {
-                concept_selection.appendChild(createLiElement(concept_collection[i], true));
+                concept_selection.appendChild(createLiElement(concept_collection[i], true, conceptSelectionBehavior));
                 //Make sure it's inline-block
                 concept_selection.children[i].style.display = "inline-block";
             }
@@ -434,74 +434,127 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
     {
         li.style = tag_selection_off;
     }
-    if(function_behaviour == undefined)
+    li.onclick = function_behaviour;
+    return li;
+}
+
+function conceptSelectionBehavior()
+{
+    if(navigation_type_selection.children[0].value == true)
     {
-        li.onclick = function () 
+        
+        for(var index=0; index < this.parentElement.children.length; index++)
         {
-            //if ItemByItem navigation:
-            var counter = 0;
-            if(navigation_type_selection.children[0].value == true)
+            if(this.parentElement.children[index] != this)
             {
-                
-                for(var index=0; index < this.parentElement.children.length; index++)
-                {
-                    if(this.parentElement.children[index] != this)
-                    {
-                        //to be implemented
-                        if(this.parentElement == programming_language_selection && counter == -1)
-                        {
-                            //this will allow a maximum of 2 item selection on table view
-                            counter++;
-                        }
-                        else
-                        {
-                            this.parentElement.children[index].value = false;
-                            this.parentElement.children[index].style = tag_selection_off;
-                        }
-                    }
-                    else
-                    {
-                        this.value = true;
-                        this.style = tag_selection_on;
-                    }
-                    if(this.parentElement!=programming_language_selection)
-                    {
-                        //add this extra style only to the concept elements
-                        this.parentElement.children[index].style.display = "block";
-                    }
-                    else
-                    {
-                        
-                    }
-                    updateCookie("navigation", "ItemByItem@" + String(index));
-                }
-                //each time a new item is selected just scroll to the beggining
-                window.scrollTo(0, 200);
+                this.parentElement.children[index].value = false;
+                this.parentElement.children[index].style = tag_selection_off;
             }
-            else if(navigation_type_selection.children[1].value == true)
+            else
             {
-                if(this.value == true)
+                this.value = true;
+                this.style = tag_selection_on;
+            }
+            this.parentElement.children[index].style.display = "block";
+            updateCookie("navigation", "ItemByItem@" + String(index));
+        }
+        //each time a new item is selected just scroll to the beggining
+        window.scrollTo(0, 200);
+    }
+    else if(navigation_type_selection.children[1].value == true)
+    {
+        if(this.value == true)
+        {
+            this.value = false;
+            this.style = tag_selection_off;
+            this.style.display = "inline-block";
+        }
+        else
+        {
+            this.value = true;
+            this.style = tag_selection_on;
+            this.style.display = "inline-block";
+        }
+        updateCookie(this.innerHTML, this.value);
+    }
+    setView();
+}
+
+function languageSelectionBehaviour()
+{
+    //if navigation is ItemByItem
+    if(navigation_type_selection.children[0].value == true)
+    {
+        //if view is table
+        if(view_selection.children[0].value==true)
+        {
+            //if deselected element clicked and less than 2 elements are selected in table view allow selection
+            var active_elements = getActiveElements(this.parentElement.children);            
+            if(this.value == false && active_elements >-1 && active_elements <2)
+            {
+                this.value = true;
+                this.style = tag_selection_on;
+            }
+            else if(this.value == true)
+            {
+                this.value = false;
+                this.style = tag_selection_off;
+            }
+        }
+        else
+        {
+            //On paragraph view allow only one item selection
+            for(var index=0; index < this.parentElement.children.length; index++)
+            {
+                if(this.parentElement.children[index] != this)
                 {
-                    this.value = false;
-                    this.style = tag_selection_off;
-                    this.style.display = "inline-block";
+                    this.parentElement.children[index].value = false;
+                    this.parentElement.children[index].style = tag_selection_off;
                 }
                 else
                 {
                     this.value = true;
                     this.style = tag_selection_on;
-                    this.style.display = "inline-block";
                 }
-                updateCookie(this.innerHTML, this.value);
             }
-            setView();
+        }
+    }
+    else if(navigation_type_selection.children[1].value == true)
+    {
+        //On full content navigation allow everything
+        if(this.value == true)
+        {
+            this.value = false;
+            this.style = tag_selection_off;
+        }
+        else
+        {
+            this.value = true;
+            this.style = tag_selection_on;
+        }
+        updateCookie(this.innerHTML, this.value);
+    }
+    setView();
+}
+
+function getActiveElements(element)
+{
+    counter = 0;
+    if(element.length != undefined)
+    {
+        for(var i=0; i< element.length; i++)
+        {
+            if(element[i].value ==true)
+            {
+                counter++;
+            }
         }
     }
     else
     {
-        li.onclick = function_behaviour;
+        counter = -1;
     }
-    return li;
+    return counter;
 }
 
 function deselectionOfAllConceptElements() 
