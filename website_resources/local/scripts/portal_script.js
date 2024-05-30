@@ -162,7 +162,7 @@ function setCookie()
         console.log("Language active: " + language_active_single_selection);
         for(var i=0; i<concept_selection.children; i++)
         {
-            if(concept_selection.children[i].innerHTML == concept_active_single_selection)
+            if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
             {
                 concept_selection.children[i].click();
                 break;
@@ -170,7 +170,7 @@ function setCookie()
         }
         for(var i=0; i<programming_language_selection.children; i++)
         {
-            if(programming_language_selection.children[i].innerHTML == language_active_single_selection)
+            if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
             {
                 programming_language_selection.children[i].click();
                 break;
