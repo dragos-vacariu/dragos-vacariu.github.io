@@ -74,7 +74,11 @@ function setCookie()
             {
                 /*if selection type is single*/
                 switchSelectionTypeSingle();
-                active_elements = split[1].split("&");
+                active_elements = [];
+                if(split.length>1)
+                {
+                    active_elements = split[1].split("&");
+                }
                 if(active_elements.length > 0)
                 {
                     language_active_single_selection = active_elements[0];
