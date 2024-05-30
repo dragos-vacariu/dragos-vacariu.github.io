@@ -19,10 +19,6 @@ const view_selection = document.getElementById("view_selection");
 const page_selection = document.getElementById("page_selection");
 const selection_type = document.getElementById("selection_type");
 
-/*Text values for selection type*/
-const single_selection_type_text = "single";
-const multiple_selection_type_text = "multiple";
-
 /*Adding page selection buttons*/
 page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
 page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
@@ -32,8 +28,8 @@ view_selection.appendChild(createLiElement("regular", false, switchToRegularView
 view_selection.appendChild(createLiElement("multi-compare", true, switchToCompareView));
 
 /*Adding selection type buttons*/
-selection_type.appendChild(createLiElement(single_selection_type_text, true, switchSelectionTypeSingle));
-selection_type.appendChild(createLiElement(multiple_selection_type_text, false, switchSelectionTypeMultiple));
+selection_type.appendChild(createLiElement("single", true, switchSelectionTypeSingle));
+selection_type.appendChild(createLiElement("multiple", false, switchSelectionTypeMultiple));
 
 const table_content = document.getElementById("table_content");
 
@@ -72,12 +68,15 @@ function setCookie()
         //Checking if pairs[0] is a SELECTION:
         if(pairs[0] == "selection")
         {
-            if(pairs[1] == single_selection_type_text)
+            var split = pairs[1].split("@")
+            if(split[0] == selection_type.children[0].innerHTML)
             {
+                /*if selection type is single*/
                 switchSelectionTypeSingle();
             }
-            else if((pairs[1] == multiple_selection_type_text))
+            else if((split[0] == selection_type.children[1].innerHTML))
             {
+                /*else if selection type is multiple*/
                 switchSelectionTypeMultiple();
             }
         }
@@ -518,11 +517,11 @@ function conceptSelectionBehavior()
             active_language = getActiveElements(programming_language_selection.children);
             if(active_language.length > 0)
             {
-                updateCookie("selection", single_selection_type_text+"@"+ active_language[0].innerHTML +"&" + this.innerHTML);
+                updateCookie("selection", selection_type.children[0].innerHTML +"@"+ active_language[0].innerHTML +"&" + this.innerHTML);
             }
             else
             {
-                updateCookie("selection", single_selection_type_text+"@"+"&" + this.innerHTML);
+                updateCookie("selection", selection_type.children[0].innerHTML +"@"+"&" + this.innerHTML);
             }
         }
         //each time a new item is selected just scroll to the beggining
@@ -586,11 +585,11 @@ function languageSelectionBehaviour()
         var active_concept = getActiveElements(this.parentElement.children);
         if(active_concept.length>0)
         {
-            updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&"+active_concept[0].innerHTML);
+            updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&"+active_concept[0].innerHTML);
         }
         else
         {
-            updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&");
+            updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&");
         }
     }
     //If Selection type is multiple and view is whatever:
@@ -924,7 +923,7 @@ function switchSelectionTypeSingle()
     {
         for(var i = 0; i < selection_type.children.length; i++)
         {
-            if (selection_type.children[i].innerHTML != single_selection_type_text)
+            if (i != 0) 
             {
                 selection_type.children[i].value = false;
                 selection_type.children[i].style = tag_selection_off;
@@ -1011,7 +1010,7 @@ function setSelectionType()
             }
             else if(concept_selection.children[index].value == true && counter == 0)
             {
-                updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&"+concept_selection.children[index].value);
+                updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&"+concept_selection.children[index].value);
                 counter++;
             }
             else
