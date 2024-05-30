@@ -40,147 +40,178 @@ const concept_title_style = "color: darkred; font-family: Tahoma; font-size: 18p
 const concept_value_style = "color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
 const cell_style = "vertical-align: top;";
 
-function cookieHandling()
+function dbCookieHandling()
 {
+    /*Handling of database related cookies*/
+    
     //reading from the cookie file:
     if(document.cookie.length > 0)
     {
-        /*If cookie -> setCookie will also set the view.*/
-        setCookie();
+        if(selection_type.children[0].value == true) //if single selection type
+        {
+            restoreDBSingleSelectionCookie();
+        }
+        else //enter here on multiple selection type
+        {
+            restoreDBMultipleSelectionCookie();
+        }
     }
-    else
-    {
-        /*set the view with default values*/
-        setSelectionType(); // this will set the selection and the view
-    }
+    /*set the view with default values*/
+    setSelectionType(); // this will set the selection and the view
 }
 
-function setCookie()
+function restoreCookiePredefinedElements()
 {
+    /*
+        Restoring the values from the cookie for elements defined outside the database.
+        These cookies should be restored instantly as they don't have to wait until the HTTP Request is ready
+    */
+    
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    var language_active_single_selection = undefined;
-    var concept_active_single_selection = undefined;
+    foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
+    foundViewSelection = cookie_elements.findIndex(element => String(element).split("=")[0] == "view");
+    foundSelectionType = cookie_elements.findIndex(element => String(element).split("=")[0] == "selection");
+    /*
+        The findIndex() method of Array instances returns the index of the first element in an 
+        array that satisfies the provided testing function. If no elements satisfy the testing 
+        function, -1 is returned.
+    */
+    if(foundPageView >= 0) //if page view found amongst cookies
+    {
+        window.location.href = "./portal_classic.html";
+        /*Page will change and script run will stop*/
+    }
+    if(foundViewSelection >= 0) //if view selection found amongst cookies
+    {
+        if(foundViewSelection.split("=")[1] == "compare")
+        {
+            //Set compare view to true
+            switchToCompareView();
+        }
+        else
+        {
+            //Set regular view to true
+            switchToRegularView();
+        }
+    }
+    if(foundSelectionType >= 0) //if selection type found amongst cookies
+    {
+        var split = pairs[1].split("@"); 
+        //@ is used to separate selection value: single from possible active language and concept
+        
+        /*if selection type is single*/
+        if(split[0] == selection_type.children[0].innerHTML)
+        {
+            switchSelectionTypeSingle();
+        }
+        else
+        {
+            switchSelectionTypeMultiple();
+        }
+    }
+    setSelectionType();
+}
+
+function restoreDBMultipleSelectionCookie()
+{
+    /*Restoring values from the cookie for Selection Type Multiple for elements added based on Database*/
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    
     for(var i=0; i<cookie_elements.length; i++)
     {
         var pairs = cookie_elements[i].split("=");
         
         //Process and restore the values stored in the cookie
         
-        //Checking if pairs[0] is a SELECTION:
-        if(pairs[0] == "selection")
+        //Checking if pairs[0] is a CONCEPT:
+        var concept_index = concept_collection.findIndex(element => element == pairs[0]);
+        
+        /*
+        The findIndex() method of Array instances returns the index of the first element in an 
+        array that satisfies the provided testing function. If no elements satisfy the testing 
+        function, -1 is returned.
+        */
+        
+        if(concept_index >= 0)
         {
-            var split = pairs[1].split("@")
-            if(split[0] == selection_type.children[0].innerHTML)
+            /*The concept_selection.children were added based on concept_collection array. 
+            So they wear same index.
+            */
+            if(pairs[1]=="1") // if element was selected
             {
-                /*if selection type is single*/
-                switchSelectionTypeSingle();
-                active_elements = [];
-                if(split.length>1)
-                {
-                    active_elements = split[1].split("&");
-                }
-                if(active_elements.length > 0)
-                {
-                    language_active_single_selection = active_elements[0];
-                    concept_active_single_selection = active_elements[1];
-                }
-            }
-            else if((split[0] == selection_type.children[1].innerHTML))
-            {
-                /*else if selection type is multiple*/
-                switchSelectionTypeMultiple();
-            }
-        }
-        //Checking if pairs[0] is a VIEW:
-        else if(pairs[0] == "view")
-        {
-            if(pairs[1] == "compare")
-            {
-                //Set compare view to true
-                switchToCompareView();
+                concept_selection.children[concept_index].value = true;
+                concept_selection.children[concept_index].style = tag_selection_on;
             }
             else
             {
-                //Set regular view to true
-                switchToRegularView();
+                concept_selection.children[concept_index].value = false;
+                concept_selection.children[concept_index].style = tag_selection_off;
             }
         }
         else
         {
-            //Checking if pairs[0] is a CONCEPT:
-            var concept_index = concept_collection.findIndex(element => element == pairs[0]);
-            
-            /*
-            The findIndex() method of Array instances returns the index of the first element in an 
-            array that satisfies the provided testing function. If no elements satisfy the testing 
-            function, -1 is returned.
-            */
-            
-            if(concept_index >= 0)
+            //Checking if pairs[0] is a LANGUAGE:
+            var language_index = -1;
+            for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
             {
-                /*The concept_selection.children were added based on concept_collection array. 
-                So they wear same index.
-                */
+                if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
+                {
+                    language_index = lang_sel_index;
+                    break;
+                }
+            }
+            if( language_index >= 0 )
+            {
                 if(pairs[1]=="1")
                 {
-                    concept_selection.children[concept_index].value = true;
-                    concept_selection.children[concept_index].style = tag_selection_on;
+                    programming_language_selection.children[language_index].value = true;
+                    programming_language_selection.children[language_index].style = tag_selection_on;
                 }
                 else
                 {
-                    concept_selection.children[concept_index].value = false;
-                    concept_selection.children[concept_index].style = tag_selection_off;
-                }
-            }
-            else 
-            {
-                //Checking if pairs[0] is a LANGUAGE:
-                var language_index = -1;
-                for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
-                {
-                    if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
-                    {
-                        language_index = lang_sel_index;
-                    }
-                }
-                if( language_index >= 0 )
-                {
-                    if(pairs[1]=="1")
-                    {
-                        programming_language_selection.children[language_index].value = true;
-                        programming_language_selection.children[language_index].style = tag_selection_on;
-                    }
-                    else
-                    {
-                        programming_language_selection.children[language_index].value = false;
-                        programming_language_selection.children[language_index].style = tag_selection_off;
-                    }
+                    programming_language_selection.children[language_index].value = false;
+                    programming_language_selection.children[language_index].style = tag_selection_off;
                 }
             }
         }
     }
     setSelectionType();
-    if(selection_type.children[0].value == true)
+}
+
+function restoreDBSingleSelectionCookie()
+{
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    foundSelectionType = cookie_elements.findIndex(element => String(element).split("=")[0] == "selection");
+    
+    if(foundSelectionType >= 0) //if selection type found amongst cookies
     {
-        if(language_active_single_selection != undefined)
+        var split = pairs[1].split("@");
+        
+        /*if selection type is single*/
+        if(split[0] == selection_type.children[0].innerHTML)
         {
-            for(var i=0; i < programming_language_selection.children.length; i++)
+            if(split.length > 1) //if active language
             {
-                if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
+                var active_elements = split[1].split("&");
+                var programming_language_selection = active_elements[0];
+                var concept_selection = active_elements[1];
+                if(programming_language_selection != "")
                 {
-                    programming_language_selection.children[i].click();
-                    break;
+                    /*programming_language_selection is built based on programming_languages. They have the same indexing*/
+                    language_index = programming_languages.findIndex(element => element.name == programming_language_selection);
+                    if(language_index >= 0)
+                    {
+                        programming_language_selection.children[language_index].click(); //click will select the item
+                    }
                 }
-            }
-        }
-        if(concept_active_single_selection != undefined)
-        {
-            for(var i=0; i < concept_selection.children.length; i++)
-            {
-                if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
+                if(concept_selection != "")
                 {
-                    concept_selection.children[i].click();
-                    break;
+                    /*concept_selection is built based on concept_collection. They have the same indexing*/
+                    concept_Index = concept_collection.findIndex(element => element.concept_name == concept_selection);
+                    if(concept_Index >= 0)
+                    {
+                        concept_selection.children[concept_Index].click(); //click will select the item
+                    }
                 }
             }
         }
@@ -317,7 +348,7 @@ function loadXMLDoc(xml_file)
                 concept_selection.children[i].style.display = "inline-block";
             }
             /*read cookie and/or hanndle the display of the elements*/
-            cookieHandling();
+            dbCookieHandling();
         }
     };
     
@@ -923,16 +954,6 @@ function formatMultiLineComments(codeElementListOfLines)
     return codeElementListOfLines;
 }
 
-function checkSwitchPageView()
-{
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    if(foundPageView >=0)
-    {
-        window.location.href = "./portal_classic.html";
-    }
-}
-
 function changeToModernPage()
 {
     if(this.value == false)
@@ -1098,7 +1119,7 @@ function setSelectionType()
 
 
 //Check if user expects to use different version of the webpage;
-checkSwitchPageView();
+restoreCookiePredefinedElements();
 
 loadXMLDoc(online_xml_file);
 
