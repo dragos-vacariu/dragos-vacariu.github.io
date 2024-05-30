@@ -994,7 +994,8 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        //updateCookie will be set in setSelectionType()
+        //Restore the selection stored in Cookie, if any
+        restoreDBSingleSelectionCookie();
         setSelectionType();
     }
 }
@@ -1018,6 +1019,8 @@ function switchSelectionTypeMultiple()
             }
         }
         updateCookie("selection", selection_type.children[1].innerHTML);
+        //Restore the selection stored in Cookie, if any
+        restoreDBMultipleSelectionCookie();
         setSelectionType();
     }
 }
