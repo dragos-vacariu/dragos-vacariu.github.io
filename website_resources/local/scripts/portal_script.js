@@ -98,7 +98,8 @@ function restoreCookiePredefinedElements()
     }
     if(foundSelectionType != undefined) //if selection type found amongst cookies
     {
-        var split = foundSelectionType[1].split("="); 
+        var pairs = foundSelectionType.split("="); 
+        var split = pairs[1].split("@");
         //@ is used to separate selection value: single from possible active language and concept
         
         /*if selection type is single*/
@@ -187,6 +188,7 @@ function restoreDBSingleSelectionCookie()
     
     if(foundSelectionType >= 0) //if selection type found amongst cookies
     {
+        var pairs = foundSelectionType[1].split("="); 
         var split = pairs[1].split("@");
         
         /*if selection type is single*/
