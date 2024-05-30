@@ -223,6 +223,10 @@ function restoreDBSingleSelectionCookie()
                     language_index = language_index-1; //subtract one because General-Programming-Knowledge is not part of the selectable list
                     if(language_index >= 0)
                     {
+                        console.log("Programming selection: " + programming_language_selection);
+                        console.log("Index: " + language_index);
+                        console.log("Selection Length: " + programming_language_selection.children.length);
+                        
                         console.log(programming_language_selection.children[language_index].innerHTML);
                         programming_language_selection.children[language_index].click(); //click will select the item
                     }
