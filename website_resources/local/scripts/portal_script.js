@@ -992,7 +992,7 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("selection", selection_type.children[0].innerHTML);
+        updateCookie("selection", selection_type.children[1].innerHTML);
         setSelectionType();
     }
 }
