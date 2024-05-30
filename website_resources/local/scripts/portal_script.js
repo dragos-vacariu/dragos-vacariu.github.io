@@ -203,7 +203,7 @@ function restoreDBSingleSelectionCookie()
         
         if(pairs.length > 1)
         {
-            var language_index = programming_languages.findIndex(element => element.name == pairs[1])
+            var language_index = programming_languages.findIndex(element => String(element.name) == String(pairs[1]))
             if(language_index >= 0 )
             {
                  /*
@@ -221,7 +221,7 @@ function restoreDBSingleSelectionCookie()
         var pairs = active_concept.split("="); 
         if(pairs.length > 1)
         {
-            var concept_index = concept_collection.findIndex(element => element.concept_name == pairs[1])
+            var concept_index = concept_collection.findIndex(element => String(element.concept_name) == String(pairs[1]))
              
             if(concept_index >= 0 )
             {
