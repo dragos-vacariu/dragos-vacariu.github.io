@@ -160,7 +160,7 @@ function setCookie()
     {
         console.log("Concept active: " + concept_active_single_selection);
         console.log("Language active: " + language_active_single_selection);
-        for(var i=0; i < concept_selection.children; i++)
+        for(var i=0; i < concept_selection.children.length; i++)
         {
             console.log("'"+concept_selection.children[i].innerHTML.toLowerCase()+"'" + "==" + "'" +concept_active_single_selection.toLowerCase() + "'");
             if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
@@ -170,7 +170,7 @@ function setCookie()
                 break;
             }
         }
-        for(var i=0; i < programming_language_selection.children; i++)
+        for(var i=0; i < programming_language_selection.children.length; i++)
         {
             console.log("'"+programming_language_selection.children[i].innerHTML.toLowerCase()+"'" + "==" + "'" +language_active_single_selection.toLowerCase() + "'");
             if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
