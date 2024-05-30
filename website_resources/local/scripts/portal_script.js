@@ -359,8 +359,6 @@ function loadXMLDoc(xml_file)
             for(var i=0; i< concept_collection.length; i++)
             {
                 concept_selection.appendChild(createLiElement(concept_collection[i], true, conceptSelectionBehavior));
-                //Make sure it's inline-block
-                concept_selection.children[i].style.display = "inline-block";
             }
             /*read cookie and/or hanndle the display of the elements*/
             dbCookieHandling();
@@ -600,7 +598,6 @@ function conceptSelectionBehavior()
                     this.style = tag_selection_on;
                 }
                 this.parentElement.children[index].style.opacity = opacity;
-                this.parentElement.children[index].style.display = "block";
             }
             updateCookie("SingleSelectionConcept", this.innerHTML);
         }
@@ -613,13 +610,11 @@ function conceptSelectionBehavior()
         {
             this.value = false;
             this.style = tag_selection_off;
-            this.style.display = "inline-block";
         }
         else
         {
             this.value = true;
             this.style = tag_selection_on;
-            this.style.display = "inline-block";
         }
         updateCookie(this.innerHTML, this.value);
     }
@@ -1089,7 +1084,6 @@ function setSelectionType()
         //for the selected language change their opacity to look disabled and unselectable
         for(var index=0; index < concept_selection.children.length; index++)
         {
-            concept_selection.children[index].style.display = "block";
             //Check if concept exists for the active language
             if(active_language != undefined)
             {
@@ -1101,9 +1095,6 @@ function setSelectionType()
                 }
             }
         }
-        //menu_div flex width is decreased by 10%. 0.2 is like 20% of 50% screen width. 
-        //Aproximatively: 10% of screen width.
-        document.getElementById("menu_div").style.flex = "0.2";
     }
     else if(selection_type.children[1].value == true)
     {
@@ -1123,12 +1114,8 @@ function setSelectionType()
         /*Remove the opacity so that all elements look enabled and become selectable*/
         for(var index=0; index < concept_selection.children.length; index++)
         {
-            concept_selection.children[index].style.display = "inline-block";
             concept_selection.children[index].style.opacity = 1;
         }
-        //menu_div flex width set back to normal. 0.3 is like 30% of 50% screen width. 
-        //Aproximatively: 15% of screen width.
-        document.getElementById("menu_div").style.flex = "0.3";
     }
     showTable();
 }
