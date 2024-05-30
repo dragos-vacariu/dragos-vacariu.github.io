@@ -1151,7 +1151,7 @@ int main()
             <green>Most programming languages are rich in built-in operators and provides the following types of operators:</green>
             <br></br><br></br>
             <brown>Assume variable <code>A = 10</code> and variable <code>B = 20 </code> then: 
-            <br></br><br></br></brown>
+            </brown><br></br><br></br>
             <br></br>
             <green>Arithmetic Operators: <br></br></green>
                 <br></br>
@@ -1422,8 +1422,8 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <blue>return type</blue> as a <red>function/method</red> in the <red>parent class</red>.
             <br></br><br></br>
             <brown>
-            Overloaded functions can be defined both outside and inside classes.<br></br>
-            </brown>
+            Overloaded functions can be defined both outside and inside classes.
+            </brown><br></br>
         </function-overloading>
         <operator-overloading>
             <blue>Operator overloading</blue> is a compile-time <red>polymorphism</red>. <br></br><br></br>
@@ -2444,7 +2444,7 @@ int main()
             any implementation details. <br></br><br></br>
             <brown>
             It defines a contract that concrete implementations must adhere to by providing 
-            definitions for all the functions declared in the <red>interface</red>.
+            definitions for all the functions declared in the interface.
             </brown>
 <code>
 // Declare an interface for a shape
@@ -4189,8 +4189,8 @@ int main(int argc, char ** argv)
             <br></br>
             <brown>
             In C++ multiple namespace blocks 
-            with the same name are allowed.<br></br>
-            </brown>
+            with the same name are allowed.
+            </brown><br></br>
 <code>
 namespace Data
 {
