@@ -203,14 +203,14 @@ function restoreDBSingleSelectionCookie()
         
         if(pairs.length > 1)
         {
-            var languageIndex = programming_languages.findIndex(element => element.name == pairs[1])
-            if(languageIndex >= 0 )
+            var language_index = programming_languages.findIndex(element => element.name == pairs[1])
+            if(language_index >= 0 )
             {
                  /*
                     programming_language_selection is built based on programming_languages without General-Programming-Knowledge. 
                     programming_language_selection has 1 less element compared to programming_languages so 1 less index.
                 */
-                languageIndex-=1;
+                language_index-=1;
                 programming_language_selection.children[language_index].click(); 
                 //click will select this item and deselect all others
             }
@@ -221,12 +221,12 @@ function restoreDBSingleSelectionCookie()
         var pairs = active_concept.split("="); 
         if(pairs.length > 1)
         {
-            var conceptIndex = concept_collection.findIndex(element => element.name == pairs[1])
+            var concept_index = concept_collection.findIndex(element => element.name == pairs[1])
              
-            if(conceptIndex >= 0 )
+            if(concept_index >= 0 )
             {
                  /*concept_selection is built based on concept_collection. They have the same indexing*/
-                concept_selection.children[conceptIndex].click(); 
+                concept_selection.children[concept_index].click(); 
                 //click will select this item and deselect all others
             }
         }
@@ -376,7 +376,7 @@ function loadXMLDoc(xml_file)
 
 function showTable()
 {
-    
+    //The table is hidden only at the beggining - when HTTP Request is accessing the database.
     var hidden = table_content.getAttribute("hidden");
     if (hidden) 
     {
@@ -399,13 +399,16 @@ function removeTable()
 {
     var tableHeaderRowCount = 0;
     var rowCount = table_content.rows.length;
-    for (var i = tableHeaderRowCount; i < rowCount; i++) {
+    for (var i = tableHeaderRowCount; i < rowCount; i++) 
+    {
         table_content.deleteRow(tableHeaderRowCount);
     }
 }
 
 function fillTableCompare()
-{    
+{   
+    /*This function will fill the table in multiple columns to allow comparison*/
+    
     //Calculate the number of columns to be displayed
     var active_columns = 0; 
     for(var j=0; j<programming_language_selection.children.length; j++)
@@ -492,6 +495,7 @@ function fillTableCompare()
 
 function fillTableRegular()
 {    
+    /*This function will fill the table in one column only*/
     var row = null;
     var cell = null;
     
@@ -558,6 +562,10 @@ function fillTableRegular()
 
 function createLiElement(string_value, enablingStatus, function_behaviour)
 {
+    /*
+    This function will create li elements to allow selection and deselection of elements 
+    within the database.
+    */
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(string_value));
     li.value = enablingStatus;
@@ -575,6 +583,7 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 
 function conceptSelectionBehavior()
 {
+    /*This function describes the behaviour of a concept li element*/
     if(selection_type.children[0].value == true)
     {
         //opacity is used to specify whether a concept is available or not for the selected programming language
@@ -622,6 +631,7 @@ function conceptSelectionBehavior()
 
 function languageSelectionBehaviour()
 {
+    /*This function describes the behaviour of a language li element*/
     //if Selection type is single:
     if (selection_type.children[0].value == true)
     {
@@ -662,6 +672,7 @@ function languageSelectionBehaviour()
 
 function getActiveElements(element)
 {
+    /*This function will return the number of active elements within an HTML ul list*/
     activeElements=[];
     if(element.length != undefined)
     {
@@ -678,6 +689,7 @@ function getActiveElements(element)
 
 function deselectionOfAllConceptElements() 
 {
+    /*This function will describe the behavior of deselect all button within the Overall Concept Selection.*/
     for(var i = 0; i < concept_selection.children.length; i++)
     {
         if (concept_selection.children[i] != this)
@@ -692,6 +704,7 @@ function deselectionOfAllConceptElements()
 
 function selectionOfAllConceptElements() 
 {
+    /*This function will describe the behavior of select all button within the Overall Concept Selection.*/
     for(var i = 0; i < concept_selection.children.length; i++)
     {
         if (concept_selection.children[i] != this)
@@ -706,6 +719,7 @@ function selectionOfAllConceptElements()
 
 function deselectionOfAllLanguageElements() 
 {
+    /*This function will describe the behavior of deselect all button within the Overall Language Selection.*/
     for(var i = 0; i < programming_language_selection.children.length; i++)
     {
         if (programming_language_selection.children[i] != this)
@@ -720,6 +734,7 @@ function deselectionOfAllLanguageElements()
 
 function selectionOfAllLanguageElements() 
 {
+    /*This function will describe the behavior of select all button within the Overall Language Selection.*/
     for(var i = 0; i < programming_language_selection.children.length; i++)
     {
         if (programming_language_selection.children[i] != this)
@@ -734,6 +749,8 @@ function selectionOfAllLanguageElements()
 
 function switchToRegularView()
 {
+    //This function will change the view to Regular
+    
     //Check if compare view is true
     if(view_selection.children[1].value == true)
     {
@@ -758,6 +775,8 @@ function switchToRegularView()
 
 function switchToCompareView()
 {
+    //This function will change the view to Multi-Compare
+    
     //Check if regular view is true and selection type is multiple else this mode will be unavailable
     if(view_selection.children[0].value == true && selection_type.children[1].value == true)
     {
@@ -782,6 +801,8 @@ function switchToCompareView()
 
 function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 {
+    /*This function will copy information from General-Programming-Knowledge*/
+    
     //Enter here if this table cell
     if(String(html_element.tagName).toLowerCase() == "td" || 
         String(html_element.tagName).toLowerCase() == "p")
@@ -814,7 +835,8 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 }
 
 function format_XML_Document_Content(xml_Document_Content)
-{    
+{   
+    //This function will format the Database code elements by adding lineNumbers and Comment Styles
     var codeElements =  xml_Document_Content.getElementsByTagName("code");
     for(var index = 0; index < codeElements.length; index++)
     {
@@ -865,12 +887,14 @@ function format_XML_Document_Content(xml_Document_Content)
 
 function addStyleCodeBoxes(contentToPutInBox)
 {
+    //This function will draw a box around the code elements
     contentToPutInBox = "<box>" + contentToPutInBox + "</box>"
     return contentToPutInBox;
 }
 
 function formatSingleLineComments(line)
 {
+    /*This function will format/style single line comments in all programming languages*/
     
     //use if instead of if-else as the line can contain all of them at the same time.
     
@@ -910,6 +934,8 @@ function formatSingleLineComments(line)
 
 function formatMultiLineComments(codeElementListOfLines)
 {
+    //This function will format multiline_comments in all programming languages
+    
     var multiline_comment_found = 0;
 
     for(var i=0; i < codeElementListOfLines.length; i++)
@@ -939,6 +965,7 @@ function formatMultiLineComments(codeElementListOfLines)
 
 function changeToModernPage()
 {
+    //This function is executed when changing the classic page to modern page
     if(this.value == false)
     {
         updateCookie("page", "modern");
@@ -948,6 +975,7 @@ function changeToModernPage()
 
 function changeToClassicPage()
 {
+    //This function is executed when changing the modern page to classic page
     if(this.value == false)
     {
         updateCookie("page", "classic");
@@ -957,6 +985,8 @@ function changeToClassicPage()
 
 function switchSelectionTypeSingle()
 {
+    //This function will switch the Selection Type from Multiple to Single
+    
     //Check if selection type is not single
     if(selection_type.children[0].value != true)
     {
@@ -982,6 +1012,8 @@ function switchSelectionTypeSingle()
 
 function switchSelectionTypeMultiple()
 {
+    //This function will switch the Selection Type from Single to Multiple
+    
     //Check if selection type is not multiple
     if(selection_type.children[1].value != true)
     {
@@ -1007,6 +1039,8 @@ function switchSelectionTypeMultiple()
 
 function setSelectionType()
 {
+    //This function will set everything for the Selection Type which was selected prior to it.
+    
     //if selection type is single
     if(selection_type.children[0].value == true)
     {
