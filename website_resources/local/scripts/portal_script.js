@@ -58,7 +58,8 @@ function cookieHandling()
 function setCookie()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    var ItemByItem_Active_Concept = -1;
+    var language_active_single_selection = undefined;
+    var concept_active_single_selection = undefined;
     for(var i=0; i<cookie_elements.length; i++)
     {
         var pairs = cookie_elements[i].split("=");
@@ -73,6 +74,12 @@ function setCookie()
             {
                 /*if selection type is single*/
                 switchSelectionTypeSingle();
+                active_elements = split[1].split("&");
+                if(active_elements.length > 0)
+                {
+                    language_active_single_selection = active_elements[0];
+                    concept_active_single_selection = active_elements[1];
+                }
             }
             else if((split[0] == selection_type.children[1].innerHTML))
             {
@@ -149,6 +156,23 @@ function setCookie()
         }
     }
     setSelectionType();
+    if(selection_type.children[0] == true)
+    {
+        for(var i=0; i<concept_selection.children; i++)
+        {
+            if(concept_selection.children[i].innerHTML == concept_active_single_selection)
+            {
+                concept_selection.children[i].click();
+            }
+        }
+        for(var i=0; i<programming_language_selection.children; i++)
+        {
+            if(programming_language_selection.children[i].innerHTML == language_active_single_selection)
+            {
+                programming_language_selection.children[i].click();
+            }
+        }
+    }
 }
 
 function updateCookie(property, value)
