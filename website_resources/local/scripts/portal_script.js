@@ -211,7 +211,7 @@ function restoreDBSingleSelectionCookie()
             if(split.length > 1) //if active language
             {
                 var active_elements = split[1].split("&");
-                var programming_language_selection = active_elements[0];
+                var language_selection = active_elements[0];
                 var concept_selection = active_elements[1];
                 if(programming_language_selection != "")
                 {
