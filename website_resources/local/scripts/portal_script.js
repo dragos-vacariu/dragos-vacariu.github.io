@@ -514,7 +514,15 @@ function conceptSelectionBehavior()
                 }
                 this.parentElement.children[index].style.opacity = opacity;
                 this.parentElement.children[index].style.display = "block";
-                updateCookie("selection", "single" + String(index));
+            }
+            active_language = getActiveElements(programming_language_selection.children);
+            if(active_language.length > 0)
+            {
+                updateCookie("selection", single_selection_type_text+"@"+ active_language[0].innerHTML +"&" + this.innerHTML);
+            }
+            else
+            {
+                updateCookie("selection", single_selection_type_text+"@"+"&" + this.innerHTML);
             }
         }
         //each time a new item is selected just scroll to the beggining
@@ -574,6 +582,15 @@ function languageSelectionBehaviour()
                     concept_selection.children[index].style.opacity = 1;
                 }
             }
+        }
+        var active_concept = getActiveElements(this.parentElement.children);
+        if(active_concept.length>0)
+        {
+            updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&"+active_concept[0].innerHTML);
+        }
+        else
+        {
+            updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&");
         }
     }
     //If Selection type is multiple and view is whatever:
@@ -903,7 +920,7 @@ function changeToClassicPage()
 function switchSelectionTypeSingle()
 {
     //Check if selection type is not single
-    if(selection_type.children[1].value != true)
+    if(selection_type.children[0].value != true)
     {
         for(var i = 0; i < selection_type.children.length; i++)
         {
@@ -918,7 +935,7 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("selection", single_selection_type_text);
+        //updateCookie("selection", single_selection_type_text); //this will be set in setSelectionType()
         setSelectionType();
     }
 }
@@ -994,6 +1011,7 @@ function setSelectionType()
             }
             else if(concept_selection.children[index].value == true && counter == 0)
             {
+                updateCookie("selection", single_selection_type_text+"@"+active_language.name+"&"+concept_selection.children[index].value);
                 counter++;
             }
             else
