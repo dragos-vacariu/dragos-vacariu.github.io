@@ -70,9 +70,9 @@ function restoreCookiePredefinedElements()
     */
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
-    foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
+    var foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
+    var foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
+    var foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
     /*
         The findIndex() method of Array instances returns the index of the first element in an 
         array that satisfies the provided testing function. If no elements satisfy the testing 
@@ -101,13 +101,9 @@ function restoreCookiePredefinedElements()
         }
     }
     if(foundSelectionType != undefined) //if selection type found amongst cookies
-    {
-        var pairs = foundSelectionType.split("="); 
-        var split = pairs[1].split("@");
-        //@ is used to separate selection value: single from possible active language and concept
-        
+    {        
         /*if selection type is single*/
-        if(split[0] == selection_type.children[0].innerHTML)
+        if(foundSelectionType.split("=")[1] == selection_type.children[0].innerHTML)
         {
             selection_type.children[0].value = true;
             selection_type.children[1].value = false;
@@ -194,49 +190,44 @@ function restoreDBMultipleSelectionCookie()
 function restoreDBSingleSelectionCookie()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
+    var active_language = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionLanguage");
+    var active_concept = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionConcept");
     /*
         The find() method of Array instances returns the first element in the provided array that 
         satisfies the provided testing function. If no values satisfy the testing function, undefined 
         is returned.
     */
-    if(foundSelectionType != undefined) //if selection type found amongst cookies
+    if(active_language != undefined) //if selection type found amongst cookies
     {
-        var pairs = foundSelectionType.split("="); 
-        var split = pairs[1].split("@");
+        var pairs = active_language.split("="); 
         
-        /*if selection type is single*/
-        if(split[0] == selection_type.children[0].innerHTML)
+        if(pairs.length > 1)
         {
-            if(split.length > 1) //if active language
+            var languageIndex = programming_languages.findIndex(element => element.name == pairs[1])
+            if(languageIndex >= 0 )
             {
-                var active_elements = split[1].split("&");
-                var active_language = active_elements[0];
-                var active_concept = active_elements[1];
-                if(active_language != "")
-                {
-                    /*
-                        programming_language_selection is built based on programming_languages without General-Programming-Knowledge. 
-                        programming_language_selection has 1 less element compared to programming_languages so 1 less index.
-                    */
-                    language_index = programming_languages.findIndex(element => element.name == active_language);
-                    language_index = language_index-1; //subtract one because General-Programming-Knowledge is not part of the selectable list
-                    if(language_index >= 0)
-                    {
-                        programming_language_selection.children[language_index].click(); 
-                        //click will select this item and deselect all others
-                    }
-                }
-                if(active_concept != "")
-                {
-                    /*concept_selection is built based on concept_collection. They have the same indexing*/
-                    concept_index = concept_collection.findIndex(element => element.concept_name == active_concept);
-                    if(concept_index >= 0)
-                    {
-                        concept_selection.children[concept_index].click(); 
-                        //click will select this item and deselect all others
-                    }
-                }
+                 /*
+                    programming_language_selection is built based on programming_languages without General-Programming-Knowledge. 
+                    programming_language_selection has 1 less element compared to programming_languages so 1 less index.
+                */
+                languageIndex-=1;
+                programming_language_selection.children[language_index].click(); 
+                //click will select this item and deselect all others
+            }
+        }
+    }
+    if(active_concept != undefined) //if selection type found amongst cookies
+    {
+        var pairs = active_concept.split("="); 
+        if(pairs.length > 1)
+        {
+            var conceptIndex = concept_collection.findIndex(element => element.name == pairs[1])
+             
+            if(conceptIndex >= 0 )
+            {
+                 /*concept_selection is built based on concept_collection. They have the same indexing*/
+                concept_selection.children[conceptIndex].click(); 
+                //click will select this item and deselect all others
             }
         }
     }
@@ -605,15 +596,7 @@ function conceptSelectionBehavior()
                 this.parentElement.children[index].style.opacity = opacity;
                 this.parentElement.children[index].style.display = "block";
             }
-            active_language = getActiveElements(programming_language_selection.children);
-            if(active_language.length > 0)
-            {
-                updateCookie("selection", selection_type.children[0].innerHTML +"@"+ active_language[0].innerHTML +"&" + this.innerHTML);
-            }
-            else
-            {
-                updateCookie("selection", selection_type.children[0].innerHTML +"@"+"&" + this.innerHTML);
-            }
+            updateCookie("SingleSelectionConcept", this.innerHTML);
         }
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 200);
@@ -656,31 +639,7 @@ function languageSelectionBehaviour()
                 this.style = tag_selection_on;
             }
         }
-        active_language = programming_languages.find(element => element.name == this.innerHTML);
-        var cookieStringValue = selection_type.children[0].innerHTML + "@";
-        if(active_language != undefined)
-        {
-            cookieStringValue += active_language.name;
-            var active_concept = "";
-            for(var index=0; index < concept_selection.children.length; index++)
-            {
-                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
-                if(elementIndex < 0)
-                {
-                     concept_selection.children[index].style.opacity = disabledElementOpacity;
-                }
-                else
-                {
-                    concept_selection.children[index].style.opacity = 1;
-                }
-                if(concept_selection.children[index].value==true)
-                {
-                    active_concept = concept_selection.children[index].innerHTML;
-                }
-            }
-            cookieStringValue += "&" + active_concept;
-        }
-        updateCookie("selection", cookieStringValue);
+        updateCookie("SingleSelectionLanguage", this.innerHTML);
     }
     //If Selection type is multiple and view is whatever:
     else
@@ -1014,6 +973,7 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
+        updateCookie("selection", selection_type.children[0].innerHTML);
         //Restore the selection stored in Cookie, if any
         restoreDBSingleSelectionCookie();
         setSelectionType();
@@ -1050,6 +1010,8 @@ function setSelectionType()
     //if selection type is single
     if(selection_type.children[0].value == true)
     {
+        /*Selection type: multiple gets deselected and gets the disabled opacity while Selection type: 
+            single gets selected and active*/
         view_selection.children[1].value = false;
         view_selection.children[1].style = tag_selection_off;
         view_selection.children[1].style.opacity = disabledElementOpacity;
@@ -1100,6 +1062,7 @@ function setSelectionType()
     }
     else if(selection_type.children[1].value == true)
     {
+        /*Selection type: multiple gets the enabled opacity*/
         view_selection.children[1].style.opacity = 1;
         //Show the overall selecton elements;
         if (overall_concept_selection.getAttribute("hidden")=="hidden") 
@@ -1124,7 +1087,6 @@ function setSelectionType()
     }
     showTable();
 }
-
 
 //Check if user expects to use different version of the webpage;
 restoreCookiePredefinedElements();
