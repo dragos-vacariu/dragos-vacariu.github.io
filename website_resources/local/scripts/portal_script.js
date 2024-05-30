@@ -169,7 +169,6 @@ function setCookie()
                 if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
                 {
                     programming_language_selection.children[i].click();
-                    console.log("Changing " + programming_language_selection.children[i].innerHTML);
                     break;
                 }
             }
@@ -180,7 +179,6 @@ function setCookie()
             {
                 if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
                 {
-                    console.log("Changing " + concept_selection.children[i].innerHTML);
                     concept_selection.children[i].click();
                     break;
                 }
