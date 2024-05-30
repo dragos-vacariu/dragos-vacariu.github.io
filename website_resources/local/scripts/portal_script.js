@@ -188,7 +188,7 @@ function restoreDBSingleSelectionCookie()
     
     if(foundSelectionType >= 0) //if selection type found amongst cookies
     {
-        var pairs = foundSelectionType[1].split("="); 
+        var pairs = foundSelectionType.split("="); 
         var split = pairs[1].split("@");
         
         /*if selection type is single*/
