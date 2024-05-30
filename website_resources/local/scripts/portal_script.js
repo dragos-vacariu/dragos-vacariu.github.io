@@ -221,7 +221,7 @@ function restoreDBSingleSelectionCookie()
         var pairs = active_concept.split("="); 
         if(pairs.length > 1)
         {
-            var concept_index = concept_collection.findIndex(element => String(element.concept_name) == String(pairs[1]))
+            var concept_index = concept_collection.findIndex(element => String(element) == String(pairs[1]))
              
             if(concept_index >= 0 )
             {
