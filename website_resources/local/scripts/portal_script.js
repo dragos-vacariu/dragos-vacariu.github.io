@@ -934,7 +934,7 @@ function switchSelectionTypeSingle()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        //updateCookie("selection", single_selection_type_text); //this will be set in setSelectionType()
+        //updateCookie will be set in setSelectionType()
         setSelectionType();
     }
 }
@@ -946,7 +946,7 @@ function switchSelectionTypeMultiple()
     {
         for(var i = 0; i < selection_type.children.length; i++)
         {
-            if (selection_type.children[i].innerHTML != multiple_selection_type_text)
+            if (i != 1)
             {
                 selection_type.children[i].value = false;
                 selection_type.children[i].style = tag_selection_off;
@@ -957,7 +957,7 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-        updateCookie("selection", multiple_selection_type_text);
+        updateCookie("selection", selection_type.children[0].innerHTML);
         setSelectionType();
     }
 }
@@ -996,9 +996,12 @@ function setSelectionType()
             active_items[counter].style = tag_selection_off;
             counter++;
         }
-        active_language = programming_languages.find(element=> element.name == active_items[active_items.length-1].innerHTML);
+        var active_language = undefined
+        if(active_items.length > 0)
+        {
+            active_language = programming_languages.find(element=> element.name == active_items[active_items.length-1].innerHTML);
+        }
         counter=0;
-        console.log(active_language.name);
         for(var index=0; index < concept_selection.children.length; index++)
         {
             if(concept_selection.children[index].innerHTML )
@@ -1010,7 +1013,8 @@ function setSelectionType()
             }
             else if(concept_selection.children[index].value == true && counter == 0)
             {
-                updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&"+concept_selection.children[index].value);
+                var language_name = active_language==undefined ? "" : active_language.name;
+                updateCookie("selection", selection_type.children[0].innerHTML +"@"+language_name+"&"+concept_selection.children[index].value);
                 counter++;
             }
             else
