@@ -999,7 +999,10 @@ function switchSelectionTypeSingle()
         }
         updateCookie("selection", selection_type.children[0].innerHTML);
         //Restore the selection stored in Cookie, if any
-        restoreDBSingleSelectionCookie();
+        if(document.cookie.length > 0)
+        {
+            restoreDBSingleSelectionCookie();
+        }
         setSelectionType();
     }
 }
@@ -1026,7 +1029,10 @@ function switchSelectionTypeMultiple()
         }
         updateCookie("selection", selection_type.children[1].innerHTML);
         //Restore the selection stored in Cookie, if any
-        restoreDBMultipleSelectionCookie();
+        if(document.cookie.length > 0)
+        {
+            restoreDBMultipleSelectionCookie();
+        }
         setSelectionType();
     }
 }
@@ -1066,6 +1072,17 @@ function setSelectionType()
         var active_language = undefined
         if(active_items.length > 0) //should only be one element stored in active_items
         {
+            //If there is no cookie
+            if(document.cookie.length == 0)
+            {
+                //we will make sure any other active languages and concepts will be deselected
+                active_items[0].click();
+                if(concept_selection.children.length > 0) //this condition should always be true
+                {
+                    concept_selection.children[0].click();
+                    //If there is no cookie we need to make sure that we deselect all elements but one
+                }
+            }
             active_language = programming_languages.find(element=> element.name == active_items[0].innerHTML);
         }
         //For the selected language check all concepts for the selection and if they are not available
