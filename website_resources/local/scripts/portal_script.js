@@ -1014,7 +1014,7 @@ function switchSelectionTypeSingle()
             }
         }
         //Restore the selection stored in Cookie, if any
-        restoreDBSingleSelectionCookie();
+        //restoreDBSingleSelectionCookie();
         setSelectionType();
     }
 }
@@ -1067,41 +1067,24 @@ function setSelectionType()
             overall_language_selection.setAttribute("hidden", "hidden");
             document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
         }
+        /*
+            Get the active language. There should be only one active language selected 
+            since Cookie values were restored in the switchSelectionTypeSingle() 
+        */
         var active_items = getActiveElements(programming_language_selection.children);
-        /*Deselect the multiple selections:*/
-        var counter = 0;
-        //If there are more selected elements than allowed by the view and selection type
-        while(active_items.length - counter > 1)
-        {
-            //Deselect items until reaching the target
-            active_items[counter].value = false;
-            active_items[counter].style = tag_selection_off;
-            counter++;
-        }
         var active_language = undefined
-        if(active_items.length > 0)
+        if(active_items.length > 0) //should only be one element stored in active_items
         {
-            active_language = programming_languages.find(element=> element.name == active_items[active_items.length-1].innerHTML);
+            active_language = programming_languages.find(element=> element.name == active_items[0].innerHTML);
         }
-        counter=0;
+        var counter=0;
         for(var index=0; index < concept_selection.children.length; index++)
         {
-            if(concept_selection.children[index].innerHTML )
             //keep the first selected element but deselect all the others;
             if(concept_selection.children[index].value == true && counter > 0)
             {
                 concept_selection.children[index].value = false;
                 concept_selection.children[index].style = tag_selection_off;
-            }
-            else if(concept_selection.children[index].value == true && counter == 0)
-            {
-                var language_name = active_language==undefined ? "" : active_language.name;
-                updateCookie("selection", selection_type.children[0].innerHTML +"@"+language_name+"&"+concept_selection.children[index].innerHTML);
-                counter++;
-            }
-            else
-            {
-                /*Nothing to do, the element is already deselected*/
             }
             concept_selection.children[index].style.display = "block";
             //Check if concept exists for the active language
