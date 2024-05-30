@@ -598,11 +598,13 @@ function languageSelectionBehaviour()
                 this.value = true;
                 this.style = tag_selection_on;
             }
-            updateCookie("selection", "ItemByItem@" + String(index));
         }
         active_language = programming_languages.find(element => element.name == this.innerHTML);
+        var cookieStringValue = selection_type.children[0].innerHTML + "@";
         if(active_language != undefined)
         {
+            cookieStringValue += active_language.name;
+            var active_concept = "";
             for(var index=0; index < concept_selection.children.length; index++)
             {
                 var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
@@ -614,17 +616,14 @@ function languageSelectionBehaviour()
                 {
                     concept_selection.children[index].style.opacity = 1;
                 }
+                if(concept_selection.children[index].value==true)
+                {
+                    active_concept = concept_selection.children[index].innerHTML;
+                }
             }
+            cookieStringValue += "&" + active_concept;
         }
-        var active_concept = getActiveElements(this.parentElement.children);
-        if(active_concept.length>0)
-        {
-            updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&"+active_concept[0].innerHTML);
-        }
-        else
-        {
-            updateCookie("selection", selection_type.children[0].innerHTML +"@"+active_language.name+"&");
-        }
+        updateCookie("selection", cookieStringValue);
     }
     //If Selection type is multiple and view is whatever:
     else
