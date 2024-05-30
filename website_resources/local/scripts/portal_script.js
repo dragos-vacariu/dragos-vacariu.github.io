@@ -69,13 +69,11 @@ function setCookie()
         //Checking if pairs[0] is a SELECTION:
         if(pairs[0] == "selection")
         {
-            console.log("pairs[1] = " + pairs[1]);
             var split = pairs[1].split("@")
             if(split[0] == selection_type.children[0].innerHTML)
             {
                 /*if selection type is single*/
                 switchSelectionTypeSingle();
-                console.log("split = " +split)
                 active_elements = split[1].split("&");
                 if(active_elements.length > 0)
                 {
@@ -162,7 +160,6 @@ function setCookie()
     {
         for(var i=0; i < programming_language_selection.children.length; i++)
         {
-            console.log("'"+programming_language_selection.children[i].innerHTML.toLowerCase()+"'" + "==" + "'" +language_active_single_selection.toLowerCase() + "'");
             if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
             {
                 programming_language_selection.children[i].click();
@@ -172,7 +169,6 @@ function setCookie()
         }
         for(var i=0; i < concept_selection.children.length; i++)
         {
-            console.log("'"+concept_selection.children[i].innerHTML.toLowerCase()+"'" + "==" + "'" +concept_active_single_selection.toLowerCase() + "'");
             if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
             {
                 console.log("Changing " + concept_selection.children[i].innerHTML);
