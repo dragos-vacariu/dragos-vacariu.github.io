@@ -162,22 +162,28 @@ function setCookie()
     setSelectionType();
     if(selection_type.children[0].value == true)
     {
-        for(var i=0; i < programming_language_selection.children.length; i++)
+        if(language_active_single_selection != undefined)
         {
-            if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
+            for(var i=0; i < programming_language_selection.children.length; i++)
             {
-                programming_language_selection.children[i].click();
-                console.log("Changing " + programming_language_selection.children[i].innerHTML);
-                break;
+                if(programming_language_selection.children[i].innerHTML.toLowerCase() == language_active_single_selection.toLowerCase())
+                {
+                    programming_language_selection.children[i].click();
+                    console.log("Changing " + programming_language_selection.children[i].innerHTML);
+                    break;
+                }
             }
         }
-        for(var i=0; i < concept_selection.children.length; i++)
+        if(concept_active_single_selection != undefined)
         {
-            if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
+            for(var i=0; i < concept_selection.children.length; i++)
             {
-                console.log("Changing " + concept_selection.children[i].innerHTML);
-                concept_selection.children[i].click();
-                break;
+                if(concept_selection.children[i].innerHTML.toLowerCase() == concept_active_single_selection.toLowerCase())
+                {
+                    console.log("Changing " + concept_selection.children[i].innerHTML);
+                    concept_selection.children[i].click();
+                    break;
+                }
             }
         }
     }
