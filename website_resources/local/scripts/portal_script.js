@@ -156,7 +156,7 @@ function setCookie()
         }
     }
     setSelectionType();
-    if(selection_type.children[0] == true)
+    if(selection_type.children[0].value == true)
     {
         console.log("Concept active: " + concept_active_single_selection);
         console.log("Language active: " + language_active_single_selection);
