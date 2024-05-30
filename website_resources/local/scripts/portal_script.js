@@ -1018,7 +1018,7 @@ function switchSelectionTypeSingle()
             }
         }
         //Restore the selection stored in Cookie, if any
-        //restoreDBSingleSelectionCookie();
+        restoreDBSingleSelectionCookie();
         setSelectionType();
     }
 }
