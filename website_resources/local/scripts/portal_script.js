@@ -158,6 +158,8 @@ function setCookie()
     setSelectionType();
     if(selection_type.children[0] == true)
     {
+        console.log("Concept active: " + concept_active_single_selection);
+        console.log("Language active: " + language_active_single_selection);
         for(var i=0; i<concept_selection.children; i++)
         {
             if(concept_selection.children[i].innerHTML == concept_active_single_selection)
