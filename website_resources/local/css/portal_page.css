@@ -234,22 +234,6 @@
     background-color: red;
 }
 
-/*Selecting only td elements whose parent is  #table_content*/
-#page_block #paragraph_content{
-    position:relative;
-    width: 98%; 
-    margin: 1%;
-    padding: 0px;
-    border: solid 1px rgba(143,55,0, 0.1);
-    /*background-color and other properties are set from the script*/
-    background-color: rgba(255,255,255, 0.3);
-}
-
-#page_block #paragraph_content p{
-    position: relative;
-    width: auto; 
-}
-
 #page_block code{
     font-family: Consolas;
     font-size: 16px;
