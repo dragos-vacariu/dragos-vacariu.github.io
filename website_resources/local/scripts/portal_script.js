@@ -209,8 +209,10 @@ function restoreDBSingleSelectionCookie()
                 var concept_selection = active_elements[1];
                 if(programming_language_selection != "")
                 {
-                    /*programming_language_selection is built based on programming_languages. They have the same indexing*/
+                    /*programming_language_selection is built based on programming_languages without General-Programming-Knowledge. 
+                    programming_language_selection has 1 less element compared to programming_languages so 1 less index*/
                     language_index = programming_languages.findIndex(element => element.name == programming_language_selection);
+                    language_index = language_index-1; //subtract one because General-Programming-Knowledge is not part of the selectable list
                     if(language_index >= 0)
                     {
                         programming_language_selection.children[language_index].click(); //click will select the item
