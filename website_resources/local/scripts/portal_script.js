@@ -74,13 +74,11 @@ function setCookie()
         {
             if(pairs[1] == single_selection_type_text)
             {
-                selection_type.children[0].value = true;
-                selection_type.children[1].value = false;
+                switchSelectionTypeSingle();
             }
             else if((pairs[1] == multiple_selection_type_text))
             {
-                selection_type.children[1].value = true;
-                selection_type.children[0].value = false;
+                switchSelectionTypeMultiple();
             }
         }
         //Checking if pairs[0] is a VIEW:
@@ -904,8 +902,8 @@ function changeToClassicPage()
 
 function switchSelectionTypeSingle()
 {
-    //Check if selection type is multiple
-    if(selection_type.children[1].value == true)
+    //Check if selection type is not single
+    if(selection_type.children[1].value != true)
     {
         for(var i = 0; i < selection_type.children.length; i++)
         {
@@ -927,8 +925,8 @@ function switchSelectionTypeSingle()
 
 function switchSelectionTypeMultiple()
 {
-    //Check if selection type is single
-    if(selection_type.children[0].value == true)
+    //Check if selection type is not multiple
+    if(selection_type.children[1].value != true)
     {
         for(var i = 0; i < selection_type.children.length; i++)
         {
