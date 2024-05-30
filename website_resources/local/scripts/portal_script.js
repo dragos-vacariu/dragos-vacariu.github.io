@@ -77,6 +77,10 @@ function restoreCookiePredefinedElements()
         The findIndex() method of Array instances returns the index of the first element in an 
         array that satisfies the provided testing function. If no elements satisfy the testing 
         function, -1 is returned.
+        
+        The find() method of Array instances returns the first element in the provided array that 
+        satisfies the provided testing function. If no values satisfy the testing function, undefined 
+        is returned.
     */
     if(foundPageView >= 0) //if page view found amongst cookies
     {
@@ -184,9 +188,13 @@ function restoreDBMultipleSelectionCookie()
 function restoreDBSingleSelectionCookie()
 {
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    foundSelectionType = cookie_elements.findIndex(element => String(element).split("=")[0] == "selection");
-    
-    if(foundSelectionType >= 0) //if selection type found amongst cookies
+    foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
+    /*
+        The find() method of Array instances returns the first element in the provided array that 
+        satisfies the provided testing function. If no values satisfy the testing function, undefined 
+        is returned.
+    */
+    if(foundSelectionType != undefined) //if selection type found amongst cookies
     {
         var pairs = foundSelectionType.split("="); 
         var split = pairs[1].split("@");
