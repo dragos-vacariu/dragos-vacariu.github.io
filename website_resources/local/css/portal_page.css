@@ -11,11 +11,15 @@
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
     text-shadow: 1px 1px white;
     word-wrap: break-word;
-    min-height: 60vw;
     height: auto;
     top: 0px;
     font-weight: bold;
     box-shadow: none;
+}
+
+#page_block h2
+{
+    margin-bottom: 1%;
 }
 
 #page_block #page_content
@@ -26,6 +30,8 @@
     display: flex; 
     flex-direction: row; 
     flex-wrap: wrap; 
+    margin: 0px;
+    padding: 0px;
     /*
     Alternative way: display: inline-block; will do the same thing
     display: inline-block; 
@@ -39,9 +45,11 @@
     left: 0%;
     top:0%;
     margin:0px;
+    margin-left:2px;
     height: 98vh; /*height in percent of viewport height*/
-    padding: 0px;
-    border: none 2px #995500;
+    padding: 2px;
+    border: solid 1px #995500;
+    border-radius: 10px;
     overflow-x: hidden;
     overflow-y: auto;
     /*flex and md-flex sets the width*/
@@ -117,7 +125,9 @@
 #page_block #content{
     position: relative;
     width: 68%;
-    border: none 2px pink;
+    border: solid 1px #995500;
+    border-radius: 10px;
+    margin:0px 2px;
     /*flex and md-flex sets the width*/
    -ms-flex: 1;  /* IE 10 */ 
     flex: 1;
