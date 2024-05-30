@@ -109,11 +109,17 @@ function restoreCookiePredefinedElements()
         /*if selection type is single*/
         if(split[0] == selection_type.children[0].innerHTML)
         {
-            switchSelectionTypeSingle();
+            selection_type.children[0].value = true;
+            selection_type.children[1].value = false;
+            selection_type.children[0].style = tag_selection_on;
+            selection_type.children[1].style = tag_selection_off;
         }
         else
         {
-            switchSelectionTypeMultiple();
+            selection_type.children[0].value = false;
+            selection_type.children[1].value = true;
+            selection_type.children[0].style = tag_selection_off;
+            selection_type.children[1].style = tag_selection_on;
         }
     }
     setSelectionType();
