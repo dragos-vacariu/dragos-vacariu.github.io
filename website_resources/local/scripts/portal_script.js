@@ -1046,7 +1046,7 @@ function setSelectionType()
             else if(concept_selection.children[index].value == true && counter == 0)
             {
                 var language_name = active_language==undefined ? "" : active_language.name;
-                updateCookie("selection", selection_type.children[0].innerHTML +"@"+language_name+"&"+concept_selection.children[index].value);
+                updateCookie("selection", selection_type.children[0].innerHTML +"@"+language_name+"&"+concept_selection.children[index].innerHTML);
                 counter++;
             }
             else
