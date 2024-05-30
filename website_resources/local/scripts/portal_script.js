@@ -163,6 +163,7 @@ function setCookie()
             if(concept_selection.children[i].innerHTML == concept_active_single_selection)
             {
                 concept_selection.children[i].click();
+                break;
             }
         }
         for(var i=0; i<programming_language_selection.children; i++)
@@ -170,6 +171,7 @@ function setCookie()
             if(programming_language_selection.children[i].innerHTML == language_active_single_selection)
             {
                 programming_language_selection.children[i].click();
+                break;
             }
         }
     }
