@@ -125,6 +125,7 @@
 }
 
 #concept_selection li{
+    /*overwrite the display property for the concept_seleciton*/
     display: block;
 }
 
