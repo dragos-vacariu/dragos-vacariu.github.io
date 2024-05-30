@@ -42,7 +42,9 @@ const cell_style = "vertical-align: top;";
 
 function dbCookieHandling()
 {
-    /*Handling of database related cookies*/
+    /*Handling of database related cookies. For these cookies we need the content from the Database
+      So we need to wait until the HTTP Request is ready. These cookies will be set slower than predefined elements cookie.
+    */
     
     //reading from the cookie file:
     if(document.cookie.length > 0)
@@ -69,8 +71,8 @@ function restoreCookiePredefinedElements()
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
     foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    foundViewSelection = cookie_elements.findIndex(element => String(element).split("=")[0] == "view");
-    foundSelectionType = cookie_elements.findIndex(element => String(element).split("=")[0] == "selection");
+    foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
+    foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
     /*
         The findIndex() method of Array instances returns the index of the first element in an 
         array that satisfies the provided testing function. If no elements satisfy the testing 
@@ -81,7 +83,7 @@ function restoreCookiePredefinedElements()
         window.location.href = "./portal_classic.html";
         /*Page will change and script run will stop*/
     }
-    if(foundViewSelection >= 0) //if view selection found amongst cookies
+    if(foundViewSelection != undefined) //if view selection found amongst cookies
     {
         if(foundViewSelection.split("=")[1] == "compare")
         {
@@ -94,7 +96,7 @@ function restoreCookiePredefinedElements()
             switchToRegularView();
         }
     }
-    if(foundSelectionType >= 0) //if selection type found amongst cookies
+    if(foundSelectionType != undefined) //if selection type found amongst cookies
     {
         var split = pairs[1].split("@"); 
         //@ is used to separate selection value: single from possible active language and concept
