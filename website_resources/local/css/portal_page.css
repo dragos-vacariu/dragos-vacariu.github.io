@@ -296,19 +296,29 @@
     color: #dd0000;
     font-family: Calibri;
     font-size: 17px;
-    display: inline-block;
+    position: relative; /*important for the tooltip*/
 }
 
 #page_block red tooltip{
-    color: #dd0000;
+    color: black;
     font-family: Calibri;
-    font-size: 17px;
+    font-size: 16px;
     position: absolute;
+    /*Aligning the item with the parent*/
+    max-width: 500%;
+    top:100%;
+    left: -25%;
     visibility: hidden;
     text-align: center;
+    z-index: 1;
+    padding: 5px 0;
+    border-radius: 6px;
+    border: solid 1px black;
+    background-image: linear-gradient(to right, white, #ffeecc);
+    
 }
 
-red:hover tooltip {
+#page_block red:hover tooltip {
   visibility: visible;
 }
 
