@@ -292,6 +292,7 @@
     color: #aa0000;
 }
 
+/*Tooltip is used for adding additional info on hovering on an element*/
 #page_block red{
     color: #dd0000;
     font-family: Calibri;
@@ -305,7 +306,8 @@
     font-size: 16px;
     position: absolute;
     /*Aligning the item with the parent*/
-    max-width: 500%;
+    min-width: 200%;
+    max-width: 800%;
     top:100%;
     left: -25%;
     visibility: hidden;
@@ -321,6 +323,7 @@
 #page_block red:hover tooltip {
   visibility: visible;
 }
+/*End of tooltip*/
 
 #page_block brown{
     /*brown is more like black*/

@@ -849,7 +849,7 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
 function format_XML_Document_Content(xml_Document_Content)
 {   
     //This function will format the Database code elements by adding lineNumbers and Comment Styles
-    var codeElements =  xml_Document_Content.getElementsByTagName("code");
+    var codeElements =  xml_Document_Content.getElementsByTagName("code");    
     for(var index = 0; index < codeElements.length; index++)
     {
         
@@ -1139,6 +1139,16 @@ function setSelectionType()
     }
     showTable();
 }
+
+function processRouting()
+{
+    var route = window.location.href.split("#");
+    if(route.length > 1)
+    {
+        console.log("Route is: " + route[1]);
+    }
+}
+processRouting();
 
 //Check if user expects to use different version of the webpage;
 restoreCookiePredefinedElements();
