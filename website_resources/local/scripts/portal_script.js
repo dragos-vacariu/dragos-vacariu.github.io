@@ -40,14 +40,19 @@ const concept_title_style = "color: darkred; font-family: Tahoma; font-size: 18p
 const concept_value_style = "color: #663300; font-family: Tahoma; font-size: 15px; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
 const cell_style = "vertical-align: top;";
 
-function dbCookieHandling()
+function dbCookieRouteHandling()
 {
-    /*Handling of database related cookies. For these cookies we need the content from the Database
+    /*Handling of routing or database related cookies. For these cookies we need the content from the Database
       So we need to wait until the HTTP Request is ready. These cookies will be set slower than predefined elements cookie.
     */
-    
+    var window_href_values = window.location.href.split("#");
+    if(window_href_values.length > 1 && window_href_values[1] != "")
+    {
+        /*We will ignore the database related cookie if we are provided with a route*/
+        useProvidedRoute(); // this should only be called when opening the webpage
+    }
     //reading from the cookie file:
-    if(document.cookie.length > 0)
+    else if(document.cookie.length > 0)
     {
         if(selection_type.children[0].value == true) //if single selection type
         {
@@ -60,6 +65,108 @@ function dbCookieHandling()
     }
     /*set the view with default values*/
     setSelectionType(); // this will set the selection and the view
+}
+
+function useProvidedRoute()
+{
+    /*This function will use the provided route to select the specified elements*/
+    var window_href_values = window.location.href.split("#");
+    var routes = window_href_values[1].split("@");
+    if(routes.length > 0 && routes[0] != "")
+    {
+        //routes[0] usually should store the selection type
+        //if the route was messed around, nothing will happen
+        if(selection_type.children[0].innerHTML == routes[0])
+        {
+            /*Activate selection type: single*/
+            selection_type.children[0].value = true;
+            selection_type.children[1].value = false;
+            selection_type.children[0].style = tag_selection_on;
+            selection_type.children[1].style = tag_selection_off;
+        }
+        else if(selection_type.children[1].innerHTML == routes[0])
+        {
+            /*Activate selection type: multiple*/
+            selection_type.children[0].value = false;
+            selection_type.children[1].value = true;
+            selection_type.children[0].style = tag_selection_off;
+            selection_type.children[1].style = tag_selection_on;
+        }
+    }
+    if(routes.length > 1 && routes[1] != "")
+    {
+        //We have active languages that we need to set
+        var items = routes[1].split("&")
+        if(items.length > 0 && items[0] != "")
+        {
+            var languages = items[0].split("_");
+            //Redoing the workaround provided for C# due to usage of special meaning character which is '#'
+            var csharp_index = languages.findIndex(element => element == "CSharp");
+            if(csharp_index >= 0)
+            {
+                languages[csharp_index] = "C#";
+            }
+            //Deselect all languages
+            deselectionOfAllLanguageElements();
+            //Selecting only the languages specified by the route:
+            for(var i = 0; i < languages.length; i++)
+            {
+                var matchIndex = programming_languages.findIndex(element => String(element.name).toLowerCase() == String(languages[i]).toLowerCase());
+                if(matchIndex >= 0 )
+                {
+                    /*programming_language_selection has one less index compared to programming_languages because 
+                    General-Programming-Knowledge is not available for selection */
+                    if(programming_language_selection.children[matchIndex-1].value == false)
+                    {
+                        //if element specified via the routing is found and is deselected we will select it
+                        programming_language_selection.children[matchIndex-1].value = true
+                        programming_language_selection.children[matchIndex-1].style = tag_selection_on
+                    }
+                }
+            }
+        }
+        if(items.length > 1 && items[1] != "")
+        {
+            //We have active concepts that we need to set
+            var view = items[1].split("%")
+            var concepts = items[1].split("_");
+            //If there is a view mentioned in the route:
+            if(view.length > 1)
+            {
+                view = items[1].split("%")[1];
+                concepts = items[1].split("%")[0];
+                concepts = concepts.split("_");
+                if(view != "")
+                {
+                    //If there is a view switch to the view
+                    if(view == view_selection.children[0].innerHTML)
+                    {
+                        switchToRegularView();
+                    }
+                    else if(view == view_selection.children[1].innerHTML)
+                    {
+                        switchToCompareView();
+                    }
+                }
+            }
+            //Deselect all concepts
+            deselectionOfAllConceptElements();
+            //Selecting only the concepts specified by the route:
+            for(var i = 0; i < concepts.length; i++)
+            {
+                var matchIndex = concept_collection.findIndex(element => String(element).toLowerCase() == String(concepts[i]).toLowerCase());
+                if(matchIndex >= 0 )
+                {
+                    if(concept_selection.children[matchIndex].value == false)
+                    {
+                        //if element specified via the routing is found and is deselected we will select it
+                        concept_selection.children[matchIndex].value = true
+                        concept_selection.children[matchIndex].style = tag_selection_on
+                    }
+                }
+            }
+        }
+    }
 }
 
 function restoreCookiePredefinedElements()
@@ -361,7 +468,7 @@ function loadXMLDoc(xml_file)
                 concept_selection.appendChild(createLiElement(concept_collection[i], true, conceptSelectionBehavior));
             }
             /*read cookie and/or hanndle the display of the elements*/
-            dbCookieHandling();
+            dbCookieRouteHandling();
         }
     };
     
@@ -602,7 +709,7 @@ function conceptSelectionBehavior()
             updateCookie("SingleSelectionConcept", this.innerHTML);
         }
         //each time a new item is selected just scroll to the beggining
-        window.scrollTo(0, 200);
+        window.scrollTo(0, 0);
     }
     else if(selection_type.children[1].value == true)
     {
@@ -619,6 +726,7 @@ function conceptSelectionBehavior()
         updateCookie(this.innerHTML, this.value);
     }
     showTable();
+    updateRoute();
 }
 
 function languageSelectionBehaviour()
@@ -680,6 +788,7 @@ function languageSelectionBehaviour()
         updateCookie(this.innerHTML, this.value);
     }
     showTable();
+    updateRoute();
 }
 
 function getActiveElements(element)
@@ -704,14 +813,12 @@ function deselectionOfAllConceptElements()
     /*This function will describe the behavior of deselect all button within the Overall Concept Selection.*/
     for(var i = 0; i < concept_selection.children.length; i++)
     {
-        if (concept_selection.children[i] != this)
-        {
-            concept_selection.children[i].value = false;
-            concept_selection.children[i].style = tag_selection_off;
-            updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
-        }
+        concept_selection.children[i].value = false;
+        concept_selection.children[i].style = tag_selection_off;
+        updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
     showTable();
+    updateRoute();
 }
 
 function selectionOfAllConceptElements() 
@@ -719,14 +826,12 @@ function selectionOfAllConceptElements()
     /*This function will describe the behavior of select all button within the Overall Concept Selection.*/
     for(var i = 0; i < concept_selection.children.length; i++)
     {
-        if (concept_selection.children[i] != this)
-        {
-            concept_selection.children[i].value = true;
-            concept_selection.children[i].style = tag_selection_on;
-            updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
-        }
+        concept_selection.children[i].value = true;
+        concept_selection.children[i].style = tag_selection_on;
+        updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
     showTable();
+    updateRoute();
 }
 
 function deselectionOfAllLanguageElements() 
@@ -734,14 +839,12 @@ function deselectionOfAllLanguageElements()
     /*This function will describe the behavior of deselect all button within the Overall Language Selection.*/
     for(var i = 0; i < programming_language_selection.children.length; i++)
     {
-        if (programming_language_selection.children[i] != this)
-        {
-            programming_language_selection.children[i].value = false;
-            programming_language_selection.children[i].style = tag_selection_off;
-            updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
-        }
+        programming_language_selection.children[i].value = false;
+        programming_language_selection.children[i].style = tag_selection_off;
+        updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
     }
     showTable();
+    updateRoute();
 }
 
 function selectionOfAllLanguageElements() 
@@ -749,14 +852,12 @@ function selectionOfAllLanguageElements()
     /*This function will describe the behavior of select all button within the Overall Language Selection.*/
     for(var i = 0; i < programming_language_selection.children.length; i++)
     {
-        if (programming_language_selection.children[i] != this)
-        {
-            programming_language_selection.children[i].value = true;
-            programming_language_selection.children[i].style = tag_selection_on;
-            updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
-        }
+        programming_language_selection.children[i].value = true;
+        programming_language_selection.children[i].style = tag_selection_on;
+        updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
     }
     showTable();
+    updateRoute();
 }
 
 function switchToRegularView()
@@ -782,6 +883,7 @@ function switchToRegularView()
         }
         showTable();
         updateCookie("view", "regular");
+        updateRoute();
     }
 }
 
@@ -808,6 +910,7 @@ function switchToCompareView()
         }
         showTable();
         updateCookie("view", "compare");
+        updateRoute();
     }
 }
 
@@ -1019,6 +1122,7 @@ function switchSelectionTypeSingle()
             restoreDBSingleSelectionCookie();
         }
         setSelectionType();
+        updateRoute();
     }
 }
 
@@ -1049,6 +1153,7 @@ function switchSelectionTypeMultiple()
             restoreDBMultipleSelectionCookie();
         }
         setSelectionType();
+        updateRoute();
     }
 }
 
@@ -1083,22 +1188,23 @@ function setSelectionType()
             Get the active language. There should be only one active language selected 
             since Cookie values were restored in the switchSelectionTypeSingle() 
         */
-        var active_items = getActiveElements(programming_language_selection.children);
-        var active_language = undefined
-        if(active_items.length > 0) //should only be one element stored in active_items
+        var active_languages = getActiveElements(programming_language_selection.children);
+        var active_concepts = getActiveElements(concept_selection.children)
+        if(active_concepts.length > 1) //this condition should always be true
         {
-            //If there is no cookie
-            if(document.cookie.length == 0)
+            /*if more than once concept is selected, deselect all except the first*/
+            active_concepts[0].click();
+        }
+        var active_language = undefined
+        if(active_languages.length > 0) //should only be one element stored in active_languages
+        {
+            //If there is more than a single element selected.
+            if(active_languages.length > 1)
             {
                 //we will make sure any other active languages and concepts will be deselected
-                active_items[0].click();
-                if(concept_selection.children.length > 0) //this condition should always be true
-                {
-                    concept_selection.children[0].click();
-                    //If there is no cookie we need to make sure that we deselect all elements but one
-                }
+                active_languages[0].click();
             }
-            active_language = programming_languages.find(element=> element.name == active_items[0].innerHTML);
+            active_language = programming_languages.find(element=> element.name == active_languages[0].innerHTML);
         }
         //For the selected language check all concepts for the selection and if they are not available
         //for the selected language change their opacity to look disabled and unselectable
@@ -1140,15 +1246,49 @@ function setSelectionType()
     showTable();
 }
 
-function processRouting()
+function updateRoute()
 {
-    var route = window.location.href.split("#");
-    if(route.length > 1)
+    var routeString = "";
+    //Add the selection type to the route
+    if(selection_type.children[0].value==true)
     {
-        console.log("Route is: " + route[1]);
+        routeString += selection_type.children[0].innerHTML;
     }
+    else
+    {
+        routeString += selection_type.children[1].innerHTML;
+    }
+    routeString += "@";
+    for(var i=0; i<programming_language_selection.children.length; i++)
+    {
+        if(programming_language_selection.children[i].value == true)
+        {
+            routeString += programming_language_selection.children[i].innerHTML + "_";
+        }
+    }
+    routeString = routeString.slice(0, routeString.length-1); //remove the last _
+    routeString += "&";
+    for(var i=0; i < concept_selection.children.length; i++)
+    {
+        if(concept_selection.children[i].value == true)
+        {
+            routeString += concept_selection.children[i].innerHTML + "_";
+        }
+    }
+    routeString = routeString.slice(0, routeString.length-1); //remove the last _
+    if(view_selection.children[0].value==true)
+    {
+        routeString += "%" + view_selection.children[0].innerHTML;
+    }
+    else
+    {
+        routeString += "%" + view_selection.children[1].innerHTML;
+    }
+    //workaround for C# because it uses # which has special meaning.
+    routeString = routeString.replaceAll("C#", "CSharp"); //we cannot use # within the route as it has special meaning
+    var href = window.location.href .split("#")[0];
+    window.location.href = href + "#" + routeString;
 }
-processRouting();
 
 //Check if user expects to use different version of the webpage;
 restoreCookiePredefinedElements();
