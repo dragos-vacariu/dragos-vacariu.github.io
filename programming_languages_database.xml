@@ -6,7 +6,7 @@
         <oop>
             OOP stands for <red>Object-Oriented Programming</red>.
             <br></br><br></br>
-            <blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions</red> 
+            <blue>Procedural programming</blue> is about writing <red>procedures</red> or <red>functions <tooltip>A function is a block of code.</tooltip></red> 
             that perform operations on the <red>data</red>, 
             while <blue>object-oriented programming</blue> is about creating objects that contain both 
             <red>data</red> and <red>functions</red>.

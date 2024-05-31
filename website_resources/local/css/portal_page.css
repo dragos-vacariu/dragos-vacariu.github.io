@@ -296,6 +296,20 @@
     color: #dd0000;
     font-family: Calibri;
     font-size: 17px;
+    display: inline-block;
+}
+
+#page_block red tooltip{
+    color: #dd0000;
+    font-family: Calibri;
+    font-size: 17px;
+    position: absolute;
+    visibility: hidden;
+    text-align: center;
+}
+
+red:hover tooltip {
+  visibility: visible;
 }
 
 #page_block brown{
