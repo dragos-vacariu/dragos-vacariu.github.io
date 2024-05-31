@@ -366,7 +366,6 @@ function updateCookie(property, value)
 
 class Programming_Language
 {
-
     constructor()
     {
         this.name = "null";
@@ -502,6 +501,7 @@ function showTable()
 
 function removeTable()
 {
+    /*Remove every element within the table*/
     var tableHeaderRowCount = 0;
     var rowCount = table_content.rows.length;
     for (var i = tableHeaderRowCount; i < rowCount; i++) 
@@ -709,7 +709,7 @@ function conceptSelectionBehavior()
             updateCookie("SingleSelectionConcept", this.innerHTML);
         }
         //each time a new item is selected just scroll to the beggining
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 400);
     }
     else if(selection_type.children[1].value == true)
     {
@@ -1290,7 +1290,7 @@ function updateRoute()
     window.location.href = href + "#" + routeString;
 }
 
-//Check if user expects to use different version of the webpage;
+//Restore the cookies which can be restored before accessing the database
 restoreCookiePredefinedElements();
 
 loadXMLDoc(online_xml_file);
