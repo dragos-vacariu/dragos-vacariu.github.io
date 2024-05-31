@@ -641,6 +641,26 @@ function languageSelectionBehaviour()
                 this.style = tag_selection_on;
             }
         }
+        /*get the language item and enable / disable the concepts within*/
+        var active_language = programming_languages.find(element => element.name == this.innerHTML);
+        if(active_language != undefined)
+        {
+            for(var index=0; index < concept_selection.children.length; index++)
+            {
+                //Check if concept exists for the active language
+                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
+                if(elementIndex < 0)
+                {
+                    /*This opacity style will make them look disabled.*/
+                    concept_selection.children[index].style.opacity = disabledElementOpacity;
+                }
+                else
+                {
+                    /*This opacity will ensure that the element is enabled.*/
+                    concept_selection.children[index].style.opacity = 1;
+                }
+            }
+        }
         updateCookie("SingleSelectionLanguage", this.innerHTML);
     }
     //If Selection type is multiple and view is whatever:
