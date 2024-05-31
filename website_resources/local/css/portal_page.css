@@ -297,7 +297,7 @@
     color: #dd0000;
     font-family: Calibri;
     font-size: 17px;
-    position: relative; /*important for the tooltip*/
+    position: relative; /*important in case of adding the tooltip*/
 }
 
 #page_block red tooltip{
