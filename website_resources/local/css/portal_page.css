@@ -69,6 +69,7 @@
     position: relative;
     width: 94%;
     padding: 1%;
+    padding-left: 3%;
     background-image: linear-gradient(to right, white, #ffeecc);
     font-size: 12px;
     font-family:Georgia;
@@ -81,7 +82,7 @@
 #clearSearchButton, #searchButton {
     position: relative;
     width: 47%;
-    min-width: 15px; /*we need at least this width to be able to display the button text value properly*/
+    min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
     font-size: 12px;
     font-family:Georgia;
     padding: 1% 0px;
