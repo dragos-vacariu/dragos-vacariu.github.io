@@ -81,6 +81,7 @@
 #clearSearch {
     position: relative;
     width: 10%;
+    min-width: 15px; /*we need at least this width to be able to display the button text value properly*/
     font-size: 12px;
     font-family:Georgia;
     padding: 1% 0px;
