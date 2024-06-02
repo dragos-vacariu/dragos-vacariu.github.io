@@ -1316,27 +1316,47 @@ function SearchFunction()
                 var concept_result_counter = 0; //will count how many appearences found in current concept
                 for(var k=0; k < sentences.length; k++)
                 {
-                    if(String(sentences[k].toLowerCase()).includes(String(searchBox.value).toLowerCase()))
+                    //Adding word for word searching to improve the overall results:
+                    searchBox_value = searchBox.value.split(" ");
+                    var isFinding = true;
+                    for(var word_index = 0; word_index < searchBox_value.length; word_index++)
                     {
-                            row = table_content.insertRow();
-                            cell = row.insertCell(); //empty cell
-                            
-                            /*We will insert the name of the concept only once*/
-                            if(concept_result_counter==0)
-                            {
-                                /*Insert the concept name within the cell*/
-                                var p = document.createElement("p");
-                                p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
-                                p.style = concept_title_style;
-                            }
-                            
-                            //inserting the sentence
-                            cell.appendChild(p);
-                            p = document.createElement("p");
-                            p.innerHTML += sentences[k].trim();
-                            //Replace value case-insesitive to highlight the findings.
-                            var pattern = new RegExp(String(searchBox.value), 'gi');
-                            //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox.value) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
+                        if(String(sentences[k].toLowerCase()).includes(String(searchBox_value[word_index]).toLowerCase()))
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            //if any word in the search value cannot be found amongst the sentences then this is not a finding
+                            isFinding = false;
+                            break;
+                        }
+                    }
+                    //If there is a finding matching the searched value add it to the search results
+                    if(isFinding == true)
+                    {
+                        row = table_content.insertRow();
+                        cell = row.insertCell(); //empty cell
+                        
+                        /*We will insert the name of the concept only once*/
+                        if(concept_result_counter==0)
+                        {
+                            /*Insert the concept name within the cell*/
+                            var p = document.createElement("p");
+                            p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                            p.style = concept_title_style;
+                        }
+                        
+                        //inserting the sentence
+                        cell.appendChild(p);
+                        p = document.createElement("p");
+                        p.innerHTML += sentences[k].trim();
+                        
+                        //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+                        for(var word_index = 0; word_index < searchBox_value.length; word_index++)
+                        {
+                            var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
+                            //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
                             
                             var findings = p.innerHTML.match(pattern)
                             //Getting the unique findings to optimize the upcoming loop
@@ -1346,15 +1366,16 @@ function SearchFunction()
                             {
                                 var replacement = "<searchHighlight>"+ findings[counter] + "</searchHighlight>"
                                 p.innerHTML = p.innerHTML.replaceAll(findings[counter], replacement);
-                            }                        
-                            //Add styling to the cell
-                            p.style = concept_value_style;
-                            cell.appendChild(p);
-                            cell.style = cell_style;
-                            
-                            //Increase the counters
-                            result_counter++;
-                            concept_result_counter++;
+                            }
+                        }
+                        //Add styling to the cell
+                        p.style = concept_value_style;
+                        cell.appendChild(p);
+                        cell.style = cell_style;
+                        
+                        //Increase the counters
+                        result_counter++;
+                        concept_result_counter++;
                     }
                 }
             }
