@@ -1289,10 +1289,10 @@ function updateRoute()
     window.location.href = href + "#" + routeString;
 }
 
-function SearchFunction()
+function SearchFunction(e)
 {
     /*This function will search for results matching the search value*/
-    if(searchBox.value != "")
+    if(searchBox.value != "" && e.key == "Enter")
     {
         removeTable();
         
@@ -1407,6 +1407,19 @@ function ClearSearchBox()
         SearchFunction(); // this should not put everything as it used to be before the search
     }
 }
+
+//Triggered event when key is pressed down
+searchBox.onkeydown = function(e) { SearchFunction(e); } 
+
+//Triggered event when clicking on searchButton
+document.getElementById("searchButton").addEventListener("click", function (e) {
+    e.key = "Enter";  
+    SearchFunction(e);
+});
+
+//Triggered event when clicking on clearSearchButton
+document.getElementById("clearSearchButton").addEventListener("click", function (e) {ClearSearchBox();});
+
 
 //Restore the cookies which can be restored before accessing the database
 restoreCookiePredefinedElements();
