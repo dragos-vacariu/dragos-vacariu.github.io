@@ -1532,6 +1532,39 @@ function ContextualSearch()
     table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML;
 }
 
+function highlightInformationInWord(param_word, highlight_keyword)
+{
+    var indexOfLessThan = param_word.indexOf("<");
+    var indexOfGreaterThan = param_word.indexOf(">")
+    var indexOfHighlightKeyword = param_word.indexOf(highlight_keyword)
+
+    if(param_word.includes(">") && param_word.includes("<") && indexOfLessThan < indexOfGreaterThan)
+    {
+        
+        var tag = param_word.slice(indexOfLessThan, indexOfGreaterThan+1);
+        param_word =  param_word.replace(tag, "");
+        param_word = highlightInformationInWord(param_word, highlight_keyword);
+        if(indexOfGreaterThan < indexOfHighlightKeyword)
+        {
+            //to be added
+            param_word = param_word.replace(param_word[indexOfLessThan], tag+param_word[indexOfLessThan]);
+        }
+        else if(indexOfHighlightKeyword < indexOfLessThan)
+        {
+            //to be added
+            param_word = param_word.replace(param_word[indexOfGreaterThan], param_word[indexOfGreaterThan]+tag);
+        }
+        return param_word;
+    }
+    else
+    {
+        param_word = String(param_word).replaceAll(highlight_keyword, "<searchHighlight>" + highlight_keyword + "</searchHighlight>");
+        return param_word;
+    }
+}
+
+//console.log(highlightInformationInWord("<blue>generic pointer</blue><code>alin</code><as>rr</as>", "eric"));
+
 function SearchFunction(e)
 {
     /*This function will search for results matching the search value*/
