@@ -1309,6 +1309,8 @@ function SearchFunction()
             for(var j=0; j < programming_languages[i].concepts.length; j++)
             {
                 var sentences = programming_languages[i].concepts[j].concept_value;
+                //Hide the replacement token for General-Programming-Knowledge
+                sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
                 //<br> and </br> elements within the database are seen as <br/>
                 sentences = sentences.split("<br/>");
                 var concept_result_counter = 0; //will count how many appearences found in current concept
@@ -1332,7 +1334,20 @@ function SearchFunction()
                             cell.appendChild(p);
                             p = document.createElement("p");
                             p.innerHTML += sentences[k].trim();
-                            p.innerHTML = p.innerHTML.replaceAll(String(searchBox.value), "<searchHighlight>" + String(searchBox.value) + "</searchHighlight>")
+                            //Replace value case-insesitive to highlight the findings.
+                            var pattern = new RegExp(String(searchBox.value), 'gi');
+                            //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox.value) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
+                            
+                            var findings = p.innerHTML.match(pattern)
+                            //Getting the unique findings to optimize the upcoming loop
+                            findings = [...new Set(findings)];
+                            
+                            for (var counter = 0; counter < findings.length; counter++)
+                            {
+                                var replacement = "<searchHighlight>"+ findings[counter] + "</searchHighlight>"
+                                p.innerHTML = p.innerHTML.replaceAll(findings[counter], replacement);
+                            }                        
+                            //Add styling to the cell
                             p.style = concept_value_style;
                             cell.appendChild(p);
                             cell.style = cell_style;
