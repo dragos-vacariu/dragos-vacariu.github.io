@@ -7,6 +7,7 @@ const overall_concept_selection = document.getElementById("overall_concept_selec
 const overall_language_selection = document.getElementById("overall_language_selection");
 const cookie_element_separator = "<br>"; 
 const searchBox = document.getElementById("SearchBox");
+const searchType = document.getElementById("searchType");
 
 const disabledElementOpacity = 0.3;
 
@@ -1289,6 +1290,234 @@ function updateRoute()
     window.location.href = href + "#" + routeString;
 }
 
+function wordMatchingSearch()
+{
+    //Refilling the table with the results:
+    var row = table_content.insertRow();
+    var cell = row.insertCell();
+    //inserting the name of the language:
+    cell.innerHTML = searchType[1].innerHTML  + " results found:";
+    //Matching words search type is currently the index 1 within the options list.
+    cell.style = language_title_style;
+    cell.style.paddingTop = "1%";
+    var result_counter = 0;
+
+    //Adding word for word searching to improve the overall results:
+    searchBox_value = searchBox.value.trim().split(" "); //trim() will remove whitespaces from the beggining and end of the string
+    //Getting the unique findings to optimize the upcoming loops
+    searchBox_value = [...new Set(searchBox_value)];
+    
+    for(var i=0; i < programming_languages.length; i++)
+    {
+        for(var j=0; j < programming_languages[i].concepts.length; j++)
+        {
+            var sentences = programming_languages[i].concepts[j].concept_value;
+            //Hide the replacement token for General-Programming-Knowledge
+            sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
+            //<br> and </br> elements within the database are seen as <br/>
+            sentences = sentences.split("<br/>");
+            var concept_result_counter = 0; //will count how many appearences found in current concept
+            for(var k=0; k < sentences.length; k++)
+            {
+                var isFinding = true;
+                for(var word_index = 0; word_index < searchBox_value.length; word_index++)
+                {
+                    if(String(sentences[k].toLowerCase()).includes(String(searchBox_value[word_index]).toLowerCase()))
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        //if any word in the search value cannot be found amongst the sentences then this is not a finding
+                        isFinding = false;
+                        break;
+                    }
+                }
+                //If there is a finding matching the searched value add it to the search results
+                if(isFinding == true)
+                {
+                    row = table_content.insertRow();
+                    cell = row.insertCell(); //empty cell
+                    
+                    /*We will insert the name of the concept only once*/
+                    if(concept_result_counter==0)
+                    {
+                        /*Insert the concept name within the cell*/
+                        var p = document.createElement("p");
+                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.style = concept_title_style;
+                    }
+                    
+                    //Format the text by adding highlights on every finding:
+                    var concept_words = sentences[k].trim().split(" ")
+                    
+                    //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+                    for(var word_index = 0; word_index < searchBox_value.length; word_index++)
+                    {
+                        //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
+                        //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
+                        
+                        for (var counter = 0; counter < concept_words.length; counter++)
+                        {
+                            //if some word includes the one of the value within the searchBox
+                            if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase()) // this will ensure that we search case insesitive values
+                               && String(concept_words[counter]).includes("<") == false && String(concept_words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
+                             )
+                            {
+                                //get the index of the searchBox substring value within the word
+                                var index = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                                
+                                //Slicing the word to pieces to add the searchHeighlight to the finding within it.
+                                //This way we will maintain the case sensitiveness intact.
+                                var replacement = concept_words[counter].slice(0, index);
+                                replacement += "<searchHighlight>" + concept_words[counter].slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
+                                replacement += concept_words[counter].slice(index + searchBox_value[word_index].length);
+                                concept_words[counter] = replacement;
+                            }
+                        }
+                    }
+                    
+                    //inserting the sentence
+                    cell.appendChild(p);
+                    p = document.createElement("p");
+                    p.innerHTML = concept_words.join(" ");
+                    
+                    //Add styling to the cell
+                    p.style = concept_value_style;
+                    cell.appendChild(p);
+                    cell.style = cell_style;
+                    
+                    //Increase the counters
+                    result_counter++;
+                    concept_result_counter++;
+                }
+            }
+        }
+    }
+    //Add to first row of the table of the number of results
+    table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML;
+}
+
+function ContextualSearch()
+{
+    //contextual search means we search exactly the searchBox_value;
+    
+    //Refilling the table with the results:
+    var row = table_content.insertRow();
+    var cell = row.insertCell();
+    //inserting the name of the language:
+    cell.innerHTML = searchType[0].innerHTML + " results found:";
+    cell.style = language_title_style;
+    cell.style.paddingTop = "1%";
+    var result_counter = 0;
+
+    for(var i=0; i < programming_languages.length; i++)
+    {
+        for(var j=0; j < programming_languages[i].concepts.length; j++)
+        {
+            var sentences = programming_languages[i].concepts[j].concept_value;
+            //Hide the replacement token for General-Programming-Knowledge
+            sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
+            //<br> and </br> elements within the database are seen as <br/>
+            sentences = sentences.split("<br/>");
+            var concept_result_counter = 0; //will count how many appearences found in current concept
+            for(var k=0; k < sentences.length; k++)
+            {
+                if(String(sentences[k].toLowerCase()).includes(String(searchBox.value).trim().toLowerCase()))
+                {
+                    row = table_content.insertRow();
+                    cell = row.insertCell(); //empty cell
+                    
+                    /*We will insert the name of the concept only once*/
+                    if(concept_result_counter==0)
+                    {
+                        /*Insert the concept name within the cell*/
+                        var p = document.createElement("p");
+                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.style = concept_title_style;
+                    }
+                    
+                    //Format the text by adding highlights on every finding:
+                    var concept_words = sentences[k].trim().split(" ")
+                    
+                    var searchBox_value = searchBox.value.trim().split(" ");
+                    //trim() will remove whitespaces from the beggining and end of the string
+                    //searchBox.value will be converted according to our needs to facilitate best search
+                    
+                    //Format the text by adding highlights on every finding:
+                    for (var counter = 0; counter < concept_words.length; counter++)
+                    {
+                        //if some word includes the first word in the search box
+                       if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[0]).toLowerCase()) // this will ensure that we search case insesitive values
+                           && String(concept_words[counter]).includes("<") == false && String(concept_words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
+                         )
+                        {
+                            //first word checked and is matching
+                            var wordsLeft = searchBox_value.length-1;
+                            //if are enough words left in the sentence to be able to match the searched value
+                            if(counter + wordsLeft < concept_words.length)
+                            {
+                                var isMatchFound = true;
+                                for(var search_word_index = 1; search_word_index < searchBox_value.length; search_word_index++)
+                                {
+                                    if(String(concept_words[counter+search_word_index]).toLowerCase().includes(String(searchBox_value[search_word_index]).toLowerCase()) // this will ensure that we search case insesitive values
+                                       && String(concept_words[counter+search_word_index]).includes("<") == false && String(concept_words[counter+search_word_index]).includes(">") == false // this will ensure that we don't modify the html / xml tags
+                                     )
+                                     {
+                                         //enter here if the next word is a match
+                                         continue;
+                                     }
+                                     else
+                                     {
+                                         //if not a match break out of the loop, this is not the one
+                                         isMatchFound = false;
+                                         break;
+                                     }
+                                }
+                                if(isMatchFound)
+                                {
+                                    var index = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[0]).toLowerCase());
+                                    
+                                    var replacement = concept_words[counter].slice(0, index);
+                                    replacement += "<searchHighlight>" + concept_words[counter].slice(index, index + searchBox_value[0].length);
+                                    replacement += concept_words[counter].slice(index + searchBox_value[0].length);
+                                    concept_words[counter] = replacement;
+                                    
+                                    index = String(concept_words[counter + wordsLeft]).toLowerCase().indexOf(String(searchBox_value[wordsLeft]).toLowerCase());
+                                    replacement = concept_words[counter + wordsLeft].slice(0, index);
+                                    replacement += concept_words[counter + wordsLeft].slice(index, index + searchBox_value[wordsLeft].length) +"</searchHighlight>";
+                                    replacement += concept_words[counter + wordsLeft].slice(index + searchBox_value[wordsLeft].length);
+                                    concept_words[counter + wordsLeft] = replacement;
+                                    //concept_words[counter] = "<searchHighlight>" + concept_words[counter];
+                                    //concept_words[counter + wordsLeft] += "</searchHighlight>";
+                                    
+                                }
+                            }
+                            
+                        }
+                    }
+                                        
+                    //inserting the sentence
+                    cell.appendChild(p);
+                    p = document.createElement("p");
+                    p.innerHTML = concept_words.join(" ");
+                    
+                    //Add styling to the cell
+                    p.style = concept_value_style;
+                    cell.appendChild(p);
+                    cell.style = cell_style;
+                    
+                    //Increase the counters
+                    result_counter++;
+                    concept_result_counter++;
+                }
+            }
+        }
+    }
+    //Add to first row of the table of the number of results
+    table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML;
+}
+
 function SearchFunction(e)
 {
     /*This function will search for results matching the search value*/
@@ -1296,109 +1525,14 @@ function SearchFunction(e)
     {
         removeTable();
         
-        //Refilling the table with the results:
-        var row = table_content.insertRow();
-        var cell = row.insertCell();
-        //inserting the name of the language:
-        cell.innerHTML = " results found:";
-        cell.style = language_title_style;
-        cell.style.paddingTop = "1%";
-        var result_counter = 0;
-        for(var i=0; i < programming_languages.length; i++)
+        if(searchType.value == "matching_words")
         {
-            for(var j=0; j < programming_languages[i].concepts.length; j++)
-            {
-                var sentences = programming_languages[i].concepts[j].concept_value;
-                //Hide the replacement token for General-Programming-Knowledge
-                sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
-                //<br> and </br> elements within the database are seen as <br/>
-                sentences = sentences.split("<br/>");
-                var concept_result_counter = 0; //will count how many appearences found in current concept
-                for(var k=0; k < sentences.length; k++)
-                {
-                    //Adding word for word searching to improve the overall results:
-                    searchBox_value = searchBox.value.split(" ");
-                    
-                    //Getting the unique findings to optimize the upcoming loops
-                    searchBox_value = [...new Set(searchBox_value)];
-                    
-                    var isFinding = true;
-                    for(var word_index = 0; word_index < searchBox_value.length; word_index++)
-                    {
-                        if(String(sentences[k].toLowerCase()).includes(String(searchBox_value[word_index]).toLowerCase()))
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            //if any word in the search value cannot be found amongst the sentences then this is not a finding
-                            isFinding = false;
-                            break;
-                        }
-                    }
-                    //If there is a finding matching the searched value add it to the search results
-                    if(isFinding == true)
-                    {
-                        row = table_content.insertRow();
-                        cell = row.insertCell(); //empty cell
-                        
-                        /*We will insert the name of the concept only once*/
-                        if(concept_result_counter==0)
-                        {
-                            /*Insert the concept name within the cell*/
-                            var p = document.createElement("p");
-                            p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
-                            p.style = concept_title_style;
-                        }
-                        
-                        //Format the text by adding highlights on every finding:
-                        var words = sentences[k].trim().split(" ")
-                        
-                        //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
-                        for(var word_index = 0; word_index < searchBox_value.length; word_index++)
-                        {
-                            //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
-                            //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
-                            
-                            for (var counter = 0; counter < words.length; counter++)
-                            {
-                                //if some word includes the one of the value within the searchBox
-                                if(String(words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase()) // this will ensure that we search case insesitive values
-                                   && String(words[counter]).includes("<") == false && String(words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
-                                )
-                                {
-                                    //get the index of the searchBox substring value within the word
-                                    var index = String(words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
-                                    
-                                    //Slicing the word to pieces to add the searchHeighlight to the finding within it.
-                                    //This way we will maintain the case sensitiveness intact.
-                                    var replacement = words[counter].slice(0, index);
-                                    replacement += "<searchHighlight>" + words[counter].slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
-                                    replacement += words[counter].slice(index + searchBox_value[word_index].length);
-                                    words[counter] = replacement;
-                                }
-                            }
-                        }
-                        
-                        //inserting the sentence
-                        cell.appendChild(p);
-                        p = document.createElement("p");
-                        p.innerHTML = words.join(" ");
-                        
-                        //Add styling to the cell
-                        p.style = concept_value_style;
-                        cell.appendChild(p);
-                        cell.style = cell_style;
-                        
-                        //Increase the counters
-                        result_counter++;
-                        concept_result_counter++;
-                    }
-                }
-            }
+            wordMatchingSearch();
         }
-        //Add to first row of the table of the number of results
-        table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML 
+        else if(searchType.value == "contextual")
+        {
+            ContextualSearch();
+        }
     }
     else
     {
