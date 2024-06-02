@@ -1318,6 +1318,10 @@ function SearchFunction(e)
                 {
                     //Adding word for word searching to improve the overall results:
                     searchBox_value = searchBox.value.split(" ");
+                    
+                    //Getting the unique findings to optimize the upcoming loops
+                    searchBox_value = [...new Set(searchBox_value)];
+                    
                     var isFinding = true;
                     for(var word_index = 0; word_index < searchBox_value.length; word_index++)
                     {
@@ -1347,27 +1351,40 @@ function SearchFunction(e)
                             p.style = concept_title_style;
                         }
                         
-                        //inserting the sentence
-                        cell.appendChild(p);
-                        p = document.createElement("p");
-                        p.innerHTML += sentences[k].trim();
+                        //Format the text by adding highlights on every finding:
+                        var words = sentences[k].trim().split(" ")
                         
                         //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
                         for(var word_index = 0; word_index < searchBox_value.length; word_index++)
                         {
-                            var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
+                            //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
                             //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
                             
-                            var findings = p.innerHTML.match(pattern)
-                            //Getting the unique findings to optimize the upcoming loop
-                            findings = [...new Set(findings)];
-                            
-                            for (var counter = 0; counter < findings.length; counter++)
+                            for (var counter = 0; counter < words.length; counter++)
                             {
-                                var replacement = "<searchHighlight>"+ findings[counter] + "</searchHighlight>"
-                                p.innerHTML = p.innerHTML.replaceAll(findings[counter], replacement);
+                                //if some word includes the one of the value within the searchBox
+                                if(String(words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase()) // this will ensure that we search case insesitive values
+                                   && String(words[counter]).includes("<") == false && String(words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
+                                )
+                                {
+                                    //get the index of the searchBox substring value within the word
+                                    var index = String(words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                                    
+                                    //Slicing the word to pieces to add the searchHeighlight to the finding within it.
+                                    //This way we will maintain the case sensitiveness intact.
+                                    var replacement = words[counter].slice(0, index);
+                                    replacement += "<searchHighlight>" + words[counter].slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
+                                    replacement += words[counter].slice(index + searchBox_value[word_index].length);
+                                    words[counter] = replacement;
+                                }
                             }
                         }
+                        
+                        //inserting the sentence
+                        cell.appendChild(p);
+                        p = document.createElement("p");
+                        p.innerHTML = words.join(" ");
+                        
                         //Add styling to the cell
                         p.style = concept_value_style;
                         cell.appendChild(p);
