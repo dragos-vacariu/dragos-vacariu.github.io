@@ -6,6 +6,7 @@ const concept_selection = document.getElementById("concept_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
 const cookie_element_separator = "<br>"; 
+const searchBox = document.getElementById("SearchBox");
 
 const disabledElementOpacity = 0.3;
 
@@ -1286,6 +1287,89 @@ function updateRoute()
     routeString = routeString.replaceAll("C#", "CSharp"); //we cannot use # within the route as it has special meaning
     var href = window.location.href .split("#")[0];
     window.location.href = href + "#" + routeString;
+}
+
+function SearchFunction()
+{
+    /*This function will search for results matching the search value*/
+    if(searchBox.value != "")
+    {
+        removeTable();
+        
+        //Refilling the table with the results:
+        var row = table_content.insertRow();
+        var cell = row.insertCell();
+        //inserting the name of the language:
+        cell.innerHTML = " results found:";
+        cell.style = language_title_style;
+        cell.style.paddingTop = "1%";
+        var result_counter = 0;
+        for(var i=0; i < programming_languages.length; i++)
+        {
+            for(var j=0; j < programming_languages[i].concepts.length; j++)
+            {
+                var sentences = programming_languages[i].concepts[j].concept_value;
+                //<br> and </br> elements within the database are seen as <br/>
+                sentences = sentences.split("<br/>");
+                var concept_result_counter = 0; //will count how many appearences found in current concept
+                for(var k=0; k < sentences.length; k++)
+                {
+                    if(String(sentences[k].toLowerCase()).includes(String(searchBox.value).toLowerCase()))
+                    {
+                            row = table_content.insertRow();
+                            cell = row.insertCell(); //empty cell
+                            
+                            /*We will insert the name of the concept only once*/
+                            if(concept_result_counter==0)
+                            {
+                                /*Insert the concept name within the cell*/
+                                var p = document.createElement("p");
+                                p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                                p.style = concept_title_style;
+                            }
+                            
+                            //inserting the sentence
+                            cell.appendChild(p);
+                            p = document.createElement("p");
+                            p.innerHTML += sentences[k].trim();
+                            p.innerHTML = p.innerHTML.replaceAll(String(searchBox.value), "<searchHighlight>" + String(searchBox.value) + "</searchHighlight>")
+                            p.style = concept_value_style;
+                            cell.appendChild(p);
+                            cell.style = cell_style;
+                            
+                            //Increase the counters
+                            result_counter++;
+                            concept_result_counter++;
+                    }
+                }
+            }
+        }
+        //Add to first row of the table of the number of results
+        table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML 
+    }
+    else
+    {
+        /*Put everything back as it used to be before the search*/
+        removeTable();
+        if(view_selection.children[0].value==true)
+        {
+            fillTableRegular();
+        }
+        else if(view_selection.children[1].value==true)
+        {
+            fillTableCompare();
+        }
+    }
+}
+
+function ClearSearchBox()
+{
+    if(searchBox.value != "")
+    {
+        /*Clear the search box and put everything back as it used to be before the search*/
+        searchBox.value = "";
+        SearchFunction(); // this should not put everything as it used to be before the search
+    }
 }
 
 //Restore the cookies which can be restored before accessing the database
