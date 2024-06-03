@@ -8,6 +8,7 @@ const overall_language_selection = document.getElementById("overall_language_sel
 const cookie_element_separator = "<br>"; 
 const searchBox = document.getElementById("SearchBox");
 const searchType = document.getElementById("searchType");
+const highlightingTags = ["<searchHighlight>", "</searchHighlight>"];
 
 const disabledElementOpacity = 0.3;
 
@@ -1436,91 +1437,40 @@ function ContextualSearch()
                         p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
                         p.style = concept_title_style;
                     }
-                    
-                    //Format the text by adding highlights on every finding:
-                    var concept_words = sentences[k].trim().split(" ")
-                    
-                    var searchBox_value = searchBox.value.trim().split(" ");
-                    //trim() will remove whitespaces from the beggining and end of the string
-                    //searchBox.value will be converted according to our needs to facilitate best search
-                    
-                    //Format the text by adding highlights on every finding:
-                    
-              //      for (var counter = 0; counter < concept_words.length; counter++)
-              //      {
-              //          //if some word includes the first word in the search box
-              //         if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[0]).toLowerCase()) // this will ensure that we search case insesitive values
-              //             && String(concept_words[counter]).includes("<") == false && String(concept_words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
-              //           )
-              //          {
-              //              //first word checked and is matching
-              //              var wordsLeft = searchBox_value.length-1;
-              //              //if are enough words left in the sentence to be able to match the searched value
-              //              if(counter + wordsLeft < concept_words.length)
-              //              {
-              //                  var isMatchFound = true;
-              //                  for(var search_word_index = 1; search_word_index < searchBox_value.length; search_word_index++)
-              //                  {
-              //                      /*We are checking if this word within concept_words includes the searched word
-              //                      and if it does, we are checking that the word is not < between > as a HTML/XML tag specifier
-              //                      although the <w> word </w> is allowed to be within tags but not a tag.
-              //                      */
-              //                      if(String(concept_words[counter+search_word_index]).toLowerCase().includes(String(searchBox_value[search_word_index]).toLowerCase()) // this will ensure that we search case insesitive values
-              //                         
-              //                       )
-              //                          word = concept_words[counter+search_word_index].split()
-              //                          if(String(concept_words[counter+search_word_index]).includes(">") == false && String(concept_words[counter+search_word_index]).includes("<") == false
-              //                           // this will ensure that we don't modify the html / xml tags
-              //                              ||
-              //                              String(concept_words[counter+search_word_index]).indexOf(String(searchBox_value[search_word_index]).toLowerCase()) > String(concept_words[counter+search_word_index]).indexOf(">")  &&
-              //                              String(concept_words[counter+search_word_index]).indexOf(String(searchBox_value[search_word_index]).toLowerCase()) < String(concept_words[counter+search_word_index]).lastIndexOf("<") 
-              //                              )
-              //                           {
-              //                               //enter here if the next word is a match
-              //                               continue;
-              //                           }
-              //                           else
-              //                           {
-              //                               //if not a match break out of the loop, this is not the one
-              //                               isMatchFound = false;
-              //                               break;
-              //                           }
-              //                      }
-              //                  }
-              //                  if(isMatchFound)
-              //                  {
-              //                      var index = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[0]).toLowerCase());
-              //                      //Slicing the word to pieces to add the searchHeighlight to the finding within it.
-              //                      //This way we will maintain the case sensitiveness intact.
-              //                      var replacement = concept_words[counter].slice(0, index);
-              //                      replacement += "<searchHighlight>" + concept_words[counter].slice(index, index + searchBox_value[0].length);
-              //                      replacement += concept_words[counter].slice(index + searchBox_value[0].length);
-              //                      concept_words[counter] = replacement;
-              //                      
-              //                      index = String(concept_words[counter + wordsLeft]).toLowerCase().indexOf(String(searchBox_value[wordsLeft]).toLowerCase());
-              //                      replacement = concept_words[counter + wordsLeft].slice(0, index);
-              //                      replacement += concept_words[counter + wordsLeft].slice(index, index + searchBox_value[wordsLeft].length) +"</searchHighlight>";
-              //                      replacement += concept_words[counter + wordsLeft].slice(index + searchBox_value[wordsLeft].length);
-              //                      concept_words[counter + wordsLeft] = replacement;
-              //                      //concept_words[counter] = "<searchHighlight>" + concept_words[counter];
-              //                      //concept_words[counter + wordsLeft] += "</searchHighlight>";
-              //                      
-              //                  }
-              //              }
-              //              
-              //          }
-              //      }
-                                        
                     //inserting the sentence
                     cell.appendChild(p);
-                    p = document.createElement("p");
-                    p.innerHTML = concept_words.join(" ");
+                    
+
+                   p = document.createElement("p");
+                   p.innerHTML = sentences[k].trim();
+                   
+                   //let nestedElements = p.childNodes;
+                   //
+                   //for (var index= 0; index< nestedElements.length; index++)
+                   //{
+                   //    if(nestedElements[index].nodeType === 3)
+                   //    {
+                   //        nestedElements[index].style = "background-color: green;";
+                   //
+                   //        console.log("Type: " + nestedElements[index].nodeType)
+                   //        console.log("Name: " + nestedElements[index].nodeName)
+                   //        console.log("Value: " + nestedElements[index].nodeValue)
+                   //        console.log("Attr: " + nestedElements[index].attributes)
+                   //        
+                   //        nestedElements[index].insertAdjacentHTML(2, "<blue>")
+                   //        nestedElements[index].insertAdjacentHTML(8, "</blue>")
+                   //        nestedElements[index].appendChild(sp);
+                   //    }
+                   //    console.log("=====")
+                   //}
+                    //p.innerText = p.innerText.replace(searchBox.value.trim().split(" "), "<searchHighlight>" + searchBox.value.trim().split(" ") + "</searchHighlight>")
                     
                     //Add styling to the cell
                     p.style = concept_value_style;
                     cell.appendChild(p);
                     cell.style = cell_style;
-                    
+                                        
+
                     //Increase the counters
                     result_counter++;
                     concept_result_counter++;
@@ -1531,39 +1481,6 @@ function ContextualSearch()
     //Add to first row of the table of the number of results
     table_content.rows[0].cells[0].innerHTML = result_counter + " " + table_content.rows[0].cells[0].innerHTML;
 }
-
-function highlightInformationInWord(param_word, highlight_keyword)
-{
-    var indexOfLessThan = param_word.indexOf("<");
-    var indexOfGreaterThan = param_word.indexOf(">")
-    var indexOfHighlightKeyword = param_word.indexOf(highlight_keyword)
-
-    if(param_word.includes(">") && param_word.includes("<") && indexOfLessThan < indexOfGreaterThan)
-    {
-        
-        var tag = param_word.slice(indexOfLessThan, indexOfGreaterThan+1);
-        param_word =  param_word.replace(tag, "");
-        param_word = highlightInformationInWord(param_word, highlight_keyword);
-        if(indexOfGreaterThan < indexOfHighlightKeyword)
-        {
-            //to be added
-            param_word = param_word.replace(param_word[indexOfLessThan], tag+param_word[indexOfLessThan]);
-        }
-        else if(indexOfHighlightKeyword < indexOfLessThan)
-        {
-            //to be added
-            param_word = param_word.replace(param_word[indexOfGreaterThan], param_word[indexOfGreaterThan]+tag);
-        }
-        return param_word;
-    }
-    else
-    {
-        param_word = String(param_word).replaceAll(highlight_keyword, "<searchHighlight>" + highlight_keyword + "</searchHighlight>");
-        return param_word;
-    }
-}
-
-//console.log(highlightInformationInWord("<blue>generic pointer</blue><code>alin</code><as>rr</as>", "eric"));
 
 function SearchFunction(e)
 {
