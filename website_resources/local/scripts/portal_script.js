@@ -8,7 +8,6 @@ const overall_language_selection = document.getElementById("overall_language_sel
 const cookie_element_separator = "<br>"; 
 const searchBox = document.getElementById("SearchBox");
 const searchType = document.getElementById("searchType");
-const highlightingTags = ["<searchHighlight>", "</searchHighlight>"];
 
 const disabledElementOpacity = 0.3;
 
