@@ -1439,31 +1439,22 @@ function ContextualSearch()
                     //inserting the sentence
                     cell.appendChild(p);
                     
-
-                   p = document.createElement("p");
-                   p.innerHTML = sentences[k].trim();
-                   
-                   //let nestedElements = p.childNodes;
-                   //
-                   //for (var index= 0; index< nestedElements.length; index++)
-                   //{
-                   //    if(nestedElements[index].nodeType === 3)
-                   //    {
-                   //        nestedElements[index].style = "background-color: green;";
-                   //
-                   //        console.log("Type: " + nestedElements[index].nodeType)
-                   //        console.log("Name: " + nestedElements[index].nodeName)
-                   //        console.log("Value: " + nestedElements[index].nodeValue)
-                   //        console.log("Attr: " + nestedElements[index].attributes)
-                   //        
-                   //        nestedElements[index].insertAdjacentHTML(2, "<blue>")
-                   //        nestedElements[index].insertAdjacentHTML(8, "</blue>")
-                   //        nestedElements[index].appendChild(sp);
-                   //    }
-                   //    console.log("=====")
-                   //}
-                    //p.innerText = p.innerText.replace(searchBox.value.trim().split(" "), "<searchHighlight>" + searchBox.value.trim().split(" ") + "</searchHighlight>")
+                    /*We will insert the name of the concept only once*/
+                    if(concept_result_counter==0)
+                    {
+                        /*Insert the concept name within the cell*/
+                        var p = document.createElement("p");
+                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.style = concept_title_style;
+                    }
+                    //HIGHLIGHTING TO BE ADDED:
                     
+                    //inserting the sentence
+                    row = table_content.insertRow();
+                    cell = row.insertCell(); //empty cell
+                    p = document.createElement("p");
+                    p.innerHTML = sentences[k].trim();
+
                     //Add styling to the cell
                     p.style = concept_value_style;
                     cell.appendChild(p);
