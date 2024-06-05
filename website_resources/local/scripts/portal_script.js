@@ -1349,38 +1349,46 @@ function wordMatchingSearch()
                     }
                     
                     //Format the text by adding highlights on every finding:
-                    var concept_words = sentences[k].trim().split(" ")
+                    var concept_words = sentences[k].trim().split(">")
                     
-                    //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
-                    for(var word_index = 0; word_index < searchBox_value.length; word_index++)
-                    {
-                        //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
-                        //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
+                    //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
+                    //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
                         
-                        for (var counter = 0; counter < concept_words.length; counter++)
+                    //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+                    for (var counter = 0; counter < concept_words.length; counter++)
+                    {
+                        //if some word includes the one of the value within the searchBox
+                        var buffer_value = concept_words[counter];
+                        for(var word_index = 0; word_index < searchBox_value.length; word_index++)
                         {
-                            //if some word includes the one of the value within the searchBox
-                            if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase()) // this will ensure that we search case insesitive values
-                               && String(concept_words[counter]).includes("<") == false && String(concept_words[counter]).includes(">") == false // this will ensure that we don't modify the html / xml tags
-                             )
+                            var indexOfLessThan = String(concept_words[counter]).indexOf("<");
+                            var indexOfSearchValue = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                            
+                            if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase())
+                                    && (String(concept_words[counter]).includes("<") == false || indexOfLessThan
+                                    > indexOfSearchValue)
+                            )
                             {
                                 //get the index of the searchBox substring value within the word
-                                var index = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                                var index = String(buffer_value).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
                                 
                                 //Slicing the word to pieces to add the searchHeighlight to the finding within it.
                                 //This way we will maintain the case sensitiveness intact.
-                                var replacement = concept_words[counter].slice(0, index);
-                                replacement += "<searchHighlight>" + concept_words[counter].slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
-                                replacement += concept_words[counter].slice(index + searchBox_value[word_index].length);
-                                concept_words[counter] = replacement;
+                                var replacement = buffer_value.slice(0, index);
+                                replacement += "<searchHighlight>" + buffer_value.slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
+                                replacement += buffer_value.slice(index + searchBox_value[word_index].length);
+                                buffer_value = replacement;
+                                
                             }
+                        
                         }
+                        concept_words[counter] = buffer_value;
                     }
                     
                     //inserting the sentence
                     cell.appendChild(p);
                     p = document.createElement("p");
-                    p.innerHTML = concept_words.join(" ");
+                    p.innerHTML = concept_words.join(">");
                     
                     //Add styling to the cell
                     p.style = concept_value_style;
@@ -1447,13 +1455,54 @@ function ContextualSearch()
                         p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
                         p.style = concept_title_style;
                     }
-                    //HIGHLIGHTING TO BE ADDED:
+                    
+                    
+                    //Format the text by adding highlights on every finding:
+                    var concept_words = sentences[k].trim().split(">")
+                    
+                    //var pattern = new RegExp(String(searchBox_value[word_index]), 'gi');
+                    //p.innerHTML = p.innerHTML.replaceAll(pattern, "<searchHighlight>" + String(searchBox_value[word_index]) + "</searchHighlight>") // works for finding the case-insesitive item but does not work for replacing it
+                    
+                    //HIGHLIGHTING CODE
+                    searchBox_value = searchBox.value.trim().split(" "); //trim() will remove whitespaces from the beggining and end of the string
+                    //Getting the unique findings to optimize the upcoming loops
+                    searchBox_value = [...new Set(searchBox_value)];
+                    //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+                    for (var counter = 0; counter < concept_words.length; counter++)
+                    {
+                        //if some word includes the one of the value within the searchBox
+                        var buffer_value = concept_words[counter];
+                        for(var word_index = 0; word_index < searchBox_value.length; word_index++)
+                        {
+                            var indexOfLessThan = String(concept_words[counter]).indexOf("<");
+                            var indexOfSearchValue = String(concept_words[counter]).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                            
+                            if(String(concept_words[counter]).toLowerCase().includes(String(searchBox_value[word_index]).toLowerCase())
+                                    && (String(concept_words[counter]).includes("<") == false || indexOfLessThan
+                                    > indexOfSearchValue)
+                            )
+                            {
+                                //get the index of the searchBox substring value within the word
+                                var index = String(buffer_value).toLowerCase().indexOf(String(searchBox_value[word_index]).toLowerCase());
+                                
+                                //Slicing the word to pieces to add the searchHeighlight to the finding within it.
+                                //This way we will maintain the case sensitiveness intact.
+                                var replacement = buffer_value.slice(0, index);
+                                replacement += "<searchHighlight>" + buffer_value.slice(index, index + searchBox_value[word_index].length) + "</searchHighlight>";
+                                replacement += buffer_value.slice(index + searchBox_value[word_index].length);
+                                buffer_value = replacement;
+                                
+                            }
+                        
+                        }
+                        concept_words[counter] = buffer_value;
+                    }
                     
                     //inserting the sentence
                     row = table_content.insertRow();
                     cell = row.insertCell(); //empty cell
                     p = document.createElement("p");
-                    p.innerHTML = sentences[k].trim();
+                    p.innerHTML = concept_words.join(">");
 
                     //Add styling to the cell
                     p.style = concept_value_style;
