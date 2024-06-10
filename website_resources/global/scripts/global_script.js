@@ -9,12 +9,12 @@ function Controller_Function($scope)
 	
 	$scope.java_page = {name: "Java Projects", value: "catalogue/Java-Projects.html"}; /*currently not indexed*/
 	$scope.unity_page = {name: "Unity C# Projects", value: "catalogue/Unity-Csharp-Projects.html"};
-	$scope.python_page = {name: "Python Projects", value: "catalogue/Python-Projects.html"};
-	$scope.html_page = {name: "Html Projects", value : "catalogue/Html-Projects.html"};
-	$scope.c_sharp_page = {name: "C# Projects", value : "catalogue/CSharp-Projects.html"};
-	$scope.cpp_page = {name: "C++ Projects", value : "catalogue/Cpp-Projects.html"};
+	$scope.python_page = {name: "Python tKinter Projects", value: "catalogue/Python-Projects.html"};
+	$scope.html_page = {name: "HTML & CSS Templates", value : "catalogue/Html-Projects.html"};
+	$scope.c_sharp_page = {name: "C# .NET Projects", value : "catalogue/CSharp-Projects.html"};
+	$scope.cpp_page = {name: "C++ .NET Projects", value : "catalogue/Cpp-Projects.html"};
 	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "catalogue/Cpp-OpenGL-Projects.html"};
-	$scope.angularjs_page = {name: "AngularJS Exercises", value : "catalogue/AngularJS.html"};
+	$scope.angularjs_page = {name: "AngularJS Practicals", value : "catalogue/AngularJS.html"};
 	$scope.javascript_games_page = {name: "JavaScript Games", value : "catalogue/Javascript-Games.html"};
 	$scope.javascript_games_presentation_video = {name: "Video Presentation Page", value : "Javascript-Games-Presentation-Video.html"};
 	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "catalogue/Javascript-WebApps.html"}; /*currently not indexed*/

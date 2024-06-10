@@ -1,9 +1,9 @@
 #page_block h3{
-	padding:1%;
+	padding:0.5%;
 	border-style:solid;
-	border-width: 3px;
+	border-width: 2px;
 	border-color: black;
-	width:92%;
+	width:95%;
 	margin-left:2%;
 	font-family: Verdana;
 	font-size:22px;
@@ -20,7 +20,7 @@
 	width:92%;
 	margin-left:2%;
 	font-family: Verdana;
-	font-size:16px;
+	font-size:14px;
 	margin-bottom: 2%;
 	color: black;
 	text-shadow: 1px 1px 1px white;
@@ -30,9 +30,9 @@
 #page_block p{
 	padding:1%;
 	border-style:solid;
-	border-width: 3px;
+	border-width: 2px;
 	border-color: black;
-	width:92%;
+	width:94%;
 	margin-left:2%;
 	font-family: Verdana;
 	font-size:18px;
@@ -41,42 +41,57 @@
 	text-shadow: 1px 1px 1px white;
 }
 
+#page_block #introduction{
+	padding:1%;
+	border-style:solid;
+	border-width: 1px;
+	border-color: black;
+	width:94%;
+	margin-left:2%;
+	font-family: Verdana;
+	font-size:11px;
+	margin-bottom: 1%;
+	color: black;
+    background-color: rgba(153,85,00, 0.1);
+	text-shadow: 1px 1px 1px white;
+}
+
 #page_block #html_css_info{
 	background-color: rgba(0,0,255,0.2); /*purple*/;
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(0,0,255,0.2);;
+	box-shadow: 1vw 1vw 0.3vw rgba(0,0,255,0.2);;
 }
 #page_block #javascript_info{
 	background-color: rgba(255,0,0,0.3); /*pink*/
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(255,0,0,0.3);;	
+	box-shadow: 1vw 1vw 0.3vw rgba(255,0,0,0.3);;	
 }
 #page_block #c_language_info{
 	background-color: rgba(0,255,0,0.3); /*green*/
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(0,255,0,0.3);;
+	box-shadow: 1vw 1vw 0.3vw rgba(0,255,0,0.3);;
 }
 
 #page_block #python_info{
 	background-color: rgba(0,255,255,0.3); /*cyan*/
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(0,255,255,0.3);
+	box-shadow: 1vw 1vw 0.3vw rgba(0,255,255,0.3);
 }
 
 #page_block #cpp_info{
 	background-color: rgba(255,0,255,0.3); /*magenta*/
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(255,0,255,0.3);
+	box-shadow: 1vw 1vw 0.3vw rgba(255,0,255,0.3);
 }
 
 #page_block #csharp_info{
 	background-color: rgba(255,255,0,0.5); /*yellow*/
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(255,255,0,0.5);
+	box-shadow: 1vw 1vw 0.3vw rgba(255,255,0,0.5);
 }
 
 #page_block #unity_info{
 	background-color: rgba(0,0,0,0.1); /*gray*/;
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(0,0,0,0.1);;
+	box-shadow: 1vw 1vw 0.3vw rgba(0,0,0,0.1);;
 }
 
 #page_block #java_info{
 	background-color: rgba(120,50,120,0.2) /*purple-gray*/;
-	box-shadow: 1.3vw 1.3vw 0.3vw rgba(120,50,120,0.2);
+	box-shadow: 1vw 1vw 0.3vw rgba(120,50,120,0.2);
 }
 
 
