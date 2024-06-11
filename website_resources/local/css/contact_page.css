@@ -1,123 +1,112 @@
 /*THIS IS FOR THE CONTACT PAGE*/
+#contact_content{
+    position: relative;
+    width:98%;
+    margin: 0%;
+    margin-left:1%;
+    padding: 0%;
+    min-height: 42vw;
+    border: none 2px black;
+}
+
+#contact_content #first_column
+{
+    width: 80%;
+    border: none 2px yellow;
+    vertical-align: top;
+}
+
+#contact_content #second_column
+{
+    width: 20%;
+    border: none 2px yellow;
+    vertical-align: top;
+}
+
+#contact_content #first_column_header{
+    position: relative;
+    width: 96%;
+    margin:0%;
+    padding:2%;
+    text-align: left;
+    font-family:Verdana;
+    font-size:1.5vw;
+    text-decoration:none;
+    color:white;
+    letter-spacing: 1px;
+    border-style:solid;
+    border-width:2px;
+    border-color:black;
+    background-color:#995500;
+    text-shadow: 0.2vw 0.4vw #000000;
+    box-shadow: 1vw 1vw 0.3vw lightgray;
+}
+
 article{
-	display: block;
-	margin-top:2vw;
-	padding-top:2vw;
-	padding-left:2vw;
-	padding-bottom:2vw;
-	margin-left:2vw;
-	margin-right:2vw;
-	border-style:solid;
-	border-width:2px;
-	position:relative;
-	margin-bottom:2vw;
-	width:94%;
-	height:50vw;
+    position: relative;
+    width: 98%;
+    border: none 2px red;
+    border-width: 2px;
+    text-align: left;
+    padding-left: 2%;
 }
 
-article table{
-	float:left;
-	width:70%;
-	height: 40vw;
-}
-
-article th, td, tr{
-	padding-top:0vw;
-	padding-left:2vw;
-	padding-bottom:0vw;
-	border:none;
-	text-align: left;	/*this is for aligning the items in the table*/
-}
-
-article th{
-	font-family:Verdana;
-	font-size:1.3vw;
-	text-decoration:none;
-	color:white;
-	letter-spacing: 1px;
-	border-style:solid;
-	border-width:2px;
-	border-color:black;
-	background-color:#995500;
-	text-shadow: 0.2vw 0.4vw #000000;
-	box-shadow: 1vw 1vw 0.3vw lightgray;
-}
-
-article td h2{
-	font-family: Tahoma;
-	font-size: 1.4vw;
+article h2{
+    font-family: Tahoma;
+    font-size: 1.4vw;
 }
 
 article a:hover{
-	color: red;
+    color: red;
 }
 
 article a:selected{
-	color:green;
+    color:green;
 }
 
-article td img{
-	width: 5vw;
+article img{
+    width: 5vw;
 }
 
 article audio{
-	width: 13vw;
-	height: 1vw;
-	border-style: solid;
-	border-color: black;
-	border-width: 0.1vw;
-	padding: 0.2vw;
+    width: 13vw;
+    height: 1vw;
+    border-style: solid;
+    border-color: black;
+    border-width: 0.1vw;
+    padding: 0.2vw;
 }
 
 aside{
-	width: 25%;
-	margin-left:2vw;
-	border-left-style:solid;
-	border-left-width:2px;
-	border-left-color:black;
-	padding-left:2vw;
-	height:50vw;
-	color: red;
-	float:left;
-	position:relative;
-}
-
-aside #thank{
-	padding:1vw;
-	width:85%;
-	font-family:Verdana;
-	font-size:1.5vw;
-	text-decoration:none;
-	color:white;
-	letter-spacing: 1px;
-	border-style:solid;
-	border-width:2px;
-	border-color:black;
-	background-color:#995500;
-	text-shadow: 0.2vw 0.4vw #000000;
-	box-shadow: 1vw 1vw 0.3vw lightgray;
+    position:relative;
+    width: 100%;
+    color: red;
+    padding-top: 5%;
+    border: none 2px blue;
+    height: 20vw;
 }
 
 aside #anim{
-	width:5vw;
-	position: absolute;
-	text-shadow: 1vw 1vw 0.3vw lightgray;
-	animation-name: animation-contact;
-	animation-duration: 4s;
-	animation-iteration-count: infinite;
+    width:3vw;
+    position: absolute;
+    text-shadow: 1vw 1vw 0.3vw lightgray;
+    animation-name: animation-contact;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes animation-contact{
-	0%{ bottom: 75%; left: 5%;}
-	40%{bottom: 45%; left: 5%;}
-	50%{bottom: 45%; left: 75%;}
-	90%{bottom: 75%; left: 75%;}
-	100%{bottom:75%; left: 5%;}
+    0%{top: 0%; left: 5%;}
+    15%{top: 40%; left: 5%;}
+    30%{top: 40%; left: 80%;}
+    45%{top: 0%; left: 80%;}
+    60%{top: 40%; left: 80%;}
+    75%{top: 40%; left: 5%;}
+    100%{ top: 0%; left: 5%;}
 }
 
 aside img{
-	width: 12vw;
-	position: absolute;
-	bottom: 55%;
-	left: 26%;	
+    position: absolute;
+    width: 50%;
+    left: 25%;    
 }
