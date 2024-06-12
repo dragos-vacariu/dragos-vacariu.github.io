@@ -2,8 +2,7 @@
 #contact_content{
     position: relative;
     width:98%;
-    margin: 0%;
-    margin-left:1%;
+    margin: 1%;
     padding: 0%;
     min-height: 42vw;
     border: outset 1px black;
@@ -33,7 +32,7 @@
     padding-left: 2%;
     padding-top: 1vw;
     text-align: left;
-    font-family:Verdana;
+    font-family: FjallaOne;
     font-size:1.5vw;
     text-decoration:none;
     color:white;
@@ -56,8 +55,8 @@
     padding-left: 2%;
     padding-top: 1vw;
     text-align: center;
-    font-family:Verdana;
-    font-size:1.3vw;
+    font-family: FjallaOne;
+    font-size:1.5vw;
     text-decoration:none;
     color:white;
     letter-spacing: 1px;
@@ -144,8 +143,9 @@ aside #greetings{
     z-index: 1;
     top: 15%;
     left: 37%;
-    font-family: Consolas;
+    font-family: FjallaOne;
     font-variant: small-caps;
+    letter-spacing: 1px;
     font-size: 1.2vw;
     font-weight: bold;
     color: #995500;

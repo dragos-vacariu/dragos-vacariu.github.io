@@ -1,21 +1,17 @@
 /*GLOBALS STYLING*/
 body{
 	background-color:#eeeeee;
-	font-family: Arial, Verdana, Tahoma;
+	font-family: Arial, Verdana, Tahoma, FjallaOne;
 	margin:0%;
 	padding:0%;
 }
 
 header{
 	position:relative;
-	width:98%;
+	width:100%;
 	height:auto;
-	padding-top:0%;
-	margin-top:0%;
-	margin-left:1%;
-	margin-right:1%;
-	margin-bottom:1%;
-	padding-bottom:2vw;
+	padding:0%;
+	margin:0%;
 	background-image: linear-gradient(to right, #aa7700, #995500);
 	display: block;
 	border-left-style: solid;
@@ -23,14 +19,14 @@ header{
 	border-right-style: solid;
 	border-top-style: solid;
 	border-color: black;
-	border-width: 1px;
+	border-width: 0px;
 	overflow: hidden;
 }
 
 header #header_title{
 	position: relative;
 	color:#ffffff;
-	font-family: Tahoma;
+	font-family: FjallaOne;
 	width:40%;
 	font-size:20px;
 	margin-top:0%;
@@ -42,26 +38,28 @@ header #header_title{
 nav{
 	position: relative;
 	/*setting width and height for the element will help maintaing the proper ratio for elements with size in % or vw*/
-	width:98%;
+	width:100%;
 	height: auto; 
-	margin-left: 1%;
-	margin-right: 1%;
+	margin: 0%;
+	padding: 0%;
 	margin-bottom: 1%;
-	margin-top: -1%;  /*-1 so that the buttom will overlap*/
 	background-image: linear-gradient(to right, #aa7700, #995500);
 	border-left-style: solid;
 	border-bottom-style: solid;
 	border-right-style: solid;
 	border-top-style: none;
-	border-width:1px;
+	border-width:0px;
 	border-color:black;
 	text-align: center;
+    font-family: FjallaOne;
+    font-size: 18px;
 }
 
 nav div{
 	width: 100px;
 	padding: 7px;
 	display: inline-block;
+    margin-bottom: 0.5%;
 }
 
 nav table{
@@ -103,7 +101,9 @@ nav table{
 	left: -50%; /*-50% so that it will be centered*/
 	z-index: 1;
 	text-align: center;
-	font-size: 12px;
+	font-size: 10px;
+    letter-spacing: 1px;
+    font-family: ZenDots;
 }
 
 .dropdown_content a {
@@ -154,12 +154,13 @@ footer{
 	height:auto;
 	background-image: linear-gradient(to right, #aa7700, #995500);
 	width:98%;
-	margin:1%;
 	display:block;
 	color:white;
 	border-color: black;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 0px;
+    margin: 0%;
+    padding: 1%;
 	font-family: Courier New;
 	font-weight: bold;
 	font-size: 14px;
@@ -247,13 +248,12 @@ footer th{
 /*This is for Catalogue page*/
 #page_block{
 	padding-bottom:10px;
-	margin-left:10px;
-	margin-top:10px;
-	margin-bottom:10px;
-	width:98%;
+    margin: 0.5%;
+	width:99%;
 	border-style:solid;
 	border-bottom-color:black;
 	border-width: 1px;
+    border-radius: 20px;
 	box-shadow: inset 1vw 1vw 0.5vw lightgray;
 }
 
@@ -276,8 +276,9 @@ footer th{
 	border-bottom-style:solid;
 	border-width:2px;
 	border-color:black;
-	font-family:Verdana;
-	font-size: 20px;
+    border-radius: 20px;
+	font-family:FjallaOne;
+	font-size: 24px;
 	padding-top:10px;
 	padding-left:10px;
 	padding-bottom:10px;
@@ -310,6 +311,9 @@ footer th{
 	border-color:black;
 	border-width:0.2vw;
 	opacity:0.7;
+    border: inset 5px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    background-image: repeating-radial-gradient(farthest-side at 20% 45%, rgba(0,0,255,0.3), rgba(255,255,255,0.1));
 }
 
 #catalogue_div_right img{
@@ -321,16 +325,17 @@ footer th{
 #catalogue_div_left{
 	position: relative;
     width:60vw;
-	height:30vw;	
+	min-height:30vw;
+    height: auto;
     margin:1vw; 
 	padding:1vw;
 	background-color:silver;
-	border-style:solid;
-	border-color:black;
-	border-width:0.2vw;
+    border: inset 5px rgba(0,0,0,0.1);
+    border-radius: 20px;
 	opacity:0.7;
 	text-shadow: 0.1vw 0.1vw black;
 	text-align:left;
+    background-image: repeating-radial-gradient(farthest-side at 80% 45%, rgba(255,0,0,0.2), rgba(255,255,255,0.1));
 }
 
 #catalogue_div_left li
@@ -339,9 +344,9 @@ footer th{
 }
 
 #catalogue_div_left h2{
-	font-family: Verdana;
+	font-family: ZenDots;
 	color: blue;
-    font-size: 2.0vw;
+    font-size: 1.8vw;
 }
 
 #catalogue_div_left h2 b{
@@ -350,24 +355,40 @@ footer th{
 
 #catalogue_div_left a{
 	color: red;
-	font-family: Verdana;
+	font-family: ZenDots;
 	letter-spacing: 0.2vw;
 	margin: 0vw;
 	padding: 2vw;
 	font-weight: bold;
 	line-height: 1.6vw;
-	font-size: 2vw;
+	font-size: 1.8vw;
 	text-decoration: none;
 }
 #catalogue_div_left a:hover{
 	color: blue;
-	font-family: Verdana;
+	font-family: ZenDots;
 	letter-spacing: 0.2vw;
 	margin: 0vw;
 	padding: 2vw;
 	font-weight: bold;
 	line-height: 1.6vw;
-
-	font-size: 2vw;
+	font-size: 1.8vw;
 	text-decoration: none;
+}
+
+/*Adding custom font*/
+
+@font-face {
+    font-family: FjallaOne;
+    src: url("../../global/fonts/FjallaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenDots;
+    src: url("../../global/fonts/ZenDots-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenTokyoZoo;
+    src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");
 }

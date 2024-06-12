@@ -1,10 +1,9 @@
 #page_block {
     position: relative;
-    width: 98%;
+    width: 99%;
     color:#663300;
     border: solid 1px #995500;
-    margin-left:1%;
-    margin-top:1%;
+    margin: 0.5%;
     font-family:Tahoma;
     font-size:14px;
     background-color: white;
