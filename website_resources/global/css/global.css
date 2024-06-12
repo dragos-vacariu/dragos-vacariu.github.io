@@ -179,7 +179,7 @@ footer{
 
 footer h4{
 	text-align:center;
-	color: white;
+	color: #ffeecc;
     font-family: FjallaOne;
 	font-size: 120%;
 }
@@ -230,12 +230,12 @@ footer a{
 }
 
 footer a:hover{
-    /*color: red; -> color is set via class .outer_href */
+    color: yellow; /*-> color is set via class .outer_href */
     animation-duration: 0s;
 }
 
 footer th{
-	color: yellow;
+	color: #ffeecc;
 	font-size: 13px;
 	
 }
