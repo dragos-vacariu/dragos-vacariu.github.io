@@ -3,9 +3,11 @@
 	border-style:solid;
 	border-color:black;
 	border-width:1px;
+    border-radius: 20px;
 	height: 32vw;
-	margin: 1%;
-	width: 98%;
+	margin: 0.5%;
+	width: 99%;
+    background-image: repeating-linear-gradient(to right, rgba(255,0,0,1), rgba(255,255,0,1), rgba(0,0,255,1));
 }
 
 #container #saying{
@@ -62,6 +64,7 @@
 	height:100%;
 	border:none;
 	object-fit: cover;
+    border-radius: 20px;
 }
 
 @keyframes color_animation_one {
