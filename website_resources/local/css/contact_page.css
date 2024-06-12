@@ -25,9 +25,11 @@
 
 #contact_content #first_column_header{
     position: relative;
-    width: 96%;
+    width: 97%;
     margin:0%;
-    padding:2%;
+    height:4vw;
+    padding-left: 2%;
+    padding-top: 1vw;
     text-align: left;
     font-family:Verdana;
     font-size:1.5vw;
@@ -39,7 +41,28 @@
     border-color:black;
     background-color:#995500;
     text-shadow: 0.2vw 0.4vw #000000;
-    box-shadow: 1vw 1vw 0.3vw lightgray;
+}
+
+
+#contact_content #clock
+{
+    position: relative;
+    width: 97%;
+    margin:0%;
+    height:4vw;
+    padding-left: 2%;
+    padding-top: 1vw;
+    text-align: center;
+    font-family:Verdana;
+    font-size:1.3vw;
+    text-decoration:none;
+    color:white;
+    letter-spacing: 1px;
+    border-style:solid;
+    border-width:2px;
+    border-color:black;
+    background-color:#995500;
+    text-shadow: 0.2vw 0.4vw #000000;
 }
 
 article{
@@ -83,7 +106,9 @@ aside{
     color: red;
     padding-top: 5%;
     border: none 2px blue;
-    height: 20vw;
+    height: 12vw;
+    border: none 1px black;
+    margin: 1% 0%;
 }
 
 aside #anim{
@@ -97,16 +122,40 @@ aside #anim{
 
 @keyframes animation-contact{
     0%{top: 0%; left: 5%;}
-    15%{top: 40%; left: 5%;}
-    30%{top: 40%; left: 80%;}
+    15%{top: 75%; left: 5%;}
+    30%{top: 75%; left: 80%;}
     45%{top: 0%; left: 80%;}
-    60%{top: 40%; left: 80%;}
-    75%{top: 40%; left: 5%;}
+    60%{top: 75%; left: 80%;}
+    75%{top: 75%; left: 5%;}
     100%{ top: 0%; left: 5%;}
 }
 
-aside img{
-    position: absolute;
+aside #image{
+    position: relative;
     width: 50%;
-    left: 25%;    
+    left: 0%;    
+}
+
+aside #greetings{
+    position: absolute;
+    z-index: 1;
+    top: 15%;
+    left: 37%;
+    font-family: Consolas;
+    font-variant: small-caps;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: #995500;
+}
+
+#div_with_gif
+{
+    position: relative;
+    border: none 1px black;
+}
+
+#div_with_gif #image
+{
+    position: relative;
+    width: 50%;
 }
