@@ -74,7 +74,7 @@ nav table{
 	text-decoration: none;
 	margin:0%;
 	color:white;
-	text-shadow: 0.2vw 0.2vw #000000;	
+	text-shadow: 0.1vw 0.1vw #000000;	
 	letter-spacing: 1px;
 	background-color: rgba(0,0,0,0.0);
 	text-decoration:none;
@@ -173,7 +173,7 @@ footer{
     padding: 1%;
 	font-family: Georgia;
 	font-size: 14px;
-	text-shadow: 2px 2px #000000;
+	text-shadow: 1px 2px #000000;
 	box-shadow: inset 5px 5px 5px #884400;
 }
 
@@ -191,6 +191,7 @@ footer h5{
 	margin-left:10%;
 	padding: 0.2vw;
 	font-size: 70%;
+    font-family: Rockwell;
 }
 
 footer table{
@@ -213,7 +214,7 @@ footer td, tr, th{
 	margin:0%;
 	padding: 0.5%;
 	height:auto;
-	font-family: Courier New;
+	font-family: Rockwell;
 	font-size: 90%;
     vertical-align: top;
 }
@@ -221,11 +222,9 @@ footer td, tr, th{
 footer a{
 	font-family: Courier New;
 	font-size: 11px;
-    line-height: 15px;
 	animation-name: footer_link;
 	animation-duration: 4s;
 	animation-iteration-count: infinite;
-	text-shadow: 0.1vw 0.1vw #000000;
 	text-decoration:none;
 }
 
@@ -237,7 +236,6 @@ footer a:hover{
 footer th{
 	color: #ffeecc;
 	font-size: 13px;
-	
 }
 
 .footer_list {
