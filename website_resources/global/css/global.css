@@ -204,7 +204,7 @@ footer table{
 	border-width: 1px;
 	font-size: 100%;
     font-weight: bold;
-	table-layout: fixed; /*commenting this as it forces equal widths amongst columns*/
+	/*table-layout: fixed;*/ /*commenting this as it forces equal widths amongst columns*/
     word-wrap: break-word;
     border: none 2px white;
 }
