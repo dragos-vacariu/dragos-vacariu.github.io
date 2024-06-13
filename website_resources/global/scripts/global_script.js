@@ -51,10 +51,16 @@ function Controller_Function($scope)
         footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 	};
     
+    $scope.page_statistics = ["Images: " + document.images.length, 
+                              "Scripts: " + document.scripts.length, 
+                              "Videos: " + document.getElementsByTagName("video").length, 
+                             ];
+                             
     $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info}, 
                                     {name: "References",  list_values: $scope.pageObject.connections_list}, 
                                     {name: "Tools Used",  list_values: $scope.pageObject.tools_used}, 
-                                    {name: "Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown}];
+                                    {name: "Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown},
+                                    {name: "Statistics",  list_values: $scope.page_statistics}];
 	
     $scope.java_catalogue = [
 			{name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},

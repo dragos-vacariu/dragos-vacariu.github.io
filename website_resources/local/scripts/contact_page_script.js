@@ -25,7 +25,7 @@ function startTime()
         second: 'numeric',
     };
     formatter = new Intl.DateTimeFormat([], options);
-    document.getElementById('clock').innerHTML =  formatter.format(new Date()) + ", Romania";
+    document.getElementById('clock').innerHTML =  formatter.format(new Date()) + ", Romania, Iasi";
     setTimeout(startTime, 1000);
     /*The setTimeout() method calls a function after a number of milliseconds.*/
 }
