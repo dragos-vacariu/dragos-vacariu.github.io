@@ -1,6 +1,10 @@
 var app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
+var page_counter_name = String(document.title.replace(" ", "_")) + "_visitCounter"
+
+var visitCounter = localStorage.getItem(page_counter_name);
+
 function Controller_Function($scope)
 {
 	//Initializing the models;
@@ -54,13 +58,17 @@ function Controller_Function($scope)
     $scope.page_statistics = ["Images: " + document.images.length, 
                               "Scripts: " + document.scripts.length, 
                               "Videos: " + document.getElementsByTagName("video").length, 
+                              "Views: " + visitCounter, 
+                              "Last Modified: ", 
+                              document.lastModified.split(" ")[0],
+                              document.lastModified.split(" ")[1]
                              ];
                              
     $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info}, 
                                     {name: "References",  list_values: $scope.pageObject.connections_list}, 
                                     {name: "Tools Used",  list_values: $scope.pageObject.tools_used}, 
                                     {name: "Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown},
-                                    {name: "Statistics",  list_values: $scope.page_statistics}];
+                                    {name: "Page Stats",  list_values: $scope.page_statistics}];
 	
     $scope.java_catalogue = [
 			{name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
@@ -163,3 +171,20 @@ function Controller_Function($scope)
 		return style;
 	}
 }
+
+function pageVisitCounter()
+{
+    if(visitCounter)
+    {
+        visitCounter++;
+        localStorage.setItem(page_counter_name, visitCounter); //this value will be stored locally.
+    }
+    else
+    {
+        localStorage.setItem(page_counter_name, 1); //this value will be stored locally.
+        visitCounter = localStorage.getItem(page_counter_name);
+        alert(visitCounter);
+    }
+}
+
+window.onload = pageVisitCounter; //this function will be called when the window gets loaded
