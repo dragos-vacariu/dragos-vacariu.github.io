@@ -65,17 +65,17 @@ function Controller_Function($scope)
         footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 	};
     
-    $scope.page_statistics = ["Images: " + document.images.length, 
-                              "Scripts: " + document.scripts.length, 
-                              "Videos: " + document.getElementsByTagName("video").length, 
-                              "Views: " + visitCounter, 
+    $scope.page_statistics = ["Image Files: " + document.images.length, 
+                              "Scripts Files: " + document.scripts.length, 
+                              "Video Files: " + document.getElementsByTagName("video").length, 
+                              "Total Views: " + visitCounter, 
                               " ", 
                               "Last Modified: ", 
                               window.document.lastModified.split(" ")[0],
                               window.document.lastModified.split(" ")[1]
                              ];
                              
-    $scope.social_networks = [{name: "GitHub", value: "https://www.GitHub.com"}, {name: "LinkedIn", value: "https://www.LinkedIn.com"},];
+    $scope.social_networks = [{name: "GitHub", value: "https://www.GitHub.com/dragos-vacariu"}, {name: "LinkedIn", value: "https://www.LinkedIn.com/in/dragos-vacariu-em"},];
     $scope.training_materials = [
                                     {name: "C Language", value: "./portal.html#multiple@C&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
                                     {name: "C++ Language", value: "./portal.html#multiple@C++&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
@@ -85,12 +85,13 @@ function Controller_Function($scope)
                                     {name: "Python Language", value: "./portal.html#multiple@Python&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
                                 ];
                              
-    $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info, content: "text"}, 
+    $scope.footer_table_contents = [
                                     {name: "Technical References",  list_values: $scope.pageObject.connections_list, content: "objects_with_links"}, 
                                     {name: "App Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown, content: "objects_with_links"},
-                                    //{name: "Social Networking",  list_values: $scope.social_networks, content: "objects_with_links"},
+                                    {name: "Social Networking",  list_values: $scope.social_networks, content: "objects_with_links"},
                                     {name: "Training Materials",  list_values: $scope.training_materials, content: "objects_with_links"},
                                     {name: "Page Stats",  list_values: $scope.page_statistics, content: "text"},
+                                    {name: "Template Info",  list_values: $scope.pageObject.template_info, content: "text"}, 
                                     ];
 	
     $scope.java_catalogue = [

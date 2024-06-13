@@ -195,8 +195,8 @@ footer h5{
 }
 
 footer table{
-	width: 96%;
-	margin-left: 2%;
+	width: 90%;
+	margin-left: 5%;
 	margin-bottom:1%;
 	padding: 0%;
 	border-style: none;
@@ -204,7 +204,7 @@ footer table{
 	border-width: 1px;
 	font-size: 100%;
     font-weight: bold;
-	/*table-layout: fixed;*/ /*commenting this as it forces equal widths amongst columns*/
+	table-layout: fixed; /*commenting this as it forces equal widths amongst columns*/
     word-wrap: break-word;
     border: none 2px white;
 }
@@ -213,12 +213,13 @@ footer td, footer tr, footer th{
 	border-style:none;
 	text-align:left;
 	width:auto;
+    max-width: 5%;
 	margin:0%;
 	padding: 0.5%;
 	height:auto;
 	font-size: 90%;
     vertical-align: top;
-    border: solid 2px rgba(255,255,255,0.1);
+    border: none 2px rgba(255,255,255,0.1);
 }
 
 footer a{
