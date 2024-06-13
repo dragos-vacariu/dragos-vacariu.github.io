@@ -7,6 +7,8 @@ var visitCounter = localStorage.getItem(page_counter_name);
 
 var domain = "dragos-vacariu.github.io"
 var rootDir = location.href.split(domain)[0] + domain;
+var homePage = window.protocol == undefined ? rootDir + "/index.html" : rootDir + "/";
+alert(window.protocol);
 
 function Controller_Function($scope)
 {
@@ -14,28 +16,28 @@ function Controller_Function($scope)
 	$scope.dotSlash = "./";
 	$scope.exitDir = "../"
 	
-	$scope.java_page = {name: "Java Projects", value: "catalogue/Java-Projects.html"}; /*currently not indexed*/
-	$scope.unity_page = {name: "Unity C# Projects", value: "catalogue/Unity-Csharp-Projects.html"};
-	$scope.python_page = {name: "Python tKinter Projects", value: "catalogue/Python-Projects.html"};
-	$scope.html_page = {name: "HTML & CSS Templates", value : "catalogue/Html-Projects.html"};
-	$scope.c_sharp_page = {name: "C# .NET Projects", value : "catalogue/CSharp-Projects.html"};
-	$scope.cpp_page = {name: "C++ .NET Projects", value : "catalogue/Cpp-Projects.html"};
-	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : "catalogue/Cpp-OpenGL-Projects.html"};
-	$scope.angularjs_page = {name: "AngularJS Practicals", value : "catalogue/AngularJS.html"};
-	$scope.javascript_games_page = {name: "JavaScript Games", value : "catalogue/Javascript-Games.html"};
-	$scope.javascript_games_presentation_video = {name: "Video Presentation Page", value : "Javascript-Games-Presentation-Video.html"};
-	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : "catalogue/Javascript-WebApps.html"}; /*currently not indexed*/
-	$scope.portable_downloads_page = {name: "Portable Downloads", value : "catalogue/Portable-Downloads.html"};
+	$scope.java_page = {name: "Java Projects", value: rootDir + "/catalogue/Java-Projects.html"}; /*currently not indexed*/
+	$scope.unity_page = {name: "Unity C# Projects", value: rootDir + "/catalogue/Unity-Csharp-Projects.html"};
+	$scope.python_page = {name: "Python tKinter Projects", value: rootDir + "/catalogue/Python-Projects.html"};
+	$scope.html_page = {name: "HTML & CSS Templates", value : rootDir + "/catalogue/Html-Projects.html"};
+	$scope.c_sharp_page = {name: "C# .NET Projects", value : rootDir + "/catalogue/CSharp-Projects.html"};
+	$scope.cpp_page = {name: "C++ .NET Projects", value : rootDir + "/catalogue/Cpp-Projects.html"};
+	$scope.cpp_opengl_page = {name: "C++ OpenGL Projects", value : rootDir + "/catalogue/Cpp-OpenGL-Projects.html"};
+	$scope.angularjs_page = {name: "AngularJS Practicals", value : rootDir + "/catalogue/AngularJS.html"};
+	$scope.javascript_games_page = {name: "JavaScript Games", value : rootDir + "/catalogue/Javascript-Games.html"};
+	$scope.javascript_games_presentation_video = {name: "Video Presentation Page", value : "/catalogue/Javascript-Games-Presentation-Video.html"};
+	$scope.javascript_webapps_page = {name: "JavaScript WebApps", value : rootDir + "/catalogue/Javascript-WebApps.html"}; /*currently not indexed*/
+	$scope.portable_downloads_page = {name: "Portable Downloads", value : rootDir + "/catalogue/Portable-Downloads.html"};
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
-
+    
 	$scope.pageObject = {
         page_title : "Portfolio",
 		page_navigation : [
-			{name: "Home", value : "./"},
-			{name: "Catalogue", value : "#"},
-			{name: "Contact", value : "./contact.html"},
-			{name: "About", value : "./about.html"},
-			{name: "Portal", value : "./portal.html"},
+			{name: "Home", value : homePage},
+			{name: "Catalogue", value : rootDir + "#"},
+			{name: "Contact", value : rootDir + "/contact.html"},
+			{name: "About", value : rootDir + "/about.html"},
+			{name: "Portal", value : rootDir + "/portal.html"},
 		],
 		page_navigation_dropdown : [
 			/*$scope.java,*/

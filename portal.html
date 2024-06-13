@@ -28,7 +28,7 @@
                 <div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
                     <a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
                     <div class="dropdown_content">
-                        <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{dotSlash}}{{page.value}}>{{page.name}}</a>
+                        <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
                     </div>
                 </div>    
             </div>
