@@ -5,6 +5,8 @@ var page_counter_name = String(document.title.replace(" ", "_")) + "_visitCounte
 
 var visitCounter = localStorage.getItem(page_counter_name);
 
+//alert(document.body.innerHTML);
+
 function Controller_Function($scope)
 {
 	//Initializing the models;
@@ -48,9 +50,17 @@ function Controller_Function($scope)
 			$scope.portable_downloads_page,
 			//$scope.github_repository_page,
 		],
-		template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", "Revised in: 2024", "Hosted by: GitHub"],
+		template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", 
+                        "Revised in: 2024", "Hosted by: GitHub", " ", "Tools Used:", "HTML4, HTML5, CSS,", "CSS3, JavaScript, Angular"],
 		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
-		connections_list : ["GitHub.com", "LinkedIn.com",  "w3schools.com", "geeksforgeeks.org", "tutorialpoint.com"],
+		connections_list : [ {name: "W3Schools", value: "https://www.w3schools.com"}, 
+                             {name: "GeeksForGeeks", value: "https://www.geeksforgeeks.org"}, 
+                             {name: "TutorialPoint", value: "https://www.tutorialpoint.com"}, 
+                             {name: "JavaTPoint", value: "https://www.javatpoint.com"}, 
+                             {name: "Wikipedia", value: "https://www.wikipedia.org"}, 
+                             {name: "YouTube", value: "https://www.youtube.com"}, 
+                             {name: "Programiz", value: "https://www.programiz.com"},
+                           ],
         footer_copyright : "Dragos Vacariu © 2024",
         footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 	};
@@ -59,16 +69,29 @@ function Controller_Function($scope)
                               "Scripts: " + document.scripts.length, 
                               "Videos: " + document.getElementsByTagName("video").length, 
                               "Views: " + visitCounter, 
+                              " ", 
                               "Last Modified: ", 
-                              document.lastModified.split(" ")[0],
-                              document.lastModified.split(" ")[1]
+                              window.document.lastModified.split(" ")[0],
+                              window.document.lastModified.split(" ")[1]
                              ];
                              
-    $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info}, 
-                                    {name: "References",  list_values: $scope.pageObject.connections_list}, 
-                                    {name: "Tools Used",  list_values: $scope.pageObject.tools_used}, 
-                                    {name: "Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown},
-                                    {name: "Page Stats",  list_values: $scope.page_statistics}];
+    $scope.social_networks = [{name: "GitHub", value: "https://www.GitHub.com"}, {name: "LinkedIn", value: "https://www.LinkedIn.com"},];
+    $scope.training_materials = [
+                                    {name: "C Language", value: "./portal.html#multiple@C&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                    {name: "C++ Language", value: "./portal.html#multiple@C++&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                    {name: "C# Language", value: "./portal.html#multiple@CSharp&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                    {name: "Java Language", value: "./portal.html#multiple@Java&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                    {name: "JavaScript Language", value: "./portal.html#multiple@JavaScript&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                    {name: "Python Language", value: "./portal.html#multiple@Python&description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular"},
+                                ];
+                             
+    $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info, content: "text"}, 
+                                    {name: "Technical References",  list_values: $scope.pageObject.connections_list, content: "objects_with_links"}, 
+                                    {name: "App Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown, content: "objects_with_links"},
+                                    //{name: "Social Networking",  list_values: $scope.social_networks, content: "objects_with_links"},
+                                    {name: "Training Materials",  list_values: $scope.training_materials, content: "objects_with_links"},
+                                    {name: "Page Stats",  list_values: $scope.page_statistics, content: "text"},
+                                    ];
 	
     $scope.java_catalogue = [
 			{name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
@@ -186,4 +209,6 @@ function pageVisitCounter()
     }
 }
 
-window.onload = pageVisitCounter; //this function will be called when the window gets loaded
+pageVisitCounter(); //function gets called before loading the window, and the display is updated when loading the script which is before loading the html document
+
+//window.onload = pageVisitCounter; //this function will be called when the window gets loaded

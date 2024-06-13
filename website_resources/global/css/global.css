@@ -195,27 +195,30 @@ footer h5{
 }
 
 footer table{
-	width:90%;
-	margin-left:5%;
+	width: 96%;
+	margin-left: 2%;
 	margin-bottom:1%;
-	padding:0%;
-	border-style:none;
-	border-color:white;
+	padding: 0%;
+	border-style: none;
+	border-color: white;
 	border-width: 1px;
-	font-size:100%;
+	font-size: 100%;
     font-weight: bold;
-	table-layout:fixed;
+	/*table-layout: fixed;*/ /*commenting this as it forces equal widths amongst columns*/
+    word-wrap: break-word;
+    border: none 2px white;
 }
 
 footer td, footer tr, footer th{
 	border-style:none;
-	text-align:center;
-	width:10%;
+	text-align:left;
+	width:auto;
 	margin:0%;
 	padding: 0.5%;
 	height:auto;
 	font-size: 90%;
     vertical-align: top;
+    border: solid 2px rgba(255,255,255,0.1);
 }
 
 footer a{
@@ -243,6 +246,16 @@ footer th{
 	padding: 0;
 	font-family: Courier New;
 	font-size: 11px;
+    word-wrap: break-word;
+    width: auto;
+    line-height:140%;
+}
+
+.footer_list li
+{
+    white-space: pre-wrap; /*this will allow having empty elements in the list*/
+    word-wrap: break-word;
+    width: auto;
 }
 
 .content_list

@@ -12,7 +12,6 @@
 		<link rel="stylesheet" href="../../website_resources/global/css/global.css">
 		<link rel="stylesheet" href="../../website_resources/global/css/video_page.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<script src="../../website_resources/global/scripts/global_script.js"></script>
 		
 		<!--Local resources-->
 	</head>
@@ -59,7 +58,7 @@
 			</h4>
 
 		</div>
-		<footer>
+        <footer>
             <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
             <table>
                 <tr>
@@ -68,9 +67,8 @@
                 <tr>
                     <td ng-repeat="list_item in footer_table_contents">
                         <ul class="footer_list">
-                            <li ng-if = "list_item.name != 'Catalogue' && list_item.name != 'References'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                            <li ng-if = "list_item.name == 'References'" ng-repeat="item in list_item.list_values"><a href="https://www.{{item}}">{{item}}</a></li>
-                            <li ng-if = "list_item.name == 'Catalogue'" ng-repeat="item in list_item.list_values"><a href={{item.value}}>{{item.name}}</a></li>
+                            <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
+                            <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
                         </ul>
                     </td>
                 </tr>
@@ -78,4 +76,8 @@
             <h5 id="footer_endline">{{pageObject.footer_paragraph}}</h5>
         </footer> 
 	</body>
+    <!--This resource has to be added here because we need the elements in the HTML document to exist before 
+    running the script-->
+    <!--Global resources-->
+    <script src="../../website_resources/global/scripts/global_script.js"></script>
 </html>
