@@ -22,13 +22,7 @@ function Controller_Function($scope)
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
 
 	$scope.pageObject = {
-		footer_table_headers : ["Template Info:", "References:", "Tools Used:"],				
-		template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", "Revised in: 2024", "Hosted by: GitHub"],
-		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
-		connections_list : ["GitHub.com", "LinkedIn.com",  "w3schools.com", "geeksforgeeks.org", "tutorialpoint.com"],
-		footer_copyright : "Dragos Vacariu © 2024",
-        footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
-		page_title : "Portfolio",
+        page_title : "Portfolio",
 		page_navigation : [
 			{name: "Home", value : "./"},
 			{name: "Catalogue", value : "#"},
@@ -50,9 +44,19 @@ function Controller_Function($scope)
 			$scope.portable_downloads_page,
 			//$scope.github_repository_page,
 		],
-		
+		template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", "Revised in: 2024", "Hosted by: GitHub"],
+		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
+		connections_list : ["GitHub.com", "LinkedIn.com",  "w3schools.com", "geeksforgeeks.org", "tutorialpoint.com"],
+        footer_copyright : "Dragos Vacariu © 2024",
+        footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 	};
-	$scope.java_catalogue = [
+    
+    $scope.footer_table_contents = [{name: "Template Info",  list_values: $scope.pageObject.template_info}, 
+                                    {name: "References",  list_values: $scope.pageObject.connections_list}, 
+                                    {name: "Tools Used",  list_values: $scope.pageObject.tools_used}, 
+                                    {name: "Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown}];
+	
+    $scope.java_catalogue = [
 			{name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
 			{name: "Java MP3 Player", value : "Java-Projects/Java MP3 Player.html"},
 	];
