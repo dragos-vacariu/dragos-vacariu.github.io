@@ -204,7 +204,7 @@ footer table{
 	border-width: 1px;
 	font-size: 100%;
     font-weight: bold;
-	/*table-layout: fixed;*/ /*commenting this as it forces equal widths amongst columns*/
+	table-layout: fixed; /*this will ensure the table will responsive to the any viewport size changes*/
     word-wrap: break-word;
     border: none 2px white;
 }
@@ -213,7 +213,6 @@ footer td, footer tr, footer th{
 	border-style:none;
 	text-align:left;
 	width:auto;
-    max-width: 5%;
 	margin:0%;
 	padding: 0.5%;
 	height:auto;
@@ -238,7 +237,7 @@ footer a:hover{
 
 footer th{
 	color: #ffeecc;
-	font-size: 13px;
+	font-size: 11px;
 }
 
 .footer_list {
@@ -249,7 +248,6 @@ footer th{
 	font-size: 11px;
     word-wrap: break-word;
     width: auto;
-    line-height:140%;
 }
 
 .footer_list li
@@ -257,6 +255,7 @@ footer th{
     white-space: pre-wrap; /*this will allow having empty elements in the list*/
     word-wrap: break-word;
     width: auto;
+    margin-bottom: 5px;
 }
 
 .content_list
