@@ -7,8 +7,8 @@ var visitCounter = localStorage.getItem(page_counter_name);
 
 var domain = "dragos-vacariu.github.io"
 var rootDir = location.href.split(domain)[0] + domain;
-var homePage = window.protocol == undefined ? rootDir + "/index.html" : rootDir + "/";
-alert(window.protocol);
+var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
+/*window.location.protocol will be file: on local machine and http or https on the web.*/
 
 function Controller_Function($scope)
 {
