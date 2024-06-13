@@ -183,7 +183,6 @@ function pageVisitCounter()
     {
         localStorage.setItem(page_counter_name, 1); //this value will be stored locally.
         visitCounter = localStorage.getItem(page_counter_name);
-        alert(visitCounter);
     }
 }
 
