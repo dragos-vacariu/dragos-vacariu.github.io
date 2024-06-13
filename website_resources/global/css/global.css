@@ -207,14 +207,13 @@ footer table{
 	table-layout:fixed;
 }
 
-footer td, tr, th{
+footer td, footer tr, footer th{
 	border-style:none;
 	text-align:center;
 	width:10%;
 	margin:0%;
 	padding: 0.5%;
 	height:auto;
-	font-family: Rockwell;
 	font-size: 90%;
     vertical-align: top;
 }

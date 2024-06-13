@@ -27,8 +27,8 @@ function Controller_Function($scope)
 		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
 		connections_list : ["GitHub.com", "LinkedIn.com",  "w3schools.com", "geeksforgeeks.org", "tutorialpoint.com"],
 		footer_copyright : "Dragos Vacariu © 2024",
-		//footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		footer_paragraph : "Webpage last modified on: " + document.lastModified,
+        //footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
 		page_title : "Portfolio",
 		page_navigation : [
 			{name: "Home", value : "./"},
