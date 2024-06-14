@@ -254,30 +254,6 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     animation-duration: 0s;
 }
 
-footer td, footer tr, footer th{
-	border-style:none;
-	text-align:left;
-	width:auto;
-	margin:0%;
-	padding: 0.5%;
-	height:auto;
-	font-size: 90%;
-    vertical-align: top;
-    border: none 2px rgba(255,255,255,0.1);
-}
-
-footer th{
-	color: #ffeecc;
-	font-size: 11px;
-}
-
-.content_list
-{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
 @keyframes footer_link{
 	0%{color:white;}
 	50%{color:silver;}
@@ -289,8 +265,8 @@ footer th{
 /*This is for Catalogue page*/
 #page_block{
 	padding-bottom:10px;
-    margin: 0.5%;
-	width:99%;
+    margin: 0.5vw;
+	width:auto;
 	border-style:solid;
 	border-bottom-color:black;
 	border-width: 1px;
@@ -311,35 +287,47 @@ footer th{
 	text-decoration:none;
 	text-shadow: none;
 	color: lightblue;
+	text-shadow: 2px 3px black;
 }
 
 #page_block h2{
-	border-bottom-style:solid;
+    position:relative;
+    width:98%;
+    height: 80%;
+	padding: 1%;
+	margin: 0px;
+	margin-bottom: 0.5%;
+	top:0vw;
+	color:white;
+    border-bottom-style:solid;
 	border-width:2px;
 	border-color:black;
     border-radius: 20px;
 	font-family:FjallaOne;
 	font-size: 24px;
-	padding-top:10px;
-	padding-left:10px;
-	padding-bottom:10px;
-	margin-top:0px;
-	position:relative;
-	top:0vw;
-	color:white;
 	background-color:#995500;
-	text-shadow: 0.2vw 0.3vw black;
-	height: 80%;
-}
-
-#page_block h2 a{
-	color: lightblue;
-	text-shadow: 0.2vw 0.3vw black;
+	text-shadow: 2px 3px black;
 }
 
 #page_block #content_table
 {
-	width:90%; 
+	width:90%;
+}
+
+#page_block #content_table td:first-child /*accessing first column*/
+{
+	width:90%;
+    background-image: repeating-radial-gradient(farthest-side at 80% 45%, rgba(255,0,0,0.2), rgba(255,255,255,0.1));
+    border: inset 0.5vw rgba(0,0,0,0.1);
+    border-radius: 20px;
+}
+
+#page_block #content_table td:nth-child(2) /*accessing second column*/
+{
+	width:90%;
+    background-image: repeating-radial-gradient(farthest-side at 20% 45%, rgba(0,0,255,0.3), rgba(255,255,255,0.1));
+    border: inset 0.5vw rgba(0,0,0,0.1);
+    border-radius: 20px;
 }
 
 #catalogue_div_right{
@@ -348,13 +336,7 @@ footer th{
 	height:auto;
 	margin:1vw; 
 	padding:1vw;
-	border-style:none;
-	border-color:black;
-	border-width:0.2vw;
 	opacity:0.7;
-    border: inset 5px rgba(0,0,0,0.1);
-    border-radius: 20px;
-    background-image: repeating-radial-gradient(farthest-side at 20% 45%, rgba(0,0,255,0.3), rgba(255,255,255,0.1));
 }
 
 #catalogue_div_right img{
@@ -370,18 +352,10 @@ footer th{
     height: auto;
     margin:1vw; 
 	padding:1vw;
-	background-color:silver;
-    border: inset 5px rgba(0,0,0,0.1);
-    border-radius: 20px;
+	background-color:transparent;
 	opacity:0.7;
 	text-shadow: 0.1vw 0.1vw black;
 	text-align:left;
-    background-image: repeating-radial-gradient(farthest-side at 80% 45%, rgba(255,0,0,0.2), rgba(255,255,255,0.1));
-}
-
-#catalogue_div_left li
-{
-	line-height: 4vw;
 }
 
 #catalogue_div_left h2{
@@ -397,12 +371,11 @@ footer th{
 #catalogue_div_left a{
 	color: red;
 	font-family: ZenDots;
-	letter-spacing: 0.2vw;
-	margin: 0vw;
-	padding: 2vw;
+	letter-spacing: 2px;
+	margin: 0px;
+	padding: 0px;
 	font-weight: bold;
-	line-height: 1.6vw;
-	font-size: 1.8vw;
+	font-size: 20px;
 	text-decoration: none;
 }
 #catalogue_div_left a:hover{
@@ -415,6 +388,18 @@ footer th{
 	line-height: 1.6vw;
 	font-size: 1.8vw;
 	text-decoration: none;
+}
+
+.content_list /*part of #catalogue_div_left*/
+{
+	list-style-type: none;
+	margin: 5px;
+	padding: 0px;
+}
+
+.content_list  li
+{
+    margin-bottom: 10px;
 }
 
 /*Adding custom font*/
