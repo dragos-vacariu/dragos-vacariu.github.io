@@ -52,19 +52,15 @@
 		</div>
 		<footer>
             <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
-            <table>
-                <tr>
-                    <th ng-repeat="list_item in footer_table_contents">{{list_item.name}}:</th>
-                </tr>
-                <tr>
-                    <td ng-repeat="list_item in footer_table_contents">
-                        <ul class="footer_list">
-                            <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                            <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
-                        </ul>
-                    </td>
-                </tr>
-            </table>
+            <div id = "footer_tabelation_div">
+                <div class="footer_columns" ng-repeat="list_item in footer_table_contents">
+                    <p class="column_title">{{list_item.name}}:</p>
+                    <ul class="footer_list">
+                        <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
+                        <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
+                    </ul>
+                </div>
+            </div>
             <h5 id="footer_endline">{{pageObject.footer_paragraph}}</h5>
         </footer> 
 	</body>

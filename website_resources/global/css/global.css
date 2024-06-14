@@ -194,19 +194,64 @@ footer h5{
     font-family: Rockwell;
 }
 
-footer table{
-	width: 90%;
-	margin-left: 5%;
-	margin-bottom:1%;
-	padding: 0%;
-	border-style: none;
-	border-color: white;
-	border-width: 1px;
+footer #footer_tabelation_div{
+    position: relative;
+    width: 90%;
+    margin-left: 5%;
+    border: none 2px green;
+    text-align: center;
+}
+
+footer #footer_tabelation_div .footer_columns{
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: auto;
+	margin:0.5%;
+	padding: 0.5%;
 	font-size: 100%;
     font-weight: bold;
-	table-layout: fixed; /*this will ensure the table will responsive to the any viewport size changes*/
     word-wrap: break-word;
     border: none 2px white;
+    vertical-align: top;
+    text-align: left;
+}
+
+footer #footer_tabelation_div .footer_columns .column_title{
+    color: #ffeecc;
+    font-size: 11px;
+}
+
+footer #footer_tabelation_div .footer_columns .footer_list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-family: Courier New;
+	font-size: 11px;
+    word-wrap: break-word;
+    width: auto;
+}
+
+footer #footer_tabelation_div .footer_columns .footer_list li
+{
+    white-space: pre-wrap; /*this will allow having empty elements in the list*/
+    word-wrap: break-word;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+footer #footer_tabelation_div .footer_columns .footer_list li a{
+	font-family: Courier New;
+	font-size: 11px;
+	animation-name: footer_link;
+	animation-duration: 4s;
+	animation-iteration-count: infinite;
+	text-decoration:none;
+}
+
+footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
+    color: yellow; /*-> color is set via class .outer_href */
+    animation-duration: 0s;
 }
 
 footer td, footer tr, footer th{
@@ -221,41 +266,9 @@ footer td, footer tr, footer th{
     border: none 2px rgba(255,255,255,0.1);
 }
 
-footer a{
-	font-family: Courier New;
-	font-size: 11px;
-	animation-name: footer_link;
-	animation-duration: 4s;
-	animation-iteration-count: infinite;
-	text-decoration:none;
-}
-
-footer a:hover{
-    color: yellow; /*-> color is set via class .outer_href */
-    animation-duration: 0s;
-}
-
 footer th{
 	color: #ffeecc;
 	font-size: 11px;
-}
-
-.footer_list {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	font-family: Courier New;
-	font-size: 11px;
-    word-wrap: break-word;
-    width: auto;
-}
-
-.footer_list li
-{
-    white-space: pre-wrap; /*this will allow having empty elements in the list*/
-    word-wrap: break-word;
-    width: auto;
-    margin-bottom: 5px;
 }
 
 .content_list
