@@ -1,10 +1,6 @@
 var app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
-var page_counter_name = String(document.title.replace(" ", "_")) + "_visitCounter"
-
-var visitCounter = localStorage.getItem(page_counter_name);
-
 var domain = "dragos-vacariu.github.io"
 var rootDir = location.href.split(domain)[0] + domain;
 var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
@@ -71,7 +67,6 @@ function Controller_Function($scope)
     $scope.page_statistics = ["Image: " + document.images.length, 
                               "Scripts: " + document.scripts.length, 
                               "Videos: " + document.getElementsByTagName("video").length, 
-                              "Total Views: " + visitCounter, 
                               " ", 
                               "Last Modified: ", 
                               window.document.lastModified.split(" ")[0],
@@ -199,6 +194,14 @@ function Controller_Function($scope)
 	}
 }
 
+/*
+//This works on client side and is not suitable for visit counter
+//localStorage could be used to store various settings on client side similar to document.cookie
+
+var page_counter_name = String(document.title.replace(" ", "_")) + "_visitCounter"
+
+var visitCounter = localStorage.getItem(page_counter_name);
+
 function pageVisitCounter()
 {
     if(visitCounter)
@@ -213,6 +216,6 @@ function pageVisitCounter()
     }
 }
 
-pageVisitCounter(); //function gets called before loading the window, and the display is updated when loading the script which is before loading the html document
+pageVisitCounter();
 
-//window.onload = pageVisitCounter; //this function will be called when the window gets loaded
+*/
