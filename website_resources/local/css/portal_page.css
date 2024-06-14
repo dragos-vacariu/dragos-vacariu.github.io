@@ -169,7 +169,7 @@ searchHighlight{
 
 #page_block #menu_div .selection_list:hover, #concept_selection:hover
 {
-    cursor: default;
+    cursor: pointer; /*this is the hand arrow*/
 }
 
 #page_block #menu_div .selection_list li, #concept_selection li {
