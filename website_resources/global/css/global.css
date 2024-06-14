@@ -381,12 +381,11 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 #catalogue_div_left a:hover{
 	color: blue;
 	font-family: ZenDots;
-	letter-spacing: 0.2vw;
-	margin: 0vw;
-	padding: 2vw;
+	letter-spacing: 2px;
+	margin: 0px;
+	padding: 0px;
 	font-weight: bold;
-	line-height: 1.6vw;
-	font-size: 1.8vw;
+	font-size: 20px;
 	text-decoration: none;
 }
 
