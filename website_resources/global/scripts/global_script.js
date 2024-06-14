@@ -10,8 +10,6 @@ var rootDir = location.href.split(domain)[0] + domain;
 var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
 /*window.location.protocol will be file: on local machine and http or https on the web.*/
 
-alert($message);
-
 function Controller_Function($scope)
 {
 	//Initializing the models;
