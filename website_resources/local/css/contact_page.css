@@ -9,6 +9,8 @@
     background-image: linear-gradient(to left, white, #ffeecc);
     border-radius: 5px;
     border-collapse: separate;
+    table-layout: fixed; /*will allow the table to shrink beyond regular to maintain its pre-defined shape*/
+    word-wrap: break-word; /*will allow word to break-up in so that it won't drift outside the given width*/
 }
 
 #contact_content #first_column
@@ -33,7 +35,8 @@
     position: relative;
     width: auto;
     margin:0%;
-    height:30px;
+    min-height:30px;
+    height:auto;
     padding-left: 2%;
     padding-top: 1vw;
     font-family: FjallaOne;
