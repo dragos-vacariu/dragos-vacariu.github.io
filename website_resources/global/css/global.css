@@ -143,12 +143,14 @@ nav div{
 	padding:0%;
 	border: none 1px black;
     margin-bottom: 1%;
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 
 #reference p 
 {
     font-family: ZenDots;
-	font-size: 80%;
+	font-size: 1vw;
     color: black;
 	width:8vw;
 	word-wrap: break-word;
