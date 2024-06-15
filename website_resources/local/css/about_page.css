@@ -8,33 +8,18 @@
 #page_block h3{
 	padding:0.5%;
 	padding-left:2.5%;
-	border-style:solid;
-	border-width: 0px;
-	border-color: white;
-    border-radius: 4vw;
 	width:93%;
 	margin-left:2%;
-	font-family: Verdana;
-	font-size:22px;
-	text-shadow: 0.3vw 0.3vw 0.3vw black;
-	color: white;
-	background-image: linear-gradient(to right, #aa7700, #995500);
+    font-family: FjallaOne;
+	text-align: left;
+	font-size:28px;
+	text-shadow: 0.2vw 0.2vw white;
+    letter-spacing: 0.2vw;
+	color: #aa7700;
+	/*background-image: linear-gradient(to right, #aa7700, #995500);*/
+    border: ridge 0px rgba(255,255,255, 0.2);
     word-wrap: break-word;
-}
-
-#page_block h4{
-	padding:1%;
-	border-style:solid;
-	border-width: 1px;
-	border-color: black;
-	width:92%;
-	margin-left:2%;
-	font-family: Verdana;
-	font-size:14px;
-	margin-bottom: 2%;
-	color: black;
-	text-shadow: 1px 1px 1px white;
-	background-color: rgba(153,85,00, 0.1);
+    border-radius: 4vw;
 }
 
 #page_block p{
@@ -68,13 +53,24 @@
 	text-shadow: 1px 1px white;
 }
 
+#page_block #about_me{
+	background-color: rgba(200,200,200,0.3); /*gray*/;
+}
+
+#page_block #summary_description{
+	background-color: rgba(250,200,100,0.3); /*light-brown*/;
+}
+
+
 #page_block #html_css_info{
 	background-color: rgba(0,0,255,0.2); /*purple*/;
 }
+
 #page_block #javascript_info{
 	background-color: rgba(255,0,0,0.3); /*pink*/
 
 }
+
 #page_block #c_language_info{
 	background-color: rgba(0,255,0,0.3); /*green*/
 }
