@@ -12,8 +12,8 @@ const paragraph_view_value = "paragraph view";
 const table_view_value = "table view";
 
 //different styles for list tag selection:
-const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white;";
-const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black;";
+const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; max-width: 100%; word-wrap: break-word;";
+const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black;  max-width: 100%; word-wrap: break-word;";
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
@@ -37,8 +37,8 @@ const table_content = document.getElementById("table_content");
 
 const defaultTableHeaderStyleBackground = "rgba(255,255,255, 0.6)"
 
-const language_title_style = "color: #663300; font-size: 17px; font-weight: bold; text-transform: uppercase; border: double 2px white; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(0,0,0,0.1));";
-const concept_title_style = "vertical-align: top; color: darkred; font-size: 16px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 2px white; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));";
+const language_title_style = "color: #663300; font-size: 17px; font-weight: bold; text-transform: uppercase; border: double 1px white; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(0,0,0,0.1));";
+const concept_title_style = "vertical-align: top; color: darkred; font-size: 16px; text-transform: capitalize; letter-spacing: 1px; text-align: left; border: double 1px white; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));";
 const concept_value_style = "vertical-align: top; color: black; font-family: Tahoma; font-size: 15px; text-align: left; border: solid 1px white; ";
 
 function cookieHandling()
