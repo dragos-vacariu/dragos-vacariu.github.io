@@ -33,6 +33,7 @@ header #header_title{
 	padding-top:0%;
 	margin-left:10%;
 	text-shadow: 0.2vw 0.2vw #000000;
+    word-wrap: break-word;
 }
 
 nav{
@@ -57,18 +58,11 @@ nav{
 
 nav div{
 	width: 100px;
-    max-width: 100%;
-	padding: 7px;
+    max-width: 90%;
+	padding: 0.7vw;
 	display: inline-block;
     margin-bottom: 0.5%;
     word-wrap:break-word;
-}
-
-nav table{
-	position: relative;
-	width: 20%;
-	height:auto;
-	left: 30vw;
 }
 
 .outer_href{
@@ -77,7 +71,7 @@ nav table{
 	margin:0%;
 	color:white;
 	text-shadow: 0.1vw 0.1vw #000000;	
-	letter-spacing: 1px;
+	letter-spacing: 0.1vw;
 	background-color: rgba(0,0,0,0.0);
 	text-decoration:none;
 	border-style: none;
@@ -102,11 +96,12 @@ nav table{
 	position: absolute;
 	background-color: #f1f1f1;
 	min-width: 200px;
+    max-width: 100%;
 	left: -50%; /*-50% so that it will be centered*/
 	z-index: 1;
 	text-align: center;
 	font-size: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0.1vw;
     font-family: ZenDots;
 }
 
@@ -267,9 +262,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 	100%{color:lightblue;}
 }
 
-/*Specific Portofolio Page styles*/
-
-/*This is for Catalogue page*/
+/*This is for Catalogue/Video/Game pages*/
 #page_block{
 	padding-bottom:10px;
     margin: 0.5vw;
@@ -368,6 +361,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 	opacity:0.7;
 	text-shadow: 0.1vw 0.1vw black;
 	text-align:left;
+    word-wrap: break-word;
 }
 
 #catalogue_div_left h2{

@@ -180,7 +180,7 @@ function Controller_Function($scope)
 				"background-color": "#aa4400", 
 				"border-style": "solid", 
 				"border-color": "#442200", 
-				"border-width": "2px", 
+				"border-width": "0.2vw", 
 			};
 		}
 		else
