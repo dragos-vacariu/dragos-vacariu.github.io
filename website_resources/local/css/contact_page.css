@@ -112,7 +112,9 @@ article img{
 
 article audio{
     width: 100px;
+    max-width: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
     height: 10px;
+    max-height: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
     border-style: solid;
     border-color: black;
     border-width: 0.1vw;
