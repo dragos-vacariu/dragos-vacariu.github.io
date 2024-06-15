@@ -1,61 +1,63 @@
+#page_block
+{
+    background-image: repeating-radial-gradient(farthest-side at 0% 0%, rgba(255,255,255, 0.1), rgba(255,255,255, 1));
+    box-shadow:none;
+}
+
 #page_block h3 {
 	position:relative;
 	width:80%;
 	left:10%;
 	top:0vw;
 	border-style:solid;
-	border-width:0.2vw;
+	border-width:1px;
 	border-color:black;
 	font-family:Verdana;
 	font-size:17px;
-	padding:1vw;
-	margin-top:1vw;
-	color:white;
-	background-color:#995500;
-	text-shadow: 0.2vw 0.3vw black;
+	padding:2px;
+    margin: 5px 0px;
+	color: #663300;
 	text-align: center;
-	box-shadow:1vw 1vw 0.5vw lightgray;
 }
+
+#page_block h3, #page_block h4, #page_block video
+{
+    position:relative;
+    height: auto;
+	left:10%;
+    text-shadow: 1px 1px white;
+    border-radius: 50px;
+    border: ridge 5px rgba(255,255,255, 0.2);
+    width:80%;
+    background-image: repeating-linear-gradient(to right, rgba(255,0,0, 0.1), rgba(255,255,0, 0.1), rgba(0,0,255, 0.1));
+}
+
+#page_block h3, #page_block h4
+{
+    padding: 1% 5%;
+    width:70%;
+}
+
 #page_block video
 {
-	position:relative;
-	width:80%;
-	left:10%;
-	top:0vw;
-	padding:1vw;
-	margin-top:1vw;
-	padding-top:1vw;
-	padding-bottom:1vw;
-	border-style:solid;
-	border-width:0.2vw;
-	border-color:black;
-	box-shadow:1vw 1vw 0.5vw lightgray;
+    width:80%;
 }
+
 #page_block h4{
-	position:relative;
-	width:80%;
-	height: auto;
-	left:10%;
-	top:0vw;
-	border-style:solid;
-	border-width:0.2vw;
-	border-color:black;
 	font-family:Verdana;
 	font-size:13px;
-	padding:1vw;
-	margin-top:1vw;
+	margin: 5px 0px;
 	color:#663300;
-	background-color: rgba(153,85,00, 0.1);
-	text-shadow: 0.1vw 0.1vw white;
-	box-shadow:1vw 1vw 0.5vw lightgray;
+	text-shadow: 1px 1px white;
 }
+
 #page_block h4 p{
 	font-family:Verdana;
 	font-size:15px;
 	border-style: none;
 	margin: 0%;
 	padding: 10px;
-	text-shadow: 0.1vw 0.1vw white;
+	text-shadow: 1px 1px white;
 }
 
 #page_block h4 code, #page_block h4 p code{
