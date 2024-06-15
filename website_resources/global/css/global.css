@@ -57,9 +57,11 @@ nav{
 
 nav div{
 	width: 100px;
+    max-width: 100%;
 	padding: 7px;
 	display: inline-block;
     margin-bottom: 0.5%;
+    word-wrap:break-word;
 }
 
 nav table{
@@ -81,6 +83,8 @@ nav table{
 	border-style: none;
 	text-align: center;
 	padding: 1%;
+    word-wrap:break-word;
+    max-width: 100%;
 }
 
 .outer_href:hover{
@@ -182,6 +186,7 @@ footer h4{
 	color: #ffeecc;
     font-family: FjallaOne;
 	font-size: 120%;
+    word-wrap:break-word;
 }
 
 footer h5{
@@ -192,6 +197,7 @@ footer h5{
 	padding: 0.2vw;
 	font-size: 70%;
     font-family: Rockwell;
+    word-wrap:break-word;
 }
 
 footer #footer_tabelation_div{
@@ -301,6 +307,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 	font-size: 24px;
 	background-color:#995500;
 	text-shadow: 2px 3px black;
+    word-wrap:break-word;
 }
 
 #page_block h2 a{
