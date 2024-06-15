@@ -14,11 +14,16 @@
 	border-color:black;
 	font-family:Verdana;
 	font-size:17px;
-	padding:2px;
     margin: 5px 0px;
 	color: #663300;
 	text-align: center;
 }
+
+ #page_block h3, #page_block h4, #page_block video, #page_block #game_content
+ {
+     border: ridge 5px rgba(255,255,255, 0.2);
+     border-radius: 50px;
+ }
 
 #page_block h3, #page_block h4, #page_block video
 {
@@ -26,9 +31,6 @@
     height: auto;
 	left:10%;
     text-shadow: 1px 1px white;
-    border-radius: 50px;
-    border: ridge 5px rgba(255,255,255, 0.2);
-    width:80%;
     background-image: repeating-linear-gradient(to right, rgba(255,0,0, 0.1), rgba(255,255,0, 0.1), rgba(0,0,255, 0.1));
 }
 
@@ -38,7 +40,7 @@
     width:70%;
 }
 
-#page_block video
+#page_block video, #page_block #game_content
 {
     width:80%;
 }
