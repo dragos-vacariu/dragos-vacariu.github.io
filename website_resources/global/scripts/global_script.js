@@ -50,7 +50,7 @@ function Controller_Function($scope)
 			//$scope.github_repository_page,
 		],
 		template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", 
-                        "Revised in: 2024", "Hosted by: GitHub", " ", "Tools: HTML4, HTML5, CSS,", "CSS3, JavaScript, Angular"],
+                        "Revised in: 2024", "Hosted by: GitHub", " ", "Tools: HTML4, HTML5, CSS, CSS3, JavaScript, Angular"],
 		tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
 		connections_list : [ {name: "W3Schools", value: "https://www.w3schools.com"}, 
                              {name: "GeeksForGeeks", value: "https://www.geeksforgeeks.org"}, 
