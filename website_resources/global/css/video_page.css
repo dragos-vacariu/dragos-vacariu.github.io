@@ -15,15 +15,20 @@
      height: auto;
      left:10%;
      border: ridge 5px rgba(255,255,255, 0.2);
-     border-radius: 50px;
  }
 
 #page_block h3, #page_block h4, #page_block video
 {
+    border-radius: 50px;
     font-family:Verdana;
     color:#663300;
     margin: 5px 0px;
     background-image: repeating-linear-gradient(to right, rgba(255,0,0, 0.1), rgba(255,255,0, 0.1), rgba(0,0,255, 0.1));
+}
+
+#page_block #game_content
+{
+    border-radius: 10px;
 }
 
 #page_block h3, #page_block h4
