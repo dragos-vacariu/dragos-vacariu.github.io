@@ -13,7 +13,7 @@
     font-family: FjallaOne;
 	text-align: left;
 	font-size:28px;
-	text-shadow: 0.2vw 0.2vw white;
+	text-shadow: 0.2vw 0.1vw black;
     letter-spacing: 0.2vw;
 	color: #aa7700;
 	/*background-image: linear-gradient(to right, #aa7700, #995500);*/
@@ -111,5 +111,13 @@
 	font-size:16px;
 	text-shadow: 1px 1px white;
     margin-bottom: 15px;
+}
 
+#page_block p .highlighted_element{
+	font-family:Calibri;
+	font-size:18px;
+	text-shadow: 0.05vw 0.1vw black;
+	color: rgba(143,55,0, 1);
+	font-weight: normal;
+	padding: 0.2vw;
 }
