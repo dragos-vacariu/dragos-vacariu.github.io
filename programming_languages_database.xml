@@ -1865,9 +1865,13 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
 <code>
 //Example of generic programming in C:
 
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+
+
 int min(void v[], int size, int (*compare)(void *, void *))
 {
-    /* Find min in v[0..size-1], assumes size is > 0 */
+    /* Function that finds min in v[0..size-1], assuming that size is > 0 */
     
     int i;
     int min = 0;
@@ -1881,6 +1885,47 @@ int min(void v[], int size, int (*compare)(void *, void *))
     }
     
     return min;
+}
+
+int compareInt(const void *x, const void *y)
+{
+    /* Compare function that will return the following values:
+        0 if x '==' y
+        &lt; 0 if x '&lt; ' y
+        &gt; 0 if x '&gt;' y
+    */
+
+    return ((*(int *)x) - (*(int *)y));
+}
+
+int main()
+{
+    //Variable definitions
+    int i, n;
+    int *array;
+    char *strings;
+    
+    //Allocating memory for this array pointer
+    array = (int *) malloc( sizeof(int) * n);
+    
+    //Initializing the random generator
+    srandom(0);
+    
+    //Initializing the array with random value what are not grater than value stored in 'n'.
+    for (i=0; i&lt; n; i++) 
+    {
+        array[i] = random() % n;
+        
+        //Printing the random value generated
+        printf("array[%d] = %d \n", i,  array[i]);
+    }
+    
+    //Calculating the min element
+    int minElement = min(array, n, sizeof(int), compareInt); 
+    //As compareInt is a function it will be stored within the function pointer parameter
+    
+    printf("\nMin is %d\n", minElement);
+    exit(0);
 }
 </code>
         </generic-programming>
