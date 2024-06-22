@@ -107,7 +107,12 @@ function useProvidedRoute()
                 languages[csharp_index] = "C#";
             }
             //Deselect all languages
-            deselectionOfAllLanguageElements();
+            for(var i = 0; i < programming_language_selection.children.length; i++)
+            {
+                programming_language_selection.children[i].value = false;
+                programming_language_selection.children[i].style = tag_selection_off;
+                updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
+            }
             //Selecting only the languages specified by the route:
             for(var i = 0; i < languages.length; i++)
             {
@@ -141,16 +146,29 @@ function useProvidedRoute()
                     //If there is a view switch to the view
                     if(view == view_selection.children[0].innerHTML)
                     {
-                        switchToRegularView();
+                        //Set compare view to true
+                        view_selection.children[1].value = true;
+                        view_selection.children[1].style = tag_selection_on;
+                        view_selection.children[0].value = false;
+                        view_selection.children[0].style = tag_selection_off;
                     }
                     else if(view == view_selection.children[1].innerHTML)
                     {
-                        switchToCompareView();
+                         //Set regular view to true
+                        view_selection.children[1].value = false;
+                        view_selection.children[1].style = tag_selection_off;
+                        view_selection.children[0].value = true;
+                        view_selection.children[0].style = tag_selection_on;
                     }
                 }
             }
             //Deselect all concepts
-            deselectionOfAllConceptElements();
+            for(var i = 0; i < concept_selection.children.length; i++)
+            {
+                concept_selection.children[i].value = false;
+                concept_selection.children[i].style = tag_selection_off;
+                updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
+            }
             //Selecting only the concepts specified by the route:
             for(var i = 0; i < concepts.length; i++)
             {
@@ -199,12 +217,18 @@ function restoreCookiePredefinedElements()
         if(foundViewSelection.split("=")[1] == "compare")
         {
             //Set compare view to true
-            switchToCompareView();
+            view_selection.children[1].value = true;
+            view_selection.children[1].style = tag_selection_on;
+            view_selection.children[0].value = false;
+            view_selection.children[0].style = tag_selection_off;
         }
         else
         {
             //Set regular view to true
-            switchToRegularView();
+            view_selection.children[1].value = false;
+            view_selection.children[1].style = tag_selection_off;
+            view_selection.children[0].value = true;
+            view_selection.children[0].style = tag_selection_on;
         }
     }
     if(foundSelectionType != undefined) //if selection type found amongst cookies
