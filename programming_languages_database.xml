@@ -1860,7 +1860,7 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             Variable argument lists;<br></br>
             Using <code>void *</code> and function pointers to write generic code;<br></br>
             Using libraries to reuse code without copying and recompiling;<br></br>
-            Using plugins to get run-time overriding;
+            Using plugins to get run-time overriding;<br></br>
             Using macros;
             </blue>
 <code>
