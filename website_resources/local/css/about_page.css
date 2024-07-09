@@ -126,7 +126,7 @@
 #page_block p .highlighted_element{
 	font-family:Calibri;
 	font-size:18px;
-	text-shadow: 0.5px 1px black;
+	text-shadow: 0.5px 1px pink;
 	color: rgba(143,55,0, 1);
 	font-weight: normal;
 	padding: 0.2vw;
