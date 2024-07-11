@@ -13,8 +13,8 @@
     font-family: FjallaOne;
 	text-align: left;
 	font-size:28px;
-	text-shadow: 0.2vw 0.1vw black;
-    letter-spacing: 0.3vw;
+	text-shadow: 1px 2px black;
+    letter-spacing: 3px;
 	color: #aa7700;
 	/*background-image: linear-gradient(to right, #aa7700, #995500);*/
     border: ridge 0px rgba(255,255,255, 0.2);
