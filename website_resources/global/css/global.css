@@ -139,8 +139,10 @@ nav div{
 }
 
 #reference table{
-	margin-left:5%;
+	margin-left:auto;
+	margin-right:auto;
 	width:90%;
+    max-width:1200px;
 	padding:0%;
 	border: none 1px black;
     margin-bottom: 1%;
@@ -151,9 +153,9 @@ nav div{
 #reference p 
 {
     font-family: ZenDots;
-	font-size: 1vw;
+	font-size: 80%;
     color: black;
-	width:8vw;
+	width:auto;
 	word-wrap: break-word;
 }
 

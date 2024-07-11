@@ -101,7 +101,8 @@
 #content {
     position: relative;
     width: 96%;
-    margin: 1% 2%;
+    max-width:2600px;
+    margin: auto;
     border: solid 0px black;
 }
 
