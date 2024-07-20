@@ -483,6 +483,7 @@ free(A);
             <red>processes</red> start, run in an interleaved fashion through context switching 
             and complete in an overlapping time period by managing access to 
             shared resources e.g. on a <blue>single core</blue> of <red>CPU</red>. 
+            <br></br><br></br>
             <blue>Concurrent Programming</blue> can be clasified as asynchronous if it enables operations 
             to be executed without waiting for previous tasks to complete. For instance, if we have 2 processes, one that
             retrieves some information from a server and the other one which sets up an environment where the retrieved 
