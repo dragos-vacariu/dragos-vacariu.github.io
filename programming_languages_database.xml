@@ -8953,15 +8953,18 @@ g('GFG');
             <green>jQuery</green>
             <br></br><br></br>
             <blue>jQuery</blue> is a JavaScript library which greatly simplifies JavaScript programming.
-            <blue>jQuery</blue> is a fast, small, and feature-rich. It makes things like HTML document 
-            traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use 
-            API that works across a multitude of browsers. With a combination of versatility and extensibility, 
+            <blue>jQuery</blue> is a fast, small, and feature-rich. It makes things like <red>HTML</red> document 
+            traversal and manipulation, event handling, animation, and <red>Ajax</red> much simpler with an easy-to-use 
+            API that works across a multitude of browsers. 
+            <br></br><br></br>
+            With a combination of versatility and extensibility, 
             <blue>jQuery</blue> has changed the way that millions of people write JavaScript.
             <br></br><br></br>
             <green>AJAX</green>
             <br></br><br></br>
             <blue>Ajax</blue> short for "Asynchronous JavaScript and XML" is a set of web development techniques 
-            that uses various web technologies on the client-side to create <blue>asynchronous</blue> web applications. 
+            that uses various web technologies on the client-side to create <blue>asynchronous</blue> web applications.
+            <br></br><br></br>
             With <blue>Ajax</blue>, web applications can send and retrieve data from a server <blue>asynchronously</blue> 
             (in the background) without interfering with the display and behaviour of the existing page. 
             <br></br><br></br>
@@ -8974,7 +8977,9 @@ g('GFG');
             <br></br><br></br>
             <green>Bootstrap</green>
             <br></br><br></br>
-            <blue>Bootstrap</blue> is the most popular CSS Framework for developing responsive and mobile-first websites.
+            <blue>Bootstrap</blue> is the most popular <red>CSS Framework</red> for developing responsive and 
+            mobile-first websites.
+            <br></br><br></br>
             <blue>Bootstrap 5</blue> is the newest version of Bootstrap.
             <br></br><br></br>
             <green>TypeScript</green>
