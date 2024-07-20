@@ -502,6 +502,24 @@ free(A);
             that can execute <red>tasks</red> simultaneously, in order to increasing overall 
             <red>efficiency</red> and <red>responsiveness</red>.
             <br></br><br></br>
+            <green>Concurency scenarios:</green>
+            <br></br><br></br>
+            <blue>Asynchrony</blue> - This means that your program performs non-blocking operations. 
+            For example, it can initiate a request for a remote resource via HTTP and then go on to 
+            do some other task while it waits for the response to be received. It’s a bit like when 
+            you send an email and then go on with your life without waiting for a response.
+            <br></br><br></br>
+            <blue>Parallelism</blue> - This means that your program leverages the hardware of multi-core machines 
+            to execute 
+            tasks at the same time by breaking up work into tasks, each of which is executed on a separate core. 
+            It’s a bit like singing in the shower: you’re actually doing two things at exactly the same time.
+            <br></br><br></br>
+            <blue>Multithreading</blue> - This is a software implementation allowing different threads to be executed 
+            concurrently. A multithreaded program appears to be doing several things at the same time even 
+            when it’s running on a single-core machine. This is a bit like chatting with different people 
+            through various IM windows; although you’re actually switching back and forth, the net result 
+            is that you’re having multiple conversations at the same time.
+            <br></br><br></br>
             <green>Principles of Concurent Programming:</green>
             <br></br><br></br>
             The are some basic principles and concepts behind <blue>concurrent programming</blue>: 
