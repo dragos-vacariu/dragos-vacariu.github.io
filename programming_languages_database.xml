@@ -8976,6 +8976,15 @@ g('GFG');
             <br></br><br></br>
             <blue>Bootstrap</blue> is the most popular CSS Framework for developing responsive and mobile-first websites.
             <blue>Bootstrap 5</blue> is the newest version of Bootstrap.
+            <br></br><br></br>
+            <green>TypeScript</green>
+            <br></br><br></br>
+            <blue>TypeScript</blue> is a free and open-source high-level programming language developed by Microsoft 
+            that adds <blue>static typing</blue> with optional <blue>type annotations</blue> to JavaScript.
+            <br></br><br></br>
+            <blue>TypeScript</blue> may be used to develop JavaScript applications for both client-side and 
+            server-side execution.
+            The <blue>TypeScript</blue> compiler is itself written in <blue>TypeScript</blue> and compiled to JavaScript
         </js-toolsets>
     </programming_language>
     
