@@ -484,12 +484,16 @@ free(A);
             and complete in an overlapping time period by managing access to 
             shared resources e.g. on a <blue>single core</blue> of <red>CPU</red>. 
             <br></br><br></br>
-            <blue>Concurrent Programming</blue> can be clasified as asynchronous if it enables operations 
-            to be executed without waiting for previous tasks to complete. For instance, if we have 2 processes, one that
+            <blue>Concurrent Programming</blue> can be clasified as <blue>asynchronous</blue> if it enables operations 
+            to be executed without waiting for previous tasks to complete. For instance, if we have 2 <red>processes</red>, 
+            one that
             retrieves some information from a server and the other one which sets up an environment where the retrieved 
-            information should be displayed, it cannot be considered asynchronous as there is a scenario in which the process
-            of setting up the environment is faster than the process of retrieving the information from the server, case in which
-            one process has to wait for the other to finish and this would classify it synchronous.
+            information should be displayed, it cannot be considered <blue>asynchronous</blue> as there is a scenario 
+            in which the <red>process</red>
+            of setting up the environment is faster than the <red>process</red> of retrieving the information from 
+            the server, case in which
+            one <red>process</red> has to wait for the other to finish and this would 
+            classify it <blue>synchronous</blue>.
             <br></br><br></br>
             This doesn’t necessarily mean that multiple <red>processes</red> will be running 
             at the same instant – even if the results might make it seem like it.
