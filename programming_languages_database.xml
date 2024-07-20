@@ -8928,7 +8928,7 @@ g('GFG');
             <br></br><br></br>
             <green>React</green>
             <br></br><br></br>
-            <blue>React</blue> is the library for web and native user interfaces. Build user interfaces out of 
+            <blue>React</blue> is the library for web and native user interfaces out of 
             individual pieces called components written in JavaScript.
             <br></br><br></br>
             <blue>React's</blue> declarative syntax facilitates the creation of complex user interfaces, 
@@ -8941,7 +8941,8 @@ g('GFG');
             <green>Vue.js</green>
             <br></br><br></br>
             <blue>Vue.js</blue> is a JavaScript framework known for its simplicity and flexibility. Recognized for its 
-            reactive system, seamless integration with existing projects, and organized component handling, 
+            reactive system, seamless integration with existing projects, and organized component handling.
+            <br></br><br></br>
             <blue>Vue.js</blue> appeals to developers working on both small and large applications. Its incremental 
             adoption allows developers to utilize specific features as needed, making it easy to learn 
             and widely popular.
