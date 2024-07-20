@@ -59,6 +59,7 @@ function Controller_Function($scope)
                              {name: "Wikipedia", value: "https://www.wikipedia.org"}, 
                              {name: "YouTube", value: "https://www.youtube.com"}, 
                              {name: "Programiz", value: "https://www.programiz.com"},
+                             {name: "SimpliLearn", value: "https://www.simplilearn.com"},
                            ],
         footer_copyright : "Dragos Vacariu © 2024",
         footer_paragraph : "Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.",
