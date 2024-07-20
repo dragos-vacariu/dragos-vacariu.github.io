@@ -498,9 +498,28 @@ free(A);
             one <red>process</red> has to wait for the other to finish and this would 
             classify it <blue>synchronous</blue>.
             <br></br><br></br>
+            Blocking in <blue>asynchronous programming</blue> is when a website or browser is no longer able to 
+            continue a <red>function</red> and can't perform any tasks until the processor regains control. 
+            A frozen web page or application is a typical example of blocking. 
+            <br></br><br></br>
             <blue>Concurrent Programming</blue> is an essential technique for design applications 
             that can execute <red>tasks</red> simultaneously, in order to increasing overall 
             <red>efficiency</red> and <red>responsiveness</red>.
+            <br></br><br></br>
+            <green>Asynchronous programming vs. synchronous programming</green>
+            <br></br><br></br>
+            Both <blue>asynchronous</blue> and <blue>synchronous programming</blue> involve similar concepts 
+            within the broader field of computer programming. 
+            <br></br><br></br>
+            <blue>Synchronous</blue> or <blue>sequential programming</blue> is when tasks occur separately 
+            or one after another. 
+            The program pauses while the system performs the action and only responds once it receives 
+            the result. It features a <blue>single-thread</blue> model, meaning that it only performs a 
+            single action at a time.
+            <br></br><br></br>
+            <blue>Asynchronous programming</blue> differs in that it allows multiple tasks to run at the same time, 
+            and the programmer can often manage these tasks directly. It allows programs to continue to run even after 
+            you start a specific action.
             <br></br><br></br>
             <green>Concurency scenarios:</green>
             <br></br><br></br>
