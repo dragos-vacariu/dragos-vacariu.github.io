@@ -23,34 +23,48 @@
 }
 
 #page_block p{
-	padding:2%;
-	border-style:solid;
-	border-width: 0vw;
-	border-color: black;
+	padding:1%;
+	padding-left:3%;
+	border-style: groove;
+	border-width: 5px;
+	border-color: rgba(255,255,255, 0.6);
     border-radius: 4vw;
-	width:92%;
+	width:96%;
 	margin-left:2%;
 	font-family: Times New Roman;
 	font-size:18px;
-	margin-bottom: 2%;
+	margin-bottom: 0%;
 	color: black;
 	text-shadow: 1px 1px white;
     word-wrap: break-word;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block #introduction{
 	padding:1%;
-	border-style:solid;
-	border-width: 0px;
-	border-color: black;
-	width:94%;
+	border-style: groove;
+	border-width: 5px;
+	border-color: rgba(255,255,255, 0.6);
+    border-radius: 4vw;
+	width:96%;
 	margin-left:2%;
 	font-family: Verdana;
 	font-size:11px;
-	margin-bottom: 1%;
+	margin-bottom: 0%;
 	color: black;
     background-color: rgba(153,85,00, 0.1);
 	text-shadow: 1px 1px white;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #my_picture {
@@ -129,5 +143,5 @@
 	text-shadow: 0.5px 1px pink;
 	color: rgba(143,55,0, 1);
 	font-weight: normal;
-	padding: 0.2vw;
+	padding: 0vw;
 }
