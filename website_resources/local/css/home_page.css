@@ -22,29 +22,29 @@
 	font-family: Verdana;
 	font-size: 1vw;
 	text-transform: uppercase;
-	letter-spacing:0.1vw;
+	letter-spacing:0vw;
 	text-shadow: -0.2vw 0,2vw #000000;
 	color: #ff0000;
 	text-align:right;
-	right:19%;
-	bottom:98%;
+	right:21%;
+	bottom:99%;
 	opacity:1.0;
 }
 
-#container #through{
+#container #heuristic{
+	animation-name: color_animation_one;
+    animation-duration: 4s;
+	animation-iteration-count: infinite;
+}
+
+#container #problem{
 	animation-name: color_animation_two;
     animation-duration: 4s;
 	animation-iteration-count: infinite;
 }
 
-#container #practice{
+#container #solving{
 	animation-name: color_animation_three;
-    animation-duration: 4s;
-	animation-iteration-count: infinite;
-}
-
-#container #enhancement{
-	animation-name: color_animation_one;
     animation-duration: 4s;
 	animation-iteration-count: infinite;
 }
@@ -79,23 +79,23 @@
 	25%{color:#88ff00; }
 	50%{color:#00ff00;}
 	75%{color:#ff8800;}
-	100%{color:#ff0000;}
+	100%{color:#ffaaaa;}
 }
 
 @keyframes color_animation_two {
     0%{color:#ffffff;}
-	25%{color:#ff5500; }
-	50%{color:#00ff22;}
-	75%{color:#0022ff;}
-	100%{color:#ffffff;}
+	25%{color:#ffaa00; }
+	50%{color:#00ffaa;}
+	75%{color:#00aaff;}
+	100%{color:#aaaaff;}
 }
 
 @keyframes color_animation_three {
     0%{color:#00ff00;}
-	25%{color:#008800; }
-	50%{color:#0088ff;}
-	75%{color:#880011;}
-	100%{color:#00ff00;}
+	25%{color:#00ff00; }
+	50%{color:#00bbff;}
+	75%{color:#bb00ff;}
+	100%{color:#ffff00;}
 }
 
 @keyframes move_animation{
