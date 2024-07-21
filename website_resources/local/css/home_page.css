@@ -20,18 +20,18 @@
 #container #saying{
 	position: relative;
 	font-family: Verdana;
-	font-size: 1.5vw;
+	font-size: 1vw;
 	text-transform: uppercase;
-	letter-spacing:0.2vw;
+	letter-spacing:0.1vw;
 	text-shadow: -0.2vw 0,2vw #000000;
 	color: #ff0000;
 	text-align:right;
-	right:18%;
+	right:19%;
 	bottom:98%;
 	opacity:1.0;
 }
 
-#container #code{
+#container #through{
 	animation-name: color_animation_two;
     animation-duration: 4s;
 	animation-iteration-count: infinite;
@@ -43,7 +43,7 @@
 	animation-iteration-count: infinite;
 }
 
-#container #learn{
+#container #enhancement{
 	animation-name: color_animation_one;
     animation-duration: 4s;
 	animation-iteration-count: infinite;
@@ -54,7 +54,7 @@
 	position:relative;
 	left:60%;
 	font-family: Consolas;
-	font-size: 1.3vw;
+	font-size: 1vw; /*size is also set via animation*/
 	color: #ffffff;
 	animation-name: move_animation;
     animation-duration: 10s;
@@ -99,10 +99,10 @@
 }
 
 @keyframes move_animation{
-    0%{left:1%; bottom: 35%; color:white; font-size: 1.3vw;}
-    60%{left:1%; bottom: 90%; color:#00ff00; font-size: 1.3vw;}
+    0%{left:1%; bottom: 35%; color:white; font-size: 1vw;}
+    60%{left:1%; bottom: 90%; color:#00ff00; font-size: 1vw;}
 	80%{left:1%; bottom: 35%; color:#ff44dd; font-size:0px;}
-	100%{left:1%; bottom: 35%; color:white; font-size: 1.3vw;}
+	100%{left:1%; bottom: 35%; color:white; font-size: 1vw;}
 }
 
 #content {
