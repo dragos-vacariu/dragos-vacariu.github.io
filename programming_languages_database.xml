@@ -1674,7 +1674,8 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <blue>variadic function</blue>. 
             <br></br><br></br>
             A <blue>variadic function</blue> must specify at least one fixed argument 
-            with an <blue>explicitly declared</blue> <red>data type</red>. <br></br><br></br>
+            with an <blue>explicitly declared</blue> <red>data type</red>. 
+            <br></br><br></br>
             Additional <red>arguments</red> can follow, and can vary in 
             both <blue>quantity</blue> and <red>data type</red>.
             <br></br><br></br>
@@ -8462,7 +8463,7 @@ PrintSomething(5);
         </operator-overloading>
         <concurrent-programming>
             *General-Programming-Knowledge*
-            <br></br><br></br>
+            <br></br>
             <green>Multithreading in JavaScript:</green>
             <br></br><br></br>
             JavaScript is a <blue>single-threaded language</blue> which means it <red>does 
