@@ -7413,7 +7413,102 @@ namespace project43_reflection
             <blue>front-end</blue> development language related to the client computer/machine.
             <br></br><br></br>
             
-            <blue>Vanilla JavaScript</blue> is a synonymous with pure or plain JavaScript.
+            <brown>Vanilla JavaScript is a synonymous with pure or plain JavaScript.</brown> 
+            
+            <br></br><br></br>
+            <blue>JavaScript</blue> has undergone significant 
+            transformations, playing an important role in the evolution of <blue>web development</blue>. 
+            With these changes, an abundance 
+            of tools and libraries has emerged, reshaping the way we build websites.
+            <br></br><br></br>
+            <green>Node.js</green>
+            <br></br><br></br>
+            <blue>Node.js</blue> is a <blue>cross-platform</blue>, <blue>open-source</blue> JavaScript 
+            runtime environment that can run on Windows, 
+            Linux, Unix, macOS, and more. <blue>Node.js</blue> runs on the V8 JavaScript engine, and executes 
+            JavaScript code outside a web browser.
+            <br></br><br></br>
+            <blue>Node.js</blue> lets developers use JavaScript to write command line tools 
+            and for server-side scripting. 
+            The ability to run JavaScript code on the server is often used to generate <blue>dynamic</blue> web 
+            page content before the page is sent to the user's web browser.
+            <br></br><br></br>
+            Consequently, <blue>Node.js</blue> represents a "JavaScript everywhere" paradigm, unifying web-application 
+            development around a single programming language, as opposed to using different languages for 
+            the server versus client-side programming.
+            <br></br><br></br>
+            <green>AngularJS</green>
+            <br></br><br></br>
+            <blue>AngularJS</blue> is a toolset for building the framework most suited to your application development. 
+            It is fully extensible and works well with other libraries. 
+            <br></br><br></br>
+            <blue>AngularJS</blue> extends <red>HTML</red> with new attributes.
+            <br></br><br></br>
+            <green>React</green>
+            <br></br><br></br>
+            <blue>React</blue> is the library for web and native user interfaces out of 
+            individual pieces called components written in JavaScript.
+            <br></br><br></br>
+            <blue>React's</blue> declarative syntax facilitates the creation of complex user interfaces, 
+            and it provides a vast range of tools, including <blue>Redux</blue>, for state management. 
+            This makes <blue>React</blue> a powerful choice for scalable and maintainable applications, 
+            utilizing modular and reusable components.
+            <br></br><br></br>
+            <blue>React Native</blue> brings the <blue>React</blue> programming paradigm to platforms like Android and iOS.
+            <br></br><br></br>
+            <green>Vue.js</green>
+            <br></br><br></br>
+            <blue>Vue.js</blue> is a JavaScript framework known for its simplicity and flexibility. Recognized for its 
+            reactive system, seamless integration with existing projects, and organized component handling.
+            <br></br><br></br>
+            <blue>Vue.js</blue> appeals to developers working on both small and large applications. Its incremental 
+            adoption allows developers to utilize specific features as needed, making it easy to learn 
+            and widely popular.
+            <br></br><br></br>
+            <blue>Vue.js</blue> lets you extend <red>HTML</red> with <red>HTML</red> attributes called directives.
+            <blue>Vue.js</blue> directives offers functionality to <red>HTML</red> applications.
+            <blue>Vue.js</blue> provides built-in directives and user defined directives.
+            <br></br><br></br>
+            <green>jQuery</green>
+            <br></br><br></br>
+            <blue>jQuery</blue> is a JavaScript library which greatly simplifies JavaScript programming.
+            <blue>jQuery</blue> is a fast, small, and feature-rich. It makes things like <red>HTML</red> document 
+            traversal and manipulation, event handling, animation, and <red>Ajax</red> much simpler with an easy-to-use 
+            API that works across a multitude of browsers. 
+            <br></br><br></br>
+            With a combination of versatility and extensibility, 
+            <blue>jQuery</blue> has changed the way that millions of people write JavaScript.
+            <br></br><br></br>
+            <green>AJAX</green>
+            <br></br><br></br>
+            <blue>Ajax</blue> short for "Asynchronous JavaScript and XML" is a set of web development techniques 
+            that uses various web technologies on the client-side to create <blue>asynchronous</blue> web applications.
+            <br></br><br></br>
+            With <blue>Ajax</blue>, web applications can send and retrieve data from a server <blue>asynchronously</blue> 
+            (in the background) without interfering with the display and behaviour of the existing page. 
+            <br></br><br></br>
+            <green>JSON</green>
+            <br></br><br></br>
+            <blue>JSON</blue> stands for JavaScript Object Notation is a lightweight format for storing and transporting 
+            data.
+            <blue>JSON</blue> is often used when data is sent from a server to a web page.
+            <blue>JSON</blue> is "self-describing" and easy to understand.
+            <br></br><br></br>
+            <green>Bootstrap</green>
+            <br></br><br></br>
+            <blue>Bootstrap</blue> is the most popular <red>CSS Framework</red> for developing responsive and 
+            mobile-first websites.
+            <br></br><br></br>
+            <blue>Bootstrap 5</blue> is the newest version of Bootstrap.
+            <br></br><br></br>
+            <green>TypeScript</green>
+            <br></br><br></br>
+            <blue>TypeScript</blue> is a free and open-source high-level programming language developed by Microsoft 
+            that adds <blue>static typing</blue> with optional <blue>type annotations</blue> to JavaScript.
+            <br></br><br></br>
+            <blue>TypeScript</blue> may be used to develop JavaScript applications for both client-side and 
+            server-side execution.
+            The <blue>TypeScript</blue> compiler is itself written in <blue>TypeScript</blue> and compiled to JavaScript.
         </description>
         <oop>
             *General-Programming-Knowledge*
@@ -8897,101 +8992,6 @@ var g = add(print);
 g('GFG'); 
 </code>
         </decorators>
-        <js-toolsets>
-            <blue>JavaScript</blue>, the <blue>dynamic</blue> programming language, has undergone significant 
-            transformations, playing an important role in the evolution of <blue>web development</blue>. 
-            With these changes, an abundance 
-            of tools and libraries has emerged, reshaping the way we build websites.
-            <br></br><br></br>
-            <green>Node.js</green>
-            <br></br><br></br>
-            <blue>Node.js</blue> is a <blue>cross-platform</blue>, <blue>open-source</blue> JavaScript 
-            runtime environment that can run on Windows, 
-            Linux, Unix, macOS, and more. <blue>Node.js</blue> runs on the V8 JavaScript engine, and executes 
-            JavaScript code outside a web browser.
-            <br></br><br></br>
-            <blue>Node.js</blue> lets developers use JavaScript to write command line tools 
-            and for server-side scripting. 
-            The ability to run JavaScript code on the server is often used to generate <blue>dynamic</blue> web 
-            page content before the page is sent to the user's web browser.
-            <br></br><br></br>
-            Consequently, <blue>Node.js</blue> represents a "JavaScript everywhere" paradigm, unifying web-application 
-            development around a single programming language, as opposed to using different languages for 
-            the server versus client-side programming.
-            <br></br><br></br>
-            <green>AngularJS</green>
-            <br></br><br></br>
-            <blue>AngularJS</blue> is a toolset for building the framework most suited to your application development. 
-            It is fully extensible and works well with other libraries. 
-            <br></br><br></br>
-            <blue>AngularJS</blue> extends <red>HTML</red> with new attributes.
-            <br></br><br></br>
-            <green>React</green>
-            <br></br><br></br>
-            <blue>React</blue> is the library for web and native user interfaces out of 
-            individual pieces called components written in JavaScript.
-            <br></br><br></br>
-            <blue>React's</blue> declarative syntax facilitates the creation of complex user interfaces, 
-            and it provides a vast range of tools, including <blue>Redux</blue>, for state management. 
-            This makes <blue>React</blue> a powerful choice for scalable and maintainable applications, 
-            utilizing modular and reusable components.
-            <br></br><br></br>
-            <blue>React Native</blue> brings the <blue>React</blue> programming paradigm to platforms like Android and iOS.
-            <br></br><br></br>
-            <green>Vue.js</green>
-            <br></br><br></br>
-            <blue>Vue.js</blue> is a JavaScript framework known for its simplicity and flexibility. Recognized for its 
-            reactive system, seamless integration with existing projects, and organized component handling.
-            <br></br><br></br>
-            <blue>Vue.js</blue> appeals to developers working on both small and large applications. Its incremental 
-            adoption allows developers to utilize specific features as needed, making it easy to learn 
-            and widely popular.
-            <br></br><br></br>
-            <blue>Vue.js</blue> lets you extend <red>HTML</red> with <red>HTML</red> attributes called directives.
-            <blue>Vue.js</blue> directives offers functionality to <red>HTML</red> applications.
-            <blue>Vue.js</blue> provides built-in directives and user defined directives.
-            <br></br><br></br>
-            <green>jQuery</green>
-            <br></br><br></br>
-            <blue>jQuery</blue> is a JavaScript library which greatly simplifies JavaScript programming.
-            <blue>jQuery</blue> is a fast, small, and feature-rich. It makes things like <red>HTML</red> document 
-            traversal and manipulation, event handling, animation, and <red>Ajax</red> much simpler with an easy-to-use 
-            API that works across a multitude of browsers. 
-            <br></br><br></br>
-            With a combination of versatility and extensibility, 
-            <blue>jQuery</blue> has changed the way that millions of people write JavaScript.
-            <br></br><br></br>
-            <green>AJAX</green>
-            <br></br><br></br>
-            <blue>Ajax</blue> short for "Asynchronous JavaScript and XML" is a set of web development techniques 
-            that uses various web technologies on the client-side to create <blue>asynchronous</blue> web applications.
-            <br></br><br></br>
-            With <blue>Ajax</blue>, web applications can send and retrieve data from a server <blue>asynchronously</blue> 
-            (in the background) without interfering with the display and behaviour of the existing page. 
-            <br></br><br></br>
-            <green>JSON</green>
-            <br></br><br></br>
-            <blue>JSON</blue> stands for JavaScript Object Notation is a lightweight format for storing and transporting 
-            data.
-            <blue>JSON</blue> is often used when data is sent from a server to a web page.
-            <blue>JSON</blue> is "self-describing" and easy to understand.
-            <br></br><br></br>
-            <green>Bootstrap</green>
-            <br></br><br></br>
-            <blue>Bootstrap</blue> is the most popular <red>CSS Framework</red> for developing responsive and 
-            mobile-first websites.
-            <br></br><br></br>
-            <blue>Bootstrap 5</blue> is the newest version of Bootstrap.
-            <br></br><br></br>
-            <green>TypeScript</green>
-            <br></br><br></br>
-            <blue>TypeScript</blue> is a free and open-source high-level programming language developed by Microsoft 
-            that adds <blue>static typing</blue> with optional <blue>type annotations</blue> to JavaScript.
-            <br></br><br></br>
-            <blue>TypeScript</blue> may be used to develop JavaScript applications for both client-side and 
-            server-side execution.
-            The <blue>TypeScript</blue> compiler is itself written in <blue>TypeScript</blue> and compiled to JavaScript
-        </js-toolsets>
     </programming_language>
     
     <programming_language>
