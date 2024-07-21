@@ -182,6 +182,7 @@ function Controller_Function($scope)
 				"border-style": "solid", 
 				"border-color": "#442200", 
 				"border-width": "0.2vw", 
+				"border-radius": "5vw", 
 			};
 		}
 		else

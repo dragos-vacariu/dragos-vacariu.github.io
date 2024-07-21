@@ -141,7 +141,7 @@ nav div{
 #reference table{
 	margin-left:auto;
 	margin-right:auto;
-	width:90%;
+	width:80%;
     max-width:1200px;
 	padding:0%;
 	border: none 1px black;
@@ -150,10 +150,10 @@ nav div{
     word-wrap: break-word;
 }
 
-#reference p 
+#reference table th div p 
 {
     font-family: ZenDots;
-	font-size: 80%;
+	font-size: 60%;
     color: black;
 	width:auto;
 	word-wrap: break-word;
