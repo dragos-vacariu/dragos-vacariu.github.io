@@ -8,18 +8,24 @@
 #page_block h3{
 	padding:0.5%;
 	padding-left:2.5%;
-	width:93%;
-	margin-left:2%;
+	width:96%;
+	margin:1% 2%;
     font-family: FjallaOne;
 	text-align: left;
 	font-size:28px;
-	text-shadow: 1px 2px black;
     letter-spacing: 3px;
-	color: #aa7700;
+	text-shadow: 0.5px 1px pink;
+	color: rgba(143,55,0, 1);
 	/*background-image: linear-gradient(to right, #aa7700, #995500);*/
-    border: ridge 0px rgba(255,255,255, 0.2);
+    border: groove 5px rgba(255,255,255, 0.6);
     word-wrap: break-word;
-    border-radius: 4vw;
+    border-radius: 1vw;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block p{
@@ -82,12 +88,12 @@
 }
 
 #page_block #summary_description{
-	background-color: rgba(250,200,100,0.3); /*light-brown*/;
+    background-color: rgba(200,200,200,0.3); /*gray*/
 }
 
 
 #page_block #html_css_info{
-	background-color: rgba(0,0,255,0.2); /*purple*/;
+	background-color: rgba(0,0,255,0.2); /*purple*/
 }
 
 #page_block #javascript_info{
@@ -112,11 +118,11 @@
 }
 
 #page_block #unity_info{
-	background-color: rgba(0,0,0,0.1); /*gray*/;
+	background-color: rgba(0,0,0,0.1); /*gray*/
 }
 
 #page_block #java_info{
-	background-color: rgba(120,50,120,0.2) /*purple-gray*/;
+	background-color: rgba(120,50,120,0.2) /*purple-gray*/
 }
 
 
