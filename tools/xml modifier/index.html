@@ -1,0 +1,20 @@
+<html>
+    <title>XML Editor</title>
+    <script src="script.js"></script>
+
+    <h3 style="text-align: center;">XML Editor</h3>
+
+    <body>
+        <input type="file" id="file_button" onchange = "changeFile()"  >
+        <input type="button" id="process_button" value="process">
+        <input type="button" value="save" id="save_button" onclick = "saveTextAsFile()" >
+        <br><br>
+        <textarea id="initial_textArea" rows="30" cols="80">
+           Initial Text Area:
+        </textarea>
+        <textarea id="modified_textArea" rows="30" cols="80">
+           Modified Text Area:
+        </textarea>
+    </body>
+
+</html>
