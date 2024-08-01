@@ -147,19 +147,19 @@ function useProvidedRoute()
                     //If there is a view switch to the view
                     if(view == view_selection.children[0].innerHTML)
                     {
-                        //Set compare view to true
-                        view_selection.children[1].value = true;
-                        view_selection.children[1].style = tag_selection_on;
-                        view_selection.children[0].value = false;
-                        view_selection.children[0].style = tag_selection_off;
+                        //Set regular view to true
+                        view_selection.children[0].value = true;
+                        view_selection.children[0].style = tag_selection_on;
+                        view_selection.children[1].value = false;
+                        view_selection.children[1].style = tag_selection_off;
                     }
                     else if(view == view_selection.children[1].innerHTML)
                     {
-                         //Set regular view to true
-                        view_selection.children[1].value = false;
-                        view_selection.children[1].style = tag_selection_off;
-                        view_selection.children[0].value = true;
-                        view_selection.children[0].style = tag_selection_on;
+                         //Set compare view to true
+                        view_selection.children[0].value = false;
+                        view_selection.children[0].style = tag_selection_off;
+                        view_selection.children[1].value = true;
+                        view_selection.children[1].style = tag_selection_on;
                     }
                 }
             }
