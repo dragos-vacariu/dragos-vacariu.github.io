@@ -1,5 +1,7 @@
-const words_to_highlight = ["programming", "code", "variable"];
-const terms_to_highlight = ["memory", "static", "object", "bytes", "string"];
+const red_highlighted = {keyword: ["data", "type", "code", "variable", "function", "class", "object"], color: "red"};
+const blue_highlighted = {keyword: ["generic", "template", "programming", "memory", "static", "byte", "string"], color: "blue"};
+const cyan_highlighted = {keyword: ["instance", "dynamic", "field", "member", "function"], color: "cyan"};
+const pink_highlighted = {keyword: ["return", "value", "size", "free", "thread", "process"], color: "pink"};
 
 const keyword_color_set = {keyword: ["\nint ", " int ", "int/n"], color: "cyan"}
 
@@ -41,9 +43,12 @@ function readFile(event)
             
     /*formatting the xml_Document content*/
     xml_Document = format_XML_Document_Content(xml_Document);
-    xml_Document = add_color_to_words(xml_Document, words_to_highlight, "blue");
-    xml_Document = add_color_to_words(xml_Document, terms_to_highlight, "red");
-    xml_Document = add_different_color_to_code_keywords(xml_Document, keyword_color_set);
+    xml_Document = add_color_to_words(xml_Document, red_highlighted);
+    xml_Document = add_color_to_words(xml_Document, blue_highlighted);
+    xml_Document = add_color_to_words(xml_Document, cyan_highlighted);
+    xml_Document = add_color_to_words(xml_Document, pink_highlighted);
+    //xml_Document = add_different_color_to_code_keywords(xml_Document, keyword_color_set);
+    //xml_Document = addEmptyLines(xml_Document);
     
     //Displaying the output
     var result = new XMLSerializer().serializeToString(xml_Document.documentElement);
@@ -105,7 +110,7 @@ function formatSingleLineComments(line)
     return line;
 }
 
-function add_color_to_words(xml_Document_Content, list_of_words, highlight_color_tag)
+function add_color_to_words(xml_Document_Content, list_of_words)
 {
     var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
     for(var i=0; i < programming_languages.length; i++)
@@ -122,36 +127,116 @@ function add_color_to_words(xml_Document_Content, list_of_words, highlight_color
             for (var counter = 0; counter < items.length; counter++)
             {
                 //if some word includes the one of the value within the searchBox
-                for(var word_index = 0; word_index < list_of_words.length; word_index++)
+                bufferOfItem = items[counter] /*items should not be modified directly because it's used for checking and validation*/
+                for(var word_index = 0; word_index < list_of_words.keyword.length; word_index++)
                 {
                     var indexOfLessThan = String(items[counter]).indexOf("<");
-                    var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(String(list_of_words[word_index]).toLowerCase());
+                    var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(String(list_of_words.keyword[word_index]).toLowerCase());
                     
-                    //If this is not one of the elements used as header
-                    if (String(items[counter]).toLowerCase().includes("<green") == false && String(items[counter]).toLowerCase().includes("</green") == false  &&
-                        String(items[counter]).toLowerCase().includes("<brown") == false && String(items[counter]).toLowerCase().includes("</brown") == false &&
-                        String(items[counter]).toLowerCase().includes("<code") == false && String(items[counter]).toLowerCase().includes("</code") == false &&
-                        String(items[counter]).toLowerCase().includes("<linenumber") == false && String(items[counter]).toLowerCase().includes("</linenumber") == false &&
-                        String(items[counter]).toLowerCase().includes("<comment") == false && String(items[counter]).toLowerCase().includes("</comment") == false )
+                    //If this element is not part of the content of the following elements
+                    if (String(items[counter]).toLowerCase().includes("</green") == false  &&
+                        String(items[counter]).toLowerCase().includes("</brown") == false &&
+                        String(items[counter]).toLowerCase().includes("</code") == false &&
+                        String(items[counter]).toLowerCase().includes("</linenumber") == false &&
+                        String(items[counter]).toLowerCase().includes("</td") == false &&
+                        String(items[counter]).toLowerCase().includes("</tr") == false &&
+                        String(items[counter]).toLowerCase().includes("</comment") == false )
                     {
-                        //console.log(items[counter])
-                        //If this is not within a tag
-                        if(String(items[counter]).toLowerCase().includes(String(list_of_words[word_index]).toLowerCase())
+                        //If this element is not withing a XML tag
+                        console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
+                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase())
                                 && (String(items[counter]).includes("<") == false || indexOfLessThan
                                 > indexOfSearchValue)
                         )
                         {
-                            //get the index of the substring value within the word
-                            var index = String(items[counter]).toLowerCase().indexOf(String(list_of_words[word_index]).toLowerCase());
                             
-                            //Slicing the word to pieces to add the highlight to the finding within it.
-                            //This way we will maintain the case sensitiveness intact.
-                            var replacement = items[counter].slice(0, index);
-                            replacement += "<"+highlight_color_tag+">" + items[counter].slice(index, index + list_of_words[word_index].length) + "</"+highlight_color_tag+">";
-                            replacement += items[counter].slice(index + list_of_words[word_index].length);
-                            items[counter] = replacement;
+                            values = String(bufferOfItem).split(" ")
+                            
+                            for(var value_index = 0; value_index < values.length; value_index++)
+                            {
+                                //Ignore some of the punctuation signs and newline character
+                                var string_val = String(values[value_index]).replaceAll(",", "");
+                                string_val = string_val.replaceAll(".", "");
+                                string_val = string_val.replaceAll("!", "");
+                                string_val = string_val.replaceAll("?", "");
+                                string_val = string_val.replaceAll(":", "");
+                                string_val = string_val.replaceAll("\n", "");
+                                //console.log("Checking word: " + values[value_index] + " as " + string_val + " == " + list_of_words.keyword[word_index])
+                                //if found exactly the same word or its plural form
+                                if(string_val.toLowerCase() == String(list_of_words.keyword[word_index]) || 
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]) + "s" || 
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]) + "es"
+                                    )
+                                {
+                                    //console.log("Entered at " + string_val)
+                                    values[value_index] = values[value_index].replaceAll(string_val, "<" + list_of_words.color + ">" + string_val + "</" + list_of_words.color + ">"); 
+                                }
+                            }
+                            bufferOfItem = values.join(" ")
+                        }
+                    }
+
+                }
+                items[counter] = bufferOfItem
+            }
+            programming_languages[i].children[j].innerHTML = items.join(">")
+            //Undoing the workaround:
+            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
+            //console.log(programming_languages[i].children[j].innerHTML)
+        }
+    }
+    return xml_Document_Content
+}
+
+function addEmptyLines(xml_Document_Content)
+{
+    var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
+    for(var i=0; i < programming_languages.length; i++)
+    {
+        for(var j=0; j < programming_languages[i].children.length; j++)
+        {
+            //workaround for elements that should not be modified:
+            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
+            
+            //Format the text by adding highlights on every finding:
+            var items = programming_languages[i].children[j].innerHTML.trim().split(">")
+            
+            //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+            for (var counter = 0; counter < items.length; counter++)
+            {
+                var indexOfLessThan = String(items[counter]).indexOf("<");
+                var searchValue = "\n".trim() + "\n";
+                var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(searchValue);
+                
+                //If this is not one of the elements used as header
+                if (String(items[counter]).toLowerCase().includes("</green") == false  &&
+                    String(items[counter]).toLowerCase().includes("</brown") == false &&
+                    String(items[counter]).toLowerCase().includes("</code") == false &&
+                    String(items[counter]).toLowerCase().includes("</linenumber") == false &&
+                    String(items[counter]).toLowerCase().includes("</td") == false &&
+                    String(items[counter]).toLowerCase().includes("</tr") == false &&
+                    String(items[counter]).toLowerCase().includes("</comment") == false )
+                {
+                    //console.log(items[counter])
+                    //If this is not within a tag
+                    if(String(items[counter]).toLowerCase().includes(searchValue)
+                            && (String(items[counter]).includes("<") == false || indexOfLessThan
+                            > indexOfSearchValue)
+                    )
+                    
+                    {
+                        var lines = items[counter].split("\n");
+                        for(var line_index = 0; line_index < lines.length; line_index++)
+                        {
+                            if (lines[line_index].trim() == "")
+                            {
+                                /*It means we are between 2 consecutive \n's*/
+                                lines[line_index] = "<br></br>" + lines[line_index];
+                            }
                             
                         }
+                        items[counter] = lines.join("\n");
+                        //console.log(items[counter])
                     }
                 }
             }
