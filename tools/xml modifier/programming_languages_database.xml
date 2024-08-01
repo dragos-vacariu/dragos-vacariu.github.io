@@ -539,7 +539,7 @@ free(A);
             through various IM windows; although you’re actually switching back and forth, the net result 
             is that you’re having multiple conversations at the same time.
             <br></br><br></br>
-            <green>Principles of Concurent Programming:</green>
+            <green>Principles of concurrent Programming:</green>
             <br></br><br></br>
             The are some basic principles and concepts behind concurrent programming: 
             <br></br><br></br>
@@ -626,8 +626,8 @@ free(A);
             A thread can be seen as a single-handed person performing one task at 
             a time. 
             Even with one thread
-            we can run many programs simultaneos from our perspective, but from CPU's 
-            perspective, these tasks are not simultaneos. The CPU has to switch the 
+            we can run many programs simultaneous from our perspective, but from CPU's 
+            perspective, these tasks are not simultaneous. The CPU has to switch the 
             thread
             between the tasks on every few microseconds, therefore
             moving its hand from doing one thing to doing the other thing so fast that a real person 
@@ -637,9 +637,9 @@ free(A);
             <br></br><br></br>
             By hyperthreading, the core gets a second hand available, 
             and can perform 
-            2 simultaneos tasks but using the same the shared resources of the 
+            2 simultaneous tasks but using the same the shared resources of the 
             core, 
-            meaning it's slower than doing simultaneos tasks on different cores, 
+            meaning it's slower than doing simultaneous tasks on different cores, 
             but faster than doing single tasks on one core. 
             <br></br><br></br>
             Multithreading refers to using multiple threads 
@@ -661,7 +661,7 @@ free(A);
             <green>Multithreading vs. multiprocessing:</green>
             <br></br><br></br>
             Both multithreading and multiprocessing give birth to few challenges 
-            when it comes to concurent programming.
+            when it comes to concurrent programming.
             <br></br><br></br>
             <brown>The Race Condition:</brown>
             <br></br><br></br>
@@ -674,7 +674,7 @@ free(A);
             <brown>Process/Thread Syncronization:</brown>
             <br></br><br></br>
             Process Synchronization and Thread Synchronization 
-            are two mechanism defined for concurent programming in order to ensure 
+            are two mechanism defined for concurrent programming in order to ensure 
             that two or more concurrent processes/threads do not simultaneously execute 
             some particular program segment known as critical section.
             <br></br><br></br>
@@ -1203,67 +1203,67 @@ int main()
             <br></br>
             <green>Arithmetic Operators: <br></br></green>
                 <br></br>
-                + it adds two operands.<br></br>
+                <code>+</code> it adds two operands.<br></br>
                 <code>A + B = 30</code><br></br>
                 <br></br>
                 
-                − it subtracts second operand from the first.<br></br>
+                <code>−</code> it subtracts second operand from the first.<br></br>
                 <code>A − B = -10</code><br></br>
                 <br></br>
                 
-                * it multiplies both operands.<br></br>
+                <code>*</code> it multiplies both operands.<br></br>
                 <code>A * B = 200</code><br></br>
                 <br></br>
                 
-                / it divides numerator by de-numerator.<br></br>
+                <code>/</code> it divides numerator by de-numerator.<br></br>
                 <code>B / A = 2</code><br></br>
                 <br></br>
                 
-                % is the Modulus Operator.<br></br>
+                <code>%</code> is the Modulus Operator.<br></br>
                 It gives the remainder after an integer division.<br></br>
                 <code>B % A = 0</code><br></br>
                 <br></br><br></br>
                 
-                ++ is the Increment operator. <br></br>
+                <code>++</code> is the Increment operator. <br></br>
                 It increases the integer value by one.<br></br>
                 <code>A++ = 11</code><br></br>
                 <br></br>
-                -- is the Decrement operator.<br></br>
+                <code>--</code> is the Decrement operator.<br></br>
                 It decreases the integer value by one.<br></br>
                 <code>A-- = 9</code><br></br>
                 <br></br>
                 <green><br></br>Relational Operators:<br></br></green>
                 <br></br>
                 
-                == it checks if the values of two operands are equal or not. <br></br>
+                <code>==</code> it checks if the values of two operands are equal or not. <br></br>
                 If yes, then the condition becomes true.<br></br>
                 <code>(A == B) is not true.</code><br></br>
                 <br></br>
 
-                != it checks if the values of two operands are equal or not.<br></br>
+                <code>!=</code> it checks if the values of two operands are equal or not.<br></br>
                 If the values are not equal, then the condition becomes true.<br></br>
                 <code>(A != B) is true.</code><br></br>
                 <br></br>
 
-                &gt; it checks if the value of left operand is greater than the value of 
+                <code>&gt;</code> it checks if the value of left operand is greater than the value of 
                 right operand.<br></br>
                 If yes, then the condition becomes true.<br></br>
                 <code>(A &gt; B) is not true.</code><br></br>
                 <br></br>
 
-                &lt; it checks if the value of left operand is less than the value of 
+                <code>&lt;</code> it checks if the value of left operand is less than the value of 
                 right operand.<br></br>
                 If yes, then the condition becomes true.<br></br>
                 <code>(A &lt; B) is true.</code><br></br>
                 <br></br>
 
-                &gt;= it checks if the value of left operand is greater than or equal to 
+                <code>&gt;=</code> it checks if the value of left operand is greater than or equal to 
                 the value of right operand.<br></br>
                 If yes, then the condition becomes true.<br></br>
                 <code>(A &gt;= B) is not true.</code><br></br>
                 <br></br>
 
-                &lt;= it checks if the value of left operand is less than or equal to the value 
+                <code>&lt;=</code> it checks if the value of left operand is less than or equal to the value 
                 of right operand.<br></br>
                 If yes, then the condition becomes true.<br></br>
                 <code>(A &lt;= B) is true.</code><br></br>
@@ -1272,19 +1272,19 @@ int main()
                 <green><br></br>Logical Operators:<br></br></green>
                 <br></br>
     
-                &#38;&#38; it's called Logical AND operator.<br></br> 
+                <code>&#38;&#38;</code> it's called Logical AND operator.<br></br> 
                 Results in TRUE if both the operands are non-zero, 
                 then the condition becomes true.<br></br>
                 <code>(A &#38;&#38; B) is false.</code><br></br>
                 <br></br>
 
-                || it's called Logical OR Operator.<br></br>  
+                <code>||</code> it's called Logical OR Operator.<br></br>  
                 Results in TRUE if any of the two operands is non-zero, 
                 then the condition becomes true.<br></br>
                 <code>(A || B) is true.</code><br></br>
                 <br></br>
 
-                ! it's called Logical NOT Operator. <br></br>
+                <code>!</code> it's called Logical NOT Operator. <br></br>
                 It is used to reverse the logical state of 
                 its operand. 
                 If a condition is true, then Logical NOT operator will make it false.
@@ -1294,28 +1294,28 @@ int main()
                 
                 <green><br></br>Bitwise Operators:<br></br></green>
                 <br></br>
-                &#38; binary AND Operator copies a bit to the result if it exists in both operands.<br></br>    
+                <code>&#38;</code> binary AND Operator copies a bit to the result if it exists in both operands.<br></br>    
                 <code>(A &#38; B) = 12, i.e., 0000 1100</code><br></br>
                 <br></br>
 
-                | binary OR Operator.<br></br>
+                <code>|</code> binary OR Operator.<br></br>
                 It copies a bit if it exists in either operand.<br></br>
                 <code>(A | B) = 61, i.e., 0011 1101</code><br></br>
                 <br></br>
-                ^ binary XOR Operator.<br></br>
+                <code>^</code> binary XOR Operator.<br></br>
                 It copies the bit if it is set in one operand but not both.<br></br>
                 <code>(A ^ B) = 49, i.e., 0011 0001</code><br></br>
                 <br></br>
-                ~ binary One's Complement Operator.<br></br>
+                <code>~</code> binary One's Complement Operator.<br></br>
                 Is unary and has the effect of 'flipping' bits.<br></br>
                 <code>(~A ) = ~(60), i.e,. -0111101</code><br></br>
                 <br></br>
-                &lt;&lt; binary Left Shift Operator.<br></br>
+                <code>&lt;&lt;</code> binary Left Shift Operator.<br></br>
                 The left operands value is moved left by the number of bits specified by the 
                 right operand.<br></br>
                 <code>A &lt;&lt; 2 = 240 i.e., 1111 0000</code><br></br>
                 <br></br>
-                &gt;&gt; binary Right Shift Operator. <br></br>
+                <code>&gt;&gt;</code> binary Right Shift Operator. <br></br>
                 The left operands value is moved right by the number of bits specified 
                 by the right operand.<br></br>
                 <code>A &gt;&gt; 2 = 15 i.e., 0000 1111</code><br></br>
@@ -1323,60 +1323,60 @@ int main()
                 
                 <green><br></br>Assignment Operators:<br></br></green>
                 <br></br>
-                = is the assignment operator. <br></br>
+                <code>=</code> is the assignment operator. <br></br>
                 Assigns values from right side operands to left side operand.<br></br>
                 <code>C = A + B will assign the value of A + B to C</code><br></br>
                 <br></br>
-                += the add AND assign operator. <br></br>
+                <code>+=</code> the add AND assign operator. <br></br>
                 It adds the right operand to the left operand and assign the result 
                 to the left operand.<br></br>
                 <code>C += A is equivalent to C = C + A</code><br></br>
                 <br></br>
-                -= Subtract AND assignment operator. <br></br>
+                <code>-=</code> Subtract AND assignment operator. <br></br>
                 It subtracts the right operand from the left operand and assigns 
                 the result to the left operand.<br></br>
                 <code>C -= A is equivalent to C = C - A</code><br></br>
                 <br></br>
-                *= Multiply AND assignment operator. <br></br>
+                <code>*=</code> Multiply AND assignment operator. <br></br>
                 It multiplies the right operand with the left operand and assigns 
                 the result to the left operand.<br></br>    
                 <code>C *= A is equivalent to C = C * A</code><br></br>
                 <br></br>
-                /= the divide AND assign operator. <br></br>
+                <code>/=</code> the divide AND assign operator. <br></br>
                 It divides the left operand with the right operand and assigns the 
                 result to the left operand.<br></br>
                 <code>C /= A is equivalent to C = C / A</code><br></br>
                 <br></br>
-                %= the modulus AND assign operator. <br></br>
+                <code>%=</code> the modulus AND assign operator. <br></br>
                 It takes modulus using two operands and assigns the 
                 result to the left operand.<br></br>
                 <code>C %= A is equivalent to C = C % A</code><br></br>
                 <br></br>
-                &lt;&lt;= the Left shift AND assign operator.<br></br>
+                <code>&lt;&lt;=</code> the Left shift AND assign operator.<br></br>
                 It takes the value stored in variable C shifts it to the left by 
                 the number of bits specified 
                 after the equal sign and then assigns the result of the operation back to C variable<br></br>
                 <code>C &lt;&lt;= 2 is same as C = C &lt;&lt; 2</code><br></br>
                 <br></br>
-                &gt;&gt;= the Right shift AND assign operator.<br></br>
+                <code>&gt;&gt;=</code> the Right shift AND assign operator.<br></br>
                 It takes the value stored in variable C shifts it to the right by the 
                 number of bits specified after the equal sign and then assigns the result of the 
                 operation back to C variable.<br></br>
                 <code>C &gt;&gt;= 2 is same as C = C &gt;&gt; 2</code><br></br>
                 <br></br>
-                &#38;= the bitwise AND assign operator.<br></br>
+                <code>&#38;=</code> the bitwise AND assign operator.<br></br>
                 It takes the value stored in variable C performs bitwise AND with 
                 the value specified after the equal sign and then assigns the result of 
                 the operation back to C variable.<br></br>
                 <code>C &#38;= 2 is same as C = C &#38; 2</code><br></br>
                 <br></br>
-                ^= the bitwise exclusive OR and assign operator.<br></br>
+                <code>^=</code> the bitwise exclusive OR and assign operator.<br></br>
                 It takes the value stored in variable C performs bitwise XOR with the value 
                 specified after the equal sign and then assigns the result of the 
                 operation back to C variable.<br></br>
                 <code>C ^= 2 is same as C = C ^ 2</code><br></br>
                 <br></br>
-                |= the bitwise inclusive OR and assign operator.<br></br>
+                <code>|=</code> the bitwise inclusive OR and assign operator.<br></br>
                 It takes the value stored in variable C performs bitwise OR with the 
                 value specified after the equal sign and then assign the result of the 
                 operation back to C variable.<br></br>
@@ -1385,7 +1385,7 @@ int main()
         </operators>
         <pre-post-incrementation>
             Increment operators are used to increase the value of a variable by 1.<br></br>
-            This operator is represented by the ++ symbol. <br></br><br></br>
+            This operator is represented by the <code>++</code> symbol. <br></br><br></br>
             The increment operator can either
             increase the value of the variable by 1 before assigning it to the variable or 
             can increase the value of the variable by 1 after assigning the variable. 
@@ -1720,7 +1720,7 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             <br></br>
         </collections>
         <read-from-file>
-            File handing is the process in which we create, open, 
+            File handling is the process in which we create, open, 
             read, write, and close operations on a file.
             <br></br> <br></br> 
             A file is a collection of data stored in the secondary memory. 
@@ -1793,7 +1793,7 @@ a = x++; // first x value is assigned to a, then the value of x gets incremented
             solutions to smaller instances of the same problem (as opposed to iteration).
             <br></br> 
             
-            Example: 5! = (4!*5) = (3! * 4 * 5) = (2! *3 *4 *5) etc.
+            Example: <code>5! = (4!*5) = (3! * 4 * 5) = (2! *3 *4 *5)</code> etc.
             
             <br></br> <br></br> 
             A recursive function needs to have a condition or 
@@ -1955,7 +1955,7 @@ int main()
             <code>int scanf(const char *format, ...);</code><br></br>
             <code>int execlp(const char *file, const char *arg, ...);</code><br></br>
 <code>
-//Example of variodic functions in C:
+//Example of variadic functions in C:
 
 #include &lt;stdarg.h&gt;
 #include &lt;stdio.h&gt;
@@ -2120,14 +2120,14 @@ void createAddElementsOnLinkedList()
             C programming language supports four pre-defined functions to 
             read contents from a file, defined in <code>stdio.h</code> header file:
             <br></br><br></br>
-            fgetc()<br></br>
+            <code>fgetc()</code><br></br>
             This function is used to read a single character from the file.<br></br><br></br>
-            fgets()<br></br>
+            <code>fgets()</code><br></br>
             This function is used to read strings from files.
             <br></br><br></br>
-            fscanf()<br></br>
+            <code>fscanf()</code><br></br>
             This function is used to read formatted input from a file.<br></br><br></br>
-            fread()<br></br>
+            <code>fread()</code><br></br>
             This function is used to read the block of raw bytes from files. This is used 
             to read binary files.
             <br></br><br></br>
@@ -2144,9 +2144,9 @@ void createAddElementsOnLinkedList()
             <code>mode</code><br></br>    
             A single character, which represents what you want to do with the file 
             (read, write or append):<br></br><br></br>
-            w - Writes to a file<br></br>
-            a - Appends new data to a file<br></br>
-            r - Reads from a file<br></br>
+            <code>w</code> - Writes to a file;<br></br>
+            <code>a</code> - Appends new data to a file;<br></br>
+            <code>r</code> - Reads from a file;<br></br>
     
 <code>
 /*Read file char by char*/
@@ -2241,9 +2241,9 @@ while (fscanf(ptr, "%*s %*s %s ", buf) == 1)
             <code>mode</code><br></br>    
             A single character, which represents what you want to do with the file 
             (read, write or append):<br></br><br></br>
-            w - Writes to a file<br></br>
-            a - Appends new data to a file<br></br>
-            r - Reads from a file<br></br>
+            <code>w</code> - Writes to a file;<br></br>
+            <code>a</code> - Appends new data to a file;<br></br>
+            <code>r</code> - Reads from a file;<br></br>
             <br></br>
             The w mode means that the file is opened for writing. 
             <br></br>
@@ -3566,7 +3566,7 @@ int main()
             <br></br><br></br>
             C++ integrates the operators <code>new</code> and <code>delete</code> for allocating dynamic memory.
             <br></br><br></br>
-            Operators new and new[]: 
+            Operators <code>new</code> and <code>new[]</code>: 
             <br></br><br></br>
             Dynamic memory is allocated using operator <code>new</code>. <br></br>
             <code>new</code> is followed by a data 
@@ -3585,7 +3585,7 @@ foo = new int [5];
         Therefore, <code>foo</code> now points to a valid block of memory with space 
         for five elements of type <code>int</code>.<br></br>
         <br></br>
-        Operators delete and delete[]: 
+        Operators <code>delete</code> and <code>delete[]</code>: 
         <br></br><br></br>
         In most cases, memory allocated dynamically is only needed during specific periods 
         of time within a program; once it is no longer needed, it can be freed so that 
@@ -3662,9 +3662,9 @@ int main()
             which are used to create, write or read files:
             <br></br><br></br>
             <green>Class description:</green><br></br><br></br>
-            ofstream - Creates and writes to files.<br></br>
-            ifstream - Reads from files.<br></br>
-            fstream  - A combination of <code>ofstream</code> and <code>ifstream</code>: 
+            <code>ofstream</code> - Creates and writes to files.<br></br>
+            <code>ifstream</code> - Reads from files.<br></br>
+            <code>fstream</code>  - A combination of <code>ofstream</code> and <code>ifstream</code>: 
             creates, reads, and writes to files.
             <br></br><br></br>
             To read from a file, use either the <code>ifstream</code> or <code>fstream class</code>, and the name of the file.
@@ -3711,9 +3711,9 @@ int main()
             write or read files:
             <br></br><br></br>
             <green>Class description:</green><br></br><br></br>
-            ofstream - Creates and writes to files.<br></br>
-            ifstream - Reads from files.<br></br>
-            fstream - A combination of ofstream and ifstream: 
+            <code>ofstream</code> - Creates and writes to files.<br></br>
+            <code>ifstream</code> - Reads from files.<br></br>
+            <code>fstream</code> - A combination of ofstream and ifstream: 
             creates, reads, and writes to files.
             <br></br><br></br>
             Create and Write To a File:
@@ -13694,7 +13694,7 @@ print(Ob3)
             <br></br>
             <green>Multithreading in Python:</green>
             <br></br><br></br>
-            In Python: multithreading is the action of executing tasks simultaneosly 
+            In Python: multithreading is the action of executing tasks simultaneously 
             (in parallel) in order to increase the speed of execution.
             <br></br><br></br>
             <green>GIL or Global Interpreter Lock:</green>
