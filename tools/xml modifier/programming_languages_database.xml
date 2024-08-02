@@ -1173,7 +1173,7 @@ int main()
             <br></br>
             Implicit conversion is done automatically by the compiler when you assign a value 
             of one type to another.<br></br><br></br>
-            Explicit conversion is done manually by placing the type in parentheses () in front 
+            Explicit conversion is done manually by placing the type in parentheses <code>()</code> in front 
             of the value. Also knows as typecasting. 
             <br></br>
         </datatype-conversions>

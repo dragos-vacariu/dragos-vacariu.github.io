@@ -1,24 +1,24 @@
-const red_colored_words = {keyword: ["programming", "object-orient","data", "type", "procedure", "function", "class", "object", "orient", "instance", 
-    "instantiate", "macro", "command-line", "commandline", "typecast", "construct", "destruct", "partial", "virtual", "recurse",
-    "argument", "list", "parameter", "preprocess", "directive", "true", "false", "data-type", "thread", "multiprocess",
-    "recurrent", "polymorphic", "pre-defined", "exception", "random", "pseudo-random"], color: "red"};
+const red_colored_words = {keyword: ["programming", "compute","language", "object-orient", "generic", "template", "data", "type", "procedure", "function", "class", 
+    "object", "orient", "instance", "instantiate", "macro", "command-line", "commandline", "typecast", "construct", "destruct", "partial", "virtual", "recurse",
+    "argument", "list", "parameter", "preprocess", "directive", "true", "false", "data-type", "thread", "multiprocess", "module", "concurrent",
+    "recurrent", "polymorphic", "pre-defined", "exception", "random", "pseudo-random", "prototype", "variadic"], color: "red"};
 
-const purple_colored_words = {keyword: ["generic", "template", "memory", "static", "byte", "string", "loop", "constant", "collection", 
+const purple_colored_words = {keyword: ["memory", "static", "byte", "string", "loop", "constant", "collection", 
     "point", "address", "array", "enum", "enumerate", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", "malloc", 
     "calloc", "multithread", "hyperthread", "left-shift", "right-shift", "shift", "bitwise", "bit", "null", "nullptr", "interface", "floating-point",
     "break", "cast", "type-cast", "binary", "sign", "unsign", "operate", "assign", "integer", "float", "double", "ternary", "operand", 
     "library", "api", "oop", "unary", "increment", "decrement", "compliment", "dereference", "reference", "method", "field", "member", "overflow",
-    "underflow", "typedef", "character", "vector", "iterate", "dynamic", "valueless"], color: "purple"};
+    "underflow", "typedef", "character", "vector", "iterate", "dynamic", "valueless", "substring", "int"], color: "purple"};
 
 //const test = {keyword: ["condition"], color: "azure"};
 
-const azure_colored_words = {keyword: ["to-be-specified-later", "independent", "plugin", "variadic", "condition", "count", "delete", "add", "share", "save", 
+const azure_colored_words = {keyword: ["to-be-specified-later", "independent", "plugin",  "condition", "count", "delete", "add", "share", "save", 
     "remove", "size", "default", "block", "file", "efficiency", "reuse", "store", "retrieve", "type-independent", 
     "code", "manipulate", "variable", "value", "comment", "sequence", "create", "open", "read", "write", "close", "serializ", "deserializ",
-    "asynchronous", "synchronous", "sequential", "start", "run", "task", "simultaneous", "asynchrony", "parallel", "concurrent", "single-core", "multi-core", 
+    "asynchronous", "synchronous", "sequential", "start", "run", "task", "simultaneous", "asynchrony", "parallel", "single-core", "multi-core", 
     "dual-core", "quad-core", "process", "cpu", "non-determinism", "synchronization", "core", "stream", "signal", "overhead", "responsive",
-    "server", "encapsulate", "abstract", "reflect", "polymorph", "inherit", "efficient", "statement", "module", "modular", "maintain",
-    "port", "repo", "header", "source", "ram", "insert", "append", "ui", "compute", "system"], color: "azure"};
+    "server", "encapsulate", "abstract", "reflect", "polymorph", "inherit", "efficient", "statement", "maintain",
+    "port", "repo", "header", "source", "ram", "insert", "append", "ui", "system", "replace", "concatenate", "compare"], color: "azure"};
 
 
 /*===============================================================================================*/
@@ -27,11 +27,11 @@ const azure_colored_substr = {keyword: ["for loop", "while loop", "do while loop
     "Increases the risk and the difficulty", "Additional efforts needed for the design", "The task repetition impacts the software performance",
     "The work efficiency might be impacted", "The code readability might be affected", "macro constant"], color: "azure"};
 
-const red_colored_substr = {keyword: ["initialization expression", "test expression", "update expression", "function prototype", "format specifier", 
-    "concurrent programming", "race condition", "programming language", "error handle", "exception handle", "implicit conversion", "explicit conversion",
-    "parametric polymorph", "ad hoc polymorph", "computer programming", "type checking"], color: "red"};
+const red_colored_substr = {keyword: ["initialization expression", "test expression", "update expression", "format specifier", 
+    "race condition", "error handle", "exception handle", "implicit conversion", "explicit conversion",
+    "parametric polymorph", "ad hoc polymorph", "type checking"], color: "red"};
 
-const purple_colored_substr = {keyword: ["floating point", "generic programming", "variadic function", "wide character"], color: "purple"}
+const purple_colored_substr = {keyword: ["floating point", "wide character", "short int", "long int", "long long int"], color: "purple"}
 
 const keyword_color_set = {keyword: ["\nint ", " int ", "int/n"], color: "cyan"}
 
@@ -234,6 +234,7 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "r" || 
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "es" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "er" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ers" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "d" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ed" || 
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ly" || 
@@ -243,21 +244,31 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "al" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ing" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ion" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ions" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ation" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ations" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ability" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "abilities" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ance" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ism" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "or" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ors" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ar" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ive" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "al" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ing" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "able" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ion" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ions" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ation" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ations" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ability" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "abilities" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ance" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ism" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "or" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ors" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ar" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ive"
  
                                     )
@@ -383,6 +394,7 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "r" || 
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "es" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "er" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ers" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "d" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ed" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ly" || 
@@ -392,21 +404,31 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "al" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ing" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ion" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ions" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ation" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ations" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ability" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "abilities" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ance" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ism" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "or" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ors" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ar" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ive" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "al" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ing" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "able" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ion" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ions" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ation" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ations" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ability" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "abilities" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ance" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ism" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "or" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ors" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ar" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ive" 
                                             )
                                         {
