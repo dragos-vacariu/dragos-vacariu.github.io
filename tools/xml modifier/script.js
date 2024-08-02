@@ -1,35 +1,37 @@
-const red_colored_words = {keyword: ["programming", "object-oriented","data", "type", "procedural", "function", "class", "object", "oriented", "instance", 
-    "instantiation", "instantiate", "macro", "command-line", "commandline", "typecasting", "constructor", "destructor", "partial", "virtual", "recursion",
-    "argument", "list", "parameter", "preprocessor", "directive", "true", "false", "data-types", "thread", "multithread", "process", "multiprocessing",
-    "recursive", "recurrent", "polymorphic"], color: "red"};
+const red_colored_words = {keyword: ["programming", "object-orient","data", "type", "procedure", "function", "class", "object", "orient", "instance", 
+    "instantiate", "macro", "command-line", "commandline", "typecast", "construct", "destruct", "partial", "virtual", "recurse",
+    "argument", "list", "parameter", "preprocess", "directive", "true", "false", "data-type", "thread", "multiprocess",
+    "recurrent", "polymorphic", "pre-defined", "exception", "random", "pseudo-random"], color: "red"};
 
 const purple_colored_words = {keyword: ["generic", "template", "memory", "static", "byte", "string", "loop", "constant", "collection", 
-    "pointer", "address", "array", "enum", "enumeration", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", "malloc", 
-    "calloc", "multithreading", "hyperthreading", "left-shift", "right-shift", "shift", "bitwise", "bit", "null", "nullptr", "interface",
-    "iteration", "break", "cast", "type-casting", "binary", "sign", "unsign", "operator", "assign", "integer", "float", "double", "ternary", "operand", 
+    "point", "address", "array", "enum", "enumerate", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", "malloc", 
+    "calloc", "multithread", "hyperthread", "left-shift", "right-shift", "shift", "bitwise", "bit", "null", "nullptr", "interface", "floating-point",
+    "break", "cast", "type-cast", "binary", "sign", "unsign", "operate", "assign", "integer", "float", "double", "ternary", "operand", 
     "library", "api", "oop", "unary", "increment", "decrement", "compliment", "dereference", "reference", "method", "field", "member", "overflow",
-    "underflow", "typedef", "character", "vector", "iterator"], color: "purple"};
+    "underflow", "typedef", "character", "vector", "iterate", "dynamic", "valueless"], color: "purple"};
 
-const azure_colored_words = {keyword: ["to-be-specified-later", "independent", "plugin", "variadic", "condition", "counter", "delete", "add", "share", "save", 
-    "remove", "size", "default", "block", "file", "readability", "reusability", "efficiency", "portability", "maintainability", "reuse", "store", "retrieve", 
-    "code", "manipulate", "variable", "value", "comment", "sequence", "create", "open", "read", "write", "close", "serialization", "deserialization",
-    "asynchronous", "synchronous", "sequential", "start", "run", "task", "simultaneous", "asynchrony", "parallelism", "concurrent", "single-core", "multi-core", 
-    "dual-core", "quad-core", "processor", "cpu", "non-determinism", "synchronization", "core", "stream", "signal", "overhead", "responsive", "coding",
-    "server", "encapsulation", "abstraction", "reflection", "polymorphism", "inheritance", "inherit", "efficient", "statement", "module", "modular", "maintain",
-    "port", "repo", "header", "source", "ram", "insertion", "deletion", "insert", "dynamic"], color: "azure"};
+//const test = {keyword: ["condition"], color: "azure"};
+
+const azure_colored_words = {keyword: ["to-be-specified-later", "independent", "plugin", "variadic", "condition", "count", "delete", "add", "share", "save", 
+    "remove", "size", "default", "block", "file", "efficiency", "reuse", "store", "retrieve", "type-independent", 
+    "code", "manipulate", "variable", "value", "comment", "sequence", "create", "open", "read", "write", "close", "serializ", "deserializ",
+    "asynchronous", "synchronous", "sequential", "start", "run", "task", "simultaneous", "asynchrony", "parallel", "concurrent", "single-core", "multi-core", 
+    "dual-core", "quad-core", "process", "cpu", "non-determinism", "synchronization", "core", "stream", "signal", "overhead", "responsive",
+    "server", "encapsulate", "abstract", "reflect", "polymorph", "inherit", "efficient", "statement", "module", "modular", "maintain",
+    "port", "repo", "header", "source", "ram", "insert", "append", "ui", "compute", "system"], color: "azure"};
 
 
 /*===============================================================================================*/
-const azure_colored_substr = {keyword: ["for loop", "while loop", "do while loop", "foreach loop", "for-each loop", "do-while loop", "file handling", 
-    "storage capacity", "type casting", "low-risk update", "easy collaboration", "faster fix", "code is easier to read", "requires more resources", 
+const azure_colored_substr = {keyword: ["for loop", "while loop", "do while loop", "foreach loop", "for-each loop", "do-while loop", "file handle", 
+    "storage capacity", "type cast", "low-risk update", "easy collaboration", "faster fix", "code is easier to read", "requires more resources", 
     "Increases the risk and the difficulty", "Additional efforts needed for the design", "The task repetition impacts the software performance",
-    "The work efficiency might be impacted", "The code readability might be affected"], color: "azure"};
+    "The work efficiency might be impacted", "The code readability might be affected", "macro constant"], color: "azure"};
 
 const red_colored_substr = {keyword: ["initialization expression", "test expression", "update expression", "function prototype", "format specifier", 
-    "concurrent programming", "race condition", "programming language", "error handling", "exception handling", "implicit conversion", "explicit conversion",
-    "parametric polymorphism", "ad hoc polymorphism"], color: "red"};
+    "concurrent programming", "race condition", "programming language", "error handle", "exception handle", "implicit conversion", "explicit conversion",
+    "parametric polymorph", "ad hoc polymorph", "computer programming", "type checking"], color: "red"};
 
-const purple_colored_substr = {keyword: ["floating point"], color: "red"}
+const purple_colored_substr = {keyword: ["floating point", "generic programming", "variadic function", "wide character"], color: "purple"}
 
 const keyword_color_set = {keyword: ["\nint ", " int ", "int/n"], color: "cyan"}
 
@@ -77,6 +79,8 @@ function readFile(event)
     xml_Document = add_color_to_substrings(xml_Document, red_colored_substr);
     xml_Document = add_color_to_substrings(xml_Document, purple_colored_substr);
     
+    
+    //xml_Document = add_color_to_words(xml_Document, test);
     
     xml_Document = add_color_to_words(xml_Document, red_colored_words);
     xml_Document = add_color_to_words(xml_Document, purple_colored_words);
@@ -155,13 +159,13 @@ function add_color_to_words(xml_Document_Content, list_of_words)
             //workaround for elements that should not be modified:
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
             
-            //Format the text by adding highlights on every finding:
-            
-            //Workaround for the <br> tags
+            //Workaround for the <br> tags so that they will not force writing content within other formated elements
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_/br_)]}")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br/_)]}")
             
+            //Format the text by adding highlights on every finding:
+
             //Splitting the content aroung any other XML tags
             var items = programming_languages[i].children[j].innerHTML.trim().split(">")
             
@@ -191,7 +195,7 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                         
                         //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
                         //console.log("indexOfLessThan: " + indexOfLessThan + " indexOfSearchValue " + indexOfSearchValue)
-                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase())
+                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))
                                 && (String(items[counter]).includes("<") == false || indexOfLessThan
                                 > indexOfSearchValue)
                         )
@@ -202,7 +206,13 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                             for(var value_index = 0; value_index < values.length; value_index++)
                             {
                                 //Ignore some of the punctuation signs and newline character
-                                var string_val = String(values[value_index]).replaceAll(",", "");
+                                
+                                //order of the statements is important as the bigger strings with punctuation marks should be first otherwise webkitURL
+                                //risk removing single punctuation signs before matching the bigger pairs
+                                var string_val = String(values[value_index]).replaceAll("{[(_br_)]}", "");
+                                string_val = string_val.replaceAll("{[(_/br_)]}", "");
+                                string_val = string_val.replaceAll("{[(_br/_)]}", "");
+                                string_val = string_val.replaceAll(",", "");
                                 string_val = string_val.replaceAll(".", "");
                                 string_val = string_val.replaceAll("!", "");
                                 string_val = string_val.replaceAll("?", "");
@@ -211,16 +221,19 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                                 string_val = string_val.replaceAll('"', "");
                                 string_val = string_val.replaceAll("(", "");
                                 string_val = string_val.replaceAll(")", "");
-                                string_val = string_val.replaceAll("{[(_br_)]}", "");
-                                string_val = string_val.replaceAll("{[(_/br_)]}", "");
-                                string_val = string_val.replaceAll("{[(_br/_)]}", "");
                                 string_val = string_val.replaceAll("\n", "");
+                                
+                                /*If a tag is following it, get only the part outside of the tag*/
+                                string_val = string_val.split("<")[0];
+                                
                                 //console.log("Checking word: " + values[value_index] + " as " + string_val + " == " + list_of_words.keyword[word_index])
                                 
                                 //if found exactly the same word or its plural form, or past tense verb form or noun derivated form
                                 if(string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() || 
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "s" || 
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "r" || 
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "es" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "er" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "d" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ed" || 
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ly" || 
@@ -228,7 +241,25 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "able" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ness" ||
                                     string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "al" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ing" 
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ing" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ion" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ation" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ability" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ance" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ism" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "or" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ive" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "al" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ing" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "able" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ion" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ation" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ability" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ance" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ism" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "or" ||
+                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ive"
+ 
                                     )
                                 {
                                     //console.log("Entered at " + string_val)
@@ -243,6 +274,7 @@ function add_color_to_words(xml_Document_Content, list_of_words)
                 items[counter] = bufferOfItem
             }
             programming_languages[i].children[j].innerHTML = items.join(">")
+            
             //Undoing the workarounds:
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_/br_)]}", "</br>")
@@ -265,12 +297,12 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
             //workaround for elements that should not be modified:
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
             
-            //Format the text by adding highlights on every finding:
-            
-            //Workaround for the <br> tags
+            //Workaround for the <br> tags so that they will not force writing content within other formated elements
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_/br_)]}")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br/_)]}")
+            
+            //Format the text by adding highlights on every finding:
             
             //Splitting the content aroung any other XML tags
             var items = programming_languages[i].children[j].innerHTML.trim().split(">")
@@ -301,7 +333,7 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                         
                         //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
                         //console.log("indexOfLessThan: " + indexOfLessThan + " indexOfSearchValue " + indexOfSearchValue)
-                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase())
+                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))
                                 && (String(items[counter]).includes("<") == false || indexOfLessThan
                                 > indexOfSearchValue)
                         )
@@ -322,7 +354,15 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                                     
                                     if(value_index+substr_word_index < values.length)
                                     {
-                                        string_val.push(String(values[value_index+substr_word_index]).replaceAll(",", ""));
+                                        //Ignore some of the punctuation signs and newline character
+                                        
+                                        //order of the statements is important as the bigger strings with punctuation marks should be first otherwise webkitURL
+                                        //risk removing single punctuation signs before matching the bigger pairs
+                                        
+                                        string_val.push(String(values[value_index+substr_word_index]).replaceAll("{[(_br_)]}", ""));
+                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_/br_)]}", "");
+                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_br/_)]}", "");
+                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(",", "");
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(".", "");
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("!", "");
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("?", "");
@@ -331,14 +371,18 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll('"', "");
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("(", "");
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(")", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_br_)]}", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_/br_)]}", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_br/_)]}", "");
+
                                         string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("\n", "");
-                                        //if found exactly the same word or its plural form
+                                        
+                                        /*If a tag is following it, get only the part outside of the tag*/
+                                        string_val[string_val.length-1] = string_val[string_val.length-1].split("<")[0];
+                                        
+                                        //if found exactly the same word or its plural form, or past tense verb form or noun derivated form
                                         if(string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() || 
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "s" || 
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "r" || 
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "es" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "er" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "d" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ed" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ly" || 
@@ -346,7 +390,24 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "able" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ness" ||
                                             string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "al" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ing" 
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ing" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ion" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ation" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ability" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ance" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ism" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "or" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ive" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "al" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ing" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "able" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ion" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ation" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ability" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ance" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ism" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "or" ||
+                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ive" 
                                             )
                                         {
                                             //Nothing to do, check goes on
@@ -382,6 +443,7 @@ function add_color_to_substrings(xml_Document_Content, list_of_words)
                 items[counter] = bufferOfItem
             }
             programming_languages[i].children[j].innerHTML = items.join(">")
+            
             //Undoing the workarounds:
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
             programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_/br_)]}", "</br>")
