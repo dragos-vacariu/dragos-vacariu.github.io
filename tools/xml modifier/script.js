@@ -5,14 +5,14 @@ const red_colored_substr = {keyword: [
     
     /*Multiple words should be first section*/
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
-    "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "pseudo-random",
+    "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line",
 
     /*Single words should be second section*/ 
     "generic", "template", "procedure", "function", "class", "subclass", "malloc", "calloc", "object", "orient", "system", "contruct",
     "instance", "instantiate", "macro", "commandline", "construct", "destruct", "partial", "virtual", "recurse", "parent", "child", "children", 
     "argument", "parameter", "preprocess", "directive", "module", "interface", "setter", "getter", "encapsulate", "oop", "concrete", "implement",
     "recurrent", "polymorphic", "exception", "random", "prototype", "variadic", "overload", "override", "method", "decor", "scope", "pure", 
-    "base", "programming", "concurrent", "compute", "language", "abstract", "reflect", "polymorph", "seal",
+    "base", "programming", "concurrent", "compute", "language", "abstract", "reflect", "polymorph", "seal", "pseudo",
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
     "git", "re"], color: "red"};
@@ -39,9 +39,9 @@ const purple_colored_substr = {keyword: [
 const azure_colored_substr = {keyword: [
     
     /*Multiple words should be first section*/
-    "for loop", "do while loop", "do-while loop", "while loop", "foreach loop", "for each loop", "for-each loop", "single-thread", "multi-thread", 
+    "for loop", "do while loop", "while loop", "foreach loop", "for each loop", "for-each loop", "single-thread", "multi-thread", "critical section",
      "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
-    "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "front-end", "back-end",  "low-level", "high-level",
+    "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "back-end", "front-end",
     
     /*Single words should be second section*/
     "overflow", "underflow", "thread", "multiprocess", "loop", "lifo", "fifo", "allow", "script", "quantity", "primitive",
@@ -53,7 +53,7 @@ const azure_colored_substr = {keyword: [
     "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
     "compare", "allocat", "search", "update", "slice", "derive"], color: "azure"};
 
-//const test = {keyword: ["re"], color: "azure"};
+//const test = {keyword: ["command-line"], color: "azure"};
 
 const keyword_color_set = {keyword: ["\nint ", " int ", "int/n"], color: "cyan"}
 
@@ -188,25 +188,31 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                 
                 //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
                 
-                if( (String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase())
-                        || (String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))) 
+                if( (String(items[counter]).toLowerCase().replaceAll("-", " ").includes(String(list_of_words.keyword[word_index]).toLowerCase()) ||
+                     String(items[counter]).toLowerCase().replaceAll("/", " ").includes(String(list_of_words.keyword[word_index]).toLowerCase()) ||
+                            (String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))) 
                             && String(list_of_words.keyword[word_index]).length > 2 )
                     && (String(items[counter]).includes("<") == false || indexOfLessThan
                     > indexOfSearchValue)
                 )
                 {              
-                    var values = String(bufferOfItem).replaceAll("/", " #/ "); //this make words separated by / become processable
-                    values = values.replaceAll("-", " #- "); //this make words separated by - become processable
+                    //console.log("Check goes on");
+                    
+                    /*Adding special tokens and splitting up the string into list of words*/
+                    var values = String(bufferOfItem).replaceAll("/", "#/ "); //this make words separated by / become processable
+                    values = values.replaceAll("-", "#- "); //this make words separated by - become processable
                     values = values.split(" ")
                     
-                    var substring_words = String(list_of_words.keyword[word_index]).replaceAll("/", " #/ ");
-                    substring_words = substring_words.replaceAll("-", " #- ");
+                    /*Adding special tokens and splitting up the string into list of words*/
+                    var substring_words = String(list_of_words.keyword[word_index]).replaceAll("/", " ");
+                    substring_words = substring_words.replaceAll("-", " ");
                     substring_words = substring_words.split(" ");
                     //substring_words = [...new Set(substring_words)] /*ensuring we have only unique words*/
                     
                     for(var value_index = 0; value_index < values.length; value_index++)
                     {
                         var string_val = []
+                        
                         //For each word in the substring check if it matches
                         for(var substr_word_index = 0; substr_word_index < substring_words.length; substr_word_index++)
                         {
@@ -231,8 +237,12 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                                 string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll('"', "");
                                 string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("(", "");
                                 string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(")", "");
-
+                                
                                 string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("\n", "");
+                                
+                                /*Removing special tokens*/
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("#/", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("#-", "");
                                 
                                 /*If a tag is following it, get only the part outside of the tag*/
                                 string_val[string_val.length-1] = string_val[string_val.length-1].split("<")[0];
@@ -242,8 +252,6 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                                 
                                 //if found exactly the same word or its plural form, or past tense verb form or noun derivated form
                                 if(string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() || 
-                                        (String(substring_words[substr_word_index]).toLowerCase().length > 2 && ( 
-                                        /*if length of searched word is bigger than 2 we will look for derivatives*/
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "s" || 
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "'s" || 
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "r" || 
@@ -271,6 +279,9 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ors" ||
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ar" ||
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ive" ||
+                                        
+                                        (String(substring_words[substr_word_index]).toLowerCase().length > 2 && ( 
+                                        /*if length of searched word is bigger than 2 we will look for derivatives*/
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ies" ||
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ied" ||
                                         string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "al" ||
@@ -305,9 +316,10 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                                     //console.log("Found : " + substring_words.join(" "))
                                     
                                     /*will enter here at the end of last iteration if the validation was successful*/
-                                    for(var i=value_index; i<value_index+substr_word_index+1; i++)
+                                    for(var i=0; i<string_val.length; i++)
                                     {
-                                        values[i] = values[i].replace(string_val[0], "<" + list_of_words.color + ">" + string_val[0] + "</" + list_of_words.color + ">");
+                                        
+                                        values[i+value_index] = values[i+value_index].replace(string_val[i], "<" + list_of_words.color + ">" + string_val[i] + "</" + list_of_words.color + ">");
                                     }
                                     
                                 }
@@ -321,9 +333,12 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
                         }
                         
                     }
+                    values.join(" ");
                     bufferOfItem = values.join(" ");
-                    bufferOfItem = bufferOfItem.replaceAll(" #/ ", "/");
-                    bufferOfItem = bufferOfItem.replaceAll(" #- ", "-");
+                    
+                    //Replace back the special tokens to their initial values.
+                    bufferOfItem = bufferOfItem.replaceAll("#/ ", "/");
+                    bufferOfItem = bufferOfItem.replaceAll("#- ", "-");
                 }
             }
         }

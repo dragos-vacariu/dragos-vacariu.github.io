@@ -188,11 +188,11 @@
             <br/><br/>
             <green>There are several fundamentally different kinds of polymorphism:</green>
             <br/><br/>
-            <red>Ad</red> hoc <red>polymorphism</red>: when a <red>function</red> has different <red>implementations</red> 
+            <red>Ad</red> <red>hoc</red> <red>polymorphism</red>: when a <red>function</red> has different <red>implementations</red> 
             depending on a limited range of individually specified <purple>types</purple> 
             and combinations. 
             <br/><br/>
-            <red>Ad</red> hoc <red>polymorphism</red>: is supported in many <red>languages</red> using 
+            <red>Ad</red> <red>hoc</red> <red>polymorphism</red>: is supported in many <red>languages</red> using 
             <red>function</red> <red>overloading</red>.
             <br/><br/>
             <red>Parametric</red> <red>polymorphism</red>: when the <azure>code</azure> is written without 
@@ -221,67 +221,67 @@
             <br/><br/>
             <code>short int</code><br/>
             - has <purple>value</purple> range <code>[-32,768 to 32,767]</code>;<br/>
-            - <purple>format</purple> specifier <code>%hd</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%hd</code>;<br/>
             - occupies <code>2 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>unsigned short int</code><br/>
             - has <purple>value</purple> range <code>[-32,768 to 65,535]</code>;<br/>
-            - <purple>format</purple> specifier <code>%hu</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%hu</code>;<br/>
             - occupies <code>2 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>unsigned int</code><br/>
             - has <purple>value</purple> range <code>[0 to 4,294,967,295]</code>;<br/>
-            - <purple>format</purple> specifier <code>%u</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%u</code>;<br/>
             - occupies <code>4 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>int</code><br/>
             - has <purple>value</purple> range <code>[-2,147,483,648 to 2,147,483,647]</code>;<br/>
-            - <purple>format</purple> specifier <code>%d</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%d</code>;<br/>
             - occupies <code>4 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>long int</code><br/> 
             - has <purple>value</purple> range <code>[-2,147,483,648 to 2,147,483,647]</code>;<br/>
-            - <purple>format</purple> specifier <code>%ld</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%ld</code>;<br/>
             - occupies <code>4 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>unsigned long int</code><br/>
             - has <purple>value</purple> range <code>[0 to 4,294,967,295 ]</code>;<br/>
-            - <purple>format</purple> specifier <code>%lu</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%lu</code>;<br/>
             - occupies <code>4 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>long long int</code><br/>
             - has <purple>value</purple> range <code>[-(2^63) to (2^63)-1]</code>;<br/>
-            - <purple>format</purple> specifier <code>%lld</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%lld</code>;<br/>
             - occupies <code>8 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>unsigned long long int</code><br/>
             - has <purple>value</purple> range <code>[-(2^63) to 18,446,744,073,709,551,615 ]</code>;<br/>
-            - <purple>format</purple> specifier <code>%llu</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%llu</code>;<br/>
             - occupies <code>8 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>signed char</code><br/>
             - has <purple>value</purple> range <code>[-128 to 127]</code>;<br/>
-            - <purple>format</purple> specifier <code>%c</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%c</code>;<br/>
             - occupies <code>1 byte</code> <azure>memory</azure>;
             <br/><br/>
             <code>unsigned char</code><br/>
             - has <purple>value</purple> range <code>[0 to 255]</code>;<br/>
-            - <purple>format</purple> specifier <code>%c</code><br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%c</code><br/>
             - occupies <code>1 byte</code> <azure>memory</azure>;
             <br/><br/>
             <code>float</code><br/>
             - has <purple>value</purple> range <code>[1.2E-38 to 3.4E+38]</code>;<br/>
-            - <purple>format</purple> specifier <code>%f</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%f</code>;<br/>
             - occupies <code>4 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>double</code><br/>
             - has <purple>value</purple> range <code>[1.7E-308 to 1.7E+308]</code>;<br/>
-            - <purple>format</purple> specifier <code>%lf</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%lf</code>;<br/>
             - occupies <code>8 bytes</code> <azure>memory</azure>;
             <br/><br/>
             <code>long double</code><br/>
             - has <purple>value</purple> range <code>[3.4E-4932 to 1.1E+4932]</code>;<br/>
-            - <purple>format</purple> specifier <code>%Lf</code>;<br/>
+            - <purple>format</purple> <purple>specifier</purple> <code>%Lf</code>;<br/>
             - occupies <code>16 bytes</code> <azure>memory</azure>;</simple-data-types>
         <complex-data-types>In <red>Programming</red>, a <purple>data</purple> <purple>type</purple> is an <purple>attribute</purple> associated with a 
             piece of <purple>data</purple> that tells a <red>computer</red> <red>system</red> how to 
@@ -369,22 +369,22 @@
             When the test <azure>condition</azure> will be <purple>false</purple> the <azure>loop</azure> will exit.
             <br/><br/>
             
-            <red>Initialization</red> Expression: In this expression, we <purple>assign</purple> a <azure>loop</azure> <purple>variable</purple> 
+            <red>Initialization</red> <red>Expression</red>: In this expression, we <purple>assign</purple> a <azure>loop</azure> <purple>variable</purple> 
             or <azure>loop</azure> <azure>counter</azure> to some <purple>value</purple>. <br/>
             Example: <code>int counter=1;</code>
             <br/><br/>
             
-            <red>Test</red> Expression: In this expression, test <azure>conditions</azure> are performed.
+            <red>Test</red> <red>Expression</red>: In this expression, test <azure>conditions</azure> are performed.
             <br/>            
             If the <azure>condition</azure> evaluates to <purple>true</purple> then the <azure>loop</azure> body will be executed and 
             then an <azure>update</azure> of the <azure>loop</azure> <purple>variable</purple> is done. 
             <br/>
-            If the <red>test</red> expression becomes 
+            If the <red>test</red> <red>expression</red> becomes 
             <purple>false</purple> then the control will exit from the <azure>loop</azure>. <br/>
             Example: <code>counter&lt;5;</code>
             <br/><br/>
             
-            <red>Update</red> Expression: After execution of the <azure>loop</azure> body <azure>loop</azure> <purple>variable</purple> is <azure>updated</azure> 
+            <red>Update</red> <red>Expression</red>: After execution of the <azure>loop</azure> body <azure>loop</azure> <purple>variable</purple> is <azure>updated</azure> 
             by some <purple>value</purple>. <br/>
             It could be <purple>incremented</purple>, <purple>decremented</purple>, multiplied, or divided by 
             any <purple>value</purple>. <br/>
@@ -556,7 +556,7 @@
             <azure>threads</azure> <azure>simultaneously</azure>, 
             utilizing multiple <azure>processing</azure> units available in today's <red>computer</red> <red>systems</red>.
             <br/><br/>
-            <azure>Non</azure>-determinism: Due to the unpredictable order of execution, 
+            <azure>Non</azure>-<azure>determinism</azure>: Due to the unpredictable order of execution, 
             <red>concurrent</red> programs can 
             give different results on different <azure>runs</azure>, making debugging and testing more complex. 
             This concept arises from the uncertain order in which <azure>threads</azure> 
@@ -590,7 +590,7 @@
             when an event happens.
             <br/><br/>
             Similar to <azure>processes</azure>, a <azure>thread</azure> has its own program 
-            <azure>counter</azure> (PC), a <purple>register</purple> <purple>set</purple>, and a <purple>stack</purple> space.
+            <azure>counter</azure> (PC), a <purple>register</purple> <purple>set</purple>, and a <purple>stack</purple> <purple>space</purple>.
             <br/><br/>
             The program <azure>counter</azure> (also called "instruction <purple>pointer</purple>") is 
             part of the hardware; more specifically, it's a <azure>processor</azure> <purple>register</purple>. 
@@ -639,7 +639,7 @@
             perspective, these <azure>tasks</azure> are not <azure>simultaneous</azure>. The <azure>CPU</azure> has to switch the 
             <azure>thread</azure>
             between the <azure>tasks</azure> on every few microseconds, therefore
-            moving its hand from doing one thing to doing the other thing so fast that a real person 
+            moving its hand from doing one thing to doing the other thing so fast that a <red>real</red> person 
             would not be able to notice any difference. <br/>
             Example: the music doesn't stop playing when 
             <azure>writing</azure> the keyboard. 
@@ -685,9 +685,9 @@
             <azure>Process</azure> <azure>Synchronization</azure> and <azure>Thread</azure> <azure>Synchronization</azure> 
             are two mechanism defined for <red>concurrent</red> <red>programming</red> in order to ensure 
             that two or more <red>concurrent</red> <azure>processes</azure>/<azure>threads</azure> do not <azure>simultaneously</azure> execute 
-            some particular program segment known as critical section.
+            some particular program segment known as <azure>critical</azure> <azure>section</azure>.
             <br/><br/>
-            A critical section refers to the parts of the 
+            A <azure>critical</azure> <azure>section</azure> refers to the parts of the 
             program where the <azure>shared</azure> resources are being accessed by different 
             <azure>threads</azure>/<azure>processes</azure>. So the 2 workers or the 2 hands 
             working on the same <azure>task</azure> collide to each other.
@@ -730,7 +730,7 @@
             <azure>creates</azure> a separate <purple>address</purple> space for each <azure>process</azure>.
             <br/><br/>
             In <azure>multiprocessing</azure> each <azure>process</azure> has its own <azure>memory</azure> 
-            <purple>address</purple> space (<purple>stack</purple> <azure>memory</azure>). So when <purple>returning</purple> a <purple>value</purple>
+            <purple>address</purple> space (<purple>stack</purple> <purple>memory</purple>). So when <purple>returning</purple> a <purple>value</purple>
             from a <azure>process</azure>, the <purple>value</purple> <purple>returned</purple> will not be 
             seen by the rest of the program unless it is <azure>saved</azure> in a <purple>file</purple>, in a 
             <azure>shared</azure> <azure>memory</azure> <purple>address</purple>, or in a message pipe, 
@@ -746,7 +746,7 @@
             up the program even more.
             <br/><br/>
             <azure>Creating</azure> multiple <azure>processes</azure> is costly <azure>compare</azure> to <azure>threads</azure>. 
-            Since for each <azure>process</azure> there is <azure>allocated</azure> another <purple>stack</purple> <azure>memory</azure> 
+            Since for each <azure>process</azure> there is <azure>allocated</azure> another <purple>stack</purple> <purple>memory</purple> 
             space.
             <br/><br/>
             <azure>Multithreading</azure> is recommended for IO (input/output) <purple>operations</purple> such as: 
@@ -774,13 +774,13 @@
             Meaning that <azure>threads</azure> can communicate with each other more easily 
             than <azure>processes</azure> can.
             <br/>
-            8. <azure>Creating</azure> <azure>responsive</azure> user interactions (UIs) is easy.
+            8. <azure>Creating</azure> <azure>responsive</azure> user interactions (<azure>UIs</azure>) is easy.
             <br/><br/>
             <green>Disadvantages of multithreading:</green>
             <br/><br/>
             1. A <azure>multithreading</azure> <red>system</red> cannot be interrupted/killed. Special attention has to
-            be paid to <azure>memory</azure> leaks.
-            A <azure>memory</azure> leak occurs when programmers allocate <azure>memory</azure> on 
+            be paid to <azure>memory</azure> <azure>leaks</azure>.
+            A <azure>memory</azure> <azure>leak</azure> occurs when programmers allocate <azure>memory</azure> on 
             the <purple>heap</purple> and forget to deallocate it.<br/>
             2. The <azure>code</azure> can be more challenging to understand.<br/>
             3. The <azure>overhead</azure> associated with managing different 
@@ -989,10 +989,10 @@
             The <red>macros</red> are the <purple>identifiers</purple> which are <azure>replaced</azure> by their <purple>value</purple> before 
             <red>compilation</red>. <br/><br/>
             We can define <purple>constants</purple> and <red>functions</red> like <red>macros</red> using <code>#define</code>.</defines>
-        <command-line-arguments><red>Command</red>-line <red>arguments</red> are passed to the main <red>function</red> 
+        <command-line-arguments><red>Command</red>-<red>line</red> <red>arguments</red> are passed to the main <red>function</red> 
             as (<code>argc</code>, <code>argv</code>), or (<code>args</code>). 
             <br/>
-            <red>Command</red>-line <red>arguments</red> are used to control the program from 
+            <red>Command</red>-<red>line</red> <red>arguments</red> are used to control the program from 
             the outside.
             <br/><br/>
             <green>For C/C++:</green>
@@ -1001,11 +1001,11 @@
             used for this purpose as follows:
             <br/><br/>
             The name of the program is 
-            <azure>stored</azure> in <code>argv[0]</code>, the first <red>command</red>-line <red>parameter</red> in <code>argv[1]</code>, 
+            <azure>stored</azure> in <code>argv[0]</code>, the first <red>command</red>-<red>line</red> <red>parameter</red> in <code>argv[1]</code>, 
             and the    last <red>argument</red> in <code>argv[n]</code>.
             <br/><br/>
             <code>argc</code> - <red>argument</red> <azure>count</azure> is an <purple>integer</purple> <purple>variable</purple> that <azure>stores</azure>
-            the number of <red>command</red>-line 
+            the number of <red>command</red>-<red>line</red> 
             <red>arguments</red> passed by the user including the name of the program. 
             So if we pass a 
             <purple>value</purple> to a program, the <purple>value</purple> of <code>argc</code> would be 2 
@@ -1023,21 +1023,21 @@
             <code>argv[0]</code> is the name of the program. 
             <br/><br/>
             After that until <code>argv[argc-1]</code> every element 
-            is a <red>command</red>-line <red>argument</red>.
+            is a <red>command</red>-<red>line</red> <red>argument</red>.
             <br/><br/>
             <brown>Properties of command-line arguments in C/C++:</brown>
             <br/><br/>
             
             <code>argv[argc]</code> is a <purple>NULL</purple> <purple>pointer</purple>.<br/>
             <code>argv[0]</code> holds the name of the program.<br/>
-            <code>argv[1]</code> <purple>points</purple> to the first <red>command</red>-line <red>argument</red> and <code>argv[argc-1]</code> <purple>points</purple> to 
+            <code>argv[1]</code> <purple>points</purple> to the first <red>command</red>-<red>line</red> <red>argument</red> and <code>argv[argc-1]</code> <purple>points</purple> to 
                 the last <red>argument</red>.
             
             <br/><br/>
             <green>For Java/C#:</green>
             <br/><br/>
             In <red>programming</red> <red>languages</red> such as: <red>C#</red> and <red>Java</red>, only one <purple>variable</purple> is used to 
-            <azure>store</azure> the <red>command</red>-line <red>arguments</red>: <code>args</code>
+            <azure>store</azure> the <red>command</red>-<red>line</red> <red>arguments</red>: <code>args</code>
             <br/><br/>
             In these <red>languages</red> <code>args</code> is declared as an <purple>array</purple> of 
             <purple>string</purple> 
@@ -1173,13 +1173,13 @@
         <datatype-conversions><green>Generally there are two types of conversions:</green>
             <br/><br/>
             
-            - <purple>implicit</purple> conversion (done automatically by the <red>compiler</red>)<br/>
-            - <purple>explicit</purple> conversion (done manually by the developer)<br/>
+            - <purple>implicit</purple> <purple>conversion</purple> (done automatically by the <red>compiler</red>)<br/>
+            - <purple>explicit</purple> <purple>conversion</purple> (done manually by the developer)<br/>
             
             <br/>
-            <purple>Implicit</purple> conversion is done automatically by the <red>compiler</red> when you <purple>assign</purple> a <purple>value</purple> 
+            <purple>Implicit</purple> <purple>conversion</purple> is done automatically by the <red>compiler</red> when you <purple>assign</purple> a <purple>value</purple> 
             of one <purple>type</purple> to another.<br/><br/>
-            <purple>Explicit</purple> conversion is done manually by placing the <purple>type</purple> in parentheses <code>()</code> in front 
+            <purple>Explicit</purple> <purple>conversion</purple> is done manually by placing the <purple>type</purple> in parentheses <code>()</code> in front 
             of the <purple>value</purple>. Also knows as <purple>typecasting</purple>. 
             <br/></datatype-conversions>
         <operators>An <purple>operator</purple> is a symbol that tells the <red>compiler</red> to perform specific <purple>mathematical</purple> or 
@@ -1476,13 +1476,13 @@
             encounters during its execution. 
             <br/><br/>
             The <azure>process</azure> of handling these <red>exceptions</red> is 
-            called <red>exception</red> handling. <br/>
+            called <red>exception</red> <red>handling</red>. <br/>
             <br/>
-            Using the <red>exception</red> handling mechanism, the control 
+            Using the <red>exception</red> <red>handling</red> mechanism, the control 
             from one part of the program where the <red>exception</red> occurred can be transferred 
             to another part of the <azure>code</azure>.
             <br/><br/>
-            By using <red>exception</red> handling we can handle the anomalies so that our 
+            By using <red>exception</red> <red>handling</red> we can handle the anomalies so that our 
             program keeps running.<br/></exception-handling>
         <default-parameters>A <azure>default</azure> <red>parameter</red>/<red>argument</red> is a <purple>value</purple> provided in a <red>function</red> declaration that is 
             automatically <purple>assigned</purple> by the <red>compiler</red> if the calling <red>function</red> doesn’t provide 
@@ -1577,7 +1577,7 @@
             Advantages of <purple>Data</purple> <red>Abstraction</red>:
             <br/><br/>
             
-            Helps the user to avoid <azure>writing</azure> the <azure>low</azure>-level <azure>code</azure>;<br/>
+            Helps the user to avoid <azure>writing</azure> the <azure>low</azure>-<azure>level</azure> <azure>code</azure>;<br/>
             Avoids <azure>code</azure> duplication and increases <azure>reusability</azure>.<br/>
             Can change the internal <red>implementation</red> of the <code>class</code> <azure>independently</azure> 
             without affecting the user.
@@ -1607,7 +1607,7 @@
             <red>Abstraction</red> provides a clear distinction between the <red>interface</red> 
             of an <red>object</red> and its internal <red>implementation</red>. 
             This separation enables developers to focus on 
-            <azure>high</azure>-level design and promotes <azure>code</azure> <azure>reusability</azure>.
+            <azure>high</azure>-<azure>level</azure> design and promotes <azure>code</azure> <azure>reusability</azure>.
             <br/><br/>
             <red>Concrete</red> <red>implementation</red>, 
             on the other hand, involves the actual <azure>coding</azure> and realization of the <red>abstract</red> 
@@ -1682,7 +1682,7 @@
             <purple>Collections</purple> are used to <azure>store</azure>, <azure>retrieve</azure>, <azure>manipulate</azure>, and communicate 
             aggregate <purple>data</purple>.
             <br/></collections>
-        <read-from-file><purple>File</purple> handling is the <azure>process</azure> in which we <azure>create</azure>, <azure>open</azure>, 
+        <read-from-file><purple>File</purple> <purple>handling</purple> is the <azure>process</azure> in which we <azure>create</azure>, <azure>open</azure>, 
             <azure>read</azure>, <azure>write</azure>, and <azure>close</azure> <purple>operations</purple> on a <purple>file</purple>.
             <br/> <br/> 
             A <purple>file</purple> is a <purple>collection</purple> of <purple>data</purple> <azure>stored</azure> in the secondary <azure>memory</azure>. 
@@ -1709,7 +1709,7 @@
             <br/><br/>
             <indigo>Efficiency:</indigo><br/>
             A large amount of input may be required for some programs. 
-            <purple>File</purple> handling <azure>allows</azure> you to easily access a part of a <purple>file</purple> using few 
+            <purple>File</purple> <purple>handling</purple> <azure>allows</azure> you to easily access a part of a <purple>file</purple> using few 
             instructions which <azure>saves</azure> a lot of time and reduces the chance of errors.
             <br/><br/>
             <indigo>Storage Capacity:</indigo><br/>
@@ -1759,15 +1759,15 @@
             <green>Stack overflow:</green>
             <br/> <br/> 
             <purple>Stack</purple> <azure>overflow</azure> is a <purple>type</purple> of buffer <azure>overflow</azure> error 
-            which occurs when the <purple>stack</purple> <azure>memory</azure> gets exhausted and the <red>computer</red> program 
+            which occurs when the <purple>stack</purple> <purple>memory</purple> gets exhausted and the <red>computer</red> program 
             still tries to use more <azure>memory</azure> space. 
             <br/> <br/> 
-            All local <purple>variables</purple> are <azure>stored</azure> in the <purple>stack</purple> <azure>memory</azure>. 
+            All local <purple>variables</purple> are <azure>stored</azure> in the <purple>stack</purple> <purple>memory</purple>. 
             Every <red>function</red> has it's own <purple>stack</purple>, once the <red>function</red> ends 
             the <purple>stack</purple> is empties and everything <azure>stored</azure> is lost 
             (local <purple>variables</purple> die).
             <br/> <br/> 
-            The overall <purple>stack</purple> <azure>memory</azure> <azure>allocated</azure> by the program is only few megabytes. 
+            The overall <purple>stack</purple> <purple>memory</purple> <azure>allocated</azure> by the program is only few megabytes. 
             That's why in some <red>programming</red> <red>languages</red> we need to make use of 
             <azure>dynamic</azure> <azure>memory</azure> <azure>allocation</azure>. 
             <br/> <br/> 
@@ -1793,7 +1793,7 @@
             <br/><br/>
             A <purple>stack</purple> frame is a <azure>block</azure> of <azure>memory</azure> <purple>assigned</purple> to the <purple>stack</purple> 
             when a <red>function</red> is called, if the <purple>stack</purple> frames exceeds the 
-            <purple>stack</purple> <azure>memory</azure> capacity, the <purple>stack</purple> <azure>overflow</azure> error will occur 
+            <purple>stack</purple> <purple>memory</purple> capacity, the <purple>stack</purple> <azure>overflow</azure> error will occur 
             and will terminate the program.
             <br/></recursion>
         <string-methods>A <purple>string</purple> is a <purple>variable</purple> that holds a <azure>sequence</azure> of 
@@ -1838,7 +1838,7 @@
         <description><red>C</red> is a general-purpose <red>computer</red> <red>programming</red> <red>language</red>.<br/><br/>
             It was <azure>created</azure> in the 1970s by Dennis Ritchie, and remains very widely used and 
             influential. <br/><br/>
-            By design, C's features cleanly <red>reflect</red> the 
+            By design, <red>C's</red> features cleanly <red>reflect</red> the 
             capabilities of the targeted <azure>CPUs</azure>. It has found lasting use in <purple>operating</purple> 
             <red>systems</red>, device drivers, and protocol <purple>stacks</purple>, but its use in application 
             software has been decreasing. <br/><br/>
@@ -2052,7 +2052,7 @@
         <read-from-file>*General-Programming-Knowledge*
             <green>File handling in C:</green>
             <br/><br/>
-            <red>C</red> <red>programming</red> <red>language</red> supports four <red>pre</red>-defined <red>functions</red> to 
+            <red>C</red> <red>programming</red> <red>language</red> supports four <red>pre</red>-<red>defined</red> <red>functions</red> to 
             <azure>read</azure> contents from a <purple>file</purple>, defined in <code>stdio.h</code> <azure>header</azure> <purple>file</purple>:
             <br/><br/>
             <code>fgetc()</code><br/>
@@ -2241,7 +2241,7 @@
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">fclose(fptr);</td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr></table></box></code></write-to-file>
         <serialization>*General-Programming-Knowledge*
-            <red>C</red> and <red>C++</red> do not provide <azure>serialization</azure> as any sort of <azure>high</azure>-level <red>construct</red>, 
+            <red>C</red> and <red>C++</red> do not provide <azure>serialization</azure> as any sort of <azure>high</azure>-<azure>level</azure> <red>construct</red>, 
             but both <red>languages</red> support <azure>writing</azure> any of the built-in <purple>data</purple> <purple>types</purple>, as well as 
             plain old <purple>data</purple> <purple>structs</purple>, as <purple>binary</purple> <purple>data</purple>. 
             <br/><br/>
@@ -2249,7 +2249,7 @@
             <br/></serialization>
         <deserialization>*General-Programming-Knowledge*
             <br/>
-            <red>C</red> and <red>C++</red> do not provide <azure>serialization</azure> as any sort of <azure>high</azure>-level <red>construct</red>, 
+            <red>C</red> and <red>C++</red> do not provide <azure>serialization</azure> as any sort of <azure>high</azure>-<azure>level</azure> <red>construct</red>, 
             but both <red>languages</red> support <azure>writing</azure> any of the built-in <purple>data</purple> <purple>types</purple>, as well as 
             plain old <purple>data</purple> <purple>structs</purple>, as <purple>binary</purple> <purple>data</purple>. 
             <br/><br/>
@@ -2330,7 +2330,7 @@
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr></table></box></code></concurrent-programming>
         <exception-handling><red>C</red> does not provide direct support to 
-            <red>error</red> handling (or <red>exception</red> handling).</exception-handling>
+            <red>error</red> <red>handling</red> (or <red>exception</red> <red>handling</red>).</exception-handling>
         <bitwise-operators>*General-Programming-Knowledge*
             <br/>
 <code><box><table><tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr>
@@ -2825,12 +2825,12 @@
     
     <programming_language>
         <name>C++</name>
-        <description><red>C++</red> is a <azure>high</azure>-level, general-purpose <red>programming</red> <red>language</red> 
+        <description><red>C++</red> is a <azure>high</azure>-<azure>level</azure>, general-purpose <red>programming</red> <red>language</red> 
             <azure>created</azure> by Danish <red>computer</red> scientist Bjarne Stroustrup. <br/><br/>
             First released in 1985 as an extension of the <red>C</red> <red>programming</red> <red>language</red>, 
             it has since expanded significantly over time; as of 1997, <red>C++</red> has <red>object</red>-<red>oriented</red>, 
             <red>generic</red>, and <red>functional</red> features. <br/>
-            In addition to facilities for <azure>low</azure>-level <azure>memory</azure> 
+            In addition to facilities for <azure>low</azure>-<azure>level</azure> <azure>memory</azure> 
             <azure>manipulation</azure> for making things like microcomputers or to make <purple>operating</purple> <red>systems</red> 
             like Linux or Windows. <br/><br/>
             
@@ -3317,7 +3317,7 @@
             Additional to the C language: 
             </green>
             <br/><br/>
-            Additional to the <azure>loops</azure> presented in <red>C</red> <red>language</red>, there is also a "<azure>for</azure>-each <azure>loop</azure>" 
+            Additional to the <azure>loops</azure> presented in <red>C</red> <red>language</red>, there is also a "<azure>for</azure>-<azure>each</azure> <azure>loop</azure>" 
             (introduced in <red>C++</red> version 11 (2011), which is used exclusively to <azure>loop</azure> through 
             elements in an <purple>array</purple> (or other <purple>data</purple> <purple>sets</purple>):
 <code><box><table><tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr>
@@ -3915,9 +3915,9 @@
             <br/><br/>
             In <red>C</red>, an <purple>enum</purple> is basically a way to alias names to <purple>integers</purple>. 
             This does not lead to 
-            improved <red>type</red> checking. <br/>
+            improved <red>type</red> <red>checking</red>. <br/>
             In <red>C++</red>, an <purple>enum</purple> defines an actual <purple>type</purple>, which results in 
-            strong <red>type</red> checking.<br/>
+            strong <red>type</red> <red>checking</red>.<br/>
 <code><box><table><tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;iostream&gt; </td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;conio.h&gt; </td></tr>
@@ -4669,7 +4669,7 @@
     
     <programming_language>
         <name>C#</name>
-        <description><red>C#</red> is a general-purpose <azure>high</azure>-level <red>programming</red> <red>language</red> supporting multiple 
+        <description><red>C#</red> is a general-purpose <azure>high</azure>-<azure>level</azure> <red>programming</red> <red>language</red> supporting multiple 
             paradigms. <red>C#</red> encompasses <purple>static</purple> <purple>typing</purple>, strong <purple>typing</purple>, 
             lexically <red>scoped</red>, imperative, declarative, 
             <red>functional</red>, <red>generic</red>, <red>object</red>-<red>oriented</red> (<red>class</red>-<red>based</red>), 
@@ -5305,7 +5305,7 @@
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>72  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>73  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr></table></box></code>
             
-  <code>Stack</code> is a <purple>collection</purple> that uses the principle <azure>LIFO</azure> - <azure>Last</azure> In First Out, 
+  <code>Stack</code> is a <purple>collection</purple> that uses the principle <azure>LIFO</azure> - <azure>Last</azure> <azure>In</azure> <azure>First</azure> <azure>Out</azure>, 
   and which can be accessed and handled similarly to a <purple>list</purple>.
   <br/><br/>
   Once an element gets <azure>retrieved</azure> from the <code>Stack</code> that <red>object</red> will be <purple>removed</purple>, 
@@ -6149,7 +6149,7 @@
              <br/><br/>
              5. When a <red>class</red> provides <red>implementation</red> of an <code>interface</code> <red>function</red> <purple>member</purple>, 
              it also needs to make the <purple>member</purple> <red>function</red> <code>public</code>. 
-             (The <code>public</code> <azure>access</azure> modifier must be used.)
+             (The <code>public</code> <azure>access</azure> <azure>modifier</azure> must be used.)
              <br/><br/>
              6. A <code>class</code> or <code>struct</code> can <red>inherit</red> from MORE <red>interfaces</red> 
              at the same time. 
@@ -6736,7 +6736,7 @@
              and assembly.<br/><br/>
              3. All the parts must use the <red>partial</red> keyword in their declaration.
              <br/><br/>
-             4. All the parts must use the same <azure>access</azure> modifier in their declaration.
+             4. All the parts must use the same <azure>access</azure> <azure>modifier</azure> in their declaration.
              <br/><br/>
              5. If any of the parts is declared as <red>abstract</red>, the entire <red>class</red> will be 
              <red>abstract</red> (even if only a part was declared <red>abstract</red>).
@@ -6939,7 +6939,7 @@
              cannot.
              <br/><br/>
              An <red>abstract</red> <red>class</red> can use the (<purple>public</purple>) 
-            <azure>access</azure> modifiers whereas an <red>interface</red> cannot. 
+            <azure>access</azure> <azure>modifiers</azure> whereas an <red>interface</red> cannot. 
             <br/><br/>
             An <red>interface</red> can be <red>inherited</red> only from another <red>interface</red>, 
             while an <red>abstract</red> <red>class</red>
@@ -7125,7 +7125,7 @@
             These engines are also utilized in some <azure>servers</azure> and a variety of apps. The most 
             popular runtime <red>system</red> for non-browser usage is Node.js.
             <br/><br/>
-            <red>JavaScript</red> is a <azure>high</azure>-level, often just-in-time 
+            <red>JavaScript</red> is a <azure>high</azure>-<azure>level</azure>, often just-in-time 
             <red>compiled</red> <red>language</red> that conforms 
             to the ECMAScript standard. It has <azure>dynamic</azure> <purple>typing</purple>, <red>prototype</red>-<red>based</red>
             <red>object</red>-<red>orientation</red>, and first-<red>class</red> <red>functions</red>. It is 
@@ -7133,7 +7133,7 @@
             supporting event-driven, <red>functional</red>, and imperative 
             <red>programming</red> styles. 
             It has application <red>programming</red> <red>interfaces</red> (<purple>APIs</purple>) for working with text, dates, 
-            <azure>regular</azure> expressions, standard <purple>data</purple> <purple>structures</purple>, and the Document <red>Object</red> Model (DOM).
+            <azure>regular</azure> <azure>expressions</azure>, standard <purple>data</purple> <purple>structures</purple>, and the Document <red>Object</red> Model (DOM).
             <br/><br/>
             
             Difference between <red>JavaScript</red> and <red>PHP</red> is that 
@@ -7151,8 +7151,8 @@
             While in case of <red>JavaScript</red> the action completes almost instantaneos.
             <br/><br/>
             
-            <red>PHP</red> is a <azure>back</azure>-end development <red>language</red> (related to the <azure>server</azure>), <red>JavaScript</red> is a 
-            <azure>front</azure>-end development <red>language</red> related to the client <red>computer</red>/machine.
+            <red>PHP</red> is a <azure>back</azure>-<azure>end</azure> development <red>language</red> (related to the <azure>server</azure>), <red>JavaScript</red> is a 
+            <azure>front</azure>-<azure>end</azure> development <red>language</red> related to the client <red>computer</red>/machine.
             <br/><br/>
             
             <brown>Vanilla JavaScript is a synonymous with pure or plain JavaScript.</brown> 
@@ -7196,7 +7196,7 @@
             This makes <red>React</red> a powerful choice for scalable and <azure>maintainable</azure> applications, 
             utilizing <red>modular</red> and <azure>reusable</azure> components.
             <br/><br/>
-            <red>React</red> Native brings the <red>React</red> <red>programming</red> paradigm to platforms like Android and iOS.
+            <red>React</red> <red>Native</red> brings the <red>React</red> <red>programming</red> paradigm to platforms like Android and iOS.
             <br/><br/>
             <green>Vue.js</green>
             <br/><br/>
@@ -7245,7 +7245,7 @@
             <br/><br/>
             <green>TypeScript</green>
             <br/><br/>
-            <red>TypeScript</red> is a free and <azure>open</azure>-<azure>source</azure> <azure>high</azure>-level <red>programming</red> <red>language</red> developed by Microsoft 
+            <red>TypeScript</red> is a free and <azure>open</azure>-<azure>source</azure> <azure>high</azure>-<azure>level</azure> <red>programming</red> <red>language</red> developed by Microsoft 
             that <azure>adds</azure> <purple>static</purple> <purple>typing</purple> with optional <purple>type</purple> annotations to <red>JavaScript</red>.
             <br/><br/>
             <red>TypeScript</red> may be used to develop <red>JavaScript</red> applications for both client-side and 
@@ -7775,7 +7775,7 @@
             For example, <red>TypeScript</red> will report an error when passing a <code>string</code> into a 
             <red>function</red> that expects a number. <red>JavaScript</red> will not do that.
             <br/><br/>
-            <red>TypeScript</red> uses <red>compile</red> time <red>type</red> checking. Which means it checks if the 
+            <red>TypeScript</red> uses <red>compile</red> time <red>type</red> <red>checking</red>. Which means it checks if the 
             specified <purple>types</purple> <azure>match</azure> 
             before running the <azure>code</azure>, not while running the <azure>code</azure>.
             <br/><br/>
@@ -7915,7 +7915,7 @@
             In order to <azure>add</azure> <purple>static</purple> <purple>typing</purple> so that <red>JavaScript</red> can work with 
             <purple>data</purple> <purple>types</purple>, the <red>TypeScript</red> was introduced. 
             <br/><br/>
-            <red>TypeScript</red> is a free and <azure>open</azure>-<azure>source</azure> <azure>high</azure>-level <red>programming</red> <red>language</red> developed by 
+            <red>TypeScript</red> is a free and <azure>open</azure>-<azure>source</azure> <azure>high</azure>-<azure>level</azure> <red>programming</red> <red>language</red> developed by 
             Microsoft that <azure>adds</azure> <purple>static</purple> <purple>typing</purple> with optional <purple>type</purple> annotations to <red>JavaScript</red>.
             <br/><br/>
             Example of using <red>TypeScript</red> <purple>data</purple>-<purple>types</purple>:
@@ -8671,7 +8671,7 @@
     
     <programming_language>
         <name>Java</name>
-        <description><red>Java</red> is a <azure>high</azure>-level, <red>class</red>-<red>based</red>, <red>object</red>-<red>oriented</red> 
+        <description><red>Java</red> is a <azure>high</azure>-<azure>level</azure>, <red>class</red>-<red>based</red>, <red>object</red>-<red>oriented</red> 
             <red>programming</red> <red>language</red> that is 
             designed to have as few <red>implementation</red> dependencies as possible.
             <br/><br/>
@@ -8683,7 +8683,7 @@
             <red>Java</red> applications are typically <red>compiled</red> to bytecode that can <azure>run</azure> on any 
             <red>Java</red> <red>virtual</red> machine (JVM) regardless of the 
             underlying <red>computer</red> architecture. The syntax of <red>Java</red> is similar to <red>C</red> and <red>C++</red>, 
-            but has fewer <azure>low</azure>-level facilities than either of them. 
+            but has fewer <azure>low</azure>-<azure>level</azure> facilities than either of them. 
             The <red>Java</red> runtime provides 
             <azure>dynamic</azure> capabilities (such as <red>reflection</red> and runtime <azure>code</azure> 
             modification) that are typically not available in traditional <red>compiled</red> <red>languages</red>.</description>
@@ -9511,7 +9511,7 @@
             <brown>Stacks</brown>
             <br/><br/>
             <purple>Stack</purple> is a <red>subclass</red> of <purple>Vector</purple> that <red>implements</red> the <azure>LIFO</azure> standard 
-            (last-in first-out).
+            (<azure>last</azure>-<azure>in</azure> <azure>first</azure>-<azure>out</azure>).
             <br/><br/>
             <purple>Stack</purple> only defines the <azure>default</azure> <red>constructor</red>, which <azure>creates</azure> an 
             empty <purple>stack</purple>.
@@ -9762,14 +9762,14 @@
             <code>public int hashCode()</code><br/>
             It <purple>returns</purple> the hash <azure>code</azure> number of the <purple>collection</purple>.
             <br/><br/></collection-methods>
-        <dynamic-memory-allocation><purple>Heap</purple> space is used for the <azure>dynamic</azure> <azure>memory</azure> <azure>allocation</azure> of 
+        <dynamic-memory-allocation><purple>Heap</purple> <purple>space</purple> is used for the <azure>dynamic</azure> <azure>memory</azure> <azure>allocation</azure> of 
             <red>Java</red> <red>objects</red> and <red>JRE</red> (<red>Java</red> Runtime Environment) <red>classes</red> 
             at runtime. 
             <br/><br/>
-            New <red>objects</red> are always <azure>created</azure> in <purple>heap</purple> space, and the 
-            <purple>references</purple> to these <red>objects</red> are <azure>stored</azure> in <purple>stack</purple> <azure>memory</azure>. 
+            New <red>objects</red> are always <azure>created</azure> in <purple>heap</purple> <purple>space</purple>, and the 
+            <purple>references</purple> to these <red>objects</red> are <azure>stored</azure> in <purple>stack</purple> <purple>memory</purple>. 
             <br/>
-            These <red>objects</red> have <purple>global</purple> access and we can access them from 
+            These <red>objects</red> have <purple>global</purple> <purple>access</purple> and we can access them from 
             anywhere in the application.
             <br/><br/>
             <green>Dynamic memory allocation in Java:</green>
@@ -10963,18 +10963,18 @@
             <purple>Returns</purple> the length of a specified <purple>string</purple>.
             <br/><br/>
             <code>matches()</code><br/>
-            <azure>Searches</azure> a <purple>string</purple> for a <azure>match</azure> against a <azure>regular</azure> expression, and <purple>returns</purple> the <azure>matches</azure>.
+            <azure>Searches</azure> a <purple>string</purple> for a <azure>match</azure> against a <azure>regular</azure> <azure>expression</azure>, and <purple>returns</purple> the <azure>matches</azure>.
             <br/><br/>
             <code>replace()</code><br/>
             <azure>Searches</azure> a <purple>string</purple> for a specified <purple>value</purple>, and <purple>returns</purple> a new <purple>string</purple> where the 
             specified <purple>values</purple> are <azure>replaced</azure>.
             <br/><br/>
             <code>replaceAll()</code><br/>
-            <azure>Replaces</azure> each substring of this <purple>string</purple> that <azure>matches</azure> the given <azure>regular</azure> expression 
+            <azure>Replaces</azure> each substring of this <purple>string</purple> that <azure>matches</azure> the given <azure>regular</azure> <azure>expression</azure> 
             with the given replacement.
             <br/><br/>
             <code>replaceFirst()</code><br/>
-            <azure>Replaces</azure> the first occurrence of a substring that <azure>matches</azure> the given <azure>regular</azure> expression 
+            <azure>Replaces</azure> the first occurrence of a substring that <azure>matches</azure> the given <azure>regular</azure> <azure>expression</azure> 
             with the given replacement.
             <br/><br/>
             <code>split()</code><br/>
@@ -11091,7 +11091,7 @@
             declaring the <red>methods</red> that will be 
             <red>implemented</red>. 
             <br/>
-            In this case Car will be the component <red>interface</red>.
+            In this case <red>Car</red> will be the component <red>interface</red>.
             <br/>
 <code><box><table><tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//the interface defining the methods </comment></td></tr>
@@ -11362,7 +11362,7 @@
     
     <programming_language>
         <name>Python</name>
-        <description><red>Python</red> is a <azure>high</azure>-level, general-purpose <red>programming</red> <red>language</red>. 
+        <description><red>Python</red> is a <azure>high</azure>-<azure>level</azure>, general-purpose <red>programming</red> <red>language</red>. 
             Its design 
             philosophy emphasizes <azure>code</azure> <azure>readability</azure> with the use of 
             significant indentation.
@@ -12026,9 +12026,9 @@
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>61  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">print(type(x))</td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>62  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr></table></box></code></simple-data-types>
         <complex-data-types>The complex <purple>data</purple> <purple>type</purple> in <red>Python</red> is used to represent numbers with both 
-            real and imaginary parts. It is written in the 
+            <red>real</red> and imaginary parts. It is written in the 
             form of <code>a + bj</code>, where <code>a</code> 
-            represents the real part and <code>b</code> represents the imaginary part.</complex-data-types>
+            represents the <red>real</red> part and <code>b</code> represents the imaginary part.</complex-data-types>
         <loops><red>Python</red> <red>programming</red> <red>language</red> provides two <purple>types</purple> of <azure>loops</azure>: <azure>For</azure> <azure>loop</azure> and 
             <azure>While</azure> <azure>loop</azure>
             <br/><br/>
@@ -13248,10 +13248,10 @@
             <br/><br/>
             <green>GIL or Global Interpreter Lock:</green>
             <br/><br/>
-            <red>Python</red> <purple>Global</purple> Interpreter Lock or <red>GIL</red> is an important 
+            <red>Python</red> <purple>Global</purple> <purple>Interpreter</purple> <purple>Lock</purple> or <red>GIL</red> is an important 
             part of <azure>multithreading</azure> <red>programming</red>. 
             <br/><br/>
-            <red>Python</red> <purple>Global</purple> Interpreter Lock it's a mutex or a <purple>type</purple> 
+            <red>Python</red> <purple>Global</purple> <purple>Interpreter</purple> <purple>Lock</purple> it's a mutex or a <purple>type</purple> 
             of <azure>process</azure> lock used when working with multiple <azure>processes</azure>. 
             It <azure>allows</azure> only one <azure>thread</azure> to hold the control of 
             the <red>Python</red> interpreter. 
@@ -13268,8 +13268,8 @@
             keeps track of the number of <purple>references</purple> that <purple>point</purple> to the <red>object</red>. 
             <br/>
             When this <azure>count</azure> reaches zero and no <purple>variable</purple> is <purple>referencing</purple> the 
-            <red>object</red> <azure>stored</azure> in the <purple>heap</purple> <azure>memory</azure>, 
-            the <purple>heap</purple> <azure>memory</azure> occupied by the <red>object</red> is released 
+            <red>object</red> <azure>stored</azure> in the <purple>heap</purple> <purple>memory</purple>, 
+            the <purple>heap</purple> <purple>memory</purple> occupied by the <red>object</red> is released 
             (deallocated).
             <br/><br/>
             The problem was that this <purple>reference</purple> <azure>count</azure> <purple>variable</purple> needed <purple>protection</purple> 
@@ -13283,7 +13283,7 @@
             <br/><br/>
             <brown>GIL was introduced in order to fix these issues.</brown>
             <br/><br/>
-            Generally, <red>Python</red> uses a single <azure>thread</azure> to <azure>run</azure> a single <azure>process</azure>.
+            Generally, <red>Python</red> uses a <azure>single</azure> <azure>thread</azure> to <azure>run</azure> a single <azure>process</azure>.
             We get the same performance result of the <azure>single</azure>-<azure>threaded</azure> and 
             <azure>multithreading</azure> <azure>processes</azure> using the <red>GIL</red>. 
             It restricts achieving <azure>multithreading</azure> in <red>Python</red> because it prevents 
@@ -13386,7 +13386,7 @@
             <green>Multiprocessing in Python:</green>
             <br/><br/>
             By using <azure>multiprocessing</azure> in <red>Python</red> the 
-            <purple>Global</purple> Interpreter Lock limitations can be overcome.
+            <purple>Global</purple> <purple>Interpreter</purple> <purple>Lock</purple> limitations can be overcome.
             <br/><br/>
             <azure>Multiprocessing</azure> refers to the ability of a <red>system</red> to support more than 
             one <azure>processor</azure> at the same time. Applications in a <azure>multiprocessing</azure> <red>system</red> 
@@ -14266,16 +14266,16 @@
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>#Displaying the result </comment></td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">print("Incremented value:", x) </td></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr></table></box></code></pre-post-incrementation>
-        <regular-expressions>A <azure>regular</azure> expression is a special <azure>sequence</azure> of <purple>characters</purple> that helps 
+        <regular-expressions>A <azure>regular</azure> <azure>expression</azure> is a special <azure>sequence</azure> of <purple>characters</purple> that helps 
             <azure>matching</azure> or finding other <purple>strings</purple> or <purple>sets</purple> of 
             <purple>strings</purple>, using a specialized syntax held in a pattern.
             <br/><br/>
             <green>Regular expressions in Python:</green>
             <br/><br/>
             The <red>re</red> <red>module</red> offers a <purple>set</purple> of <red>functions</red> that <azure>allow</azure> working with 
-            <azure>regular</azure> expressions:
+            <azure>regular</azure> <azure>expressions</azure>:
             <br/><br/>
-            The <code>match()</code> <red>function</red> attempts to <azure>match</azure> <red>RE</red> (<azure>Regular</azure> Expression) 
+            The <code>match()</code> <red>function</red> attempts to <azure>match</azure> <red>RE</red> (<azure>Regular</azure> <azure>Expression</azure>) 
             pattern to <purple>string</purple> with optional flags.
             <br/>
             It <purple>returns</purple> a <azure>match</azure> <red>object</red> on success, 
@@ -14295,7 +14295,7 @@
             Syntax: <code>re.match(pattern, string, flags=0)</code> where:
             <br/><br/>
             <code>pattern</code><br/>
-            This is the <azure>regular</azure> expression to be <azure>matched</azure>.
+            This is the <azure>regular</azure> <azure>expression</azure> to be <azure>matched</azure>.
             <br/><br/>
             <code>string</code><br/>
             This is the <purple>string</purple>, which would be <azure>searched</azure> to <azure>match</azure> the pattern 
@@ -14322,7 +14322,7 @@
             Denotes the number of replacements that should occur.
             <br/><br/>
             <code>flags</code><br/>
-            Serves to modify the behavior of the <azure>regular</azure> expression <purple>operation</purple>.
+            Serves to modify the behavior of the <azure>regular</azure> <azure>expression</azure> <purple>operation</purple>.
             <br/>
 <code><box><table><tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"/></tr>
 <tr><td style="width:26px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>#Example of working with regular expresions</comment></td></tr>
@@ -14417,20 +14417,20 @@
             <azure>Matches</azure> either <code>a</code> or <code>b</code>.
             <br/><br/>
             <code>(re)</code><code>        </code>
-            Groups <azure>regular</azure> expressions and remembers <azure>matched</azure> text.
+            Groups <azure>regular</azure> <azure>expressions</azure> and remembers <azure>matched</azure> text.
             <br/><br/>
             <code>(?imx)</code><code>      </code>
             Temporarily toggles on <code>i</code>, <code>m</code>, or <code>x</code> 
-            options within a <azure>regular</azure> expression. 
+            options within a <azure>regular</azure> <azure>expression</azure>. 
             If in parentheses, only that area is affected.
             <br/><br/>
             <code>(?-imx)</code><code>     </code>
             Temporarily toggles off <code>i</code>, <code>m</code>, or <code>x</code>  options 
-            within a <azure>regular</azure> expression. 
+            within a <azure>regular</azure> <azure>expression</azure>. 
             If in parentheses, only that area is affected.
             <br/><br/>
             <code>(?: re)</code><code>     </code>
-            Groups <azure>regular</azure> expressions without remembering <azure>matched</azure> text.
+            Groups <azure>regular</azure> <azure>expressions</azure> without remembering <azure>matched</azure> text.
             <br/><br/>
             <code>(?imx: re)</code><code>  </code>
             Temporarily toggles on <code>i</code>, <code>m</code>, or <code>x</code> options 
@@ -14524,7 +14524,7 @@
             <code>\b</code>, <code>\B</code>.
             <br/><br/>
             <code>re.X</code><code>      </code>
-            Permits "cuter" <azure>regular</azure> expression syntax. It ignores whitespace 
+            Permits "cuter" <azure>regular</azure> <azure>expression</azure> syntax. It ignores whitespace 
             (except inside a <purple>set</purple> <code>[]</code> or when escaped by a backslash) 
             and treats unescaped <code>#</code> as a <azure>comment</azure> marker.
             <br/><br/>
@@ -14576,10 +14576,10 @@
             <code>y</code> is optional.
             <br/><br/>
             <code>ruby*</code><code>      </code><azure>Match</azure> <code>"rub"</code> plus 0 or more 
-            <code>ys</code>.
+            <code>y</code>'s.
             <br/><br/>
             <code>ruby+</code><code>      </code><azure>Match</azure> <code>"rub"</code> plus 1 or more 
-            <code>ys</code>.
+            <code>y</code>'s.
             <br/><br/>
             <code>\d{3}</code><code>      </code><azure>Match</azure> exactly 3 digits.
             <br/><br/>
