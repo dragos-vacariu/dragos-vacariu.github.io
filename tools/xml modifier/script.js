@@ -1,37 +1,59 @@
-const red_colored_words = {keyword: ["programming", "compute","language", "object-orient", "generic", "template", "data", "type", "procedure", "function", "class", 
-    "object", "orient", "instance", "instantiate", "macro", "command-line", "commandline", "typecast", "construct", "destruct", "partial", "virtual", "recurse",
-    "argument", "list", "parameter", "preprocess", "directive", "true", "false", "data-type", "thread", "multiprocess", "module", "concurrent",
-    "recurrent", "polymorphic", "pre-defined", "exception", "random", "pseudo-random", "prototype", "variadic"], color: "red"};
+//Words and expressions associated with classes objects, exceptions, functions, and programming languages and programming paradigms & tools:
+//NOTE: Expressions using at one least single word that present in any singleton should be places in the same singleton - multiple words section.
 
-const purple_colored_words = {keyword: ["memory", "static", "byte", "string", "loop", "constant", "collection", 
-    "point", "address", "array", "enum", "enumerate", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", "malloc", 
-    "calloc", "multithread", "hyperthread", "left-shift", "right-shift", "shift", "bitwise", "bit", "null", "nullptr", "interface", "floating-point",
-    "break", "cast", "type-cast", "binary", "sign", "unsign", "operate", "assign", "integer", "float", "double", "ternary", "operand", 
-    "library", "api", "oop", "unary", "increment", "decrement", "compliment", "dereference", "reference", "method", "field", "member", "overflow",
-    "underflow", "typedef", "character", "vector", "iterate", "dynamic", "valueless", "substring", "int"], color: "purple"};
+const red_colored_substr = {keyword: [
+    
+    /*Multiple words should be first section*/
+    "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
+    "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "pseudo-random",
 
-//const test = {keyword: ["condition"], color: "azure"};
+    /*Single words should be second section*/ 
+    "generic", "template", "procedure", "function", "class", "subclass", "malloc", "calloc", "object", "orient", "system", "contruct",
+    "instance", "instantiate", "macro", "commandline", "construct", "destruct", "partial", "virtual", "recurse", "parent", "child", "children", 
+    "argument", "parameter", "preprocess", "directive", "module", "interface", "setter", "getter", "encapsulate", "oop", "concrete", "implement",
+    "recurrent", "polymorphic", "exception", "random", "prototype", "variadic", "overload", "override", "method", "decor", "scope", "pure", 
+    "base", "programming", "concurrent", "compute", "language", "abstract", "reflect", "polymorph", "seal",
+    "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
+    "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
+    "git", "re"], color: "red"};
 
-const azure_colored_words = {keyword: ["to-be-specified-later", "independent", "plugin",  "condition", "count", "delete", "add", "share", "save", 
-    "remove", "size", "default", "block", "file", "efficiency", "reuse", "store", "retrieve", "type-independent", 
-    "code", "manipulate", "variable", "value", "comment", "sequence", "create", "open", "read", "write", "close", "serializ", "deserializ",
-    "asynchronous", "synchronous", "sequential", "start", "run", "task", "simultaneous", "asynchrony", "parallel", "single-core", "multi-core", 
-    "dual-core", "quad-core", "process", "cpu", "non-determinism", "synchronization", "core", "stream", "signal", "overhead", "responsive",
-    "server", "encapsulate", "abstract", "reflect", "polymorph", "inherit", "efficient", "statement", "maintain",
-    "port", "repo", "header", "source", "ram", "insert", "append", "ui", "system", "replace", "concatenate", "compare"], color: "azure"};
+//Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
+const purple_colored_substr = {keyword: [
+    
+    /*Multiple words should be first section*/
+    "wide character", "long long int", "short int", "long int", "left-shift", "right-shift", "macro constant", 
+    "implicit conversion", "explicit conversion", "format specifier", "file handle", "non-mutat", "heap space", "heap memory",
+    "stack memory", "stack space", "global access", "global interpreter lock",
+    
+    
+    /*Single words*/
+    "static", "byte", "string", "constant", "collect", "data", "type", "list", "identifier", "mutat", "immutat", "decorat", "metadata", "minificate",
+    "point", "address", "array", "enum", "enumerate", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", 
+     "shift", "bitwise", "bit", "null", "nullptr",  "namespace", "true", "false", "typecast", "attribute", "mathematic", "relation", "unary", 
+    "break", "cast", "binary", "sign", "unsign", "operate", "assign", "integer", "float", "double", "ternary", "operand", "register", "newline",
+    "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
+    "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
+    "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype"], color: "purple"};
 
+//Words and expressions associated with various concepts or special terms:
+const azure_colored_substr = {keyword: [
+    
+    /*Multiple words should be first section*/
+    "for loop", "do while loop", "do-while loop", "while loop", "foreach loop", "for each loop", "for-each loop", "single-thread", "multi-thread", 
+     "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
+    "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "front-end", "back-end",  "low-level", "high-level",
+    
+    /*Single words should be second section*/
+    "overflow", "underflow", "thread", "multiprocess", "loop", "lifo", "fifo", "allow", "script", "quantity", "primitive",
+    "serializ", "deserializ", "multithread", "hyperthread", "asynchronous", "synchronous", "sequential", "simultaneous", 
+    "asynchrony", "parallel", "synchronization", "overhead", "responsive",  "efficient", "backend", "frontend",
+    "statement", "maintain",  "memory",  "dynamic", "block", "compliment", "independent", "plugin", "default", 
+    "efficiency", "server", "condition", "count", "delete", "add", "share", "save", "store", "retrieve", "match", "lambda",
+    "code", "manipulate", "comment", "sequence", "create", "open", "read", "write", "close", "start", "run", "task", "cpu", "core", "stream", "signal", 
+    "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
+    "compare", "allocat", "search", "update", "slice", "derive"], color: "azure"};
 
-/*===============================================================================================*/
-const azure_colored_substr = {keyword: ["for loop", "while loop", "do while loop", "foreach loop", "for-each loop", "do-while loop", "file handle", 
-    "storage capacity", "type cast", "low-risk update", "easy collaboration", "faster fix", "code is easier to read", "requires more resources", 
-    "Increases the risk and the difficulty", "Additional efforts needed for the design", "The task repetition impacts the software performance",
-    "The work efficiency might be impacted", "The code readability might be affected", "macro constant"], color: "azure"};
-
-const red_colored_substr = {keyword: ["initialization expression", "test expression", "update expression", "format specifier", 
-    "race condition", "error handle", "exception handle", "implicit conversion", "explicit conversion",
-    "parametric polymorph", "ad hoc polymorph", "type checking"], color: "red"};
-
-const purple_colored_substr = {keyword: ["floating point", "wide character", "short int", "long int", "long long int"], color: "purple"}
+//const test = {keyword: ["re"], color: "azure"};
 
 const keyword_color_set = {keyword: ["\nint ", " int ", "int/n"], color: "cyan"}
 
@@ -72,19 +94,9 @@ function readFile(event)
     var xml_Document = parser.parseFromString(text, "application/xml");
             
     /*formatting the xml_Document content*/
-    xml_Document = format_XML_Document_Content(xml_Document);
+    xml_Document = format_XML_Document_CODE_Content(xml_Document);
+    xml_Document = add_color_to_XML_Content(xml_Document);
     
-    /*Add various colors to various words and substrings*/
-    xml_Document = add_color_to_substrings(xml_Document, azure_colored_substr);
-    xml_Document = add_color_to_substrings(xml_Document, red_colored_substr);
-    xml_Document = add_color_to_substrings(xml_Document, purple_colored_substr);
-    
-    
-    //xml_Document = add_color_to_words(xml_Document, test);
-    
-    xml_Document = add_color_to_words(xml_Document, red_colored_words);
-    xml_Document = add_color_to_words(xml_Document, purple_colored_words);
-    xml_Document = add_color_to_words(xml_Document, azure_colored_words);
     
     //xml_Document = add_different_color_to_code_keywords(xml_Document, keyword_color_set);
     //xml_Document = addEmptyLines(xml_Document);
@@ -92,13 +104,6 @@ function readFile(event)
     //Displaying the output
     var result = new XMLSerializer().serializeToString(xml_Document.documentElement);
     document.getElementById("modified_textArea").textContent = result;
-}
-
-function addStyleCodeBoxes(contentToPutInBox)
-{
-    //This function will draw a box around the code elements
-    contentToPutInBox = "<box>" + contentToPutInBox + "</box>"
-    return contentToPutInBox;
 }
 
 function changeFile() 
@@ -109,373 +114,223 @@ function changeFile()
     reader.readAsText(file);
 }
 
-function formatSingleLineComments(line)
-{
-    /*This function will format/style single line comments in all programming languages*/
-    
-    //use if instead of if-else as the line can contain all of them at the same time.
-    
-    if(String(line).includes("//")) // do not add line number to single-line content
-    {
-        line = line.replace("//", "<comment>//");
-        line = line + "</comment>";
-    }
-    
-    if(String(line).includes("/*") && String(line).includes("*/"))
-    {
-        line = line.replace("/*", "<comment>/*");
-        line = line.replace("*/", "*/</comment>");
-        multiline_comment=true;
-    }
-    //if Python Comment
-    if( String(line).includes("#") == true && 
-        String(line).includes("#define")==false && 
-        String(line).includes("#include")==false &&
-        String(line).includes("#ifndef")==false &&
-        String(line).includes("#undef")==false &&
-        String(line).includes("#if")==false &&
-        String(line).includes("#pragma")==false &&
-        String(line).includes("#error")==false &&
-        String(line).includes("#region")==false &&
-        String(line).includes("#endregion")==false &&
-        String(line).includes("#endif")==false &&
-        String(line)!="#" //if not empty #
-        )
-    {
-        line = line.replace("#", "<comment>#");
-        line = line + "</comment>";
-    }
-    
-    return line;
-}
-
-function add_color_to_words(xml_Document_Content, list_of_words)
+function add_color_to_XML_Content(xml_Document_Content)
 {
     var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
     for(var i=0; i < programming_languages.length; i++)
     {
         for(var j=0; j < programming_languages[i].children.length; j++)
         {
-            //workaround for elements that should not be modified:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
-            
-            //Workaround for the <br> tags so that they will not force writing content within other formated elements
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_/br_)]}")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br/_)]}")
-            
-            //Format the text by adding highlights on every finding:
-
-            //Splitting the content aroung any other XML tags
-            var items = programming_languages[i].children[j].innerHTML.trim().split(">")
-            
-            //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
-            for (var counter = 0; counter < items.length; counter++)
+            /*If this is not the name element*/
+            if(programming_languages[i].children[j].tagName != "name")
             {
-                //if some word includes the one of the value within the searchBox
-                bufferOfItem = items[counter] /*items should not be modified directly because it's used for checking and validation*/
-                for(var word_index = 0; word_index < list_of_words.keyword.length; word_index++)
-                {
-                    var indexOfLessThan = String(items[counter]).indexOf("<");
-                    var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(String(list_of_words.keyword[word_index]).toLowerCase());
+                //workaround for elements that should not be modified:
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
+                
+                //Workaround for the <br> tags so that they will not force writing content within other formated elements
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_#br_)]}")
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br#_)]}")
+                
+                //Format the text by adding color tags on every finding:
+                
+                /*Add color to words and sustrings stored in singletons*/
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, red_colored_substr);
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, purple_colored_substr);
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, azure_colored_substr);
+                
+                //programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, test);
+                
+                
+                //Undoing the workarounds:
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_#br_)]}", "</br>")
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br#_)]}", "<br/>")
+                
+                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
+                //console.log(programming_languages[i].children[j].innerHTML)
+            }
+        }
+    }
+    return xml_Document_Content
+}
+
+function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
+{
+    //Splitting the content aroung any other XML tags
+    var items = XML_Element_InnerHTML_Content.trim().split(">")
+    
+    //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
+    for (var counter = 0; counter < items.length; counter++)
+    {
+        //if some word includes the one of the value within the searchBox
+        bufferOfItem = items[counter]; /*items[counter] should not be modified directly because it's used for checking and validation*/
+        for(var word_index = 0; word_index < list_of_words.keyword.length; word_index++)
+        {
+            var indexOfLessThan = String(items[counter]).indexOf("<");
+            var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(String(list_of_words.keyword[word_index]).toLowerCase());
+            
+            //If this element is not part of the content of the following elements
+            if (String(items[counter]).toLowerCase().includes("</green") == false  &&
+                String(items[counter]).toLowerCase().includes("</brown") == false &&
+                String(items[counter]).toLowerCase().includes("</indigo") == false &&
+                String(items[counter]).toLowerCase().includes("</red") == false &&
+                String(items[counter]).toLowerCase().includes("</purple") == false &&
+                String(items[counter]).toLowerCase().includes("</azure") == false &&
+                String(items[counter]).toLowerCase().includes("</code") == false &&
+                String(items[counter]).toLowerCase().includes("</linenumber") == false &&
+                String(items[counter]).toLowerCase().includes("</td") == false &&
+                String(items[counter]).toLowerCase().includes("</tr") == false &&
+                String(items[counter]).toLowerCase().includes("</comment") == false &&
+                String(items[counter]).toLowerCase().includes("<comment") == false )
+            {
+                //If this element is not withing a XML tag
+                
+                //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
+                
+                if( (String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase())
+                        || (String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))) 
+                            && String(list_of_words.keyword[word_index]).length > 2 )
+                    && (String(items[counter]).includes("<") == false || indexOfLessThan
+                    > indexOfSearchValue)
+                )
+                {              
+                    var values = String(bufferOfItem).replaceAll("/", " #/ "); //this make words separated by / become processable
+                    values = values.replaceAll("-", " #- "); //this make words separated by - become processable
+                    values = values.split(" ")
                     
-                    //If this element is not part of the content of the following elements
-                    if (String(items[counter]).toLowerCase().includes("</green") == false  &&
-                        String(items[counter]).toLowerCase().includes("</brown") == false &&
-                        String(items[counter]).toLowerCase().includes("</red") == false &&
-                        String(items[counter]).toLowerCase().includes("</purple") == false &&
-                        String(items[counter]).toLowerCase().includes("</azure") == false &&
-                        String(items[counter]).toLowerCase().includes("</code") == false &&
-                        String(items[counter]).toLowerCase().includes("</linenumber") == false &&
-                        String(items[counter]).toLowerCase().includes("</td") == false &&
-                        String(items[counter]).toLowerCase().includes("</tr") == false &&
-                        String(items[counter]).toLowerCase().includes("</comment") == false )
+                    var substring_words = String(list_of_words.keyword[word_index]).replaceAll("/", " #/ ");
+                    substring_words = substring_words.replaceAll("-", " #- ");
+                    substring_words = substring_words.split(" ");
+                    //substring_words = [...new Set(substring_words)] /*ensuring we have only unique words*/
+                    
+                    for(var value_index = 0; value_index < values.length; value_index++)
                     {
-                        //If this element is not withing a XML tag
-                        
-                        //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
-                        //console.log("indexOfLessThan: " + indexOfLessThan + " indexOfSearchValue " + indexOfSearchValue)
-                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))
-                                && (String(items[counter]).includes("<") == false || indexOfLessThan
-                                > indexOfSearchValue)
-                        )
+                        var string_val = []
+                        //For each word in the substring check if it matches
+                        for(var substr_word_index = 0; substr_word_index < substring_words.length; substr_word_index++)
                         {
+                            //Ignore some of the punctuation signs and newline character
                             
-                            values = String(bufferOfItem).split(" ")
-                            
-                            for(var value_index = 0; value_index < values.length; value_index++)
+                            if(value_index+substr_word_index < values.length)
                             {
                                 //Ignore some of the punctuation signs and newline character
                                 
                                 //order of the statements is important as the bigger strings with punctuation marks should be first otherwise webkitURL
                                 //risk removing single punctuation signs before matching the bigger pairs
-                                var string_val = String(values[value_index]).replaceAll("{[(_br_)]}", "");
-                                string_val = string_val.replaceAll("{[(_/br_)]}", "");
-                                string_val = string_val.replaceAll("{[(_br/_)]}", "");
-                                string_val = string_val.replaceAll(",", "");
-                                string_val = string_val.replaceAll(".", "");
-                                string_val = string_val.replaceAll("!", "");
-                                string_val = string_val.replaceAll("?", "");
-                                string_val = string_val.replaceAll(":", "");
-                                string_val = string_val.replaceAll(";", "");
-                                string_val = string_val.replaceAll('"', "");
-                                string_val = string_val.replaceAll("(", "");
-                                string_val = string_val.replaceAll(")", "");
-                                string_val = string_val.replaceAll("\n", "");
+                                
+                                string_val.push(String(values[value_index+substr_word_index]).replaceAll("{[(_br_)]}", ""));
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_#br_)]}", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_br#_)]}", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(",", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(".", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("!", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("?", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(":", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(";", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll('"', "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("(", "");
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(")", "");
+
+                                string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("\n", "");
                                 
                                 /*If a tag is following it, get only the part outside of the tag*/
-                                string_val = string_val.split("<")[0];
+                                string_val[string_val.length-1] = string_val[string_val.length-1].split("<")[0];
                                 
-                                //console.log("Checking word: " + values[value_index] + " as " + string_val + " == " + list_of_words.keyword[word_index])
+                                
+                                //console.log("Checking word: " + string_val[string_val.length-1] + " == " + substring_words[substr_word_index])
                                 
                                 //if found exactly the same word or its plural form, or past tense verb form or noun derivated form
-                                if(string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() || 
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "s" || 
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "r" || 
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "es" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "er" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ers" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "d" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ed" || 
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ly" || 
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ally" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "able" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ness" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "al" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ing" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ion" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ions" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ation" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ations" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ability" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "abilities" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ance" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ism" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "or" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ors" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ar" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase() + "ive" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "al" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ing" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "able" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ion" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ions" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ation" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ations" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ability" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "abilities" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ance" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ism" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "or" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ors" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ar" ||
-                                    string_val.toLowerCase() == String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1) + "ive"
- 
+                                if(string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() || 
+                                        (String(substring_words[substr_word_index]).toLowerCase().length > 2 && ( 
+                                        /*if length of searched word is bigger than 2 we will look for derivatives*/
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "s" || 
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "'s" || 
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "r" || 
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "es" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "er" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ers" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "d" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ed" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ly" || 
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ally" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "able" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ness" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "al" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ing" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ion" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ions" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ison" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ation" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ations" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ability" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "abilities" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ance" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ism" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "or" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ors" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ar" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ive" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ies" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ied" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "al" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ing" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "able" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ion" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ions" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ison" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ation" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ations" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ability" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "abilities" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ance" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ism" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "or" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ors" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ar" ||
+                                        string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ive" 
+                                            ) 
+                                        )
                                     )
                                 {
-                                    //console.log("Entered at " + string_val)
-                                    values[value_index] = values[value_index].replaceAll(string_val, "<" + list_of_words.color + ">" + string_val + "</" + list_of_words.color + ">"); 
+                                    //Nothing to do, check goes on
                                 }
-                            }
-                            bufferOfItem = values.join(" ")
-                        }
-                    }
-
-                }
-                items[counter] = bufferOfItem
-            }
-            programming_languages[i].children[j].innerHTML = items.join(">")
-            
-            //Undoing the workarounds:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_/br_)]}", "</br>")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br/_)]}", "<br/>")
-            
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
-            //console.log(programming_languages[i].children[j].innerHTML)
-        }
-    }
-    return xml_Document_Content
-}
-
-function add_color_to_substrings(xml_Document_Content, list_of_words)
-{
-    var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
-    for(var i=0; i < programming_languages.length; i++)
-    {
-        for(var j=0; j < programming_languages[i].children.length; j++)
-        {
-            //workaround for elements that should not be modified:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
-            
-            //Workaround for the <br> tags so that they will not force writing content within other formated elements
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_/br_)]}")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br/_)]}")
-            
-            //Format the text by adding highlights on every finding:
-            
-            //Splitting the content aroung any other XML tags
-            var items = programming_languages[i].children[j].innerHTML.trim().split(">")
-            
-            //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
-            for (var counter = 0; counter < items.length; counter++)
-            {
-                //if some word includes the one of the value within the searchBox
-                bufferOfItem = items[counter] /*items should not be modified directly because it's used for checking and validation*/
-                for(var word_index = 0; word_index < list_of_words.keyword.length; word_index++)
-                {
-                    var indexOfLessThan = String(items[counter]).indexOf("<");
-                    var indexOfSearchValue = String(items[counter]).toLowerCase().indexOf(String(list_of_words.keyword[word_index]).toLowerCase());
-                    
-                    //If this element is not part of the content of the following elements
-                    if (String(items[counter]).toLowerCase().includes("</green") == false  &&
-                        String(items[counter]).toLowerCase().includes("</brown") == false &&
-                        String(items[counter]).toLowerCase().includes("</red") == false &&
-                        String(items[counter]).toLowerCase().includes("</purple") == false &&
-                        String(items[counter]).toLowerCase().includes("</azure") == false &&
-                        String(items[counter]).toLowerCase().includes("</code") == false &&
-                        String(items[counter]).toLowerCase().includes("</linenumber") == false &&
-                        String(items[counter]).toLowerCase().includes("</td") == false &&
-                        String(items[counter]).toLowerCase().includes("</tr") == false &&
-                        String(items[counter]).toLowerCase().includes("</comment") == false )
-                    {
-                        //If this element is not withing a XML tag
-                        
-                        //console.log("Validating: " + list_of_words.keyword[word_index] + " in " + items[counter])
-                        //console.log("indexOfLessThan: " + indexOfLessThan + " indexOfSearchValue " + indexOfSearchValue)
-                        if(String(items[counter]).toLowerCase().includes(String(list_of_words.keyword[word_index]).toLowerCase().slice(0, list_of_words.keyword[word_index].length-1))
-                                && (String(items[counter]).includes("<") == false || indexOfLessThan
-                                > indexOfSearchValue)
-                        )
-                        {
-                            
-                            var values = String(bufferOfItem).split(" ");
-                            var substring_words = String(list_of_words.keyword[word_index]).split(" ")
-                            //substring_words = [...new Set(substring_words)] /*ensuring we have only unique words*/
-                            
-                            for(var value_index = 0; value_index < values.length; value_index++)
-                            {
-                                //console.log("Checking word: " + values[value_index] + " as " + string_val + " == " + list_of_words.keyword[word_index])
-                                var string_val = []
-                                //For each word in the substring check if it matches
-                                for(var substr_word_index = 0; substr_word_index < substring_words.length; substr_word_index++)
+                                else
                                 {
-                                    //Ignore some of the punctuation signs and newline character
+                                    //will break out on first mismatch
+                                    break;
+                                }
+                                if(substr_word_index+1 == substring_words.length)
+                                {
+                                    //console.log("Found : " + substring_words.join(" "))
                                     
-                                    if(value_index+substr_word_index < values.length)
+                                    /*will enter here at the end of last iteration if the validation was successful*/
+                                    for(var i=value_index; i<value_index+substr_word_index+1; i++)
                                     {
-                                        //Ignore some of the punctuation signs and newline character
-                                        
-                                        //order of the statements is important as the bigger strings with punctuation marks should be first otherwise webkitURL
-                                        //risk removing single punctuation signs before matching the bigger pairs
-                                        
-                                        string_val.push(String(values[value_index+substr_word_index]).replaceAll("{[(_br_)]}", ""));
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_/br_)]}", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("{[(_br/_)]}", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(",", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(".", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("!", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("?", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(":", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(";", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll('"', "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("(", "");
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll(")", "");
-
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].replaceAll("\n", "");
-                                        
-                                        /*If a tag is following it, get only the part outside of the tag*/
-                                        string_val[string_val.length-1] = string_val[string_val.length-1].split("<")[0];
-                                        
-                                        //if found exactly the same word or its plural form, or past tense verb form or noun derivated form
-                                        if(string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() || 
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "s" || 
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "r" || 
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "es" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "er" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ers" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "d" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ed" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ly" || 
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ally" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "able" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ness" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "al" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ing" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ion" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ions" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ation" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ations" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ability" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "abilities" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ance" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ism" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "or" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ors" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ar" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase() + "ive" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "al" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ing" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "able" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ion" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ions" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ation" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ations" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ability" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "abilities" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ance" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ism" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "or" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ors" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ar" ||
-                                            string_val[string_val.length-1].toLowerCase() == String(substring_words[substr_word_index]).toLowerCase().slice(0, substring_words[substr_word_index].length-1) + "ive" 
-                                            )
-                                        {
-                                            //Nothing to do, check goes on
-                                        }
-                                        else
-                                        {
-                                            break;
-                                        }
-                                        if(substr_word_index+1 == substring_words.length)
-                                        {
-                                            //console.log("Found : " + list_of_words.keyword.join(" "))
-                                            /*will enter here at the end of last iteration if the validation was successful*/
-                                            //console.log("replacing: " +  values[value_index] + " -> " + string_val[0])
-                                            //console.log("replacing: " +  values[value_index+substr_word_index] + " -> " + string_val[string_val.length-1])
-                                            values[value_index] = values[value_index].replace(string_val[0], "<" + list_of_words.color + ">" + string_val[0])
-                                            values[value_index+substr_word_index] = values[value_index+substr_word_index].replace(string_val[string_val.length-1], string_val[string_val.length-1] + "</" + list_of_words.color + ">")
-                                            //console.log("value : " + values.join(" "))
-                                        }
-                                        
+                                        values[i] = values[i].replace(string_val[0], "<" + list_of_words.color + ">" + string_val[0] + "</" + list_of_words.color + ">");
                                     }
-                                    else
-                                    {
-                                        break;
-                                    }
+                                    
                                 }
                                 
                             }
-                            bufferOfItem = values.join(" ")
+                            else
+                            {
+                                //will break out when the number of the remaining words is less than number of words we need to check
+                                break;
+                            }
                         }
+                        
                     }
-
+                    bufferOfItem = values.join(" ");
+                    bufferOfItem = bufferOfItem.replaceAll(" #/ ", "/");
+                    bufferOfItem = bufferOfItem.replaceAll(" #- ", "-");
                 }
-                items[counter] = bufferOfItem
             }
-            programming_languages[i].children[j].innerHTML = items.join(">")
-            
-            //Undoing the workarounds:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_/br_)]}", "</br>")
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br/_)]}", "<br/>")
-            
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
-            //console.log(programming_languages[i].children[j].innerHTML)
         }
+        items[counter] = bufferOfItem;
     }
-    return xml_Document_Content
+    XML_Element_InnerHTML_Content = items.join(">")
+    return XML_Element_InnerHTML_Content;
 }
 
 function addEmptyLines(xml_Document_Content)
@@ -590,38 +445,7 @@ function add_different_color_to_code_keywords(xml_Document_Content, keyword_colo
     return xml_Document_Content
 }
 
-function formatMultiLineComments(codeElementListOfLines)
-{
-    //This function will format multiline_comments in all programming languages
-    
-    var multiline_comment_found = 0;
-
-    for(var i=0; i < codeElementListOfLines.length; i++)
-    {
-        //if comment on multiple lines
-        if(String(codeElementListOfLines[i]).includes("/*") && 
-            String(codeElementListOfLines[i]).includes("*/") == false)
-        {
-            codeElementListOfLines[i] = codeElementListOfLines[i].replace("/*", "<comment>/*");
-            codeElementListOfLines[i] = codeElementListOfLines[i] + "</comment>";
-            multiline_comment_found++;
-        }
-        else if (String(codeElementListOfLines[i]).includes("*/") && multiline_comment_found > 0)
-        {
-            codeElementListOfLines[i] = codeElementListOfLines[i].replace("*/", "*/</comment>");
-            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i];
-            multiline_comment_found--;
-        }
-        else if(multiline_comment_found > 0)
-        {
-            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i] + "</comment>";
-        }
-
-    }
-    return codeElementListOfLines;
-}
-
-function format_XML_Document_Content(xml_Document_Content)
+function format_XML_Document_CODE_Content(xml_Document_Content)
 {   
     //This function will format the Database code elements by adding lineNumbers and Comment Styles
     var codeElements =  xml_Document_Content.getElementsByTagName("code");    
@@ -667,4 +491,82 @@ function format_XML_Document_Content(xml_Document_Content)
     }
     
     return xml_Document_Content;
+}
+
+function formatMultiLineComments(codeElementListOfLines)
+{
+    //This function will format multiline_comments in all programming languages
+    
+    var multiline_comment_found = 0;
+
+    for(var i=0; i < codeElementListOfLines.length; i++)
+    {
+        //if comment on multiple lines
+        if(String(codeElementListOfLines[i]).includes("/*") && 
+            String(codeElementListOfLines[i]).includes("*/") == false)
+        {
+            codeElementListOfLines[i] = codeElementListOfLines[i].replace("/*", "<comment>/*");
+            codeElementListOfLines[i] = codeElementListOfLines[i] + "</comment>";
+            multiline_comment_found++;
+        }
+        else if (String(codeElementListOfLines[i]).includes("*/") && multiline_comment_found > 0)
+        {
+            codeElementListOfLines[i] = codeElementListOfLines[i].replace("*/", "*/</comment>");
+            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i];
+            multiline_comment_found--;
+        }
+        else if(multiline_comment_found > 0)
+        {
+            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i] + "</comment>";
+        }
+
+    }
+    return codeElementListOfLines;
+}
+
+function formatSingleLineComments(line)
+{
+    /*This function will format/style single line comments in all programming languages*/
+    
+    //use if instead of if-else as the line can contain all of them at the same time.
+    
+    if(String(line).includes("//")) // do not add line number to single-line content
+    {
+        line = line.replace("//", "<comment>//");
+        line = line + "</comment>";
+    }
+    
+    if(String(line).includes("/*") && String(line).includes("*/"))
+    {
+        line = line.replace("/*", "<comment>/*");
+        line = line.replace("*/", "*/</comment>");
+        multiline_comment=true;
+    }
+    //if Python Comment
+    if( String(line).includes("#") == true && 
+        String(line).includes("#define")==false && 
+        String(line).includes("#include")==false &&
+        String(line).includes("#ifndef")==false &&
+        String(line).includes("#undef")==false &&
+        String(line).includes("#if")==false &&
+        String(line).includes("#pragma")==false &&
+        String(line).includes("#error")==false &&
+        String(line).includes("#region")==false &&
+        String(line).includes("#endregion")==false &&
+        String(line).includes("#endif")==false &&
+        String(line)!="#" //if not empty #
+        )
+    {
+        line = line.replace("#", "<comment>#");
+        line = line + "</comment>";
+    }
+    
+    return line;
+}
+
+function addStyleCodeBoxes(contentToPutInBox)
+{
+    //This function will draw a box around the code elements
+    contentToPutInBox = "<box>" + contentToPutInBox + "</box>"
+    return contentToPutInBox;
 }

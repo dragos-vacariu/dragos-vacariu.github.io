@@ -1,4 +1,5 @@
-const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
+//const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
+const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/programming_languages_database.xml"; //local resource can be ran using local server with cors
 var programming_languages = [];
 const concept_selection = document.getElementById("concept_selection");
 var concept_collection = [];
@@ -198,9 +199,6 @@ function loadXMLDoc(xml_file)
         {
             var parser = new DOMParser();
             var xml_Document = parser.parseFromString(this.responseText, "application/xml");
-            
-            /*formatting the xml_Document content*/
-            xml_Document = format_XML_Document_Content(xml_Document);
             
             /*get the content of the specified xml tag and store the information*/
             var xml_tag_content = xml_Document.getElementsByTagName("programming_language");
@@ -667,130 +665,6 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
             
         }
     }
-}
-
-function format_XML_Document_Content(xml_Document_Content)
-{    
-    var codeElements =  xml_Document_Content.getElementsByTagName("code");
-    for(var index = 0; index < codeElements.length; index++)
-    {
-        
-        //Format the code elements with different style.
-        var lines = codeElements[index].innerHTML.split("\n");
-        
-        lines = formatMultiLineComments(lines);
-        for(var i=0; i < lines.length; i++)
-        {
-            //Format the comments within the code elements with different style.
-            lines[i] = formatSingleLineComments(lines[i]);
-            var spaces = " ".repeat(4-String(i).length);
-            
-            //Add line numbers:
-            if(lines.length > 1) // do not add line number to single-line content
-            {
-                //Insert lineNumber and content in different table columns
-                lines[i] = "<tr>" + "<td style='width:26px; text-align:left; padding:0px;" +
-                "margin:0px; border: solid 1px black;'>" +
-                "<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + 
-                "<td style='text-align:left; padding:0px; margin:0px;'>" + lines[i] + 
-                "</td>" + "</tr>";
-            }
-        }
-        //if we have multiline code means we need to use table as we've added LineNumbers
-        if(lines.length > 1)
-        {
-            codeElements[index].innerHTML = "<table>" + lines.join("\n") + "</table>";
-        }
-        else
-        {
-            codeElements[index].innerHTML = lines.join("\n");
-        }
-        
-        //Put the code elements with more than 2 lines into a box
-        if(codeElements[index].innerHTML.split("\n").length > 2)
-        {
-            codeElements[index].innerHTML = addStyleCodeBoxes(codeElements[index].innerHTML);
-        }
-        
-        
-        
-    }
-    
-    return xml_Document_Content;
-}
-
-function addStyleCodeBoxes(contentToPutInBox)
-{
-    contentToPutInBox = "<box>" + contentToPutInBox + "</box>"
-    return contentToPutInBox;
-}
-
-function formatSingleLineComments(line)
-{
-    
-    //use if instead of if-else as the line can contain all of them at the same time.
-    
-    if(String(line).includes("//")) // do not add line number to single-line content
-    {
-        line = line.replace("//", "<comment>//");
-        line = line + "</comment>";
-    }
-    
-    if(String(line).includes("/*") && String(line).includes("*/"))
-    {
-        line = line.replace("/*", "<comment>/*");
-        line = line.replace("*/", "*/</comment>");
-        multiline_comment=true;
-    }
-    //if Python Comment
-    if( String(line).includes("#") == true && 
-        String(line).includes("#define")==false && 
-        String(line).includes("#include")==false &&
-        String(line).includes("#ifndef")==false &&
-        String(line).includes("#undef")==false &&
-        String(line).includes("#if")==false &&
-        String(line).includes("#pragma")==false &&
-        String(line).includes("#error")==false &&
-        String(line).includes("#region")==false &&
-        String(line).includes("#endregion")==false &&
-        String(line).includes("#endif")==false &&
-        String(line)!="#" //if not empty #
-        )
-    {
-        line = line.replace("#", "<comment>#");
-        line = line + "</comment>";
-    }
-    
-    return line;
-}
-
-function formatMultiLineComments(codeElementListOfLines)
-{
-    var multiline_comment_found = 0;
-
-    for(var i=0; i < codeElementListOfLines.length; i++)
-    {
-        //if comment on multiple lines
-        if(String(codeElementListOfLines[i]).includes("/*") && 
-            String(codeElementListOfLines[i]).includes("*/") == false)
-        {
-            codeElementListOfLines[i] = codeElementListOfLines[i].replace("/*", "<comment>/*");
-            codeElementListOfLines[i] = codeElementListOfLines[i] + "</comment>";
-            multiline_comment_found++;
-        }
-        else if (String(codeElementListOfLines[i]).includes("*/") && multiline_comment_found > 0)
-        {
-            codeElementListOfLines[i] = codeElementListOfLines[i].replace("*/", "*/</comment>");
-            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i];
-            multiline_comment_found--;
-        }
-        else if(multiline_comment_found > 0)
-        {
-            codeElementListOfLines[i] = "<comment>" + codeElementListOfLines[i] + "</comment>";
-        }
-
-    }
-    return codeElementListOfLines;
 }
 
 function changeToModernPage()

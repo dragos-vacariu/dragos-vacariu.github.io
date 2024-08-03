@@ -218,29 +218,56 @@
     color: #aa0000;
 }
 
+/*Color styles for various words and expressions*/
 #page_block red{
-    color: #aa0000;
-    font-family: Tahoma;
-    font-size: 15px;
+    font-family:Calibri;
+    font-size: 18px;
+    color: #dd0000;
 }
 
+#page_block azure{
+    font-family:Calibri;
+    font-size: 18px;
+    color: #008080;
+}
+
+#page_block purple{
+    font-family:Calibri;
+    font-size: 18px;
+    color: #aa00cc;
+}
+
+/*Header styles for various and titles and sentences*/
 #page_block brown{
-    color: #774400;
+    /*brown header*/
+    /*brown is more like black*/
+    color: #221100;
     font-family: Tahoma;
     font-size: 16px;
     text-shadow: 0.5px 0.5px white;
+    background-color: rgba(255,255,0,0.3);
+    padding: 2px;
+    border: solid 1px rgba(0,0,0,0.1);
+    line-height: 25px;
+}
+
+#page_block indigo{
+    /*indigo header*/
+    color: rgba(0,0,100,1.0);
+    font-family: Tahoma;
+    font-size: 15px;
+    text-shadow: 0.5px 0.5px white;
+    background-color: rgba(100,255,255,0.1);
+    padding: 2px;
+    border: groove 0px rgba(0,0,0,0.1);
+    line-height: 22px;
 }
 
 #page_block green{
+    /*green header*/
     color: #007700;
     font-family: Tahoma;
     font-size: 18px;
-}
-
-#page_block blue{
-    color: #7700aa;
-    font-family: Tahoma;
-    font-size: 15px;
 }
 
 #page_block bold{

@@ -4,7 +4,7 @@
     color:#663300;
     border: solid 1px #995500;
     margin: 0.5%;
-    font-family:Tahoma;
+    font-family:Tahoma; /*font set from javacript*/
     font-size:14px;
     background-color: white;
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
@@ -364,10 +364,21 @@ searchHighlight{
 
 /*Tooltip is used for adding additional info on hovering on an element*/
 #page_block red{
+    font-family:Calibri;
+    font-size: 18px;
     color: #dd0000;
-    font-family: Calibri;
-    font-size: 17px;
-    position: relative; /*important in case of adding the tooltip*/
+}
+
+#page_block azure{
+    font-family:Calibri;
+    font-size: 18px;
+    color: #008080;
+}
+
+#page_block purple{
+    font-family:Calibri;
+    font-size: 18px;
+    color: #aa00cc;
 }
 
 #page_block red tooltip{
@@ -396,6 +407,7 @@ searchHighlight{
 /*End of tooltip*/
 
 #page_block brown{
+    /*brown header*/
     /*brown is more like black*/
     color: #221100;
     font-family: Tahoma;
@@ -407,16 +419,23 @@ searchHighlight{
     line-height: 25px;
 }
 
+#page_block indigo{
+    /*indigo header*/
+    color: rgba(0,0,100,1.0);
+    font-family: Tahoma;
+    font-size: 15px;
+    text-shadow: 0.5px 0.5px white;
+    background-color: rgba(100,255,255,0.1);
+    padding: 2px;
+    border: groove 0px rgba(0,0,0,0.1);
+    line-height: 22px;
+}
+
 #page_block green{
+    /*green header*/
     color: #007700;
     font-family: Tahoma;
     font-size: 18px;
-}
-
-#page_block blue{
-    color: #aa00cc;
-    font-family: Calibri;
-    font-size: 17px;
 }
 
 #page_block bold{
