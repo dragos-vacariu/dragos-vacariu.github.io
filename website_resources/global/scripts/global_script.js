@@ -1,7 +1,12 @@
 var app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
-var domain = "dragos-vacariu.github.io"
+var domain = "dragos-vacariu.github.io";
+var page_title = "GitHub Portfolio";
+document.title = page_title + " " + document.title;
+document.getElementById("page_title").innerText = page_title;
+document.getElementById("page_description").innerText = domain;
+    
 var rootDir = location.href.split(domain)[0] + domain;
 var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
 /*window.location.protocol will be file: on local machine and http or https on the web.*/
@@ -27,7 +32,6 @@ function Controller_Function($scope)
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
     
 	$scope.pageObject = {
-        page_title : "GitHub Portfolio",
 		page_navigation : [
 			{name: "Home", value : homePage},
 			{name: "Catalogue", value : rootDir + "#"},
@@ -170,8 +174,6 @@ function Controller_Function($scope)
 			{name: "JavaScript Games Portable", value : "../../Portable-Downloads/JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
 	];
 	
-	document.title = $scope.pageObject.page_title + " " + document.title;
-	
 	$scope.selectedWebPageStyle = function (pageElement, activePageTitle)
 	{
 		var style = "";
@@ -181,7 +183,7 @@ function Controller_Function($scope)
 				"background-color": "#aa4400", 
 				"border-style": "solid", 
 				"border-color": "#442200", 
-				"border-width": "0.2vw", 
+				"border-width": "2px", 
 				"border-radius": "5vw", 
 			};
 		}

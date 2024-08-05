@@ -26,14 +26,29 @@ header{
 header #header_title{
 	position: relative;
 	color:#ffffff;
-	font-family: FjallaOne;
-	width:40%;
-	font-size:20px;
-	margin-top:0%;
-	padding-top:0%;
-	margin-left:10%;
-	text-shadow: 0.2vw 0.2vw #000000;
+	width:200px;
+	margin:2% 10%;
+	padding:10px;
     word-wrap: break-word;
+}
+
+header #header_title h2{
+    position: relative;
+    text-align: center;
+    font-family: FjallaOne;
+    font-size:20px;
+    margin: 0%;
+    text-shadow: 2px 2px #000000;
+}
+
+header #header_title p{
+    position: relative;
+    text-align: center;
+    font-family: ZenDots;
+    font-size:7px;
+    color: #ffeecc;
+    margin: 0%;
+    text-shadow: 1px 1px #000000;
 }
 
 nav{
