@@ -5,52 +5,6 @@
     box-shadow: none;
 }
 
-#page_block h3{
-	padding:0.5%;
-	padding-left:2.5%;
-	width:96%;
-	margin:1% 2%;
-    font-family: FjallaOne;
-	text-align: left;
-	font-size:28px;
-    letter-spacing: 3px;
-	text-shadow: 0.5px 1px pink;
-	color: rgba(143,55,0, 1);
-	/*background-image: linear-gradient(to right, #aa7700, #995500);*/
-    border: groove 5px rgba(255,255,255, 0.6);
-    word-wrap: break-word;
-    border-radius: 1vw;
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-#page_block p{
-	padding:1%;
-	padding-left:3%;
-	border-style: groove;
-	border-width: 5px;
-	border-color: rgba(255,255,255, 0.6);
-    border-radius: 4vw;
-	width:96%;
-	margin-left:2%;
-	font-family: Times New Roman;
-	font-size:18px;
-	margin-bottom: 0%;
-	color: black;
-	text-shadow: 1px 1px white;
-    word-wrap: break-word;
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
 #page_block #introduction{
 	padding:1%;
 	border-style: groove;
@@ -83,14 +37,47 @@
     max-width: 100%;
 }
 
-#page_block #about_me{
-	background-color: rgba(200,200,200,0.3); /*gray*/
+#page_block p{
+	padding:1%;
+	width:96%;
+	margin-left:2%;
+	font-family: Times New Roman;
+    font-weight: normal;
+	font-size:18px;
+	margin-bottom: 0%;
+	color: black;
+	text-shadow: 1px 1px white;
+    word-wrap: break-word;
+    border: none;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#page_block #summary_description{
-    background-color: rgba(200,200,200,0.3); /*gray*/
+#page_block .rounded_border
+{
+    border-style: groove;
+    border-width: 5px;
+    border-color: rgba(255,255,255, 0.6);
+    border-radius: 4vw;
+    padding-left:3%;
+    margin-left:2%;
 }
 
+#page_block #core_tech{
+    padding: 0%;
+    padding-left:3%;
+    margin-left:0%;
+    font-family: ZenDots;
+	text-align: left;
+	font-size:24px;
+    letter-spacing: 3px;
+	text-shadow: 0.5px 1px pink;
+	color: rgba(143,55,0, 1);
+}
 
 #page_block #html_css_info{
 	background-color: rgba(0,0,255,0.2); /*purple*/
@@ -98,7 +85,6 @@
 
 #page_block #javascript_info{
 	background-color: rgba(255,0,0,0.3); /*pink*/
-
 }
 
 #page_block #c_language_info{
@@ -126,26 +112,23 @@
 }
 
 
-#page_block p .title{
+#page_block .title{
 	font-family: ZenDots;
 	font-weight: bold;
 	letter-spacing: 1px;
-	font-size:20px;
 	text-shadow: 1px 1px white;
 }
 
-#page_block p .header{
+#page_block .header{
 	font-family: FjallaOne;
 	font-weight: bold;
 	letter-spacing: 1px;
-	font-size:16px;
 	text-shadow: 1px 1px white;
     margin-bottom: 15px;
 }
 
-#page_block p .highlighted_element{
+#page_block .highlighted_element{
 	font-family:Calibri;
-	font-size:18px;
 	text-shadow: 0.5px 1px pink;
 	color: rgba(143,55,0, 1);
 	font-weight: normal;
