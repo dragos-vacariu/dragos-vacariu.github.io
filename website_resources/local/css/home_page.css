@@ -106,7 +106,7 @@
 	width:100%;
 	height:100%;
 	border:none;
-	object-fit: cover;
+	object-fit: cover; /*this will make sure the object will not be stretched.*/
     border-radius: 20px;
 }
 
