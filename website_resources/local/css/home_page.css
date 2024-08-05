@@ -4,9 +4,9 @@
 	border-color:black;
 	border-width:0.1vw;
     border-radius: 20px;
-	height: 32vw;
-	margin: 0.5%;
-	width: 99%;
+	height: 22vw;
+	margin: 0.2%;
+	width: 99.6%;
     background-image: repeating-linear-gradient(to right, rgba(255,0,0,1), rgba(255,255,0,1), rgba(0,0,255,1));
     
     /*The following will ensure that the width of the element will not grow with the added border-size.

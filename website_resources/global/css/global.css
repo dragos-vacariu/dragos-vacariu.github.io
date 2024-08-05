@@ -59,7 +59,7 @@ nav{
 	margin: 0%;
 	margin-top: -1px; /*with this negative margin the nav will overlap over the header element that is on top of it*/
 	padding: 0%;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
 	background-image: linear-gradient(to right, #aa7700, #995500);
 	border-left-style: solid;
 	border-bottom-style: solid;
@@ -143,20 +143,20 @@ nav div{
 	border-style: inset;
 	border-color: black;
 	border-width:1px;
-    border-radius: 20px;
+    border-radius: 100px;
 	padding:0%;
     vertical-align: top;
 }
 
 #reference table tr {
-    background-image: repeating-linear-gradient(to right, rgba(255,0,0,0.2), rgba(255,255,0,0.2), 
-    rgba(0,255,0,0.2), rgba(0,0,255,0.2), rgba(0,255,255,0.2), rgba(255,0,255,0.2));
+    background-image: repeating-linear-gradient(to right, rgba(255,0,0,0.1), rgba(255,255,0,0.1), 
+    rgba(0,255,0,0.1), rgba(0,0,255,0.1), rgba(0,255,255,0.1), rgba(255,0,255,0.1));
 }
 
 #reference table{
 	margin-left:auto;
 	margin-right:auto;
-	width:80%;
+	width:60%;
     max-width:1200px;
 	padding:0%;
 	border: none 1px black;
@@ -168,14 +168,15 @@ nav div{
 #reference table th div p 
 {
     font-family: ZenDots;
-	font-size: 60%;
+	font-size: 50%;
     color: black;
 	width:auto;
 	word-wrap: break-word;
+    margin: 10%;
 }
 
 .ref_pic{
-	width:40%;
+	width:100%;
 	/*box-shadow:1vw 1vw 0.5vw lightgray;*/
 }
 
