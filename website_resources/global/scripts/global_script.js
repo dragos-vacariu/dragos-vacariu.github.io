@@ -27,7 +27,7 @@ function Controller_Function($scope)
 	$scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
     
 	$scope.pageObject = {
-        page_title : "Portfolio",
+        page_title : "Github Portfolio",
 		page_navigation : [
 			{name: "Home", value : homePage},
 			{name: "Catalogue", value : rootDir + "#"},
