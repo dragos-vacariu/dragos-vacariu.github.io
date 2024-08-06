@@ -364,20 +364,14 @@ searchHighlight{
 
 /*Tooltip is used for adding additional info on hovering on an element*/
 #page_block red{
-    font-family:Calibri;
-    font-size: 18px;
     color: #dd0000;
 }
 
 #page_block azure{
-    font-family:Calibri;
-    font-size: 18px;
     color: #008080;
 }
 
 #page_block purple{
-    font-family:Calibri;
-    font-size: 18px;
     color: #aa00cc;
 }
 
