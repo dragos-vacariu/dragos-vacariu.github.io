@@ -136,6 +136,7 @@
     color: #995500;
     text-shadow: 0px 0px white;
     word-wrap: break-word;
+    cursor: pointer;
 }
 
 #page_block #table_content{
