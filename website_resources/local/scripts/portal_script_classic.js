@@ -17,8 +17,8 @@ const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 const page_selection = document.getElementById("page_selection");
 
 /*Adding page selection buttons*/
-page_selection.appendChild( createLiElement("Modern", true, changeToModernPage) );
-page_selection.appendChild( createLiElement("Classic", false, changeToClassicPage) );
+page_selection.appendChild( createLiElement("Modern", false, changeToModernPage) );
+page_selection.appendChild( createLiElement("Classic", true, changeToClassicPage) );
 
 const table_content = document.getElementById("table_content");
 
