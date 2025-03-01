@@ -8,8 +8,6 @@ const overall_concept_selection = document.getElementById("overall_concept_selec
 const cookie_element_separator = "<br>"; 
 allConceptsSelection = false;
 
-const disabledElementOpacity = 0.3;
-
 //different styles for list tag selection:
 const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black; border-width: 1px";
 const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black; border-width: 1px";
