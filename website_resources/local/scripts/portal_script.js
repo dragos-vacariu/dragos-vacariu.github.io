@@ -2,7 +2,7 @@ const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfo
 //const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/programming_languages_database.xml"; //local resource can be ran using local server with cors
 const programming_languages = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
-const concept_collection = [];
+concept_collection = [];
 const concept_selection = document.getElementById("concept_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
@@ -125,8 +125,7 @@ function useProvidedRoute()
                     if(programming_language_selection.children[matchIndex-1].value == false)
                     {
                         //if element specified via the routing is found and is deselected we will select it
-                        programming_language_selection.children[matchIndex-1].value = true
-                        programming_language_selection.children[matchIndex-1].style = tag_selection_on
+                        programming_language_selection.children[matchIndex-1].click(); 
                     }
                 }
             }
@@ -465,16 +464,21 @@ function loadXMLDoc(xml_file)
                 /*Ignore everything for General-Programming-Knowledge*/
                 if(programming_languages[index].name != "General-Programming-Knowledge")
                 {
-                    /*Adding the programming language selection*/                
-                    for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
+                    if(index==1) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
-                        if(concept_collection.includes(programming_languages[index].concepts[concept_index].concept_name) == false)
+                        /*Adding the programming language selection*/                
+                        for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
                         {
+                            if(concept_index == 0)
+                            {
+                                concept_selection.appendChild(createLiElement(programming_languages[index].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
+                            }
+                            else
+                            {
+                                concept_selection.appendChild(createLiElement(programming_languages[index].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
+                            }
                             concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
                         }
-                    }
-                    if(index<4) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
-                    {
                         programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true, languageSelectionBehaviour));
                     }
                     else
@@ -482,11 +486,6 @@ function loadXMLDoc(xml_file)
                         programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false, languageSelectionBehaviour));
                     }
                 }
-            }
-            /*Adding the concept collection to selection*/
-            for(var i=0; i< concept_collection.length; i++)
-            {
-                concept_selection.appendChild(createLiElement(concept_collection[i], true, conceptSelectionBehavior));
             }
             /*read cookie and/or hanndle the display of the elements*/
             dbCookieRouteHandling();
@@ -775,20 +774,37 @@ function languageSelectionBehaviour()
         var active_language = programming_languages.find(element => element.name == this.innerHTML);
         if(active_language != undefined)
         {
-            for(var index=0; index < concept_selection.children.length; index++)
+            selected_concept = ""
+            //Removing existing concepts in the concept_selection
+            while(concept_selection.children.length > 0)
             {
-                //Check if concept exists for the active language
-                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
-                if(elementIndex < 0)
+                if (concept_selection.children[0].value == true)
                 {
-                    /*This opacity style will make them look disabled.*/
-                    concept_selection.children[index].style.opacity = disabledElementOpacity;
+                    selected_concept = concept_selection.children[0].innerHTML
+                }
+                concept_selection.children[0].remove()
+            }
+            concept_collection = [] //clearing the concept_collection
+            
+            //Appending the new concepts
+            for(var index=0; index < active_language.concepts.length; index++)
+            {
+                if(index == 0)
+                {
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                }
+                else if (selected_concept != "" && active_language.concepts[index].concept_name ==  selected_concept)
+                {
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                    concept_selection.children[0].value = false
+                    concept_selection.children[0].style = tag_selection_off;
                 }
                 else
                 {
-                    /*This opacity will ensure that the element is enabled.*/
-                    concept_selection.children[index].style.opacity = 1;
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, false, conceptSelectionBehavior));
                 }
+                
+                concept_collection.push(active_language.concepts[index].concept_name);
             }
         }
         updateCookie("SingleSelectionLanguage", this.innerHTML);
@@ -800,12 +816,57 @@ function languageSelectionBehaviour()
         if(this.value == true)
         {
             this.value = false;
-            this.style = tag_selection_off;
+            this.style = tag_selection_off;           
+            
+            //Removing existing concepts in the concept_selection
+            for(var existing_concept=0; existing_concept < concept_selection.children.length; existing_concept++)
+            {
+                concept_to_be_removed = false
+                
+                for(var language_index = 0; language_index < programming_language_selection.children.length; language_index++)
+                {
+                    if (programming_language_selection.children[language_index].value == true)
+                    {
+                        var found_element_index = programming_languages[language_index+1].concepts.findIndex(element => element.concept_name == concept_selection.children[existing_concept].innerHTML);
+                        if( found_element_index < 0)
+                        {
+                            concept_to_be_removed = true
+                        }
+                        else
+                        {
+                            concept_to_be_removed = false
+                        }
+                    }
+                }
+                
+                if (concept_to_be_removed)
+                {
+                    concept_selection.children[existing_concept].remove();
+                    concept_collection.splice(existing_concept, 1);
+                    existing_concept--;
+                }
+            }
         }
         else
         {
             this.value = true;
             this.style = tag_selection_on;
+            
+            var selected_language = programming_languages.find(element => element.name == this.innerHTML);
+            
+            if(selected_language != undefined)
+            {                
+                //Appending the new concepts
+                for(var index=0; index < selected_language.concepts.length; index++)
+                {
+                    if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
+                    {
+                        console.log("Added: " + selected_language.concepts[index].concept_name)
+                        concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                        concept_collection.push(selected_language.concepts[index].concept_name);
+                    }                 
+                }
+            }
         }
         updateCookie(this.innerHTML, this.value);
     }
