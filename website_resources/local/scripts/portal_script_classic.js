@@ -130,7 +130,7 @@ function restoreCookiePredefinedElements()
     */
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
-    var foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
+    var foundPageView = cookie_elements.findIndex(element => String(element) == "page=modern");
     /*
         The findIndex() method of Array instances returns the index of the first element in an 
         array that satisfies the provided testing function. If no elements satisfy the testing 
@@ -142,7 +142,7 @@ function restoreCookiePredefinedElements()
     */
     if(foundPageView >= 0) //if page view found amongst cookies
     {
-        window.location.href = "./portal_classic.html";
+        window.location.href = "./portal.html";
         /*Page will change and script run will stop*/
     }
 }
