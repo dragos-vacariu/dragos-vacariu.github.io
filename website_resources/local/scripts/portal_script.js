@@ -385,7 +385,6 @@ function updateCookie(property, value)
         }
         document.cookie += element;
     }
-    //console.log("Cookie Update.");
 }
 
 class Programming_Language
@@ -861,7 +860,6 @@ function languageSelectionBehaviour()
                 {
                     if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
                     {
-                        console.log("Added: " + selected_language.concepts[index].concept_name)
                         concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
                         concept_collection.push(selected_language.concepts[index].concept_name);
                     }                 

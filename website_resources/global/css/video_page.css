@@ -69,3 +69,7 @@
 	font-weight: normal;
 	padding: 0.2vw;
 }
+
+#page_block .highlight_blue{
+    color: blue;
+}
