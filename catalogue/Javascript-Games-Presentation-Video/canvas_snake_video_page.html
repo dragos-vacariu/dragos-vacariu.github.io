@@ -36,26 +36,26 @@
 		</nav>
 		<div id="page_block">
 			<h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> <a href={{exitDir}}{{javascript_games_presentation_video.value}}>Video Presentation Page</a> -> Canvas Snake Video</h2>
-			<h3>Canvas Snake Video</h3>
+            <div id = "block_content">
+                <h3>Canvas Snake Video</h3>
+                <video controls autoplay muted>
+                  <source src="canvas_snake_video.mp4" type="video/mp4">
+                  <source src="canvas_snake_video.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+                </video>
 
-			<video controls autoplay muted>
-			  <source src="canvas_snake_video.mp4" type="video/mp4">
-			  <source src="canvas_snake_video.ogg" type="video/ogg">
-			Your browser does not support the video tag.
-			</video>
-
-			<h4>Description:</h4>
-			<h4>				
-				Classic Snake Game developed using HTML Canvas for rendering.<br><br>
-				The purpose of the game is to control the snake within the canvas, grabbing the fruit will raise the score and allow 
-				the snake to grow longer hence rewarding the player with points.
-				<br><br>
-				This version of the game does not allow the player to drive through walls so 
-				if the player collides with the tail or with the wall the game will end.
-				<br><br>
-				<a style = "text-decoration: none; color: red;" href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >Canvas Snake Web Page</a>
-			</h4>
-
+                <h4>Description:</h4>
+                <h4>				
+                    Classic Snake Game developed using HTML Canvas for rendering.<br><br>
+                    The purpose of the game is to control the snake within the canvas, grabbing the fruit will raise the score and allow 
+                    the snake to grow longer hence rewarding the player with points.
+                    <br><br>
+                    This version of the game does not allow the player to drive through walls so 
+                    if the player collides with the tail or with the wall the game will end.
+                    <br><br>
+                    <a style = "text-decoration: none; color: red;" href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >Canvas Snake Web Page</a>
+                </h4>
+            </div>
 		</div>
 		<footer>
             <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
