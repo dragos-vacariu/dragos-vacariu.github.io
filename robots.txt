@@ -1,0 +1,3 @@
+User-agent: *
+
+sitemap: https://dragos-vacariu.github.io/sitemap.xml
