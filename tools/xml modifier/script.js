@@ -489,7 +489,7 @@ function format_XML_Document_CODE_Content(xml_Document_Content)
                 }
                 
                 //Insert lineNumber and content in different table columns
-                lines[i] = "<tr>" + "<td style='width:26px; text-align:left; padding:0px;" +
+                lines[i] = "<tr>" + "<td style='width:46px; text-align:left; padding:0px;" +
                 "margin:0px; border: solid 1px rgba(0,0,0,0.1);'>" +
                 "<lineNumber>" + i + spaces + "</lineNumber>" + "</td>" + 
                 "<td style='text-align:left; padding:0px; margin:0px;'>" + content + 
