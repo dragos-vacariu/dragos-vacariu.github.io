@@ -5,7 +5,7 @@ const red_colored_substr = {keyword: [
     /*Multiple words should be first section*/
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
-    "software component", "real-time", "CAN FD", "Cyclic Redundancy Check"], color: "red"};
+    "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -16,7 +16,7 @@ const red_colored_words = {keyword: [
     "base", "programming", "concurrent", "compute", "language", "reflect", "polymorph", "seal", "pseudo",
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
-    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload"], color: "red"};
+    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
@@ -25,7 +25,7 @@ const purple_colored_substr = {keyword: [
     "wide character", "long long int", "short int", "long int", "left-shift", "right-shift", "macro constant", 
     "implicit conversion", "explicit conversion", "format specifier", "file handle", "non-mutat", "heap space", "heap memory",
     "stack memory", "stack space", "global access", "global interpreter lock", "Runtime Environment", "Basic Software", 
-    "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16"], color: "purple"};
+    "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16", "Protocol Data Unit"], color: "purple"};
     
 const purple_colored_words = {keyword: [
     /*Single words*/
@@ -36,7 +36,7 @@ const purple_colored_words = {keyword: [
     "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
     "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
     "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype",
-    "architect", "AUTOSAR", "Layer", "determinist"], color: "purple"};
+    "architect", "AUTOSAR", "Layer", "determinist", "PDU"], color: "purple"};
 
 //Words and expressions associated with various concepts or special terms:
 const azure_colored_substr = {keyword: [

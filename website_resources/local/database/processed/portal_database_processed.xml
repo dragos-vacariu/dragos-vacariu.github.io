@@ -1816,11 +1816,11 @@
             generally faster.
             <br/><br/>
             <red>Recursion</red> is useful when it is the natural way of viewing the problem, 
-            but you must be sure that there is a manageable number of <purple>stack</purple> frames 
+            but you must be sure that there is a manageable number of <purple>stack</purple> <red>frames</red> 
             involved. 
             <br/><br/>
-            A <purple>stack</purple> frame is a <azure>block</azure> of <azure>memory</azure> <purple>assigned</purple> to the <purple>stack</purple> 
-            when a <red>function</red> is called, if the <purple>stack</purple> frames exceeds the 
+            A <purple>stack</purple> <red>frame</red> is a <azure>block</azure> of <azure>memory</azure> <purple>assigned</purple> to the <purple>stack</purple> 
+            when a <red>function</red> is called, if the <purple>stack</purple> <red>frames</red> exceeds the 
             <purple>stack</purple> <purple>memory</purple> capacity, the <purple>stack</purple> <azure>overflow</azure> error will occur 
             and will terminate the program.
             <br/></recursion>
@@ -16334,11 +16334,16 @@
             Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly.
             <br/><br/>
             <green>Broadcasting:</green>
-            <br/> <br/>
+            <br/><br/>
             When one <azure>ECU</azure> sends a message, all other <azure>ECUs</azure> on the <red>bus</red> can receive it, 
             <azure>allowing</azure> for <azure>efficient</azure> communication. Since all the <purple>data</purple> transmitted from the <azure>ECUs</azure> is available on the <red>bus</red>, the
             <azure>ECUs</azure> can be programmed to filter messages <red>based</red> on specific criteria, such as message <purple>identifiers</purple>. 
             This means they only <azure>process</azure> messages that are relevant to their <red>function</red>.
+            <br/><br/>
+            A <purple>PDU</purple> (<purple>Protocol</purple> <purple>Data</purple> <purple>Unit</purple>) is typically seen as a message in higher-level communication protocols, containing 
+            the <purple>data</purple> and control information needed for a full communication exchange.
+            In lower-level protocols like CAN, a <purple>PDU</purple> can be seen as the <purple>data</purple> part within a <red>frame</red>, but it’s still part of 
+            the larger <purple>structure</purple>.
             <br/><br/>
             <green>Message Structure:</green>
             <br/> <br/>
@@ -16434,8 +16439,13 @@
             </ul>
             <br/>
             <brown>Data Field:</brown> 
-             <br/>Contains the actual <purple>data</purple> being transmitted. It is also referred to as <red>payload</red>.
-            <br/> <br/>
+             <br/>Contains the actual <purple>data</purple> being transmitted. It is also referred to as <red>payload</red>. The <purple>Data</purple> <purple>Field</purple> may contain 
+             sensor <purple>data</purple>, control <azure>signals</azure>, status information, or any other <purple>type</purple> of 
+             information that needs to be exchanged between <azure>ECUs</azure>. 
+             <br/><br/>
+             <indigo>Example:</indigo> within a <purple>PDU</purple> the actual <purple>data</purple> being transmitted is typically 
+             given by a <purple>collection</purple> of <azure>signals</azure>.
+            <br/><br/>
             <brown>Control Information:</brown> 
             <br/>
             Helps manage the flow of <purple>data</purple> and ensures that messages are received correctly. 
@@ -16803,20 +16813,83 @@
             <br/><br/>
             <green>How Communication Works:</green>
             <br/><br/>
-            <brown>Message Transmission</brown>
+            <indigo>Message Transmission</indigo>
             <br/>
             When an <azure>ECU</azure> needs to send <purple>data</purple> (like engine temperature), it <azure>creates</azure> a message and places it on the <red>bus</red>.
             Other <azure>ECUs</azure> on the network can <azure>read</azure> this message and respond accordingly.
             <br/><br/>
-            <brown>Priority and Arbitration</brown>
+            <indigo>Priority and Arbitration</indigo>
             <br/>
             In a CAN network, messages have different priorities. If two messages are sent <azure>simultaneously</azure>, 
             the one with the higher priority will be transmitted first.
             <br/><br/>
-            <brown>Error Handling</brown>
+            <indigo>Error Handling</indigo>
             <br/>
             <azure>ECU</azure> networks are designed with error detection and correction mechanisms to ensure reliable communication. 
-            If a message is corrupted, the receiving <azure>ECU</azure> can request a retransmission.</ecu-networks>
+            If a message is corrupted, the receiving <azure>ECU</azure> can request a retransmission.
+            <br/><br/>
+            <brown>Transmission of messages:</brown>
+            <br/><br/>
+            A message can also be formed from multiple <red>frames</red>, when the transmission of whole message is not possible. 
+            <br/>
+            Example: In CAN (<red>Controller</red> <red>Area</red> <red>Network</red>), the standard <red>frame</red> format <azure>allows</azure> for a <purple>Data</purple> <purple>Field</purple> of only up to 8 <purple>bytes</purple>. 
+            <br/><br/>
+            A <red>CAN</red> <red>Frame</red> is an actual <purple>PDU</purple>/message for CAN protocol in <purple>AUTOSAR</purple> which consists of following:
+            <br/><br/>
+            <indigo>Identifier:</indigo> 11-<purple>bit</purple> or 29-<purple>bit</purple> ID (depending on standard or extended format).<br/>
+            <indigo>Control Field:</indigo> <purple>Data</purple> length <azure>code</azure> (DLC), which specifies the length of the <purple>Data</purple> <purple>Field</purple>.<br/>
+            <indigo>Data Field:</indigo> This can contain up to 8 <purple>bytes</purple> of actual <purple>data</purple> being transferred.<br/>
+            <indigo> CRC:</indigo> For error checking.<br/>
+            <indigo>Acknowledgment:</indigo> A <purple>signal</purple> confirming successful reception of the <red>frame</red>.
+            <br/><br/>
+            In this case: to send larger messages (i.e., <purple>PDUs</purple> larger than 8 <purple>bytes</purple>), the CAN protocol uses a mechanism known as 
+            segmentation and reassembly. 
+            <br/><br/>
+            Larger <purple>PDUs</purple> (such as those needed for diagnostic messages or large <purple>data</purple> transfers) 
+            can be sent by <purple>breaking</purple> the <purple>data</purple> into smaller chunks. These chunks are sent across multiple <red>frames</red>, 
+            and the receiving <azure>ECU</azure> must reassemble the <purple>data</purple> back into the original message.
+            <br/><br/>
+            This segmentation and reassembly is typically done using higher-<purple>layer</purple> protocols like ISO-TP (ISO 15765-2) or 
+            UDS (Unified Diagnostic Services), which define how the <purple>data</purple> is split into multiple <red>frames</red>.
+            <br/><br/>
+            <brown>Steps for Segmentation and Reassembly:</brown>
+            <br/><br/>
+            <indigo>Segmentation:</indigo>
+            <br/>
+            The <purple>PDU</purple> is split into smaller pieces, each fitting within the 8-<purple>byte</purple> <purple>data</purple> <purple>field</purple> limit of the <red>CAN</red> <red>frame</red>.
+            Each segment is sent as a separate <red>CAN</red> <red>frame</red>, and these <red>frames</red> are linked using specific <purple>identifiers</purple> (such as a 
+            <azure>Sequence</azure> <azure>Number</azure> and a Unique Message <purple>Identifier</purple>).
+            <br/><br/>
+            <indigo>Transmission of Multiple Frames:</indigo>
+            <br/>
+            The first <red>CAN</red> <red>frame</red> will carry the initial part of the <purple>data</purple>, while the subsequent <red>frames</red> carry the remaining chunks.
+            A special control <purple>byte</purple> (such as a <azure>Sequence</azure> <azure>Number</azure>) is included in the <azure>header</azure> of each <red>frame</red> to help the receiving <azure>ECU</azure> 
+            reassemble the full message.
+            <br/><br/>
+            <indigo>Reassembly:</indigo>
+            <br/>
+            The receiving <azure>ECU</azure> listens for each <red>frame</red>, identifies the <azure>Sequence</azure> using the Control Information, and reassembles the <purple>data</purple> 
+            into the original <purple>PDU</purple> once all the <red>frames</red> are received.
+            <br/>
+            The receiving <azure>ECU</azure> may also check for any errors or missing <red>frames</red>.
+            <br/><br/>
+            <brown>Example of Multi-Frame Transmission:</brown>
+            <br/><br/>
+            Suppose a diagnostic message requires 20 <purple>bytes</purple> of <purple>data</purple>.
+            <br/>
+            This <purple>data</purple> would be split into 3 <red>frames</red>:
+            <br/><br/>
+            The first <red>frame</red> would carry the first 8 <purple>bytes</purple>.<br/>
+            The second <red>frame</red> would carry the next 8 <purple>bytes</purple>.<br/>
+            The third <red>frame</red> would carry the remaining 4 <purple>bytes</purple>.
+            <br/><br/>
+            Each of these <red>frames</red> would have <purple>identifiers</purple> or <azure>Sequence</azure> <azure>Numbers</azure> that <azure>allow</azure> the receiving <azure>ECU</azure> to know how to 
+            reassemble the <purple>data</purple>.
+            <br/><br/>
+            <purple>PDUs</purple> larger than 8 <purple>bytes</purple> can be transmitted in a single <red>frame</red> through <red>CAN</red> <red>FD</red> 
+            (Flexible <purple>Data</purple>-rate) protocol, which <azure>allows</azure> for larger <purple>data</purple> <red>payloads</red> and higher <purple>data</purple> 
+            transfer rates with a <purple>Data</purple> <purple>Field</purple> <purple>size</purple> of up to 64 <purple>bytes</purple>.
+            <br/></ecu-networks>
     </manifest>
     
 </content>

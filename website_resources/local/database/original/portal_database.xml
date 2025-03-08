@@ -15301,11 +15301,16 @@ sum = lambda arg1, arg2: arg1 + arg2;
             Each ECU can read data from the bus and respond accordingly.
             <br></br><br></br>
             <green>Broadcasting:</green>
-            <br></br> <br></br>
+            <br></br><br></br>
             When one ECU sends a message, all other ECUs on the bus can receive it, 
             allowing for efficient communication. Since all the data transmitted from the ECUs is available on the bus, the
             ECUs can be programmed to filter messages based on specific criteria, such as message identifiers. 
             This means they only process messages that are relevant to their function.
+            <br></br><br></br>
+            A PDU (Protocol Data Unit) is typically seen as a message in higher-level communication protocols, containing 
+            the data and control information needed for a full communication exchange.
+            In lower-level protocols like CAN, a PDU can be seen as the data part within a frame, but it’s still part of 
+            the larger structure.
             <br></br><br></br>
             <green>Message Structure:</green>
             <br></br> <br></br>
@@ -15391,8 +15396,13 @@ int main()
             </ul>
             <br></br>
             <brown>Data Field:</brown> 
-             <br></br>Contains the actual data being transmitted. It is also referred to as payload.
-            <br></br> <br></br>
+             <br></br>Contains the actual data being transmitted. It is also referred to as payload. The Data Field may contain 
+             sensor data, control signals, status information, or any other type of 
+             information that needs to be exchanged between ECUs. 
+             <br></br><br></br>
+             <indigo>Example:</indigo> within a PDU the actual data being transmitted is typically 
+             given by a collection of signals.
+            <br></br><br></br>
             <brown>Control Information:</brown> 
             <br></br>
             Helps manage the flow of data and ensures that messages are received correctly. 
@@ -15730,20 +15740,83 @@ else
             <br></br><br></br>
             <green>How Communication Works:</green>
             <br></br><br></br>
-            <brown>Message Transmission</brown>
+            <indigo>Message Transmission</indigo>
             <br></br>
             When an ECU needs to send data (like engine temperature), it creates a message and places it on the bus.
             Other ECUs on the network can read this message and respond accordingly.
             <br></br><br></br>
-            <brown>Priority and Arbitration</brown>
+            <indigo>Priority and Arbitration</indigo>
             <br></br>
             In a CAN network, messages have different priorities. If two messages are sent simultaneously, 
             the one with the higher priority will be transmitted first.
             <br></br><br></br>
-            <brown>Error Handling</brown>
+            <indigo>Error Handling</indigo>
             <br></br>
             ECU networks are designed with error detection and correction mechanisms to ensure reliable communication. 
             If a message is corrupted, the receiving ECU can request a retransmission.
+            <br></br><br></br>
+            <brown>Transmission of messages:</brown>
+            <br></br><br></br>
+            A message can also be formed from multiple frames, when the transmission of whole message is not possible. 
+            <br></br>
+            Example: In CAN (Controller Area Network), the standard frame format allows for a Data Field of only up to 8 bytes. 
+            <br></br><br></br>
+            A CAN Frame is an actual PDU/message for CAN protocol in AUTOSAR which consists of following:
+            <br></br><br></br>
+            <indigo>Identifier:</indigo> 11-bit or 29-bit ID (depending on standard or extended format).<br></br>
+            <indigo>Control Field:</indigo> Data length code (DLC), which specifies the length of the Data Field.<br></br>
+            <indigo>Data Field:</indigo> This can contain up to 8 bytes of actual data being transferred.<br></br>
+            <indigo> CRC:</indigo> For error checking.<br></br>
+            <indigo>Acknowledgment:</indigo> A signal confirming successful reception of the frame.
+            <br></br><br></br>
+            In this case: to send larger messages (i.e., PDUs larger than 8 bytes), the CAN protocol uses a mechanism known as 
+            segmentation and reassembly. 
+            <br></br><br></br>
+            Larger PDUs (such as those needed for diagnostic messages or large data transfers) 
+            can be sent by breaking the data into smaller chunks. These chunks are sent across multiple frames, 
+            and the receiving ECU must reassemble the data back into the original message.
+            <br></br><br></br>
+            This segmentation and reassembly is typically done using higher-layer protocols like ISO-TP (ISO 15765-2) or 
+            UDS (Unified Diagnostic Services), which define how the data is split into multiple frames.
+            <br></br><br></br>
+            <brown>Steps for Segmentation and Reassembly:</brown>
+            <br></br><br></br>
+            <indigo>Segmentation:</indigo>
+            <br></br>
+            The PDU is split into smaller pieces, each fitting within the 8-byte data field limit of the CAN frame.
+            Each segment is sent as a separate CAN frame, and these frames are linked using specific identifiers (such as a 
+            Sequence Number and a Unique Message Identifier).
+            <br></br><br></br>
+            <indigo>Transmission of Multiple Frames:</indigo>
+            <br></br>
+            The first CAN frame will carry the initial part of the data, while the subsequent frames carry the remaining chunks.
+            A special control byte (such as a Sequence Number) is included in the header of each frame to help the receiving ECU 
+            reassemble the full message.
+            <br></br><br></br>
+            <indigo>Reassembly:</indigo>
+            <br></br>
+            The receiving ECU listens for each frame, identifies the Sequence using the Control Information, and reassembles the data 
+            into the original PDU once all the frames are received.
+            <br></br>
+            The receiving ECU may also check for any errors or missing frames.
+            <br></br><br></br>
+            <brown>Example of Multi-Frame Transmission:</brown>
+            <br></br><br></br>
+            Suppose a diagnostic message requires 20 bytes of data.
+            <br></br>
+            This data would be split into 3 frames:
+            <br></br><br></br>
+            The first frame would carry the first 8 bytes.<br></br>
+            The second frame would carry the next 8 bytes.<br></br>
+            The third frame would carry the remaining 4 bytes.
+            <br></br><br></br>
+            Each of these frames would have identifiers or Sequence Numbers that allow the receiving ECU to know how to 
+            reassemble the data.
+            <br></br><br></br>
+            PDUs larger than 8 bytes can be transmitted in a single frame through CAN FD 
+            (Flexible Data-rate) protocol, which allows for larger data payloads and higher data 
+            transfer rates with a Data Field size of up to 64 bytes.
+            <br></br>
         </ecu-networks>
     </manifest>
     
