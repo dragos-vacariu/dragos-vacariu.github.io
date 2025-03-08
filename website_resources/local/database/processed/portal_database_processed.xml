@@ -306,7 +306,7 @@
             <code>Pointers</code> - A <purple>variable</purple> that <azure>stores</azure> the <azure>memory</azure> <purple>address</purple> of another <purple>variable</purple>. 
             <br/>
             The <purple>size</purple> of a <purple>pointer</purple> varies depending on factors such as the <purple>operating</purple> <red>system</red> and <azure>CPU</azure> 
-            <purple>architecture</purple>.<br/><br/>
+            architecture.<br/><br/>
             
             Typically, on a <code>32-bit</code> <red>computer</red> <red>system</red>, the <purple>size</purple> of <purple>pointer</purple> is <code>4 bytes</code>,    
             while on a <code>64-bit</code> <red>computer</red> <red>system</red>, it is <code>8 bytes</code>.
@@ -1183,7 +1183,7 @@
             <indigo>The work efficiency might be impacted:</indigo><br/>
             It reduces the program's 
             <azure>efficiency</azure> because testing and debugging are 
-            time-consuming, where each <red>function</red> contains a thousand lines of <azure>code</azure>.
+            time-consuming, where each <red>function</red> contains a thousand <red>lines</red> of <azure>code</azure>.
             <br/><br/>
             
             <indigo>The code readability might be affected:</indigo><br/>
@@ -1684,8 +1684,8 @@
             <azure>process</azure> to select a <red>random</red> number. <br/><br/>
             So even though an output number produced may seem <red>random</red>, the <purple>values</purple> are 
             <purple>mathematically</purple> <red>computed</red>.</random-generators>
-        <preprocessor-directives><red>Preprocessor</red> <red>directives</red> are lines of the <azure>source</azure> <purple>file</purple> where the first non-whitespace 
-            <purple>character</purple> is <code>#</code> , which distinguishes them from other lines of text. 
+        <preprocessor-directives><red>Preprocessor</red> <red>directives</red> are <red>lines</red> of the <azure>source</azure> <purple>file</purple> where the first non-whitespace 
+            <purple>character</purple> is <code>#</code> , which distinguishes them from other <red>lines</red> of text. 
             <br/><br/>
             The effect of each <red>preprocessor</red> <red>directives</red> is a change to the text and the 
             result is a 
@@ -1738,7 +1738,7 @@
             <indigo>Efficiency:</indigo><br/>
             A large amount of input may be required for some programs. 
             <purple>File</purple> <purple>handling</purple> <azure>allows</azure> you to easily access a part of a <purple>file</purple> using few 
-            instructions which <azure>saves</azure> a lot of time and reduces the chance of errors.
+            instructions which <azure>saves</azure> a lot of time and reduces the <red>chance</red> of errors.
             <br/><br/>
             <indigo>Storage Capacity:</indigo><br/>
             <purple>Files</purple> <azure>allow</azure> you to <azure>store</azure> a large amount of <purple>data</purple> 
@@ -1870,7 +1870,7 @@
             capabilities of the targeted <azure>CPUs</azure>. It has found lasting use in <purple>operating</purple> 
             <red>systems</red>, device drivers, and protocol <purple>stacks</purple>, but its use in application 
             software has been decreasing. <br/><br/>
-            <red>C</red> is commonly used on <red>computer</red> <purple>architectures</purple> that range from the largest 
+            <red>C</red> is commonly used on <red>computer</red> architectures that range from the largest 
             supercomputers to the smallest microcontrollers 
             and embedded <red>systems</red>.</description>
         <generic-programming>*General-Programming-Knowledge*
@@ -4653,12 +4653,12 @@
             Macro Constants:
             </green>
             <br/><br/>
-            <code>CHAR_MIN</code>  - The minimum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>char</purple>; <br/><br/>    
-            <code>CHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>char</purple>; <br/><br/>        
-            <code>SCHAR_MIN</code>  - The minimum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Signed</purple> <purple>char</purple>; <br/><br/>    
-            <code>SCHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Signed</purple> <purple>char</purple>; <br/><br/>        
-            <code>UCHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Unsigned</purple> <purple>char</purple>; <br/><br/>        
-            <code>CHAR_BIT</code>  - Number of <purple>bits</purple> in a <purple>char</purple> <red>object</red>; <br/><br/>        
+            <code>CHAR_MIN</code>  - The minimum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <red>char</red>; <br/><br/>    
+            <code>CHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <red>char</red>; <br/><br/>        
+            <code>SCHAR_MIN</code>  - The minimum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Signed</purple> <red>char</red>; <br/><br/>    
+            <code>SCHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Signed</purple> <red>char</red>; <br/><br/>        
+            <code>UCHAR_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>Unsigned</purple> <red>char</red>; <br/><br/>        
+            <code>CHAR_BIT</code>  - Number of <purple>bits</purple> in a <red>char</red> <red>object</red>; <br/><br/>        
             <code>MB_LEN_MAX</code>  - Maximum number of <purple>bytes</purple> in a multi-<purple>byte</purple> <purple>character</purple>; <br/><br/>        
             <code>SHRT_MIN</code>  - The minimum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>short</purple> <purple>int</purple>; <br/><br/>        
             <code>SHRT_MAX</code>  - Maximum <purple>value</purple> for an <red>object</red> of <purple>type</purple> <purple>short</purple> <purple>int</purple>; <br/><br/>        
@@ -9524,7 +9524,7 @@
             
             <red>Java</red> applications are typically <red>compiled</red> to bytecode that can <azure>run</azure> on any 
             <red>Java</red> <red>virtual</red> machine (JVM) regardless of the 
-            underlying <red>computer</red> <purple>architecture</purple>. The syntax of <red>Java</red> is similar to <red>C</red> and <red>C++</red>, 
+            underlying <red>computer</red> architecture. The syntax of <red>Java</red> is similar to <red>C</red> and <red>C++</red>, 
             but has fewer <azure>low</azure>-<azure>level</azure> facilities than either of them. 
             The <red>Java</red> runtime provides 
             <azure>dynamic</azure> capabilities (such as <red>reflection</red> and runtime <azure>code</azure> 
@@ -10377,7 +10377,7 @@
             When <red>objects</red> are <purple>removed</purple>, the <purple>ArrayList</purple> may be shrunk.
             <br/><br/>
             NOTE: <purple>ArrayLists</purple> cannot hold <azure>primitive</azure> <purple>data</purple> <purple>types</purple> such as <purple>int</purple>, 
-            <purple>double</purple>, <purple>char</purple>, and long.
+            <purple>double</purple>, <red>char</red>, and long.
             <br/><br/>
             To <azure>create</azure> an <purple>ArrayList</purple> that <azure>store</azure> <azure>primitive</azure> <purple>values</purple> such as those mentioned
             above, the <purple>ArrayList</purple> must be <azure>created</azure> using the corresponding <red>object</red> 
@@ -10632,7 +10632,7 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></collections>
-        <collection-methods>The <purple>Collection</purple> in <red>Java</red> is a framework that provides an <purple>architecture</purple> to 
+        <collection-methods>The <purple>Collection</purple> in <red>Java</red> is a framework that provides an architecture to 
             <azure>store</azure> and <azure>manipulate</azure> the group of <red>objects</red>.
             <br/><br/>
             There are many <red>methods</red> declared in the <purple>Collection</purple> <red>interface</red>:
@@ -16228,9 +16228,9 @@
             out to the components to tell them how to behave.  
             <br/><br/>
             If the <red>car</red> was a human, the <azure>ECU</azure> would be the brain, it has input 
-            sensors (nerves) telling the brain information about where our parts of body are, if we are for example in an 
-            uncomfortable position etc but also has output sensors to tell the body what to do for example moving our legs into a 
-            more comfortable position. 
+            sensors (nerves) telling the brain information about where our parts of body are (for example if we are in an 
+            uncomfortable position), but also has output sensors to tell the body what to do (for example moving our legs into a 
+            more comfortable position). 
             <br/><br/>
             A <red>concrete</red> example of how an <azure>ECU</azure> <purple>operates</purple> in a vehicle would be controlling the fuelling into the engine.  
             The <azure>ECU</azure> would receive information about how much fuel is entering the chamber of the engine and will send out 
@@ -16238,17 +16238,17 @@
             <br/><br/>
             <green>What is AutoSAR?</green>
             <br/><br/>
-            <purple>AUTOSAR</purple> is an <azure>open</azure> <red>system</red> <purple>architecture</purple> for automotive software development and provides standards for developing common 
-            automotive software applications. It is a growing and evolving standard that defines a <purple>layered</purple> <purple>architecture</purple> for the software.
+            <purple>AUTOSAR</purple> is an <azure>open</azure> <red>system</red> architecture for automotive software development and provides standards for developing common 
+            automotive software applications. It is a growing and evolving standard that defines a <purple>layered</purple> architecture for the software.
             <br/><br/>
-            <purple>AUTOSAR</purple> (AUTomotive <azure>Open</azure> <red>System</red> <purple>ARchitecture</purple>) is primarily focused on the development of software <purple>architecture</purple> for 
+            <purple>AUTOSAR</purple> (AUTomotive <azure>Open</azure> <red>System</red> ARchitecture) is primarily focused on the development of software architecture for 
             <red>Electronic</red> <red>Control</red> <red>Units</red> (<azure>ECUs</azure>),  but its applications extend beyond just <azure>ECUs</azure>. 
             <br/><br/>
             Here’s a breakdown of its uses:
             <br/><br/>
             <brown>ECUs:</brown>
             <br/>
-            The primary focus of <purple>AUTOSAR</purple> is to standardize the software <purple>architecture</purple> for <azure>ECUs</azure>, which are critical 
+            The primary focus of <purple>AUTOSAR</purple> is to standardize the software architecture for <azure>ECUs</azure>, which are critical 
             components in vehicles that control various <red>functions</red> (like engine management, safety <red>systems</red>, etc).
             <br/><br/>
             <brown>Software Components:</brown>
@@ -16269,11 +16269,11 @@
             <brown>Integration with Other Systems:</brown>
             <br/>
             While its primary focus is on <azure>ECUs</azure>, <purple>AUTOSAR</purple> can also be integrated with other automotive <red>systems</red>, such as infotainment 
-            and telematics, enhancing the overall vehicle <purple>architecture</purple>.
+            and telematics, enhancing the overall vehicle architecture.
             <br/><br/>
             The classic <purple>AUTOSAR</purple> platform <azure>runs</azure> on a microcontroller and is divided into 3 main <purple>layers</purple>:
-            <ul style="margin: 0%;">
-                <li><purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> - It is common to any <purple>AUTOSAR</purple> <azure>ECU</azure>.</li>
+            <ul class="enumeration">
+                <li><purple>Basic</purple> <purple>Software</purple> Architecture - It is common to any <purple>AUTOSAR</purple> <azure>ECU</azure>.</li>
                 <li><purple>AUTOSAR</purple> <purple>Runtime</purple> <purple>Environment</purple></li>
                 <li><purple>Application</purple> <purple>Layer</purple></li>
             </ul>
@@ -16282,17 +16282,17 @@
             <br/><br/>
             <green>Basic Software Architecture (BSW)</green>
             <br/><br/>
-            <purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> (BSW) is the lowest <purple>layer</purple> of 3 main <purple>layers</purple>. It is the <purple>layer</purple> in direct contact with the hardware part 
+            <purple>Basic</purple> <purple>Software</purple> Architecture (BSW) is the lowest <purple>layer</purple> of 3 main <purple>layers</purple>. It is the <purple>layer</purple> in direct contact with the hardware part 
             (the microcontroller).
             <br/><br/>
-            <purple>AUTOSAR</purple> <purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> consists of hundreds of software <red>modules</red> <purple>structured</purple> in different sublayers (<azure>Services</azure> <azure>Layer</azure>, <azure>ECU</azure> <azure>Abstraction</azure> <azure>Layer</azure>, 
+            <purple>AUTOSAR</purple> <purple>Basic</purple> <purple>Software</purple> Architecture consists of hundreds of software <red>modules</red> <purple>structured</purple> in different sublayers (<azure>Services</azure> <azure>Layer</azure>, <azure>ECU</azure> <azure>Abstraction</azure> <azure>Layer</azure>, 
             <azure>Microcontroller</azure> <azure>Abstraction</azure> <azure>Layer</azure>, <azure>Complex</azure> <azure>Drivers</azure>, <purple>Operating</purple> <red>System</red>) and 
             it is common to any <purple>AUTOSAR</purple> <azure>ECU</azure>. This means the supplier who has designed BSW can <azure>share</azure> it with other suppliers that are 
             working on <azure>ECUs</azure> of engine, gearbox, etc.
             <br/><br/>
             <green>Runtime Environment Layer (RTE)</green>
             <br/><br/>
-            <purple>AUTOSAR</purple> <purple>Runtime</purple> <purple>Environment</purple> is a middleware <purple>layer</purple> of the <purple>AUTOSAR</purple> software <purple>architecture</purple> between the BSW and the application 
+            <purple>AUTOSAR</purple> <purple>Runtime</purple> <purple>Environment</purple> is a middleware <purple>layer</purple> of the <purple>AUTOSAR</purple> software architecture between the BSW and the application 
             <purple>layer</purple> and provides communication services for the application software.
             <br/><br/>
             The purpose of <red>RTE</red> is to act as the middle-man between the <red>software</red> <red>components</red>. Example: if we have 2 <red>software</red> <red>components</red> 
@@ -16301,7 +16301,7 @@
             <br/><br/>
             <green>Application Layer</green>
             <br/><br/>
-            The <purple>application</purple> <purple>layer</purple> is the highest <purple>layer</purple> of the <purple>AUTOSAR</purple> software <purple>architecture</purple> and supports custom functionalities 
+            The <purple>application</purple> <purple>layer</purple> is the highest <purple>layer</purple> of the <purple>AUTOSAR</purple> software architecture and supports custom functionalities 
             <red>implementation</red>. This <purple>layer</purple> consists of the specific <red>software</red> <red>components</red> and many applications which perform specific 
             <azure>tasks</azure> as per instructions.
             <br/><br/>
@@ -16323,9 +16323,500 @@
             <red>software</red> <red>components</red> within the <purple>Basic</purple> <purple>Software</purple> <purple>Layer</purple>, and also across these 2 different <purple>layers</purple> together. This means
             you can connect from anywhere to anywhere.
             <br/><br/>
-            The above-explained <purple>architecture</purple> of <purple>AUTOSAR</purple> is its classic platform, which supports <red>real</red>-<red>time</red> requirements and 
+            The above-explained architecture of <purple>AUTOSAR</purple> is its classic platform, which supports <red>real</red>-<red>time</red> requirements and 
             safety constraints. <red>Based</red> on the microcontroller, the classic platform is capable of supporting applications in the 
             <purple>field</purple> of networking and security by <azure>allowing</azure> <azure>ECUs</azure> to access vehicle sensors and actuators.</description>
+        <ecu-networks><azure>ECUs</azure> are the brains behind various <red>functions</red> in vehicles, and they communicate through specific networks. 
+            Modern vehicles can have over 100 <azure>ECUs</azure>, each responsible for different <azure>tasks</azure>, such as engine management, 
+            transmission control, safety <red>systems</red>, and infotainment.
+            <br/><br/>
+            In a network: <azure>ECUs</azure> are connected through various <purple>data</purple> <red>buses</red>, <azure>allowing</azure> them to send and receive messages. 
+            Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly.
+            <br/><br/>
+            <green>Broadcasting:</green>
+            <br/> <br/>
+            When one <azure>ECU</azure> sends a message, all other <azure>ECUs</azure> on the <red>bus</red> can receive it, 
+            <azure>allowing</azure> for <azure>efficient</azure> communication. Since all the <purple>data</purple> transmitted from the <azure>ECUs</azure> is available on the <red>bus</red>, the
+            <azure>ECUs</azure> can be programmed to filter messages <red>based</red> on specific criteria, such as message <purple>identifiers</purple>. 
+            This means they only <azure>process</azure> messages that are relevant to their <red>function</red>.
+            <br/><br/>
+            <green>Message Structure:</green>
+            <br/> <br/>
+            The <purple>data</purple> is transmitted by <azure>ECUs</azure> in the form of messages, which include:
+            <br/><br/>
+            <brown>Identifier:</brown> 
+             <br/>
+            A message <purple>identifier</purple> is a unique <purple>identifier</purple> <purple>assigned</purple> to each message transmitted over the 
+            network. It serves several important purposes:
+            <ul class="enumeration">
+            <li><indigo>Priority Assignment:</indigo> The message <purple>identifier</purple> determines the priority of the message. 
+            <br/>
+            In CAN networks, lower numerical <purple>values</purple> indicate higher priority. This means that if two messages are sent <azure>simultaneously</azure>, 
+            the one with the lower <purple>identifier</purple> will take precedence.</li>
+            <li><indigo>Message Routing:</indigo> The <purple>identifier</purple> helps in routing messages to the appropriate <azure>ECUs</azure>. 
+            Each <azure>ECU</azure> can be programmed to listen for specific <purple>identifiers</purple>, ensuring that it only <azure>processes</azure> relevant messages.</li>
+            <li><indigo>Data Association:</indigo> Each <purple>identifier</purple> is associated with specific <purple>data</purple>, <azure>source</azure>, and destination nodes. 
+            This association <azure>allows</azure> <azure>ECUs</azure> to understand the context of the <purple>data</purple> being transmitted. 
+            <br/><br/>
+            The message <purple>identifier</purple> is used by <azure>ECUs</azure> to filter the messages from the <red>bus</red>. 
+            If an <azure>ECU</azure> receives a message from the <red>bus</red> it will first check if the message is meant to be <azure>processed</azure> by its software or not.
+            <br/>
+            If the message is not meant for the <azure>ECU</azure> which received it then it will be <azure>blocked</azure> by its network driver.
+<code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>/*Example of ECU message filtering mechanism*/</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdio.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdbool.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Define the CAN message structure</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">typedef struct </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint32_t id;      <comment>// Message ID</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t data[8];  <comment>// Data payload (data field)</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">} CAN_Message;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to check if a message is intended for this ECU</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool isMessageForECU(CAN_Message *msg, uint32_t ecu_id) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Check if the message ID matches the ECU's ID</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return (msg-&gt;id == ecu_id);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to process incoming CAN messages</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">void processCANMessage(CAN_Message *msg, uint32_t ecu_id) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    if (isMessageForECU(msg, ecu_id)) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// Process the message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        printf("Processing message with ID: %u\n", msg-&gt;id);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// Add your message handling logic here</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// Block the message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        printf("Blocked message with ID: %u\n", msg-&gt;id);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>34  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>35  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>36  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>37  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">int main() </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>38  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>39  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Example ECU ID</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint32_t ecu_id = 0x123;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>42  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Simulated incoming CAN messages</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>43  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    CAN_Message incomingMessages[] = {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>44  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {0x123, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>45  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {0x456, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>46  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {0x123, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    };</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>49  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Process each incoming message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>50  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    for (int i = 0; i &lt; sizeof(incomingMessages) / sizeof(incomingMessages[0]); i++) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>51  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>52  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        processCANMessage(&amp;incomingMessages[i], ecu_id);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>53  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>54  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>55  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return 0;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>56  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>57  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr></table></box></code>
+            </li>
+            </ul>
+            <br/>
+            <brown>Data Field:</brown> 
+             <br/>Contains the actual <purple>data</purple> being transmitted. It is also referred to as <red>payload</red>.
+            <br/> <br/>
+            <brown>Control Information:</brown> 
+            <br/>
+            Helps manage the flow of <purple>data</purple> and ensures that messages are received correctly. 
+            The control information consists of following elements:
+            <br/>
+            <ul class="enumeration">
+                <li><indigo>Checksum/CRC:</indigo> A <purple>value</purple> used for error-checking to ensure the integrity of the <purple>data</purple>. 
+                It helps verify that the message has not been corrupted during transmission.
+                <br/><br/>
+                Example of simple <red>checksum</red> calculation algorithm: 
+                <br/>
+                <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>/*Example 1: Simple Checksum Calculation</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>Here's a basic example of how to calculate a checksum for a data payload*/</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t calculateChecksum(uint8_t* data, uint8_t length) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t checksum = 0;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    for (uint8_t i = 0; i &lt; length; i++) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        checksum += data[i]; <comment>// Sum all bytes</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return checksum; <comment>// Return the checksum</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t data[] = {0x01, 0x02, 0x03, 0x04};</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t checksum = calculateChecksum(data, sizeof(data));</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
+                <br/>
+                <indigo>Checksum:</indigo> 
+                <br/>
+                Primarily detects single-<purple>bit</purple> errors and is less effective at identifying multiple-<purple>bit</purple> errors.
+                It may fail to detect errors if they cancel each other out (e.g., if two <purple>bits</purple> are flipped).
+                <br/><br/>
+                Example of simple <red>CRC</red> calculation algorithm: 
+                <br/>
+                <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//Example 2: CRC Calculation</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//For a more robust integrity check, you can use CRC. </comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//Here’s a simple implementation of CRC-8:</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t calculate_crc8(uint8_t* data, uint8_t length) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t crc = 0xFF; <comment>// Initial value 255 in decimal or 0b11111111 (8 bits of 1)</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//for each byte in data</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    for (uint8_t i = 0; i &lt; length; i++) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        crc ^= data[i]; <comment>// XOR with the current byte</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>/*First iteration:</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        0b11111111 ^ 0b00000001</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        result = 0b11111110</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        */</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>//for each bit in CRC</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        for (uint8_t j = 0; j &lt; 8; j++) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            <comment>//if MSB is 1</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            if (crc &amp; 0b10000000) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>/*Complex calculations bit by bit for determining unique fingerprint CRC-8 for data*/</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = (crc &lt;&lt; 1) ^ 49; <comment>// CRC-8 calculation using CRC-8 polynomial</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//The value 0x31 (decimal 49) is crucial in CRC-8 calculations, </comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//and it represents the CRC-8 polynomial.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>34  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//It processes each bit of the CRC value.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>35  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>36  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>37  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>38  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = crc &lt;&lt; 1;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>39  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>42  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>43  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//The CRC-8 algorithm is a mathematical process that generates a unique "fingerprint" for the data.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>44  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//CRC-8 can be used for messages of any length.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>45  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>46  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return crc; <comment>// Return the CRC value</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>49  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>50  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t data[] = {(uint8_t)("H"), (uint8_t)("e"), (uint8_t)("l"), (uint8_t)("l"), (uint8_t)("o")}; <comment>//Actual message: 'Hello'</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>51  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>52  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t crcValue = calculate_crc8(data, sizeof(data));</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>53  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
+                <br/>
+                <indigo>CRC-8 / CRC-16:</indigo> 
+                <br/>
+                Can detect multiple-<purple>bit</purple> errors and is more robust against burst errors (where several <purple>bits</purple> are corrupted in a <azure>sequence</azure>).
+                It can identify errors that a simple <red>checksum</red> might miss.
+                <ul class="enumeration">
+                    <li><indigo>CRC-8:</indigo>  Suitable for detecting simple errors in short messages. 
+                    It can handle single-<purple>bit</purple> errors and some burst errors but is less effective for longer <purple>data</purple>.
+                    </li>
+                    <li><indigo>CRC-16:</indigo> Offers a higher level of error detection, making it better for 
+                    longer messages. It can detect more complex error patterns, including multiple-<purple>bit</purple> errors 
+                    and longer burst errors. 
+                    <br/>
+                    It takes slightly longer to <red>compute</red> <azure>compared</azure> to <purple>CRC</purple>-<purple>8</purple> but provides a more robust error-checking 
+                    mechanism, which is crucial for applications where <purple>data</purple> integrity is paramount.
+                    </li>
+                </ul>
+                <br/>
+                Example of <purple>Data</purple> <purple>Integrity</purple> <purple>Check</purple> within <azure>ECU</azure>:
+                <br/>
+                <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdbool.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool checkDataIntegrity(uint8_t* receivedData, uint8_t length, uint8_t expectedChecksum) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t calculatedChecksum = calculateChecksum(receivedData, length);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return (calculatedChecksum == expectedChecksum); <comment>// Return true if valid</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t receivedData[] = {0x01, 0x02, 0x03, 0x04};</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t expectedChecksum = calculateChecksum(receivedData, sizeof(receivedData));</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool isDataValid = checkDataIntegrity(receivedData, sizeof(receivedData), expectedChecksum);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
+                <br/>
+                <indigo>NOTE:</indigo> For <azure>ECUs</azure> (<red>Electronic</red> <red>Control</red> <red>Units</red>) to validate the <red>Checksum</red> / <red>CRC</red> (<red>Cyclic</red> <red>Redundancy</red> <red>Check</red>), 
+                they indeed need access to the same <red>function</red> or algorithm used for the their calculation.
+                <br/>
+                Hence, In many automotive applications, <red>CRC</red> algorithms are standardized (like <purple>CRC</purple>-<purple>8</purple>, <purple>CRC</purple>-<purple>16</purple>, etc.), 
+                ensuring that all <azure>ECUs</azure> in a <red>system</red> can communicate reliably. This standardization helps in <azure>maintaining</azure> 
+                compatibility across different manufacturers and models.
+                </li>
+                <li><indigo>Control Flags:</indigo>
+                Indicators that provide additional information about the message, such as whether it is 
+                a request or a response, or if it contains critical <purple>data</purple>.
+                </li>
+                <li><indigo>Timestamp:</indigo>
+                Information about when the message was sent, which can be crucial for time-sensitive <purple>operations</purple>.
+                </li>
+                <li><indigo>Sequence Number / Sequence Counter:</indigo> 
+                <ul class="enumeration">
+                    <li><indigo>Sequence Counter:</indigo> This is a simple <azure>counter</azure> that <purple>increments</purple> with each message sent. 
+                    It's primarily used to track the order of messages in a <azure>stream</azure>, but it doesn't necessarily 
+                    guarantee that all messages are received.
+                    <br/><br/>
+                    Example of <azure>Sequence</azure> <azure>Counter</azure> <red>Implementation</red>:
+                    <br/>
+                    <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdbool.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Define CAN message structure</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">typedef struct </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t id;  <comment>// Message ID</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint8_t data[8]; <comment>// Data payload</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    uint16_t sequenceNumber; <comment>// Sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">} CANMessage;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Global variable for the sequence counter</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint16_t sequenceCounter = 0;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to get the next sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint16_t getNextSequenceNumber() </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return sequenceCounter++;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to send a CAN message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">void sendCANMessage(CANMessage message) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Replace this with your actual CAN bus sending function</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// ... send message using CAN bus API ...</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to receive a CAN message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">void receiveCANMessage() </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Replace this with your actual CAN bus receiving function</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// ... receive message using CAN bus API ...</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>34  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>35  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to validate the received sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>36  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool validateSequenceNumber(uint16_t receivedSequenceNumber) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>37  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>38  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    if (receivedSequenceNumber == sequenceCounter) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>39  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        sequenceCounter++; <comment>// Increment for next message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        return true; <comment>// Valid sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>42  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>43  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>44  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>45  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        return false; <comment>// Invalid sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>46  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>49  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>50  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">int main() </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>51  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>52  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    CANMessage message;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>53  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    message.id = 0x123; <comment>// Example message ID</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>54  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    message.data[0] = 0x01; <comment>// Example data</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>55  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    message.sequenceNumber = getNextSequenceNumber();</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>56  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>57  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Send the message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>58  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    sendCANMessage(message);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>59  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>60  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Receive a message (replace with your actual CAN bus receiving function)</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>61  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    CANMessage receivedMessage = receiveCANMessage();</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>62  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// ... receive message using CAN bus API ...</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>63  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>64  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Validate the received sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>65  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    bool isValid = validateSequenceNumber(receivedMessage.sequenceNumber);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>66  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>67  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    if (isValid) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>68  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>69  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// Process the message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>70  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// ... </comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>71  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>72  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>73  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>74  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// Handle the error (e.g., resend request)</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>75  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>// ...</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>76  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>77  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>78  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return 0;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>79  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>80  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                    </td></tr></table></box></code>
+                    
+                    </li>
+                    <li>
+                    <indigo>Sequence Number:</indigo> This is a more robust <purple>identifier</purple> that often incorporates additional 
+                    <purple>logic</purple> to ensure the integrity of message order. It might use a combination of <azure>counter</azure> 
+                    and other information to detect lost or out-of-order messages.
+                    <br/><br/>
+                    Example of <azure>Sequence</azure> <azure>Number</azure> with Validation
+                    <br/>
+                    <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdint.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>2   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">#include &lt;stdbool.h&gt;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Global variable to store the expected sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>5   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint16_t expectedSequenceNumber = 0;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>6   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>7   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Function to validate the received sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>8   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool validateSequenceNumber(uint16_t receivedSequenceNumber) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>9   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>10  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    if (receivedSequenceNumber == expectedSequenceNumber) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>11  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>12  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        expectedSequenceNumber++; <comment>// Increment for next message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        return true; <comment>// Valid sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        return false; <comment>// Invalid sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint16_t receivedSequenceNumber = 10; <comment>// Example received sequence number</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">bool isValid = validateSequenceNumber(receivedSequenceNumber);</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">if (isValid) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Process the message</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">} </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">{</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>// Handle the error (e.g., resend request)</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                    </td></tr></table></box></code>
+                    </li>
+                </ul>
+                </li>
+                <li><indigo>Status Information:</indigo> <purple>Data</purple> that indicates the current state of the <azure>ECU</azure> or the <red>system</red> it controls, 
+                such as error <azure>codes</azure> or operational status.
+                </li>
+                <li><indigo>Priority Level:</indigo> Some messages may include a priority level to determine the urgency of the message, 
+                which can affect how it is <azure>processed</azure> in a multi-<azure>ECU</azure> environment.
+                </li>
+            </ul>
+            <br/>
+            <green>Components of ECU Networks:</green>
+            <br/><br/>
+            <brown>Electronic Control Units (ECUs)</brown>
+            <br/>
+            These are specialized computers that control different <red>functions</red> in a vehicle, such as engine management, transmission, 
+            and safety <red>systems</red>.
+            <br/><br/>
+            <brown>Communication Protocols</brown>
+            <br/>
+            <azure>ECUs</azure> communicate using various protocols, which define how <purple>data</purple> is transmitted. The most common protocols include:
+            <ul class="enumeration">
+                <li><indigo>Controller Area Network (CAN):</indigo> A robust vehicle <red>bus</red> standard that <azure>allows</azure> <azure>ECUs</azure> to 
+                communicate with each other without a host <red>computer</red>. It is designed for <red>real</red>-<red>time</red> applications where low latency is crucial.
+                <br/>
+                CAN typically supports speeds up to 1 Mbps. 
+                It is used for: fuel injection <red>system</red>, ignition <red>system</red>, emissions control, <purple>breaking</purple> <red>system</red> etc. 
+                <br/><br/>
+                The CAN <red>bus</red> enables quick and reliable <azure>sharing</azure> of information between the car's brakes and engine. 
+                For <red>instance</red>, in anti-lock braking <red>systems</red> (ABS), the CAN protocol helps in coordinating 
+                the braking force applied to each wheel.
+                <br/>
+                <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) enhances the capabilities of the traditional CAN protocol by <azure>allowing</azure> for 
+                higher <purple>data</purple> rates and larger <red>payloads</red>.
+                </li>
+                <li><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
+                making it suitable for high-bandwidth applications. Ethernet generally uses a star topology 
+                and can support a more complex network <purple>structure</purple> with switches and routers.</li>
+                <li><indigo>FlexRay:</indigo> A high-speed <red>bus</red> that supports time-triggered communication, often used in safety-critical applications. 
+                Supports <purple>data</purple> rates of up to 10 Mbps. It utilizes a time-triggered communication <red>method</red>, <azure>allowing</azure> for deterministic 
+                <purple>data</purple> transmission. This means that messages are sent at predefined times, ensuring reliability and <azure>synchronization</azure>.</li>
+                <li><indigo>Local Interconnect Network (LIN):</indigo> A simpler, lower-cost network used for less critical <red>functions</red>. 
+                <br/>
+                <red>LIN</red>, typically supports <purple>data</purple> rates up to 20 Kbps, 
+                making it suitable for simpler applications where high speed is not critical such as: window lifts, seat adjustments, 
+                and interior lighting. </li>
+                <li><indigo>Media Oriented Systems Transport (MOST):</indigo> Primarily used for multimedia applications in vehicles, enabling high-speed <purple>data</purple> 
+                transmission for audio, video, and other media content. It <purple>operates</purple> on a peer-to-peer basis, <azure>allowing</azure> multiple devices to 
+                communicate <azure>simultaneously</azure></li>
+            </ul>
+            <br/>
+            <brown>Data Buses</brown>
+            <br/>
+            All <azure>ECUs</azure> are connected to a single <purple>data</purple> line, known as a <red>bus</red>. This <red>bus</red> <azure>allows</azure> information to be transmitted between 
+            <azure>ECUs</azure>. 
+            <br/>
+            For example:
+            In a CAN <red>bus</red>, messages are sent as packets, and each <azure>ECU</azure> can listen to the <red>bus</red> and respond to messages relevant to 
+            its application.
+            <br/><br/>
+            <green>How Communication Works:</green>
+            <br/><br/>
+            <brown>Message Transmission</brown>
+            <br/>
+            When an <azure>ECU</azure> needs to send <purple>data</purple> (like engine temperature), it <azure>creates</azure> a message and places it on the <red>bus</red>.
+            Other <azure>ECUs</azure> on the network can <azure>read</azure> this message and respond accordingly.
+            <br/><br/>
+            <brown>Priority and Arbitration</brown>
+            <br/>
+            In a CAN network, messages have different priorities. If two messages are sent <azure>simultaneously</azure>, 
+            the one with the higher priority will be transmitted first.
+            <br/><br/>
+            <brown>Error Handling</brown>
+            <br/>
+            <azure>ECU</azure> networks are designed with error detection and correction mechanisms to ensure reliable communication. 
+            If a message is corrupted, the receiving <azure>ECU</azure> can request a retransmission.</ecu-networks>
     </manifest>
     
 </content>

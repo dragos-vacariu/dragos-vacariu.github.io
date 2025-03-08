@@ -473,3 +473,10 @@ searchHighlight{
     position: relative; 
     left: 10%;
 }
+
+#page_block .enumeration{
+    margin: 0%;
+}
+#page_block .enumeration li{
+    margin: 10px;
+}

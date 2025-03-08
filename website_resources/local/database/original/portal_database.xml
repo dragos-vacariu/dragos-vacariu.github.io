@@ -15193,9 +15193,9 @@ sum = lambda arg1, arg2: arg1 + arg2;
             out to the components to tell them how to behave.  
             <br></br><br></br>
             If the car was a human, the ECU would be the brain, it has input 
-            sensors (nerves) telling the brain information about where our parts of body are, if we are for example in an 
-            uncomfortable position etc but also has output sensors to tell the body what to do for example moving our legs into a 
-            more comfortable position. 
+            sensors (nerves) telling the brain information about where our parts of body are (for example if we are in an 
+            uncomfortable position), but also has output sensors to tell the body what to do (for example moving our legs into a 
+            more comfortable position). 
             <br></br><br></br>
             A concrete example of how an ECU operates in a vehicle would be controlling the fuelling into the engine.  
             The ECU would receive information about how much fuel is entering the chamber of the engine and will send out 
@@ -15237,7 +15237,7 @@ sum = lambda arg1, arg2: arg1 + arg2;
             and telematics, enhancing the overall vehicle architecture.
             <br></br><br></br>
             The classic AUTOSAR platform runs on a microcontroller and is divided into 3 main layers:
-            <ul style="margin: 0%;">
+            <ul class="enumeration">
                 <li>Basic Software Architecture - It is common to any AUTOSAR ECU.</li>
                 <li>AUTOSAR Runtime Environment</li>
                 <li>Application Layer</li>
@@ -15292,6 +15292,459 @@ sum = lambda arg1, arg2: arg1 + arg2;
             safety constraints. Based on the microcontroller, the classic platform is capable of supporting applications in the 
             field of networking and security by allowing ECUs to access vehicle sensors and actuators.
         </description>
+        <ecu-networks>
+            ECUs are the brains behind various functions in vehicles, and they communicate through specific networks. 
+            Modern vehicles can have over 100 ECUs, each responsible for different tasks, such as engine management, 
+            transmission control, safety systems, and infotainment.
+            <br></br><br></br>
+            In a network: ECUs are connected through various data buses, allowing them to send and receive messages. 
+            Each ECU can read data from the bus and respond accordingly.
+            <br></br><br></br>
+            <green>Broadcasting:</green>
+            <br></br> <br></br>
+            When one ECU sends a message, all other ECUs on the bus can receive it, 
+            allowing for efficient communication. Since all the data transmitted from the ECUs is available on the bus, the
+            ECUs can be programmed to filter messages based on specific criteria, such as message identifiers. 
+            This means they only process messages that are relevant to their function.
+            <br></br><br></br>
+            <green>Message Structure:</green>
+            <br></br> <br></br>
+            The data is transmitted by ECUs in the form of messages, which include:
+            <br></br><br></br>
+            <brown>Identifier:</brown> 
+             <br></br>
+            A message identifier is a unique identifier assigned to each message transmitted over the 
+            network. It serves several important purposes:
+            <ul class="enumeration">
+            <li><indigo>Priority Assignment:</indigo> The message identifier determines the priority of the message. 
+            <br></br>
+            In CAN networks, lower numerical values indicate higher priority. This means that if two messages are sent simultaneously, 
+            the one with the lower identifier will take precedence.</li>
+            <li><indigo>Message Routing:</indigo> The identifier helps in routing messages to the appropriate ECUs. 
+            Each ECU can be programmed to listen for specific identifiers, ensuring that it only processes relevant messages.</li>
+            <li><indigo>Data Association:</indigo> Each identifier is associated with specific data, source, and destination nodes. 
+            This association allows ECUs to understand the context of the data being transmitted. 
+            <br></br><br></br>
+            The message identifier is used by ECUs to filter the messages from the bus. 
+            If an ECU receives a message from the bus it will first check if the message is meant to be processed by its software or not.
+            <br></br>
+            If the message is not meant for the ECU which received it then it will be blocked by its network driver.
+<code>
+/*Example of ECU message filtering mechanism*/
+
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Define the CAN message structure
+typedef struct 
+{
+    uint32_t id;      // Message ID
+    uint8_t data[8];  // Data payload (data field)
+} CAN_Message;
+
+// Function to check if a message is intended for this ECU
+bool isMessageForECU(CAN_Message *msg, uint32_t ecu_id) 
+{
+    // Check if the message ID matches the ECU's ID
+    return (msg->id == ecu_id);
+}
+
+// Function to process incoming CAN messages
+void processCANMessage(CAN_Message *msg, uint32_t ecu_id) 
+{
+    if (isMessageForECU(msg, ecu_id)) 
+    {
+        // Process the message
+        printf("Processing message with ID: %u\n", msg->id);
+        // Add your message handling logic here
+    } 
+    else 
+    {
+        // Block the message
+        printf("Blocked message with ID: %u\n", msg->id);
+    }
+}
+
+int main() 
+{
+    // Example ECU ID
+    uint32_t ecu_id = 0x123;
+
+    // Simulated incoming CAN messages
+    CAN_Message incomingMessages[] = {
+        {0x123, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},
+        {0x456, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},
+        {0x123, {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08}},
+    };
+
+    // Process each incoming message
+    for (int i = 0; i &lt; sizeof(incomingMessages) / sizeof(incomingMessages[0]); i++) 
+    {
+        processCANMessage(&#38;incomingMessages[i], ecu_id);
+    }
+
+    return 0;
+}
+</code>
+            </li>
+            </ul>
+            <br></br>
+            <brown>Data Field:</brown> 
+             <br></br>Contains the actual data being transmitted. It is also referred to as payload.
+            <br></br> <br></br>
+            <brown>Control Information:</brown> 
+            <br></br>
+            Helps manage the flow of data and ensures that messages are received correctly. 
+            The control information consists of following elements:
+            <br></br>
+            <ul class="enumeration">
+                <li><indigo>Checksum/CRC:</indigo> A value used for error-checking to ensure the integrity of the data. 
+                It helps verify that the message has not been corrupted during transmission.
+                <br></br><br></br>
+                Example of simple checksum calculation algorithm: 
+                <br></br>
+                <code>
+/*Example 1: Simple Checksum Calculation
+Here's a basic example of how to calculate a checksum for a data payload*/
+
+#include &lt;stdint.h&gt;
+
+uint8_t calculateChecksum(uint8_t* data, uint8_t length) 
+{
+    uint8_t checksum = 0;
+    for (uint8_t i = 0; i &lt; length; i++) 
+    {
+        checksum += data[i]; // Sum all bytes
+    }
+    return checksum; // Return the checksum
+}
+
+//Example usage
+uint8_t data[] = {0x01, 0x02, 0x03, 0x04};
+uint8_t checksum = calculateChecksum(data, sizeof(data));
+                </code>
+                <br></br>
+                <indigo>Checksum:</indigo> 
+                <br></br>
+                Primarily detects single-bit errors and is less effective at identifying multiple-bit errors.
+                It may fail to detect errors if they cancel each other out (e.g., if two bits are flipped).
+                <br></br><br></br>
+                Example of simple CRC calculation algorithm: 
+                <br></br>
+                <code>
+//Example 2: CRC Calculation
+//For a more robust integrity check, you can use CRC. 
+//Here’s a simple implementation of CRC-8:
+
+#include &lt;stdint.h&gt;
+
+uint8_t calculate_crc8(uint8_t* data, uint8_t length) 
+{
+    uint8_t crc = 0xFF; // Initial value 255 in decimal or 0b11111111 (8 bits of 1)
+    
+    //for each byte in data
+    for (uint8_t i = 0; i &lt; length; i++) 
+    {
+        crc ^= data[i]; // XOR with the current byte
+        
+        /*First iteration:
+        0b11111111 ^ 0b00000001
+        result = 0b11111110
+        */
+        
+        //for each bit in CRC
+        for (uint8_t j = 0; j &lt; 8; j++) 
+        {
+            //if MSB is 1
+            if (crc &#38; 0b10000000) 
+            {
+                /*Complex calculations bit by bit for determining unique fingerprint CRC-8 for data*/
+                
+                crc = (crc &lt;&lt; 1) ^ 49; // CRC-8 calculation using CRC-8 polynomial
+                
+                //The value 0x31 (decimal 49) is crucial in CRC-8 calculations, 
+                //and it represents the CRC-8 polynomial.
+                
+                //It processes each bit of the CRC value.
+            } 
+            else 
+            {
+                crc = crc &lt;&lt; 1;
+            }
+        }
+    }
+    
+    //The CRC-8 algorithm is a mathematical process that generates a unique "fingerprint" for the data.
+    //CRC-8 can be used for messages of any length.
+    
+    return crc; // Return the CRC value
+}
+
+// Example usage
+uint8_t data[] = {(uint8_t)("H"), (uint8_t)("e"), (uint8_t)("l"), (uint8_t)("l"), (uint8_t)("o")}; //Actual message: 'Hello'
+
+uint8_t crcValue = calculate_crc8(data, sizeof(data));
+                </code>
+                <br></br>
+                <indigo>CRC-8 / CRC-16:</indigo> 
+                <br></br>
+                Can detect multiple-bit errors and is more robust against burst errors (where several bits are corrupted in a sequence).
+                It can identify errors that a simple checksum might miss.
+                <ul class="enumeration">
+                    <li><indigo>CRC-8:</indigo>  Suitable for detecting simple errors in short messages. 
+                    It can handle single-bit errors and some burst errors but is less effective for longer data.
+                    </li>
+                    <li><indigo>CRC-16:</indigo> Offers a higher level of error detection, making it better for 
+                    longer messages. It can detect more complex error patterns, including multiple-bit errors 
+                    and longer burst errors. 
+                    <br></br>
+                    It takes slightly longer to compute compared to CRC-8 but provides a more robust error-checking 
+                    mechanism, which is crucial for applications where data integrity is paramount.
+                    </li>
+                </ul>
+                <br></br>
+                Example of Data Integrity Check within ECU:
+                <br></br>
+                <code>
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+
+bool checkDataIntegrity(uint8_t* receivedData, uint8_t length, uint8_t expectedChecksum) 
+{
+    uint8_t calculatedChecksum = calculateChecksum(receivedData, length);
+    return (calculatedChecksum == expectedChecksum); // Return true if valid
+}
+
+// Example usage
+uint8_t receivedData[] = {0x01, 0x02, 0x03, 0x04};
+uint8_t expectedChecksum = calculateChecksum(receivedData, sizeof(receivedData));
+bool isDataValid = checkDataIntegrity(receivedData, sizeof(receivedData), expectedChecksum);
+                </code>
+                <br></br>
+                <indigo>NOTE:</indigo> For ECUs (Electronic Control Units) to validate the Checksum / CRC (Cyclic Redundancy Check), 
+                they indeed need access to the same function or algorithm used for the their calculation.
+                <br></br>
+                Hence, In many automotive applications, CRC algorithms are standardized (like CRC-8, CRC-16, etc.), 
+                ensuring that all ECUs in a system can communicate reliably. This standardization helps in maintaining 
+                compatibility across different manufacturers and models.
+                </li>
+                <li><indigo>Control Flags:</indigo>
+                Indicators that provide additional information about the message, such as whether it is 
+                a request or a response, or if it contains critical data.
+                </li>
+                <li><indigo>Timestamp:</indigo>
+                Information about when the message was sent, which can be crucial for time-sensitive operations.
+                </li>
+                <li><indigo>Sequence Number / Sequence Counter:</indigo> 
+                <ul class = "enumeration">
+                    <li><indigo>Sequence Counter:</indigo> This is a simple counter that increments with each message sent. 
+                    It's primarily used to track the order of messages in a stream, but it doesn't necessarily 
+                    guarantee that all messages are received.
+                    <br></br><br></br>
+                    Example of Sequence Counter Implementation:
+                    <br></br>
+                    <code>
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Define CAN message structure
+typedef struct 
+{
+    uint8_t id;  // Message ID
+    uint8_t data[8]; // Data payload
+    uint16_t sequenceNumber; // Sequence number
+} CANMessage;
+
+// Global variable for the sequence counter
+uint16_t sequenceCounter = 0;
+
+// Function to get the next sequence number
+uint16_t getNextSequenceNumber() 
+{
+    return sequenceCounter++;
+}
+
+// Function to send a CAN message
+void sendCANMessage(CANMessage message) 
+{
+    // Replace this with your actual CAN bus sending function
+    // ... send message using CAN bus API ...
+}
+
+// Function to receive a CAN message
+void receiveCANMessage() 
+{
+    // Replace this with your actual CAN bus receiving function
+    // ... receive message using CAN bus API ...
+}
+
+// Function to validate the received sequence number
+bool validateSequenceNumber(uint16_t receivedSequenceNumber) 
+{
+    if (receivedSequenceNumber == sequenceCounter) 
+    {
+        sequenceCounter++; // Increment for next message
+        return true; // Valid sequence number
+    } 
+    else 
+    {
+        return false; // Invalid sequence number
+    }
+}
+
+// Example usage
+int main() 
+{
+    CANMessage message;
+    message.id = 0x123; // Example message ID
+    message.data[0] = 0x01; // Example data
+    message.sequenceNumber = getNextSequenceNumber();
+
+    // Send the message
+    sendCANMessage(message);
+
+    // Receive a message (replace with your actual CAN bus receiving function)
+    CANMessage receivedMessage = receiveCANMessage();
+    // ... receive message using CAN bus API ...
+
+    // Validate the received sequence number
+    bool isValid = validateSequenceNumber(receivedMessage.sequenceNumber);
+
+    if (isValid) 
+    {
+        // Process the message
+        // ... 
+    } 
+    else 
+    {
+        // Handle the error (e.g., resend request)
+        // ...
+    }
+
+    return 0;
+}
+                    </code>
+                    
+                    </li>
+                    <li>
+                    <indigo>Sequence Number:</indigo> This is a more robust identifier that often incorporates additional 
+                    logic to ensure the integrity of message order. It might use a combination of counter 
+                    and other information to detect lost or out-of-order messages.
+                    <br></br><br></br>
+                    Example of Sequence Number with Validation
+                    <br></br>
+                    <code>
+#include &lt;stdint.h&gt;
+#include &lt;stdbool.h&gt;
+
+// Global variable to store the expected sequence number
+uint16_t expectedSequenceNumber = 0;
+
+// Function to validate the received sequence number
+bool validateSequenceNumber(uint16_t receivedSequenceNumber) 
+{
+    if (receivedSequenceNumber == expectedSequenceNumber) 
+    {
+        expectedSequenceNumber++; // Increment for next message
+        return true; // Valid sequence number
+    } 
+    else 
+    {
+        return false; // Invalid sequence number
+    }
+}
+
+// Example usage
+uint16_t receivedSequenceNumber = 10; // Example received sequence number
+
+bool isValid = validateSequenceNumber(receivedSequenceNumber);
+if (isValid) 
+{
+    // Process the message
+} 
+else 
+{
+    // Handle the error (e.g., resend request)
+}
+                    </code>
+                    </li>
+                </ul>
+                </li>
+                <li><indigo>Status Information:</indigo> Data that indicates the current state of the ECU or the system it controls, 
+                such as error codes or operational status.
+                </li>
+                <li><indigo>Priority Level:</indigo> Some messages may include a priority level to determine the urgency of the message, 
+                which can affect how it is processed in a multi-ECU environment.
+                </li>
+            </ul>
+            <br></br>
+            <green>Components of ECU Networks:</green>
+            <br></br><br></br>
+            <brown>Electronic Control Units (ECUs)</brown>
+            <br></br>
+            These are specialized computers that control different functions in a vehicle, such as engine management, transmission, 
+            and safety systems.
+            <br></br><br></br>
+            <brown>Communication Protocols</brown>
+            <br></br>
+            ECUs communicate using various protocols, which define how data is transmitted. The most common protocols include:
+            <ul class="enumeration">
+                <li><indigo>Controller Area Network (CAN):</indigo> A robust vehicle bus standard that allows ECUs to 
+                communicate with each other without a host computer. It is designed for real-time applications where low latency is crucial.
+                <br></br>
+                CAN typically supports speeds up to 1 Mbps. 
+                It is used for: fuel injection system, ignition system, emissions control, breaking system etc. 
+                <br></br><br></br>
+                The CAN bus enables quick and reliable sharing of information between the car's brakes and engine. 
+                For instance, in anti-lock braking systems (ABS), the CAN protocol helps in coordinating 
+                the braking force applied to each wheel.
+                <br></br>
+                CAN FD (Flexible Data-rate) enhances the capabilities of the traditional CAN protocol by allowing for 
+                higher data rates and larger payloads.
+                </li>
+                <li><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
+                making it suitable for high-bandwidth applications. Ethernet generally uses a star topology 
+                and can support a more complex network structure with switches and routers.</li>
+                <li><indigo>FlexRay:</indigo> A high-speed bus that supports time-triggered communication, often used in safety-critical applications. 
+                Supports data rates of up to 10 Mbps. It utilizes a time-triggered communication method, allowing for deterministic 
+                data transmission. This means that messages are sent at predefined times, ensuring reliability and synchronization.</li>
+                <li><indigo>Local Interconnect Network (LIN):</indigo> A simpler, lower-cost network used for less critical functions. 
+                <br></br>
+                LIN, typically supports data rates up to 20 Kbps, 
+                making it suitable for simpler applications where high speed is not critical such as: window lifts, seat adjustments, 
+                and interior lighting. </li>
+                <li><indigo>Media Oriented Systems Transport (MOST):</indigo> Primarily used for multimedia applications in vehicles, enabling high-speed data 
+                transmission for audio, video, and other media content. It operates on a peer-to-peer basis, allowing multiple devices to 
+                communicate simultaneously</li>
+            </ul>
+            <br></br>
+            <brown>Data Buses</brown>
+            <br></br>
+            All ECUs are connected to a single data line, known as a bus. This bus allows information to be transmitted between 
+            ECUs. 
+            <br></br>
+            For example:
+            In a CAN bus, messages are sent as packets, and each ECU can listen to the bus and respond to messages relevant to 
+            its application.
+            <br></br><br></br>
+            <green>How Communication Works:</green>
+            <br></br><br></br>
+            <brown>Message Transmission</brown>
+            <br></br>
+            When an ECU needs to send data (like engine temperature), it creates a message and places it on the bus.
+            Other ECUs on the network can read this message and respond accordingly.
+            <br></br><br></br>
+            <brown>Priority and Arbitration</brown>
+            <br></br>
+            In a CAN network, messages have different priorities. If two messages are sent simultaneously, 
+            the one with the higher priority will be transmitted first.
+            <br></br><br></br>
+            <brown>Error Handling</brown>
+            <br></br>
+            ECU networks are designed with error detection and correction mechanisms to ensure reliable communication. 
+            If a message is corrupted, the receiving ECU can request a retransmission.
+        </ecu-networks>
     </manifest>
     
 </content>
