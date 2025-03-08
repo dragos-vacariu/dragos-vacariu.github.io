@@ -607,7 +607,7 @@ function fillTableCompare()
                         }
                         else
                         {
-                            p.innerHTML += "NA";
+                            p.innerHTML += "Concept not present in this manifest."
                         }
                         p.style = concept_value_style;
                         cell.appendChild(p);
