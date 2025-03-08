@@ -15533,7 +15533,7 @@ bool isDataValid = checkDataIntegrity(receivedData, sizeof(receivedData), expect
                 </code>
                 <br></br>
                 <indigo>NOTE:</indigo> For ECUs (Electronic Control Units) to validate the Checksum / CRC (Cyclic Redundancy Check), 
-                they indeed need access to the same function or algorithm used for the their calculation.
+                they need access to the same function or algorithm used for the their calculation.
                 <br></br>
                 Hence, In many automotive applications, CRC algorithms are standardized (like CRC-8, CRC-16, etc.), 
                 ensuring that all ECUs in a system can communicate reliably. This standardization helps in maintaining 

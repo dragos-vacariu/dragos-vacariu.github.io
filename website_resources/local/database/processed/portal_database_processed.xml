@@ -16588,7 +16588,7 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
                 <br/>
                 <indigo>NOTE:</indigo> For <azure>ECUs</azure> (<red>Electronic</red> <red>Control</red> <red>Units</red>) to validate the <red>Checksum</red> / <red>CRC</red> (<red>Cyclic</red> <red>Redundancy</red> <red>Check</red>), 
-                they indeed need access to the same <red>function</red> or algorithm used for the their calculation.
+                they need access to the same <red>function</red> or algorithm used for the their calculation.
                 <br/>
                 Hence, In many automotive applications, <red>CRC</red> algorithms are standardized (like <purple>CRC</purple>-<purple>8</purple>, <purple>CRC</purple>-<purple>16</purple>, etc.), 
                 ensuring that all <azure>ECUs</azure> in a <red>system</red> can communicate reliably. This standardization helps in <azure>maintaining</azure> 
