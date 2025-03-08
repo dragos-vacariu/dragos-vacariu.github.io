@@ -295,3 +295,9 @@
     color: red;
     font-family: Verdana;
 }
+
+#page_block .database_image{
+    width: 80%; 
+    position: relative; 
+    left: 10%;
+}

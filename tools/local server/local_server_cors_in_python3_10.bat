@@ -1,4 +1,4 @@
-cd /d ../
+cd /d ../../../
 
 ::Setting up the server
 

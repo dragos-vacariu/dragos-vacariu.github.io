@@ -140,7 +140,7 @@
             1. <red>Inheritance</red><br/>
             2. <red>Polymorphism</red><br/>
             3. <red>Encapsulation</red><br/>
-            4. <red>Abstraction</red><br/>
+            4. <azure>Abstraction</azure><br/>
             
             <br/></oop>
         <encapsulation>The meaning of <red>Encapsulation</red>, is to make sure that "sensitive" <purple>data</purple> is hidden from 
@@ -306,7 +306,7 @@
             <code>Pointers</code> - A <purple>variable</purple> that <azure>stores</azure> the <azure>memory</azure> <purple>address</purple> of another <purple>variable</purple>. 
             <br/>
             The <purple>size</purple> of a <purple>pointer</purple> varies depending on factors such as the <purple>operating</purple> <red>system</red> and <azure>CPU</azure> 
-            architecture.<br/><br/>
+            <purple>architecture</purple>.<br/><br/>
             
             Typically, on a <code>32-bit</code> <red>computer</red> <red>system</red>, the <purple>size</purple> of <purple>pointer</purple> is <code>4 bytes</code>,    
             while on a <code>64-bit</code> <red>computer</red> <red>system</red>, it is <code>8 bytes</code>.
@@ -1134,7 +1134,7 @@
             smooth and <azure>maintainable</azure>.<br/><br/>
             
             <indigo>Low-risk update:</indigo><br/>
-            In <red>modular</red> <red>programming</red>, a defined layer of <purple>APIs</purple> <purple>protects</purple> 
+            In <red>modular</red> <red>programming</red>, a defined <purple>layer</purple> of <purple>APIs</purple> <purple>protects</purple> 
             things that 
             use it from making changes inside the <purple>library</purple>. Unless there is a change in the <purple>API</purple>, 
             there is a low risk for someone's <azure>code</azure>-<purple>breaking</purple>. <br/>
@@ -1519,34 +1519,34 @@
         <interfaces>In <red>programming</red>: an <red>interface</red> describes the behavior or capabilities of a <red>class</red> without 
             committing to a particular <red>implementation</red> of that <red>class</red>.
             <br/><br/>
-            The <red>interfaces</red> are <red>implemented</red> using <red>abstract</red> <red>classes</red> and these <red>abstract</red> <red>classes</red>
-            should not be confused with <purple>data</purple> <red>abstraction</red> which is a concept of keeping 
+            The <red>interfaces</red> are <red>implemented</red> using <azure>abstract</azure> <red>classes</red> and these <azure>abstract</azure> <red>classes</red>
+            should not be confused with <purple>data</purple> <azure>abstraction</azure> which is a concept of keeping 
             <red>implementation</red> details separate from associated <purple>data</purple>.<br/></interfaces>
-        <abstract-classes>The purpose of an <red>abstract</red> <red>class</red> (often referred to as an ABC) is to provide an 
+        <abstract-classes>The purpose of an <azure>abstract</azure> <red>class</red> (often referred to as an ABC) is to provide an 
             appropriate <red>base</red> <red>class</red> from which other <red>classes</red> can <red>inherit</red>. <br/>
             <br/>
-            <red>Abstract</red> <red>classes</red> cannot be used to <red>instantiate</red> <red>objects</red> and serves only as an 
+            <azure>Abstract</azure> <red>classes</red> cannot be used to <red>instantiate</red> <red>objects</red> and serves only as an 
             <red>interface</red>. <br/>
-            Attempting to <red>instantiate</red> an <red>object</red> of an <red>abstract</red> <red>class</red> causes a 
+            Attempting to <red>instantiate</red> an <red>object</red> of an <azure>abstract</azure> <red>class</red> causes a 
             <red>compilation</red> error. <br/>
             <br/>
             If a <red>subclass</red> of an ABC needs to be <red>instantiated</red>, it has to <red>implement</red> each of 
-            the <red>virtual</red>/<red>abstract</red> <red>functions</red>, which means that it supports the 
+            the <red>virtual</red>/<azure>abstract</azure> <red>functions</red>, which means that it supports the 
             <red>interface</red> declared by the 
             ABC. <br/><br/>
-            Failing to <red>override</red> a <red>pure</red> <red>virtual</red>/<red>abstract</red> <red>function</red> in a 
+            Failing to <red>override</red> a <red>pure</red> <red>virtual</red>/<azure>abstract</azure> <red>function</red> in a 
             <azure>derived</azure> <red>class</red>, 
             then attempting to <red>instantiate</red> <red>objects</red> of that <code>class</code>, is a <red>compilation</red> error.
             <br/><br/>
-            An <red>object</red>-<red>oriented</red> <red>system</red> might use an <red>abstract</red> <red>base</red> <red>class</red> to provide a common and 
+            An <red>object</red>-<red>oriented</red> <red>system</red> might use an <azure>abstract</azure> <red>base</red> <red>class</red> to provide a common and 
             standardized <red>interface</red> appropriate for all the external applications. <br/>
-            Through <red>inheritance</red> from the <red>abstract</red> <red>base</red> <red>class</red>, <azure>derived</azure> <red>classes</red> are 
+            Through <red>inheritance</red> from the <azure>abstract</azure> <red>base</red> <red>class</red>, <azure>derived</azure> <red>classes</red> are 
             formed that <purple>operate</purple> similarly.
             <br/><br/>
             The capabilities (i.e., the <purple>public</purple> <red>functions</red>) offered by the external applications 
-            are provided as <red>pure</red> <red>virtual</red>/<red>abstract</red> <red>functions</red> in the <red>abstract</red> <red>base</red> <red>class</red>. 
+            are provided as <red>pure</red> <red>virtual</red>/<azure>abstract</azure> <red>functions</red> in the <azure>abstract</azure> <red>base</red> <red>class</red>. 
             <br/><br/>
-            The <red>implementations</red> of these <red>pure</red> <red>virtual</red>/<red>abstract</red> <red>functions</red> are provided in 
+            The <red>implementations</red> of these <red>pure</red> <red>virtual</red>/<azure>abstract</azure> <red>functions</red> are provided in 
             the <azure>derived</azure> 
             <red>classes</red> that correspond to the specific <purple>types</purple> of the application.<br/></abstract-classes>
         <optional-parameters>A <red>parameter</red> with a <azure>default</azure> <purple>value</purple>, is often known as an "optional <red>parameter</red>".
@@ -1571,9 +1571,9 @@
             repetition and in-demand compilation.
             </brown>
             <br/></generic-programming>
-        <abstraction><red>Abstraction</red> means displaying only essential information and hiding the 
+        <abstraction><azure>Abstraction</azure> means displaying only essential information and hiding the 
             details. <br/><br/>
-            <red>Abstraction</red> is a powerful technique that <azure>allows</azure> for a separation of 
+            <azure>Abstraction</azure> is a powerful technique that <azure>allows</azure> for a separation of 
             concerns between the 
             <red>interface</red> and <red>implementation</red> of a <code>class</code>. 
             <br/><br/>
@@ -1589,18 +1589,18 @@
             <br/><br/>
             <brown>Data abstraction:</brown>
             <br/><br/>
-            <purple>Data</purple> <red>abstraction</red> is one of the most essential and important features of 
+            <purple>Data</purple> <azure>abstraction</azure> is one of the most essential and important features of 
             <red>object</red>-<red>oriented</red> <red>programming</red>. 
             <br/><br/>
-            <purple>Data</purple> <red>abstraction</red> refers to providing only essential information 
+            <purple>Data</purple> <azure>abstraction</azure> refers to providing only essential information 
             about the <purple>data</purple> to the outside world, hiding the background details or <red>implementation</red>. 
             <br/><br/>
-            Using <purple>data</purple> <red>abstraction</red>, we are <azure>not</azure> <azure>allowed</azure> to access the <purple>variables</purple> directly, however, 
+            Using <purple>data</purple> <azure>abstraction</azure>, we are <azure>not</azure> <azure>allowed</azure> to access the <purple>variables</purple> directly, however, 
             one can call the <red>setter</red> <red>function</red> to <purple>set</purple> the <purple>values</purple> or the 
             <red>getter</red> <red>function</red> to get the <purple>values</purple>.
             <br/><br/>
             
-            Advantages of <purple>Data</purple> <red>Abstraction</red>:
+            Advantages of <purple>Data</purple> <azure>Abstraction</azure>:
             <br/><br/>
             
             Helps the user to avoid <azure>writing</azure> the <azure>low</azure>-<azure>level</azure> <azure>code</azure>;<br/>
@@ -1616,13 +1616,13 @@
             <br/><br/>
             <brown>Process Abstraction:</brown>
             <br/><br/>
-            <azure>Process</azure> <red>abstraction</red> focuses on <red>abstracting</red> the behavior or 
+            <azure>Process</azure> <azure>abstraction</azure> focuses on <azure>abstracting</azure> the behavior or 
             <azure>processes</azure> of an <red>object</red>. 
             <br/>
             It <azure>allows</azure> developers to define the <red>methods</red> an <red>object</red> that can perform without 
             specifying how these <red>methods</red> are <red>implemented</red>. 
             <br/><br/>
-            <azure>Process</azure> <red>abstraction</red> is achieved through <red>interfaces</red>. 
+            <azure>Process</azure> <azure>abstraction</azure> is achieved through <red>interfaces</red>. 
             <br/>
             <red>Interfaces</red> define a <purple>set</purple> of <red>method</red> signatures without providing the <red>method</red> 
             <red>implementations</red>, enabling multiple <red>classes</red> to <red>implement</red> the same 
@@ -1630,26 +1630,26 @@
             <br/><br/>
             <brown>Abstraction vs. Concrete Implementation:</brown>
             <br/><br/>
-            <red>Abstraction</red> provides a clear distinction between the <red>interface</red> 
+            <azure>Abstraction</azure> provides a clear distinction between the <red>interface</red> 
             of an <red>object</red> and its internal <red>implementation</red>. 
             This separation enables developers to focus on 
             <azure>high</azure>-<azure>level</azure> design and promotes <azure>code</azure> <azure>reusability</azure>.
             <br/><br/>
             <red>Concrete</red> <red>implementation</red>, 
-            on the other hand, involves the actual <azure>coding</azure> and realization of the <red>abstract</red> 
-            concepts. Striking a balance between <red>abstraction</red> and <red>concrete</red> 
+            on the other hand, involves the actual <azure>coding</azure> and realization of the <azure>abstract</azure> 
+            concepts. Striking a balance between <azure>abstraction</azure> and <red>concrete</red> 
             <red>implementation</red> is 
             essential in <azure>creating</azure> <azure>maintainable</azure>, scalable, and 
             <azure>efficient</azure> software <red>systems</red>.
             <br/><br/>
-            <red>Abstraction</red> is one of the 4 <red>OOP</red> fundamental concepts, 
-            and it is regarded to <red>abstract</red> <red>objects</red>, which are the <red>objects</red> 
+            <azure>Abstraction</azure> is one of the 4 <red>OOP</red> fundamental concepts, 
+            and it is regarded to <azure>abstract</azure> <red>objects</red>, which are the <red>objects</red> 
             that contain <purple>fields</purple> and <red>methods</red> to be <red>inherited</red> by their <red>children</red>. 
             <br/><br/>
-            An <red>abstract</red> <red>object</red> is like a dead <red>parent</red>
+            An <azure>abstract</azure> <red>object</red> is like a dead <red>parent</red>
             which has to <azure>allow</azure> <red>inheritance</red> to their <red>children</red> and nothing more.
             <br/><br/>
-            <red>Abstraction</red> is the quality of dealing with ideas rather than events.
+            <azure>Abstraction</azure> is the quality of dealing with ideas rather than events.
             <br/><br/>
             For example, when you consider the case of e-mail, complex details such as what happens 
             as soon as you send an e-mail, the protocol your e-mail, <azure>server</azure> uses, are hidden from 
@@ -1658,7 +1658,7 @@
             Therefore, to send an e-mail you just need to <purple>type</purple> the content, mention the 
             <purple>address</purple> of the receiver, and click send.
             <br/><br/>
-            Similarly, in <red>object</red>-<red>oriented</red> <red>programming</red>, <red>abstraction</red> is a <azure>process</azure> of 
+            Similarly, in <red>object</red>-<red>oriented</red> <red>programming</red>, <azure>abstraction</azure> is a <azure>process</azure> of 
             hiding the <red>implementation</red> details from the user, only the functionality will be 
             provided to the user. 
             <br/><br/>
@@ -1870,7 +1870,7 @@
             capabilities of the targeted <azure>CPUs</azure>. It has found lasting use in <purple>operating</purple> 
             <red>systems</red>, device drivers, and protocol <purple>stacks</purple>, but its use in application 
             software has been decreasing. <br/><br/>
-            <red>C</red> is commonly used on <red>computer</red> architectures that range from the largest 
+            <red>C</red> is commonly used on <red>computer</red> <purple>architectures</purple> that range from the largest 
             supercomputers to the smallest microcontrollers 
             and embedded <red>systems</red>.</description>
         <generic-programming>*General-Programming-Knowledge*
@@ -4647,7 +4647,7 @@
             the range of fundamental <purple>data</purple>-<purple>types</purple>. <br/>
              <br/>
             <purple>Unsigned</purple> modifiers have minimum <purple>value</purple> is zero. 
-            So, no <red>macro</red> <purple>constants</purple> are defined for the <purple>unsigned</purple> minimum <purple>value</purple>.
+            So, no <purple>macro</purple> <purple>constants</purple> are defined for the <purple>unsigned</purple> minimum <purple>value</purple>.
             <br/><br/>
             <green>
             Macro Constants:
@@ -5102,7 +5102,7 @@
             which were <azure>closed</azure>-<azure>source</azure>. At the time, Microsoft had no <azure>open</azure>-<azure>source</azure> products. 
             <br/><br/>
             Four years later, in 2004, a free and <azure>open</azure>-<azure>source</azure> project called Mono began, 
-            providing a cross-platform <red>compiler</red> and runtime environment for the <red>C#</red> 
+            providing a cross-platform <red>compiler</red> and <purple>runtime</purple> <purple>environment</purple> for the <red>C#</red> 
             <red>programming</red> <red>language</red>. 
             <br/><br/>
             A decade later, Microsoft released Visual Studio <azure>Code</azure> (<azure>code</azure> editor), 
@@ -7321,8 +7321,8 @@
              <br/><br/>
              4. All the parts must use the same <azure>access</azure> <azure>modifier</azure> in their declaration.
              <br/><br/>
-             5. If any of the parts is declared as <red>abstract</red>, the entire <red>class</red> will be 
-             <red>abstract</red> (even if only a part was declared <red>abstract</red>).
+             5. If any of the parts is declared as <azure>abstract</azure>, the entire <red>class</red> will be 
+             <azure>abstract</azure> (even if only a part was declared <azure>abstract</azure>).
              <br/><br/>
              6. If any of the parts is declared as <red>sealed</red>, the entire <red>class</red> will 
              be <red>sealed</red>.
@@ -7525,22 +7525,22 @@
             <br/>
             <green>In C#:</green> 
             <br/><br/>
-             An <red>abstract</red> <red>class</red> is similar to an <red>interface</red>, 
+             An <azure>abstract</azure> <red>class</red> is similar to an <red>interface</red>, 
              dispite that it can contain 
              variable_members(field <purple>members</purple>) , and that
-             an <red>abstract</red> <red>class</red> it's acting like a <red>class</red> when it comes to 
+             an <azure>abstract</azure> <red>class</red> it's acting like a <red>class</red> when it comes to 
              <red>inheritance</red>.
              <br/><br/>
-             An <red>abstract</red> <red>class</red> can have <red>implementation</red>
+             An <azure>abstract</azure> <red>class</red> can have <red>implementation</red>
              for some or even for all its <purple>members</purple>/<purple>field</purple>, while the <red>interface</red> 
              cannot.
              <br/><br/>
-             An <red>abstract</red> <red>class</red> can use the (<purple>public</purple>) 
+             An <azure>abstract</azure> <red>class</red> can use the (<purple>public</purple>) 
             <azure>access</azure> <azure>modifiers</azure> whereas an <red>interface</red> cannot. 
             <br/><br/>
             An <red>interface</red> can be <red>inherited</red> only from another <red>interface</red>, 
-            while an <red>abstract</red> <red>class</red>
-            can be <red>inherited</red> either from an <red>interface</red> or <red>abstract</red> <red>class</red>. 
+            while an <azure>abstract</azure> <red>class</red>
+            can be <red>inherited</red> either from an <red>interface</red> or <azure>abstract</azure> <red>class</red>. 
             <br/><br/>
             A <red>class</red> can <red>inherit</red> from multiple <red>interfaces</red> at the
             same time whereas a <red>class</red> cannot <red>inherit</red> from multiple <red>classes</red>.
@@ -7548,28 +7548,28 @@
             <green>Rules for abstract classes in C#:</green>
             <br/><br/>
             
-             1. An <red>abstract</red> <red>class</red> cannot be instanciated (an <red>instance</red> 
+             1. An <azure>abstract</azure> <red>class</red> cannot be instanciated (an <red>instance</red> 
              of the <red>class</red> cannot be <azure>created</azure>).<br/>
              <br/>
-             2. An <red>abstract</red> <red>class</red> can contain <red>abstract</red> <purple>members</purple>, and the 
-             <red>abstract</red> <purple>members</purple>
+             2. An <azure>abstract</azure> <red>class</red> can contain <azure>abstract</azure> <purple>members</purple>, and the 
+             <azure>abstract</azure> <purple>members</purple>
              are <azure>not</azure> <azure>allowed</azure> to be <red>implemented</red> in
              that <red>class</red>.<br/>
              <br/>
-             3. An <red>abstract</red> <red>class</red> can <red>inherit</red> (can have <red>children</red> <red>classes</red>), and every <red>child</red> 
+             3. An <azure>abstract</azure> <red>class</red> can <red>inherit</red> (can have <red>children</red> <red>classes</red>), and every <red>child</red> 
              of the <red>class</red> must provide its
-             own <red>implementations</red> for the <red>abstract</red> <purple>members</purple> of the <red>parent</red> <red>class</red>.<br/>
+             own <red>implementations</red> for the <azure>abstract</azure> <purple>members</purple> of the <red>parent</red> <red>class</red>.<br/>
              <br/>
              4. Any <red>class</red> provides single <red>inheritance</red> (the <red>child</red> of the <red>class</red> can have 
              only one <red>parent</red>/<red>base</red> <red>class</red>).<br/>
              <br/>
-             5. An <red>abstract</red> <red>class</red> can only be used as a <red>base</red> <red>class</red>. 
-             So an <red>abstract</red> <red>class</red> cannot be <red>sealed</red>.<br/>
+             5. An <azure>abstract</azure> <red>class</red> can only be used as a <red>base</red> <red>class</red>. 
+             So an <azure>abstract</azure> <red>class</red> cannot be <red>sealed</red>.<br/>
              <br/>
-             6. If a <red>class</red> that's <red>inherited</red> from an <red>abstract</red> <red>class</red> 
+             6. If a <red>class</red> that's <red>inherited</red> from an <azure>abstract</azure> <red>class</red> 
              doesn't wish to provide <red>implementation</red> for the <red>parent</red> <red>class</red>
-             <red>abstract</red> <purple>members</purple>, then that <red>class</red> can be also 
-             <purple>set</purple> as <red>abstract</red>.<br/>
+             <azure>abstract</azure> <purple>members</purple>, then that <red>class</red> can be also 
+             <purple>set</purple> as <azure>abstract</azure>.<br/>
              
 <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr>
@@ -7772,7 +7772,7 @@
             <green>Node.js</green>
             <br/><br/>
             Node.js is a cross-platform, <azure>open</azure>-<azure>source</azure> <red>JavaScript</red> 
-            runtime environment that can <azure>run</azure> on Windows, 
+            <purple>runtime</purple> <purple>environment</purple> that can <azure>run</azure> on Windows, 
             Linux, Unix, macOS, and more. Node.js <azure>runs</azure> on the V8 <red>JavaScript</red> engine, and executes 
             <red>JavaScript</red> <azure>code</azure> outside a web browser.
             <br/><br/>
@@ -8365,7 +8365,7 @@
 </td></tr></table></box></code></inheritance>
         <abstraction>*General-Programming-Knowledge*
             <br/>
-            <red>Abstract</red> <red>object</red> <red>constructors</red> are those <red>constructors</red> that 
+            <azure>Abstract</azure> <red>object</red> <red>constructors</red> are those <red>constructors</red> that 
             cannot be <red>instantiated</red>. That means that no <red>object</red> can be 
             <azure>created</azure> out of them. 
             The purpose of using such <red>constructors</red> is to provide <red>inheritance</red> 
@@ -9524,7 +9524,7 @@
             
             <red>Java</red> applications are typically <red>compiled</red> to bytecode that can <azure>run</azure> on any 
             <red>Java</red> <red>virtual</red> machine (JVM) regardless of the 
-            underlying <red>computer</red> architecture. The syntax of <red>Java</red> is similar to <red>C</red> and <red>C++</red>, 
+            underlying <red>computer</red> <purple>architecture</purple>. The syntax of <red>Java</red> is similar to <red>C</red> and <red>C++</red>, 
             but has fewer <azure>low</azure>-<azure>level</azure> facilities than either of them. 
             The <red>Java</red> runtime provides 
             <azure>dynamic</azure> capabilities (such as <red>reflection</red> and runtime <azure>code</azure> 
@@ -9898,27 +9898,27 @@
             <br/>
             <green>Abstraction in Java:</green>
             <br/><br/>
-            In <red>Java</red>, <red>abstraction</red> is achieved using <red>abstract</red> <red>classes</red> and 
+            In <red>Java</red>, <azure>abstraction</azure> is achieved using <azure>abstract</azure> <red>classes</red> and 
             <red>interfaces</red>.
             <br/><br/>
-            A <red>class</red> which contains the <red>abstract</red> keyword in its declaration is 
-            known as <red>abstract</red> <red>class</red>.
+            A <red>class</red> which contains the <azure>abstract</azure> keyword in its declaration is 
+            known as <azure>abstract</azure> <red>class</red>.
             <br/><br/>
-            <red>Abstract</red> <red>classes</red> may or may not contain <red>abstract</red> <red>methods</red>, 
+            <azure>Abstract</azure> <red>classes</red> may or may not contain <azure>abstract</azure> <red>methods</red>, 
             i.e., <red>methods</red> without a body.
             <br/>
             Example: ( <code>public void get();</code> )
             <br/><br/>
-            But, if a <red>class</red> has at least one <red>abstract</red> <red>method</red>, then the <red>class</red> 
-            must be declared <red>abstract</red>.
+            But, if a <red>class</red> has at least one <azure>abstract</azure> <red>method</red>, then the <red>class</red> 
+            must be declared <azure>abstract</azure>.
             <br/><br/>
-            If a <red>class</red> is declared <red>abstract</red>, it cannot be <red>instantiated</red>.
+            If a <red>class</red> is declared <azure>abstract</azure>, it cannot be <red>instantiated</red>.
             <br/><br/>
-            To use an <red>abstract</red> <red>class</red>, you have to <red>inherit</red> it from another 
-            <red>class</red>, provide <red>implementations</red> to the <red>abstract</red> <red>methods</red> in it.
+            To use an <azure>abstract</azure> <red>class</red>, you have to <red>inherit</red> it from another 
+            <red>class</red>, provide <red>implementations</red> to the <azure>abstract</azure> <red>methods</red> in it.
             <br/><br/>
-            If you <red>inherit</red> an <red>abstract</red> <red>class</red>, you have to provide <red>implementations</red> 
-            to all the <red>abstract</red> <red>methods</red> in it.
+            If you <red>inherit</red> an <azure>abstract</azure> <red>class</red>, you have to provide <red>implementations</red> 
+            to all the <azure>abstract</azure> <red>methods</red> in it.
 <code><box><table><tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>0   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>1   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>//Example of abstraction using interfaces:</comment></td></tr>
@@ -10489,13 +10489,13 @@
             <brown>Dictionaries</brown>
             <br/><br/>
 
-                The <purple>Dictionary</purple> <red>class</red> is an <red>abstract</red> <red>class</red> that 
+                The <purple>Dictionary</purple> <red>class</red> is an <azure>abstract</azure> <red>class</red> that 
                 defines a <purple>data</purple> <purple>structure</purple> for mapping <purple>keys</purple> to <purple>values</purple>.
                 <br/>
                 This is useful in cases where you want to be able to access <purple>data</purple> via a particular 
                 <purple>key</purple> rather than an <purple>integer</purple> index.
                 <br/><br/>
-                Since the <purple>Dictionary</purple> <red>class</red> is <red>abstract</red>, it provides only the 
+                Since the <purple>Dictionary</purple> <red>class</red> is <azure>abstract</azure>, it provides only the 
                 framework for a 
                 <purple>key</purple>-mapped <purple>data</purple> <purple>structure</purple> rather than a specific <red>implementation</red>.
                 <br/><br/>
@@ -10632,7 +10632,7 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></collections>
-        <collection-methods>The <purple>Collection</purple> in <red>Java</red> is a framework that provides an architecture to 
+        <collection-methods>The <purple>Collection</purple> in <red>Java</red> is a framework that provides an <purple>architecture</purple> to 
             <azure>store</azure> and <azure>manipulate</azure> the group of <red>objects</red>.
             <br/><br/>
             There are many <red>methods</red> declared in the <purple>Collection</purple> <red>interface</red>:
@@ -10704,7 +10704,7 @@
             It <purple>returns</purple> the hash <azure>code</azure> number of the <purple>collection</purple>.
             <br/><br/></collection-methods>
         <dynamic-memory-allocation><purple>Heap</purple> <purple>space</purple> is used for the <azure>dynamic</azure> <azure>memory</azure> <azure>allocation</azure> of 
-            <red>Java</red> <red>objects</red> and <red>JRE</red> (<red>Java</red> Runtime Environment) <red>classes</red> 
+            <red>Java</red> <red>objects</red> and <red>JRE</red> (<red>Java</red> <purple>Runtime</purple> <purple>Environment</purple>) <red>classes</red> 
             at runtime. 
             <br/><br/>
             New <red>objects</red> are always <azure>created</azure> in <purple>heap</purple> <purple>space</purple>, and the 
@@ -11455,11 +11455,11 @@
             <br/><br/>
             A <red>class</red> <red>implements</red> an <red>interface</red>, 
             thereby <red>inheriting</red> the 
-            <red>abstract</red> <red>methods</red> of the <red>interface</red>.
+            <azure>abstract</azure> <red>methods</red> of the <red>interface</red>.
             <br/><br/>
-            An <red>interface</red> is basically a <purple>collection</purple> of <red>abstract</red> <red>methods</red>. 
+            An <red>interface</red> is basically a <purple>collection</purple> of <azure>abstract</azure> <red>methods</red>. 
             <br/><br/>
-            Along with the <red>abstract</red> <red>methods</red>, an <red>interface</red> may 
+            Along with the <azure>abstract</azure> <red>methods</red>, an <red>interface</red> may 
             also contain <purple>constants</purple>
             (final <purple>variables</purple>), <purple>static</purple> <purple>variables</purple>,  
             <azure>default</azure> <red>methods</red>, <purple>static</purple> <red>methods</red>, and nested <purple>types</purple>.
@@ -11521,7 +11521,7 @@
             <br/><br/>
             The <azure>default</azure> <red>methods</red> can be defined inside the <red>interface</red> by using the 
             <azure>default</azure>
-            keyword. These <red>methods</red> are non-<red>abstract</red> <red>methods</red> meaning they have an 
+            keyword. These <red>methods</red> are non-<azure>abstract</azure> <red>methods</red> meaning they have an 
             <red>implementation</red>.
             <br/><br/>
             The concept of <azure>default</azure> <red>method</red> is used to define a <red>method</red> with <azure>default</azure>
@@ -11546,18 +11546,18 @@
             <br/><br/>
             Once that a <red>class</red> <red>implements</red> an <red>interface</red> that <red>class</red> is 
             obliged to 
-            provide <red>implementations</red> for all the <red>abstract</red> <red>methods</red> within 
+            provide <red>implementations</red> for all the <azure>abstract</azure> <red>methods</red> within 
             the <red>interface</red>:
             <br/><br/>
             <green>
             Properties of Interfaces:
             </green>
             <br/><br/>
-            An <red>interface</red> is implicitly <red>abstract</red>. You do not need to use the <red>abstract</red> 
+            An <red>interface</red> is implicitly <azure>abstract</azure>. You do not need to use the <azure>abstract</azure> 
             keyword while declaring an <red>interface</red>.
             <br/><br/>
-            Each <red>method</red> within the <red>interface</red> is implicitly <red>abstract</red>, so the 
-            <red>abstract</red> keyword is also not needed for declaring the <red>methods</red>.
+            Each <red>method</red> within the <red>interface</red> is implicitly <azure>abstract</azure>, so the 
+            <azure>abstract</azure> keyword is also not needed for declaring the <red>methods</red>.
             <br/><br/>
             The <red>methods</red> declared within the <red>interface</red> are implicitly <purple>public</purple>.
             <br/><br/>
@@ -11584,7 +11584,7 @@
             <br/><br/>
             An <red>interface</red> does not contain any <red>constructors</red>.
             <br/><br/>
-            All of the <red>methods</red> in an <red>interface</red> are <red>abstract</red>.
+            All of the <red>methods</red> in an <red>interface</red> are <azure>abstract</azure>.
             <br/><br/>
             An <red>interface</red> cannot contain <red>instance</red> <purple>fields</purple>. 
             The only <purple>fields</purple> that can appear in an <red>interface</red> must be declared 
@@ -12170,7 +12170,7 @@
             <br/><br/>
             <indigo>1. Component Interface:</indigo>
             <br/><br/>
-            Defining the <red>interface</red> or the <red>abstract</red> <red>class</red> 
+            Defining the <red>interface</red> or the <azure>abstract</azure> <red>class</red> 
             declaring the <red>methods</red> that will be 
             <red>implemented</red>. 
             <br/>
@@ -12418,7 +12418,7 @@
             <br/>
             <green>Abstract classes in Java:</green>
             <br/><br/>
-            In <red>Java</red> the <red>pure</red> <red>virtual</red> <red>functions</red>/<red>methods</red> are called <red>abstract</red> 
+            In <red>Java</red> the <red>pure</red> <red>virtual</red> <red>functions</red>/<red>methods</red> are called <azure>abstract</azure> 
             <red>functions</red>/<red>methods</red>
             due to the keyword <code>abstract</code> used for their definition.
             <br/><br/>
@@ -12427,16 +12427,16 @@
             </brown>
             <br/><br/>
             
-            Any <red>class</red> that contains one or more <red>abstract</red> <red>methods</red>
-            must also be declared <red>abstract</red>.<br/>
-            If a <red>class</red> contains an <red>abstract</red> <red>method</red> it needs to be 
-            <red>abstract</red> and vice versa is not <purple>true</purple>.<br/>
-            If a non-<red>abstract</red> <red>class</red> extends an <red>abstract</red> <red>class</red>, then the 
-            <red>class</red> must <red>implement</red> all the <red>abstract</red> <red>methods</red> of the <red>abstract</red> 
+            Any <red>class</red> that contains one or more <azure>abstract</azure> <red>methods</red>
+            must also be declared <azure>abstract</azure>.<br/>
+            If a <red>class</red> contains an <azure>abstract</azure> <red>method</red> it needs to be 
+            <azure>abstract</azure> and vice versa is not <purple>true</purple>.<br/>
+            If a non-<azure>abstract</azure> <red>class</red> extends an <azure>abstract</azure> <red>class</red>, then the 
+            <red>class</red> must <red>implement</red> all the <azure>abstract</azure> <red>methods</red> of the <azure>abstract</azure> 
             <red>class</red> else the <red>concrete</red> <red>class</red> has to be declared as 
-            <red>abstract</red> as well.<br/><br/>
+            <azure>abstract</azure> as well.<br/><br/>
             
-            The following combinations of modifiers used on <red>abstract</red> <red>methods</red> 
+            The following combinations of modifiers used on <azure>abstract</azure> <red>methods</red> 
             declaration are invalid: <br/>
             <code>final</code><br/>
             <code>abstract native</code><br/>
@@ -13028,8 +13028,8 @@
             <br/>
             <green>Abstraction in Python:</green>
             <br/><br/>
-            <red>Abstraction</red> in <red>Python</red> refers to the <azure>process</azure> of <azure>creating</azure> 
-            <red>abstract</red> 
+            <azure>Abstraction</azure> in <red>Python</red> refers to the <azure>process</azure> of <azure>creating</azure> 
+            <azure>abstract</azure> 
             <red>classes</red> and <red>methods</red> that provide a blueprint for other 
             <red>classes</red> to <red>inherit</red> from.
             <br/><br/>
@@ -14709,7 +14709,7 @@
             We get the same performance result of the <azure>single</azure>-<azure>threaded</azure> and 
             <azure>multithreading</azure> <azure>processes</azure> using the <red>GIL</red>. 
             It restricts achieving <azure>multithreading</azure> in <red>Python</red> because it prevents 
-            the <azure>threads</azure> and works as a single <azure>thread</azure>.
+            the <azure>threads</azure> and works as a <azure>single</azure> <azure>thread</azure>.
             <br/><br/>
             <green>Python-related Multithreading Drawbacks:</green>
             <br/><br/>
@@ -15199,7 +15199,7 @@
             Raised when a generated error does not fall into any category.
             <br/><br/>
             <code>NotImplementedError</code><br/>
-            Raised when an <red>abstract</red> <red>method</red> that needs to be <red>implemented</red> in an 
+            Raised when an <azure>abstract</azure> <red>method</red> that needs to be <red>implemented</red> in an 
             <red>inherited</red> <red>class</red> is not actually <red>implemented</red>.
             <br/></exception-handling>
         <bitwise-operators>*General-Programming-Knowledge*
@@ -15329,7 +15329,7 @@
             <green>Command line arguments in Python:</green>
             <br/><br/>
             In <red>Python</red>: the <code>sys</code> <red>module</red> provides <red>functions</red> and <purple>variables</purple> 
-            used to <azure>manipulate</azure> different parts of the <red>Python</red> Runtime Environment. 
+            used to <azure>manipulate</azure> different parts of the <red>Python</red> <purple>Runtime</purple> <purple>Environment</purple>. 
             <br/><br/>
             This <red>module</red> also provides access to some <purple>variables</purple> used or <azure>maintained</azure> by the 
             <red>Python</red> Interpreter that <azure>allows</azure> direct interaction with it.
@@ -16213,6 +16213,119 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">sum = lambda arg1, arg2: arg1 + arg2; </td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></lambda-anonymous-functions>
+    </programming_language>
+    <programming_language>
+        <name>AUTOSAR</name>
+        <description><green>What is an ECU?</green>
+            <br/><br/>
+            The <azure>ECU</azure> also known as the <red>Electronic</red> <red>Control</red> <red>Unit</red> or as some refer to as “Engine Control Units” (<red>Electronic</red> <red>Control</red> <red>Unit</red> 
+            is actual correct term) is a <red>computer</red> within  a vehicle that controls how other components work.  In a nutshell it is a 
+            <red>computer</red> with software installed and this software can be <purple>removed</purple>, changed, upgraded just like any other <red>computer</red>.
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/ecu.png" alt="ecu picture"/>
+            <br/><br/>
+            It has input sensors where information about the <red>car</red> is sent back to the <azure>ECU</azure> and output sensors to send information 
+            out to the components to tell them how to behave.  
+            <br/><br/>
+            If the <red>car</red> was a human, the <azure>ECU</azure> would be the brain, it has input 
+            sensors (nerves) telling the brain information about where our parts of body are, if we are for example in an 
+            uncomfortable position etc but also has output sensors to tell the body what to do for example moving our legs into a 
+            more comfortable position. 
+            <br/><br/>
+            A <red>concrete</red> example of how an <azure>ECU</azure> <purple>operates</purple> in a vehicle would be controlling the fuelling into the engine.  
+            The <azure>ECU</azure> would receive information about how much fuel is entering the chamber of the engine and will send out 
+            instructions to reduce it or raise it if it senses it not currently at the correct flow. 
+            <br/><br/>
+            <green>What is AutoSAR?</green>
+            <br/><br/>
+            <purple>AUTOSAR</purple> is an <azure>open</azure> <red>system</red> <purple>architecture</purple> for automotive software development and provides standards for developing common 
+            automotive software applications. It is a growing and evolving standard that defines a <purple>layered</purple> <purple>architecture</purple> for the software.
+            <br/><br/>
+            <purple>AUTOSAR</purple> (AUTomotive <azure>Open</azure> <red>System</red> <purple>ARchitecture</purple>) is primarily focused on the development of software <purple>architecture</purple> for 
+            <red>Electronic</red> <red>Control</red> <red>Units</red> (<azure>ECUs</azure>),  but its applications extend beyond just <azure>ECUs</azure>. 
+            <br/><br/>
+            Here’s a breakdown of its uses:
+            <br/><br/>
+            <brown>ECUs:</brown>
+            <br/>
+            The primary focus of <purple>AUTOSAR</purple> is to standardize the software <purple>architecture</purple> for <azure>ECUs</azure>, which are critical 
+            components in vehicles that control various <red>functions</red> (like engine management, safety <red>systems</red>, etc).
+            <br/><br/>
+            <brown>Software Components:</brown>
+            <br/>
+            <purple>AUTOSAR</purple> facilitates the development of <azure>reusable</azure> <red>software</red> <red>components</red> that can be integrated into different <azure>ECUs</azure>, 
+            promoting interoperability among various manufacturers.
+            <br/><br/>
+            <brown>Vehicle Networks:</brown>
+            <br/>
+            <purple>AUTOSAR</purple> also plays a role in defining communication protocols and standards for vehicle networks, <azure>allowing</azure> different 
+            <azure>ECUs</azure> to communicate effectively.
+            <br/><br/>
+            <brown>Safety and Security:</brown>
+            <br/>
+            It provides guidelines and frameworks for developing safety-critical <red>systems</red>, which are essential for modern vehicles, 
+            especially with the rise of autonomous driving technologies.
+            <br/><br/>
+            <brown>Integration with Other Systems:</brown>
+            <br/>
+            While its primary focus is on <azure>ECUs</azure>, <purple>AUTOSAR</purple> can also be integrated with other automotive <red>systems</red>, such as infotainment 
+            and telematics, enhancing the overall vehicle <purple>architecture</purple>.
+            <br/><br/>
+            The classic <purple>AUTOSAR</purple> platform <azure>runs</azure> on a microcontroller and is divided into 3 main <purple>layers</purple>:
+            <ul style="margin: 0%;">
+                <li><purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> - It is common to any <purple>AUTOSAR</purple> <azure>ECU</azure>.</li>
+                <li><purple>AUTOSAR</purple> <purple>Runtime</purple> <purple>Environment</purple></li>
+                <li><purple>Application</purple> <purple>Layer</purple></li>
+            </ul>
+            <br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/autosar_architecture.png" alt="autosar architecture"/>
+            <br/><br/>
+            <green>Basic Software Architecture (BSW)</green>
+            <br/><br/>
+            <purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> (BSW) is the lowest <purple>layer</purple> of 3 main <purple>layers</purple>. It is the <purple>layer</purple> in direct contact with the hardware part 
+            (the microcontroller).
+            <br/><br/>
+            <purple>AUTOSAR</purple> <purple>Basic</purple> <purple>Software</purple> <purple>Architecture</purple> consists of hundreds of software <red>modules</red> <purple>structured</purple> in different sublayers (<azure>Services</azure> <azure>Layer</azure>, <azure>ECU</azure> <azure>Abstraction</azure> <azure>Layer</azure>, 
+            <azure>Microcontroller</azure> <azure>Abstraction</azure> <azure>Layer</azure>, <azure>Complex</azure> <azure>Drivers</azure>, <purple>Operating</purple> <red>System</red>) and 
+            it is common to any <purple>AUTOSAR</purple> <azure>ECU</azure>. This means the supplier who has designed BSW can <azure>share</azure> it with other suppliers that are 
+            working on <azure>ECUs</azure> of engine, gearbox, etc.
+            <br/><br/>
+            <green>Runtime Environment Layer (RTE)</green>
+            <br/><br/>
+            <purple>AUTOSAR</purple> <purple>Runtime</purple> <purple>Environment</purple> is a middleware <purple>layer</purple> of the <purple>AUTOSAR</purple> software <purple>architecture</purple> between the BSW and the application 
+            <purple>layer</purple> and provides communication services for the application software.
+            <br/><br/>
+            The purpose of <red>RTE</red> is to act as the middle-man between the <red>software</red> <red>components</red>. Example: if we have 2 <red>software</red> <red>components</red> 
+            <purple>SWC</purple> <purple>A</purple> and <azure>SWC</azure> <azure>B</azure>, in order for <purple>SWC</purple> <purple>A</purple> to use some <purple>variables</purple> or <red>functions</red> from <azure>SWC</azure> <azure>B</azure>, the components <purple>SWC</purple> <purple>A</purple> it will have to connect 
+            to the <red>RTE</red> which then will connect <purple>SWC</purple> <purple>A</purple> to <azure>SWC</azure> <azure>B</azure> through a series of <red>interfaces</red> for <azure>Reading</azure>/<azure>Writing</azure>.
+            <br/><br/>
+            <green>Application Layer</green>
+            <br/><br/>
+            The <purple>application</purple> <purple>layer</purple> is the highest <purple>layer</purple> of the <purple>AUTOSAR</purple> software <purple>architecture</purple> and supports custom functionalities 
+            <red>implementation</red>. This <purple>layer</purple> consists of the specific <red>software</red> <red>components</red> and many applications which perform specific 
+            <azure>tasks</azure> as per instructions.
+            <br/><br/>
+            The <purple>AUTOSAR</purple> <purple>application</purple> <purple>layer</purple> consists of three components which are: application <red>software</red> <red>components</red>, <azure>ports</azure> of software 
+            components, and <azure>port</azure> <red>interfaces</red>.
+            <br/><br/>
+            <purple>AUTOSAR</purple> ensures standardized <red>interfaces</red> for the <red>software</red> <red>components</red> within the <purple>application</purple> <purple>layer</purple> and these software 
+            components help in generating simple applications to support the vehicle <red>functions</red>.
+            <br/><br/>
+            <brown>Virtual Function Bus (VFB)</brown>
+            <br/><br/>
+            Imagine a city with roads (<azure>VFB</azure>) connecting different buildings (SWCs). Each building has doorways (<azure>ports</azure>) that <azure>allow</azure> 
+            people (<purple>data</purple>) to enter and exit. The doorways have specific rules (<red>interfaces</red>) about who can enter and what they can
+            bring (<purple>data</purple> <purple>types</purple>). Connectors act as the pathways between doorways, <azure>allowing</azure> people to move between buildings.
+            <br/><br/>
+            The communication between the <red>software</red> <red>components</red> is enabled via specific <azure>ports</azure> using a <red>Virtual</red> <red>Function</red> <red>Bus</red> (<azure>VFB</azure>).
+            <br/>
+            These <azure>ports</azure> facilitate communication between the <red>software</red> <red>components</red> within the <purple>Application</purple> <purple>Layer</purple>, between the 
+            <red>software</red> <red>components</red> within the <purple>Basic</purple> <purple>Software</purple> <purple>Layer</purple>, and also across these 2 different <purple>layers</purple> together. This means
+            you can connect from anywhere to anywhere.
+            <br/><br/>
+            The above-explained <purple>architecture</purple> of <purple>AUTOSAR</purple> is its classic platform, which supports <red>real</red>-<red>time</red> requirements and 
+            safety constraints. <red>Based</red> on the microcontroller, the classic platform is capable of supporting applications in the 
+            <purple>field</purple> of networking and security by <azure>allowing</azure> <azure>ECUs</azure> to access vehicle sensors and actuators.</description>
     </programming_language>
     
 </content>

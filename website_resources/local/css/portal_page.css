@@ -467,3 +467,9 @@ searchHighlight{
 {
     background: #aa7700; 
 }
+
+#page_block .database_image{
+    width: 80%; 
+    position: relative; 
+    left: 10%;
+}

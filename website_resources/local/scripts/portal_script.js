@@ -1,5 +1,6 @@
-const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/programming_languages_database.xml";
-//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/programming_languages_database.xml"; //local resource can be ran using local server with cors
+const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/website_resources/local/database/processed/programming_languages_database_processed.xml";
+//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/processed/programming_languages_database_processed.xml"; //local resource can be ran using local server with cors
+//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/original/programming_languages_database.xml"; //local resource can be ran using local server with cors
 const programming_languages = [];
 const programming_language_selection = document.getElementById("programming_language_selection");
 concept_collection = [];

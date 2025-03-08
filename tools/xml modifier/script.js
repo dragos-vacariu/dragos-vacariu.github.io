@@ -1,21 +1,22 @@
 //Words and expressions associated with classes objects, exceptions, functions, and programming languages and programming paradigms & tools:
-//NOTE: Expressions using at one least single word that present in any singleton should be places in the same singleton - multiple words section.
 
 const red_colored_substr = {keyword: [
     
     /*Multiple words should be first section*/
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
-    "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line",
-
+    "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
+    "software component", "real-time"], color: "red"};
+    
+const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
     "generic", "template", "procedure", "function", "class", "subclass", "malloc", "calloc", "object", "orient", "system", "contruct",
     "instance", "instantiate", "macro", "commandline", "construct", "destruct", "partial", "virtual", "recurse", "parent", "child", "children", 
     "argument", "parameter", "preprocess", "directive", "module", "interface", "setter", "getter", "encapsulate", "oop", "concrete", "implement",
     "recurrent", "polymorphic", "exception", "random", "prototype", "variadic", "overload", "override", "method", "decor", "scope", "pure", 
-    "base", "programming", "concurrent", "compute", "language", "abstract", "reflect", "polymorph", "seal", "pseudo",
+    "base", "programming", "concurrent", "compute", "language", "reflect", "polymorph", "seal", "pseudo",
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
-    "git", "re"], color: "red"};
+    "git", "re", "RTE", "bus"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
@@ -23,9 +24,10 @@ const purple_colored_substr = {keyword: [
     /*Multiple words should be first section*/
     "wide character", "long long int", "short int", "long int", "left-shift", "right-shift", "macro constant", 
     "implicit conversion", "explicit conversion", "format specifier", "file handle", "non-mutat", "heap space", "heap memory",
-    "stack memory", "stack space", "global access", "global interpreter lock",
+    "stack memory", "stack space", "global access", "global interpreter lock", "Runtime Environment", "Basic Software", 
+    "Application Layer", "SWC A"], color: "purple"};
     
-    
+const purple_colored_words = {keyword: [
     /*Single words*/
     "static", "byte", "string", "constant", "collect", "data", "type", "list", "identifier", "mutat", "immutat", "decorat", "metadata", "minificate",
     "point", "address", "array", "enum", "enumerate", "char", "union", "struct", "structure", "bool", "boolean", "heap", "stack", "void", "return", 
@@ -33,7 +35,8 @@ const purple_colored_substr = {keyword: [
     "break", "cast", "binary", "sign", "unsign", "operate", "assign", "integer", "float", "double", "ternary", "operand", "register", "newline",
     "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
     "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
-    "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype"], color: "purple"};
+    "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype",
+    "architecture", "AUTOSAR", "Layer"], color: "purple"};
 
 //Words and expressions associated with various concepts or special terms:
 const azure_colored_substr = {keyword: [
@@ -42,16 +45,18 @@ const azure_colored_substr = {keyword: [
     "for loop", "do while loop", "while loop", "foreach loop", "for each loop", "for-each loop", "single-thread", "multi-thread", "critical section",
      "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
     "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "back-end", "front-end",
-    
+    "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B"], color: "azure"};
+
+const azure_colored_words = {keyword: [
     /*Single words should be second section*/
     "overflow", "underflow", "thread", "multiprocess", "loop", "lifo", "fifo", "allow", "script", "quantity", "primitive",
     "serializ", "deserializ", "multithread", "hyperthread", "asynchronous", "synchronous", "sequential", "simultaneous", 
     "asynchrony", "parallel", "synchronization", "overhead", "responsive",  "efficient", "backend", "frontend",
-    "statement", "maintain",  "memory",  "dynamic", "block", "compliment", "independent", "plugin", "default", 
+    "statement", "maintain",  "memory",  "dynamic", "abstract", "block", "compliment", "independent", "plugin", "default", 
     "efficiency", "server", "condition", "count", "delete", "add", "share", "save", "store", "retrieve", "match", "lambda",
     "code", "manipulate", "comment", "sequence", "create", "open", "read", "write", "close", "start", "run", "task", "cpu", "core", "stream", "signal", 
     "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
-    "compare", "allocat", "search", "update", "slice", "derive"], color: "azure"};
+    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "Abstraction"], color: "azure"};
 
 //const test = {keyword: ["command-line"], color: "azure"};
 
@@ -62,7 +67,7 @@ function saveTextAsFile()
     /*this function will create a blob and save it as file*/
     var textToWrite = '<?xml version="1.0" encoding="UTF-8"?>\n\n' + document.getElementById("modified_textArea").textContent;
     var textFileAsBlob = new Blob([ textToWrite ], { type: "application/xml" });
-    var fileNameToSaveAs = "programming_languages_database.xml"; //filename.extension
+    var fileNameToSaveAs = "programming_languages_database_processed.xml"; //filename.extension
 
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
@@ -138,7 +143,9 @@ function add_color_to_XML_Content(xml_Document_Content)
                 programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, red_colored_substr);
                 programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, purple_colored_substr);
                 programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, azure_colored_substr);
-                
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, red_colored_words);
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, purple_colored_words);
+                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, azure_colored_words);
                 //programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, test);
                 
                 
