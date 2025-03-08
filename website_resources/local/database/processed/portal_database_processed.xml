@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <content>
-    <programming_language>
+    <manifest>
         <name>General-Programming-Knowledge</name>
         <oop><red>OOP</red> stands for <red>Object</red>-<red>Oriented</red> <red>Programming</red>.
             <br/><br/>
@@ -1859,9 +1859,9 @@
             <br/><br/>
             All <red>parameters</red>/<red>arguments</red> in the <red>Python</red> are passed by <purple>reference</purple>. 
             <br/></functions>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>C</name>
         <description><red>C</red> is a general-purpose <red>computer</red> <red>programming</red> <red>language</red>.<br/><br/>
             It was <azure>created</azure> in the 1970s by Dennis Ritchie, and remains very widely used and 
@@ -3006,9 +3006,9 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></polymorphism>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>C++</name>
         <description><red>C++</red> is a <azure>high</azure>-<azure>level</azure>, general-purpose <red>programming</red> <red>language</red> 
             <azure>created</azure> by Danish <red>computer</red> scientist Bjarne Stroustrup. <br/><br/>
@@ -5085,9 +5085,9 @@
         <pre-post-incrementation>*General-Programming-Knowledge*</pre-post-incrementation>
         <recursion>*General-Programming-Knowledge*</recursion>
         <reflection>*General-Programming-Knowledge*</reflection>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>C#</name>
         <description><red>C#</red> is a general-purpose <azure>high</azure>-<azure>level</azure> <red>programming</red> <red>language</red> supporting multiple 
             paradigms. <red>C#</red> encompasses <purple>static</purple> <purple>typing</purple>, strong <purple>typing</purple>, 
@@ -7719,9 +7719,9 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>92  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>93  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></reflection>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>JavaScript</name>
         <description><red>JavaScript</red> often abbreviated as <red>JS</red>, is a <red>programming</red> <red>language</red> and <azure>core</azure> 
             technology of the Web, alongside <red>HTML</red> and <red>CSS</red>. 99% of websites use <red>JavaScript</red> 
@@ -9509,9 +9509,9 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">g('GFG'); </td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></decorators>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>Java</name>
         <description><red>Java</red> is a <azure>high</azure>-<azure>level</azure>, <red>class</red>-<red>based</red>, <red>object</red>-<red>oriented</red> 
             <red>programming</red> <red>language</red> that is 
@@ -12489,9 +12489,9 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></abstract-classes>
         <optional-parameters>*General-Programming-Knowledge*</optional-parameters>
-    </programming_language>
+    </manifest>
     
-    <programming_language>
+    <manifest>
         <name>Python</name>
         <description><red>Python</red> is a <azure>high</azure>-<azure>level</azure>, general-purpose <red>programming</red> <red>language</red>. 
             Its design 
@@ -16213,9 +16213,9 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>3   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">sum = lambda arg1, arg2: arg1 + arg2; </td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>4   </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr></table></box></code></lambda-anonymous-functions>
-    </programming_language>
-    <programming_language>
-        <name>AUTOSAR</name>
+    </manifest>
+    <manifest>
+        <name>AutoSAR</name>
         <description><green>What is an ECU?</green>
             <br/><br/>
             The <azure>ECU</azure> also known as the <red>Electronic</red> <red>Control</red> <red>Unit</red> or as some refer to as “Engine Control Units” (<red>Electronic</red> <red>Control</red> <red>Unit</red> 
@@ -16326,6 +16326,6 @@
             The above-explained <purple>architecture</purple> of <purple>AUTOSAR</purple> is its classic platform, which supports <red>real</red>-<red>time</red> requirements and 
             safety constraints. <red>Based</red> on the microcontroller, the classic platform is capable of supporting applications in the 
             <purple>field</purple> of networking and security by <azure>allowing</azure> <azure>ECUs</azure> to access vehicle sensors and actuators.</description>
-    </programming_language>
+    </manifest>
     
 </content>

@@ -1,8 +1,8 @@
-const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/website_resources/local/database/processed/programming_languages_database_processed.xml";
-//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/processed/programming_languages_database_processed.xml"; //local resource can be ran using local server with cors
-//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/original/programming_languages_database.xml"; //local resource can be ran using local server with cors
-const programming_languages = [];
-const programming_language_selection = document.getElementById("programming_language_selection");
+//const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/website_resources/local/database/processed/portal_database_processed.xml";
+const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/processed/portal_database_processed.xml"; //local resource can be ran using local server with cors
+//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/original/portal_database.xml"; //local resource can be ran using local server with cors
+const manifests = [];
+const manifest_selection = document.getElementById("manifest_selection");
 concept_collection = [];
 const concept_selection = document.getElementById("concept_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
@@ -109,24 +109,24 @@ function useProvidedRoute()
                 languages[csharp_index] = "C#";
             }
             //Deselect all languages
-            for(var i = 0; i < programming_language_selection.children.length; i++)
+            for(var i = 0; i < manifest_selection.children.length; i++)
             {
-                programming_language_selection.children[i].value = false;
-                programming_language_selection.children[i].style = tag_selection_off;
-                updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
+                manifest_selection.children[i].value = false;
+                manifest_selection.children[i].style = tag_selection_off;
+                updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
             }
             //Selecting only the languages specified by the route:
             for(var i = 0; i < languages.length; i++)
             {
-                var matchIndex = programming_languages.findIndex(element => String(element.name).toLowerCase() == String(languages[i]).toLowerCase());
+                var matchIndex = manifests.findIndex(element => String(element.name).toLowerCase() == String(languages[i]).toLowerCase());
                 if(matchIndex >= 0 )
                 {
-                    /*programming_language_selection has one less index compared to programming_languages because 
+                    /*manifest_selection has one less index compared to manifests because 
                     General-Programming-Knowledge is not available for selection */
-                    if(programming_language_selection.children[matchIndex-1].value == false)
+                    if(manifest_selection.children[matchIndex-1].value == false)
                     {
                         //if element specified via the routing is found and is deselected we will select it
-                        programming_language_selection.children[matchIndex-1].click(); 
+                        manifest_selection.children[matchIndex-1].click(); 
                     }
                 }
             }
@@ -293,9 +293,9 @@ function restoreDBMultipleSelectionCookie()
         {
             //Checking if pairs[0] is a LANGUAGE:
             var language_index = -1;
-            for(var lang_sel_index = 0; lang_sel_index < programming_language_selection.children.length; lang_sel_index++)
+            for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
             {
-                if(pairs[0] == programming_language_selection.children[lang_sel_index].innerHTML)
+                if(pairs[0] == manifest_selection.children[lang_sel_index].innerHTML)
                 {
                     language_index = lang_sel_index;
                     break;
@@ -305,13 +305,13 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
-                    programming_language_selection.children[language_index].value = true;
-                    programming_language_selection.children[language_index].style = tag_selection_on;
+                    manifest_selection.children[language_index].value = true;
+                    manifest_selection.children[language_index].style = tag_selection_on;
                 }
                 else
                 {
-                    programming_language_selection.children[language_index].value = false;
-                    programming_language_selection.children[language_index].style = tag_selection_off;
+                    manifest_selection.children[language_index].value = false;
+                    manifest_selection.children[language_index].style = tag_selection_off;
                 }
             }
         }
@@ -335,15 +335,15 @@ function restoreDBSingleSelectionCookie()
         
         if(pairs.length > 1)
         {
-            var language_index = programming_languages.findIndex(element => String(element.name) == String(pairs[1]))
+            var language_index = manifests.findIndex(element => String(element.name) == String(pairs[1]))
             if(language_index >= 0 )
             {
                  /*
-                    programming_language_selection is built based on programming_languages without General-Programming-Knowledge. 
-                    programming_language_selection has 1 less element compared to programming_languages so 1 less index.
+                    manifest_selection is built based on manifests without General-Programming-Knowledge. 
+                    manifest_selection has 1 less element compared to manifests so 1 less index.
                 */
                 language_index-=1;
-                programming_language_selection.children[language_index].click(); 
+                manifest_selection.children[language_index].click(); 
                 //click will select this item and deselect all others
             }
         }
@@ -427,7 +427,7 @@ function loadXMLDoc(xml_file)
             var xml_Document = parser.parseFromString(this.responseText, "application/xml");
             
             /*get the content of the specified xml tag and store the information*/
-            var xml_tag_content = xml_Document.getElementsByTagName("programming_language");
+            var xml_tag_content = xml_Document.getElementsByTagName("manifest");
 
             for (var i = 0; i< xml_tag_content.length; i++) 
             {
@@ -446,7 +446,7 @@ function loadXMLDoc(xml_file)
                         }
                     }
                 }
-                programming_languages.push(Programming_Lang);
+                manifests.push(Programming_Lang);
             }
             
             /*Adding the overall language selection functions*/
@@ -458,32 +458,32 @@ function loadXMLDoc(xml_file)
             overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
             
             //Adding programming languages to the selection
-            for(var index=0; index< programming_languages.length; index++)
+            for(var index=0; index< manifests.length; index++)
             {
                 /*Grabbing all concepts available for all the programming languages*/
                 /*Ignore everything for General-Programming-Knowledge*/
-                if(programming_languages[index].name != "General-Programming-Knowledge")
+                if(manifests[index].name != "General-Programming-Knowledge")
                 {
                     if(index==1) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
                         /*Adding the programming language selection*/                
-                        for(var concept_index=0; concept_index< programming_languages[index].concepts.length; concept_index++)
+                        for(var concept_index=0; concept_index< manifests[index].concepts.length; concept_index++)
                         {
                             if(concept_index == 0)
                             {
-                                concept_selection.appendChild(createLiElement(programming_languages[index].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
+                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
                             }
                             else
                             {
-                                concept_selection.appendChild(createLiElement(programming_languages[index].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
+                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
                             }
-                            concept_collection.push(programming_languages[index].concepts[concept_index].concept_name);
+                            concept_collection.push(manifests[index].concepts[concept_index].concept_name);
                         }
-                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, true, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, true, languageSelectionBehaviour));
                     }
                     else
                     {
-                        programming_language_selection.appendChild(createLiElement(programming_languages[index].name, false, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, false, languageSelectionBehaviour));
                     }
                 }
             }
@@ -537,9 +537,9 @@ function fillTableCompare()
     
     //Calculate the number of columns to be displayed
     var active_columns = 0; 
-    for(var j=0; j<programming_language_selection.children.length; j++)
+    for(var j=0; j<manifest_selection.children.length; j++)
     {
-        if(programming_language_selection.children[j].value == true)
+        if(manifest_selection.children[j].value == true)
         {
             active_columns++;
         }
@@ -550,16 +550,16 @@ function fillTableCompare()
     var row = table_content.insertRow();
     var cell = null;
     //Draw separate column for each programming language selected to be displayed
-    for(var index=0; index < programming_languages.length; index++)
+    for(var index=0; index < manifests.length; index++)
     {        
         /*check if language is selected to be displayed*/
-        for(var i=0; i < programming_language_selection.children.length; i++)
+        for(var i=0; i < manifest_selection.children.length; i++)
         {
-            if(programming_language_selection.children[i].innerHTML == programming_languages[index].name &&
-                programming_language_selection.children[i].value==true)
+            if(manifest_selection.children[i].innerHTML == manifests[index].name &&
+                manifest_selection.children[i].value==true)
             {
                 cell = row.insertCell();
-                cell.innerHTML = programming_languages[index].name;
+                cell.innerHTML = manifests[index].name;
                 cell.style = language_title_style;
                 cell.style.width = String(100 / active_columns + "%");
             }
@@ -576,14 +576,14 @@ function fillTableCompare()
             row = table_content.insertRow();
             
             /*For each language in the table selected to be displayed - insert a column*/
-            for(var index=0; index < programming_languages.length; index++)
+            for(var index=0; index < manifests.length; index++)
             {
-                for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
+                for(var lang_selection_index=0; lang_selection_index < manifest_selection.children.length; lang_selection_index++)
                 {
                     /*check if the language is selected to be displayed*/
-                    if(programming_language_selection.children[lang_selection_index].innerHTML == programming_languages[index].name && programming_language_selection.children[lang_selection_index].value==true)
+                    if(manifest_selection.children[lang_selection_index].innerHTML == manifests[index].name && manifest_selection.children[lang_selection_index].value==true)
                     {
-                        var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+                        var found_element_index =  manifests[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
                         
                         /*
                         The findIndex() method of Array instances returns the index of the first element in an 
@@ -600,7 +600,7 @@ function fillTableCompare()
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
-                            p.innerHTML = programming_languages[index].concepts[found_element_index].concept_value;
+                            p.innerHTML = manifests[index].concepts[found_element_index].concept_value;
                             
                             //Don't copy general knowledge on compare. As those informations are available to all languages.
                             p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
@@ -626,17 +626,17 @@ function fillTableRegular()
     var cell = null;
     
     //draw the table
-    for(var index=0; index < programming_languages.length; index++)
+    for(var index=0; index < manifests.length; index++)
     {
-        for(var lang_selection_index=0; lang_selection_index < programming_language_selection.children.length; lang_selection_index++)
+        for(var lang_selection_index=0; lang_selection_index < manifest_selection.children.length; lang_selection_index++)
         {
             /*check if the language is selected to be displayed*/
-            if(programming_language_selection.children[lang_selection_index].innerHTML == programming_languages[index].name && programming_language_selection.children[lang_selection_index].value==true)
+            if(manifest_selection.children[lang_selection_index].innerHTML == manifests[index].name && manifest_selection.children[lang_selection_index].value==true)
             {
                 /*Insert a new row for each language title selected to be displayed*/
                 row = table_content.insertRow();
                 cell = row.insertCell();
-                cell.innerHTML = programming_languages[index].name;
+                cell.innerHTML = manifests[index].name;
                 cell.style = language_title_style;
                 cell.style.paddingTop = "1%";
                 /*For each concept the language has*/
@@ -646,7 +646,7 @@ function fillTableRegular()
                     if(concept_collection[concept_index] == concept_selection.children[concept_index].innerHTML &&
                         concept_selection.children[concept_index].value == true)
                     {
-                        var found_element_index =  programming_languages[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
+                        var found_element_index =  manifests[index].concepts.findIndex(element => element.concept_name ==concept_collection[concept_index]);
                         
                         /*
                         The findIndex() method of Array instances returns the index of the first element in an 
@@ -665,8 +665,8 @@ function fillTableRegular()
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
-                            p.innerHTML += programming_languages[index].concepts[found_element_index].concept_value;
-                            checkCopyConceptFromGeneralKnowledge(p, programming_languages[index].concepts[found_element_index]);
+                            p.innerHTML += manifests[index].concepts[found_element_index].concept_value;
+                            checkCopyConceptFromGeneralKnowledge(p, manifests[index].concepts[found_element_index]);
                                                     
                         }
                         else
@@ -771,7 +771,7 @@ function languageSelectionBehaviour()
             }
         }
         /*get the language item and enable / disable the concepts within*/
-        var active_language = programming_languages.find(element => element.name == this.innerHTML);
+        var active_language = manifests.find(element => element.name == this.innerHTML);
         if(active_language != undefined)
         {
             selected_concept = ""
@@ -823,11 +823,11 @@ function languageSelectionBehaviour()
             {
                 concept_to_be_removed = false
                 
-                for(var language_index = 0; language_index < programming_language_selection.children.length; language_index++)
+                for(var language_index = 0; language_index < manifest_selection.children.length; language_index++)
                 {
-                    if (programming_language_selection.children[language_index].value == true)
+                    if (manifest_selection.children[language_index].value == true)
                     {
-                        var found_element_index = programming_languages[language_index+1].concepts.findIndex(element => element.concept_name == concept_selection.children[existing_concept].innerHTML);
+                        var found_element_index = manifests[language_index+1].concepts.findIndex(element => element.concept_name == concept_selection.children[existing_concept].innerHTML);
                         if( found_element_index < 0)
                         {
                             concept_to_be_removed = true
@@ -852,7 +852,7 @@ function languageSelectionBehaviour()
             this.value = true;
             this.style = tag_selection_on;
             
-            var selected_language = programming_languages.find(element => element.name == this.innerHTML);
+            var selected_language = manifests.find(element => element.name == this.innerHTML);
             
             if(selected_language != undefined)
             {                
@@ -919,11 +919,11 @@ function selectionOfAllConceptElements()
 function deselectionOfAllLanguageElements() 
 {
     /*This function will describe the behavior of deselect all button within the Overall Language Selection.*/
-    for(var i = 0; i < programming_language_selection.children.length; i++)
+    for(var i = 0; i < manifest_selection.children.length; i++)
     {
-        programming_language_selection.children[i].value = false;
-        programming_language_selection.children[i].style = tag_selection_off;
-        updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
+        manifest_selection.children[i].value = false;
+        manifest_selection.children[i].style = tag_selection_off;
+        updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
     }
     showTable();
     updateRoute();
@@ -932,11 +932,11 @@ function deselectionOfAllLanguageElements()
 function selectionOfAllLanguageElements() 
 {
     /*This function will describe the behavior of select all button within the Overall Language Selection.*/
-    for(var i = 0; i < programming_language_selection.children.length; i++)
+    for(var i = 0; i < manifest_selection.children.length; i++)
     {
-        programming_language_selection.children[i].value = true;
-        programming_language_selection.children[i].style = tag_selection_on;
-        updateCookie(programming_language_selection.children[i].innerHTML, programming_language_selection.children[i].value);
+        manifest_selection.children[i].value = true;
+        manifest_selection.children[i].style = tag_selection_on;
+        updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
     }
     showTable();
     updateRoute();
@@ -1007,13 +1007,13 @@ function checkCopyConceptFromGeneralKnowledge(html_element, concept)
         if(String(html_element.innerHTML).includes(copy_GeneralKnowledge_token))
         {
             
-            var found_element_index = programming_languages.findIndex(element => element.name == "General-Programming-Knowledge");
+            var found_element_index = manifests.findIndex(element => element.name == "General-Programming-Knowledge");
             if( found_element_index >= 0 )
             {
-                var found_concept = programming_languages[found_element_index].concepts.findIndex(element => element.concept_name == concept.concept_name);
+                var found_concept = manifests[found_element_index].concepts.findIndex(element => element.concept_name == concept.concept_name);
                 if( found_concept >= 0 )
                 {
-                    html_element.innerHTML = String(html_element.innerHTML).replace(copy_GeneralKnowledge_token, programming_languages[found_element_index].concepts[found_concept].concept_value);
+                    html_element.innerHTML = String(html_element.innerHTML).replace(copy_GeneralKnowledge_token, manifests[found_element_index].concepts[found_concept].concept_value);
                 }
                 else
                 {
@@ -1144,7 +1144,7 @@ function setSelectionType()
             Get the active language. There should be only one active language selected 
             since Cookie values were restored in the switchSelectionTypeSingle() 
         */
-        var active_languages = getActiveElements(programming_language_selection.children);
+        var active_languages = getActiveElements(manifest_selection.children);
         var active_concepts = getActiveElements(concept_selection.children)
         if(active_concepts.length > 1) //this condition should always be true
         {
@@ -1160,7 +1160,7 @@ function setSelectionType()
                 //we will make sure any other active languages and concepts will be deselected
                 active_languages[0].click();
             }
-            active_language = programming_languages.find(element=> element.name == active_languages[0].innerHTML);
+            active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
         //For the selected language check all concepts for the selection and if they are not available
         //for the selected language change their opacity to look disabled and unselectable
@@ -1215,11 +1215,11 @@ function updateRoute()
         routeString += selection_type.children[1].innerHTML;
     }
     routeString += "@";
-    for(var i=0; i<programming_language_selection.children.length; i++)
+    for(var i=0; i<manifest_selection.children.length; i++)
     {
-        if(programming_language_selection.children[i].value == true)
+        if(manifest_selection.children[i].value == true)
         {
-            routeString += programming_language_selection.children[i].innerHTML + "_";
+            routeString += manifest_selection.children[i].innerHTML + "_";
         }
     }
     routeString = routeString.slice(0, routeString.length-1); //remove the last _
@@ -1263,11 +1263,11 @@ function wordMatchingSearch()
     //Getting the unique findings to optimize the upcoming loops
     searchBox_value = [...new Set(searchBox_value)];
     
-    for(var i=0; i < programming_languages.length; i++)
+    for(var i=0; i < manifests.length; i++)
     {
-        for(var j=0; j < programming_languages[i].concepts.length; j++)
+        for(var j=0; j < manifests[i].concepts.length; j++)
         {
-            var sentences = programming_languages[i].concepts[j].concept_value;
+            var sentences = manifests[i].concepts[j].concept_value;
             //Hide the replacement token for General-Programming-Knowledge
             sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
             //<br> and </br> elements within the database are seen as <br/>
@@ -1300,7 +1300,7 @@ function wordMatchingSearch()
                     {
                         /*Insert the concept name within the cell*/
                         var p = document.createElement("p");
-                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.innerHTML = manifests[i].name + " - " + manifests[i].concepts[j].concept_name + ":";
                         p.style = concept_title_style;
                     }
                     
@@ -1375,11 +1375,11 @@ function ContextualSearch()
     cell.style.paddingTop = "1%";
     var result_counter = 0;
 
-    for(var i=0; i < programming_languages.length; i++)
+    for(var i=0; i < manifests.length; i++)
     {
-        for(var j=0; j < programming_languages[i].concepts.length; j++)
+        for(var j=0; j < manifests[i].concepts.length; j++)
         {
-            var sentences = programming_languages[i].concepts[j].concept_value;
+            var sentences = manifests[i].concepts[j].concept_value;
             //Hide the replacement token for General-Programming-Knowledge
             sentences = sentences.replaceAll("*General-Programming-Knowledge*", "");
             //<br> and </br> elements within the database are seen as <br/>
@@ -1397,7 +1397,7 @@ function ContextualSearch()
                     {
                         /*Insert the concept name within the cell*/
                         var p = document.createElement("p");
-                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.innerHTML = manifests[i].name + " - " + manifests[i].concepts[j].concept_name + ":";
                         p.style = concept_title_style;
                     }
                     //inserting the sentence
@@ -1408,7 +1408,7 @@ function ContextualSearch()
                     {
                         /*Insert the concept name within the cell*/
                         var p = document.createElement("p");
-                        p.innerHTML = programming_languages[i].name + " - " + programming_languages[i].concepts[j].concept_name + ":";
+                        p.innerHTML = manifests[i].name + " - " + manifests[i].concepts[j].concept_name + ":";
                         p.style = concept_title_style;
                     }
                     

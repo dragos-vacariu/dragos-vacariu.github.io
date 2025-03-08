@@ -67,7 +67,7 @@ function saveTextAsFile()
     /*this function will create a blob and save it as file*/
     var textToWrite = '<?xml version="1.0" encoding="UTF-8"?>\n\n' + document.getElementById("modified_textArea").textContent;
     var textFileAsBlob = new Blob([ textToWrite ], { type: "application/xml" });
-    var fileNameToSaveAs = "programming_languages_database_processed.xml"; //filename.extension
+    var fileNameToSaveAs = "portal_database_processed.xml"; //filename.extension
 
     var downloadLink = document.createElement("a");
     downloadLink.download = fileNameToSaveAs;
@@ -121,41 +121,41 @@ function changeFile()
 
 function add_color_to_XML_Content(xml_Document_Content)
 {
-    var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
-    for(var i=0; i < programming_languages.length; i++)
+    var manifests =  xml_Document_Content.getElementsByTagName("manifest");    
+    for(var i=0; i < manifests.length; i++)
     {
-        for(var j=0; j < programming_languages[i].children.length; j++)
+        for(var j=0; j < manifests[i].children.length; j++)
         {
             /*If this is not the name element*/
-            if(programming_languages[i].children[j].tagName != "name")
+            if(manifests[i].children[j].tagName != "name")
             {
                 //workaround for elements that should not be modified:
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
                 
                 //Workaround for the <br> tags so that they will not force writing content within other formated elements
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("</br>", "{[(_#br_)]}")
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br#_)]}")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("<br>", "{[(_br_)]}")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("</br>", "{[(_#br_)]}")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("<br/>", "{[(_br#_)]}")
                 
                 //Format the text by adding color tags on every finding:
                 
                 /*Add color to words and sustrings stored in singletons*/
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, red_colored_substr);
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, purple_colored_substr);
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, azure_colored_substr);
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, red_colored_words);
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, purple_colored_words);
-                programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, azure_colored_words);
-                //programming_languages[i].children[j].innerHTML = addColorTags(programming_languages[i].children[j].innerHTML, test);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, red_colored_substr);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, purple_colored_substr);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, azure_colored_substr);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, red_colored_words);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, purple_colored_words);
+                manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, azure_colored_words);
+                //manifests[i].children[j].innerHTML = addColorTags(manifests[i].children[j].innerHTML, test);
                 
                 
                 //Undoing the workarounds:
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_#br_)]}", "</br>")
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("{[(_br#_)]}", "<br/>")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("{[(_br_)]}", "<br>")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("{[(_#br_)]}", "</br>")
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("{[(_br#_)]}", "<br/>")
                 
-                programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
-                //console.log(programming_languages[i].children[j].innerHTML)
+                manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
+                //console.log(manifests[i].children[j].innerHTML)
             }
         }
     }
@@ -357,16 +357,16 @@ function addColorTags(XML_Element_InnerHTML_Content, list_of_words)
 
 function addEmptyLines(xml_Document_Content)
 {
-    var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
-    for(var i=0; i < programming_languages.length; i++)
+    var manifests =  xml_Document_Content.getElementsByTagName("manifest");    
+    for(var i=0; i < manifests.length; i++)
     {
-        for(var j=0; j < programming_languages[i].children.length; j++)
+        for(var j=0; j < manifests[i].children.length; j++)
         {
             //workaround for elements that should not be modified:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
+            manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("General-Programming-Knowledge", "<green>General-Programming-Knowledge</green>")
             
             //Format the text by adding highlights on every finding:
-            var items = programming_languages[i].children[j].innerHTML.trim().split(">")
+            var items = manifests[i].children[j].innerHTML.trim().split(">")
             
             //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
             for (var counter = 0; counter < items.length; counter++)
@@ -407,10 +407,10 @@ function addEmptyLines(xml_Document_Content)
                     }
                 }
             }
-            programming_languages[i].children[j].innerHTML = items.join(">")
+            manifests[i].children[j].innerHTML = items.join(">")
             //Undoing the workaround:
-            programming_languages[i].children[j].innerHTML = programming_languages[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
-            //console.log(programming_languages[i].children[j].innerHTML)
+            manifests[i].children[j].innerHTML = manifests[i].children[j].innerHTML.replaceAll("<green>General-Programming-Knowledge</green>", "General-Programming-Knowledge")
+            //console.log(manifests[i].children[j].innerHTML)
         }
     }
     return xml_Document_Content
@@ -418,13 +418,13 @@ function addEmptyLines(xml_Document_Content)
 
 function add_different_color_to_code_keywords(xml_Document_Content, keyword_color_set)
 {
-    var programming_languages =  xml_Document_Content.getElementsByTagName("programming_language");    
-    for(var i=0; i < programming_languages.length; i++)
+    var manifests =  xml_Document_Content.getElementsByTagName("manifest");    
+    for(var i=0; i < manifests.length; i++)
     {
-        for(var j=0; j < programming_languages[i].children.length; j++)
+        for(var j=0; j < manifests[i].children.length; j++)
         {
             //Format the text by adding highlights on every finding:
-            var items = programming_languages[i].children[j].innerHTML.trim().split(">")
+            var items = manifests[i].children[j].innerHTML.trim().split(">")
             
             //Put case-insesitive findings between <searchHighlight> tags. This will allow us to highlight the findings word for word
             for (var counter = 0; counter < items.length; counter++)
@@ -461,7 +461,7 @@ function add_different_color_to_code_keywords(xml_Document_Content, keyword_colo
                     }
                 }
             }
-            programming_languages[i].children[j].innerHTML = items.join(">")
+            manifests[i].children[j].innerHTML = items.join(">")
         }
     }
     return xml_Document_Content
