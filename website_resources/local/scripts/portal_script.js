@@ -306,13 +306,27 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
+                    /*Ensuring that the element is deselected*/
+                    manifest_selection.children[language_index].value = false;
+                    manifest_selection.children[language_index].style = tag_selection_off;
+                    
+                    /*Selecting the element*/
                     manifest_selection.children[language_index].click()
+                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
+                    and it will update the concept selection list with the elements available in this manifest*/
                 }
                 else
                 {
-                    manifest_selection.children[language_index].value = false;
-                    manifest_selection.children[language_index].style = tag_selection_off;
+                    /*Ensuring that the element is selected*/
+                    manifest_selection.children[language_index].value = true;
+                    manifest_selection.children[language_index].style = tag_selection_on;
+                    
+                    /*Selecting the element*/
+                    manifest_selection.children[language_index].click()
+                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
+                    and it will update the concept selection list with the elements available in this manifest*/
                 }
+                
             }
         }
     }
