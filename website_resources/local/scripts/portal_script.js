@@ -1182,6 +1182,7 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
+        updateCookie("selection", selection_type.children[1].innerHTML);
         
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
@@ -1189,7 +1190,6 @@ function switchSelectionTypeMultiple()
             restoreDBMultipleSelectionCookie();
         }
         
-        updateCookie("selection", selection_type.children[1].innerHTML);
         setSelectionType();
         updateRoute();
     }
