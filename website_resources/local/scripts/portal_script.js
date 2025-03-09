@@ -257,6 +257,16 @@ function restoreCookiePredefinedElements()
 function restoreDBMultipleSelectionCookie()
 {
     /*Restoring values from the cookie for Selection Type Multiple for elements added based on Database*/
+    
+    //Ensuring everything is deselected
+    for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
+    {
+        if(manifest_selection.children[lang_sel_index].value = true)
+        {
+            manifest_selection.children[lang_sel_index].click()
+        }
+    }
+    
     var cookie_elements = document.cookie.split(cookie_element_separator);
     
     for(var i=0; i<cookie_elements.length; i++)
@@ -304,6 +314,7 @@ function restoreDBMultipleSelectionCookie()
                 {
                     concept_selection.children[concept_index].style = tag_selection_on;
                 }
+
                 //Deselecting the concept
                 concept_selection.children[concept_index].click()
             }
@@ -335,20 +346,6 @@ function restoreDBMultipleSelectionCookie()
                     /*by simulating a click on the element the function languageSelectionBehaviour will be called
                     and it will update the concept selection list with the elements available in this manifest*/
                 }
-                else
-                {
-                    /*Ensuring that the element is selected*/
-                    manifest_selection.children[language_index].value = true;
-                    manifest_selection.children[language_index].style = tag_selection_on;
-                    console.log("manifest DESELECTED: " + manifest_selection.children[language_index].innerHTML)
-                    console.log("Concept Collection Before: " + concept_collection)
-                    /*Selecting the element*/
-                    manifest_selection.children[language_index].click()
-                    console.log("Concept Collection AFTER: " + concept_collection)
-                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
-                    and it will update the concept selection list with the elements available in this manifest*/
-                }
-                
             }
         }
     }
@@ -874,7 +871,7 @@ function languageSelectionBehaviour()
             //Removing existing concepts in the concept_selection
             for(var existing_concept=0; existing_concept < concept_selection.children.length; existing_concept++)
             {
-                concept_to_be_removed = false
+                concept_to_be_removed = true
                 
                 for(var language_index = 0; language_index < manifest_selection.children.length; language_index++)
                 {
@@ -892,7 +889,7 @@ function languageSelectionBehaviour()
                     }
                 }
                 
-                if (concept_to_be_removed || manifest_selection.children.length==0)
+                if (concept_to_be_removed)
                 {
                     concept_selection.children[existing_concept].remove();
                     concept_collection.splice(existing_concept, 1);
