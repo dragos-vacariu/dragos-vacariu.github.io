@@ -311,9 +311,6 @@ function restoreDBMultipleSelectionCookie()
                 if(concept_selection.children[concept_index].value == true)
                 {
                     concept_selection.children[concept_index].value = false;
-                }
-                if(concept_selection.children[concept_index].style == tag_selection_on)
-                {
                     concept_selection.children[concept_index].style = tag_selection_off;
                 }
                 //Selecting the concept
@@ -322,16 +319,12 @@ function restoreDBMultipleSelectionCookie()
             }
             else
             {
-                //Ensuring concept is deselected
+                //Ensuring concept is selected
                 if(concept_selection.children[concept_index].value == false)
                 {
                     concept_selection.children[concept_index].value = true;
-                }
-                if(concept_selection.children[concept_index].style == tag_selection_off)
-                {
                     concept_selection.children[concept_index].style = tag_selection_on;
                 }
-
                 //Deselecting the concept
                 concept_selection.children[concept_index].click()
                 /*.click should be replaced as it alters the route and cookie*/
