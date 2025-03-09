@@ -135,7 +135,9 @@ function useProvidedRoute()
                     if(manifest_selection.children[matchIndex-1].value == false)
                     {
                         //if element specified via the routing is found and is deselected we will select it
-                        manifest_selection.children[matchIndex-1].click(); 
+                        //manifest_selection.children[matchIndex-1].click(); 
+                        manifest_selection.children[matchIndex-1].value.value = true;
+                        manifest_selection.children[matchIndex-1].value.style = tag_selection_on;
                     }
                 }
             }
@@ -311,13 +313,8 @@ function restoreDBMultipleSelectionCookie()
                 if(concept_selection.children[concept_index].value == true)
                 {
                     concept_selection.children[concept_index].value = false;
-                }
-                if(concept_selection.children[concept_index].style == tag_selection_on)
-                {
                     concept_selection.children[concept_index].style = tag_selection_off;
                 }
-                //Selecting the concept
-                concept_selection.children[concept_index].click()
             }
             else
             {
@@ -325,14 +322,8 @@ function restoreDBMultipleSelectionCookie()
                 if(concept_selection.children[concept_index].value == false)
                 {
                     concept_selection.children[concept_index].value = true;
-                }
-                if(concept_selection.children[concept_index].style == tag_selection_off)
-                {
                     concept_selection.children[concept_index].style = tag_selection_on;
                 }
-
-                //Deselecting the concept
-                concept_selection.children[concept_index].click()
             }
         }
         else
