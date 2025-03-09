@@ -281,13 +281,19 @@ function restoreDBMultipleSelectionCookie()
             */
             if(pairs[1]=="1") // if element was selected
             {
-                concept_selection.children[concept_index].value = true;
-                concept_selection.children[concept_index].style = tag_selection_on;
+                //Ensuring concept is deselected
+                concept_selection.children[concept_index].value = false;
+                concept_selection.children[concept_index].style = tag_selection_off;
+                //Selecting the concept
+                concept_selection.children[concept_index].click()
             }
             else
             {
-                concept_selection.children[concept_index].value = false;
-                concept_selection.children[concept_index].style = tag_selection_off;
+                //Ensuring concept is selected
+                concept_selection.children[concept_index].value = true;
+                concept_selection.children[concept_index].style = tag_selection_on;
+                //Deselecting the concept
+                concept_selection.children[concept_index].click()
             }
         }
         else
