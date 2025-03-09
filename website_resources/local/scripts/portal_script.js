@@ -1184,14 +1184,14 @@ function switchSelectionTypeMultiple()
             }
         }
         
-        updateCookie("selection", selection_type.children[1].innerHTML);
-        setSelectionType();
-        updateRoute();
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
         {
             restoreDBMultipleSelectionCookie();
         }
+        updateCookie("selection", selection_type.children[1].innerHTML);
+        setSelectionType();
+        updateRoute();
     }
 }
 
