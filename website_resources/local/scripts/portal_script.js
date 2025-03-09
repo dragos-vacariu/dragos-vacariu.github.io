@@ -10,6 +10,7 @@ const overall_language_selection = document.getElementById("overall_language_sel
 const cookie_element_separator = "<br>"; 
 const searchBox = document.getElementById("SearchBox");
 const searchType = document.getElementById("searchType");
+allConceptsSelection = false;
 
 const disabledElementOpacity = 0.3;
 
@@ -653,29 +654,46 @@ function fillTableRegular()
                         array that satisfies the provided testing function. If no elements satisfy the testing 
                         function, -1 is returned.
                         */
-                        row = table_content.insertRow();
-                        cell = row.insertCell(); //empty cell
-
-                        /*Insert the concept name within the cell*/
-                        var p = document.createElement("p");
-                        p.innerHTML = concept_collection[concept_index] + ":";
-                        p.style = concept_title_style;
-                        cell.appendChild(p);
-                        p = document.createElement("p");
+                        
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
+                            row = table_content.insertRow();
+                            cell = row.insertCell(); //empty cell
+
+                            /*Insert the concept name within the cell*/
+                            var p = document.createElement("p");
+                            p.innerHTML = concept_collection[concept_index] + ":";
+                            p.style = concept_title_style;
+                            cell.appendChild(p);
+                            p = document.createElement("p");
+
                             p.innerHTML += manifests[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(p, manifests[index].concepts[found_element_index]);
+                            
+                            p.style = concept_value_style;
+                            cell.appendChild(p);
+                            cell.style = cell_style;
                                                     
                         }
-                        else
+                        else if (view_selection.children[1].value == true)
                         {
-                            p.innerHTML += "NA";
+                            row = table_content.insertRow();
+                            cell = row.insertCell(); //empty cell
+
+                            /*Insert the concept name within the cell*/
+                            var p = document.createElement("p");
+                            p.innerHTML = concept_collection[concept_index] + ":";
+                            p.style = concept_title_style;
+                            cell.appendChild(p);
+                            p = document.createElement("p");
+                            
+                            p.innerHTML += "Concept not present in this manifest.";
+                            
+                            p.style = concept_value_style;
+                            cell.appendChild(p);
+                            cell.style = cell_style;
                         }
-                        p.style = concept_value_style;
-                        cell.appendChild(p);
-                        cell.style = cell_style;
                     }
                 }
             }
@@ -746,6 +764,7 @@ function conceptSelectionBehavior()
         }
         updateCookie(this.innerHTML, this.value);
     }
+    allConceptsSelection = false;
     showTable();
     updateRoute();
 }
@@ -803,7 +822,6 @@ function languageSelectionBehaviour()
                 {
                     concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, false, conceptSelectionBehavior));
                 }
-                
                 concept_collection.push(active_language.concepts[index].concept_name);
             }
         }
@@ -817,11 +835,11 @@ function languageSelectionBehaviour()
         {
             this.value = false;
             this.style = tag_selection_off;           
-            
+
             //Removing existing concepts in the concept_selection
             for(var existing_concept=0; existing_concept < concept_selection.children.length; existing_concept++)
             {
-                concept_to_be_removed = false
+                concept_to_be_removed = true
                 
                 for(var language_index = 0; language_index < manifest_selection.children.length; language_index++)
                 {
@@ -861,7 +879,14 @@ function languageSelectionBehaviour()
                 {
                     if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
                     {
-                        concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                        if (allConceptsSelection == true)
+                        {
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                        }
+                        else
+                        {
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                        }
                         concept_collection.push(selected_language.concepts[index].concept_name);
                     }                 
                 }
@@ -899,6 +924,7 @@ function deselectionOfAllConceptElements()
         concept_selection.children[i].style = tag_selection_off;
         updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
+    allConceptsSelection = false;
     showTable();
     updateRoute();
 }
@@ -912,6 +938,7 @@ function selectionOfAllConceptElements()
         concept_selection.children[i].style = tag_selection_on;
         updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
+    allConceptsSelection = true;
     showTable();
     updateRoute();
 }
