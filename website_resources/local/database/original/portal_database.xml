@@ -15838,11 +15838,11 @@ else
                 </li>
             </ul>
             <img class="database_image" src="./website_resources/local/database/pictures/simple_can_network.png" alt="autosar architecture"></img>
-            <br></br>
-            The transmission of information through the CAN (Controller Area Network) utilizes a differential signaling 
-            method between the CAN High (CANH) and CAN Low (CANL) wires.
             <br></br><br></br>
             <green>Information Transmission in CAN:</green>
+            <br></br><br></br>
+            The transmission of information through the CAN (Controller Area Network) utilizes a differential signaling 
+            method between the CAN High (CANH) and CAN Low (CANL) wires.
             <ul class="enumeration">
                 <li><indigo>Differential Signaling:</indigo>
                 The CAN bus uses a differential wired-AND signaling technique. This means that the information is transmitted as a 
@@ -15870,6 +15870,28 @@ else
                 </li>
             </ul>
             <br></br>
+            CAN uses a bit-oriented protocol: Instead of sending 8 bytes at once, CAN transmits data bit by bit. 
+            So, for an 8-byte message, you'd be sending 64 individual bits (8 bytes * 8 bits/byte).
+            <br></br>
+            <br></br>
+            In other words we send out 64 pairs of CANH and CANL.
+            <br></br><br></br>
+            
+            The time needed to send the 8-byte message through the bus can be calculated as follows:
+            <ul class="enumeration">
+                <li>The speed of the CAN bus can vary, but a common speed is 500 kbps (kilobits per second).</li>
+                <li>
+                At 500 kbps, the time to transmit a single bit is calculated as 1/speed:
+                <br></br>
+                1/500 000 = 2 microseconds
+                </li>
+                <li>
+                Time needed to transmit the whole message would be: 
+                <br></br>
+                    2 microseconds * 64 = 128 microseconds.
+                </li>
+            </ul>
+            <br></br>
             <green>CAN Transceiver</green>
             <br></br><br></br>
             The CAN Transceiver acts as a bridge between the CAN bus and the Microcontroller (MCU). 
@@ -15881,7 +15903,7 @@ else
             The transceiver interprets the voltage levels as follows:
             <ul class="enumeration">
             <li>Dominant State: When the voltage difference indicates a dominant bit (e.g., CANH at approximately 3.5V and CANL at about 
-            1.5V),the transceiver recognizes this as a binary 1.
+            1.5V), the transceiver recognizes this as a binary 1.
             </li>
             <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a binary 0.
             </li>

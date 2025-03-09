@@ -344,6 +344,10 @@
     <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;regular-expressions</loc></url>
     <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;lambda-anonymous-functions</loc></url>
 
+    <!-- Portal Route for AUTOSAR on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&description%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&ecu-communication%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-protocol%regular</loc></url>
 
     <!-- Catalogue Categories Pages -->
     <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc></url>

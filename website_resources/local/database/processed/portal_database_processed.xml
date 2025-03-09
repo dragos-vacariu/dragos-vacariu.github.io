@@ -16909,11 +16909,11 @@
                 </li>
             </ul>
             <img class="database_image" src="./website_resources/local/database/pictures/simple_can_network.png" alt="autosar architecture"/>
-            <br/>
-            The transmission of information through the CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) utilizes a differential <azure>signaling</azure> 
-            <red>method</red> between the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) wires.
             <br/><br/>
             <green>Information Transmission in CAN:</green>
+            <br/><br/>
+            The transmission of information through the CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) utilizes a differential <azure>signaling</azure> 
+            <red>method</red> between the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) wires.
             <ul class="enumeration">
                 <li><indigo>Differential Signaling:</indigo>
                 The CAN <red>bus</red> uses a differential wired-AND <azure>signaling</azure> technique. This means that the information is transmitted as a 
@@ -16941,6 +16941,28 @@
                 </li>
             </ul>
             <br/>
+            CAN uses a <purple>bit</purple>-<red>oriented</red> protocol: Instead of sending 8 <purple>bytes</purple> at once, CAN transmits <purple>data</purple> <purple>bit</purple> by <purple>bit</purple>. 
+            So, for an 8-<purple>byte</purple> message, you'd be sending 64 individual <purple>bits</purple> (8 <purple>bytes</purple> * 8 <purple>bits</purple>/<purple>byte</purple>).
+            <br/>
+            <br/>
+            In other words we send out 64 pairs of <red>CANH</red> and <azure>CANL</azure>.
+            <br/><br/>
+            
+            The time needed to send the 8-<purple>byte</purple> message through the <red>bus</red> can be calculated as follows:
+            <ul class="enumeration">
+                <li>The speed of the CAN <red>bus</red> can vary, but a common speed is 500 kbps (kilobits per second).</li>
+                <li>
+                At 500 kbps, the time to transmit a single <purple>bit</purple> is calculated as 1/speed:
+                <br/>
+                1/500 000 = 2 microseconds
+                </li>
+                <li>
+                Time needed to transmit the whole message would be: 
+                <br/>
+                    2 microseconds * 64 = 128 microseconds.
+                </li>
+            </ul>
+            <br/>
             <green>CAN Transceiver</green>
             <br/><br/>
             The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the CAN <red>bus</red> and the Microcontroller (MCU). 
@@ -16952,7 +16974,7 @@
             The <red>transceiver</red> interprets the voltage levels as follows:
             <ul class="enumeration">
             <li>Dominant State: When the voltage difference indicates a dominant <purple>bit</purple> (e.g., <red>CANH</red> at approximately 3.5V and <azure>CANL</azure> at about 
-            1.5V),the <red>transceiver</red> recognizes this as a <purple>binary</purple> 1.
+            1.5V), the <red>transceiver</red> recognizes this as a <purple>binary</purple> 1.
             </li>
             <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a <purple>binary</purple> 0.
             </li>
