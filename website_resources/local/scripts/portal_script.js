@@ -135,9 +135,7 @@ function useProvidedRoute()
                     if(manifest_selection.children[matchIndex-1].value == false)
                     {
                         //if element specified via the routing is found and is deselected we will select it
-                        //manifest_selection.children[matchIndex-1].click(); 
-                        manifest_selection.children[matchIndex-1].value.value = true;
-                        manifest_selection.children[matchIndex-1].value.style = tag_selection_on;
+                        manifest_selection.children[matchIndex-1].click(); 
                     }
                 }
             }
@@ -313,8 +311,14 @@ function restoreDBMultipleSelectionCookie()
                 if(concept_selection.children[concept_index].value == true)
                 {
                     concept_selection.children[concept_index].value = false;
+                }
+                if(concept_selection.children[concept_index].style == tag_selection_on)
+                {
                     concept_selection.children[concept_index].style = tag_selection_off;
                 }
+                //Selecting the concept
+                concept_selection.children[concept_index].click()
+                /*.click should be replaced as it alters the route and cookie*/
             }
             else
             {
@@ -322,8 +326,15 @@ function restoreDBMultipleSelectionCookie()
                 if(concept_selection.children[concept_index].value == false)
                 {
                     concept_selection.children[concept_index].value = true;
+                }
+                if(concept_selection.children[concept_index].style == tag_selection_off)
+                {
                     concept_selection.children[concept_index].style = tag_selection_on;
                 }
+
+                //Deselecting the concept
+                concept_selection.children[concept_index].click()
+                /*.click should be replaced as it alters the route and cookie*/
             }
         }
         else
@@ -1174,11 +1185,9 @@ function switchSelectionTypeMultiple()
             }
         }
         updateCookie("selection", selection_type.children[1].innerHTML);
-        
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
         {
-            restoreCookiePredefinedElements();
             restoreDBMultipleSelectionCookie();
         }
         
@@ -1201,7 +1210,6 @@ function setSelectionType()
         view_selection.children[1].style.opacity = disabledElementOpacity;
         view_selection.children[0].value = true;
         view_selection.children[0].style = tag_selection_on;
-        
         //Hide the overall selection elements;
         if (overall_concept_selection.getAttribute("hidden")==false ||
             overall_concept_selection.getAttribute("hidden")==null) 
@@ -1225,8 +1233,7 @@ function setSelectionType()
         {
             /*if more than once concept is selected, deselect all except the first*/
             active_concepts[0].click();
-            //active_concepts[0].value = true;
-            //active_concepts[0].style = tag_selection_on;
+            /*.click should be replaced as it alters the route and cookie*/
         }
         var active_language = undefined
         if(active_languages.length > 0) //should only be one element stored in active_languages
@@ -1236,8 +1243,7 @@ function setSelectionType()
             {
                 //we will make sure any other active languages and concepts will be deselected
                 active_languages[0].click();
-                //active_languages[0].value = true;
-                //active_languages[0].style = tag_selection_on;
+                /*.click should be replaced as it alters the route and cookie*/
             }
             active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
@@ -1246,7 +1252,6 @@ function setSelectionType()
     {
         /*Selection type: multiple gets the enabled opacity*/
         view_selection.children[1].style.opacity = 1;
-        
         //Show the overall selecton elements;
         if (overall_concept_selection.getAttribute("hidden")=="hidden") 
         {
