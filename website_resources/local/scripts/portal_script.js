@@ -306,8 +306,7 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
-                    manifest_selection.children[language_index].value = true;
-                    manifest_selection.children[language_index].style = tag_selection_on;
+                    manifest_selection.children[language_index].click()
                 }
                 else
                 {
