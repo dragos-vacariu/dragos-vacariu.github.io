@@ -1201,6 +1201,7 @@ function setSelectionType()
         view_selection.children[1].style.opacity = disabledElementOpacity;
         view_selection.children[0].value = true;
         view_selection.children[0].style = tag_selection_on;
+        
         //Hide the overall selection elements;
         if (overall_concept_selection.getAttribute("hidden")==false ||
             overall_concept_selection.getAttribute("hidden")==null) 
@@ -1240,26 +1241,12 @@ function setSelectionType()
             }
             active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
-        //For the selected language check all concepts for the selection and if they are not available
-        //for the selected language change their opacity to look disabled and unselectable
-        for(var index=0; index < concept_selection.children.length; index++)
-        {
-            //Check if concept exists for the active language
-            if(active_language != undefined)
-            {
-                var elementIndex = active_language.concepts.findIndex(element => element.concept_name == concept_selection.children[index].innerHTML)
-                if(elementIndex < 0)
-                {
-                    /*This opacity style will make them look disabled.*/
-                    concept_selection.children[index].style.opacity = disabledElementOpacity;
-                }
-            }
-        }
     }
     else if(selection_type.children[1].value == true)
     {
         /*Selection type: multiple gets the enabled opacity*/
         view_selection.children[1].style.opacity = 1;
+        
         //Show the overall selecton elements;
         if (overall_concept_selection.getAttribute("hidden")=="hidden") 
         {
@@ -1270,11 +1257,6 @@ function setSelectionType()
         {
             overall_language_selection.removeAttribute("hidden");
             document.getElementById("overall_language_selection_title").removeAttribute("hidden", "hidden");
-        }
-        /*Remove the opacity so that all elements look enabled and become selectable*/
-        for(var index=0; index < concept_selection.children.length; index++)
-        {
-            concept_selection.children[index].style.opacity = 1;
         }
     }
     showTable();
