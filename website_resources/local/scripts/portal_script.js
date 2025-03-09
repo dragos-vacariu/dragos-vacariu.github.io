@@ -1147,15 +1147,6 @@ function switchSelectionTypeMultiple()
             }
         }
         
-        for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
-        {
-            if(manifest_selection.children[lang_sel_index].value == true)
-            {
-                /*Deselecting the selected language*/
-                manifest_selection.children[lang_sel_index].click()
-                break;
-            }
-        }
         updateCookie("selection", selection_type.children[1].innerHTML);
         setSelectionType();
         updateRoute();
