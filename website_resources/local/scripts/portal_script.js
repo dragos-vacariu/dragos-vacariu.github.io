@@ -49,10 +49,15 @@ function dbCookieRouteHandling()
       So we need to wait until the HTTP Request is ready. These cookies will be set slower than predefined elements cookie.
     */
     var window_href_values = window.location.href.split("#");
+    var return_value = false;
+    
     if(window_href_values.length > 1 && window_href_values[1] != "")
     {
         /*We will ignore the database related cookie if we are provided with a route*/
         useProvidedRoute(); // this should only be called when opening the webpage
+        
+        setSelectionType(); // this will set the selection and the view
+        return_value = true
     }
     //reading from the cookie file:
     else if(document.cookie.length > 0)
@@ -65,9 +70,12 @@ function dbCookieRouteHandling()
         {
             restoreDBMultipleSelectionCookie();
         }
+        setSelectionType(); // this will set the selection and the view
+        return_value = true
     }
     /*set the view with default values*/
-    setSelectionType(); // this will set the selection and the view
+    
+    return return_value;
 }
 
 function useProvidedRoute()
@@ -343,16 +351,19 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
-                    console.log("manifest selected: " + manifest_selection.children[language_index].innerHTML)
-                    /*Ensuring that the element is deselected*/
-                    manifest_selection.children[language_index].value = false;
-                    manifest_selection.children[language_index].style = tag_selection_off;
+                    var selected_language = manifests.find(element => element.name == manifest_selection.children[language_index].innerHTML);
+                    manifest_selection.children[language_index].value = true;
+                    manifest_selection.children[language_index].style = tag_selection_on;
                     
-                    /*Selecting the element*/
-                    manifest_selection.children[language_index].click()
-                    console.log("Concept Collection AFTER: " + concept_collection)
-                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
-                    and it will update the concept selection list with the elements available in this manifest*/
+                    //Appending the new concepts
+                    for(var index=0; index < selected_language.concepts.length; index++)
+                    {
+                        if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
+                        {
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                            concept_collection.push(selected_language.concepts[index].concept_name);
+                        }                 
+                    }
                 }
             }
         }
@@ -499,7 +510,7 @@ function loadXMLDoc(xml_file)
             overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
             
             //Adding programming languages to the selection
-            for(var index=0; index< manifests.length; index++)
+            for(var index=0; index < manifests.length; index++)
             {
                 /*Grabbing all concepts available for all the programming languages*/
                 /*Ignore everything for General-Programming-Knowledge*/
@@ -508,18 +519,6 @@ function loadXMLDoc(xml_file)
                     if(index==1) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
                         /*Adding the programming language selection*/                
-                        for(var concept_index=0; concept_index < manifests[index].concepts.length; concept_index++)
-                        {
-                            if(concept_index == 0)
-                            {
-                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
-                            }
-                            else
-                            {
-                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
-                            }
-                            concept_collection.push(manifests[index].concepts[concept_index].concept_name);
-                        }
                         manifest_selection.appendChild(createLiElement(manifests[index].name, true, languageSelectionBehaviour));
                     }
                     else
@@ -529,7 +528,22 @@ function loadXMLDoc(xml_file)
                 }
             }
             /*read cookie and/or hanndle the display of the elements*/
-            dbCookieRouteHandling();
+            if ( dbCookieRouteHandling() == false ) //if no cookie or route was provided, we will display the default selection
+            {
+                for(var concept_index=0; concept_index < manifests[1].concepts.length; concept_index++)
+                {
+                    if(concept_index == 0)
+                    {
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
+                    }
+                    else
+                    {
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
+                    }
+                    concept_collection.push(manifests[1].concepts[concept_index].concept_name);
+                }
+                setSelectionType(); // this will set the selection and the view
+            }
         }
     };
     
