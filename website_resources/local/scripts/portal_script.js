@@ -1178,6 +1178,7 @@ function switchSelectionTypeMultiple()
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
         {
+            restoreCookiePredefinedElements();
             restoreDBMultipleSelectionCookie();
         }
         
@@ -1222,7 +1223,9 @@ function setSelectionType()
         if(active_concepts.length > 1) //this condition should always be true
         {
             /*if more than once concept is selected, deselect all except the first*/
-            active_concepts[0].click();
+            //active_concepts[0].click();
+            active_concepts[0].value = true;
+            active_concepts[0].style = tag_selection_on;
         }
         var active_language = undefined
         if(active_languages.length > 0) //should only be one element stored in active_languages
@@ -1231,7 +1234,9 @@ function setSelectionType()
             if(active_languages.length > 1)
             {
                 //we will make sure any other active languages and concepts will be deselected
-                active_languages[0].click();
+                //active_languages[0].click();
+                active_concepts[0].value = true;
+                active_concepts[0].style = tag_selection_on;
             }
             active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
