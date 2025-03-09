@@ -368,7 +368,6 @@ function restoreDBMultipleSelectionCookie()
             }
         }
     }
-    setSelectionType();
 }
 
 function restoreDBSingleSelectionCookie()
@@ -1188,6 +1187,7 @@ function switchSelectionTypeMultiple()
         if(document.cookie.length > 0)
         {
             restoreDBMultipleSelectionCookie();
+            var cookie_elements = document.cookie.split(cookie_element_separator);
             var foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
             if(foundViewSelection != undefined) //if view selection found amongst cookies
             {
