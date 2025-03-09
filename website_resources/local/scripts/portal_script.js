@@ -267,6 +267,13 @@ function restoreDBMultipleSelectionCookie()
             manifest_selection.children[lang_sel_index].style = tag_selection_off;
         }
     }
+    //Ensuring every concept is removed
+    for(var index = 0; index < concept_selection.children.length; index++)
+    {
+        concept_selection.children[index].remove();
+        concept_collection.splice(index, 1);
+        index--;
+    }
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
     
