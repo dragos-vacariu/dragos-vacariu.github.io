@@ -261,7 +261,7 @@ function restoreDBMultipleSelectionCookie()
     //Ensuring everything is deselected
     for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
     {
-        if(manifest_selection.children[lang_sel_index].value = true)
+        if(manifest_selection.children[lang_sel_index].value == true)
         {
             manifest_selection.children[lang_sel_index].click()
         }
@@ -269,7 +269,7 @@ function restoreDBMultipleSelectionCookie()
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
     
-    for(var i=0; i<cookie_elements.length; i++)
+    for(var i=0; i < cookie_elements.length; i++)
     {
         var pairs = cookie_elements[i].split("=");
         
