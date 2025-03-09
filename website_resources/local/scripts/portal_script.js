@@ -282,16 +282,28 @@ function restoreDBMultipleSelectionCookie()
             if(pairs[1]=="1") // if element was selected
             {
                 //Ensuring concept is deselected
-                concept_selection.children[concept_index].value = false;
-                concept_selection.children[concept_index].style = tag_selection_off;
+                if(concept_selection.children[concept_index].value == true)
+                {
+                    concept_selection.children[concept_index].value = false;
+                }
+                if(concept_selection.children[concept_index].style == tag_selection_on)
+                {
+                    concept_selection.children[concept_index].style = tag_selection_off;
+                }
                 //Selecting the concept
                 concept_selection.children[concept_index].click()
             }
             else
             {
-                //Ensuring concept is selected
-                concept_selection.children[concept_index].value = true;
-                concept_selection.children[concept_index].style = tag_selection_on;
+                //Ensuring concept is deselected
+                if(concept_selection.children[concept_index].value == false)
+                {
+                    concept_selection.children[concept_index].value = true;
+                }
+                if(concept_selection.children[concept_index].style == tag_selection_off)
+                {
+                    concept_selection.children[concept_index].style = tag_selection_on;
+                }
                 //Deselecting the concept
                 concept_selection.children[concept_index].click()
             }
@@ -862,7 +874,7 @@ function languageSelectionBehaviour()
             //Removing existing concepts in the concept_selection
             for(var existing_concept=0; existing_concept < concept_selection.children.length; existing_concept++)
             {
-                concept_to_be_removed = true
+                concept_to_be_removed = false
                 
                 for(var language_index = 0; language_index < manifest_selection.children.length; language_index++)
                 {
@@ -880,7 +892,7 @@ function languageSelectionBehaviour()
                     }
                 }
                 
-                if (concept_to_be_removed)
+                if (concept_to_be_removed || manifest_selection.children.length==0)
                 {
                     concept_selection.children[existing_concept].remove();
                     concept_collection.splice(existing_concept, 1);
