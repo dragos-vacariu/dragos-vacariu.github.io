@@ -16035,6 +16035,26 @@ else
             it can be a limiting factor for systems that require higher data throughput. This is where CAN FD (Flexible Data-rate) 
             comes into play, allowing for higher speeds (up to 5 Mbps) and larger data payloads.
             <br></br><br></br>
+            <brown>Bus Speed:</brown>
+            <br></br><br></br>
+            Bus speed, often referred to as the baud rate, is the rate at which the bus can transmit bits. 
+            It is closely related to the Data Rate but can differ due to protocol overhead.
+            <br></br><br></br>
+            The bus speed is generally aligned with the data rate, but the effective data 
+            transfer can be lower due to factors like:
+            <br></br><br></br>
+            <indigo>Protocol Overhead:</indigo> refers to the extra data that is transmitted alongside the actual user data 
+            in a network communication. In our case: The additional bits used for error checking and message framing are sent within
+            the same frame alongside the Data Field.
+            <br></br><br></br>
+            <indigo>Network Length:</indigo> Longer bus lengths can reduce the effective speed due to signal degradation. 
+            While signal degradation doesn't directly slow down the speed of light at which the signal travels through the 
+            cable, it does effectively reduce the data transfer rate, making it appear as if the signal is moving slower.
+            <br></br><br></br>
+            Baud rate represents the number of symbols (like 0s and 1s) that can be transmitted per second over the bus.
+            <br></br>
+            Bus speed describes the overall transmission capability of the bus, which is directly related to the baud rate.
+            <br></br><br></br>
             <green>Types of CAN Frames</green>
             <br></br><br></br>
             <indigo>Data Frame:</indigo>

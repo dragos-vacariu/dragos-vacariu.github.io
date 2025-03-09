@@ -17106,6 +17106,26 @@
             it can be a limiting factor for <red>systems</red> that require higher <purple>data</purple> throughput. This is where <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) 
             comes into play, <azure>allowing</azure> for higher speeds (up to 5 Mbps) and larger <purple>data</purple> <red>payloads</red>.
             <br/><br/>
+            <brown>Bus Speed:</brown>
+            <br/><br/>
+            <red>Bus</red> speed, often referred to as the baud rate, is the rate at which the <red>bus</red> can transmit <purple>bits</purple>. 
+            It is <azure>closely</azure> related to the <purple>Data</purple> Rate but can differ due to protocol <azure>overhead</azure>.
+            <br/><br/>
+            The <red>bus</red> speed is generally aligned with the <purple>data</purple> rate, but the effective <purple>data</purple> 
+            transfer can be lower due to factors like:
+            <br/><br/>
+            <indigo>Protocol Overhead:</indigo> refers to the extra <purple>data</purple> that is transmitted alongside the actual user <purple>data</purple> 
+            in a network communication. In our case: The additional <purple>bits</purple> used for error checking and message <red>framing</red> are sent within
+            the same <red>frame</red> alongside the <purple>Data</purple> <purple>Field</purple>.
+            <br/><br/>
+            <indigo>Network Length:</indigo> Longer <red>bus</red> lengths can reduce the effective speed due to <purple>signal</purple> degradation. 
+            While <purple>signal</purple> degradation doesn't directly slow down the speed of light at which the <purple>signal</purple> travels through the 
+            <red>cable</red>, it does effectively reduce the <purple>data</purple> transfer rate, making it appear as if the <purple>signal</purple> is moving slower.
+            <br/><br/>
+            Baud rate represents the number of symbols (like 0s and 1s) that can be transmitted per second over the <red>bus</red>.
+            <br/>
+            <red>Bus</red> speed describes the overall transmission capability of the <red>bus</red>, which is directly related to the baud rate.
+            <br/><br/>
             <green>Types of CAN Frames</green>
             <br/><br/>
             <indigo>Data Frame:</indigo>
