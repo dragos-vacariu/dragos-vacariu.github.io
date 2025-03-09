@@ -258,13 +258,21 @@ function restoreDBMultipleSelectionCookie()
 {
     /*Restoring values from the cookie for Selection Type Multiple for elements added based on Database*/
     
-    //Ensuring everything is deselected
+    //Ensuring every manifest is deselected
     for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
     {
         if(manifest_selection.children[lang_sel_index].value == true)
         {
-            manifest_selection.children[lang_sel_index].click()
+            manifest_selection.children[lang_sel_index].value = false
+            manifest_selection.children[lang_sel_index].style = tag_selection_off;
         }
+    }
+    //Ensuring every concept is removed
+    for(var index = 0; index < concept_selection.children.length; index++)
+    {
+        concept_selection.children[index].remove();
+        concept_collection.splice(index, 1);
+        index--;
     }
     
     var cookie_elements = document.cookie.split(cookie_element_separator);
