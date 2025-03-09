@@ -16326,7 +16326,7 @@
             The above-explained architecture of <purple>AUTOSAR</purple> is its classic platform, which supports <red>real</red>-<red>time</red> requirements and 
             safety constraints. <red>Based</red> on the microcontroller, the classic platform is capable of supporting applications in the 
             <purple>field</purple> of networking and security by <azure>allowing</azure> <azure>ECUs</azure> to access vehicle sensors and actuators.</description>
-        <ecu-networks><azure>ECUs</azure> are the brains behind various <red>functions</red> in vehicles, and they communicate through specific networks. 
+        <ecu-communication><azure>ECUs</azure> are the brains behind various <red>functions</red> in vehicles, and they communicate through specific networks. 
             Modern vehicles can have over 100 <azure>ECUs</azure>, each responsible for different <azure>tasks</azure>, such as engine management, 
             transmission control, safety <red>systems</red>, and infotainment.
             <br/><br/>
@@ -16889,7 +16889,249 @@
             <purple>PDUs</purple> larger than 8 <purple>bytes</purple> can be transmitted in a single <red>frame</red> through <red>CAN</red> <red>FD</red> 
             (Flexible <purple>Data</purple>-rate) protocol, which <azure>allows</azure> for larger <purple>data</purple> <red>payloads</red> and higher <purple>data</purple> 
             transfer rates with a <purple>Data</purple> <purple>Field</purple> <purple>size</purple> of up to 64 <purple>bytes</purple>.
-            <br/></ecu-networks>
+            <br/></ecu-communication>
+        <can-protocol>The CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) protocol is a robust vehicle <red>bus</red> standard designed to 
+            facilitate <azure>efficient</azure> communication primarily between <red>Electronic</red> <red>Control</red> <red>Units</red> (<azure>ECUs</azure>) in 
+            automotive and industrial applications.
+            <br/><br/>
+            A simple CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) typically consists of two wires. 
+            <red>CAN</red> <red>High</red> (<red>CANH</red>) - the wire which carries the high voltage level of the <purple>signal</purple> and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) - the wire which 
+            carries the low voltage level of the <purple>signal</purple>.
+            <ul class="enumeration">
+                <li>The two wires are essential for proper 
+                communication between devices on the network.</li>
+                <li>Often, these wires are twisted together to reduce electromagnetic 
+                interference, which helps <azure>maintain</azure> <purple>signal</purple> integrity.</li>
+                <li>At each end of the CAN <red>bus</red>, termination resistors are 
+                usually <azure>added</azure> to prevent <purple>signal</purple> <red>reflections</red>.</li>
+                <li>
+                In some cases, a four-wire configuration might be used to include additional wires for power and ground.
+                </li>
+            </ul>
+            <img class="database_image" src="./website_resources/local/database/pictures/simple_can_network.png" alt="autosar architecture"/>
+            <br/>
+            The transmission of information through the CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) utilizes a differential <azure>signaling</azure> 
+            <red>method</red> between the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) wires.
+            <br/><br/>
+            <green>Information Transmission in CAN:</green>
+            <ul class="enumeration">
+                <li><indigo>Differential Signaling:</indigo>
+                The CAN <red>bus</red> uses a differential wired-AND <azure>signaling</azure> technique. This means that the information is transmitted as a 
+                difference in voltage between the two wires.
+                When <purple>data</purple> is sent, one wire (<red>CANH</red>) carries a higher voltage, while the other wire (<azure>CANL</azure>) carries a lower voltage.
+                </li>
+                <li><indigo>Dominant and Recessive States:</indigo>
+                When a dominant <purple>bit</purple> is transmitted, <red>CANH</red> rises to approximately 3.5V, and <azure>CANL</azure> drops to about 1.5V. 
+                This <azure>creates</azure> a differential voltage of 2 volts (3.5V - 1.5V).
+                <br/>
+                In the recessive state, both wires are at the same voltage level, typically around 2.5V. 
+                This indicates that no <purple>data</purple> is being transmitted.
+                </li>
+                <li><indigo>Bit Transmission:</indigo>
+                The <purple>bits</purple> are sent as high/low <azure>signals</azure>, which can be visualized as pulses or waves traveling down the wires. 
+                The transition between dominant and recessive states encodes the <purple>data</purple> being transmitted.
+                </li>
+                <li><indigo>Error Detection:</indigo>
+                The differential nature of the <azure>signaling</azure> helps in error detection. If there is a fault in one of the wires, 
+                the <red>system</red> can still interpret the <purple>data</purple> correctly by <azure>comparing</azure> the voltage levels of <red>CANH</red> and <azure>CANL</azure>.
+                </li>
+               <li><indigo>Robustness:</indigo>
+                This <red>method</red> of transmission is highly robust against electromagnetic interference, making it ideal for automotive and 
+                industrial applications where reliability is crucial.
+                </li>
+            </ul>
+            <br/>
+            <green>CAN Transceiver</green>
+            <br/><br/>
+            The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the CAN <red>bus</red> and the Microcontroller (MCU). 
+            It converts the differential voltage <azure>signals</azure> on the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) <red>lines</red> into a 
+            single-ended digital <purple>signal</purple> that the Microcontroller (MCU) can understand.
+            <br/><br/>
+            <brown>Differential Signal Interpretation:</brown>
+            <br/>
+            The <red>transceiver</red> interprets the voltage levels as follows:
+            <ul class="enumeration">
+            <li>Dominant State: When the voltage difference indicates a dominant <purple>bit</purple> (e.g., <red>CANH</red> at approximately 3.5V and <azure>CANL</azure> at about 
+            1.5V),the <red>transceiver</red> recognizes this as a <purple>binary</purple> 1.
+            </li>
+            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a <purple>binary</purple> 0.
+            </li>
+            </ul>
+            <br/>
+            <brown>Digital Signal Outputting:</brown>
+            <br/>
+            The <red>transceiver</red> outputs a digital <purple>signal</purple> (high or low) to the Microcontroller (MCU) <red>based</red> on the interpreted 
+            voltage levels. This digital <purple>signal</purple> can then be <azure>processed</azure> by the Microcontroller (MCU) for further actions, 
+            such as <purple>data</purple> logging, control commands, or communication with other devices.
+            <br/><br/>
+            <brown>Error Detection Scenario in CAN Transceiver:</brown>
+            <br/>
+            Imagine a CAN <red>bus</red> with two wires, <red>CANH</red> and <azure>CANL</azure>, transmitting a dominant <purple>bit</purple> (1). 
+            This means <red>CANH</red> should be at a higher voltage (around 3.5V) than <azure>CANL</azure> (around 1.5V).
+            <br/><br/>
+            <indigo>Fault:</indigo> Let's say there's a fault in the <red>CANH</red> wire, causing it to short-circuit to ground. 
+            This would drop the voltage on <red>CANH</red> to 0V.
+            <br/><br/>
+            <indigo>With Differential Signaling:</indigo>
+            <br/>
+            The <red>CAN</red> <red>transceiver</red> <azure>compares</azure> the voltage levels of <red>CANH</red> and <azure>CANL</azure>. It sees that <red>CANH</red> is at 0V, and <azure>CANL</azure> is still at 1.5V.
+            <br/>
+            The <red>transceiver</red> recognizes this voltage difference as an error. It knows that the intended <purple>signal</purple> was a dominant <purple>bit</purple> (1), 
+            even though the <red>CANH</red> wire is faulty.
+            <br/><br/>
+            This <azure>allows</azure> the <red>transceiver</red> to flag the error and potentially request a retransmission of the message.
+            <br/><br/>
+            <indigo>Without Differential Signaling:</indigo>
+            <br/>
+            A standard single-ended <red>system</red> would only see the voltage on <red>CANH</red> as 0V. It would incorrectly 
+            interpret this as a recessive <purple>bit</purple> (0), even though the intended <purple>signal</purple> was a dominant <purple>bit</purple> (1).
+            <br/><br/>
+            <green>Key Features of the CAN Protocol:</green>
+            <br/><br/>
+            <brown>Multi-Master Configuration:</brown>
+            <br/><br/>
+            All nodes (<azure>ECUs</azure>) on the network can send and receive messages, <azure>allowing</azure> for a decentralized communication <red>system</red>.
+            <br/><br/>
+            <brown>Carrier-Sense Multiple Access with Collision Detection (CSMA/CD):</brown>
+            <br/><br/>
+            CAN uses a <red>method</red> to manage access to the <red>bus</red>, ensuring that if two nodes attempt to send messages 
+            <azure>simultaneously</azure>, the one with the higher priority will continue while the other will back off.
+            <br/><br/>
+            <brown>Message Prioritization:</brown>
+            <br/><br/>
+            Each message has a unique <purple>identifier</purple> that determines its priority. Lower numerical <purple>values</purple> indicate higher 
+            priority, <azure>allowing</azure> critical messages to be transmitted first.
+            <br/><br/>
+            <brown>Error Detection and Handling:</brown>
+            <br/><br/>
+            CAN includes several mechanisms for error detection, such as <red>Checksums</red> / <red>CRC</red> and <purple>Acknowledgment</purple> (<purple>ACK</purple>) <purple>bits</purple>, ensuring 
+            reliable communication. If an error is detected, the message is retransmitted.
+            <br/><br/>
+            The acknowledgement (<purple>ACK</purple>) <purple>bit</purple> is used to confirm the reception of the message. 
+            So the <azure>ECU</azure> receiving the message sends out a reply that the reception was successful.
+            <br/><br/>
+            <indigo>How does Acknowledgement (ACK) Bit work?</indigo>
+            <br/>
+            <ul class="enumeration">
+                <li>When a sender transmits a <purple>data</purple> <red>frame</red>, it includes an Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> at the end of the <red>frame</red>. 
+                </li>
+                <li>Each <azure>ECU</azure> that successfully receives the <purple>data</purple> <red>frame</red> checks for errors. If the <red>frame</red> is received without errors, 
+                the receiving <azure>ECU</azure> <purple>sets</purple> the Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> to a dominant state (<purple>logic</purple> 0). 
+                </li>
+                <li>The <purple>ACK</purple> <purple>bit</purple> is dominant, meaning that if at least one <azure>ECU</azure> acknowledges 
+                the message, the <purple>ACK</purple> <purple>bit</purple> will be recognized as dominant. 
+                </li>
+                <li>If no <azure>ECU</azure> acknowledges the message (i.e., all nodes detect an error), 
+                the <purple>ACK</purple> <purple>bit</purple> remains in a recessive state (<purple>logic</purple> 1).
+                </li>
+                <li>The sender monitors the <red>bus</red> for the <purple>ACK</purple> <purple>bit</purple>. If it detects the dominant 
+                state, it knows that at least one <azure>ECU</azure> has successfully received the message. If it does not detect the dominant state, 
+                it assumes that there was an error in transmission. 
+                </li>
+                <li>If the sender does not receive an <purple>acknowledgment</purple>, it may retransmit the message, depending on the 
+                <red>error</red> <red>handling</red> strategy <red>implemented</red>.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Importance of the Acknowledgement (ACK) Bit</indigo>
+            <br/>
+            The <purple>ACK</purple> <purple>bit</purple> ensures that messages are acknowledged, which is vital for <azure>maintaining</azure> the integrity of 
+            communication in a network with multiple nodes. It helps in identifying transmission errors, <azure>allowing</azure> 
+            for corrective actions to be taken.
+            <br/><br/>
+            <brown>Broadcast Communication:</brown>
+            <br/><br/>
+            Messages are broadcasted to all nodes on the network, meaning that every <azure>ECU</azure> can "hear" all transmissions. 
+            This is <azure>efficient</azure> for applications where multiple devices need to respond to the same <purple>data</purple>.
+            <br/><br/>
+            If the information that the <azure>ECU</azure> "hears" on the <red>bus</red> is not meant for its <red>functioning</red>, then the messages will be <azure>blocked</azure> by its 
+            CAN Controller / CAN Driver and it will not reach the upper software <purple>layers</purple>.
+            This filtering is performed using the Unique <purple>Identifiers</purple> from the <purple>PDU</purple> / <red>Frame</red>.
+            <br/><br/>
+            <indigo>Difference between Message/PDU and Frame</indigo>
+            <br/><br/>
+            Both <red>Frames</red> and Message/<purple>PDUs</purple> can be used to reffer to the same thing.
+            <br/><br/>
+            In a CAN network, messages transferred across the network are referred to as <red>frames</red>. 
+            Each <red>frame</red> contains essential information that <azure>allows</azure> <azure>ECUs</azure> to communicate effectively. 
+            <br/><br/>
+            When the transmission of a Message/<purple>PDU</purple> within a single <red>frame</red> is not possible due to the <purple>size</purple> limitations (8 <purple>bytes</purple> for <purple>Data</purple> <purple>Field</purple>), 
+            the Message/<purple>PDU</purple> can be transmitted across multiple <red>frames</red>, in segmented parts. This <azure>process</azure> is called "Segmentation and Reassembly".
+            <br/><br/>
+            A <purple>Protocol</purple> <purple>Data</purple> <purple>Unit</purple> (<purple>PDU</purple>) is a <red>generic</red> term used to describe a unit of <purple>data</purple> specified in a protocol at any <purple>layer</purple> of 
+            the OSI model. It represents the <purple>data</purple> that is transmitted over a network and can vary in <purple>structure</purple> depending on the 
+            protocol being used.
+            <br/><br/>
+            A <red>frame</red> is a specific <purple>type</purple> of <purple>PDU</purple> used at the <purple>data</purple> link <purple>layer</purple> of the OSI model. It is a <purple>structured</purple> unit of <purple>data</purple> that includes not only 
+            the <red>payload</red> (the actual <purple>data</purple>) but also control information necessary for <purple>data</purple> transmission.
+            <br/><br/>
+            In other words: A Message/<purple>PDU</purple> is a term used to reffer to the packed <purple>data</purple> within the <azure>ECU</azure>, where as the <red>Frame</red> is term used 
+            to reffer to the packed <purple>data</purple> travelling through the <red>bus</red> from one <azure>ECU</azure> to another. So once a transmitted <purple>PDU</purple> has left the <azure>ECU</azure> 
+            it turns into a <red>Frame</red>, then the <red>Frame</red> is <azure>read</azure> by the recipient <azure>ECU</azure> and turns back into a Message/<purple>PDU</purple>.
+            <br/><br/>
+            If the Message/<purple>PDU</purple> was receiving across multiple <red>frames</red>, it will be reassembled back together into a single unit once all the <red>frames</red> 
+            carrying the segmented parts of the Message/<purple>PDU</purple> were received.
+            <br/><br/>
+            <brown>Data Rates:</brown>
+            <br/><br/>
+            CAN supports <purple>data</purple> rates up to 1 Mbps, making it <azure>efficient</azure> for many applications.  
+            A rate of 1 megabit per second (Mbps) means that the network can send 1 million <purple>bits</purple> of <purple>data</purple> every second.
+            <br/><br/>
+            At 1 Mbps, the CAN protocol can transfer up to 8 <purple>bytes</purple> of <purple>data</purple> per <red>frame</red>. This is the maximum <red>payload</red> <purple>size</purple> for a standard <red>CAN</red> <red>frame</red>, 
+            which is suitable for many automotive and industrial applications. 
+            <br/><br/>
+            While 1 Mbps is effective for many applications, 
+            it can be a limiting factor for <red>systems</red> that require higher <purple>data</purple> throughput. This is where <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) 
+            comes into play, <azure>allowing</azure> for higher speeds (up to 5 Mbps) and larger <purple>data</purple> <red>payloads</red>.
+            <br/><br/>
+            <green>Types of CAN Frames</green>
+            <br/><br/>
+            <indigo>Data Frame:</indigo>
+            <br/>
+            The most common <purple>type</purple>, used to transmit <purple>data</purple> from one <azure>ECU</azure> to another.
+            <br/><br/>
+            <indigo>Remote Frame:</indigo>
+            <br/>
+            Requests <purple>data</purple> from another <azure>ECU</azure> without carrying any <purple>data</purple> itself. 
+            <ul class="enumeration">
+                <li>When an <azure>ECU</azure> needs <purple>data</purple> from another <azure>ECU</azure>, it sends a Remote <red>Frame</red>. 
+                This remote <red>frame</red> includes the <purple>identifier</purple> of the <purple>data</purple> <red>frame</red> it wants to receive. 
+                </li>
+                <li>Upon receiving the Remote <red>Frame</red>, 
+                the targeted <azure>ECU</azure> recognizes the request and prepares to send the corresponding <purple>Data</purple> <red>Frame</red>.
+                The <purple>Data</purple> <red>Frame</red> will then be transmitted back to the requesting <azure>ECU</azure>, containing the requested information.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Error Frame:</indigo>
+            <br/>
+            Indicates that an error has occurred in the transmission, prompting corrective actions. The Error <red>Frame</red> consists of 
+            a 6-<purple>bit</purple> <purple>field</purple> that indicates the presence of an error. It is transmitted as a series of dominant <purple>bits</purple> (0s) or 
+            recessive <purple>bits</purple> (1s), depending on the <purple>type</purple> of error detected and a delimiter that indicates the end of the Error <red>Frame</red>.
+            <ul class="enumeration">
+                <li>Each node on the CAN <red>bus</red> continuously monitors the messages being transmitted. If a node detects an error 
+                (such as a <purple>bit</purple> error, format error, or <purple>acknowledgment</purple> error), it triggers the transmission of an Error <red>Frame</red>.
+                </li>
+                <li>
+                Once an Error <red>Frame</red> is generated, it is immediately sent onto the CAN <red>bus</red>. All other nodes on the network 
+                recognize this <red>frame</red> and take appropriate action, such as stopping their current transmission and preparing 
+                to retransmit the message that caused the error.
+                </li>
+                <li>
+                After the Error <red>Frame</red> is sent, the node that detected the error will enter an error state. There are different 
+                error states (active, passive, and <red>bus</red>-off) that determine how the node will behave in future communications.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Overload Frame:</indigo>
+            <br/>
+            Used to <purple>signal</purple> that a node is temporarily unable to <azure>process</azure> incoming messages. 
+            An <red>Overload</red> <red>Frame</red> is transmitted when a node needs more time to <azure>process</azure> incoming messages. 
+            This can occur if:
+            <ul class="enumeration">
+                <li>The node is busy <azure>processing</azure> previous messages.</li>
+                <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
+            </ul></can-protocol>
     </manifest>
     
 </content>

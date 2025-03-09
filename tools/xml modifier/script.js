@@ -5,7 +5,7 @@ const red_colored_substr = {keyword: [
     /*Multiple words should be first section*/
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
-    "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network"], color: "red"};
+    "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", "CAN Transceiver"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -16,7 +16,7 @@ const red_colored_words = {keyword: [
     "base", "programming", "concurrent", "compute", "language", "reflect", "polymorph", "seal", "pseudo",
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
-    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame"], color: "red"};
+    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame", "CANH", "Transceiver"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
@@ -36,7 +36,7 @@ const purple_colored_words = {keyword: [
     "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
     "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
     "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype",
-    "architect", "AUTOSAR", "Layer", "determinist", "PDU"], color: "purple"};
+    "architect", "AUTOSAR", "Layer", "determinist", "PDU", "ACK", "Acknowledgment"], color: "purple"};
 
 //Words and expressions associated with various concepts or special terms:
 const azure_colored_substr = {keyword: [
@@ -45,7 +45,8 @@ const azure_colored_substr = {keyword: [
     "for loop", "do while loop", "while loop", "foreach loop", "for each loop", "for-each loop", "single-thread", "multi-thread", "critical section",
      "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
     "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "back-end", "front-end",
-    "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B", "Sequence Number"], color: "azure"};
+    "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B", "Sequence Number",
+    "CAN Low"], color: "azure"};
 
 const azure_colored_words = {keyword: [
     /*Single words should be second section*/
@@ -56,7 +57,7 @@ const azure_colored_words = {keyword: [
     "efficiency", "server", "condition", "count", "delete", "add", "share", "save", "store", "retrieve", "match", "lambda",
     "code", "manipulate", "comment", "sequence", "create", "open", "read", "write", "close", "start", "run", "task", "cpu", "core", "stream", "signal", 
     "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
-    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU"], color: "azure"};
+    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "CANL"], color: "azure"};
 
 //const test = {keyword: ["command-line"], color: "azure"};
 
