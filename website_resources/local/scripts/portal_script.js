@@ -1236,8 +1236,8 @@ function setSelectionType()
             {
                 //we will make sure any other active languages and concepts will be deselected
                 //active_languages[0].click();
-                active_concepts[0].value = true;
-                active_concepts[0].style = tag_selection_on;
+                active_languages[0].value = true;
+                active_languages[0].style = tag_selection_on;
             }
             active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
