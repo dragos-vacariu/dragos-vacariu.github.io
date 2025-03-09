@@ -1181,6 +1181,7 @@ function switchSelectionTypeMultiple()
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
         {
+            restoreCookiePredefinedElements();
             restoreDBMultipleSelectionCookie();
         }
         
