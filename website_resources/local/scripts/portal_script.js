@@ -368,6 +368,7 @@ function restoreDBMultipleSelectionCookie()
             }
         }
     }
+    setSelectionType();
 }
 
 function restoreDBSingleSelectionCookie()
@@ -1182,36 +1183,15 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
-
-        //Restore the selection stored in Cookie, if any
-        if(document.cookie.length > 0)
-        {
-            var cookie_elements = document.cookie.split(cookie_element_separator);
-            var foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
-            if(foundViewSelection != undefined) //if view selection found amongst cookies
-            {
-                if(foundViewSelection.split("=")[1] == "compare")
-                {
-                    //Set compare view to true
-                    view_selection.children[1].value = true;
-                    view_selection.children[1].style = tag_selection_on;
-                    view_selection.children[0].value = false;
-                    view_selection.children[0].style = tag_selection_off;
-                }
-                else
-                {
-                    //Set regular view to true
-                    view_selection.children[1].value = false;
-                    view_selection.children[1].style = tag_selection_off;
-                    view_selection.children[0].value = true;
-                    view_selection.children[0].style = tag_selection_on;
-                }
-            }
-            restoreDBMultipleSelectionCookie();
-        }
+        
         updateCookie("selection", selection_type.children[1].innerHTML);
         setSelectionType();
         updateRoute();
+        //Restore the selection stored in Cookie, if any
+        if(document.cookie.length > 0)
+        {
+            restoreDBMultipleSelectionCookie();
+        }
     }
 }
 
