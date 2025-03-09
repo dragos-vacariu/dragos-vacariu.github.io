@@ -306,14 +306,31 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
-                    manifest_selection.children[language_index].value = true;
-                    manifest_selection.children[language_index].style = tag_selection_on;
+                    console.log("manifest selected: " + manifest_selection.children[language_index].innerHTML)
+                    /*Ensuring that the element is deselected*/
+                    manifest_selection.children[language_index].value = false;
+                    manifest_selection.children[language_index].style = tag_selection_off;
+                    
+                    /*Selecting the element*/
+                    manifest_selection.children[language_index].click()
+                    console.log("Concept Collection AFTER: " + concept_collection)
+                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
+                    and it will update the concept selection list with the elements available in this manifest*/
                 }
                 else
                 {
-                    manifest_selection.children[language_index].value = false;
-                    manifest_selection.children[language_index].style = tag_selection_off;
+                    /*Ensuring that the element is selected*/
+                    manifest_selection.children[language_index].value = true;
+                    manifest_selection.children[language_index].style = tag_selection_on;
+                    console.log("manifest DESELECTED: " + manifest_selection.children[language_index].innerHTML)
+                    console.log("Concept Collection Before: " + concept_collection)
+                    /*Selecting the element*/
+                    manifest_selection.children[language_index].click()
+                    console.log("Concept Collection AFTER: " + concept_collection)
+                    /*by simulating a click on the element the function languageSelectionBehaviour will be called
+                    and it will update the concept selection list with the elements available in this manifest*/
                 }
+                
             }
         }
     }
@@ -1129,14 +1146,24 @@ function switchSelectionTypeMultiple()
                 selection_type.children[i].style = tag_selection_on;
             }
         }
+        
+        for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
+        {
+            if(manifest_selection.children[lang_sel_index].value == true)
+            {
+                /*Deselecting the selected language*/
+                manifest_selection.children[lang_sel_index].click()
+                break;
+            }
+        }
         updateCookie("selection", selection_type.children[1].innerHTML);
+        setSelectionType();
+        updateRoute();
         //Restore the selection stored in Cookie, if any
         if(document.cookie.length > 0)
         {
             restoreDBMultipleSelectionCookie();
         }
-        setSelectionType();
-        updateRoute();
     }
 }
 
