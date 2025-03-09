@@ -351,13 +351,23 @@ function restoreDBMultipleSelectionCookie()
             {
                 if(pairs[1]=="1")
                 {
+                    var selected_language = manifests.find(element => element.name == manifest_selection.children[language_index].innerHTML);
                     manifest_selection.children[language_index].value = true;
                     manifest_selection.children[language_index].style = tag_selection_on;
+                    
+                    //Appending the new concepts
+                    for(var index=0; index < selected_language.concepts.length; index++)
+                    {
+                        if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
+                        {
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                            concept_collection.push(selected_language.concepts[index].concept_name);
+                        }                 
+                    }
                 }
             }
         }
     }
-    setSelectionType();
 }
 
 function restoreDBSingleSelectionCookie()
@@ -1178,6 +1188,7 @@ function switchSelectionTypeMultiple()
         {
             restoreDBMultipleSelectionCookie();
         }
+        
         updateCookie("selection", selection_type.children[1].innerHTML);
         setSelectionType();
         updateRoute();
