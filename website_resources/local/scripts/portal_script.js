@@ -136,7 +136,7 @@ function useProvidedRoute()
                     {
                         toggleManifestOnOff(manifest_selection.children[matchIndex-1])
                     }
-                    updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
+                    updateCookie(manifest_selection.children[matchIndex-1].innerHTML, manifest_selection.children[matchIndex-1].value);
                 }
             }
         }
@@ -191,7 +191,7 @@ function useProvidedRoute()
                         concept_selection.children[matchIndex].value = true
                         concept_selection.children[matchIndex].style = tag_selection_on
                     }
-                    updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
+                    updateCookie(concept_selection.children[matchIndex].innerHTML, concept_selection.children[matchIndex].value);
                 }
             }
         }
