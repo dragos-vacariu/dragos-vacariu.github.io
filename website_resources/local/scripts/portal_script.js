@@ -134,8 +134,7 @@ function useProvidedRoute()
                     General-Programming-Knowledge is not available for selection */
                     if(manifest_selection.children[matchIndex-1].value == false)
                     {
-                        //if element specified via the routing is found and is deselected we will select it
-                        manifest_selection.children[matchIndex-1].click(); 
+                        toggleManifestOnOff(manifest_selection.children[matchIndex-1])
                     }
                 }
             }
@@ -314,8 +313,7 @@ function restoreDBMultipleSelectionCookie()
                     concept_selection.children[concept_index].style = tag_selection_off;
                 }
                 //Selecting the concept
-                concept_selection.children[concept_index].click()
-                /*.click should be replaced as it alters the route and cookie*/
+                toggleConceptOnOff(concept_selection.children[concept_index])
             }
             else
             {
@@ -326,8 +324,7 @@ function restoreDBMultipleSelectionCookie()
                     concept_selection.children[concept_index].style = tag_selection_on;
                 }
                 //Deselecting the concept
-                concept_selection.children[concept_index].click()
-                /*.click should be replaced as it alters the route and cookie*/
+                toggleConceptOnOff(concept_selection.children[concept_index])
             }
         }
         else
@@ -513,11 +510,11 @@ function loadXMLDoc(xml_file)
                     if(index==1) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
                         /*Adding the programming language selection*/                
-                        manifest_selection.appendChild(createLiElement(manifests[index].name, true, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, true, manifestSelectionBehaviour));
                     }
                     else
                     {
-                        manifest_selection.appendChild(createLiElement(manifests[index].name, false, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, false, manifestSelectionBehaviour));
                     }
                 }
             }
@@ -773,72 +770,83 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 function conceptSelectionBehavior()
 {
     /*This function describes the behaviour of a concept li element*/
+    toggleConceptOnOff(this)
+    updateRoute();
+}
+
+function toggleConceptOnOff(concept_element)
+{
+    /*This function will toggle the selection of manifest.concept element*/
     if(selection_type.children[0].value == true)
     {
         //opacity is used to specify whether a concept is available or not for the selected programming language
-        if(this.style.opacity != disabledElementOpacity) //if opacity != 0.3, it means concept is available for this programming language
+        for(var index=0; index < concept_element.parentElement.children.length; index++)
         {
-            for(var index=0; index < this.parentElement.children.length; index++)
+            if(concept_element.parentElement.children[index] != concept_element)
             {
-                var opacity = this.parentElement.children[index].style.opacity;
-                if(this.parentElement.children[index] != this)
-                {
-                    this.parentElement.children[index].value = false;
-                    this.parentElement.children[index].style = tag_selection_off;
-                }
-                else
-                {
-                    this.value = true;
-                    this.style = tag_selection_on;
-                }
-                this.parentElement.children[index].style.opacity = opacity;
+                concept_element.parentElement.children[index].value = false;
+                concept_element.parentElement.children[index].style = tag_selection_off;
             }
-            updateCookie("SingleSelectionConcept", this.innerHTML);
+            else
+            {
+                concept_element.value = true;
+                concept_element.style = tag_selection_on;
+            }
         }
+        updateCookie("SingleSelectionConcept", concept_element.innerHTML);
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 400);
     }
     else if(selection_type.children[1].value == true)
     {
-        if(this.value == true)
+        if(concept_element.value == true)
         {
-            this.value = false;
-            this.style = tag_selection_off;
+            concept_element.value = false;
+            concept_element.style = tag_selection_off;
         }
         else
         {
-            this.value = true;
-            this.style = tag_selection_on;
+            concept_element.value = true;
+            concept_element.style = tag_selection_on;
         }
-        updateCookie(this.innerHTML, this.value);
+        updateCookie(concept_element.innerHTML, concept_element.value);
     }
     allConceptsSelection = false;
     showTable();
+}
+
+function manifestSelectionBehaviour()
+{
+    /*This function describes the behaviour of a language li element*/
+    
+    //if Selection type is single:
+    toggleManifestOnOff(this)
     updateRoute();
 }
 
-function languageSelectionBehaviour()
+function toggleManifestOnOff(manifest_element)
 {
-    /*This function describes the behaviour of a language li element*/
+    /*This function will toggle the selection of manifest element*/
+    
     //if Selection type is single:
     if (selection_type.children[0].value == true)
     {
         //Deselect the old item and select the new one:
-        for(var index=0; index < this.parentElement.children.length; index++)
+        for(var index=0; index < manifest_element.parentElement.children.length; index++)
         {
-            if(this.parentElement.children[index] != this)
+            if(manifest_element.parentElement.children[index] != manifest_element)
             {
-                this.parentElement.children[index].value = false;
-                this.parentElement.children[index].style = tag_selection_off;
+                manifest_element.parentElement.children[index].value = false;
+                manifest_element.parentElement.children[index].style = tag_selection_off;
             }
             else
             {
-                this.value = true;
-                this.style = tag_selection_on;
+                manifest_element.value = true;
+                manifest_element.style = tag_selection_on;
             }
         }
         /*get the language item and enable / disable the concepts within*/
-        var active_language = manifests.find(element => element.name == this.innerHTML);
+        var active_language = manifests.find(element => element.name == manifest_element.innerHTML);
         if(active_language != undefined)
         {
             selected_concept = ""
@@ -873,16 +881,16 @@ function languageSelectionBehaviour()
                 concept_collection.push(active_language.concepts[index].concept_name);
             }
         }
-        updateCookie("SingleSelectionLanguage", this.innerHTML);
+        updateCookie("SingleSelectionLanguage", manifest_element.innerHTML);
     }
     //If Selection type is multiple and view is whatever:
     else
     {
         //Allow multiple selections
-        if(this.value == true)
+        if(manifest_element.value == true)
         {
-            this.value = false;
-            this.style = tag_selection_off;           
+            manifest_element.value = false;
+            manifest_element.style = tag_selection_off;           
 
             //Removing existing concepts in the concept_selection
             for(var existing_concept=0; existing_concept < concept_selection.children.length; existing_concept++)
@@ -915,10 +923,10 @@ function languageSelectionBehaviour()
         }
         else
         {
-            this.value = true;
-            this.style = tag_selection_on;
+            manifest_element.value = true;
+            manifest_element.style = tag_selection_on;
             
-            var selected_language = manifests.find(element => element.name == this.innerHTML);
+            var selected_language = manifests.find(element => element.name == manifest_element.innerHTML);
             
             if(selected_language != undefined)
             {                
@@ -940,10 +948,9 @@ function languageSelectionBehaviour()
                 }
             }
         }
-        updateCookie(this.innerHTML, this.value);
+        updateCookie(manifest_element.innerHTML, manifest_element.value);
     }
     showTable();
-    updateRoute();
 }
 
 function getActiveElements(element)
@@ -1226,20 +1233,17 @@ function setSelectionType()
         if(active_concepts.length > 1) //this condition should always be true
         {
             /*if more than once concept is selected, deselect all except the first*/
-            active_concepts[0].click();
-            /*.click should be replaced as it alters the route and cookie*/
+            toggleConceptOnOff(active_concepts[0])
         }
-        var active_language = undefined
+
         if(active_languages.length > 0) //should only be one element stored in active_languages
         {
             //If there is more than a single element selected.
             if(active_languages.length > 1)
             {
                 //we will make sure any other active languages and concepts will be deselected
-                active_languages[0].click();
-                /*.click should be replaced as it alters the route and cookie*/
+                toggleManifestOnOff(active_languages[0])
             }
-            active_language = manifests.find(element=> element.name == active_languages[0].innerHTML);
         }
     }
     else if(selection_type.children[1].value == true)
