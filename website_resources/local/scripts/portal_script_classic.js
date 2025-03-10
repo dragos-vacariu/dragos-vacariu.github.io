@@ -34,17 +34,25 @@ function dbCookieRouteHandling()
       So we need to wait until the HTTP Request is ready. These cookies will be set slower than predefined elements cookie.
     */
     var window_href_values = window.location.href.split("#");
+    var return_value = false;
+    
     if(window_href_values.length > 1 && window_href_values[1] != "")
     {
         /*We will ignore the database related cookie if we are provided with a route*/
         useProvidedRoute(); // this should only be called when opening the webpage
+        
+        showTable(); // this will set the selection and the view
+        return_value = true
     }
     //reading from the cookie file:
     else if(document.cookie.length > 0)
     {
         restoreDBSingleSelectionCookie();
+        showTable(); // this will set the selection and the view
+        return_value = true
     }
-    showTable();
+    
+    return return_value;
 }
 
 function useProvidedRoute()
@@ -81,9 +89,10 @@ function useProvidedRoute()
                 if(manifest_selection.children[matchIndex-1].value == false)
                 {
                     //if element specified via the routing is found and is deselected we will select it
-                    manifest_selection.children[matchIndex-1].click(); 
+                    toggleManifestOnOff(manifest_selection.children[matchIndex-1])
                     //click will select this item and deselect all others
                 }
+                updateCookie(manifest_selection.children[matchIndex-1].innerHTML, manifest_selection.children[matchIndex-1].value);
             }
         }
     }
@@ -107,6 +116,8 @@ function useProvidedRoute()
             updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
         }
         //Selecting only the concepts specified by the route:
+        
+        var conceptsEnabledCounter = 0;
         for(var i = 0; i < concepts.length; i++)
         {
             var matchIndex = concept_collection.findIndex(element => String(element).toLowerCase() == String(concepts[i]).toLowerCase());
@@ -117,8 +128,14 @@ function useProvidedRoute()
                     //if element specified via the routing is found and is deselected we will select it
                     concept_selection.children[matchIndex].value = true
                     concept_selection.children[matchIndex].style = tag_selection_on
+                    conceptsEnabledCounter++;
                 }
+                updateCookie(concept_selection.children[matchIndex].innerHTML, concept_selection.children[matchIndex].value);
             }
+        }
+        if(conceptsEnabledCounter == concept_selection.children.length)
+        {
+            allConceptsSelection = true;
         }
     }
 }
@@ -172,8 +189,7 @@ function restoreDBSingleSelectionCookie()
                     manifest_selection has 1 less element compared to manifests so 1 less index.
                 */
                 language_index-=1;
-                manifest_selection.children[language_index].click(); 
-                //click will select this item and deselect all others
+                toggleManifestOnOff(manifest_selection.children[language_index])
             }
         }
     }
@@ -187,8 +203,7 @@ function restoreDBSingleSelectionCookie()
             if(concept_index >= 0 )
             {
                  /*concept_selection is built based on concept_collection. They have the same indexing*/
-                concept_selection.children[concept_index].click(); 
-                //click will select this item and deselect all others
+                toggleConceptOnOff(concept_selection.children[concept_index])
             }
         }
     }
@@ -292,29 +307,31 @@ function loadXMLDoc(xml_file)
                 {
                     if(index==1) //display only 3 columns in the table by default -> General-Programming-Knowledge is not gonna be visible
                     {
-                        /*Adding the programming language selection*/                
-                        for(var concept_index=0; concept_index< manifests[index].concepts.length; concept_index++)
-                        {
-                            if(concept_index == 0)
-                            {
-                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
-                            }
-                            else
-                            {
-                                concept_selection.appendChild(createLiElement(manifests[index].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
-                            }
-                            concept_collection.push(manifests[index].concepts[concept_index].concept_name);
-                        }
-                        manifest_selection.appendChild(createLiElement(manifests[index].name, true, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, true, manifestSelectionBehavior));
                     }
                     else
                     {
-                        manifest_selection.appendChild(createLiElement(manifests[index].name, false, languageSelectionBehaviour));
+                        manifest_selection.appendChild(createLiElement(manifests[index].name, false, manifestSelectionBehavior));
                     }
                 }
             }
-            /*read cookie and/or handle the display of the elements*/
-            dbCookieRouteHandling();
+            /*read cookie and/or hanndle the display of the elements*/
+            if ( dbCookieRouteHandling() == false ) //if no cookie or route was provided, we will display the default selection
+            {
+                for(var concept_index=0; concept_index < manifests[1].concepts.length; concept_index++)
+                {
+                    if(concept_index == 0)
+                    {
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
+                    }
+                    else
+                    {
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
+                    }
+                    concept_collection.push(manifests[1].concepts[concept_index].concept_name);
+                }
+                showTable(); // this will set the selection and the view
+            }
         }
     };
     
@@ -384,29 +401,28 @@ function fillTableRegular()
                         array that satisfies the provided testing function. If no elements satisfy the testing 
                         function, -1 is returned.
                         */
-                        row = table_content.insertRow();
-                        cell = row.insertCell(); //empty cell
-
-                        /*Insert the concept name within the cell*/
-                        var p = document.createElement("p");
-                        p.innerHTML = concept_collection[concept_index] + ":";
-                        p.style = concept_title_style;
-                        cell.appendChild(p);
-                        p = document.createElement("p");
+                        
                         /*If the concept exists for this language*/
                         if(found_element_index >= 0) 
                         {
+                            row = table_content.insertRow();
+                            cell = row.insertCell(); //empty cell
+
+                            /*Insert the concept name within the cell*/
+                            var p = document.createElement("p");
+                            p.innerHTML = concept_collection[concept_index] + ":";
+                            p.style = concept_title_style;
+                            cell.appendChild(p);
+                            p = document.createElement("p");
+
                             p.innerHTML += manifests[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(p, manifests[index].concepts[found_element_index]);
+                            
+                            p.style = concept_value_style;
+                            cell.appendChild(p);
+                            cell.style = cell_style;
                                                     
                         }
-                        else
-                        {
-                            p.innerHTML += "Concept not present in this manifest.";
-                        }
-                        p.style = concept_value_style;
-                        cell.appendChild(p);
-                        cell.style = cell_style;
                     }
                 }
             }
@@ -438,48 +454,60 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
 
 function conceptSelectionBehavior()
 {
-    for(var index=0; index < this.parentElement.children.length; index++)
+    /*This function describes the behaviour of a concept li element*/
+    
+    toggleConceptOnOff(this)
+    updateRoute();
+}
+
+function toggleConceptOnOff(concept_element)
+{
+    /*This function will toggle the selection of manifest.concept element*/
+    
+    for(var index=0; index < concept_element.parentElement.children.length; index++)
     {
-        var opacity = this.parentElement.children[index].style.opacity;
-        if(this.parentElement.children[index] != this)
+        if(concept_element.parentElement.children[index] != concept_element)
         {
-            this.parentElement.children[index].value = false;
-            this.parentElement.children[index].style = tag_selection_off;
+            concept_element.parentElement.children[index].value = false;
+            concept_element.parentElement.children[index].style = tag_selection_off;
         }
         else
         {
-            this.value = true;
-            this.style = tag_selection_on;
+            concept_element.value = true;
+            concept_element.style = tag_selection_on;
         }
-        this.parentElement.children[index].style.opacity = opacity;
     }
     allConceptsSelection = false;
     window.scrollTo(0, 400);
     showTable();
+}
+
+function manifestSelectionBehavior()
+{
+    /*This function describes the behaviour of a language li element*/
+    toggleManifestOnOff(this);
     updateRoute();
 }
 
-function languageSelectionBehaviour()
+function toggleManifestOnOff(manifest_element)
 {
-    /*This function describes the behaviour of a language li element*/
-
     //Deselect the old item and select the new one:
-    for(var index=0; index < this.parentElement.children.length; index++)
+    for(var index=0; index < manifest_element.parentElement.children.length; index++)
     {
-        if(this.parentElement.children[index] != this)
+        if(manifest_element.parentElement.children[index] != manifest_element)
         {
-            this.parentElement.children[index].value = false;
-            this.parentElement.children[index].style = tag_selection_off;
+            manifest_element.parentElement.children[index].value = false;
+            manifest_element.parentElement.children[index].style = tag_selection_off;
         }
         else
         {
-            this.value = true;
-            this.style = tag_selection_on;
+            manifest_element.value = true;
+            manifest_element.style = tag_selection_on;
         }
     }
     
     /*get the language item and enable / disable the concepts within*/
-    var active_language = manifests.find(element => element.name == this.innerHTML);
+    var active_language = manifests.find(element => element.name == manifest_element.innerHTML);
     if(active_language != undefined)
     {
         selected_concept = ""
@@ -490,7 +518,7 @@ function languageSelectionBehaviour()
             {
                 selected_concept = concept_selection.children[0].innerHTML
             }
-            concept_selection.children[0].remove()
+            concept_selection.children[0].remove();
         }
         concept_collection = [] //clearing the concept_collection
         
@@ -521,10 +549,9 @@ function languageSelectionBehaviour()
             concept_collection.push(active_language.concepts[index].concept_name);
         }
     }
-    updateCookie("SingleSelectionLanguage", this.innerHTML);
+    updateCookie("SingleSelectionLanguage", manifest_element.innerHTML);
     
     showTable();
-    updateRoute();
 }
 
 function getActiveElements(element)

@@ -73,7 +73,6 @@ function dbCookieRouteHandling()
         setSelectionType(); // this will set the selection and the view
         return_value = true
     }
-    /*set the view with default values*/
     
     return return_value;
 }
