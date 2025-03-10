@@ -201,9 +201,6 @@ function Controller_Function($scope)
 	}
 }
 
-console.log("Document: " + window.document.title)
-console.log("Last Modified: " + window.document.lastModified)
-
 /*
 //This works on client side and is not suitable for visit counter
 //localStorage could be used to store various settings on client side similar to document.cookie
