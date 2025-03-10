@@ -16331,7 +16331,33 @@
             transmission control, safety <red>systems</red>, and infotainment.
             <br/><br/>
             In a network: <azure>ECUs</azure> are connected through various <purple>data</purple> <red>buses</red>, <azure>allowing</azure> them to send and receive messages. 
-            Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly.
+            Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly. Various Sensors and Actuators are also connected 
+            within the <azure>ECU</azure> Networks. The <purple>data</purple> can be transmitted and received amongst multiple <azure>ECUs</azure> or between an <azure>ECU</azure> and 
+            various Sensors / Actuators. 
+            <br/><br/>
+            The communication through the <azure>ECU</azure> networks is performed primarily serial. 
+            This means while 2 devices communicate, the others are waiting for the <red>bus</red> to get free (in recessive state).
+            <br/><br/>
+            While <azure>parallel</azure> communication can theoretically <azure>allow</azure> multiple devices to communicate <azure>simultaneously</azure>, it is less 
+            common in automotive applications due to complexity and cost. <azure>Parallel</azure> communication requires more wires, 
+            which can lead to increased weight and potential interference.
+            <br/><br/>
+            <indigo>Half-Duplex Communication:</indigo> Many serial communication <red>systems</red>, like CAN, <purple>operate</purple> in a 
+            half-duplex mode, meaning that <purple>data</purple> can 
+            flow in both directions, but not at the same time. This <azure>allows</azure> for <azure>efficient</azure> communication without the 
+            need for multiple channels. 
+            <br/><br/>
+            This means that while one device is sending <purple>data</purple>, the other must wait until 
+            the transmission is complete before it can respond or send its own <purple>data</purple>. CAN employs a unique <red>bus</red> arbitration 
+            <red>method</red> to manage which device gets to send <purple>data</purple> when multiple devices want to communicate at the same time. 
+            This is crucial for preventing <purple>data</purple> collisions.
+            <br/><br/>
+            <indigo>Difference between Sensors and Actuators:</indigo>
+            <br/>
+            Sensors are like the "eyes and ears" of a <red>system</red>. They detect and measure physical <azure>quantities</azure> from the environment.
+            <br/>
+            Actuators are like the "muscles" of a <red>system</red>. They respond to <azure>signals</azure> from a control <red>system</red> by 
+            producing physical motion or changing a physical state.
             <br/><br/>
             <green>Broadcasting:</green>
             <br/><br/>
