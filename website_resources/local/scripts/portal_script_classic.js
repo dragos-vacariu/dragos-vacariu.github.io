@@ -478,7 +478,7 @@ function toggleConceptOnOff(concept_element)
         }
     }
     
-    updateCookie("SingleSelectionLanguage", concept_element.innerHTML);
+    updateCookie("SingleSelectionConcept", concept_element.innerHTML);
     allConceptsSelection = false;
     window.scrollTo(0, 400);
     showTable();
