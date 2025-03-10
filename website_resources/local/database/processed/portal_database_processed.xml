@@ -16508,46 +16508,41 @@
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>13  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    {</td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>14  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        crc ^= data[i]; <comment>// XOR with the current byte</comment></td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>15  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>/*First iteration:</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        0b11111111 ^ 0b00000001</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        result = 0b11111110</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>        */</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>//for each bit in CRC</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        for (uint8_t j = 0; j &lt; 8; j++) </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            <comment>//if MSB is 1</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            if (crc &amp; 0b10000000) </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>/*Complex calculations bit by bit for determining unique fingerprint CRC-8 for data*/</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>16  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        <comment>//for each bit in CRC</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>17  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        for (uint8_t j = 0; j &lt; 8; j++) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>18  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>19  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            <comment>//if MSB is 1</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>20  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            if (crc &amp; 0b10000000) </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>21  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>22  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>/*Complex calculations bit by bit for determining unique fingerprint CRC-8 for data*/</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>23  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>24  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = (crc &lt;&lt; 1) ^ 49; <comment>// CRC-8 calculation using CRC-8 polynomial</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>25  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>26  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//The value 0x31 (decimal 49) is crucial in CRC-8 calculations, </comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>27  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//and it represents the CRC-8 polynomial.</comment></td></tr>
 <tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>28  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = (crc &lt;&lt; 1) ^ 49; <comment>// CRC-8 calculation using CRC-8 polynomial</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//The value 0x31 (decimal 49) is crucial in CRC-8 calculations, </comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//and it represents the CRC-8 polynomial.</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>34  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//It processes each bit of the CRC value.</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>35  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            } </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>36  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            else </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>37  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>38  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = crc &lt;&lt; 1;</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>39  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            }</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        }</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>42  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>43  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//The CRC-8 algorithm is a mathematical process that generates a unique "fingerprint" for the data.</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>44  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//CRC-8 can be used for messages of any length.</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>45  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>46  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return crc; <comment>// Return the CRC value</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>29  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                <comment>//It processes each bit of the CRC value.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>30  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            } </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>31  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            else </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>32  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            {</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>33  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                crc = crc &lt;&lt; 1;</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>34  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">            }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>35  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">        }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>36  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    }</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>37  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>38  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//The CRC-8 algorithm is a mathematical process that generates a unique "fingerprint" for the data.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>39  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    <comment>//CRC-8 can be used for messages of any length.</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>40  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    </td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>41  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">    return crc; <comment>// Return the CRC value</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>42  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">}</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>43  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>49  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>50  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t data[] = {(uint8_t)("H"), (uint8_t)("e"), (uint8_t)("l"), (uint8_t)("l"), (uint8_t)("o")}; <comment>//Actual message: 'Hello'</comment></td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>51  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>44  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;"><comment>// Example usage</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>45  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t data[] = {(uint8_t)("H"), (uint8_t)("e"), (uint8_t)("l"), (uint8_t)("l"), (uint8_t)("o")}; <comment>//Actual message: 'Hello'</comment></td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>46  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">
 </td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>52  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t crcValue = calculate_crc8(data, sizeof(data));</td></tr>
-<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>53  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>47  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">uint8_t crcValue = calculate_crc8(data, sizeof(data));</td></tr>
+<tr><td style="width:46px; text-align:left; padding:0px;margin:0px; border: solid 1px rgba(0,0,0,0.1);"><lineNumber>48  </lineNumber></td><td style="text-align:left; padding:0px; margin:0px;">                </td></tr></table></box></code>
                 <br/>
                 <indigo>CRC-8 / CRC-16:</indigo> 
                 <br/>
@@ -16779,7 +16774,7 @@
                 CAN typically supports speeds up to 1 Mbps. 
                 It is used for: fuel injection <red>system</red>, ignition <red>system</red>, emissions control, <purple>breaking</purple> <red>system</red> etc. 
                 <br/><br/>
-                The CAN <red>bus</red> enables quick and reliable <azure>sharing</azure> of information between the car's brakes and engine. 
+                The <red>CAN</red> <red>bus</red> enables quick and reliable <azure>sharing</azure> of information between the car's brakes and engine. 
                 For <red>instance</red>, in anti-lock braking <red>systems</red> (ABS), the CAN protocol helps in coordinating 
                 the braking force applied to each wheel.
                 <br/>
@@ -16808,7 +16803,7 @@
             <azure>ECUs</azure>. 
             <br/>
             For example:
-            In a CAN <red>bus</red>, messages are sent as packets, and each <azure>ECU</azure> can listen to the <red>bus</red> and respond to messages relevant to 
+            In a <red>CAN</red> <red>bus</red>, messages are sent as packets, and each <azure>ECU</azure> can listen to the <red>bus</red> and respond to messages relevant to 
             its application.
             <br/><br/>
             <green>How Communication Works:</green>
@@ -16902,7 +16897,7 @@
                 communication between devices on the network.</li>
                 <li>Often, these wires are twisted together to reduce electromagnetic 
                 interference, which helps <azure>maintain</azure> <purple>signal</purple> integrity.</li>
-                <li>At each end of the CAN <red>bus</red>, termination resistors are 
+                <li>At each end of the <red>CAN</red> <red>bus</red>, termination resistors are 
                 usually <azure>added</azure> to prevent <purple>signal</purple> <red>reflections</red>.</li>
                 <li>
                 In some cases, a four-wire configuration might be used to include additional wires for power and ground.
@@ -16910,13 +16905,20 @@
             </ul>
             <img class="database_image" src="./website_resources/local/database/pictures/simple_can_network.png" alt="autosar architecture"/>
             <br/><br/>
+            You can think of the schematic above as this: 
+            <br/><br/>
+            The Microcontroller is the brain, it has the <azure>CPU</azure> which <azure>runs</azure> the <purple>Operating</purple> <red>System</red> controlling every <red>function</red> of 
+            the <azure>ECU</azure>. The <purple>CAN</purple> <purple>Controller</purple> is the communication specialist, it encodes inner-thoughts to sentences, 
+            and the <red>CAN</red> <red>Transceiver</red> is the translator (the vocal cord) which provides the means for
+            the brain to communicate effectively with the outside world (the <red>CAN</red> <red>bus</red>). 
+            <br/><br/>
             <green>Information Transmission in CAN:</green>
             <br/><br/>
             The transmission of information through the CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) utilizes a differential <azure>signaling</azure> 
             <red>method</red> between the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) wires.
             <ul class="enumeration">
                 <li><indigo>Differential Signaling:</indigo>
-                The CAN <red>bus</red> uses a differential wired-AND <azure>signaling</azure> technique. This means that the information is transmitted as a 
+                The <red>CAN</red> <red>bus</red> uses a differential wired-AND <azure>signaling</azure> technique. This means that the information is transmitted as a 
                 difference in voltage between the two wires.
                 When <purple>data</purple> is sent, one wire (<red>CANH</red>) carries a higher voltage, while the other wire (<azure>CANL</azure>) carries a lower voltage.
                 </li>
@@ -16950,7 +16952,7 @@
             
             The time needed to send the 8-<purple>byte</purple> message through the <red>bus</red> can be calculated as follows:
             <ul class="enumeration">
-                <li>The speed of the CAN <red>bus</red> can vary, but a common speed is 500 kbps (kilobits per second).</li>
+                <li>The speed of the <red>CAN</red> <red>bus</red> can vary, but a common speed is 500 kbps (kilobits per second).</li>
                 <li>
                 At 500 kbps, the time to transmit a single <purple>bit</purple> is calculated as 1/speed:
                 <br/>
@@ -16965,7 +16967,7 @@
             <br/>
             <green>CAN Transceiver</green>
             <br/><br/>
-            The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the CAN <red>bus</red> and the Microcontroller (MCU). 
+            The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the <red>CAN</red> <red>bus</red> and the Microcontroller (MCU). 
             It converts the differential voltage <azure>signals</azure> on the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) <red>lines</red> into a 
             single-ended digital <purple>signal</purple> that the Microcontroller (MCU) can understand.
             <br/><br/>
@@ -16974,12 +16976,57 @@
             The <red>transceiver</red> interprets the voltage levels as follows:
             <ul class="enumeration">
             <li>Dominant State: When the voltage difference indicates a dominant <purple>bit</purple> (e.g., <red>CANH</red> at approximately 3.5V and <azure>CANL</azure> at about 
-            1.5V), the <red>transceiver</red> recognizes this as a <purple>binary</purple> 1.
+            1.5V), the <red>transceiver</red> recognizes this as a <purple>binary</purple> 0. This state indicates an active transmission from a node (<azure>ECU</azure>) so the communication
+            is going through the <red>bus</red>.
             </li>
-            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a <purple>binary</purple> 0.
+            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a 
+            <purple>binary</purple> 1. When no node (<azure>ECU</azure>) is actively sending <purple>data</purple>, the <red>bus</red> remains in the recessive state meaning No Communication is
+            going through the <red>bus</red>.
+            </li>
+            <li>
+            <red>Bus</red> Idle State: When there is no communication, the <red>bus</red> is in an idle state, which is characterized by 
+            the recessive state (higher voltage on the <red>bus</red>). The <red>transceiver</red> continuously monitors the <red>bus</red> for 
+            any changes in voltage.
             </li>
             </ul>
+            On the dominant state, both <purple>bit</purple> 0 and <purple>bit</purple> 1 can be transmitted. This is where things get a little tricky in 
+            CAN communication. The dominant state (lower voltage) represents a <purple>bit</purple> 0. This is straightforward.
+            <br/><br/>
+            In order to transmit a <purple>bit</purple> 1, a node (<azure>ECU</azure>) doesn't actively pull the <red>bus</red> voltage down to the dominant state. 
+            Instead, it <azure>allows</azure> the voltage to remain in the recessive state (higher voltage).
+            <br/><br/>
+            Think of it like this:
             <br/>
+            Imagine a group of people shouting. When someone wants to say "yes" (<purple>bit</purple> 0), they shout loudly. 
+            When they want to say "no" (<purple>bit</purple> 1), they don't shout. They simply remain silent, <azure>allowing</azure> the 
+            background noise (recessive state) to continue.
+            <br/><br/>
+            <brown>Difference between Recessive State and a consecutive group of bits of value 1</brown>
+            <br/><br/>
+            If you send 111111111 on the <red>bus</red>, the <red>CAN</red> <red>Transceiver</red> will definitely know there's communication happening. 
+            Here's why:
+            <ul class="enumeration">
+                <li>The CAN protocol is designed to recognize patterns of <purple>bits</purple>. It's not just about individual <purple>bits</purple>; 
+                it's about how they are arranged and timed.</li>
+                <li>The <red>CAN</red> <red>Transceiver</red> is <purple>constantly</purple> monitoring the <red>bus</red>. It's looking for specific patterns of <purple>bits</purple> that <purple>signal</purple> 
+                the <azure>start</azure> of a message, the <purple>data</purple> <purple>bits</purple> within the message, and the end of the message.
+                </li>
+                <li>
+                A <purple>string</purple> of 1s, even if it's just a series of recessive states, is still a pattern that the CAN 
+                <red>Transceiver</red> will recognize. It will know that a node (<azure>ECU</azure>) is actively holding the <red>bus</red> in the recessive 
+                state for the duration of those <purple>bit</purple> times.
+                </li>
+            </ul>
+            So basicaly, whenever a node (<azure>ECU</azure>) sends a message on the can it <azure>starts</azure> transmitting with a distinguishable 
+            <purple>binary</purple> <azure>sequence</azure> and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure>.
+            <ul>
+                <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant <purple>bit</purple> (0) that marks the beginning of a message. 
+                Think of it like a "Hey, everyone, listen up!" <purple>signal</purple>.</li>
+                <li><indigo>Data:</indigo> This is the actual message content, consisting of a series of <purple>bits</purple> representing the <purple>data</purple> 
+                being transmitted.</li>
+                <li><indigo>End of Frame (EOF):</indigo> This is a <azure>sequence</azure> of seven dominant <purple>bits</purple> (0s) followed by a recessive <purple>bit</purple> (1). 
+                It's like a "That's all, folks!" <purple>signal</purple>.</li>
+            </ul>
             <brown>Digital Signal Outputting:</brown>
             <br/>
             The <red>transceiver</red> outputs a digital <purple>signal</purple> (high or low) to the Microcontroller (MCU) <red>based</red> on the interpreted 
@@ -16988,7 +17035,7 @@
             <br/><br/>
             <brown>Error Detection Scenario in CAN Transceiver:</brown>
             <br/>
-            Imagine a CAN <red>bus</red> with two wires, <red>CANH</red> and <azure>CANL</azure>, transmitting a dominant <purple>bit</purple> (1). 
+            Imagine a <red>CAN</red> <red>bus</red> with two wires, <red>CANH</red> and <azure>CANL</azure>, transmitting a dominant <purple>bit</purple> (1). 
             This means <red>CANH</red> should be at a higher voltage (around 3.5V) than <azure>CANL</azure> (around 1.5V).
             <br/><br/>
             <indigo>Fault:</indigo> Let's say there's a fault in the <red>CANH</red> wire, causing it to short-circuit to ground. 
@@ -17008,6 +17055,62 @@
             A standard single-ended <red>system</red> would only see the voltage on <red>CANH</red> as 0V. It would incorrectly 
             interpret this as a recessive <purple>bit</purple> (0), even though the intended <purple>signal</purple> was a dominant <purple>bit</purple> (1).
             <br/><br/>
+            <green>CAN Controller and CAN Driver</green>
+            <br/><br/>
+            The <purple>CAN</purple> <purple>Controller</purple> is typically integrated within a Microcontroller Unit (MCU). This integration <azure>allows</azure> 
+            the MCU to manage communication without needing additional hardware. Even if an MCU has an integrated 
+            <purple>CAN</purple> <purple>Controller</purple>, it will still require an external <red>CAN</red> <red>Transceiver</red> to connect to the <red>CAN</red> <red>bus</red>.
+            <br/><br/>
+            The <purple>CAN</purple> <purple>Controller</purple> is controlled by a <azure>CAN</azure> <azure>Driver</azure>. The <azure>CAN</azure> <azure>Driver</azure> acts as an <red>interface</red> between the 
+            <purple>Operating</purple> <red>System</red> (<purple>RTOS</purple>) (or <purple>Application</purple> <purple>Layer</purple>) and the <purple>CAN</purple> <purple>Controller</purple>. 
+            <br/><br/>
+            The <azure>CAN</azure> <azure>Driver</azure> may also provide <red>functions</red> to through which the <purple>RTOS</purple> can control directly the <red>CAN</red> <red>Transceiver</red>.
+            <br/><br/>
+            It provides the necessary <red>functions</red> to send and receive messages over the CAN network. These <red>functions</red> are used
+            directly by the <purple>RTOS</purple>. 
+            <br/><br/>
+            The <purple>RTOS</purple> manages multiple <azure>tasks</azure> that may need to send or receive CAN messages. When a <azure>task</azure> wants to send a message over 
+            the CAN network, it calls the appropriate <red>function</red> from the <azure>CAN</azure> <azure>Driver</azure>. This <red>function</red> handles the details of 
+            message <red>framing</red> and transmission.
+            <br/><br/>
+            Similarly, when a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies the <purple>RTOS</purple>, which can then pass the message to the 
+            appropriate <azure>task</azure> for <azure>processing</azure>.
+            <br/><br/>
+            The <azure>CAN</azure> <azure>Driver</azure> often uses mechanisms like semaphores or queues to synchronize access to the <red>CAN</red> <red>bus</red>, ensuring that 
+            <azure>tasks</azure> do not interfere with each other during message transmission or reception.
+            <br/><br/>
+            The <purple>RTOS</purple> utilizes <red>functions</red> from the <azure>CAN</azure> <azure>Driver</azure> to handle errors reported on the <purple>CAN</purple> <purple>Controller</purple>, <azure>allowing</azure> for robust 
+            error management in the <red>system</red>.
+            <br/><br/>
+            <brown>How does the CAN Controller interract with the outside world?</brown>
+            <ul class="enumeration">
+                <li>The <purple>CAN</purple> <purple>Controller</purple> can <azure>start</azure> a transmission when it detects an idle <red>bus</red>. This means that the <red>bus</red> is not 
+                currently being used by any other node (<azure>ECU</azure>).</li>
+                <li>When a node (<azure>ECU</azure>) wants to send a message, the <purple>CAN</purple> <purple>Controller</purple> encodes the message according to the 
+                CAN protocol, which includes the <purple>Identifier</purple>, <purple>Data</purple>, and Control Information.</li>
+                <li>The <purple>CAN</purple> <purple>Controller</purple> continuously monitors the <red>bus</red> for incoming messages. When it detects a message, 
+                it decodes it and <azure>processes</azure> the <purple>data</purple>. It also checks for errors during transmission, ensuring that 
+                the <purple>data</purple> received is valid. If an error is detected, the <purple>CAN</purple> <purple>Controller</purple> will <purple>signal</purple> this by sending an 
+                error <red>frame</red> onto the <red>bus</red>. 
+                <br/><br/>
+                The <purple>CAN</purple> <purple>Controller</purple> <azure>maintains</azure> error <azure>counters</azure> to track the number of errors encountered. If the error 
+                <azure>count</azure> exceeds a certain threshold, the controller may enter a <red>bus</red>-off state, where it temporarily 
+                stops transmitting to prevent further issues on the <red>bus</red>.
+                <br/><br/>
+                In the event of a <red>bus</red>-off state, the <purple>CAN</purple> <purple>Controller</purple> will eventually attempt to recover by reinitializing 
+                itself and resuming normal <purple>operation</purple> once the <red>bus</red> is clear and stable.
+                </li>
+                <li>
+                In cases where multiple nodes (<azure>ECUs</azure>) attempt to transmit <azure>simultaneously</azure>, the CAN protocol uses a <red>method</red> called 
+                arbitration. The <purple>CAN</purple> <purple>Controller</purple> uses the message <purple>identifier</purple> to determine which message has the highest 
+                priority and <azure>allows</azure> that message to proceed while others wait.
+                </li>
+                <li>
+                The <purple>CAN</purple> <purple>Controller</purple> can <purple>operate</purple> in different modes, such as normal mode, listen-only mode, and loopback 
+                mode, depending on the application requirements.
+                </li>
+            </ul>
+            <br/>
             <green>Key Features of the CAN Protocol:</green>
             <br/><br/>
             <brown>Multi-Master Configuration:</brown>
@@ -17016,7 +17119,7 @@
             <br/><br/>
             <brown>Carrier-Sense Multiple Access with Collision Detection (CSMA/CD):</brown>
             <br/><br/>
-            CAN uses a <red>method</red> to manage access to the <red>bus</red>, ensuring that if two nodes attempt to send messages 
+            CAN uses a <red>method</red> to manage access to the <red>bus</red>, ensuring that if two nodes (<azure>ECUs</azure>) attempt to send messages 
             <azure>simultaneously</azure>, the one with the higher priority will continue while the other will back off.
             <br/><br/>
             <brown>Message Prioritization:</brown>
@@ -17043,7 +17146,7 @@
                 <li>The <purple>ACK</purple> <purple>bit</purple> is dominant, meaning that if at least one <azure>ECU</azure> acknowledges 
                 the message, the <purple>ACK</purple> <purple>bit</purple> will be recognized as dominant. 
                 </li>
-                <li>If no <azure>ECU</azure> acknowledges the message (i.e., all nodes detect an error), 
+                <li>If no <azure>ECU</azure> acknowledges the message (i.e., all nodes (<azure>ECUs</azure>) detect an error), 
                 the <purple>ACK</purple> <purple>bit</purple> remains in a recessive state (<purple>logic</purple> 1).
                 </li>
                 <li>The sender monitors the <red>bus</red> for the <purple>ACK</purple> <purple>bit</purple>. If it detects the dominant 
@@ -17061,13 +17164,18 @@
             communication in a network with multiple nodes. It helps in identifying transmission errors, <azure>allowing</azure> 
             for corrective actions to be taken.
             <br/><br/>
+            These basic errors get detected by <purple>CAN</purple> <purple>Controller</purple>, but alongside these features more complex mechanisms such as: 
+            E2E <purple>Protection</purple> 
+            can be <purple>layered</purple> on top in order to enhance safety. Mechanisms such as: E2E (End to End) <purple>Protection</purple> are <red>implemented</red> 
+            and handled within the higher <purple>Basic</purple> <purple>Software</purple> <purple>Layers</purple>.
+            <br/><br/>
             <brown>Broadcast Communication:</brown>
             <br/><br/>
-            Messages are broadcasted to all nodes on the network, meaning that every <azure>ECU</azure> can "hear" all transmissions. 
+            Messages are broadcasted to all nodes (<azure>ECUs</azure>) on the network, meaning that every <azure>ECU</azure> can "hear" all transmissions. 
             This is <azure>efficient</azure> for applications where multiple devices need to respond to the same <purple>data</purple>.
             <br/><br/>
             If the information that the <azure>ECU</azure> "hears" on the <red>bus</red> is not meant for its <red>functioning</red>, then the messages will be <azure>blocked</azure> by its 
-            CAN Controller / CAN Driver and it will not reach the upper software <purple>layers</purple>.
+            <purple>CAN</purple> <purple>Controller</purple> / <azure>CAN</azure> <azure>Driver</azure> and it will not reach the upper software <purple>layers</purple>.
             This filtering is performed using the Unique <purple>Identifiers</purple> from the <purple>PDU</purple> / <red>Frame</red>.
             <br/><br/>
             <indigo>Difference between Message/PDU and Frame</indigo>
@@ -17151,27 +17259,27 @@
             a 6-<purple>bit</purple> <purple>field</purple> that indicates the presence of an error. It is transmitted as a series of dominant <purple>bits</purple> (0s) or 
             recessive <purple>bits</purple> (1s), depending on the <purple>type</purple> of error detected and a delimiter that indicates the end of the Error <red>Frame</red>.
             <ul class="enumeration">
-                <li>Each node on the CAN <red>bus</red> continuously monitors the messages being transmitted. If a node detects an error 
+                <li>Each node (<azure>ECU</azure>) on the <red>CAN</red> <red>bus</red> continuously monitors the messages being transmitted. If a node detects an error 
                 (such as a <purple>bit</purple> error, format error, or <purple>acknowledgment</purple> error), it triggers the transmission of an Error <red>Frame</red>.
                 </li>
                 <li>
-                Once an Error <red>Frame</red> is generated, it is immediately sent onto the CAN <red>bus</red>. All other nodes on the network 
+                Once an Error <red>Frame</red> is generated, it is immediately sent onto the <red>CAN</red> <red>bus</red>. All other nodes on the network 
                 recognize this <red>frame</red> and take appropriate action, such as stopping their current transmission and preparing 
                 to retransmit the message that caused the error.
                 </li>
                 <li>
-                After the Error <red>Frame</red> is sent, the node that detected the error will enter an error state. There are different 
-                error states (active, passive, and <red>bus</red>-off) that determine how the node will behave in future communications.
+                After the Error <red>Frame</red> is sent, the node (<azure>ECU</azure>) that detected the error will enter an error state. There are different 
+                error states (active, passive, and <red>bus</red>-off) that determine how the node (<azure>ECU</azure>) will behave in future communications.
                 </li>
             </ul>
             <br/>
             <indigo>Overload Frame:</indigo>
             <br/>
-            Used to <purple>signal</purple> that a node is temporarily unable to <azure>process</azure> incoming messages. 
-            An <red>Overload</red> <red>Frame</red> is transmitted when a node needs more time to <azure>process</azure> incoming messages. 
+            Used to <purple>signal</purple> that a node (<azure>ECU</azure>) is temporarily unable to <azure>process</azure> incoming messages. 
+            An <red>Overload</red> <red>Frame</red> is transmitted when a node (<azure>ECU</azure>) needs more time to <azure>process</azure> incoming messages. 
             This can occur if:
             <ul class="enumeration">
-                <li>The node is busy <azure>processing</azure> previous messages.</li>
+                <li>The node (<azure>ECU</azure>) is busy <azure>processing</azure> previous messages.</li>
                 <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
             </ul></can-protocol>
     </manifest>
