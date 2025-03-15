@@ -17601,7 +17601,7 @@
             be detected stating with second <purple>bit</purple> from the left. While we were transmitting <purple>bit</purple> 0, we couldn't detect 
             a collision because the <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> is also 0, so no <purple>value</purple> will be overwriten on the <red>bus</red>. 
             <br/><br/>
-            After the collision is detected we begin to <azure>compare</azure> the <purple>bits</purple> <azure>read</azure> from the <red>bus</red> with <red>Our</red> <red>ECU's</red> <red>CANID</red>.
+            When the collision is detected we begin to <azure>compare</azure> the <purple>bits</purple> <azure>read</azure> from the <red>bus</red> with <red>Our</red> <red>ECU's</red> <red>CANID</red>.
             This <azure>process</azure> is known as <azure>Arbitration</azure> <azure>Phase</azure> or <azure>Arbitration</azure> <azure>Process</azure> and it happens at the beggining of a 
             CAN message transmission. 
             <red>Our</red> <red>ECU's</red> <red>CANID</red> will win the <azure>Arbitration</azure> <azure>Phase</azure> even though <red>Our</red> <red>ECU's</red> <red>CANID</red> is slightly bigger, 

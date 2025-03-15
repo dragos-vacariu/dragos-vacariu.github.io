@@ -16540,7 +16540,7 @@ else
             be detected stating with second bit from the left. While we were transmitting bit 0, we couldn't detect 
             a collision because the Other ECU's CANID is also 0, so no value will be overwriten on the bus. 
             <br></br><br></br>
-            After the collision is detected we begin to compare the bits read from the bus with Our ECU's CANID.
+            When the collision is detected we begin to compare the bits read from the bus with Our ECU's CANID.
             This process is known as Arbitration Phase or Arbitration Process and it happens at the beggining of a 
             CAN message transmission. 
             Our ECU's CANID will win the Arbitration Phase even though Our ECU's CANID is slightly bigger, 
