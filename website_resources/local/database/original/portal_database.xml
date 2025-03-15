@@ -16151,7 +16151,7 @@ else
                 </li>
             </ul>
             So basically, whenever a node (ECU) sends a message on the CAN it starts transmitting with a distinguishable 
-            binary sequence and it ends the transmission with a different distinguishable binary sequence.
+            binary sequence (SOF bit) and it ends the transmission with a different distinguishable binary sequence (EOF bit).
             <ul>
                 <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant bit (0) that marks the beginning of a message. 
                 Think of it like a "Hey, everyone, listen up!" signal.</li>
@@ -16283,6 +16283,24 @@ else
                 <li><indigo>Stuff Error:</indigo> This happens when the bit stuffing rule is violated. In CAN, after five 
                 consecutive bits of the 
                 same value, a complementary bit is inserted. If this rule is not followed, a stuff error is reported.
+                <br></br><br></br>
+                Bit Stuffing Process: In CAN communication, if there are five consecutive bits of the same value (either all 0s or all 1s), 
+                a stuff bit (the opposite value) is inserted to break the sequence.  
+                If the receiver detects that a stuff bit was added incorrectly (i.e., it does not match the expected value), 
+                it registers a stuff error.
+                <br></br>
+                This means the receiver does not expect more 5 bits of same value in a row. If it detects such a sequence 
+                it will raise an Stuff Error.
+                <br></br><br></br>
+                Example: A sequence such as: 10111111000 will raise a Stuff error. Because there are 6 bits of 1 in a row.
+                <br></br><br></br>
+                Without this Stuffing Bit mechanism the receiver will not be sure if the number of bits it read 
+                from the communication is exactly the same number of bits sent by the source.
+                <br></br><br></br>
+                The stuffing bits are part of the Frames but NOT part of the PDUs.
+                <br></br><br></br>
+                It's the CANIF's job to decode the information, and turn it back into a PDU, hence removing the 
+                stuffing bits.
                 </li>
                 <li><indigo>CRC Error:</indigo> The Cyclic Redundancy Check (CRC) is used to detect errors in the 
                 transmitted data. If the CRC 
@@ -16301,6 +16319,10 @@ else
             <ul class="enumeration">
                 <li>The CAN Controller can start a transmission when it detects an idle bus. This means that the bus is not 
                 currently being used by any other node (ECU).</li>
+                <li>If the bus is currently used by a different ECU. Our ECU can attempt to take over the bus
+                by broadcasting our CAN ID. If we have higher priority (lower CAN ID) the ECU using the bus will have
+                to abort its transmission, and free the bus for our ECU.
+                </li>
                 <li>When a node (ECU) wants to send a message, the CAN Controller encodes the message according to the 
                 CAN protocol, which includes the Identifier, Data, and Control Information.</li>
                 <li>The CAN Controller continuously monitors the bus for incoming messages. When it detects a message, 
@@ -16335,7 +16357,7 @@ else
             which builds reliable interfaces by calling functions defined within the CAN Driver. 
             <br></br><br></br>
             <indigo>Concrete Example of Communication between ECUs:</indigo>
-            <ul class="enumeration">
+            <ol class="enumeration">
                 <li>RTOS Task calls CANIF interface for sending a message through the CAN bus.</li>
                 <li>CANIF interface receives the data from RTOS Task, and based on the size of message 
                 it performs the segmentation. On CAN bus we are only allowed to send messages up to 8 bytes. 
@@ -16347,8 +16369,8 @@ else
                 it will inform the CANIF, that the transmission can begin.</li>
                 <li>CANIF receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</li>
                 <li>CAN Driver takes the frame, and informs the CAN Transceiver that data will be coming.</li>
-                <li>CAN Transceiver sends a distinguishable binary sequence on the bus, to reserve a slot for 
-                message transmission.</li>
+                <li>CAN Transceiver sends a distinguishable binary sequence (SOF bit) on the bus, which would 
+                reserve a slot for message transmission.</li>
                 <li>CAN Driver sends each bit within the frame, individually, to the CAN Transceiver.</li>
                 <li>CAN Transceiver receives the bit and turns it into voltage. A bit 0 is equivalent to 4.5V on CANH, 
                 and 1.5V on 
@@ -16360,23 +16382,52 @@ else
                 <li>The listening ECUs will read our binary data, and they will compare our ID with their ID, if the ID matches, it means
                    we called their name, they need to receive the message. They will begin to write down every bit we send within that transmission.
                 </li>
-                <li>In case any other ECU within the network call in for "emergency" with a more prioritary message, 
+                <li>In case any other ECU with higher priority (lower CAN Id) 
+                    within the network will request communication,
                     our message will be intrerrupted. 
-                    We will stop the transmission and free the bus. 
-                    Meaning, we hear that some other ECU has an "emergency" and 
-                    we send in a distinguishable binary sequence saying the bus is free.
-                    The ECU with which we were communicating will keep on waiting for us to resume the communication.
-                    Whatever data we transmitted is stored halfway within the recipient ECU. 
+                    <br></br><br></br>
+                    While our ECU is transmitting, it continuously monitors the bus. If it detects a dominant level 
+                    (a logical '0') when we are actually sending a recessive level (a logical '1'), 
+                    this will indicate to us that another node (ECU) is trying to send a message. 
+                    This is part of the CAN protocol's collision detection mechanism.
+                    <br></br><br></br>
+                    The bus will enter Arbitration Phase: meaning the ECU is both transmitting its own 
+                    CAN ID and monitoring the bus for any dominant levels (logical '0').
+                    <br></br><br></br>
+                    As each bit of the CAN ID is transmitted by the other ECU, our ECU compares its own bit 
+                    with the bit travelling through the bus.
+                    <br></br><br></br>
+                    This comparison starts from the most significant bit (MSB) of the CAN ID and proceeds 
+                    towards the least significant bit (LSB).
+                    <br></br><br></br>
+                    The first bit where the IDs differ determines the priority. The ECU with the dominant bit 
+                    (logical '0') in that position wins the arbitration and gets to continue transmitting. 
+                    The ECU with the recessive bit (logical '1') loses the arbitration and stops transmitting.
+                    <br></br><br></br>
+                    The ECU transmitting bit 0 wins because lower CAN ID means higher priority.  This happens also 
+                    because a dominant state overrides a recessive state (bit 1).
                 </li>
                 <li>
-                    The other ECU sends its more prioritary message and frees the bus.
+                    We will stop the transmission and free the bus.
+                    Meaning, we read the intent of an ECU with higher priority (lower CAN Id) for transmission 
+                    and now the bus will be reserved by that ECU.
+                    
+                    </li>
+                    <li>
+                    We will enter a wait state.
+                    The ECU with which we were communicating will discard the received data since it's incomplete transmission.
+                    <br></br>
+                    We will attempt to retransmit the data after a short delay.
                 </li>
                 <li>
-                    Once the bus gets free, we will resume our communication.
+                    The other ECU sends its message and frees the bus.
                 </li>
                 <li>
-                    Once all the frames were sent, the CAN Transceiver will send a distinguishable binary sequence to notify all other ECUs that the transmission has ended, 
-                    and the bus is free again.
+                    Once the bus gets free, we will restart our communication.
+                </li>
+                <li>
+                    Once all the frames were sent, the CAN Transceiver will send a distinguishable binary sequence (EOF bit) 
+                    which will notify the receipient ECU that the message is complete, and the bus will become free again.
                 </li>
                 <li>
                     On the receipient ECU, the CAN Transceiver translates the last bit for the CAN Driver. The CAN Driver 
@@ -16409,7 +16460,7 @@ else
                     CAN Transceiver, CAN Controller, or even 
                     the ECU, and same thing might happen with the receipient ECU. We will try again after that.
                 </li>
-            </ul>
+            </ol>
             <br></br>
             The same steps are taken in case of message reception. 
             <br></br>
@@ -16417,6 +16468,183 @@ else
             directly or indirectly the RTOS, which can then pass the message to the appropriate task for processing.
             <br></br><br></br>
         </can-interface>
+        <can-collision-detection>
+            CAN protocol's collision detection mechanism enables a node (ECU) which is transmitting data to detect 
+            if another node is trying to send data while the bus is already in use. The collision detection on CAN network
+            happens through the Arbitration. 
+            <br></br><br></br>
+            Arbitration is the process by which multiple ECUs on the CAN bus compete to transmit a 
+            message. It's a bit like a traffic light where only one car can go through at a time.
+            <br></br><br></br>
+            Before our ECU begins to transmit, it sends a distinguishable binary sequence (SOF bit), notifying all 
+            other nodes, that we are going to communicate, and the bus will become busy.
+            <br></br><br></br>
+            While we are transmitting, we are constantly monitoring the bus. We will be able to detect a collision 
+            only when the value we are transmitting on the bus, is different than the value going through the bus. 
+            This would mean that some other node, has interfered with our communication and has overwrite what we were sending.
+            But this detection is done only when the value we are sending is different that the value transmitted by the 
+            other node. 
+            <br></br><br></br>
+            This means if our ECU and the other ECU send same values, we won't detect any collision, 
+            and neither will the other ECU.
+            <br></br><br></br>
+            If both ECUs are sending the same data, there's no need for a collision resolution process. The CAN protocol 
+            avoids unnecessary delays and ensures smooth data transmission.
+            <br></br><br></br>
+            This scenario often occurs when ECUs are broadcasting messages that contain information that's relevant to 
+            all nodes on the bus. For example, a message containing the current speed of the vehicle might be sent by 
+            multiple ECUs, and it's important that all nodes receive this information.
+            <br></br><br></br>
+            The Collision Resolution Process is the process of handling collisions. 
+            It includes the arbitration phase (for determining priority) 
+            and the actions taken by the ECUs that lose the arbitration (waiting for a random time before retransmitting).
+            <br></br><br></br>
+            <green>Detecting a collision:</green>
+            <br></br><br></br>
+            Let's say, we are transmitting a bit 0, the other ECU transmits a bit 0 as Most Significant Bit (MSB) 
+            from its CAN ID. We won't detect a collision. Then our ECU sends a bit 1, 
+            but we are reading on the bus a bit 0, which overwritten what we sent. 
+            Now we know there's a collision in progress. 
+            But we lost the first bit from the CAN ID of the other ECU colliding to our transmission.
+            <br></br><br></br>
+            The arbitration process continues with the next bit. 
+            Our ECU will now enter a listening mode, comparing its remaining CAN ID bits 
+            with the bits being transmitted on the bus.
+            <br></br><br></br>
+            If the other ECU's remaining CAN ID bits are all recessive states (bit 1), 
+            our ECU will win the arbitration for the remaining bits and be able to continue transmitting its message.
+            <br></br><br></br>
+            If the other ECU's remaining CAN ID bits contain any dominant states (bit 0), 
+            our ECU will lose the arbitration, and the other ECU will take on the bus to transmit its message.
+            <br></br><br></br>
+            So, even though you lost the first bit of the other ECU's CAN ID, the arbitration process 
+            continues, and the outcome depends on the remaining bits of both CAN IDs.
+            <br></br><br></br>
+            <brown>Edge Case:</brown>
+            <br></br><br></br>
+            <code>Our ECU's CANID:         </code><red>0</red>001001<azure>0</azure><br></br>
+            <code>Other ECU's CANID:      </code><purple>0</purple><red>0</red>001001<br></br>
+            <code>OUR Transmitted data:   </code><purple>0</purple><red>1</red>011110<br></br>
+            <br></br>
+            <indigo>Legend of bit comparison:</indigo><br></br>
+            <purple>Purple</purple> - is where masking of Other ECU's CANID happens because of Our Transmitted data.<br></br>
+            <red>Red</red> - is where the collision is detected because the 2nd bit Other ECU's CANID overwrote the value of 
+            the data we were transmitting
+            <br></br>
+            <azure>Azure</azure> - is Our ECU's CANID LSB (Least Significant Bit) which will NOT be compared as part of 
+            Arbitration Phase.
+            <br></br>
+            <br></br>
+            <indigo>Scenario:</indigo><br></br>
+            Taking under consideration the CANID and Transmitted data from above, we notice that the collision will
+            be detected stating with second bit from the left. While we were transmitting bit 0, we couldn't detect 
+            a collision because the Other ECU's CANID is also 0, so no value will be overwriten on the bus. 
+            <br></br><br></br>
+            After the collision is detected we begin to compare the bits read from the bus with Our ECU's CANID.
+            This process is known as Arbitration Phase or Arbitration Process and it happens at the beggining of a 
+            CAN message transmission. 
+            Our ECU's CANID will win the Arbitration Phase even though Our ECU's CANID is slightly bigger, 
+            because we only get to 
+            compare only a partial part of the other ECU's CANID.
+            <br></br><br></br>
+            This is a fascinating example of how the CAN protocol's design can lead to unexpected behaviors:
+            like 1000100 compared to 10001000. We win but Our CAN ID is greater than the other ECU's CAN ID. 
+            <br></br><br></br>
+            While the data we're transmitting isn't directly compared during Arbitration Phase, it can indirectly 
+            influence the outcome by masking parts of the other ECU's CAN ID.
+            <br></br><br></br>
+            <green>What if multiple ECUs transmit the same data?</green>
+            <br></br><br></br>
+            If multiple ECUs transmit the same date, the collision detection would still work based on the ECU-Id, 
+            which will be unique. So when the ECUs are trying to send their ID's through the bus, they will most likely
+            raise a conflict, and they will detect the collision because the values on the bus will be overwrite from 
+            multiple sources.
+            <br></br><br></br>
+            <brown>What if multiple ECUs with same IDs would be connected to the same network?</brown>
+            <br></br><br></br>
+            This scenario would most like raises serious security concerns. A malicious actor could potentially exploit 
+            this situation to inject false information into the network or disrupt the normal operation of the system.
+            <br></br><br></br>
+            While there might not be a collision in the strict sense if multiple ECUs are sending the same ID and same date, 
+            the bus would become busier as all ECUs try to transmit their messages. This could lead to delays in other 
+            messages being sent, as the bus becomes saturated.
+            <br></br><br></br>
+            If two ECUs have the same ID, it's like one is trying to impersonate the other. This could lead to confusion 
+            and potentially disrupt the communication flow.
+            <br></br><br></br>
+            <brown>Detection of ECU replicas within the network:</brown>
+            <br></br><br></br>
+            A practical way to detect a duplicated ECU within the network would be by disconnecting 
+            ECUs one by one and observing the Main ECU's reaction.
+            
+            <ul class="enumeration">
+                <li><indigo>Baseline:</indigo> First, we would establish a baseline by monitoring the Main ECU's 
+                behavior with all ECUs connected. This would provide a reference point for comparison.</li>
+                <li><indigo>Disconnect and Observe:</indigo> We would then disconnect each ECU individually and observe the Main ECU's behavior.</li>
+                <li><indigo>Duplicate Detection:</indigo> If the Main ECU doesn't register the absence of a specific ECU (i.e., 
+                its behavior remains unchanged), it indicates that there might be a duplicate ID.</li>
+                <li><indigo>Isolate and Verify:</indigo> We could then disconnect the suspect ECU and reconnect 
+                the previously disconnected one to confirm the duplicate ID.</li>
+            </ul>
+            <br></br>
+            By leveraging network management capabilities we would have a new set of possibilities for detecting 
+            duplicate ECU IDs.
+            <ul class="enumeration">
+                <li><indigo>Wake-up Cycle:</indigo> The Main ECU could initiate a wake-up cycle, bringing each 
+                ECU online one by one. This would allow for a controlled and isolated test environment.</li>
+                <li><indigo>Message Exchange:</indigo> During the wake-up cycle, the Main ECU could send a series of test 
+                messages to each ECU. These messages could be specifically designed to test communication 
+                latency and bus load.</li>
+                <li><indigo>Data Analysis:</indigo> The Main ECU would carefully analyze the time it takes for messages to 
+                reach their destination and the overall bus load during each test.</li>
+                <li><indigo>Duplicate Detection:</indigo> If the Main ECU detects a significant increase in bus load or 
+                communication latency when a particular ECU is woken up, it could indicate a duplicate 
+                ID situation. The duplicate ECU might be interfering with message transmission, causing 
+                delays and increased bus traffic.</li>
+            </ul>
+        </can-collision-detection>
+        <error-detection>
+                CAN communication relies on a combination of techniques to ensure reliable data transmission. 
+                Stuffing bits, CRC codes, and timing considerations all work together to help the receiver interpret 
+                the data accurately, even in challenging communication environments.
+                <br></br><br></br>
+                <green>Bit Stuffing</green>
+                <br></br><br></br>
+                Bit Stuffing Process: In CAN communication, if there are five consecutive bits of the same value 
+                (either all 0s or all 1s), a stuff bit (the opposite value) is inserted to break the sequence.  
+                <br></br>
+                This means the receiver does not expect more 5 bits of same value in a row. If it detects such a sequence 
+                it will raise an Stuff Error.
+                <br></br><br></br>
+                Example: A sequence such as: 10111111000 will raise a Stuff error. Because there are 6 bits of 1 in a row.
+                <br></br><br></br>
+                Without this Stuffing Bit mechanism the receiver will not be sure if the number of bits it read 
+                from the communication is exactly the same number of bits sent by the source.
+                <br></br><br></br>
+                The stuffing bits are part of the Frames but NOT part of the PDUs.
+                <br></br>
+                <ul class="enumeration">
+                    <li><indigo>Frame:</indigo> Contains the raw data, including stuffing bits.<br></br></li>
+                    <li><indigo>PDU:</indigo> Contains the actual data intended for the receiver, without 
+                    the stuffing bits.</li>
+                </ul>
+                <br></br>
+                It's the CANIF's job to decode the information, and turn it back into a PDU, hence removing the 
+                stuffing bits.
+                <br></br><br></br>
+                <brown>Why using Stuffing Bits: </brown>
+                <br></br><br></br>
+                By using stuffing bits the receiver will not get confused whether he read 5 bits of 1 or he read 4 
+                bits of one but the reception was slow.
+                <br></br><br></br>
+                Let's imagine a sender sending 8 bits, but the communication is slow, and the receiver read the 11 bits. 
+                Since the communication was slow, the receiver happened to read the same bit multiple times, because the 
+                information was not updated on the bus. 
+                <br></br><br></br>
+                The receiver will have to figure out how many bits were actually transmitted,
+                in order to properly interpret the information. This is done by calculating the variation of the 
+                information on the bus. So internally the ECU is counting how many times the voltages have varried.
+        </error-detection>
     </manifest>
     
 </content>

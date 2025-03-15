@@ -16343,7 +16343,7 @@
             need for multiple channels. 
             <br/><br/>
             This means that while one device is sending <purple>data</purple>, the other must wait until 
-            the transmission is complete before it can respond or send its own <purple>data</purple>. CAN employs a unique <red>bus</red> arbitration 
+            the transmission is complete before it can respond or send its own <purple>data</purple>. CAN employs a unique <red>bus</red> <azure>arbitration</azure> 
             <red>method</red> to manage which device gets to send <purple>data</purple> when multiple devices want to communicate at the same time. 
             This is crucial for preventing <purple>data</purple> collisions.
             <br/><br/>
@@ -17218,7 +17218,7 @@
                 </li>
             </ul>
             So basically, whenever a node (<azure>ECU</azure>) sends a message on the CAN it <azure>starts</azure> transmitting with a distinguishable 
-            <purple>binary</purple> <azure>sequence</azure> and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure>.
+            <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>) and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure> (EOF <purple>bit</purple>).
             <ul>
                 <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant <purple>bit</purple> (0) that marks the beginning of a message. 
                 Think of it like a "Hey, everyone, listen up!" <purple>signal</purple>.</li>
@@ -17348,6 +17348,24 @@
                 <li><indigo>Stuff Error:</indigo> This happens when the <purple>bit</purple> stuffing rule is violated. In CAN, after five 
                 consecutive <purple>bits</purple> of the 
                 same <purple>value</purple>, a complementary <purple>bit</purple> is <azure>inserted</azure>. If this rule is not followed, a stuff error is reported.
+                <br/><br/>
+                <purple>Bit</purple> Stuffing <azure>Process</azure>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> (either all 0s or all 1s), 
+                a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
+                If the receiver detects that a stuff <purple>bit</purple> was <azure>added</azure> incorrectly (i.e., it does not <azure>match</azure> the expected <purple>value</purple>), 
+                it <purple>registers</purple> a stuff error.
+                <br/>
+                This means the receiver does not expect more 5 <purple>bits</purple> of same <purple>value</purple> in a row. If it detects such a <azure>sequence</azure> 
+                it will raise an Stuff Error.
+                <br/><br/>
+                Example: A <azure>sequence</azure> such as: 10111111000 will raise a Stuff error. Because there are 6 <purple>bits</purple> of 1 in a row.
+                <br/><br/>
+                Without this Stuffing <purple>Bit</purple> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
+                from the communication is exactly the same number of <purple>bits</purple> sent by the <azure>source</azure>.
+                <br/><br/>
+                The stuffing <purple>bits</purple> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
+                <br/><br/>
+                It's the <purple>CANIF's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
+                stuffing <purple>bits</purple>.
                 </li>
                 <li><indigo>CRC Error:</indigo> The <red>Cyclic</red> <red>Redundancy</red> <red>Check</red> (<red>CRC</red>) is used to detect errors in the 
                 transmitted <purple>data</purple>. If the <red>CRC</red> 
@@ -17366,6 +17384,10 @@
             <ul class="enumeration">
                 <li>The <purple>CAN</purple> <purple>Controller</purple> can <azure>start</azure> a transmission when it detects an idle <red>bus</red>. This means that the <red>bus</red> is not 
                 currently being used by any other node (<azure>ECU</azure>).</li>
+                <li>If the <red>bus</red> is currently used by a different <azure>ECU</azure>. Our <azure>ECU</azure> can attempt to take over the <red>bus</red>
+                by broadcasting our <red>CAN</red> <red>ID</red>. If we have higher priority (lower <red>CAN</red> <red>ID</red>) the <azure>ECU</azure> using the <red>bus</red> will have
+                to abort its transmission, and free the <red>bus</red> for our <azure>ECU</azure>.
+                </li>
                 <li>When a node (<azure>ECU</azure>) wants to send a message, the <purple>CAN</purple> <purple>Controller</purple> encodes the message according to the 
                 <purple>CAN</purple> <purple>protocol</purple>, which includes the <purple>Identifier</purple>, <purple>Data</purple>, and Control Information.</li>
                 <li>The <purple>CAN</purple> <purple>Controller</purple> continuously monitors the <red>bus</red> for incoming messages. When it detects a message, 
@@ -17382,7 +17404,7 @@
                 </li>
                 <li>
                 In cases where multiple nodes (<azure>ECUs</azure>) attempt to transmit <azure>simultaneously</azure>, the <purple>CAN</purple> <purple>protocol</purple> uses a <red>method</red> called 
-                arbitration. The <purple>CAN</purple> <purple>Controller</purple> uses the message <purple>identifier</purple> to determine which message has the highest 
+                <azure>arbitration</azure>. The <purple>CAN</purple> <purple>Controller</purple> uses the message <purple>identifier</purple> to determine which message has the highest 
                 priority and <azure>allows</azure> that message to proceed while others wait.
                 </li>
                 <li>
@@ -17398,7 +17420,7 @@
             which builds reliable <red>interfaces</red> by calling <red>functions</red> defined within the <azure>CAN</azure> <azure>Driver</azure>. 
             <br/><br/>
             <indigo>Concrete Example of Communication between ECUs:</indigo>
-            <ul class="enumeration">
+            <ol class="enumeration">
                 <li><purple>RTOS</purple> <azure>Task</azure> calls <purple>CANIF</purple> <red>interface</red> for sending a message through the <red>CAN</red> <red>bus</red>.</li>
                 <li><purple>CANIF</purple> <red>interface</red> receives the <purple>data</purple> from <purple>RTOS</purple> <azure>Task</azure>, and <red>based</red> on the <purple>size</purple> of message 
                 it performs the segmentation. On <red>CAN</red> <red>bus</red> we are only <azure>allowed</azure> to send messages up to 8 <purple>bytes</purple>. 
@@ -17410,8 +17432,8 @@
                 it will inform the <purple>CANIF</purple>, that the transmission can begin.</li>
                 <li><purple>CANIF</purple> receives the notification from <azure>CAN</azure> <azure>Driver</azure>, and passes the first <red>frame</red> to the <azure>CAN</azure> <azure>Driver</azure>.</li>
                 <li><azure>CAN</azure> <azure>Driver</azure> takes the <red>frame</red>, and informs the <red>CAN</red> <red>Transceiver</red> that <purple>data</purple> will be coming.</li>
-                <li><red>CAN</red> <red>Transceiver</red> sends a distinguishable <purple>binary</purple> <azure>sequence</azure> on the <red>bus</red>, to reserve a slot for 
-                message transmission.</li>
+                <li><red>CAN</red> <red>Transceiver</red> sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>) on the <red>bus</red>, which would 
+                reserve a slot for message transmission.</li>
                 <li><azure>CAN</azure> <azure>Driver</azure> sends each <purple>bit</purple> within the <red>frame</red>, individually, to the <red>CAN</red> <red>Transceiver</red>.</li>
                 <li><red>CAN</red> <red>Transceiver</red> receives the <purple>bit</purple> and turns it into voltage. A <purple>bit</purple> 0 is equivalent to 4.5V on <red>CANH</red>, 
                 and 1.5V on 
@@ -17423,23 +17445,52 @@
                 <li>The listening <azure>ECUs</azure> will <azure>read</azure> our <purple>binary</purple> <purple>data</purple>, and they will <azure>compare</azure> our ID with their ID, if the ID <azure>matches</azure>, it means
                    we called their name, they need to receive the message. They will begin to <azure>write</azure> down every <purple>bit</purple> we send within that transmission.
                 </li>
-                <li>In case any other <azure>ECU</azure> within the network call in for "emergency" with a more prioritary message, 
+                <li>In case any other <azure>ECU</azure> with higher priority (lower <red>CAN</red> <red>Id</red>) 
+                    within the network will request communication,
                     our message will be intrerrupted. 
-                    We will stop the transmission and free the <red>bus</red>. 
-                    Meaning, we hear that some other <azure>ECU</azure> has an "emergency" and 
-                    we send in a distinguishable <purple>binary</purple> <azure>sequence</azure> saying the <red>bus</red> is free.
-                    The <azure>ECU</azure> with which we were communicating will keep on waiting for us to resume the communication.
-                    Whatever <purple>data</purple> we transmitted is <azure>stored</azure> halfway within the recipient <azure>ECU</azure>. 
+                    <br/><br/>
+                    While our <azure>ECU</azure> is transmitting, it continuously monitors the <red>bus</red>. If it detects a dominant level 
+                    (a <purple>logical</purple> '0') when we are actually sending a recessive level (a <purple>logical</purple> '1'), 
+                    this will indicate to us that another node (<azure>ECU</azure>) is trying to send a message. 
+                    This is part of the <purple>CAN</purple> <purple>protocol's</purple> collision detection mechanism.
+                    <br/><br/>
+                    The <red>bus</red> will enter <azure>Arbitration</azure> <azure>Phase</azure>: meaning the <azure>ECU</azure> is both transmitting its own 
+                    <red>CAN</red> <red>ID</red> and monitoring the <red>bus</red> for any dominant levels (<purple>logical</purple> '0').
+                    <br/><br/>
+                    As each <purple>bit</purple> of the <red>CAN</red> <red>ID</red> is transmitted by the other <azure>ECU</azure>, our <azure>ECU</azure> <azure>compares</azure> its own <purple>bit</purple> 
+                    with the <purple>bit</purple> travelling through the <red>bus</red>.
+                    <br/><br/>
+                    This <azure>comparison</azure> <azure>starts</azure> from the <red>most</red> <red>significant</red> <red>bit</red> (<red>MSB</red>) of the <red>CAN</red> <red>ID</red> and proceeds 
+                    towards the <azure>least</azure> <azure>significant</azure> <azure>bit</azure> (<azure>LSB</azure>).
+                    <br/><br/>
+                    The first <purple>bit</purple> where the IDs differ determines the priority. The <azure>ECU</azure> with the dominant <purple>bit</purple> 
+                    (<purple>logical</purple> '0') in that position wins the <azure>arbitration</azure> and gets to continue transmitting. 
+                    The <azure>ECU</azure> with the recessive <purple>bit</purple> (<purple>logical</purple> '1') loses the <azure>arbitration</azure> and stops transmitting.
+                    <br/><br/>
+                    The <azure>ECU</azure> transmitting <purple>bit</purple> 0 wins because lower <red>CAN</red> <red>ID</red> means higher priority.  This happens also 
+                    because a dominant state <red>overrides</red> a recessive state (<purple>bit</purple> 1).
                 </li>
                 <li>
-                    The other <azure>ECU</azure> sends its more prioritary message and frees the <red>bus</red>.
+                    We will stop the transmission and free the <red>bus</red>.
+                    Meaning, we <azure>read</azure> the intent of an <azure>ECU</azure> with higher priority (lower <red>CAN</red> <red>Id</red>) for transmission 
+                    and now the <red>bus</red> will be reserved by that <azure>ECU</azure>.
+                    
+                    </li>
+                    <li>
+                    We will enter a wait state.
+                    The <azure>ECU</azure> with which we were communicating will discard the received <purple>data</purple> since it's incomplete transmission.
+                    <br/>
+                    We will attempt to retransmit the <purple>data</purple> after a short delay.
                 </li>
                 <li>
-                    Once the <red>bus</red> gets free, we will resume our communication.
+                    The other <azure>ECU</azure> sends its message and frees the <red>bus</red>.
                 </li>
                 <li>
-                    Once all the <red>frames</red> were sent, the <red>CAN</red> <red>Transceiver</red> will send a distinguishable <purple>binary</purple> <azure>sequence</azure> to notify all other <azure>ECUs</azure> that the transmission has ended, 
-                    and the <red>bus</red> is free again.
+                    Once the <red>bus</red> gets free, we will restart our communication.
+                </li>
+                <li>
+                    Once all the <red>frames</red> were sent, the <red>CAN</red> <red>Transceiver</red> will send a distinguishable <purple>binary</purple> <azure>sequence</azure> (EOF <purple>bit</purple>) 
+                    which will notify the receipient <azure>ECU</azure> that the message is complete, and the <red>bus</red> will become free again.
                 </li>
                 <li>
                     On the receipient <azure>ECU</azure>, the <red>CAN</red> <red>Transceiver</red> translates the last <purple>bit</purple> for the <azure>CAN</azure> <azure>Driver</azure>. The <azure>CAN</azure> <azure>Driver</azure> 
@@ -17472,13 +17523,186 @@
                     <red>CAN</red> <red>Transceiver</red>, <purple>CAN</purple> <purple>Controller</purple>, or even 
                     the <azure>ECU</azure>, and same thing might happen with the receipient <azure>ECU</azure>. We will try again after that.
                 </li>
-            </ul>
+            </ol>
             <br/>
             The same steps are taken in case of message reception. 
             <br/>
             When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CANIF</purple> which assembles the message and informs 
             directly or indirectly the <purple>RTOS</purple>, which can then pass the message to the appropriate <azure>task</azure> for <azure>processing</azure>.
             <br/><br/></can-interface>
+        <can-collision-detection><purple>CAN</purple> <purple>protocol's</purple> collision detection mechanism enables a node (<azure>ECU</azure>) which is transmitting <purple>data</purple> to detect 
+            if another node is trying to send <purple>data</purple> while the <red>bus</red> is already in use. The collision detection on <red>CAN</red> <red>network</red>
+            happens through the <azure>Arbitration</azure>. 
+            <br/><br/>
+            <azure>Arbitration</azure> is the <azure>process</azure> by which multiple <azure>ECUs</azure> on the <red>CAN</red> <red>bus</red> compete to transmit a 
+            message. It's a <purple>bit</purple> like a traffic light where only one <red>car</red> can go through at a time.
+            <br/><br/>
+            Before our <azure>ECU</azure> begins to transmit, it sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>), notifying all 
+            other nodes, that we are going to communicate, and the <red>bus</red> will become busy.
+            <br/><br/>
+            While we are transmitting, we are <purple>constantly</purple> monitoring the <red>bus</red>. We will be able to detect a collision 
+            only when the <purple>value</purple> we are transmitting on the <red>bus</red>, is different than the <purple>value</purple> going through the <red>bus</red>. 
+            This would mean that some other node, has interfered with our communication and has overwrite what we were sending.
+            But this detection is done only when the <purple>value</purple> we are sending is different that the <purple>value</purple> transmitted by the 
+            other node. 
+            <br/><br/>
+            This means if our <azure>ECU</azure> and the other <azure>ECU</azure> send same <purple>values</purple>, we won't detect any collision, 
+            and neither will the other <azure>ECU</azure>.
+            <br/><br/>
+            If both <azure>ECUs</azure> are sending the same <purple>data</purple>, there's no need for a <azure>collision</azure> <azure>resolution</azure> <azure>process</azure>. The <purple>CAN</purple> <purple>protocol</purple> 
+            avoids unnecessary delays and ensures smooth <purple>data</purple> transmission.
+            <br/><br/>
+            This scenario often occurs when <azure>ECUs</azure> are broadcasting messages that contain information that's relevant to 
+            all nodes on the <red>bus</red>. For example, a message containing the current speed of the vehicle might be sent by 
+            multiple <azure>ECUs</azure>, and it's important that all nodes receive this information.
+            <br/><br/>
+            The <azure>Collision</azure> <azure>Resolution</azure> <azure>Process</azure> is the <azure>process</azure> of handling collisions. 
+            It includes the <azure>arbitration</azure> <azure>phase</azure> (for determining priority) 
+            and the actions taken by the <azure>ECUs</azure> that lose the <azure>arbitration</azure> (waiting for a <red>random</red> time before retransmitting).
+            <br/><br/>
+            <green>Detecting a collision:</green>
+            <br/><br/>
+            Let's say, we are transmitting a <purple>bit</purple> 0, the other <azure>ECU</azure> transmits a <purple>bit</purple> 0 as <red>Most</red> <red>Significant</red> <red>Bit</red> (<red>MSB</red>) 
+            from its <red>CAN</red> <red>ID</red>. We won't detect a collision. Then our <azure>ECU</azure> sends a <purple>bit</purple> 1, 
+            but we are <azure>reading</azure> on the <red>bus</red> a <purple>bit</purple> 0, which overwritten what we sent. 
+            Now we know there's a collision in progress. 
+            But we lost the first <purple>bit</purple> from the <red>CAN</red> <red>ID</red> of the other <azure>ECU</azure> colliding to our transmission.
+            <br/><br/>
+            The <azure>arbitration</azure> <azure>process</azure> continues with the next <purple>bit</purple>. 
+            Our <azure>ECU</azure> will now enter a listening mode, <azure>comparing</azure> its remaining <red>CAN</red> <red>ID</red> <purple>bits</purple> 
+            with the <purple>bits</purple> being transmitted on the <red>bus</red>.
+            <br/><br/>
+            If the other <azure>ECU's</azure> remaining <red>CAN</red> <red>ID</red> <purple>bits</purple> are all recessive states (<purple>bit</purple> 1), 
+            our <azure>ECU</azure> will win the <azure>arbitration</azure> for the remaining <purple>bits</purple> and be able to continue transmitting its message.
+            <br/><br/>
+            If the other <azure>ECU's</azure> remaining <red>CAN</red> <red>ID</red> <purple>bits</purple> contain any dominant states (<purple>bit</purple> 0), 
+            our <azure>ECU</azure> will lose the <azure>arbitration</azure>, and the other <azure>ECU</azure> will take on the <red>bus</red> to transmit its message.
+            <br/><br/>
+            So, even though you lost the first <purple>bit</purple> of the other <azure>ECU's</azure> <red>CAN</red> <red>ID</red>, the <azure>arbitration</azure> <azure>process</azure> 
+            continues, and the outcome depends on the remaining <purple>bits</purple> of both <red>CAN</red> <red>IDs</red>.
+            <br/><br/>
+            <brown>Edge Case:</brown>
+            <br/><br/>
+            <code>Our ECU's CANID:         </code><red>0</red>001001<azure>0</azure><br/>
+            <code>Other ECU's CANID:      </code><purple>0</purple><red>0</red>001001<br/>
+            <code>OUR Transmitted data:   </code><purple>0</purple><red>1</red>011110<br/>
+            <br/>
+            <indigo>Legend of bit comparison:</indigo><br/>
+            <purple>Purple</purple> - is where masking of <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> happens because of <azure>Our</azure> <azure>Transmitted</azure> <azure>data</azure>.<br/>
+            <red>Red</red> - is where the collision is detected because the 2nd <purple>bit</purple> <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> overwrote the <purple>value</purple> of 
+            the <purple>data</purple> we were transmitting
+            <br/>
+            <azure>Azure</azure> - is <red>Our</red> <red>ECU's</red> <red>CANID</red> <azure>LSB</azure> (<azure>Least</azure> <azure>Significant</azure> <azure>Bit</azure>) which will NOT be <azure>compared</azure> as part of 
+            <azure>Arbitration</azure> <azure>Phase</azure>.
+            <br/>
+            <br/>
+            <indigo>Scenario:</indigo><br/>
+            Taking under consideration the <red>CANID</red> and Transmitted <purple>data</purple> from above, we notice that the collision will
+            be detected stating with second <purple>bit</purple> from the left. While we were transmitting <purple>bit</purple> 0, we couldn't detect 
+            a collision because the <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> is also 0, so no <purple>value</purple> will be overwriten on the <red>bus</red>. 
+            <br/><br/>
+            After the collision is detected we begin to <azure>compare</azure> the <purple>bits</purple> <azure>read</azure> from the <red>bus</red> with <red>Our</red> <red>ECU's</red> <red>CANID</red>.
+            This <azure>process</azure> is known as <azure>Arbitration</azure> <azure>Phase</azure> or <azure>Arbitration</azure> <azure>Process</azure> and it happens at the beggining of a 
+            CAN message transmission. 
+            <red>Our</red> <red>ECU's</red> <red>CANID</red> will win the <azure>Arbitration</azure> <azure>Phase</azure> even though <red>Our</red> <red>ECU's</red> <red>CANID</red> is slightly bigger, 
+            because we only get to 
+            <azure>compare</azure> only a <red>partial</red> part of the <purple>other</purple> <purple>ECU's</purple> <purple>CANID</purple>.
+            <br/><br/>
+            This is a fascinating example of how the <purple>CAN</purple> <purple>protocol's</purple> design can lead to unexpected behaviors:
+            like 1000100 <azure>compared</azure> to 10001000. We win but Our <red>CAN</red> <red>ID</red> is greater than the other <azure>ECU's</azure> <red>CAN</red> <red>ID</red>. 
+            <br/><br/>
+            While the <purple>data</purple> we're transmitting isn't directly <azure>compared</azure> during <azure>Arbitration</azure> <azure>Phase</azure>, it can indirectly 
+            influence the outcome by masking parts of the other <azure>ECU's</azure> <red>CAN</red> <red>ID</red>.
+            <br/><br/>
+            <green>What if multiple ECUs transmit the same data?</green>
+            <br/><br/>
+            If multiple <azure>ECUs</azure> transmit the same date, the collision detection would still work <red>based</red> on the <azure>ECU</azure>-Id, 
+            which will be unique. So when the <azure>ECUs</azure> are trying to send their ID's through the <red>bus</red>, they will most likely
+            raise a conflict, and they will detect the collision because the <purple>values</purple> on the <red>bus</red> will be overwrite from 
+            multiple <azure>sources</azure>.
+            <br/><br/>
+            <brown>What if multiple ECUs with same IDs would be connected to the same network?</brown>
+            <br/><br/>
+            This scenario would most like raises serious security concerns. A malicious actor could potentially exploit 
+            this situation to inject <purple>false</purple> information into the network or disrupt the normal <purple>operation</purple> of the <red>system</red>.
+            <br/><br/>
+            While there might not be a collision in the strict sense if multiple <azure>ECUs</azure> are sending the same ID and same date, 
+            the <red>bus</red> would become busier as all <azure>ECUs</azure> try to transmit their messages. This could lead to delays in other 
+            messages being sent, as the <red>bus</red> becomes saturated.
+            <br/><br/>
+            If two <azure>ECUs</azure> have the same ID, it's like one is trying to impersonate the other. This could lead to confusion 
+            and potentially disrupt the communication flow.
+            <br/><br/>
+            <brown>Detection of ECU replicas within the network:</brown>
+            <br/><br/>
+            A practical way to detect a duplicated <azure>ECU</azure> within the network would be by disconnecting 
+            <azure>ECUs</azure> one by one and observing the Main <azure>ECU's</azure> <red>reaction</red>.
+            
+            <ul class="enumeration">
+                <li><indigo>Baseline:</indigo> First, we would establish a baseline by monitoring the Main <azure>ECU's</azure> 
+                behavior with all <azure>ECUs</azure> connected. This would provide a <purple>reference</purple> <purple>point</purple> for <azure>comparison</azure>.</li>
+                <li><indigo>Disconnect and Observe:</indigo> We would then disconnect each <azure>ECU</azure> individually and observe the Main <azure>ECU's</azure> behavior.</li>
+                <li><indigo>Duplicate Detection:</indigo> If the Main <azure>ECU</azure> doesn't <purple>register</purple> the absence of a specific <azure>ECU</azure> (i.e., 
+                its behavior remains unchanged), it indicates that there might be a duplicate ID.</li>
+                <li><indigo>Isolate and Verify:</indigo> We could then disconnect the suspect <azure>ECU</azure> and reconnect 
+                the previously disconnected one to confirm the duplicate ID.</li>
+            </ul>
+            <br/>
+            By leveraging network management capabilities we would have a new <purple>set</purple> of possibilities for detecting 
+            duplicate <azure>ECU</azure> IDs.
+            <ul class="enumeration">
+                <li><indigo>Wake-up Cycle:</indigo> The Main <azure>ECU</azure> could initiate a wake-up cycle, bringing each 
+                <azure>ECU</azure> online one by one. This would <azure>allow</azure> for a controlled and isolated test environment.</li>
+                <li><indigo>Message Exchange:</indigo> During the wake-up cycle, the Main <azure>ECU</azure> could send a series of test 
+                messages to each <azure>ECU</azure>. These messages could be specifically designed to test communication 
+                latency and <red>bus</red> load.</li>
+                <li><indigo>Data Analysis:</indigo> The Main <azure>ECU</azure> would carefully analyze the time it takes for messages to 
+                reach their destination and the overall <red>bus</red> load during each test.</li>
+                <li><indigo>Duplicate Detection:</indigo> If the Main <azure>ECU</azure> detects a significant increase in <red>bus</red> load or 
+                communication latency when a particular <azure>ECU</azure> is woken up, it could indicate a duplicate 
+                ID situation. The duplicate <azure>ECU</azure> might be interfering with message transmission, causing 
+                delays and increased <red>bus</red> traffic.</li>
+            </ul></can-collision-detection>
+        <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
+                Stuffing <purple>bits</purple>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
+                the <purple>data</purple> accurately, even in challenging communication environments.
+                <br/><br/>
+                <green>Bit Stuffing</green>
+                <br/><br/>
+                <purple>Bit</purple> Stuffing <azure>Process</azure>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> 
+                (either all 0s or all 1s), a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
+                <br/>
+                This means the receiver does not expect more 5 <purple>bits</purple> of same <purple>value</purple> in a row. If it detects such a <azure>sequence</azure> 
+                it will raise an Stuff Error.
+                <br/><br/>
+                Example: A <azure>sequence</azure> such as: 10111111000 will raise a Stuff error. Because there are 6 <purple>bits</purple> of 1 in a row.
+                <br/><br/>
+                Without this Stuffing <purple>Bit</purple> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
+                from the communication is exactly the same number of <purple>bits</purple> sent by the <azure>source</azure>.
+                <br/><br/>
+                The stuffing <purple>bits</purple> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
+                <br/>
+                <ul class="enumeration">
+                    <li><indigo>Frame:</indigo> Contains the raw <purple>data</purple>, including stuffing <purple>bits</purple>.<br/></li>
+                    <li><indigo>PDU:</indigo> Contains the actual <purple>data</purple> intended for the receiver, without 
+                    the stuffing <purple>bits</purple>.</li>
+                </ul>
+                <br/>
+                It's the <purple>CANIF's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
+                stuffing <purple>bits</purple>.
+                <br/><br/>
+                <brown>Why using Stuffing Bits: </brown>
+                <br/><br/>
+                By using stuffing <purple>bits</purple> the receiver will not get confused whether he <azure>read</azure> 5 <purple>bits</purple> of 1 or he <azure>read</azure> 4 
+                <purple>bits</purple> of one but the reception was slow.
+                <br/><br/>
+                Let's imagine a sender sending 8 <purple>bits</purple>, but the communication is slow, and the receiver <azure>read</azure> the 11 <purple>bits</purple>. 
+                Since the communication was slow, the receiver happened to <azure>read</azure> the same <purple>bit</purple> multiple times, because the 
+                information was not <azure>updated</azure> on the <red>bus</red>. 
+                <br/><br/>
+                The receiver will have to figure out how many <purple>bits</purple> were actually transmitted,
+                in order to properly interpret the information. This is done by calculating the variation of the 
+                information on the <red>bus</red>. So internally the <azure>ECU</azure> is <azure>counting</azure> how many times the voltages have varried.</error-detection>
     </manifest>
     
 </content>

@@ -6,7 +6,7 @@ const red_colored_substr = {keyword: [
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
     "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", 
-    "CAN Transceiver", "CAN bus", "CAN network"], color: "red"};
+    "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -17,7 +17,8 @@ const red_colored_words = {keyword: [
     "base", "programming", "concurrent", "compute", "language", "reflect", "polymorph", "seal", "pseudo",
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
-    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame", "CANH", "Transceiver"], color: "red"};
+    "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame", "CANH", "Transceiver",
+    "MSB", "CANID"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
@@ -27,7 +28,8 @@ const purple_colored_substr = {keyword: [
     "implicit conversion", "explicit conversion", "format specifier", "file handle", "non-mutat", "heap space", "heap memory",
     "stack memory", "stack space", "global access", "global interpreter lock", "Runtime Environment", "Basic Software", 
     "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16", "Protocol Data Unit", "CAN Controller", 
-    "Serial Peripheral Interface", "CAN Interface", "CAN protocol", "CAN Hardware",  "End to end", "End-to-end"], color: "purple"};
+    "Serial Peripheral Interface", "CAN Interface", "CAN protocol", "CAN Hardware",  "End to end", "End-to-end", 
+    "Other ECU's CANID"], color: "purple"};
     
 const purple_colored_words = {keyword: [
     /*Single words*/
@@ -48,7 +50,9 @@ const azure_colored_substr = {keyword: [
      "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
     "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "back-end", "front-end",
     "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B", "Sequence Number",
-    "CAN Low", "CAN Driver", "Error Frame", "Data Frame", "Overload Frame", "Remote Frame", "Baud rate", "Bus speed"], color: "azure"};
+    "CAN Low", "CAN Driver", "Error Frame", "Data Frame", "Overload Frame", "Remote Frame", "Baud rate", "Bus speed",
+    "Least Significant Bit", "Arbitration Phase", "arbitration process", "Our Transmitted data", 
+    "Collision Resolution Process"], color: "azure"};
 
 const azure_colored_words = {keyword: [
     /*Single words should be second section*/
@@ -59,7 +63,8 @@ const azure_colored_words = {keyword: [
     "efficiency", "server", "condition", "count", "delete", "add", "share", "save", "store", "retrieve", "match", "lambda",
     "code", "manipulate", "comment", "sequence", "create", "open", "read", "write", "close", "start", "run", "task", "cpu", "core", "stream", "signal", 
     "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
-    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "CANL", "SQC", "SQN"], color: "azure"};
+    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "CANL", "SQC", "SQN", "LSB", "ECU-Id", 
+    "Arbitration"], color: "azure"};
 
 //const test = {keyword: ["command-line"], color: "azure"};
 
