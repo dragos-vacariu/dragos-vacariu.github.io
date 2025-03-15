@@ -17589,8 +17589,8 @@
             <br/>
             <indigo>Legend of bit comparison:</indigo><br/>
             <purple>Purple</purple> - is where masking of <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> happens because of <azure>Our</azure> <azure>Transmitted</azure> <azure>data</azure>.<br/>
-            <red>Red</red> - is where the collision is detected because the 2nd <purple>bit</purple> <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> overwrote the <purple>value</purple> of 
-            the <purple>data</purple> we were transmitting
+            <red>Red</red> - is where the collision is detected because the 2nd <purple>bit</purple> from the <purple>Other</purple> <purple>ECU's</purple> <purple>CANID</purple> overwrote 
+            the <purple>value</purple> of the <purple>data</purple> we were transmitting
             <br/>
             <azure>Azure</azure> - is <red>Our</red> <red>ECU's</red> <red>CANID</red> <azure>LSB</azure> (<azure>Least</azure> <azure>Significant</azure> <azure>Bit</azure>) which will NOT be <azure>compared</azure> as part of 
             <azure>Arbitration</azure> <azure>Phase</azure>.

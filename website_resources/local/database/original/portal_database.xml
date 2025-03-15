@@ -16528,8 +16528,8 @@ else
             <br></br>
             <indigo>Legend of bit comparison:</indigo><br></br>
             <purple>Purple</purple> - is where masking of Other ECU's CANID happens because of Our Transmitted data.<br></br>
-            <red>Red</red> - is where the collision is detected because the 2nd bit Other ECU's CANID overwrote the value of 
-            the data we were transmitting
+            <red>Red</red> - is where the collision is detected because the 2nd bit from the Other ECU's CANID overwrote 
+            the value of the data we were transmitting
             <br></br>
             <azure>Azure</azure> - is Our ECU's CANID LSB (Least Significant Bit) which will NOT be compared as part of 
             Arbitration Phase.
