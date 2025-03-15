@@ -16330,11 +16330,6 @@
             Modern vehicles can have over 100 <azure>ECUs</azure>, each responsible for different <azure>tasks</azure>, such as engine management, 
             transmission control, safety <red>systems</red>, and infotainment.
             <br/><br/>
-            In a network: <azure>ECUs</azure> are connected through various <purple>data</purple> <red>buses</red>, <azure>allowing</azure> them to send and receive messages. 
-            Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly. Various Sensors and Actuators are also connected 
-            within the <azure>ECU</azure> Networks. The <purple>data</purple> can be transmitted and received amongst multiple <azure>ECUs</azure> or between an <azure>ECU</azure> and 
-            various Sensors / Actuators. 
-            <br/><br/>
             The communication through the <azure>ECU</azure> networks is performed primarily serial. 
             This means while 2 devices communicate, the others are waiting for the <red>bus</red> to get free (in recessive state).
             <br/><br/>
@@ -16351,13 +16346,6 @@
             the transmission is complete before it can respond or send its own <purple>data</purple>. CAN employs a unique <red>bus</red> arbitration 
             <red>method</red> to manage which device gets to send <purple>data</purple> when multiple devices want to communicate at the same time. 
             This is crucial for preventing <purple>data</purple> collisions.
-            <br/><br/>
-            <indigo>Difference between Sensors and Actuators:</indigo>
-            <br/>
-            Sensors are like the "eyes and ears" of a <red>system</red>. They detect and measure physical <azure>quantities</azure> from the environment.
-            <br/>
-            Actuators are like the "muscles" of a <red>system</red>. They respond to <azure>signals</azure> from a control <red>system</red> by 
-            producing physical motion or changing a physical state.
             <br/><br/>
             <green>Broadcasting:</green>
             <br/><br/>
@@ -16382,7 +16370,7 @@
             <ul class="enumeration">
             <li><indigo>Priority Assignment:</indigo> The message <purple>identifier</purple> determines the priority of the message. 
             <br/>
-            In CAN networks, lower numerical <purple>values</purple> indicate higher priority. This means that if two messages are sent <azure>simultaneously</azure>, 
+            In <red>CAN</red> <red>networks</red>, lower numerical <purple>values</purple> indicate higher priority. This means that if two messages are sent <azure>simultaneously</azure>, 
             the one with the lower <purple>identifier</purple> will take precedence.</li>
             <li><indigo>Message Routing:</indigo> The <purple>identifier</purple> helps in routing messages to the appropriate <azure>ECUs</azure>. 
             Each <azure>ECU</azure> can be programmed to listen for specific <purple>identifiers</purple>, ensuring that it only <azure>processes</azure> relevant messages.</li>
@@ -16782,7 +16770,21 @@
                 which can affect how it is <azure>processed</azure> in a multi-<azure>ECU</azure> environment.
                 </li>
             </ul>
+            <br/></ecu-communication>
+        <ecu-networks>In a network: <azure>ECUs</azure> are connected through various <purple>data</purple> <red>buses</red>, <azure>allowing</azure> them to send and receive messages. 
+            Each <azure>ECU</azure> can <azure>read</azure> <purple>data</purple> from the <red>bus</red> and respond accordingly. 
+            <br/><br/>
+            Various Sensors and Actuators are also connected 
+            within the <azure>ECU</azure> Networks. The <purple>data</purple> can be transmitted and received amongst multiple <azure>ECUs</azure> or between an <azure>ECU</azure> and 
+            various Sensors / Actuators. 
+            <br/><br/>
+            <indigo>Difference between Sensors and Actuators:</indigo>
             <br/>
+            Sensors are like the "eyes and ears" of a <red>system</red>. They detect and measure physical <azure>quantities</azure> from the environment.
+            <br/>
+            Actuators are like the "muscles" of a <red>system</red>. They respond to <azure>signals</azure> from a control <red>system</red> by 
+            producing physical motion or changing a physical state.
+            <br/><br/>
             <green>Components of ECU Networks:</green>
             <br/><br/>
             <brown>Electronic Control Units (ECUs)</brown>
@@ -16801,10 +16803,10 @@
                 It is used for: fuel injection <red>system</red>, ignition <red>system</red>, emissions control, <purple>breaking</purple> <red>system</red> etc. 
                 <br/><br/>
                 The <red>CAN</red> <red>bus</red> enables quick and reliable <azure>sharing</azure> of information between the car's brakes and engine. 
-                For <red>instance</red>, in anti-lock braking <red>systems</red> (ABS), the CAN protocol helps in coordinating 
+                For <red>instance</red>, in anti-lock braking <red>systems</red> (ABS), the <purple>CAN</purple> <purple>protocol</purple> helps in coordinating 
                 the braking force applied to each wheel.
                 <br/>
-                <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) enhances the capabilities of the traditional CAN protocol by <azure>allowing</azure> for 
+                <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) enhances the capabilities of the traditional <purple>CAN</purple> <purple>protocol</purple> by <azure>allowing</azure> for 
                 higher <purple>data</purple> rates and larger <red>payloads</red>.
                 </li>
                 <li><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
@@ -16841,7 +16843,7 @@
             <br/><br/>
             <indigo>Priority and Arbitration</indigo>
             <br/>
-            In a CAN network, messages have different priorities. If two messages are sent <azure>simultaneously</azure>, 
+            In a <red>CAN</red> <red>network</red>, messages have different priorities. If two messages are sent <azure>simultaneously</azure>, 
             the one with the higher priority will be transmitted first.
             <br/><br/>
             <indigo>Error Handling</indigo>
@@ -16855,7 +16857,7 @@
             <br/>
             Example: In CAN (<red>Controller</red> <red>Area</red> <red>Network</red>), the standard <red>frame</red> format <azure>allows</azure> for a <purple>Data</purple> <purple>Field</purple> of only up to 8 <purple>bytes</purple>. 
             <br/><br/>
-            A <red>CAN</red> <red>Frame</red> is an actual <purple>PDU</purple>/message for CAN protocol in <purple>AUTOSAR</purple> which consists of following:
+            A <red>CAN</red> <red>Frame</red> is an actual <purple>PDU</purple>/message for <purple>CAN</purple> <purple>protocol</purple> in <purple>AUTOSAR</purple> which consists of following:
             <br/><br/>
             <indigo>Identifier:</indigo> 11-<purple>bit</purple> or 29-<purple>bit</purple> ID (depending on standard or extended format).<br/>
             <indigo>Control Field:</indigo> <purple>Data</purple> length <azure>code</azure> (DLC), which specifies the length of the <purple>Data</purple> <purple>Field</purple>.<br/>
@@ -16863,7 +16865,7 @@
             <indigo> CRC:</indigo> For error checking.<br/>
             <indigo>Acknowledgment:</indigo> A <purple>signal</purple> confirming successful reception of the <red>frame</red>.
             <br/><br/>
-            In this case: to send larger messages (i.e., <purple>PDUs</purple> larger than 8 <purple>bytes</purple>), the CAN protocol uses a mechanism known as 
+            In this case: to send larger messages (i.e., <purple>PDUs</purple> larger than 8 <purple>bytes</purple>), the <purple>CAN</purple> <purple>protocol</purple> uses a mechanism known as 
             segmentation and reassembly. 
             <br/><br/>
             Larger <purple>PDUs</purple> (such as those needed for diagnostic messages or large <purple>data</purple> transfers) 
@@ -16910,7 +16912,7 @@
             <purple>PDUs</purple> larger than 8 <purple>bytes</purple> can be transmitted in a single <red>frame</red> through <red>CAN</red> <red>FD</red> 
             (Flexible <purple>Data</purple>-rate) protocol, which <azure>allows</azure> for larger <purple>data</purple> <red>payloads</red> and higher <purple>data</purple> 
             transfer rates with a <purple>Data</purple> <purple>Field</purple> <purple>size</purple> of up to 64 <purple>bytes</purple>.
-            <br/></ecu-communication>
+            <br/></ecu-networks>
         <can-protocol>The CAN (<red>Controller</red> <red>Area</red> <red>Network</red>) protocol is a robust vehicle <red>bus</red> standard designed to 
             facilitate <azure>efficient</azure> communication primarily between <red>Electronic</red> <red>Control</red> <red>Units</red> (<azure>ECUs</azure>) in 
             automotive and industrial applications.
@@ -16991,9 +16993,181 @@
                 </li>
             </ul>
             <br/>
-            <green>CAN Transceiver</green>
+            <green>Key Features of the CAN Protocol:</green>
             <br/><br/>
-            The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the <red>CAN</red> <red>bus</red> and the Microcontroller (MCU). 
+            <brown>Multi-Master Configuration:</brown>
+            <br/><br/>
+            All nodes (<azure>ECUs</azure>) on the network can send and receive messages, <azure>allowing</azure> for a decentralized communication <red>system</red>.
+            <br/><br/>
+            <brown>Carrier-Sense Multiple Access with Collision Detection (CSMA/CD):</brown>
+            <br/><br/>
+            CAN uses a <red>method</red> to manage access to the <red>bus</red>, ensuring that if two nodes (<azure>ECUs</azure>) attempt to send messages 
+            <azure>simultaneously</azure>, the one with the higher priority will continue while the other will back off.
+            <br/><br/>
+            <brown>Message Prioritization:</brown>
+            <br/><br/>
+            Each message has a unique <purple>identifier</purple> that determines its priority. Lower numerical <purple>values</purple> indicate higher 
+            priority, <azure>allowing</azure> critical messages to be transmitted first.
+            <br/><br/>
+            <brown>Error Detection and Handling:</brown>
+            <br/><br/>
+            CAN includes several mechanisms for error detection, such as <red>Checksums</red> / <red>CRC</red> and <purple>Acknowledgment</purple> (<purple>ACK</purple>) <purple>bits</purple>, ensuring 
+            reliable communication. If an error is detected, the message is retransmitted.
+            <br/><br/>
+            The acknowledgement (<purple>ACK</purple>) <purple>bit</purple> is used to confirm the reception of the message. 
+            So the <azure>ECU</azure> receiving the message sends out a reply that the reception was successful.
+            <br/><br/>
+            <indigo>How does Acknowledgement (ACK) Bit work?</indigo>
+            <br/>
+            <ul class="enumeration">
+                <li>When a sender transmits a <azure>data</azure> <azure>frame</azure>, it includes an Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> at the end of the <red>frame</red>. 
+                </li>
+                <li>Each <azure>ECU</azure> that successfully receives the <azure>data</azure> <azure>frame</azure> checks for errors. If the <red>frame</red> is received without errors, 
+                the receiving <azure>ECU</azure> <purple>sets</purple> the Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> to a dominant state (<purple>logic</purple> 0). 
+                </li>
+                <li>The <purple>ACK</purple> <purple>bit</purple> is dominant, meaning that if at least one <azure>ECU</azure> acknowledges 
+                the message, the <purple>ACK</purple> <purple>bit</purple> will be recognized as dominant. 
+                </li>
+                <li>If no <azure>ECU</azure> acknowledges the message (i.e., all nodes (<azure>ECUs</azure>) detect an error), 
+                the <purple>ACK</purple> <purple>bit</purple> remains in a recessive state (<purple>logic</purple> 1).
+                </li>
+                <li>The sender monitors the <red>bus</red> for the <purple>ACK</purple> <purple>bit</purple>. If it detects the dominant 
+                state, it knows that at least one <azure>ECU</azure> has successfully received the message. If it does not detect the dominant state, 
+                it assumes that there was an error in transmission. 
+                </li>
+                <li>If the sender does not receive an <purple>acknowledgment</purple>, it may retransmit the message, depending on the 
+                <red>error</red> <red>handling</red> strategy <red>implemented</red>.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Importance of the Acknowledgement (ACK) Bit</indigo>
+            <br/>
+            The <purple>ACK</purple> <purple>bit</purple> ensures that messages are acknowledged, which is vital for <azure>maintaining</azure> the integrity of 
+            communication in a network with multiple nodes. It helps in identifying transmission errors, <azure>allowing</azure> 
+            for corrective actions to be taken.
+            <br/><br/>
+            These basic errors get detected by <purple>CAN</purple> <purple>Controller</purple>, but alongside these features more complex mechanisms such as: 
+            <purple>E2E</purple> <purple>Protection</purple> 
+            can be <purple>layered</purple> on top in order to enhance safety. Mechanisms such as: <purple>E2E</purple> (<purple>End</purple> <purple>to</purple> <purple>End</purple>) <purple>Protection</purple> are <red>implemented</red> 
+            and handled within the higher <purple>Basic</purple> <purple>Software</purple> <purple>Layers</purple>.
+            <br/><br/>
+            <green>Broadcast Communication:</green>
+            <br/><br/>
+            Messages are broadcasted to all nodes (<azure>ECUs</azure>) on the network, meaning that every <azure>ECU</azure> can "hear" all transmissions. 
+            This is <azure>efficient</azure> for applications where multiple devices need to respond to the same <purple>data</purple>.
+            <br/><br/>
+            If the information that the <azure>ECU</azure> "hears" on the <red>bus</red> is not meant for its <red>functioning</red>, then the messages will be <azure>blocked</azure> by its 
+            <purple>CAN</purple> <purple>Controller</purple> / <azure>CAN</azure> <azure>Driver</azure> and it will not reach the upper software <purple>layers</purple>.
+            This filtering is performed using the Unique <purple>Identifiers</purple> from the <purple>PDU</purple> / <red>Frame</red>.
+            <br/><br/>
+            <brown>Difference between Message/PDU and Frame</brown>
+            <br/><br/>
+            Both <red>Frames</red> and Message/<purple>PDUs</purple> can be used to reffer to the same thing.
+            <br/><br/>
+            In a <red>CAN</red> <red>network</red>, messages transferred across the network are referred to as <red>frames</red>. 
+            Each <red>frame</red> contains essential information that <azure>allows</azure> <azure>ECUs</azure> to communicate effectively. 
+            <br/><br/>
+            When the transmission of a Message/<purple>PDU</purple> within a single <red>frame</red> is not possible due to the <purple>size</purple> limitations 
+            (8 <purple>bytes</purple> for <purple>Data</purple> <purple>Field</purple>), 
+            the Message/<purple>PDU</purple> can be transmitted across multiple <red>frames</red>, in segmented parts. This <azure>process</azure> is called 
+            "Segmentation and Reassembly".
+            <br/><br/>
+            A <purple>Protocol</purple> <purple>Data</purple> <purple>Unit</purple> (<purple>PDU</purple>) is a <red>generic</red> term used to describe a unit of <purple>data</purple> specified in a protocol at any <purple>layer</purple> of 
+            the OSI model. It represents the <purple>data</purple> that is transmitted over a network and can vary in <purple>structure</purple> depending on the 
+            protocol being used.
+            <br/><br/>
+            A <red>frame</red> is a specific <purple>type</purple> of <purple>PDU</purple> used at the <purple>data</purple> link <purple>layer</purple> of the OSI model. It is a <purple>structured</purple> unit of 
+            <purple>data</purple> that includes not only 
+            the <red>payload</red> (the actual <purple>data</purple>) but also control information necessary for <purple>data</purple> transmission.
+            <br/><br/>
+            In other words: A Message/<purple>PDU</purple> is a term used to reffer to the packed <purple>data</purple> within the <azure>ECU</azure>, where as the <red>Frame</red> is term used 
+            to reffer to the packed <purple>data</purple> travelling through the <red>bus</red> from one <azure>ECU</azure> to another. So once a transmitted <purple>PDU</purple> has left the <azure>ECU</azure> 
+            it turns into a <red>Frame</red>, then the <red>Frame</red> is <azure>read</azure> by the recipient <azure>ECU</azure> and turns back into a Message/<purple>PDU</purple>.
+            <br/><br/>
+            If the Message/<purple>PDU</purple> was receiving across multiple <red>frames</red>, it will be reassembled back together into a single 
+            unit once all the <red>frames</red> carrying the segmented parts of the Message/<purple>PDU</purple> were received.
+            <br/><br/>
+            <brown>Data Rates:</brown>
+            <br/><br/>
+            CAN supports <purple>data</purple> rates up to 1 Mbps, making it <azure>efficient</azure> for many applications.  
+            A rate of 1 megabit per second (Mbps) means that the network can send 1 million <purple>bits</purple> of <purple>data</purple> every second.
+            <br/><br/>
+            At 1 Mbps, the <purple>CAN</purple> <purple>protocol</purple> can transfer up to 8 <purple>bytes</purple> of <purple>data</purple> per <red>frame</red>. This is the maximum <red>payload</red> <purple>size</purple> for a standard <red>CAN</red> <red>frame</red>, 
+            which is suitable for many automotive and industrial applications. 
+            <br/><br/>
+            While 1 Mbps is effective for many applications, 
+            it can be a limiting factor for <red>systems</red> that require higher <purple>data</purple> throughput. This is where <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) 
+            comes into play, <azure>allowing</azure> for higher speeds (up to 5 Mbps) and larger <purple>data</purple> <red>payloads</red>.
+            <br/><br/>
+            <brown>Bus Speed:</brown>
+            <br/><br/>
+            <azure>Bus</azure> <azure>speed</azure>, often referred to as the <azure>baud</azure> <azure>rate</azure>, is the rate at which the <red>bus</red> can transmit <purple>bits</purple>. 
+            It is <azure>closely</azure> related to the <purple>Data</purple> Rate but can differ due to protocol <azure>overhead</azure>.
+            <br/><br/>
+            The <azure>bus</azure> <azure>speed</azure> is generally aligned with the <purple>data</purple> rate, but the effective <purple>data</purple> 
+            transfer can be lower due to factors like:
+            <br/><br/>
+            <indigo>Protocol Overhead:</indigo> refers to the extra <purple>data</purple> that is transmitted alongside the actual user <purple>data</purple> 
+            in a network communication. In our case: The additional <purple>bits</purple> used for error checking and message <red>framing</red> are sent within
+            the same <red>frame</red> alongside the <purple>Data</purple> <purple>Field</purple>.
+            <br/><br/>
+            <indigo>Network Length:</indigo> Longer <red>bus</red> lengths can reduce the effective speed due to <purple>signal</purple> degradation. 
+            While <purple>signal</purple> degradation doesn't directly slow down the speed of light at which the <purple>signal</purple> travels through the 
+            <red>cable</red>, it does effectively reduce the <purple>data</purple> transfer rate, making it appear as if the <purple>signal</purple> is moving slower.
+            <br/><br/>
+            <azure>Baud</azure> <azure>rate</azure> represents the number of symbols (like 0s and 1s) that can be transmitted per second over the <red>bus</red>.
+            <br/>
+            <azure>Bus</azure> <azure>speed</azure> describes the overall transmission capability of the <red>bus</red>, which is directly related to the <azure>baud</azure> <azure>rate</azure>.
+            <br/><br/>
+            <green>Types of CAN Frames</green>
+            <br/><br/>
+            <indigo>Data Frame:</indigo>
+            <br/>
+            The most common <purple>type</purple>, used to transmit <purple>data</purple> from one <azure>ECU</azure> to another.
+            <br/><br/>
+            <indigo>Remote Frame:</indigo>
+            <br/>
+            Requests <purple>data</purple> from another <azure>ECU</azure> without carrying any <purple>data</purple> itself. 
+            <ul class="enumeration">
+                <li>When an <azure>ECU</azure> needs <purple>data</purple> from another <azure>ECU</azure>, it sends a <azure>Remote</azure> <azure>Frame</azure>. 
+                This <azure>remote</azure> <azure>frame</azure> includes the <purple>identifier</purple> of the <azure>data</azure> <azure>frame</azure> it wants to receive. 
+                </li>
+                <li>Upon receiving the <azure>Remote</azure> <azure>Frame</azure>, 
+                the targeted <azure>ECU</azure> recognizes the request and prepares to send the corresponding <azure>Data</azure> <azure>Frame</azure>.
+                The <azure>Data</azure> <azure>Frame</azure> will then be transmitted back to the requesting <azure>ECU</azure>, containing the requested information.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Error Frame:</indigo>
+            <br/>
+            Indicates that an error has occurred in the transmission, prompting corrective actions. The <azure>Error</azure> <azure>Frame</azure> consists of 
+            a 6-<purple>bit</purple> <purple>field</purple> that indicates the presence of an error. It is transmitted as a series of dominant <purple>bits</purple> (0s) or 
+            recessive <purple>bits</purple> (1s), depending on the <purple>type</purple> of error detected and a delimiter that indicates the end of the <azure>Error</azure> <azure>Frame</azure>.
+            <ul class="enumeration">
+                <li>Each node (<azure>ECU</azure>) on the <red>CAN</red> <red>bus</red> continuously monitors the messages being transmitted. If a node detects an error 
+                (such as a <purple>bit</purple> error, format error, or <purple>acknowledgment</purple> error), it triggers the transmission of an <azure>Error</azure> <azure>Frame</azure>.
+                </li>
+                <li>
+                Once an <azure>Error</azure> <azure>Frame</azure> is generated, it is immediately sent onto the <red>CAN</red> <red>bus</red>. All other nodes on the network 
+                recognize this <red>frame</red> and take appropriate action, such as stopping their current transmission and preparing 
+                to retransmit the message that caused the error.
+                </li>
+                <li>
+                After the <azure>Error</azure> <azure>Frame</azure> is sent, the node (<azure>ECU</azure>) that detected the error will enter an error state. There are different 
+                error states (active, passive, and <red>bus</red>-off) that determine how the node (<azure>ECU</azure>) will behave in future communications.
+                </li>
+            </ul>
+            <br/>
+            <indigo>Overload Frame:</indigo>
+            <br/>
+            Used to <purple>signal</purple> that a node (<azure>ECU</azure>) is temporarily unable to <azure>process</azure> incoming messages. 
+            An <azure>Overload</azure> <azure>Frame</azure> is transmitted when a node (<azure>ECU</azure>) needs more time to <azure>process</azure> incoming messages. 
+            This can occur if:
+            <ul class="enumeration">
+                <li>The node (<azure>ECU</azure>) is busy <azure>processing</azure> previous messages.</li>
+                <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
+            </ul></can-protocol>
+        <can-transceiver>The <red>CAN</red> <red>Transceiver</red> acts as a bridge between the <red>CAN</red> <red>bus</red> and the Microcontroller (MCU). 
             It converts the differential voltage <azure>signals</azure> on the <red>CAN</red> <red>High</red> (<red>CANH</red>) and <azure>CAN</azure> <azure>Low</azure> (<azure>CANL</azure>) <red>lines</red> into a 
             single-ended digital <purple>signal</purple> that the Microcontroller (MCU) can understand.
             <br/><br/>
@@ -17032,7 +17206,7 @@
             If you send 111111111 on the <red>bus</red>, the <red>CAN</red> <red>Transceiver</red> will definitely know there's communication happening. 
             Here's why:
             <ul class="enumeration">
-                <li>The CAN protocol is designed to recognize patterns of <purple>bits</purple>. It's not just about individual <purple>bits</purple>; 
+                <li>The <purple>CAN</purple> <purple>protocol</purple> is designed to recognize patterns of <purple>bits</purple>. It's not just about individual <purple>bits</purple>; 
                 it's about how they are arranged and timed.</li>
                 <li>The <red>CAN</red> <red>Transceiver</red> is <purple>constantly</purple> monitoring the <red>bus</red>. It's looking for specific patterns of <purple>bits</purple> that <purple>signal</purple> 
                 the <azure>start</azure> of a message, the <purple>data</purple> <purple>bits</purple> within the message, and the end of the message.
@@ -17043,7 +17217,7 @@
                 state for the duration of those <purple>bit</purple> times.
                 </li>
             </ul>
-            So basicaly, whenever a node (<azure>ECU</azure>) sends a message on the can it <azure>starts</azure> transmitting with a distinguishable 
+            So basically, whenever a node (<azure>ECU</azure>) sends a message on the CAN it <azure>starts</azure> transmitting with a distinguishable 
             <purple>binary</purple> <azure>sequence</azure> and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure>.
             <ul>
                 <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant <purple>bit</purple> (0) that marks the beginning of a message. 
@@ -17080,44 +17254,124 @@
             <br/>
             A standard single-ended <red>system</red> would only see the voltage on <red>CANH</red> as 0V. It would incorrectly 
             interpret this as a recessive <purple>bit</purple> (0), even though the intended <purple>signal</purple> was a dominant <purple>bit</purple> (1).
+            <br/><br/></can-transceiver>
+        <can-controller-driver><brown>CAN Controller and CAN Driver</brown>
             <br/><br/>
-            <green>CAN Controller and CAN Driver</green>
-            <br/><br/>
-            The <purple>CAN</purple> <purple>Controller</purple> is typically integrated within a Microcontroller Unit (MCU). This integration <azure>allows</azure> 
+            The <purple>CAN</purple> <purple>Controller</purple> is usually integrated within a Microcontroller Unit (MCU). This integration <azure>allows</azure> 
             the MCU to manage communication without needing additional hardware. Even if an MCU has an integrated 
             <purple>CAN</purple> <purple>Controller</purple>, it will still require an external <red>CAN</red> <red>Transceiver</red> to connect to the <red>CAN</red> <red>bus</red>.
+            <br/><br/>
+            <indigo>Serial Peripheral Interface (SPI)</indigo>
+            <br/><br/>
+            In case of <azure>ECUs</azure> which use external Controllers (which are not part of the Microcontroller), these controllers
+            are usually connected using the <purple>SPI</purple> (<purple>Serial</purple> <purple>Peripheral</purple> <purple>Interface</purple>).
+            <br/><br/>
+            The number of <purple>SPI</purple> (<purple>Serial</purple> <purple>Peripheral</purple> <purple>Interface</purple>) pins on a microcontroller can vary depending on 
+            the specific microcontroller model and its architecture. However, here are the typical 
+            pins associated with <purple>SPI</purple> communication:
+            <br/><br/>
+            <brown>Common SPI Pins:</brown>
+            <ul class="enumeration">
+                <li><indigo>MOSI (Master Out Slave In):</indigo> Carries <purple>data</purple> from the master to the slave.</li>
+                <li><indigo>MISO (Master In Slave Out):</indigo> Carries <purple>data</purple> from the slave back to the master.</li>
+                <li><indigo>SCK (Serial Clock):</indigo> Synchronizes <purple>data</purple> transmission between master and slave.</li>
+                <li><indigo>SS (Slave Select):</indigo> Used by the master to select which slave device to communicate with.</li>
+            </ul>
+            At least 4 pins are required for basic <purple>SPI</purple> communication (MOSI, MISO, SCK, and one SS pin).
+            <br/><br/>
+            If you have multiple slave devices, you will need an additional SS pin for each slave, which can 
+            increase the total number of pins used.
+            <br/><br/>
+            For <red>instance</red>, a microcontroller with 3 slave devices would require:
+            <br/>
+            4 pins (MOSI, MISO, SCK, and one SS) + 3 additional SS pins = 7 pins in total.
+            <br/><br/>
+            Some microcontrollers may <azure>allow</azure> you to configure <purple>SPI</purple> using different pins, and some might have 
+            dedicated hardware support for <purple>SPI</purple>, which can simplify the pin usage.
+            <br/><br/>
+            <brown>External CAN Controller connection through SPI:</brown>
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/external_can_controller.png" alt="external_can_controller"/>
+            <br/><br/>
+            Connecting an external <purple>CAN</purple> <purple>Controller</purple> to the Microcontroller using <purple>SPI</purple> instead of dedicated <purple>CAN</purple> <purple>Hardware</purple> <red>Interface</red> is 
+            a choice <red>based</red> on the specifics of the project. Sometimes the built-in <purple>CAN</purple> <purple>Hardware</purple> <red>Interface</red> does not satisfy the project's specifics.
+            <br/><br/>
+            <purple>SPI</purple> can provide higher <purple>data</purple> rates <azure>compared</azure> to some built-in <red>interfaces</red>, which can be crucial for applications requiring fast communication.
+            <br/>
+            If the built-in <purple>CAN</purple> <purple>interface</purple> is complex or lacks certain functionalities, using an external <purple>CAN</purple> <purple>controller</purple> with <purple>SPI</purple> can simplify your design.
+            <br/><br/>
+            <green>CAN Driver</green>
+            <br/><br/>
+            Regardless if the <purple>CAN</purple> <purple>controller</purple> is built-in the microcontroller or external to the microcontroller, the <azure>CAN</azure> <azure>Driver</azure> controlling it will always 
+            be part of the microcontroller.
             <br/><br/>
             The <purple>CAN</purple> <purple>Controller</purple> is controlled by a <azure>CAN</azure> <azure>Driver</azure>. The <azure>CAN</azure> <azure>Driver</azure> acts as an <red>interface</red> between the 
             <purple>Operating</purple> <red>System</red> (<purple>RTOS</purple>) (or <purple>Application</purple> <purple>Layer</purple>) and the <purple>CAN</purple> <purple>Controller</purple>. 
             <br/><br/>
-            The <azure>CAN</azure> <azure>Driver</azure> may also provide <red>functions</red> to through which the <purple>RTOS</purple> can control directly the <red>CAN</red> <red>Transceiver</red>.
+            The <azure>CAN</azure> <azure>Driver</azure> may include <red>functions</red> through which the <red>CAN</red> <red>Transceiver</red> can be configured. For <red>instance</red> 
+            the <azure>CAN</azure> <azure>Driver</azure> might be able to: 
+            <ul class="enumeration">
+                <li>to adjust the <azure>baud</azure> <azure>rate</azure> used by <red>CAN</red> <red>Transceiver</red>;</li>
+                <li>to enable or disable the <red>Transceiver</red>. This controls whether the <red>transceiver</red> is actively 
+                listening for <purple>data</purple> or transmitting <purple>data</purple>. </li>
+                <li>to <purple>set</purple> the <red>transceiver's</red> <purple>operating</purple> mode: This might include different modes for normal 
+                <purple>operation</purple>, sleep mode, or a low-power mode.</li>
+                <li>to configure the filters used by the <red>Transceiver</red>. These filters <azure>allow</azure> the <red>transceiver</red> to 
+                selectively accept or reject incoming messages <red>based</red> on their ID.</li> 
+                <li>to manage the errors handling for the <red>Transceiver</red>. The <azure>CAN</azure> <azure>Driver</azure> might provide <red>functions</red> to 
+                check for errors, 
+                report them to the <purple>RTOS</purple>, and potentially take corrective actions.</li>
+            </ul>
+            <br/>
+            The <azure>CAN</azure> <azure>Driver</azure> also provides the necessary <red>functions</red> to send and receive messages over the <red>CAN</red> <red>network</red>. These 
+            <red>functions</red> may be used directly by the <purple>RTOS</purple> or may be called by <purple>RTOS</purple> through <red>interfaces</red> defined by <purple>CANIF</purple> <red>module</red>. 
+            <br/>
+            For example, the <purple>RTOS</purple> might call <red>functions</red> like 
+            <code>CAN_Send(message)</code> to transmit messages or 
+            <code>CAN_Receive()</code> to handle incoming messages.
             <br/><br/>
-            It provides the necessary <red>functions</red> to send and receive messages over the CAN network. These <red>functions</red> are used
-            directly by the <purple>RTOS</purple>. 
-            <br/><br/>
-            The <purple>RTOS</purple> manages multiple <azure>tasks</azure> that may need to send or receive CAN messages. When a <azure>task</azure> wants to send a message over 
-            the CAN network, it calls the appropriate <red>function</red> from the <azure>CAN</azure> <azure>Driver</azure>. This <red>function</red> handles the details of 
-            message <red>framing</red> and transmission.
-            <br/><br/>
-            Similarly, when a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies the <purple>RTOS</purple>, which can then pass the message to the 
-            appropriate <azure>task</azure> for <azure>processing</azure>.
-            <br/><br/>
-            The <azure>CAN</azure> <azure>Driver</azure> often uses mechanisms like semaphores or queues to synchronize access to the <red>CAN</red> <red>bus</red>, ensuring that 
-            <azure>tasks</azure> do not interfere with each other during message transmission or reception.
-            <br/><br/>
+            
             The <purple>RTOS</purple> utilizes <red>functions</red> from the <azure>CAN</azure> <azure>Driver</azure> to handle errors reported on the <purple>CAN</purple> <purple>Controller</purple>, <azure>allowing</azure> for robust 
             error management in the <red>system</red>.
+            <br/><br/>
+            The <purple>CAN</purple> <purple>Controller</purple> can report several <purple>types</purple> of errors that are crucial for <azure>maintaining</azure> the integrity 
+            of communication on the <red>CAN</red> <red>bus</red>. Some of the errors reported by <purple>CAN</purple> <purple>Controller</purple> are:
+            <ul class="enumeration">
+                <li><indigo>Bit Error:</indigo> This occurs when the <purple>bit</purple> received does not <azure>match</azure> the <purple>bit</purple> transmitted. 
+                It can happen 
+                due to noise or interference on the <red>bus</red>.
+                </li>
+                <li><indigo>Form Error:</indigo> This error is detected when the format of a received <red>frame</red> is incorrect. 
+                For example, if the 
+                <red>frame</red> does not adhere to the expected <purple>structure</purple>, a form error is triggered.
+                </li>
+                <li><indigo>Stuff Error:</indigo> This happens when the <purple>bit</purple> stuffing rule is violated. In CAN, after five 
+                consecutive <purple>bits</purple> of the 
+                same <purple>value</purple>, a complementary <purple>bit</purple> is <azure>inserted</azure>. If this rule is not followed, a stuff error is reported.
+                </li>
+                <li><indigo>CRC Error:</indigo> The <red>Cyclic</red> <red>Redundancy</red> <red>Check</red> (<red>CRC</red>) is used to detect errors in the 
+                transmitted <purple>data</purple>. If the <red>CRC</red> 
+                calculated by the receiver does not <azure>match</azure> the <red>CRC</red> sent with the message, a <red>CRC</red> error is reported.
+                </li>
+                <li><indigo>Acknowledgment Error:</indigo> This error occurs when a transmitted message is not acknowledged 
+                by any node on the <red>bus</red>. 
+                Each node is expected to send an <purple>acknowledgment</purple> <purple>bit</purple> after receiving a message, and if this does not happen, 
+                an <purple>acknowledgment</purple> error is flagged.</li>
+            </ul>
+            <br/>
+            The <azure>CAN</azure> <azure>Driver</azure> often uses mechanisms like semaphores or queues to synchronize access to the <red>CAN</red> <red>bus</red>, ensuring that 
+            <azure>tasks</azure> do not interfere with each other during message transmission or reception.
             <br/><br/>
             <brown>How does the CAN Controller interract with the outside world?</brown>
             <ul class="enumeration">
                 <li>The <purple>CAN</purple> <purple>Controller</purple> can <azure>start</azure> a transmission when it detects an idle <red>bus</red>. This means that the <red>bus</red> is not 
                 currently being used by any other node (<azure>ECU</azure>).</li>
                 <li>When a node (<azure>ECU</azure>) wants to send a message, the <purple>CAN</purple> <purple>Controller</purple> encodes the message according to the 
-                CAN protocol, which includes the <purple>Identifier</purple>, <purple>Data</purple>, and Control Information.</li>
+                <purple>CAN</purple> <purple>protocol</purple>, which includes the <purple>Identifier</purple>, <purple>Data</purple>, and Control Information.</li>
                 <li>The <purple>CAN</purple> <purple>Controller</purple> continuously monitors the <red>bus</red> for incoming messages. When it detects a message, 
                 it decodes it and <azure>processes</azure> the <purple>data</purple>. It also checks for errors during transmission, ensuring that 
                 the <purple>data</purple> received is valid. If an error is detected, the <purple>CAN</purple> <purple>Controller</purple> will <purple>signal</purple> this by sending an 
-                error <red>frame</red> onto the <red>bus</red>. 
+                <azure>error</azure> <azure>frame</azure> onto the <red>bus</red>. 
                 <br/><br/>
                 The <purple>CAN</purple> <purple>Controller</purple> <azure>maintains</azure> error <azure>counters</azure> to track the number of errors encountered. If the error 
                 <azure>count</azure> exceeds a certain threshold, the controller may enter a <red>bus</red>-off state, where it temporarily 
@@ -17127,7 +17381,7 @@
                 itself and resuming normal <purple>operation</purple> once the <red>bus</red> is clear and stable.
                 </li>
                 <li>
-                In cases where multiple nodes (<azure>ECUs</azure>) attempt to transmit <azure>simultaneously</azure>, the CAN protocol uses a <red>method</red> called 
+                In cases where multiple nodes (<azure>ECUs</azure>) attempt to transmit <azure>simultaneously</azure>, the <purple>CAN</purple> <purple>protocol</purple> uses a <red>method</red> called 
                 arbitration. The <purple>CAN</purple> <purple>Controller</purple> uses the message <purple>identifier</purple> to determine which message has the highest 
                 priority and <azure>allows</azure> that message to proceed while others wait.
                 </li>
@@ -17136,178 +17390,95 @@
                 mode, depending on the application requirements.
                 </li>
             </ul>
-            <br/>
-            <green>Key Features of the CAN Protocol:</green>
+            <br/></can-controller-driver>
+        <can-interface><brown>CAN Interface (CANIF)</brown>
             <br/><br/>
-            <brown>Multi-Master Configuration:</brown>
+            The <purple>RTOS</purple> manages multiple <azure>tasks</azure> that may need to send or receive CAN messages. When a <azure>task</azure> wants to send a 
+            message over the <red>CAN</red> <red>network</red>, it calls directly or indirectly the appropriate <red>function</red> from <purple>CANIF</purple> <red>module</red> 
+            which builds reliable <red>interfaces</red> by calling <red>functions</red> defined within the <azure>CAN</azure> <azure>Driver</azure>. 
             <br/><br/>
-            All nodes (<azure>ECUs</azure>) on the network can send and receive messages, <azure>allowing</azure> for a decentralized communication <red>system</red>.
-            <br/><br/>
-            <brown>Carrier-Sense Multiple Access with Collision Detection (CSMA/CD):</brown>
-            <br/><br/>
-            CAN uses a <red>method</red> to manage access to the <red>bus</red>, ensuring that if two nodes (<azure>ECUs</azure>) attempt to send messages 
-            <azure>simultaneously</azure>, the one with the higher priority will continue while the other will back off.
-            <br/><br/>
-            <brown>Message Prioritization:</brown>
-            <br/><br/>
-            Each message has a unique <purple>identifier</purple> that determines its priority. Lower numerical <purple>values</purple> indicate higher 
-            priority, <azure>allowing</azure> critical messages to be transmitted first.
-            <br/><br/>
-            <brown>Error Detection and Handling:</brown>
-            <br/><br/>
-            CAN includes several mechanisms for error detection, such as <red>Checksums</red> / <red>CRC</red> and <purple>Acknowledgment</purple> (<purple>ACK</purple>) <purple>bits</purple>, ensuring 
-            reliable communication. If an error is detected, the message is retransmitted.
-            <br/><br/>
-            The acknowledgement (<purple>ACK</purple>) <purple>bit</purple> is used to confirm the reception of the message. 
-            So the <azure>ECU</azure> receiving the message sends out a reply that the reception was successful.
-            <br/><br/>
-            <indigo>How does Acknowledgement (ACK) Bit work?</indigo>
-            <br/>
+            <indigo>Concrete Example of Communication between ECUs:</indigo>
             <ul class="enumeration">
-                <li>When a sender transmits a <purple>data</purple> <red>frame</red>, it includes an Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> at the end of the <red>frame</red>. 
+                <li><purple>RTOS</purple> <azure>Task</azure> calls <purple>CANIF</purple> <red>interface</red> for sending a message through the <red>CAN</red> <red>bus</red>.</li>
+                <li><purple>CANIF</purple> <red>interface</red> receives the <purple>data</purple> from <purple>RTOS</purple> <azure>Task</azure>, and <red>based</red> on the <purple>size</purple> of message 
+                it performs the segmentation. On <red>CAN</red> <red>bus</red> we are only <azure>allowed</azure> to send messages up to 8 <purple>bytes</purple>. 
+                If the message to be sent is bigger than 8 <purple>bytes</purple>, it will be <azure>sliced</azure> into multiple <red>Frames</red>. 
+                Each <red>Frame</red> will contain the same message ID and <red>CRC</red>, a <azure>sequential</azure> <azure>SQC</azure> / <azure>SQN</azure> (<azure>Sequence</azure> <azure>Counter</azure> or 
+                <azure>Sequence</azure> <azure>Number</azure>) and only a <azure>portion</azure> of the actual <purple>data</purple></li>
+                <li><purple>CANIF</purple> then buffers the <red>frames</red>, and notifies the <azure>CAN</azure> <azure>Driver</azure> that everything is <purple>set</purple> for transmission.</li>
+                <li><azure>CAN</azure> <azure>Driver</azure> monitors the activity on the <red>bus</red>, and once the <red>bus</red> is available, 
+                it will inform the <purple>CANIF</purple>, that the transmission can begin.</li>
+                <li><purple>CANIF</purple> receives the notification from <azure>CAN</azure> <azure>Driver</azure>, and passes the first <red>frame</red> to the <azure>CAN</azure> <azure>Driver</azure>.</li>
+                <li><azure>CAN</azure> <azure>Driver</azure> takes the <red>frame</red>, and informs the <red>CAN</red> <red>Transceiver</red> that <purple>data</purple> will be coming.</li>
+                <li><red>CAN</red> <red>Transceiver</red> sends a distinguishable <purple>binary</purple> <azure>sequence</azure> on the <red>bus</red>, to reserve a slot for 
+                message transmission.</li>
+                <li><azure>CAN</azure> <azure>Driver</azure> sends each <purple>bit</purple> within the <red>frame</red>, individually, to the <red>CAN</red> <red>Transceiver</red>.</li>
+                <li><red>CAN</red> <red>Transceiver</red> receives the <purple>bit</purple> and turns it into voltage. A <purple>bit</purple> 0 is equivalent to 4.5V on <red>CANH</red>, 
+                and 1.5V on 
+                <azure>CANL</azure>. whereas <purple>bit</purple> 1 is equivalent to 2.5V on each wire: <red>CANH</red> and <azure>CANL</azure></li>
+                <li>While we are sending the message on the <red>bus</red>, <purple>bit</purple> by <purple>bit</purple>, <red>frame</red> by <red>frame</red>. All other <azure>ECUs</azure> listen, 
+                    and wait for their 
+                    turn to reach for the <red>bus</red> and send their messages.
                 </li>
-                <li>Each <azure>ECU</azure> that successfully receives the <purple>data</purple> <red>frame</red> checks for errors. If the <red>frame</red> is received without errors, 
-                the receiving <azure>ECU</azure> <purple>sets</purple> the Acknowledgement (<purple>ACK</purple>) <purple>bit</purple> to a dominant state (<purple>logic</purple> 0). 
+                <li>The listening <azure>ECUs</azure> will <azure>read</azure> our <purple>binary</purple> <purple>data</purple>, and they will <azure>compare</azure> our ID with their ID, if the ID <azure>matches</azure>, it means
+                   we called their name, they need to receive the message. They will begin to <azure>write</azure> down every <purple>bit</purple> we send within that transmission.
                 </li>
-                <li>The <purple>ACK</purple> <purple>bit</purple> is dominant, meaning that if at least one <azure>ECU</azure> acknowledges 
-                the message, the <purple>ACK</purple> <purple>bit</purple> will be recognized as dominant. 
-                </li>
-                <li>If no <azure>ECU</azure> acknowledges the message (i.e., all nodes (<azure>ECUs</azure>) detect an error), 
-                the <purple>ACK</purple> <purple>bit</purple> remains in a recessive state (<purple>logic</purple> 1).
-                </li>
-                <li>The sender monitors the <red>bus</red> for the <purple>ACK</purple> <purple>bit</purple>. If it detects the dominant 
-                state, it knows that at least one <azure>ECU</azure> has successfully received the message. If it does not detect the dominant state, 
-                it assumes that there was an error in transmission. 
-                </li>
-                <li>If the sender does not receive an <purple>acknowledgment</purple>, it may retransmit the message, depending on the 
-                <red>error</red> <red>handling</red> strategy <red>implemented</red>.
-                </li>
-            </ul>
-            <br/>
-            <indigo>Importance of the Acknowledgement (ACK) Bit</indigo>
-            <br/>
-            The <purple>ACK</purple> <purple>bit</purple> ensures that messages are acknowledged, which is vital for <azure>maintaining</azure> the integrity of 
-            communication in a network with multiple nodes. It helps in identifying transmission errors, <azure>allowing</azure> 
-            for corrective actions to be taken.
-            <br/><br/>
-            These basic errors get detected by <purple>CAN</purple> <purple>Controller</purple>, but alongside these features more complex mechanisms such as: 
-            E2E <purple>Protection</purple> 
-            can be <purple>layered</purple> on top in order to enhance safety. Mechanisms such as: E2E (End to End) <purple>Protection</purple> are <red>implemented</red> 
-            and handled within the higher <purple>Basic</purple> <purple>Software</purple> <purple>Layers</purple>.
-            <br/><br/>
-            <brown>Broadcast Communication:</brown>
-            <br/><br/>
-            Messages are broadcasted to all nodes (<azure>ECUs</azure>) on the network, meaning that every <azure>ECU</azure> can "hear" all transmissions. 
-            This is <azure>efficient</azure> for applications where multiple devices need to respond to the same <purple>data</purple>.
-            <br/><br/>
-            If the information that the <azure>ECU</azure> "hears" on the <red>bus</red> is not meant for its <red>functioning</red>, then the messages will be <azure>blocked</azure> by its 
-            <purple>CAN</purple> <purple>Controller</purple> / <azure>CAN</azure> <azure>Driver</azure> and it will not reach the upper software <purple>layers</purple>.
-            This filtering is performed using the Unique <purple>Identifiers</purple> from the <purple>PDU</purple> / <red>Frame</red>.
-            <br/><br/>
-            <indigo>Difference between Message/PDU and Frame</indigo>
-            <br/><br/>
-            Both <red>Frames</red> and Message/<purple>PDUs</purple> can be used to reffer to the same thing.
-            <br/><br/>
-            In a CAN network, messages transferred across the network are referred to as <red>frames</red>. 
-            Each <red>frame</red> contains essential information that <azure>allows</azure> <azure>ECUs</azure> to communicate effectively. 
-            <br/><br/>
-            When the transmission of a Message/<purple>PDU</purple> within a single <red>frame</red> is not possible due to the <purple>size</purple> limitations (8 <purple>bytes</purple> for <purple>Data</purple> <purple>Field</purple>), 
-            the Message/<purple>PDU</purple> can be transmitted across multiple <red>frames</red>, in segmented parts. This <azure>process</azure> is called "Segmentation and Reassembly".
-            <br/><br/>
-            A <purple>Protocol</purple> <purple>Data</purple> <purple>Unit</purple> (<purple>PDU</purple>) is a <red>generic</red> term used to describe a unit of <purple>data</purple> specified in a protocol at any <purple>layer</purple> of 
-            the OSI model. It represents the <purple>data</purple> that is transmitted over a network and can vary in <purple>structure</purple> depending on the 
-            protocol being used.
-            <br/><br/>
-            A <red>frame</red> is a specific <purple>type</purple> of <purple>PDU</purple> used at the <purple>data</purple> link <purple>layer</purple> of the OSI model. It is a <purple>structured</purple> unit of <purple>data</purple> that includes not only 
-            the <red>payload</red> (the actual <purple>data</purple>) but also control information necessary for <purple>data</purple> transmission.
-            <br/><br/>
-            In other words: A Message/<purple>PDU</purple> is a term used to reffer to the packed <purple>data</purple> within the <azure>ECU</azure>, where as the <red>Frame</red> is term used 
-            to reffer to the packed <purple>data</purple> travelling through the <red>bus</red> from one <azure>ECU</azure> to another. So once a transmitted <purple>PDU</purple> has left the <azure>ECU</azure> 
-            it turns into a <red>Frame</red>, then the <red>Frame</red> is <azure>read</azure> by the recipient <azure>ECU</azure> and turns back into a Message/<purple>PDU</purple>.
-            <br/><br/>
-            If the Message/<purple>PDU</purple> was receiving across multiple <red>frames</red>, it will be reassembled back together into a single unit once all the <red>frames</red> 
-            carrying the segmented parts of the Message/<purple>PDU</purple> were received.
-            <br/><br/>
-            <brown>Data Rates:</brown>
-            <br/><br/>
-            CAN supports <purple>data</purple> rates up to 1 Mbps, making it <azure>efficient</azure> for many applications.  
-            A rate of 1 megabit per second (Mbps) means that the network can send 1 million <purple>bits</purple> of <purple>data</purple> every second.
-            <br/><br/>
-            At 1 Mbps, the CAN protocol can transfer up to 8 <purple>bytes</purple> of <purple>data</purple> per <red>frame</red>. This is the maximum <red>payload</red> <purple>size</purple> for a standard <red>CAN</red> <red>frame</red>, 
-            which is suitable for many automotive and industrial applications. 
-            <br/><br/>
-            While 1 Mbps is effective for many applications, 
-            it can be a limiting factor for <red>systems</red> that require higher <purple>data</purple> throughput. This is where <red>CAN</red> <red>FD</red> (Flexible <purple>Data</purple>-rate) 
-            comes into play, <azure>allowing</azure> for higher speeds (up to 5 Mbps) and larger <purple>data</purple> <red>payloads</red>.
-            <br/><br/>
-            <brown>Bus Speed:</brown>
-            <br/><br/>
-            <red>Bus</red> speed, often referred to as the baud rate, is the rate at which the <red>bus</red> can transmit <purple>bits</purple>. 
-            It is <azure>closely</azure> related to the <purple>Data</purple> Rate but can differ due to protocol <azure>overhead</azure>.
-            <br/><br/>
-            The <red>bus</red> speed is generally aligned with the <purple>data</purple> rate, but the effective <purple>data</purple> 
-            transfer can be lower due to factors like:
-            <br/><br/>
-            <indigo>Protocol Overhead:</indigo> refers to the extra <purple>data</purple> that is transmitted alongside the actual user <purple>data</purple> 
-            in a network communication. In our case: The additional <purple>bits</purple> used for error checking and message <red>framing</red> are sent within
-            the same <red>frame</red> alongside the <purple>Data</purple> <purple>Field</purple>.
-            <br/><br/>
-            <indigo>Network Length:</indigo> Longer <red>bus</red> lengths can reduce the effective speed due to <purple>signal</purple> degradation. 
-            While <purple>signal</purple> degradation doesn't directly slow down the speed of light at which the <purple>signal</purple> travels through the 
-            <red>cable</red>, it does effectively reduce the <purple>data</purple> transfer rate, making it appear as if the <purple>signal</purple> is moving slower.
-            <br/><br/>
-            Baud rate represents the number of symbols (like 0s and 1s) that can be transmitted per second over the <red>bus</red>.
-            <br/>
-            <red>Bus</red> speed describes the overall transmission capability of the <red>bus</red>, which is directly related to the baud rate.
-            <br/><br/>
-            <green>Types of CAN Frames</green>
-            <br/><br/>
-            <indigo>Data Frame:</indigo>
-            <br/>
-            The most common <purple>type</purple>, used to transmit <purple>data</purple> from one <azure>ECU</azure> to another.
-            <br/><br/>
-            <indigo>Remote Frame:</indigo>
-            <br/>
-            Requests <purple>data</purple> from another <azure>ECU</azure> without carrying any <purple>data</purple> itself. 
-            <ul class="enumeration">
-                <li>When an <azure>ECU</azure> needs <purple>data</purple> from another <azure>ECU</azure>, it sends a Remote <red>Frame</red>. 
-                This remote <red>frame</red> includes the <purple>identifier</purple> of the <purple>data</purple> <red>frame</red> it wants to receive. 
-                </li>
-                <li>Upon receiving the Remote <red>Frame</red>, 
-                the targeted <azure>ECU</azure> recognizes the request and prepares to send the corresponding <purple>Data</purple> <red>Frame</red>.
-                The <purple>Data</purple> <red>Frame</red> will then be transmitted back to the requesting <azure>ECU</azure>, containing the requested information.
-                </li>
-            </ul>
-            <br/>
-            <indigo>Error Frame:</indigo>
-            <br/>
-            Indicates that an error has occurred in the transmission, prompting corrective actions. The Error <red>Frame</red> consists of 
-            a 6-<purple>bit</purple> <purple>field</purple> that indicates the presence of an error. It is transmitted as a series of dominant <purple>bits</purple> (0s) or 
-            recessive <purple>bits</purple> (1s), depending on the <purple>type</purple> of error detected and a delimiter that indicates the end of the Error <red>Frame</red>.
-            <ul class="enumeration">
-                <li>Each node (<azure>ECU</azure>) on the <red>CAN</red> <red>bus</red> continuously monitors the messages being transmitted. If a node detects an error 
-                (such as a <purple>bit</purple> error, format error, or <purple>acknowledgment</purple> error), it triggers the transmission of an Error <red>Frame</red>.
+                <li>In case any other <azure>ECU</azure> within the network call in for "emergency" with a more prioritary message, 
+                    our message will be intrerrupted. 
+                    We will stop the transmission and free the <red>bus</red>. 
+                    Meaning, we hear that some other <azure>ECU</azure> has an "emergency" and 
+                    we send in a distinguishable <purple>binary</purple> <azure>sequence</azure> saying the <red>bus</red> is free.
+                    The <azure>ECU</azure> with which we were communicating will keep on waiting for us to resume the communication.
+                    Whatever <purple>data</purple> we transmitted is <azure>stored</azure> halfway within the recipient <azure>ECU</azure>. 
                 </li>
                 <li>
-                Once an Error <red>Frame</red> is generated, it is immediately sent onto the <red>CAN</red> <red>bus</red>. All other nodes on the network 
-                recognize this <red>frame</red> and take appropriate action, such as stopping their current transmission and preparing 
-                to retransmit the message that caused the error.
+                    The other <azure>ECU</azure> sends its more prioritary message and frees the <red>bus</red>.
                 </li>
                 <li>
-                After the Error <red>Frame</red> is sent, the node (<azure>ECU</azure>) that detected the error will enter an error state. There are different 
-                error states (active, passive, and <red>bus</red>-off) that determine how the node (<azure>ECU</azure>) will behave in future communications.
+                    Once the <red>bus</red> gets free, we will resume our communication.
+                </li>
+                <li>
+                    Once all the <red>frames</red> were sent, the <red>CAN</red> <red>Transceiver</red> will send a distinguishable <purple>binary</purple> <azure>sequence</azure> to notify all other <azure>ECUs</azure> that the transmission has ended, 
+                    and the <red>bus</red> is free again.
+                </li>
+                <li>
+                    On the receipient <azure>ECU</azure>, the <red>CAN</red> <red>Transceiver</red> translates the last <purple>bit</purple> for the <azure>CAN</azure> <azure>Driver</azure>. The <azure>CAN</azure> <azure>Driver</azure> 
+                    now has all the <purple>data</purple> and knows
+                    that the message is complete, and will notify the <purple>CANIF</purple>.
+                </li>
+                <li>
+                    <purple>CANIF</purple> has received through the <azure>CAN</azure> <azure>Driver</azure> all the <purple>bits</purple> within all the <red>frames</red>. Now it has everything 
+                    buffered and will attempt to 
+                    assemble all pieces together. It will check for <azure>SQC</azure> / <azure>SQN</azure> in order to determine which <red>frame</red> is 
+                    first. <red>Based</red> on the <azure>SQC</azure> / <azure>SQN</azure> 
+                    the <red>frames</red> are put together and a 
+                    Message is formed.
+                </li>
+                <li>
+                    <purple>CANIF</purple> will attempt to validate the message, by calculating the <red>CRC</red> for the message and <azure>comparing</azure> 
+                    the result with the <red>CRC</red> received from our <azure>ECU</azure>.
+                    If the <red>CRCs</red> are identical, the message is valid.
+                </li>
+                <li>
+                    If the <red>CRCs</red> are not identical. The other <azure>ECU</azure> will reserve the <red>bus</red>, and will send out an 
+                    <azure>Error</azure> <azure>Frame</azure> meant for our <azure>ECU</azure>. We will receive
+                    the <azure>Error</azure> <azure>Frame</azure>, and we will know the message intrerruption caused a problem in our transmission, 
+                    and the message that reached the destination
+                    is different from what we meant to send.
+                </li>
+                <li>
+                    Our <azure>ECU</azure> will retransmit the message. If the same scenario repeats multiple times, and we are unable 
+                    to send the message properly, <red>based</red> on the requirement we might decide restart the 
+                    <red>CAN</red> <red>Transceiver</red>, <purple>CAN</purple> <purple>Controller</purple>, or even 
+                    the <azure>ECU</azure>, and same thing might happen with the receipient <azure>ECU</azure>. We will try again after that.
                 </li>
             </ul>
             <br/>
-            <indigo>Overload Frame:</indigo>
+            The same steps are taken in case of message reception. 
             <br/>
-            Used to <purple>signal</purple> that a node (<azure>ECU</azure>) is temporarily unable to <azure>process</azure> incoming messages. 
-            An <red>Overload</red> <red>Frame</red> is transmitted when a node (<azure>ECU</azure>) needs more time to <azure>process</azure> incoming messages. 
-            This can occur if:
-            <ul class="enumeration">
-                <li>The node (<azure>ECU</azure>) is busy <azure>processing</azure> previous messages.</li>
-                <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
-            </ul></can-protocol>
+            When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CANIF</purple> which assembles the message and informs 
+            directly or indirectly the <purple>RTOS</purple>, which can then pass the message to the appropriate <azure>task</azure> for <azure>processing</azure>.
+            <br/><br/></can-interface>
     </manifest>
     
 </content>

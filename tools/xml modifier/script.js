@@ -6,7 +6,7 @@ const red_colored_substr = {keyword: [
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
     "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", 
-    "CAN Transceiver", "CAN bus"], color: "red"};
+    "CAN Transceiver", "CAN bus", "CAN network"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -26,7 +26,8 @@ const purple_colored_substr = {keyword: [
     "wide character", "long long int", "short int", "long int", "left-shift", "right-shift", "macro constant", 
     "implicit conversion", "explicit conversion", "format specifier", "file handle", "non-mutat", "heap space", "heap memory",
     "stack memory", "stack space", "global access", "global interpreter lock", "Runtime Environment", "Basic Software", 
-    "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16", "Protocol Data Unit", "CAN Controller"], color: "purple"};
+    "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16", "Protocol Data Unit", "CAN Controller", 
+    "Serial Peripheral Interface", "CAN Interface", "CAN protocol", "CAN Hardware",  "End to end", "End-to-end"], color: "purple"};
     
 const purple_colored_words = {keyword: [
     /*Single words*/
@@ -37,7 +38,7 @@ const purple_colored_words = {keyword: [
     "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
     "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
     "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype",
-    "architect", "AUTOSAR", "Layer", "determinist", "PDU", "ACK", "Acknowledgment", "RTOS"], color: "purple"};
+    "architect", "AUTOSAR", "Layer", "determinist", "PDU", "ACK", "Acknowledgment", "RTOS", "SPI", "CANIF", "E2E"], color: "purple"};
 
 //Words and expressions associated with various concepts or special terms:
 const azure_colored_substr = {keyword: [
@@ -47,7 +48,7 @@ const azure_colored_substr = {keyword: [
      "single-core", "multi-core", "dual-core", "quad-core", "non-determinism",  "race condition", "last in first out", "low level", "high level",
     "first in last out", "memory leak", "not allow", "access modifier", "regular expression", "back-end", "front-end",
     "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B", "Sequence Number",
-    "CAN Low", "CAN Driver"], color: "azure"};
+    "CAN Low", "CAN Driver", "Error Frame", "Data Frame", "Overload Frame", "Remote Frame", "Baud rate", "Bus speed"], color: "azure"};
 
 const azure_colored_words = {keyword: [
     /*Single words should be second section*/
@@ -58,7 +59,7 @@ const azure_colored_words = {keyword: [
     "efficiency", "server", "condition", "count", "delete", "add", "share", "save", "store", "retrieve", "match", "lambda",
     "code", "manipulate", "comment", "sequence", "create", "open", "read", "write", "close", "start", "run", "task", "cpu", "core", "stream", "signal", 
     "process", "reuse", "port", "repo", "header", "source", "ram", "insert", "append", "ui", "replace", "concatenate", 
-    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "CANL"], color: "azure"};
+    "compare", "allocat", "search", "update", "slice", "derive", "VFB",  "ECU", "CANL", "SQC", "SQN"], color: "azure"};
 
 //const test = {keyword: ["command-line"], color: "azure"};
 

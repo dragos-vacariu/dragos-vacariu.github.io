@@ -15297,11 +15297,6 @@ sum = lambda arg1, arg2: arg1 + arg2;
             Modern vehicles can have over 100 ECUs, each responsible for different tasks, such as engine management, 
             transmission control, safety systems, and infotainment.
             <br></br><br></br>
-            In a network: ECUs are connected through various data buses, allowing them to send and receive messages. 
-            Each ECU can read data from the bus and respond accordingly. Various Sensors and Actuators are also connected 
-            within the ECU Networks. The data can be transmitted and received amongst multiple ECUs or between an ECU and 
-            various Sensors / Actuators. 
-            <br></br><br></br>
             The communication through the ECU networks is performed primarily serial. 
             This means while 2 devices communicate, the others are waiting for the bus to get free (in recessive state).
             <br></br><br></br>
@@ -15318,13 +15313,6 @@ sum = lambda arg1, arg2: arg1 + arg2;
             the transmission is complete before it can respond or send its own data. CAN employs a unique bus arbitration 
             method to manage which device gets to send data when multiple devices want to communicate at the same time. 
             This is crucial for preventing data collisions.
-            <br></br><br></br>
-            <indigo>Difference between Sensors and Actuators:</indigo>
-            <br></br>
-            Sensors are like the "eyes and ears" of a system. They detect and measure physical quantities from the environment.
-            <br></br>
-            Actuators are like the "muscles" of a system. They respond to signals from a control system by 
-            producing physical motion or changing a physical state.
             <br></br><br></br>
             <green>Broadcasting:</green>
             <br></br><br></br>
@@ -15710,6 +15698,22 @@ else
                 </li>
             </ul>
             <br></br>
+        </ecu-communication>
+        <ecu-networks>
+            In a network: ECUs are connected through various data buses, allowing them to send and receive messages. 
+            Each ECU can read data from the bus and respond accordingly. 
+            <br></br><br></br>
+            Various Sensors and Actuators are also connected 
+            within the ECU Networks. The data can be transmitted and received amongst multiple ECUs or between an ECU and 
+            various Sensors / Actuators. 
+            <br></br><br></br>
+            <indigo>Difference between Sensors and Actuators:</indigo>
+            <br></br>
+            Sensors are like the "eyes and ears" of a system. They detect and measure physical quantities from the environment.
+            <br></br>
+            Actuators are like the "muscles" of a system. They respond to signals from a control system by 
+            producing physical motion or changing a physical state.
+            <br></br><br></br>
             <green>Components of ECU Networks:</green>
             <br></br><br></br>
             <brown>Electronic Control Units (ECUs)</brown>
@@ -15838,7 +15842,7 @@ else
             (Flexible Data-rate) protocol, which allows for larger data payloads and higher data 
             transfer rates with a Data Field size of up to 64 bytes.
             <br></br>
-        </ecu-communication>
+        </ecu-networks>
         <can-protocol>
             The CAN (Controller Area Network) protocol is a robust vehicle bus standard designed to 
             facilitate efficient communication primarily between Electronic Control Units (ECUs) in 
@@ -15920,152 +15924,6 @@ else
                 </li>
             </ul>
             <br></br>
-            <green>CAN Transceiver</green>
-            <br></br><br></br>
-            The CAN Transceiver acts as a bridge between the CAN bus and the Microcontroller (MCU). 
-            It converts the differential voltage signals on the CAN High (CANH) and CAN Low (CANL) lines into a 
-            single-ended digital signal that the Microcontroller (MCU) can understand.
-            <br></br><br></br>
-            <brown>Differential Signal Interpretation:</brown>
-            <br></br>
-            The transceiver interprets the voltage levels as follows:
-            <ul class="enumeration">
-            <li>Dominant State: When the voltage difference indicates a dominant bit (e.g., CANH at approximately 3.5V and CANL at about 
-            1.5V), the transceiver recognizes this as a binary 0. This state indicates an active transmission from a node (ECU) so the communication
-            is going through the bus.
-            </li>
-            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a 
-            binary 1. When no node (ECU) is actively sending data, the bus remains in the recessive state meaning No Communication is
-            going through the bus.
-            </li>
-            <li>
-            Bus Idle State: When there is no communication, the bus is in an idle state, which is characterized by 
-            the recessive state (higher voltage on the bus). The transceiver continuously monitors the bus for 
-            any changes in voltage.
-            </li>
-            </ul>
-            On the dominant state, both bit 0 and bit 1 can be transmitted. This is where things get a little tricky in 
-            CAN communication. The dominant state (lower voltage) represents a bit 0. This is straightforward.
-            <br></br><br></br>
-            In order to transmit a bit 1, a node (ECU) doesn't actively pull the bus voltage down to the dominant state. 
-            Instead, it allows the voltage to remain in the recessive state (higher voltage).
-            <br></br><br></br>
-            Think of it like this:
-            <br></br>
-            Imagine a group of people shouting. When someone wants to say "yes" (bit 0), they shout loudly. 
-            When they want to say "no" (bit 1), they don't shout. They simply remain silent, allowing the 
-            background noise (recessive state) to continue.
-            <br></br><br></br>
-            <brown>Difference between Recessive State and a consecutive group of bits of value 1</brown>
-            <br></br><br></br>
-            If you send 111111111 on the bus, the CAN Transceiver will definitely know there's communication happening. 
-            Here's why:
-            <ul class="enumeration">
-                <li>The CAN protocol is designed to recognize patterns of bits. It's not just about individual bits; 
-                it's about how they are arranged and timed.</li>
-                <li>The CAN Transceiver is constantly monitoring the bus. It's looking for specific patterns of bits that signal 
-                the start of a message, the data bits within the message, and the end of the message.
-                </li>
-                <li>
-                A string of 1s, even if it's just a series of recessive states, is still a pattern that the CAN 
-                Transceiver will recognize. It will know that a node (ECU) is actively holding the bus in the recessive 
-                state for the duration of those bit times.
-                </li>
-            </ul>
-            So basicaly, whenever a node (ECU) sends a message on the can it starts transmitting with a distinguishable 
-            binary sequence and it ends the transmission with a different distinguishable binary sequence.
-            <ul>
-                <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant bit (0) that marks the beginning of a message. 
-                Think of it like a "Hey, everyone, listen up!" signal.</li>
-                <li><indigo>Data:</indigo> This is the actual message content, consisting of a series of bits representing the data 
-                being transmitted.</li>
-                <li><indigo>End of Frame (EOF):</indigo> This is a sequence of seven dominant bits (0s) followed by a recessive bit (1). 
-                It's like a "That's all, folks!" signal.</li>
-            </ul>
-            <brown>Digital Signal Outputting:</brown>
-            <br></br>
-            The transceiver outputs a digital signal (high or low) to the Microcontroller (MCU) based on the interpreted 
-            voltage levels. This digital signal can then be processed by the Microcontroller (MCU) for further actions, 
-            such as data logging, control commands, or communication with other devices.
-            <br></br><br></br>
-            <brown>Error Detection Scenario in CAN Transceiver:</brown>
-            <br></br>
-            Imagine a CAN bus with two wires, CANH and CANL, transmitting a dominant bit (1). 
-            This means CANH should be at a higher voltage (around 3.5V) than CANL (around 1.5V).
-            <br></br><br></br>
-            <indigo>Fault:</indigo> Let's say there's a fault in the CANH wire, causing it to short-circuit to ground. 
-            This would drop the voltage on CANH to 0V.
-            <br></br><br></br>
-            <indigo>With Differential Signaling:</indigo>
-            <br></br>
-            The CAN transceiver compares the voltage levels of CANH and CANL. It sees that CANH is at 0V, and CANL is still at 1.5V.
-            <br></br>
-            The transceiver recognizes this voltage difference as an error. It knows that the intended signal was a dominant bit (1), 
-            even though the CANH wire is faulty.
-            <br></br><br></br>
-            This allows the transceiver to flag the error and potentially request a retransmission of the message.
-            <br></br><br></br>
-            <indigo>Without Differential Signaling:</indigo>
-            <br></br>
-            A standard single-ended system would only see the voltage on CANH as 0V. It would incorrectly 
-            interpret this as a recessive bit (0), even though the intended signal was a dominant bit (1).
-            <br></br><br></br>
-            <green>CAN Controller and CAN Driver</green>
-            <br></br><br></br>
-            The CAN Controller is typically integrated within a Microcontroller Unit (MCU). This integration allows 
-            the MCU to manage communication without needing additional hardware. Even if an MCU has an integrated 
-            CAN Controller, it will still require an external CAN Transceiver to connect to the CAN bus.
-            <br></br><br></br>
-            The CAN Controller is controlled by a CAN Driver. The CAN Driver acts as an interface between the 
-            Operating System (RTOS) (or Application Layer) and the CAN Controller. 
-            <br></br><br></br>
-            The CAN Driver may also provide functions to through which the RTOS can control directly the CAN Transceiver.
-            <br></br><br></br>
-            It provides the necessary functions to send and receive messages over the CAN network. These functions are used
-            directly by the RTOS. 
-            <br></br><br></br>
-            The RTOS manages multiple tasks that may need to send or receive CAN messages. When a task wants to send a message over 
-            the CAN network, it calls the appropriate function from the CAN Driver. This function handles the details of 
-            message framing and transmission.
-            <br></br><br></br>
-            Similarly, when a message is received, the CAN Driver notifies the RTOS, which can then pass the message to the 
-            appropriate task for processing.
-            <br></br><br></br>
-            The CAN Driver often uses mechanisms like semaphores or queues to synchronize access to the CAN bus, ensuring that 
-            tasks do not interfere with each other during message transmission or reception.
-            <br></br><br></br>
-            The RTOS utilizes functions from the CAN Driver to handle errors reported on the CAN Controller, allowing for robust 
-            error management in the system.
-            <br></br><br></br>
-            <brown>How does the CAN Controller interract with the outside world?</brown>
-            <ul class="enumeration">
-                <li>The CAN Controller can start a transmission when it detects an idle bus. This means that the bus is not 
-                currently being used by any other node (ECU).</li>
-                <li>When a node (ECU) wants to send a message, the CAN Controller encodes the message according to the 
-                CAN protocol, which includes the Identifier, Data, and Control Information.</li>
-                <li>The CAN Controller continuously monitors the bus for incoming messages. When it detects a message, 
-                it decodes it and processes the data. It also checks for errors during transmission, ensuring that 
-                the data received is valid. If an error is detected, the CAN Controller will signal this by sending an 
-                error frame onto the bus. 
-                <br></br><br></br>
-                The CAN Controller maintains error counters to track the number of errors encountered. If the error 
-                count exceeds a certain threshold, the controller may enter a bus-off state, where it temporarily 
-                stops transmitting to prevent further issues on the bus.
-                <br></br><br></br>
-                In the event of a bus-off state, the CAN Controller will eventually attempt to recover by reinitializing 
-                itself and resuming normal operation once the bus is clear and stable.
-                </li>
-                <li>
-                In cases where multiple nodes (ECUs) attempt to transmit simultaneously, the CAN protocol uses a method called 
-                arbitration. The CAN Controller uses the message identifier to determine which message has the highest 
-                priority and allows that message to proceed while others wait.
-                </li>
-                <li>
-                The CAN Controller can operate in different modes, such as normal mode, listen-only mode, and loopback 
-                mode, depending on the application requirements.
-                </li>
-            </ul>
-            <br></br>
             <green>Key Features of the CAN Protocol:</green>
             <br></br><br></br>
             <brown>Multi-Master Configuration:</brown>
@@ -16124,7 +15982,7 @@ else
             can be layered on top in order to enhance safety. Mechanisms such as: E2E (End to End) Protection are implemented 
             and handled within the higher Basic Software Layers.
             <br></br><br></br>
-            <brown>Broadcast Communication:</brown>
+            <green>Broadcast Communication:</green>
             <br></br><br></br>
             Messages are broadcasted to all nodes (ECUs) on the network, meaning that every ECU can "hear" all transmissions. 
             This is efficient for applications where multiple devices need to respond to the same data.
@@ -16133,29 +15991,32 @@ else
             CAN Controller / CAN Driver and it will not reach the upper software layers.
             This filtering is performed using the Unique Identifiers from the PDU / Frame.
             <br></br><br></br>
-            <indigo>Difference between Message/PDU and Frame</indigo>
+            <brown>Difference between Message/PDU and Frame</brown>
             <br></br><br></br>
             Both Frames and Message/PDUs can be used to reffer to the same thing.
             <br></br><br></br>
             In a CAN network, messages transferred across the network are referred to as frames. 
             Each frame contains essential information that allows ECUs to communicate effectively. 
             <br></br><br></br>
-            When the transmission of a Message/PDU within a single frame is not possible due to the size limitations (8 bytes for Data Field), 
-            the Message/PDU can be transmitted across multiple frames, in segmented parts. This process is called "Segmentation and Reassembly".
+            When the transmission of a Message/PDU within a single frame is not possible due to the size limitations 
+            (8 bytes for Data Field), 
+            the Message/PDU can be transmitted across multiple frames, in segmented parts. This process is called 
+            "Segmentation and Reassembly".
             <br></br><br></br>
             A Protocol Data Unit (PDU) is a generic term used to describe a unit of data specified in a protocol at any layer of 
             the OSI model. It represents the data that is transmitted over a network and can vary in structure depending on the 
             protocol being used.
             <br></br><br></br>
-            A frame is a specific type of PDU used at the data link layer of the OSI model. It is a structured unit of data that includes not only 
+            A frame is a specific type of PDU used at the data link layer of the OSI model. It is a structured unit of 
+            data that includes not only 
             the payload (the actual data) but also control information necessary for data transmission.
             <br></br><br></br>
             In other words: A Message/PDU is a term used to reffer to the packed data within the ECU, where as the Frame is term used 
             to reffer to the packed data travelling through the bus from one ECU to another. So once a transmitted PDU has left the ECU 
             it turns into a Frame, then the Frame is read by the recipient ECU and turns back into a Message/PDU.
             <br></br><br></br>
-            If the Message/PDU was receiving across multiple frames, it will be reassembled back together into a single unit once all the frames 
-            carrying the segmented parts of the Message/PDU were received.
+            If the Message/PDU was receiving across multiple frames, it will be reassembled back together into a single 
+            unit once all the frames carrying the segmented parts of the Message/PDU were received.
             <br></br><br></br>
             <brown>Data Rates:</brown>
             <br></br><br></br>
@@ -16238,6 +16099,324 @@ else
                 <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
             </ul>
         </can-protocol>
+        <can-transceiver>
+            The CAN Transceiver acts as a bridge between the CAN bus and the Microcontroller (MCU). 
+            It converts the differential voltage signals on the CAN High (CANH) and CAN Low (CANL) lines into a 
+            single-ended digital signal that the Microcontroller (MCU) can understand.
+            <br></br><br></br>
+            <brown>Differential Signal Interpretation:</brown>
+            <br></br>
+            The transceiver interprets the voltage levels as follows:
+            <ul class="enumeration">
+            <li>Dominant State: When the voltage difference indicates a dominant bit (e.g., CANH at approximately 3.5V and CANL at about 
+            1.5V), the transceiver recognizes this as a binary 0. This state indicates an active transmission from a node (ECU) so the communication
+            is going through the bus.
+            </li>
+            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a 
+            binary 1. When no node (ECU) is actively sending data, the bus remains in the recessive state meaning No Communication is
+            going through the bus.
+            </li>
+            <li>
+            Bus Idle State: When there is no communication, the bus is in an idle state, which is characterized by 
+            the recessive state (higher voltage on the bus). The transceiver continuously monitors the bus for 
+            any changes in voltage.
+            </li>
+            </ul>
+            On the dominant state, both bit 0 and bit 1 can be transmitted. This is where things get a little tricky in 
+            CAN communication. The dominant state (lower voltage) represents a bit 0. This is straightforward.
+            <br></br><br></br>
+            In order to transmit a bit 1, a node (ECU) doesn't actively pull the bus voltage down to the dominant state. 
+            Instead, it allows the voltage to remain in the recessive state (higher voltage).
+            <br></br><br></br>
+            Think of it like this:
+            <br></br>
+            Imagine a group of people shouting. When someone wants to say "yes" (bit 0), they shout loudly. 
+            When they want to say "no" (bit 1), they don't shout. They simply remain silent, allowing the 
+            background noise (recessive state) to continue.
+            <br></br><br></br>
+            <brown>Difference between Recessive State and a consecutive group of bits of value 1</brown>
+            <br></br><br></br>
+            If you send 111111111 on the bus, the CAN Transceiver will definitely know there's communication happening. 
+            Here's why:
+            <ul class="enumeration">
+                <li>The CAN protocol is designed to recognize patterns of bits. It's not just about individual bits; 
+                it's about how they are arranged and timed.</li>
+                <li>The CAN Transceiver is constantly monitoring the bus. It's looking for specific patterns of bits that signal 
+                the start of a message, the data bits within the message, and the end of the message.
+                </li>
+                <li>
+                A string of 1s, even if it's just a series of recessive states, is still a pattern that the CAN 
+                Transceiver will recognize. It will know that a node (ECU) is actively holding the bus in the recessive 
+                state for the duration of those bit times.
+                </li>
+            </ul>
+            So basically, whenever a node (ECU) sends a message on the CAN it starts transmitting with a distinguishable 
+            binary sequence and it ends the transmission with a different distinguishable binary sequence.
+            <ul>
+                <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant bit (0) that marks the beginning of a message. 
+                Think of it like a "Hey, everyone, listen up!" signal.</li>
+                <li><indigo>Data:</indigo> This is the actual message content, consisting of a series of bits representing the data 
+                being transmitted.</li>
+                <li><indigo>End of Frame (EOF):</indigo> This is a sequence of seven dominant bits (0s) followed by a recessive bit (1). 
+                It's like a "That's all, folks!" signal.</li>
+            </ul>
+            <brown>Digital Signal Outputting:</brown>
+            <br></br>
+            The transceiver outputs a digital signal (high or low) to the Microcontroller (MCU) based on the interpreted 
+            voltage levels. This digital signal can then be processed by the Microcontroller (MCU) for further actions, 
+            such as data logging, control commands, or communication with other devices.
+            <br></br><br></br>
+            <brown>Error Detection Scenario in CAN Transceiver:</brown>
+            <br></br>
+            Imagine a CAN bus with two wires, CANH and CANL, transmitting a dominant bit (1). 
+            This means CANH should be at a higher voltage (around 3.5V) than CANL (around 1.5V).
+            <br></br><br></br>
+            <indigo>Fault:</indigo> Let's say there's a fault in the CANH wire, causing it to short-circuit to ground. 
+            This would drop the voltage on CANH to 0V.
+            <br></br><br></br>
+            <indigo>With Differential Signaling:</indigo>
+            <br></br>
+            The CAN transceiver compares the voltage levels of CANH and CANL. It sees that CANH is at 0V, and CANL is still at 1.5V.
+            <br></br>
+            The transceiver recognizes this voltage difference as an error. It knows that the intended signal was a dominant bit (1), 
+            even though the CANH wire is faulty.
+            <br></br><br></br>
+            This allows the transceiver to flag the error and potentially request a retransmission of the message.
+            <br></br><br></br>
+            <indigo>Without Differential Signaling:</indigo>
+            <br></br>
+            A standard single-ended system would only see the voltage on CANH as 0V. It would incorrectly 
+            interpret this as a recessive bit (0), even though the intended signal was a dominant bit (1).
+            <br></br><br></br>
+        </can-transceiver>
+        <can-controller-driver>
+            <brown>CAN Controller and CAN Driver</brown>
+            <br></br><br></br>
+            The CAN Controller is usually integrated within a Microcontroller Unit (MCU). This integration allows 
+            the MCU to manage communication without needing additional hardware. Even if an MCU has an integrated 
+            CAN Controller, it will still require an external CAN Transceiver to connect to the CAN bus.
+            <br></br><br></br>
+            <indigo>Serial Peripheral Interface (SPI)</indigo>
+            <br></br><br></br>
+            In case of ECUs which use external Controllers (which are not part of the Microcontroller), these controllers
+            are usually connected using the SPI (Serial Peripheral Interface).
+            <br></br><br></br>
+            The number of SPI (Serial Peripheral Interface) pins on a microcontroller can vary depending on 
+            the specific microcontroller model and its architecture. However, here are the typical 
+            pins associated with SPI communication:
+            <br></br><br></br>
+            <brown>Common SPI Pins:</brown>
+            <ul class="enumeration">
+                <li><indigo>MOSI (Master Out Slave In):</indigo> Carries data from the master to the slave.</li>
+                <li><indigo>MISO (Master In Slave Out):</indigo> Carries data from the slave back to the master.</li>
+                <li><indigo>SCK (Serial Clock):</indigo> Synchronizes data transmission between master and slave.</li>
+                <li><indigo>SS (Slave Select):</indigo> Used by the master to select which slave device to communicate with.</li>
+            </ul>
+            At least 4 pins are required for basic SPI communication (MOSI, MISO, SCK, and one SS pin).
+            <br></br><br></br>
+            If you have multiple slave devices, you will need an additional SS pin for each slave, which can 
+            increase the total number of pins used.
+            <br></br><br></br>
+            For instance, a microcontroller with 3 slave devices would require:
+            <br></br>
+            4 pins (MOSI, MISO, SCK, and one SS) + 3 additional SS pins = 7 pins in total.
+            <br></br><br></br>
+            Some microcontrollers may allow you to configure SPI using different pins, and some might have 
+            dedicated hardware support for SPI, which can simplify the pin usage.
+            <br></br><br></br>
+            <brown>External CAN Controller connection through SPI:</brown>
+            <br></br><br></br>
+            <img class="database_image" src="./website_resources/local/database/pictures/external_can_controller.png" alt="external_can_controller"></img>
+            <br></br><br></br>
+            Connecting an external CAN Controller to the Microcontroller using SPI instead of dedicated CAN Hardware Interface is 
+            a choice based on the specifics of the project. Sometimes the built-in CAN Hardware Interface does not satisfy the project's specifics.
+            <br></br><br></br>
+            SPI can provide higher data rates compared to some built-in interfaces, which can be crucial for applications requiring fast communication.
+            <br></br>
+            If the built-in CAN interface is complex or lacks certain functionalities, using an external CAN controller with SPI can simplify your design.
+            <br></br><br></br>
+            <green>CAN Driver</green>
+            <br></br><br></br>
+            Regardless if the CAN controller is built-in the microcontroller or external to the microcontroller, the CAN Driver controlling it will always 
+            be part of the microcontroller.
+            <br></br><br></br>
+            The CAN Controller is controlled by a CAN Driver. The CAN Driver acts as an interface between the 
+            Operating System (RTOS) (or Application Layer) and the CAN Controller. 
+            <br></br><br></br>
+            The CAN Driver may include functions through which the CAN Transceiver can be configured. For instance 
+            the CAN Driver might be able to: 
+            <ul class="enumeration">
+                <li>to adjust the baud rate used by CAN Transceiver;</li>
+                <li>to enable or disable the Transceiver. This controls whether the transceiver is actively 
+                listening for data or transmitting data. </li>
+                <li>to set the transceiver's operating mode: This might include different modes for normal 
+                operation, sleep mode, or a low-power mode.</li>
+                <li>to configure the filters used by the Transceiver. These filters allow the transceiver to 
+                selectively accept or reject incoming messages based on their ID.</li> 
+                <li>to manage the errors handling for the Transceiver. The CAN Driver might provide functions to 
+                check for errors, 
+                report them to the RTOS, and potentially take corrective actions.</li>
+            </ul>
+            <br></br>
+            The CAN Driver also provides the necessary functions to send and receive messages over the CAN network. These 
+            functions may be used directly by the RTOS or may be called by RTOS through interfaces defined by CANIF module. 
+            <br></br>
+            For example, the RTOS might call functions like 
+            <code>CAN_Send(message)</code> to transmit messages or 
+            <code>CAN_Receive()</code> to handle incoming messages.
+            <br></br><br></br>
+            
+            The RTOS utilizes functions from the CAN Driver to handle errors reported on the CAN Controller, allowing for robust 
+            error management in the system.
+            <br></br><br></br>
+            The CAN Controller can report several types of errors that are crucial for maintaining the integrity 
+            of communication on the CAN bus. Some of the errors reported by CAN Controller are:
+            <ul class="enumeration">
+                <li><indigo>Bit Error:</indigo> This occurs when the bit received does not match the bit transmitted. 
+                It can happen 
+                due to noise or interference on the bus.
+                </li>
+                <li><indigo>Form Error:</indigo> This error is detected when the format of a received frame is incorrect. 
+                For example, if the 
+                frame does not adhere to the expected structure, a form error is triggered.
+                </li>
+                <li><indigo>Stuff Error:</indigo> This happens when the bit stuffing rule is violated. In CAN, after five 
+                consecutive bits of the 
+                same value, a complementary bit is inserted. If this rule is not followed, a stuff error is reported.
+                </li>
+                <li><indigo>CRC Error:</indigo> The Cyclic Redundancy Check (CRC) is used to detect errors in the 
+                transmitted data. If the CRC 
+                calculated by the receiver does not match the CRC sent with the message, a CRC error is reported.
+                </li>
+                <li><indigo>Acknowledgment Error:</indigo> This error occurs when a transmitted message is not acknowledged 
+                by any node on the bus. 
+                Each node is expected to send an acknowledgment bit after receiving a message, and if this does not happen, 
+                an acknowledgment error is flagged.</li>
+            </ul>
+            <br></br>
+            The CAN Driver often uses mechanisms like semaphores or queues to synchronize access to the CAN bus, ensuring that 
+            tasks do not interfere with each other during message transmission or reception.
+            <br></br><br></br>
+            <brown>How does the CAN Controller interract with the outside world?</brown>
+            <ul class="enumeration">
+                <li>The CAN Controller can start a transmission when it detects an idle bus. This means that the bus is not 
+                currently being used by any other node (ECU).</li>
+                <li>When a node (ECU) wants to send a message, the CAN Controller encodes the message according to the 
+                CAN protocol, which includes the Identifier, Data, and Control Information.</li>
+                <li>The CAN Controller continuously monitors the bus for incoming messages. When it detects a message, 
+                it decodes it and processes the data. It also checks for errors during transmission, ensuring that 
+                the data received is valid. If an error is detected, the CAN Controller will signal this by sending an 
+                error frame onto the bus. 
+                <br></br><br></br>
+                The CAN Controller maintains error counters to track the number of errors encountered. If the error 
+                count exceeds a certain threshold, the controller may enter a bus-off state, where it temporarily 
+                stops transmitting to prevent further issues on the bus.
+                <br></br><br></br>
+                In the event of a bus-off state, the CAN Controller will eventually attempt to recover by reinitializing 
+                itself and resuming normal operation once the bus is clear and stable.
+                </li>
+                <li>
+                In cases where multiple nodes (ECUs) attempt to transmit simultaneously, the CAN protocol uses a method called 
+                arbitration. The CAN Controller uses the message identifier to determine which message has the highest 
+                priority and allows that message to proceed while others wait.
+                </li>
+                <li>
+                The CAN Controller can operate in different modes, such as normal mode, listen-only mode, and loopback 
+                mode, depending on the application requirements.
+                </li>
+            </ul>
+            <br></br>
+        </can-controller-driver>
+        <can-interface>
+            <brown>CAN Interface (CANIF)</brown>
+            <br></br><br></br>
+            The RTOS manages multiple tasks that may need to send or receive CAN messages. When a task wants to send a 
+            message over the CAN network, it calls directly or indirectly the appropriate function from CANIF module 
+            which builds reliable interfaces by calling functions defined within the CAN Driver. 
+            <br></br><br></br>
+            <indigo>Concrete Example of Communication between ECUs:</indigo>
+            <ul class="enumeration">
+                <li>RTOS Task calls CANIF interface for sending a message through the CAN bus.</li>
+                <li>CANIF interface receives the data from RTOS Task, and based on the size of message 
+                it performs the segmentation. On CAN bus we are only allowed to send messages up to 8 bytes. 
+                If the message to be sent is bigger than 8 bytes, it will be sliced into multiple Frames. 
+                Each Frame will contain the same message ID and CRC, a sequential SQC / SQN (Sequence Counter or 
+                Sequence Number) and only a portion of the actual data</li>
+                <li>CANIF then buffers the frames, and notifies the CAN Driver that everything is set for transmission.</li>
+                <li>CAN Driver monitors the activity on the bus, and once the bus is available, 
+                it will inform the CANIF, that the transmission can begin.</li>
+                <li>CANIF receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</li>
+                <li>CAN Driver takes the frame, and informs the CAN Transceiver that data will be coming.</li>
+                <li>CAN Transceiver sends a distinguishable binary sequence on the bus, to reserve a slot for 
+                message transmission.</li>
+                <li>CAN Driver sends each bit within the frame, individually, to the CAN Transceiver.</li>
+                <li>CAN Transceiver receives the bit and turns it into voltage. A bit 0 is equivalent to 4.5V on CANH, 
+                and 1.5V on 
+                CANL. whereas bit 1 is equivalent to 2.5V on each wire: CANH and CANL</li>
+                <li>While we are sending the message on the bus, bit by bit, frame by frame. All other ECUs listen, 
+                    and wait for their 
+                    turn to reach for the bus and send their messages.
+                </li>
+                <li>The listening ECUs will read our binary data, and they will compare our ID with their ID, if the ID matches, it means
+                   we called their name, they need to receive the message. They will begin to write down every bit we send within that transmission.
+                </li>
+                <li>In case any other ECU within the network call in for "emergency" with a more prioritary message, 
+                    our message will be intrerrupted. 
+                    We will stop the transmission and free the bus. 
+                    Meaning, we hear that some other ECU has an "emergency" and 
+                    we send in a distinguishable binary sequence saying the bus is free.
+                    The ECU with which we were communicating will keep on waiting for us to resume the communication.
+                    Whatever data we transmitted is stored halfway within the recipient ECU. 
+                </li>
+                <li>
+                    The other ECU sends its more prioritary message and frees the bus.
+                </li>
+                <li>
+                    Once the bus gets free, we will resume our communication.
+                </li>
+                <li>
+                    Once all the frames were sent, the CAN Transceiver will send a distinguishable binary sequence to notify all other ECUs that the transmission has ended, 
+                    and the bus is free again.
+                </li>
+                <li>
+                    On the receipient ECU, the CAN Transceiver translates the last bit for the CAN Driver. The CAN Driver 
+                    now has all the data and knows
+                    that the message is complete, and will notify the CANIF.
+                </li>
+                <li>
+                    CANIF has received through the CAN Driver all the bits within all the frames. Now it has everything 
+                    buffered and will attempt to 
+                    assemble all pieces together. It will check for SQC / SQN in order to determine which frame is 
+                    first. Based on the SQC / SQN 
+                    the frames are put together and a 
+                    Message is formed.
+                </li>
+                <li>
+                    CANIF will attempt to validate the message, by calculating the CRC for the message and comparing 
+                    the result with the CRC received from our ECU.
+                    If the CRCs are identical, the message is valid.
+                </li>
+                <li>
+                    If the CRCs are not identical. The other ECU will reserve the bus, and will send out an 
+                    Error Frame meant for our ECU. We will receive
+                    the Error Frame, and we will know the message intrerruption caused a problem in our transmission, 
+                    and the message that reached the destination
+                    is different from what we meant to send.
+                </li>
+                <li>
+                    Our ECU will retransmit the message. If the same scenario repeats multiple times, and we are unable 
+                    to send the message properly, based on the requirement we might decide restart the 
+                    CAN Transceiver, CAN Controller, or even 
+                    the ECU, and same thing might happen with the receipient ECU. We will try again after that.
+                </li>
+            </ul>
+            <br></br>
+            The same steps are taken in case of message reception. 
+            <br></br>
+            When a message is received, the CAN Driver notifies CANIF which assembles the message and informs 
+            directly or indirectly the RTOS, which can then pass the message to the appropriate task for processing.
+            <br></br><br></br>
+        </can-interface>
     </manifest>
     
 </content>
