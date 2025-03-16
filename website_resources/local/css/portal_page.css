@@ -348,6 +348,12 @@ searchHighlight{
     /*workaround for maintaining same font-weight when saving webpage*/
     font-weight: bold;
 }
+
+#page_block code table p
+{
+    border: red 2px solid;
+}
+
 #page_block code table td{
     text-align: left;
     border: solid 1px rgba(0,0,0,0.1);
@@ -393,14 +399,29 @@ searchHighlight{
 /*Tooltip is used for adding additional info on hovering on an element*/
 #page_block red{
     color: #dd0000;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block azure{
     color: #008080;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block purple{
     color: #aa00cc;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block red tooltip{
@@ -439,6 +460,11 @@ searchHighlight{
     padding: 2px;
     border: solid 1px rgba(0,0,0,0.1);
     line-height: 25px;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block indigo{
@@ -451,6 +477,11 @@ searchHighlight{
     padding: 2px;
     border: groove 0px rgba(0,0,0,0.1);
     line-height: 22px;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block green{
@@ -458,6 +489,11 @@ searchHighlight{
     color: #007700;
     font-family: Tahoma;
     font-size: 18px;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 #page_block bold{
@@ -468,6 +504,11 @@ searchHighlight{
     font-weight: bold;
     color: red;
     font-family: Verdana;
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    text-align: left; 
+    width: 98%; 
 }
 
 /*Styling the scroll bar*/
@@ -502,10 +543,42 @@ searchHighlight{
     left: 10%;
 }
 
+/*Need to check for proper formatting of p element.*/
+#page_block #table_content p{
+    border: none;
+}
+
 #page_block .enumeration{
-    margin: 0%;
+    position: relative;
+    margin: 1%;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    color: #663300; 
+    font-family: Calibri; 
+    font-size: 18px; 
+    text-align: left; 
+    width: 98%; 
+    border: 0px none black;
+    
+
 }
 
 #page_block .enumeration li{
     margin: 10px;
+    border: 0px none black;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }

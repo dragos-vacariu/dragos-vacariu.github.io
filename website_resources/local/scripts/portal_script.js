@@ -1620,13 +1620,13 @@ function saveWebPage()
     const fetchAssets = async () => 
     {
         // Fetch CSS content
-        //var cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/css/portal_page.css');
-        var cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/css/portal_page.css');
+        var cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/css/portal_page.css');
+        //var cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/css/portal_page.css');
         
         var cssText = await cssResponse.text();
         
-        //cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/global/css/global.css');
-        cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/global/css/global.css');
+        cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/global/css/global.css');
+        //cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/global/css/global.css');
         
         cssText += await cssResponse.text();
         
