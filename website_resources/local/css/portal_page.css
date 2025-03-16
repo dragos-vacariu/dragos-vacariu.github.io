@@ -78,7 +78,7 @@
     border-radius: 5px;
 }
 
-#clearSearchButton, #searchButton {
+#clearSearchButton, #searchButton, #save_button {
     position: relative;
     width: 48%;
     min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
@@ -110,7 +110,12 @@
     text-align: center;
 }
 
-#clearSearchButton:hover, #searchButton:hover{
+#save_button
+{
+    width: 98%;
+}
+
+#clearSearchButton:hover, #searchButton:hover, #save_button:hover{
     opacity: 0.7;
     background-image: linear-gradient(to right, #ffeecc, white);
 }
@@ -172,8 +177,8 @@ searchHighlight{
     cursor: pointer; /*this is the hand arrow*/
 }
 
-#page_block #menu_div .selection_list li, #concept_selection li {
-    display: inline-block;
+.selection_list_element, .concept_collection_element
+{
     width: auto; 
     max-width: 100%;
     list-style: none;
@@ -194,7 +199,15 @@ searchHighlight{
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#concept_selection li{
+/*selecting from .selection_list class the children which are part of class .selection_list_element*/
+.selection_list_element
+{
+    display: inline-block;
+}
+
+/*selecting from element with concept_selection id the children which are part of class .selection_list_element*/
+#page_block #menu_div .concept_collection_element
+{
     /*overwrite the display property for the concept_seleciton*/
     display: block;
 }

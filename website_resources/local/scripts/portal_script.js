@@ -17,6 +17,7 @@ const disabledElementOpacity = 0.3;
 //different styles for list tag selection:
 const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
 const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
+const concept_item_class = "concept_collection_element"
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
@@ -353,7 +354,7 @@ function restoreDBMultipleSelectionCookie()
                     {
                         if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
                         {
-                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior, concept_item_class));
                             concept_collection.push(selected_language.concepts[index].concept_name);
                         }                 
                     }
@@ -526,11 +527,11 @@ function loadXMLDoc(xml_file)
                 {
                     if(concept_index == 0)
                     {
-                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, true, conceptSelectionBehavior));
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, true, conceptSelectionBehavior, concept_item_class));
                     }
                     else
                     {
-                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, false, conceptSelectionBehavior));
+                        concept_selection.appendChild(createLiElement(manifests[1].concepts[concept_index].concept_name, false, conceptSelectionBehavior, concept_item_class));
                     }
                     concept_collection.push(manifests[1].concepts[concept_index].concept_name);
                 }
@@ -747,7 +748,7 @@ function fillTableRegular()
     }
 }
 
-function createLiElement(string_value, enablingStatus, function_behaviour)
+function createLiElement(string_value, enablingStatus, function_behaviour, class_style="selection_list_element")
 {
     /*
     This function will create li elements to allow selection and deselection of elements 
@@ -756,6 +757,10 @@ function createLiElement(string_value, enablingStatus, function_behaviour)
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(string_value));
     li.value = enablingStatus;
+    if(class_style != "")
+    {
+        li.classList.add(class_style);
+    }
     if (li.value == true)
     {
         li.style = tag_selection_on;
@@ -867,17 +872,17 @@ function toggleManifestOnOff(manifest_element)
             {
                 if(index == 0)
                 {
-                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior, concept_item_class));
                 }
                 else if (selected_concept != "" && active_language.concepts[index].concept_name ==  selected_concept)
                 {
-                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, true, conceptSelectionBehavior, concept_item_class));
                     concept_selection.children[0].value = false
                     concept_selection.children[0].style = tag_selection_off;
                 }
                 else
                 {
-                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                    concept_selection.appendChild(createLiElement(active_language.concepts[index].concept_name, false, conceptSelectionBehavior, concept_item_class));
                 }
                 concept_collection.push(active_language.concepts[index].concept_name);
             }
@@ -938,11 +943,11 @@ function toggleManifestOnOff(manifest_element)
                     {
                         if (allConceptsSelection == true)
                         {
-                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, true, conceptSelectionBehavior));
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, true, conceptSelectionBehavior, concept_item_class));
                         }
                         else
                         {
-                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior));
+                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior, concept_item_class));
                         }
                         concept_collection.push(selected_language.concepts[index].concept_name);
                     }                 
@@ -1590,6 +1595,84 @@ function workaroundForFooterRoutedLinksForPortalPage(value)
     
     /*Force a reload, that will ensure the route is loaded*/
     window.location.reload()
+}
+
+function getObjectSize(obj) 
+{
+    return new Blob([JSON.stringify(obj)]).size;
+}
+
+function memoryUsageMonitor()
+{
+    console.log("Object:         Size (bytes): ")
+    console.log("Document:       Size: " + getObjectSize(window.document))
+    console.log("Manifests:      Size: " + getObjectSize(manifests))
+    console.log("Script:         Size: " + getObjectSize(window.document.scripts))
+    console.log("Scripts content: " + window.document.scripts)
+}
+
+function saveWebPage() 
+{
+    // Get the current HTML content
+    const textToWrite = document.documentElement.outerHTML;
+    
+    // Fetch CSS and JavaScript to inline them into the HTML
+    const fetchAssets = async () => 
+    {
+        // Fetch CSS content
+        //var cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/css/portal_page.css');
+        var cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/css/portal_page.css');
+        
+        var cssText = await cssResponse.text();
+        
+        //cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/global/css/global.css');
+        cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/global/css/global.css');
+        
+        cssText += await cssResponse.text();
+        
+        //var cssResponse = await loadResource("./website_resources/local/css/portal_page.css")
+        
+        //Fetch JavaScript content
+        //const jsResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/scripts/portal_script.js');
+        //const jsResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/scripts/portal_script.js');
+        
+        //const jsText = await jsResponse.text();
+
+        var finalHtml = textToWrite.replace('</head>', "<style>" + cssText + "</style>\n</head>");
+        
+        //Removing external resources from page's source, so no errors will popup
+        finalHtml = finalHtml.replace('<link rel="stylesheet" href="./website_resources/global/css/global.css">', "");
+        finalHtml = finalHtml.replace('<link rel="stylesheet" href="./website_resources/global/css/portal_page.css">', "");
+        finalHtml = finalHtml.replace('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
+        finalHtml = finalHtml.replace('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
+        finalHtml = finalHtml.replace('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
+        //finalHtml = finalHtml.replace('</body>', "<script>" + jsText + "</script></body>");
+
+        // Trigger download of the HTML file
+        const textFileAsBlob = new Blob([finalHtml], { type: 'text/html' });
+        const downloadLink = document.createElement('a');
+
+        downloadLink.download = document.title + ".html";
+        downloadLink.innerHTML = "Download File";
+        
+        if (window.webkitURL != null) 
+        {
+            // Chrome allows the link to be clicked without actually adding it to the DOM.
+            downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+        } 
+        else 
+        {
+            // Firefox requires the link to be added to the DOM before it can be clicked.
+            downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+            downloadLink.onclick = destroyClickedElement;
+            downloadLink.style.display = "none";
+            document.body.appendChild(downloadLink);
+        }
+        
+        downloadLink.click();
+    };
+
+    fetchAssets();
 }
 
 //Triggered event when key is pressed down
