@@ -1,6 +1,10 @@
-const online_xml_file = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/website_resources/local/database/processed/portal_database_processed.xml";
-//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/processed/portal_database_processed.xml"; //local resource can be ran using local server with cors
-//const online_xml_file = "http://localhost:8003/dragos-vacariu.github.io/website_resources/local/database/original/portal_database.xml"; //local resource can be ran using local server with cors
+var domain = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/"
+//var domain = "http://localhost:8003/dragos-vacariu.github.io/"
+
+const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml";
+//const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml"; //local resource can be ran using local server with cors
+//const online_xml_file = domain + "website_resources/local/database/original/portal_database.xml"; //local resource can be ran using local server with cors
+
 const manifests = [];
 const manifest_selection = document.getElementById("manifest_selection");
 concept_collection = [];
@@ -1620,21 +1624,16 @@ function saveWebPage()
     const fetchAssets = async () => 
     {
         // Fetch CSS content
-        var cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/css/portal_page.css');
-        //var cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/css/portal_page.css');
+        var cssResponse = await fetch(domain + 'website_resources/local/css/portal_page.css');
         
         var cssText = await cssResponse.text();
         
-        cssResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/global/css/global.css');
-        //cssResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/global/css/global.css');
+        cssResponse = await fetch(domain + 'website_resources/global/css/global.css');
         
         cssText += await cssResponse.text();
         
-        //var cssResponse = await loadResource("./website_resources/local/css/portal_page.css")
-        
         //Fetch JavaScript content
-        //const jsResponse = await fetch('http://localhost:8003/dragos-vacariu.github.io/website_resources/local/scripts/portal_script.js');
-        //const jsResponse = await fetch('https://raw.githubusercontent.com/dragos-vacariu/dragos-vacariu.github.io/refs/heads/main/website_resources/local/scripts/portal_script.js');
+        //const jsResponse = await fetch(domain + 'website_resources/local/scripts/portal_script.js');
         
         //const jsText = await jsResponse.text();
 
