@@ -31,10 +31,12 @@
     flex-wrap: wrap; 
     margin: 0px;
     padding: 0px;
+    
     /*
     Alternative way: display: inline-block; will do the same thing
     display: inline-block; 
     */
+    
 }
 
 #page_block #menu_div
@@ -314,6 +316,9 @@ searchHighlight{
     table-layout: fixed;
     word-wrap: break-word;
     /*background-color and other properties are set from the script*/
+    
+    /*workaround for maintaining same font-weight when saving webpage*/
+    font-weight: bold;
 }
 
 /*Selecting only tr elements whose parent is  #table_content*/
@@ -339,10 +344,20 @@ searchHighlight{
     padding:0px;
     margin: 0px;
     height: auto;
+    
+    /*workaround for maintaining same font-weight when saving webpage*/
+    font-weight: bold;
 }
 #page_block code table td{
     text-align: left;
     border: solid 1px rgba(0,0,0,0.1);
+    
+    /*workaround for keeping colors and style when saving webpage*/
+    font-family: Consolas;
+    font-size: 16px;
+    white-space: pre-wrap;
+    color: blue;
+    
     /*properties set explicitly within the script
     padding: 0px;
     margin: 0px;
