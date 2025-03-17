@@ -302,10 +302,43 @@
     left: 10%;
 }
 
-#page_block .enumeration{
-    margin: 0%;
+#page_block enum
+{
+    display: block;
+    position: relative;
+    margin: 5px 3%;
+    padding: 2px;
+    padding-left: 5px;
+    font-family: inherit;
+    font-size: inherit;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    
+    /*workaround for maintaining same style when saving the webpage*/
+    /*these values will be overwritten by the script.*/
+    color: #663300; 
+    text-align: left; 
+    width: 94%; 
+    background-color: rgba(255,255,255,0.2);
+    border: none 0px black;
 }
 
-#page_block .enumeration li{
-    margin: 10px;
+#page_block enum::before
+{
+    content: "-> ";
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+#page_block enum enum::before
+{
+    content: "- ";
+    font-size: inherit;
+    font-weight: inherit;
+    color: black;
 }
