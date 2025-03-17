@@ -1674,16 +1674,20 @@ function saveWebPage()
         var finalHtml = textToWrite.replace('</head>', "<style>" + cssText + "</style>\n</head>");
         
         //Removing external resources from page's source, so no errors will popup
-        finalHtml = finalHtml.replace('<link rel="stylesheet" href="./website_resources/global/css/global.css">', "");
-        finalHtml = finalHtml.replace('<link rel="stylesheet" href="./website_resources/global/css/portal_page.css">', "");
-        finalHtml = finalHtml.replace('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
-        finalHtml = finalHtml.replace('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
-        finalHtml = finalHtml.replace('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
+        finalHtml = finalHtml.replaceAll('<link rel="stylesheet" href="./website_resources/global/css/global.css">', "");
+        finalHtml = finalHtml.replaceAll('<link rel="stylesheet" href="./website_resources/global/css/portal_page.css">', "");
+        finalHtml = finalHtml.replaceAll('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
+        finalHtml = finalHtml.replaceAll('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
+        finalHtml = finalHtml.replaceAll('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
         
         /*This will ensure we will still access the same fonts.*/
-        finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenDots-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources//global/fonts/ZenDots-Regular.ttf");');
-        finalHtml = finalHtml.replace('src: url("../../global/fonts/FjallaOne-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/FjallaOne-Regular.ttf");');
-        finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/ZenTokyoZoo-Regular.ttf");');
+        finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/ZenDots-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources//global/fonts/ZenDots-Regular.ttf");');
+        finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/FjallaOne-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/FjallaOne-Regular.ttf");');
+        finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/ZenTokyoZoo-Regular.ttf");');
+        
+        /*This will ensure we will still be able to see the pictures*/
+        finalHtml = finalHtml.replaceAll('<img class="database_image" src="./website_resources/local/database/pictures/', '<img class="database_image" src="https://dragos-vacariu.github.io/website_resources/local/database/pictures/');
+        
         //finalHtml = finalHtml.replace('</body>', "<script>" + jsText + "</script></body>");
 
         // Trigger download of the HTML file
