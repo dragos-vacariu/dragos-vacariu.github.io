@@ -45,10 +45,11 @@ header #header_title p{
     position: relative;
     text-align: center;
     font-family: ZenDots;
-    font-size:7px;
+    font-size:10px;
     color: #ffeecc;
     margin: 0%;
     text-shadow: 1px 1px #000000;
+    opacity: 100%;
 }
 
 nav{
@@ -233,23 +234,24 @@ footer #footer_tabelation_div .footer_columns{
 	margin:0.5%;
 	padding: 0.5%;
 	font-size: 100%;
-    font-weight: bold;
+    font-weight: normal;
     word-wrap: break-word;
     border: none 2px white;
     vertical-align: top;
-    text-align: left;
+    text-align: center;
 }
 
 footer #footer_tabelation_div .footer_columns .column_title{
     color: #ffeecc;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 footer #footer_tabelation_div .footer_columns .footer_list {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-	font-family: Courier New;
+	font-family: Rockwell;
 	font-size: 11px;
     word-wrap: break-word;
     width: auto;
@@ -264,7 +266,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li
 }
 
 footer #footer_tabelation_div .footer_columns .footer_list li a{
-	font-family: Courier New;
+	font-family: inherit;
 	font-size: 11px;
 	animation-name: footer_link;
 	animation-duration: 4s;
