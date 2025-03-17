@@ -405,37 +405,64 @@ searchHighlight{
 #page_block red{
     color: #dd0000;
     font-weight: bold;
-    
+    font-family: Calibri;
+    font-size: 19px;
+    font-weight: bold;
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
     width: 98%; 
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block azure{
     color: #008080;
     font-weight: bold;
-    
+    font-family: Calibri;
+    font-size: 19px;
+    font-weight: bold;
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
     width: 98%; 
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block purple{
     color: #aa00cc;
+    font-family: Calibri;
+    font-size: 19px;
     font-weight: bold;
     
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
     width: 98%; 
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block red tooltip{
     color: black;
     font-family: Calibri;
-    font-size: 16px;
+    font-size: 19px;
     position: absolute;
     /*Aligning the item with the parent*/
     min-width: 200%;
@@ -458,17 +485,24 @@ searchHighlight{
 /*End of tooltip*/
 
 #page_block brown{
+    position: relative;
     /*brown header*/
-    /*brown is more like black*/
+
     color: darkred;
-    font-family: Tahoma;
-    font-size: 16px;
+    font-family: Calibri;
+    font-size: 21px;
+    font-weight: bold;
     text-shadow: 0.5px 0.5px white;
     background-color: rgba(255,255,0,0.3);
-    padding: 2px;
+    padding: 1px;
     border: solid 1px rgba(0,0,0,0.1);
-    line-height: 25px;
-    font-weight: bold;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
     
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
@@ -479,11 +513,13 @@ searchHighlight{
 #page_block indigo{
     /*indigo header*/
     color: rgba(0,0,100,1.0);
-    font-family: Tahoma;
-    font-size: 15px;
+    font-family: Calibri;
+    font-size: 19px;
+    font-weight: bold;
     text-shadow: 0.5px 0.5px white;
     background-color: rgba(100,255,255,0.1);
-    padding: 2px;
+    padding: 0px;
+    margin: 10px;
     border: groove 0px rgba(0,0,0,0.1);
     line-height: 22px;
     font-weight: bold;
@@ -497,14 +533,21 @@ searchHighlight{
 #page_block green{
     /*green header*/
     color: #007700;
-    font-family: Tahoma;
-    font-size: 18px;
+    font-family: Calibri;
+    font-size: 22px;
     font-weight: bold;
     
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
     width: 98%; 
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block bold{
