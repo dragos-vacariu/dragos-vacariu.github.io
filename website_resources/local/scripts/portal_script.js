@@ -19,8 +19,8 @@ allConceptsSelection = false;
 const disabledElementOpacity = 0.3;
 
 //different styles for list tag selection:
-const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
-const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
+const tag_selection_on = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
+const tag_selection_off = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
 const concept_item_class = "concept_collection_element"
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
