@@ -64,11 +64,18 @@
 {
     position: relative;
     margin: 2%;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #searchForm #SearchBox {
     position: relative;
-    width: 94%;
+    width: 98%;
     padding: 1%;
     padding-left: 3%;
     background-image: linear-gradient(to right, white, #ffeecc);
@@ -78,11 +85,17 @@
     margin: 0%;
     border: outset 1px #995500;
     border-radius: 5px;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #clearSearchButton, #searchButton, #save_button {
     position: relative;
-    width: 48%;
     min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
     font-size: 12px;
     font-family: Georgia;
@@ -93,6 +106,13 @@
     font-size: 12px;
     border: outset 1px #995500;
     border-radius: 5px;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #searchType
@@ -110,6 +130,23 @@
     border: outset 1px #995500;
     border-radius: 5px;
     text-align: center;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#searchButton
+{
+    width: 48%;
+}
+
+#clearSearchButton
+{
+    width: 47%;
 }
 
 #save_button
