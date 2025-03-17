@@ -15237,11 +15237,11 @@ sum = lambda arg1, arg2: arg1 + arg2;
             and telematics, enhancing the overall vehicle architecture.
             <br></br><br></br>
             The classic AUTOSAR platform runs on a microcontroller and is divided into 3 main layers:
-            <ul class="enumeration">
-                <li>Basic Software Architecture - It is common to any AUTOSAR ECU.</li>
-                <li>AUTOSAR Runtime Environment</li>
-                <li>Application Layer</li>
-            </ul>
+            
+                <enum>Basic Software Architecture - It is common to any AUTOSAR ECU.</enum>
+                <enum>AUTOSAR Runtime Environment</enum>
+                <enum>Application Layer</enum>
+            
             <br></br>
             <img class="database_image" src="./website_resources/local/database/pictures/autosar_architecture.png" alt="autosar architecture"></img>
             <br></br><br></br>
@@ -15334,14 +15334,14 @@ sum = lambda arg1, arg2: arg1 + arg2;
              <br></br>
             A message identifier is a unique identifier assigned to each message transmitted over the 
             network. It serves several important purposes:
-            <ul class="enumeration">
-            <li><indigo>Priority Assignment:</indigo> The message identifier determines the priority of the message. 
+            
+            <enum><indigo>Priority Assignment:</indigo> The message identifier determines the priority of the message. 
             <br></br>
             In CAN networks, lower numerical values indicate higher priority. This means that if two messages are sent simultaneously, 
-            the one with the lower identifier will take precedence.</li>
-            <li><indigo>Message Routing:</indigo> The identifier helps in routing messages to the appropriate ECUs. 
-            Each ECU can be programmed to listen for specific identifiers, ensuring that it only processes relevant messages.</li>
-            <li><indigo>Data Association:</indigo> Each identifier is associated with specific data, source, and destination nodes. 
+            the one with the lower identifier will take precedence.</enum>
+            <enum><indigo>Message Routing:</indigo> The identifier helps in routing messages to the appropriate ECUs. 
+            Each ECU can be programmed to listen for specific identifiers, ensuring that it only processes relevant messages.</enum>
+            <enum><indigo>Data Association:</indigo> Each identifier is associated with specific data, source, and destination nodes. 
             This association allows ECUs to understand the context of the data being transmitted. 
             <br></br><br></br>
             The message identifier is used by ECUs to filter the messages from the bus. 
@@ -15406,8 +15406,8 @@ int main()
     return 0;
 }
 </code>
-            </li>
-            </ul>
+            </enum>
+            
             <br></br>
             <brown>Data Field:</brown> 
              <br></br>Contains the actual data being transmitted. It is also referred to as payload. The Data Field may contain 
@@ -15422,8 +15422,8 @@ int main()
             Helps manage the flow of data and ensures that messages are received correctly. 
             The control information consists of following elements:
             <br></br>
-            <ul class="enumeration">
-                <li><indigo>Checksum/CRC:</indigo> A value used for error-checking to ensure the integrity of the data. 
+            
+                <enum><indigo>Checksum/CRC:</indigo> A value used for error-checking to ensure the integrity of the data. 
                 It helps verify that the message has not been corrupted during transmission.
                 <br></br><br></br>
                 Example of simple checksum calculation algorithm: 
@@ -15510,18 +15510,18 @@ uint8_t crcValue = calculate_crc8(data, sizeof(data));
                 <br></br>
                 Can detect multiple-bit errors and is more robust against burst errors (where several bits are corrupted in a sequence).
                 It can identify errors that a simple checksum might miss.
-                <ul class="enumeration">
-                    <li><indigo>CRC-8:</indigo>  Suitable for detecting simple errors in short messages. 
+                
+                    <enum><indigo>CRC-8:</indigo>  Suitable for detecting simple errors in short messages. 
                     It can handle single-bit errors and some burst errors but is less effective for longer data.
-                    </li>
-                    <li><indigo>CRC-16:</indigo> Offers a higher level of error detection, making it better for 
+                    </enum>
+                    <enum><indigo>CRC-16:</indigo> Offers a higher level of error detection, making it better for 
                     longer messages. It can detect more complex error patterns, including multiple-bit errors 
                     and longer burst errors. 
                     <br></br>
                     It takes slightly longer to compute compared to CRC-8 but provides a more robust error-checking 
                     mechanism, which is crucial for applications where data integrity is paramount.
-                    </li>
-                </ul>
+                    </enum>
+                
                 <br></br>
                 Example of Data Integrity Check within ECU:
                 <br></br>
@@ -15547,17 +15547,16 @@ bool isDataValid = checkDataIntegrity(receivedData, sizeof(receivedData), expect
                 Hence, In many automotive applications, CRC algorithms are standardized (like CRC-8, CRC-16, etc.), 
                 ensuring that all ECUs in a system can communicate reliably. This standardization helps in maintaining 
                 compatibility across different manufacturers and models.
-                </li>
-                <li><indigo>Control Flags:</indigo>
+                </enum>
+                <enum><indigo>Control Flags:</indigo>
                 Indicators that provide additional information about the message, such as whether it is 
                 a request or a response, or if it contains critical data.
-                </li>
-                <li><indigo>Timestamp:</indigo>
+                </enum>
+                <enum><indigo>Timestamp:</indigo>
                 Information about when the message was sent, which can be crucial for time-sensitive operations.
-                </li>
-                <li><indigo>Sequence Number / Sequence Counter:</indigo> 
-                <ul class = "enumeration">
-                    <li><indigo>Sequence Counter:</indigo> This is a simple counter that increments with each message sent. 
+                </enum>
+                <enum><indigo>Sequence Number / Sequence Counter:</indigo> 
+                    <enum><indigo>Sequence Counter:</indigo> This is a simple counter that increments with each message sent. 
                     It's primarily used to track the order of messages in a stream, but it doesn't necessarily 
                     guarantee that all messages are received.
                     <br></br><br></br>
@@ -15645,8 +15644,8 @@ int main()
 }
                     </code>
                     
-                    </li>
-                    <li>
+                    </enum>
+                    <enum>
                     <indigo>Sequence Number:</indigo> This is a more robust identifier that often incorporates additional 
                     logic to ensure the integrity of message order. It might use a combination of counter 
                     and other information to detect lost or out-of-order messages.
@@ -15687,16 +15686,16 @@ else
     // Handle the error (e.g., resend request)
 }
                     </code>
-                    </li>
-                </ul>
-                </li>
-                <li><indigo>Status Information:</indigo> Data that indicates the current state of the ECU or the system it controls, 
+                    </enum>
+                
+                </enum>
+                <enum><indigo>Status Information:</indigo> Data that indicates the current state of the ECU or the system it controls, 
                 such as error codes or operational status.
-                </li>
-                <li><indigo>Priority Level:</indigo> Some messages may include a priority level to determine the urgency of the message, 
+                </enum>
+                <enum><indigo>Priority Level:</indigo> Some messages may include a priority level to determine the urgency of the message, 
                 which can affect how it is processed in a multi-ECU environment.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
         </ecu-communication>
         <ecu-networks>
@@ -15724,8 +15723,8 @@ else
             <brown>Communication Protocols</brown>
             <br></br>
             ECUs communicate using various protocols, which define how data is transmitted. The most common protocols include:
-            <ul class="enumeration">
-                <li><indigo>Controller Area Network (CAN):</indigo> A robust vehicle bus standard that allows ECUs to 
+            
+                <enum><indigo>Controller Area Network (CAN):</indigo> A robust vehicle bus standard that allows ECUs to 
                 communicate with each other without a host computer. It is designed for real-time applications where low latency is crucial.
                 <br></br>
                 CAN typically supports speeds up to 1 Mbps. 
@@ -15737,22 +15736,22 @@ else
                 <br></br>
                 CAN FD (Flexible Data-rate) enhances the capabilities of the traditional CAN protocol by allowing for 
                 higher data rates and larger payloads.
-                </li>
-                <li><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
+                </enum>
+                <enum><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
                 making it suitable for high-bandwidth applications. Ethernet generally uses a star topology 
-                and can support a more complex network structure with switches and routers.</li>
-                <li><indigo>FlexRay:</indigo> A high-speed bus that supports time-triggered communication, often used in safety-critical applications. 
+                and can support a more complex network structure with switches and routers.</enum>
+                <enum><indigo>FlexRay:</indigo> A high-speed bus that supports time-triggered communication, often used in safety-critical applications. 
                 Supports data rates of up to 10 Mbps. It utilizes a time-triggered communication method, allowing for deterministic 
-                data transmission. This means that messages are sent at predefined times, ensuring reliability and synchronization.</li>
-                <li><indigo>Local Interconnect Network (LIN):</indigo> A simpler, lower-cost network used for less critical functions. 
+                data transmission. This means that messages are sent at predefined times, ensuring reliability and synchronization.</enum>
+                <enum><indigo>Local Interconnect Network (LIN):</indigo> A simpler, lower-cost network used for less critical functions. 
                 <br></br>
                 LIN, typically supports data rates up to 20 Kbps, 
                 making it suitable for simpler applications where high speed is not critical such as: window lifts, seat adjustments, 
-                and interior lighting. </li>
-                <li><indigo>Media Oriented Systems Transport (MOST):</indigo> Primarily used for multimedia applications in vehicles, enabling high-speed data 
+                and interior lighting. </enum>
+                <enum><indigo>Media Oriented Systems Transport (MOST):</indigo> Primarily used for multimedia applications in vehicles, enabling high-speed data 
                 transmission for audio, video, and other media content. It operates on a peer-to-peer basis, allowing multiple devices to 
-                communicate simultaneously</li>
-            </ul>
+                communicate simultaneously</enum>
+            
             <br></br>
             <brown>Data Buses</brown>
             <br></br>
@@ -15851,17 +15850,17 @@ else
             A simple CAN (Controller Area Network) typically consists of two wires. 
             CAN High (CANH) - the wire which carries the high voltage level of the signal and CAN Low (CANL) - the wire which 
             carries the low voltage level of the signal.
-            <ul class="enumeration">
-                <li>The two wires are essential for proper 
-                communication between devices on the network.</li>
-                <li>Often, these wires are twisted together to reduce electromagnetic 
-                interference, which helps maintain signal integrity.</li>
-                <li>At each end of the CAN bus, termination resistors are 
-                usually added to prevent signal reflections.</li>
-                <li>
+            
+                <enum>The two wires are essential for proper 
+                communication between devices on the network.</enum>
+                <enum>Often, these wires are twisted together to reduce electromagnetic 
+                interference, which helps maintain signal integrity.</enum>
+                <enum>At each end of the CAN bus, termination resistors are 
+                usually added to prevent signal reflections.</enum>
+                <enum>
                 In some cases, a four-wire configuration might be used to include additional wires for power and ground.
-                </li>
-            </ul>
+                </enum>
+            
             <img class="database_image" src="./website_resources/local/database/pictures/simple_can_network.png" alt="autosar architecture"></img>
             <br></br><br></br>
             You can think of the schematic above as this: 
@@ -15875,32 +15874,32 @@ else
             <br></br><br></br>
             The transmission of information through the CAN (Controller Area Network) utilizes a differential signaling 
             method between the CAN High (CANH) and CAN Low (CANL) wires.
-            <ul class="enumeration">
-                <li><indigo>Differential Signaling:</indigo>
+            
+                <enum><indigo>Differential Signaling:</indigo>
                 The CAN bus uses a differential wired-AND signaling technique. This means that the information is transmitted as a 
                 difference in voltage between the two wires.
                 When data is sent, one wire (CANH) carries a higher voltage, while the other wire (CANL) carries a lower voltage.
-                </li>
-                <li><indigo>Dominant and Recessive States:</indigo>
+                </enum>
+                <enum><indigo>Dominant and Recessive States:</indigo>
                 When a dominant bit is transmitted, CANH rises to approximately 3.5V, and CANL drops to about 1.5V. 
                 This creates a differential voltage of 2 volts (3.5V - 1.5V).
                 <br></br>
                 In the recessive state, both wires are at the same voltage level, typically around 2.5V. 
                 This indicates that no data is being transmitted.
-                </li>
-                <li><indigo>Bit Transmission:</indigo>
+                </enum>
+                <enum><indigo>Bit Transmission:</indigo>
                 The bits are sent as high/low signals, which can be visualized as pulses or waves traveling down the wires. 
                 The transition between dominant and recessive states encodes the data being transmitted.
-                </li>
-                <li><indigo>Error Detection:</indigo>
+                </enum>
+                <enum><indigo>Error Detection:</indigo>
                 The differential nature of the signaling helps in error detection. If there is a fault in one of the wires, 
                 the system can still interpret the data correctly by comparing the voltage levels of CANH and CANL.
-                </li>
-               <li><indigo>Robustness:</indigo>
+                </enum>
+               <enum><indigo>Robustness:</indigo>
                 This method of transmission is highly robust against electromagnetic interference, making it ideal for automotive and 
                 industrial applications where reliability is crucial.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
             CAN uses a bit-oriented protocol: Instead of sending 8 bytes at once, CAN transmits data bit by bit. 
             So, for an 8-byte message, you'd be sending 64 individual bits (8 bytes * 8 bits/byte).
@@ -15910,19 +15909,19 @@ else
             <br></br><br></br>
             
             The time needed to send the 8-byte message through the bus can be calculated as follows:
-            <ul class="enumeration">
-                <li>The speed of the CAN bus can vary, but a common speed is 500 kbps (kilobits per second).</li>
-                <li>
+            
+                <enum>The speed of the CAN bus can vary, but a common speed is 500 kbps (kilobits per second).</enum>
+                <enum>
                 At 500 kbps, the time to transmit a single bit is calculated as 1/speed:
                 <br></br>
                 1/500 000 = 2 microseconds
-                </li>
-                <li>
+                </enum>
+                <enum>
                 Time needed to transmit the whole message would be: 
                 <br></br>
                     2 microseconds * 64 = 128 microseconds.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
             <green>Key Features of the CAN Protocol:</green>
             <br></br><br></br>
@@ -15950,26 +15949,26 @@ else
             <br></br><br></br>
             <indigo>How does Acknowledgement (ACK) Bit work?</indigo>
             <br></br>
-            <ul class="enumeration">
-                <li>When a sender transmits a data frame, it includes an Acknowledgement (ACK) bit at the end of the frame. 
-                </li>
-                <li>Each ECU that successfully receives the data frame checks for errors. If the frame is received without errors, 
+            
+                <enum>When a sender transmits a data frame, it includes an Acknowledgement (ACK) bit at the end of the frame. 
+                </enum>
+                <enum>Each ECU that successfully receives the data frame checks for errors. If the frame is received without errors, 
                 the receiving ECU sets the Acknowledgement (ACK) bit to a dominant state (logic 0). 
-                </li>
-                <li>The ACK bit is dominant, meaning that if at least one ECU acknowledges 
+                </enum>
+                <enum>The ACK bit is dominant, meaning that if at least one ECU acknowledges 
                 the message, the ACK bit will be recognized as dominant. 
-                </li>
-                <li>If no ECU acknowledges the message (i.e., all nodes (ECUs) detect an error), 
+                </enum>
+                <enum>If no ECU acknowledges the message (i.e., all nodes (ECUs) detect an error), 
                 the ACK bit remains in a recessive state (logic 1).
-                </li>
-                <li>The sender monitors the bus for the ACK bit. If it detects the dominant 
+                </enum>
+                <enum>The sender monitors the bus for the ACK bit. If it detects the dominant 
                 state, it knows that at least one ECU has successfully received the message. If it does not detect the dominant state, 
                 it assumes that there was an error in transmission. 
-                </li>
-                <li>If the sender does not receive an acknowledgment, it may retransmit the message, depending on the 
+                </enum>
+                <enum>If the sender does not receive an acknowledgment, it may retransmit the message, depending on the 
                 error handling strategy implemented.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
             <indigo>Importance of the Acknowledgement (ACK) Bit</indigo>
             <br></br>
@@ -16059,45 +16058,45 @@ else
             <indigo>Remote Frame:</indigo>
             <br></br>
             Requests data from another ECU without carrying any data itself. 
-            <ul class="enumeration">
-                <li>When an ECU needs data from another ECU, it sends a Remote Frame. 
+            
+                <enum>When an ECU needs data from another ECU, it sends a Remote Frame. 
                 This remote frame includes the identifier of the data frame it wants to receive. 
-                </li>
-                <li>Upon receiving the Remote Frame, 
+                </enum>
+                <enum>Upon receiving the Remote Frame, 
                 the targeted ECU recognizes the request and prepares to send the corresponding Data Frame.
                 The Data Frame will then be transmitted back to the requesting ECU, containing the requested information.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
             <indigo>Error Frame:</indigo>
             <br></br>
             Indicates that an error has occurred in the transmission, prompting corrective actions. The Error Frame consists of 
             a 6-bit field that indicates the presence of an error. It is transmitted as a series of dominant bits (0s) or 
             recessive bits (1s), depending on the type of error detected and a delimiter that indicates the end of the Error Frame.
-            <ul class="enumeration">
-                <li>Each node (ECU) on the CAN bus continuously monitors the messages being transmitted. If a node detects an error 
+            
+                <enum>Each node (ECU) on the CAN bus continuously monitors the messages being transmitted. If a node detects an error 
                 (such as a bit error, format error, or acknowledgment error), it triggers the transmission of an Error Frame.
-                </li>
-                <li>
+                </enum>
+                <enum>
                 Once an Error Frame is generated, it is immediately sent onto the CAN bus. All other nodes on the network 
                 recognize this frame and take appropriate action, such as stopping their current transmission and preparing 
                 to retransmit the message that caused the error.
-                </li>
-                <li>
+                </enum>
+                <enum>
                 After the Error Frame is sent, the node (ECU) that detected the error will enter an error state. There are different 
                 error states (active, passive, and bus-off) that determine how the node (ECU) will behave in future communications.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
             <indigo>Overload Frame:</indigo>
             <br></br>
             Used to signal that a node (ECU) is temporarily unable to process incoming messages. 
             An Overload Frame is transmitted when a node (ECU) needs more time to process incoming messages. 
             This can occur if:
-            <ul class="enumeration">
-                <li>The node (ECU) is busy processing previous messages.</li>
-                <li>The node's buffer is full, and it cannot accept new messages at that moment.</li>
-            </ul>
+            
+                <enum>The node (ECU) is busy processing previous messages.</enum>
+                <enum>The node's buffer is full, and it cannot accept new messages at that moment.</enum>
+            
         </can-protocol>
         <can-transceiver>
             The CAN Transceiver acts as a bridge between the CAN bus and the Microcontroller (MCU). 
@@ -16107,21 +16106,21 @@ else
             <brown>Differential Signal Interpretation:</brown>
             <br></br>
             The transceiver interprets the voltage levels as follows:
-            <ul class="enumeration">
-            <li>Dominant State: When the voltage difference indicates a dominant bit (e.g., CANH at approximately 3.5V and CANL at about 
+            
+            <enum>Dominant State: When the voltage difference indicates a dominant bit (e.g., CANH at approximately 3.5V and CANL at about 
             1.5V), the transceiver recognizes this as a binary 0. This state indicates an active transmission from a node (ECU) so the communication
             is going through the bus.
-            </li>
-            <li>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a 
+            </enum>
+            <enum>Recessive State: When both wires are at the same voltage level (around 2.5V), it is interpreted as a 
             binary 1. When no node (ECU) is actively sending data, the bus remains in the recessive state meaning No Communication is
             going through the bus.
-            </li>
-            <li>
+            </enum>
+            <enum>
             Bus Idle State: When there is no communication, the bus is in an idle state, which is characterized by 
             the recessive state (higher voltage on the bus). The transceiver continuously monitors the bus for 
             any changes in voltage.
-            </li>
-            </ul>
+            </enum>
+            
             On the dominant state, both bit 0 and bit 1 can be transmitted. This is where things get a little tricky in 
             CAN communication. The dominant state (lower voltage) represents a bit 0. This is straightforward.
             <br></br><br></br>
@@ -16138,28 +16137,28 @@ else
             <br></br><br></br>
             If you send 111111111 on the bus, the CAN Transceiver will definitely know there's communication happening. 
             Here's why:
-            <ul class="enumeration">
-                <li>The CAN protocol is designed to recognize patterns of bits. It's not just about individual bits; 
-                it's about how they are arranged and timed.</li>
-                <li>The CAN Transceiver is constantly monitoring the bus. It's looking for specific patterns of bits that signal 
+            
+                <enum>The CAN protocol is designed to recognize patterns of bits. It's not just about individual bits; 
+                it's about how they are arranged and timed.</enum>
+                <enum>The CAN Transceiver is constantly monitoring the bus. It's looking for specific patterns of bits that signal 
                 the start of a message, the data bits within the message, and the end of the message.
-                </li>
-                <li>
+                </enum>
+                <enum>
                 A string of 1s, even if it's just a series of recessive states, is still a pattern that the CAN 
                 Transceiver will recognize. It will know that a node (ECU) is actively holding the bus in the recessive 
                 state for the duration of those bit times.
-                </li>
-            </ul>
+                </enum>
+            
             So basically, whenever a node (ECU) sends a message on the CAN it starts transmitting with a distinguishable 
             binary sequence (SOF bit) and it ends the transmission with a different distinguishable binary sequence (EOF bit).
-            <ul>
-                <li><indigo>Start of Frame (SOF):</indigo> This is a single dominant bit (0) that marks the beginning of a message. 
-                Think of it like a "Hey, everyone, listen up!" signal.</li>
-                <li><indigo>Data:</indigo> This is the actual message content, consisting of a series of bits representing the data 
-                being transmitted.</li>
-                <li><indigo>End of Frame (EOF):</indigo> This is a sequence of seven dominant bits (0s) followed by a recessive bit (1). 
-                It's like a "That's all, folks!" signal.</li>
-            </ul>
+
+                <enum><indigo>Start of Frame (SOF):</indigo> This is a single dominant bit (0) that marks the beginning of a message. 
+                Think of it like a "Hey, everyone, listen up!" signal.</enum>
+                <enum><indigo>Data:</indigo> This is the actual message content, consisting of a series of bits representing the data 
+                being transmitted.</enum>
+                <enum><indigo>End of Frame (EOF):</indigo> This is a sequence of seven dominant bits (0s) followed by a recessive bit (1). 
+                It's like a "That's all, folks!" signal.</enum>
+            
             <brown>Digital Signal Outputting:</brown>
             <br></br>
             The transceiver outputs a digital signal (high or low) to the Microcontroller (MCU) based on the interpreted 
@@ -16206,12 +16205,12 @@ else
             pins associated with SPI communication:
             <br></br><br></br>
             <brown>Common SPI Pins:</brown>
-            <ul class="enumeration">
-                <li><indigo>MOSI (Master Out Slave In):</indigo> Carries data from the master to the slave.</li>
-                <li><indigo>MISO (Master In Slave Out):</indigo> Carries data from the slave back to the master.</li>
-                <li><indigo>SCK (Serial Clock):</indigo> Synchronizes data transmission between master and slave.</li>
-                <li><indigo>SS (Slave Select):</indigo> Used by the master to select which slave device to communicate with.</li>
-            </ul>
+            
+                <enum><indigo>MOSI (Master Out Slave In):</indigo> Carries data from the master to the slave.</enum>
+                <enum><indigo>MISO (Master In Slave Out):</indigo> Carries data from the slave back to the master.</enum>
+                <enum><indigo>SCK (Serial Clock):</indigo> Synchronizes data transmission between master and slave.</enum>
+                <enum><indigo>SS (Slave Select):</indigo> Used by the master to select which slave device to communicate with.</enum>
+            
             At least 4 pins are required for basic SPI communication (MOSI, MISO, SCK, and one SS pin).
             <br></br><br></br>
             If you have multiple slave devices, you will need an additional SS pin for each slave, which can 
@@ -16245,18 +16244,18 @@ else
             <br></br><br></br>
             The CAN Driver may include functions through which the CAN Transceiver can be configured. For instance 
             the CAN Driver might be able to: 
-            <ul class="enumeration">
-                <li>to adjust the baud rate used by CAN Transceiver;</li>
-                <li>to enable or disable the Transceiver. This controls whether the transceiver is actively 
-                listening for data or transmitting data. </li>
-                <li>to set the transceiver's operating mode: This might include different modes for normal 
-                operation, sleep mode, or a low-power mode.</li>
-                <li>to configure the filters used by the Transceiver. These filters allow the transceiver to 
-                selectively accept or reject incoming messages based on their ID.</li> 
-                <li>to manage the errors handling for the Transceiver. The CAN Driver might provide functions to 
+            
+                <enum>to adjust the baud rate used by CAN Transceiver;</enum>
+                <enum>to enable or disable the Transceiver. This controls whether the transceiver is actively 
+                listening for data or transmitting data. </enum>
+                <enum>to set the transceiver's operating mode: This might include different modes for normal 
+                operation, sleep mode, or a low-power mode.</enum>
+                <enum>to configure the filters used by the Transceiver. These filters allow the transceiver to 
+                selectively accept or reject incoming messages based on their ID.</enum> 
+                <enum>to manage the errors handling for the Transceiver. The CAN Driver might provide functions to 
                 check for errors, 
-                report them to the RTOS, and potentially take corrective actions.</li>
-            </ul>
+                report them to the RTOS, and potentially take corrective actions.</enum>
+            
             <br></br>
             The CAN Driver also provides the necessary functions to send and receive messages over the CAN network. These 
             functions may be used directly by the RTOS or may be called by RTOS through interfaces defined by CANIF module. 
@@ -16271,16 +16270,16 @@ else
             <br></br><br></br>
             The CAN Controller can report several types of errors that are crucial for maintaining the integrity 
             of communication on the CAN bus. Some of the errors reported by CAN Controller are:
-            <ul class="enumeration">
-                <li><indigo>Bit Error:</indigo> This occurs when the bit received does not match the bit transmitted. 
+            
+                <enum><indigo>Bit Error:</indigo> This occurs when the bit received does not match the bit transmitted. 
                 It can happen 
                 due to noise or interference on the bus.
-                </li>
-                <li><indigo>Form Error:</indigo> This error is detected when the format of a received frame is incorrect. 
+                </enum>
+                <enum><indigo>Form Error:</indigo> This error is detected when the format of a received frame is incorrect. 
                 For example, if the 
                 frame does not adhere to the expected structure, a form error is triggered.
-                </li>
-                <li><indigo>Stuff Error:</indigo> This happens when the bit stuffing rule is violated. In CAN, after five 
+                </enum>
+                <enum><indigo>Stuff Error:</indigo> This happens when the bit stuffing rule is violated. In CAN, after five 
                 consecutive bits of the 
                 same value, a complementary bit is inserted. If this rule is not followed, a stuff error is reported.
                 <br></br><br></br>
@@ -16301,31 +16300,31 @@ else
                 <br></br><br></br>
                 It's the CANIF's job to decode the information, and turn it back into a PDU, hence removing the 
                 stuffing bits.
-                </li>
-                <li><indigo>CRC Error:</indigo> The Cyclic Redundancy Check (CRC) is used to detect errors in the 
+                </enum>
+                <enum><indigo>CRC Error:</indigo> The Cyclic Redundancy Check (CRC) is used to detect errors in the 
                 transmitted data. If the CRC 
                 calculated by the receiver does not match the CRC sent with the message, a CRC error is reported.
-                </li>
-                <li><indigo>Acknowledgment Error:</indigo> This error occurs when a transmitted message is not acknowledged 
+                </enum>
+                <enum><indigo>Acknowledgment Error:</indigo> This error occurs when a transmitted message is not acknowledged 
                 by any node on the bus. 
                 Each node is expected to send an acknowledgment bit after receiving a message, and if this does not happen, 
-                an acknowledgment error is flagged.</li>
-            </ul>
+                an acknowledgment error is flagged.</enum>
+            
             <br></br>
             The CAN Driver often uses mechanisms like semaphores or queues to synchronize access to the CAN bus, ensuring that 
             tasks do not interfere with each other during message transmission or reception.
             <br></br><br></br>
             <brown>How does the CAN Controller interract with the outside world?</brown>
-            <ul class="enumeration">
-                <li>The CAN Controller can start a transmission when it detects an idle bus. This means that the bus is not 
-                currently being used by any other node (ECU).</li>
-                <li>If the bus is currently used by a different ECU. Our ECU can attempt to take over the bus
+            
+                <enum>The CAN Controller can start a transmission when it detects an idle bus. This means that the bus is not 
+                currently being used by any other node (ECU).</enum>
+                <enum>If the bus is currently used by a different ECU. Our ECU can attempt to take over the bus
                 by broadcasting our CAN ID. If we have higher priority (lower CAN ID) the ECU using the bus will have
                 to abort its transmission, and free the bus for our ECU.
-                </li>
-                <li>When a node (ECU) wants to send a message, the CAN Controller encodes the message according to the 
-                CAN protocol, which includes the Identifier, Data, and Control Information.</li>
-                <li>The CAN Controller continuously monitors the bus for incoming messages. When it detects a message, 
+                </enum>
+                <enum>When a node (ECU) wants to send a message, the CAN Controller encodes the message according to the 
+                CAN protocol, which includes the Identifier, Data, and Control Information.</enum>
+                <enum>The CAN Controller continuously monitors the bus for incoming messages. When it detects a message, 
                 it decodes it and processes the data. It also checks for errors during transmission, ensuring that 
                 the data received is valid. If an error is detected, the CAN Controller will signal this by sending an 
                 error frame onto the bus. 
@@ -16336,17 +16335,17 @@ else
                 <br></br><br></br>
                 In the event of a bus-off state, the CAN Controller will eventually attempt to recover by reinitializing 
                 itself and resuming normal operation once the bus is clear and stable.
-                </li>
-                <li>
+                </enum>
+                <enum>
                 In cases where multiple nodes (ECUs) attempt to transmit simultaneously, the CAN protocol uses a method called 
                 arbitration. The CAN Controller uses the message identifier to determine which message has the highest 
                 priority and allows that message to proceed while others wait.
-                </li>
-                <li>
+                </enum>
+                <enum>
                 The CAN Controller can operate in different modes, such as normal mode, listen-only mode, and loopback 
                 mode, depending on the application requirements.
-                </li>
-            </ul>
+                </enum>
+            
             <br></br>
         </can-controller-driver>
         <can-interface>
@@ -16357,32 +16356,31 @@ else
             which builds reliable interfaces by calling functions defined within the CAN Driver. 
             <br></br><br></br>
             <indigo>Concrete Example of Communication between ECUs:</indigo>
-            <ol class="enumeration">
-                <li>RTOS Task calls CANIF interface for sending a message through the CAN bus.</li>
-                <li>CANIF interface receives the data from RTOS Task, and based on the size of message 
+                <enum>RTOS Task calls CANIF interface for sending a message through the CAN bus.</enum>
+                <enum>CANIF interface receives the data from RTOS Task, and based on the size of message 
                 it performs the segmentation. On CAN bus we are only allowed to send messages up to 8 bytes. 
                 If the message to be sent is bigger than 8 bytes, it will be sliced into multiple Frames. 
                 Each Frame will contain the same message ID and CRC, a sequential SQC / SQN (Sequence Counter or 
-                Sequence Number) and only a portion of the actual data</li>
-                <li>CANIF then buffers the frames, and notifies the CAN Driver that everything is set for transmission.</li>
-                <li>CAN Driver monitors the activity on the bus, and once the bus is available, 
-                it will inform the CANIF, that the transmission can begin.</li>
-                <li>CANIF receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</li>
-                <li>CAN Driver takes the frame, and informs the CAN Transceiver that data will be coming.</li>
-                <li>CAN Transceiver sends a distinguishable binary sequence (SOF bit) on the bus, which would 
-                reserve a slot for message transmission.</li>
-                <li>CAN Driver sends each bit within the frame, individually, to the CAN Transceiver.</li>
-                <li>CAN Transceiver receives the bit and turns it into voltage. A bit 0 is equivalent to 4.5V on CANH, 
+                Sequence Number) and only a portion of the actual data</enum>
+                <enum>CANIF then buffers the frames, and notifies the CAN Driver that everything is set for transmission.</enum>
+                <enum>CAN Driver monitors the activity on the bus, and once the bus is available, 
+                it will inform the CANIF, that the transmission can begin.</enum>
+                <enum>CANIF receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</enum>
+                <enum>CAN Driver takes the frame, and informs the CAN Transceiver that data will be coming.</enum>
+                <enum>CAN Transceiver sends a distinguishable binary sequence (SOF bit) on the bus, which would 
+                reserve a slot for message transmission.</enum>
+                <enum>CAN Driver sends each bit within the frame, individually, to the CAN Transceiver.</enum>
+                <enum>CAN Transceiver receives the bit and turns it into voltage. A bit 0 is equivalent to 4.5V on CANH, 
                 and 1.5V on 
-                CANL. whereas bit 1 is equivalent to 2.5V on each wire: CANH and CANL</li>
-                <li>While we are sending the message on the bus, bit by bit, frame by frame. All other ECUs listen, 
+                CANL. whereas bit 1 is equivalent to 2.5V on each wire: CANH and CANL</enum>
+                <enum>While we are sending the message on the bus, bit by bit, frame by frame. All other ECUs listen, 
                     and wait for their 
                     turn to reach for the bus and send their messages.
-                </li>
-                <li>The listening ECUs will read our binary data, and they will compare our ID with their ID, if the ID matches, it means
+                </enum>
+                <enum>The listening ECUs will read our binary data, and they will compare our ID with their ID, if the ID matches, it means
                    we called their name, they need to receive the message. They will begin to write down every bit we send within that transmission.
-                </li>
-                <li>In case any other ECU with higher priority (lower CAN Id) 
+                </enum>
+                <enum>In case any other ECU with higher priority (lower CAN Id) 
                     within the network will request communication,
                     our message will be intrerrupted. 
                     <br></br><br></br>
@@ -16406,61 +16404,60 @@ else
                     <br></br><br></br>
                     The ECU transmitting bit 0 wins because lower CAN ID means higher priority.  This happens also 
                     because a dominant state overrides a recessive state (bit 1).
-                </li>
-                <li>
+                </enum>
+                <enum>
                     We will stop the transmission and free the bus.
                     Meaning, we read the intent of an ECU with higher priority (lower CAN Id) for transmission 
                     and now the bus will be reserved by that ECU.
                     
-                    </li>
-                    <li>
+                    </enum>
+                    <enum>
                     We will enter a wait state.
                     The ECU with which we were communicating will discard the received data since it's incomplete transmission.
                     <br></br>
                     We will attempt to retransmit the data after a short delay.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     The other ECU sends its message and frees the bus.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     Once the bus gets free, we will restart our communication.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     Once all the frames were sent, the CAN Transceiver will send a distinguishable binary sequence (EOF bit) 
                     which will notify the receipient ECU that the message is complete, and the bus will become free again.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     On the receipient ECU, the CAN Transceiver translates the last bit for the CAN Driver. The CAN Driver 
                     now has all the data and knows
                     that the message is complete, and will notify the CANIF.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     CANIF has received through the CAN Driver all the bits within all the frames. Now it has everything 
                     buffered and will attempt to 
                     assemble all pieces together. It will check for SQC / SQN in order to determine which frame is 
                     first. Based on the SQC / SQN 
                     the frames are put together and a 
                     Message is formed.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     CANIF will attempt to validate the message, by calculating the CRC for the message and comparing 
                     the result with the CRC received from our ECU.
                     If the CRCs are identical, the message is valid.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     If the CRCs are not identical. The other ECU will reserve the bus, and will send out an 
                     Error Frame meant for our ECU. We will receive
                     the Error Frame, and we will know the message intrerruption caused a problem in our transmission, 
                     and the message that reached the destination
                     is different from what we meant to send.
-                </li>
-                <li>
+                </enum>
+                <enum>
                     Our ECU will retransmit the message. If the same scenario repeats multiple times, and we are unable 
                     to send the message properly, based on the requirement we might decide restart the 
                     CAN Transceiver, CAN Controller, or even 
                     the ECU, and same thing might happen with the receipient ECU. We will try again after that.
-                </li>
-            </ol>
+                </enum>
             <br></br>
             The same steps are taken in case of message reception. 
             <br></br>
@@ -16577,31 +16574,31 @@ else
             A practical way to detect a duplicated ECU within the network would be by disconnecting 
             ECUs one by one and observing the Main ECU's reaction.
             
-            <ul class="enumeration">
-                <li><indigo>Baseline:</indigo> First, we would establish a baseline by monitoring the Main ECU's 
-                behavior with all ECUs connected. This would provide a reference point for comparison.</li>
-                <li><indigo>Disconnect and Observe:</indigo> We would then disconnect each ECU individually and observe the Main ECU's behavior.</li>
-                <li><indigo>Duplicate Detection:</indigo> If the Main ECU doesn't register the absence of a specific ECU (i.e., 
-                its behavior remains unchanged), it indicates that there might be a duplicate ID.</li>
-                <li><indigo>Isolate and Verify:</indigo> We could then disconnect the suspect ECU and reconnect 
-                the previously disconnected one to confirm the duplicate ID.</li>
-            </ul>
+            
+                <enum><indigo>Baseline:</indigo> First, we would establish a baseline by monitoring the Main ECU's 
+                behavior with all ECUs connected. This would provide a reference point for comparison.</enum>
+                <enum><indigo>Disconnect and Observe:</indigo> We would then disconnect each ECU individually and observe the Main ECU's behavior.</enum>
+                <enum><indigo>Duplicate Detection:</indigo> If the Main ECU doesn't register the absence of a specific ECU (i.e., 
+                its behavior remains unchanged), it indicates that there might be a duplicate ID.</enum>
+                <enum><indigo>Isolate and Verify:</indigo> We could then disconnect the suspect ECU and reconnect 
+                the previously disconnected one to confirm the duplicate ID.</enum>
+            
             <br></br>
             By leveraging network management capabilities we would have a new set of possibilities for detecting 
             duplicate ECU IDs.
-            <ul class="enumeration">
-                <li><indigo>Wake-up Cycle:</indigo> The Main ECU could initiate a wake-up cycle, bringing each 
-                ECU online one by one. This would allow for a controlled and isolated test environment.</li>
-                <li><indigo>Message Exchange:</indigo> During the wake-up cycle, the Main ECU could send a series of test 
+            
+                <enum><indigo>Wake-up Cycle:</indigo> The Main ECU could initiate a wake-up cycle, bringing each 
+                ECU online one by one. This would allow for a controlled and isolated test environment.</enum>
+                <enum><indigo>Message Exchange:</indigo> During the wake-up cycle, the Main ECU could send a series of test 
                 messages to each ECU. These messages could be specifically designed to test communication 
-                latency and bus load.</li>
-                <li><indigo>Data Analysis:</indigo> The Main ECU would carefully analyze the time it takes for messages to 
-                reach their destination and the overall bus load during each test.</li>
-                <li><indigo>Duplicate Detection:</indigo> If the Main ECU detects a significant increase in bus load or 
+                latency and bus load.</enum>
+                <enum><indigo>Data Analysis:</indigo> The Main ECU would carefully analyze the time it takes for messages to 
+                reach their destination and the overall bus load during each test.</enum>
+                <enum><indigo>Duplicate Detection:</indigo> If the Main ECU detects a significant increase in bus load or 
                 communication latency when a particular ECU is woken up, it could indicate a duplicate 
                 ID situation. The duplicate ECU might be interfering with message transmission, causing 
-                delays and increased bus traffic.</li>
-            </ul>
+                delays and increased bus traffic.</enum>
+            
         </can-collision-detection>
         <error-detection>
                 CAN communication relies on a combination of techniques to ensure reliable data transmission. 
@@ -16623,11 +16620,11 @@ else
                 <br></br><br></br>
                 The stuffing bits are part of the Frames but NOT part of the PDUs.
                 <br></br>
-                <ul class="enumeration">
-                    <li><indigo>Frame:</indigo> Contains the raw data, including stuffing bits.<br></br></li>
-                    <li><indigo>PDU:</indigo> Contains the actual data intended for the receiver, without 
-                    the stuffing bits.</li>
-                </ul>
+                
+                    <enum><indigo>Frame:</indigo> Contains the raw data, including stuffing bits.<br></br></enum>
+                    <enum><indigo>PDU:</indigo> Contains the actual data intended for the receiver, without 
+                    the stuffing bits.</enum>
+                
                 <br></br>
                 It's the CANIF's job to decode the information, and turn it back into a PDU, hence removing the 
                 stuffing bits.
