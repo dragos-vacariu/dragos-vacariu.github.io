@@ -21,6 +21,8 @@ const disabledElementOpacity = 0.3;
 //different styles for list tag selection:
 const tag_selection_on = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
 const tag_selection_off = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
+
+//special class to add separate styles for list tag concept_selection_elements:
 const concept_item_class = "concept_collection_element"
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
@@ -1253,7 +1255,6 @@ function setSelectionType()
         //Removing overall_concept_selection elements:
         while(overall_concept_selection.children.length > 0)
         {
-            console.log("Deleting: " + overall_concept_selection.children[0].innerHTML)
             overall_concept_selection.children[0].remove()
         }
         document.getElementById("overall_concept_selection_title").setAttribute("hidden", "hidden");
@@ -1261,7 +1262,6 @@ function setSelectionType()
         //Removing overall_language_selection elements:
         while(overall_language_selection.children.length > 0)
         {
-            console.log("Deleting: " + overall_language_selection.children[0].innerHTML)
             overall_language_selection.children[0].remove()
         }
         document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
@@ -1272,6 +1272,7 @@ function setSelectionType()
         */
         var active_languages = getActiveElements(manifest_selection.children);
         var active_concepts = getActiveElements(concept_selection.children)
+        
         if(active_concepts.length > 1) //this condition should always be true
         {
             /*if more than once concept is selected, deselect all except the first*/
@@ -1678,6 +1679,8 @@ function saveWebPage()
         finalHtml = finalHtml.replace('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
         finalHtml = finalHtml.replace('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
         finalHtml = finalHtml.replace('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
+        
+        /*This will ensure we will still access the same fonts.*/
         finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenDots-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources//global/fonts/ZenDots-Regular.ttf");');
         finalHtml = finalHtml.replace('src: url("../../global/fonts/FjallaOne-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/FjallaOne-Regular.ttf");');
         finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/ZenTokyoZoo-Regular.ttf");');
