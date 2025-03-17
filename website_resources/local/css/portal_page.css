@@ -4,7 +4,7 @@
     color:#663300;
     border: solid 1px #995500;
     margin: 0.5%;
-    font-family:Tahoma; /*font set from javacript*/
+    font-family: Tahoma; /*font set from javacript*/
     font-size:14px;
     background-color: white;
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
@@ -73,7 +73,7 @@
     padding-left: 3%;
     background-image: linear-gradient(to right, white, #ffeecc);
     font-size: 12px;
-    font-family:Georgia;
+    font-family: Georgia;
     color: #995500;
     margin: 0%;
     border: outset 1px #995500;
@@ -85,7 +85,7 @@
     width: 48%;
     min-width: 45px; /*we need at least this width to be able to display the button text value properly*/
     font-size: 12px;
-    font-family:Georgia;
+    font-family: Georgia;
     padding: 1% 0px;
     margin: 0%;
     margin-top: 2%;
@@ -105,7 +105,7 @@
     padding-left: 3%;
     background-image: linear-gradient(to right, white, #ffeecc);
     font-size: 12px;
-    font-family:Georgia;
+    font-family: Georgia;
     color: #995500;
     border: outset 1px #995500;
     border-radius: 5px;
@@ -133,7 +133,7 @@ searchHighlight{
     position: relative;
     width: 98%;
     top:0%;
-    font-family:Verdana;
+    font-family: Verdana;
     font-size:16px;
     color: #005500;
     margin: 0%;
@@ -152,7 +152,7 @@ searchHighlight{
     text-align: left;
     color: #995500;
     font-variant: small-caps;
-    font-family:Calibri;
+    font-family: Calibri;
     font-size: 14px;
     font-weight: normal;
     /*some properties are changed from the script*/
@@ -194,7 +194,7 @@ searchHighlight{
     padding: 5px;
     background-image: linear-gradient(to right, white, #ffeecc);
     font-size: 12px;
-    font-family:Georgia;
+    font-family: Georgia;
     color: #995500;
     text-shadow: 0px 0px white;
     
@@ -235,7 +235,7 @@ searchHighlight{
     width: 96%;
     margin: 1%;
     padding: 1%;
-    font-family:Verdana;
+    font-family: Verdana;
     font-size:16px;
     color: #663300;
     border: none 2px blue;
@@ -251,7 +251,7 @@ searchHighlight{
     text-shadow: 1px 1px white;
     text-decoration: none;
     text-align: center;
-    font-family:Tahoma;
+    font-family: Tahoma;
     font-size:14px;
     color: #663300;
     border-style: none;
@@ -261,7 +261,7 @@ searchHighlight{
 
 #page_block #database_info description{
     position: relative;
-    font-family:Tahoma;
+    font-family: Tahoma;
     font-size:15px;
     color: #663300;
     border-style: none;
@@ -274,7 +274,7 @@ searchHighlight{
 
 #page_block #database_info info a{
     position: relative;
-    font-family:Tahoma;
+    font-family: Tahoma;
     color: darkgreen;
     border-style: none;
     text-decoration: none;
@@ -405,9 +405,9 @@ searchHighlight{
 #page_block red{
     color: #dd0000;
     font-weight: bold;
-    font-family: Calibri;
-    font-size: 19px;
-    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
+    
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
@@ -424,9 +424,9 @@ searchHighlight{
 #page_block azure{
     color: #008080;
     font-weight: bold;
-    font-family: Calibri;
-    font-size: 19px;
-    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
+    
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
@@ -442,8 +442,8 @@ searchHighlight{
 
 #page_block purple{
     color: #aa00cc;
-    font-family: Calibri;
-    font-size: 19px;
+    font-family: inherit;
+    font-size: inherit;
     font-weight: bold;
     
     /*workaround for maintaining same style when saving the webpage*/
@@ -461,8 +461,8 @@ searchHighlight{
 
 #page_block red tooltip{
     color: black;
-    font-family: Calibri;
-    font-size: 19px;
+    font-family: inherit;
+    font-size: inherit;
     position: absolute;
     /*Aligning the item with the parent*/
     min-width: 200%;
@@ -484,17 +484,20 @@ searchHighlight{
 }
 /*End of tooltip*/
 
-#page_block brown{
-    position: relative;
+#page_block brown
+{
     /*brown header*/
-
+    position: relative;
+    display: inline-block; /*this will allow us to set margins for the element*/
+    
     color: darkred;
-    font-family: Calibri;
+    font-family: inherit;
     font-size: 21px;
     font-weight: bold;
-    text-shadow: 0.5px 0.5px white;
+    text-shadow: 2px 2px white;
     background-color: rgba(255,255,0,0.3);
     padding: 1px;
+    margin: 5px 0px;
     border: solid 1px rgba(0,0,0,0.1);
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -507,21 +510,20 @@ searchHighlight{
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
-    width: 98%; 
+    width: auto; 
 }
 
 #page_block indigo{
     /*indigo header*/
     color: rgba(0,0,100,1.0);
-    font-family: Calibri;
-    font-size: 19px;
+    font-family: inherit;
+    font-size: inherit;
     font-weight: bold;
-    text-shadow: 0.5px 0.5px white;
+    text-shadow: 2px 2px white;
     background-color: rgba(100,255,255,0.1);
     padding: 0px;
-    margin: 10px;
+    margin: 0px;
     border: groove 0px rgba(0,0,0,0.1);
-    line-height: 22px;
     font-weight: bold;
     
     /*workaround for maintaining same style when saving the webpage*/
@@ -532,16 +534,21 @@ searchHighlight{
 
 #page_block green{
     /*green header*/
+    
+    position: relative;
+    display: inline-block; /*this will allow us to set margins for the element*/
     color: #007700;
-    font-family: Calibri;
+    font-family: inherit;
     font-size: 22px;
     font-weight: bold;
-    
+    background-color: rgba(0,255,0,0.1);
+    text-shadow: 2px 2px white;
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
-    width: 98%; 
-    
+    width: auto; 
+    padding: 1px;
+    margin: 5px 0px;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -557,7 +564,7 @@ searchHighlight{
 #page_block highlight{
     font-weight: bold;
     color: red;
-    font-family: Verdana;
+    font-family: inherit;
     
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
@@ -609,6 +616,8 @@ searchHighlight{
     margin: 5px 3%;
     padding: 2px;
     padding-left: 5px;
+    font-family: inherit;
+    font-size: inherit;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -620,8 +629,6 @@ searchHighlight{
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     color: #663300; 
-    font-family: Calibri; 
-    font-size: 18px; 
     text-align: left; 
     width: 94%; 
     background-color: rgba(255,255,255,0.2);
@@ -631,14 +638,14 @@ searchHighlight{
 #page_block enum::before
 {
     content: "-> ";
-    font-size: 20px;
-    font-weight: normal;
+    font-size: inherit;
+    font-weight: inherit;
 }
 
 #page_block enum enum::before
 {
     content: "- ";
-    font-size: 20px;
-    font-weight: normal;
+    font-size: inherit;
+    font-weight: inherit;
     color: black;
 }
