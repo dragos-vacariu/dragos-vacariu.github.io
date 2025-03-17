@@ -1249,18 +1249,23 @@ function setSelectionType()
         view_selection.children[0].value = true;
         view_selection.children[0].style = tag_selection_on;
         //Hide the overall selection elements;
-        if (overall_concept_selection.getAttribute("hidden")==false ||
-            overall_concept_selection.getAttribute("hidden")==null) 
+        
+        //Removing overall_concept_selection elements:
+        while(overall_concept_selection.children.length > 0)
         {
-            overall_concept_selection.setAttribute("hidden", "hidden");
-            document.getElementById("overall_concept_selection_title").setAttribute("hidden", "hidden");
+            console.log("Deleting: " + overall_concept_selection.children[0].innerHTML)
+            overall_concept_selection.children[0].remove()
         }
-        if (overall_language_selection.getAttribute("hidden")==false ||
-            overall_language_selection.getAttribute("hidden")==null) 
+        document.getElementById("overall_concept_selection_title").setAttribute("hidden", "hidden");
+        
+        //Removing overall_language_selection elements:
+        while(overall_language_selection.children.length > 0)
         {
-            overall_language_selection.setAttribute("hidden", "hidden");
-            document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
+            console.log("Deleting: " + overall_language_selection.children[0].innerHTML)
+            overall_language_selection.children[0].remove()
         }
+        document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
+        
         /*
             Get the active language. There should be only one active language selected 
             since Cookie values were restored in the switchSelectionTypeSingle() 
@@ -1288,16 +1293,17 @@ function setSelectionType()
         /*Selection type: multiple gets the enabled opacity*/
         view_selection.children[1].style.opacity = 1;
         //Show the overall selecton elements;
-        if (overall_concept_selection.getAttribute("hidden")=="hidden") 
-        {
-            overall_concept_selection.removeAttribute("hidden");
-            document.getElementById("overall_concept_selection_title").removeAttribute("hidden", "hidden");
-        }
-        if (overall_language_selection.getAttribute("hidden")=="hidden") 
-        {
-            overall_language_selection.removeAttribute("hidden");
-            document.getElementById("overall_language_selection_title").removeAttribute("hidden", "hidden");
-        }
+    
+        /*Adding the overall language selection functions*/
+        overall_language_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllLanguageElements) );
+        overall_language_selection.appendChild( createLiElement("select all", true, selectionOfAllLanguageElements) );
+        
+        /*Adding the overall concept selection functions*/
+        overall_concept_selection.appendChild( createLiElement("deselect all", true, deselectionOfAllConceptElements) );
+        overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
+        
+        document.getElementById("overall_concept_selection_title").removeAttribute("hidden", "hidden");
+        document.getElementById("overall_language_selection_title").removeAttribute("hidden", "hidden");
     }
     showTable();
 }
