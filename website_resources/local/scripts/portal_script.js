@@ -47,7 +47,7 @@ const table_content = document.getElementById("table_content");
 
 const language_title_style = "color: #663300; font-family: Calibri; font-size: 24px; font-weight: bold; text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); letter-spacing: 2px;";
 const concept_title_style = "color: darkred; font-family: Calibri; font-size: 22px; font-weight: bold; text-align: left; text-transform: capitalize; border: double 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: 1px; ";
-const concept_value_style = "color: #663300; font-family: Calibri; font-size: 19px; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
+const concept_value_style = "color: #663300; text-shadow: 0px 0px #663300; font-family: Calibri; font-size: 18px; font-weight: normal; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
 const cell_style = "vertical-align: top;";
 
 function dbCookieRouteHandling()
