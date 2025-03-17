@@ -1672,6 +1672,9 @@ function saveWebPage()
         finalHtml = finalHtml.replace('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
         finalHtml = finalHtml.replace('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
         finalHtml = finalHtml.replace('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
+        finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenDots-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources//global/fonts/ZenDots-Regular.ttf");');
+        finalHtml = finalHtml.replace('src: url("../../global/fonts/FjallaOne-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/FjallaOne-Regular.ttf");');
+        finalHtml = finalHtml.replace('src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/ZenTokyoZoo-Regular.ttf");');
         //finalHtml = finalHtml.replace('</body>', "<script>" + jsText + "</script></body>");
 
         // Trigger download of the HTML file
