@@ -789,7 +789,6 @@ function toggleConceptOnOff(concept_element)
     /*This function will toggle the selection of manifest.concept element*/
     if(selection_type.children[0].value == true)
     {
-        //opacity is used to specify whether a concept is available or not for the selected programming language
         for(var index=0; index < concept_element.parentElement.children.length; index++)
         {
             if(concept_element.parentElement.children[index] != concept_element)
@@ -983,10 +982,17 @@ function getActiveElements(element)
 function deselectionOfAllConceptElements() 
 {
     /*This function will describe the behavior of deselect all button within the Overall Concept Selection.*/
+    
     for(var i = 0; i < concept_selection.children.length; i++)
     {
-        concept_selection.children[i].value = false;
-        concept_selection.children[i].style = tag_selection_off;
+        /*Making sure the elements is selected*/
+        concept_selection.children[i].value = true;
+        concept_selection.children[i].style = tag_selection_on;
+        
+        //This will deselect the element
+        toggleConceptOnOff(concept_selection.children[i])
+        /*By using toggleConceptOnOff function we will now deselect the concept*/
+        
         updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
     allConceptsSelection = false;
@@ -997,10 +1003,17 @@ function deselectionOfAllConceptElements()
 function selectionOfAllConceptElements() 
 {
     /*This function will describe the behavior of select all button within the Overall Concept Selection.*/
+    
     for(var i = 0; i < concept_selection.children.length; i++)
     {
-        concept_selection.children[i].value = true;
-        concept_selection.children[i].style = tag_selection_on;
+        /*Making sure the elements is deselected*/
+        concept_selection.children[i].value = false;
+        concept_selection.children[i].style = tag_selection_off;
+        
+        //This will select the element
+        toggleConceptOnOff(concept_selection.children[i])
+        /*By using toggleConceptOnOff function we will now display the concept*/
+        
         updateCookie(concept_selection.children[i].innerHTML, concept_selection.children[i].value);
     }
     allConceptsSelection = true;
@@ -1011,10 +1024,17 @@ function selectionOfAllConceptElements()
 function deselectionOfAllLanguageElements() 
 {
     /*This function will describe the behavior of deselect all button within the Overall Language Selection.*/
+    
     for(var i = 0; i < manifest_selection.children.length; i++)
     {
-        manifest_selection.children[i].value = false;
-        manifest_selection.children[i].style = tag_selection_off;
+        /*Making sure the elements is selected*/
+        manifest_selection.children[i].value = true;
+        manifest_selection.children[i].style = tag_selection_on;
+        
+        //This will deselect the element
+        toggleManifestOnOff(manifest_selection.children[i])
+        /*By using toggleManifestOnOff we will now CLEAR the item and remove it's particular concepts from selection*/
+        
         updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
     }
     showTable();
@@ -1024,10 +1044,17 @@ function deselectionOfAllLanguageElements()
 function selectionOfAllLanguageElements() 
 {
     /*This function will describe the behavior of select all button within the Overall Language Selection.*/
+    
     for(var i = 0; i < manifest_selection.children.length; i++)
     {
-        manifest_selection.children[i].value = true;
-        manifest_selection.children[i].style = tag_selection_on;
+        /*Making sure the elements is deselected*/
+        manifest_selection.children[i].value = false;
+        manifest_selection.children[i].style = tag_selection_off;
+        
+        //This will select the element
+        toggleManifestOnOff(manifest_selection.children[i])
+        /*By using toggleManifestOnOff we will now SELECT the item and add it's particular concepts for the  selection*/
+        
         updateCookie(manifest_selection.children[i].innerHTML, manifest_selection.children[i].value);
     }
     showTable();
