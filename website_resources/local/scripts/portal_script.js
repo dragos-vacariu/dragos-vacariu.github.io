@@ -658,6 +658,12 @@ function fillTableCompare()
                             
                             //Don't copy general knowledge on compare. As those informations are available to all languages.
                             p.innerHTML = String(p.innerHTML).replace(copy_GeneralKnowledge_token, "");
+                            
+                            if(p.innerHTML == "")
+                            {
+                                p.innerHTML = "No particularities to show."
+                            }
+                        
                         }
                         else
                         {
