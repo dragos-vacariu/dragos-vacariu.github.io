@@ -17216,7 +17216,7 @@
                 </enum>
             
             So basically, whenever a node (<azure>ECU</azure>) sends a message on the CAN it <azure>starts</azure> transmitting with a distinguishable 
-            <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>) and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure> (EOF <purple>bit</purple>).
+            <purple>binary</purple> <azure>sequence</azure> (<purple>SOF</purple> <purple>bit</purple>) and it ends the transmission with a different distinguishable <purple>binary</purple> <azure>sequence</azure> (<purple>EOF</purple> <purple>bit</purple>).
 
                 <enum><indigo>Start of Frame (SOF):</indigo> This is a single dominant <purple>bit</purple> (0) that marks the beginning of a message. 
                 Think of it like a "Hey, everyone, listen up!" <purple>signal</purple>.</enum>
@@ -17411,40 +17411,93 @@
                 </enum>
             
             <br/></can-controller-driver>
-        <can-interface><brown>CAN Interface (CANIF)</brown>
+        <can-interface><brown>CAN Interface (CanIf)</brown>
             <br/><br/>
             The <purple>RTOS</purple> manages multiple <azure>tasks</azure> that may need to send or receive CAN messages. When a <azure>task</azure> wants to send a 
-            message over the <red>CAN</red> <red>network</red>, it calls directly or indirectly the appropriate <red>function</red> from <purple>CANIF</purple> <red>module</red> 
+            message over the <red>CAN</red> <red>network</red>, it calls directly or indirectly the appropriate <red>function</red> from <purple>CanIf</purple> <red>module</red> 
             which builds reliable <red>interfaces</red> by calling <red>functions</red> defined within the <azure>CAN</azure> <azure>Driver</azure>. 
             <br/><br/>
             <indigo>Concrete Example of Communication between ECUs:</indigo>
-                <enum><purple>RTOS</purple> <azure>Task</azure> calls <purple>CANIF</purple> <red>interface</red> for sending a message through the <red>CAN</red> <red>bus</red>.</enum>
-                <enum><purple>CANIF</purple> <red>interface</red> receives the <purple>data</purple> from <purple>RTOS</purple> <azure>Task</azure>, and <red>based</red> on the <purple>size</purple> of message 
-                it performs the segmentation. On <red>CAN</red> <red>bus</red> we are only <azure>allowed</azure> to send messages up to 8 <purple>bytes</purple>. 
-                If the message to be sent is bigger than 8 <purple>bytes</purple>, it will be <azure>sliced</azure> into multiple <red>Frames</red>. 
-                Each <red>Frame</red> will contain the same message ID and <red>CRC</red>, a <azure>sequential</azure> <azure>SQC</azure> / <azure>SQN</azure> (<azure>Sequence</azure> <azure>Counter</azure> or 
-                <azure>Sequence</azure> <azure>Number</azure>) and only a <azure>portion</azure> of the actual <purple>data</purple></enum>
-                <enum><purple>CANIF</purple> then buffers the <red>frames</red>, and notifies the <azure>CAN</azure> <azure>Driver</azure> that everything is <purple>set</purple> for transmission.</enum>
-                <enum><azure>CAN</azure> <azure>Driver</azure> monitors the activity on the <red>bus</red>, and once the <red>bus</red> is available, 
-                it will inform the <purple>CANIF</purple>, that the transmission can begin.</enum>
-                <enum><purple>CANIF</purple> receives the notification from <azure>CAN</azure> <azure>Driver</azure>, and passes the first <red>frame</red> to the <azure>CAN</azure> <azure>Driver</azure>.</enum>
+                <enum>SWC generates <purple>data</purple> that needs to be sent to external world through the <red>CAN</red> <red>network</red>.</enum>
+                <enum>SWC passed the <purple>data</purple> to <red>RTE</red>, which <red>based</red> on the <red>system</red> description knows in which 
+                    <purple>signal</purple> the <purple>data</purple> will end up. 
+                    <br/><br/>
+                    If the <purple>signal</purple> in which the <purple>data</purple> will be <azure>stored</azure> is meant to be sent to an external <azure>ECU</azure>, 
+                    and if the external <azure>ECU</azure> receiving it is of different architecture, then 
+                    <red>RTE</red> may convert the <purple>data</purple> (Ex: from Little Endian to Big Endian) to <azure>match</azure> 
+                    the receiver <azure>ECU's</azure> architecture.
+                </enum>
+                <enum>Once <purple>data</purple> is converted, <red>RTE</red> maps the <purple>data</purple> to an <purple>RTOS</purple> Scheduling <azure>Task</azure>, 
+                    which is responsible for managing the CAN communication.
+                </enum>
+                <enum><purple>RTOS</purple> <azure>Task</azure> passes the <purple>data</purple> to a <azure>Communication</azure> <azure>Stack</azure> <red>module</red> which will map it to a <purple>Signal</purple>.</enum>
+                <enum><purple>CanIf</purple> <red>interface</red> as part of <azure>Communication</azure> <azure>Stack</azure>, takes over the <azure>updated</azure> <purple>Signal</purple> which 
+                    may or may not be part of a <purple>Signal</purple> Group and packs it into a <purple>PDU</purple>.
+                    <br/><br/>
+                    <red>Based</red> on the <purple>size</purple> of the <purple>PDU</purple> / Message, the <purple>CanIf</purple> 
+                    will determine if the segmentation is needed. On <red>CAN</red> <red>bus</red> we are only <azure>allowed</azure> to send messages up to 8 <purple>bytes</purple>. 
+                    If the message to be sent is bigger than 8 <purple>bytes</purple>, it needs to be <azure>sliced</azure> into multiple <red>Frames</red>. 
+                    <br/><br/>
+                    Each <red>Frame</red> will contain the same message ID, <red>CAN</red> <red>ID</red> and <red>CRC</red>, a <azure>sequential</azure> <azure>SQC</azure> / <azure>SQN</azure> (<azure>Sequence</azure> <azure>Counter</azure> or 
+                    <azure>Sequence</azure> <azure>Number</azure>) and only a <azure>portion</azure> of the actual <purple>data</purple>
+                </enum>
+                <enum>In order to perform segmentation <purple>CanIf</purple> will call a specific <red>function</red> from <purple>CanTp</purple> <red>module</red> to inform that 
+                     a new CAN N-<purple>PDU</purple> <red>frame</red> has been received.
+                     <br/><br/>
+                     This is done through a reception indication <red>function</red>, which informs the <purple>CanTp</purple> <red>module</red> that it needs to 
+                     handle the segmentation of the incoming <purple>data</purple>.
+                     <br/><br/>
+                     <purple>CanTp</purple> <red>module</red> will then <purple>break</purple> down the larger message into smaller <red>frames</red> that fit within the 8-<purple>byte</purple> limit.
+                </enum>
+                <enum><purple>CanIf</purple> then receives the <red>frames</red> from <purple>CanTp</purple>, and notifies the <azure>CAN</azure> <azure>Driver</azure> that everything is 
+                    <purple>set</purple> for transmission.
+                </enum>
+                <enum><azure>CAN</azure> <azure>Driver</azure> monitors the activity on the <red>bus</red>.
+                    <br/><br/>
+                    Only if the <red>bus</red> is busy, the <azure>CAN</azure> <azure>Driver</azure> participates in the <azure>arbitration</azure> <azure>process</azure> to determine if 
+                    it can send its message. 
+                    <br/><br/>
+                    This happens before the actual <red>frame</red> <purple>data</purple> is transmitted.                
+                    <br/><br/>
+                    Once <azure>CAN</azure> <azure>Driver</azure> wins the <azure>Arbitration</azure> <azure>Phase</azure> or once the <red>bus</red> gets freed, <azure>CAN</azure> <azure>Driver</azure>
+                    will inform the <purple>CanIf</purple>, that the transmission can begin.
+                </enum>
+                <enum><purple>CanIf</purple> receives the notification from <azure>CAN</azure> <azure>Driver</azure>, and passes the first <red>frame</red> to the <azure>CAN</azure> <azure>Driver</azure>.</enum>
                 <enum><azure>CAN</azure> <azure>Driver</azure> takes the <red>frame</red>, and informs the <red>CAN</red> <red>Transceiver</red> that <purple>data</purple> will be coming.</enum>
-                <enum><red>CAN</red> <red>Transceiver</red> sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>) on the <red>bus</red>, which would 
-                reserve a slot for message transmission.</enum>
+                <enum><red>CAN</red> <red>Transceiver</red> sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (<purple>SOF</purple> <purple>bit</purple>) on the <red>bus</red>, which would 
+                    reserve a slot for message transmission.
+                </enum>
                 <enum><azure>CAN</azure> <azure>Driver</azure> sends each <purple>bit</purple> within the <red>frame</red>, individually, to the <red>CAN</red> <red>Transceiver</red>.</enum>
-                <enum><red>CAN</red> <red>Transceiver</red> receives the <purple>bit</purple> and turns it into voltage. A <purple>bit</purple> 0 is equivalent to 4.5V on <red>CANH</red>, 
-                and 1.5V on 
-                <azure>CANL</azure>. whereas <purple>bit</purple> 1 is equivalent to 2.5V on each wire: <red>CANH</red> and <azure>CANL</azure></enum>
+                <enum><red>CAN</red> <red>Transceiver</red> receives the <purple>bit</purple> and turns it into voltage. 
+                    A <purple>bit</purple> 0 is equivalent to a voltage difference greater than 0V between <red>CANH</red> and <azure>CANL</azure> 
+                    This typically means having 4.5V on <red>CANH</red>, and 1.5V on <azure>CANL</azure>. 
+                    <br/><br/>
+                    A <purple>bit</purple> 1 is equivalent to a voltage difference near 0V. 
+                    This typically means having 2.5V on each wire: <red>CANH</red> and <azure>CANL</azure>.
+                    <br/><br/>
+                    The <red>transceivers</red> use the voltage difference between the <red>CANH</red> and <azure>CANL</azure> to determine the <purple>bit</purple> <purple>value</purple>.
+                    <br/><br/>
+                    The <red>transceiver</red> might <azure>add</azure> <red>staffing</red> <red>bits</red> in their transmission if the same 5 <purple>bits</purple> are sent in a row.
+                    This means that the <red>CAN</red> <red>Transceiver</red> will <azure>add</azure> an extra <purple>bit</purple> of opposite <purple>value</purple> after every 5 <purple>bits</purple> of 
+                    the same <purple>value</purple>.
+                </enum>
                 <enum>While we are sending the message on the <red>bus</red>, <purple>bit</purple> by <purple>bit</purple>, <red>frame</red> by <red>frame</red>. All other <azure>ECUs</azure> listen, 
                     and wait for their 
                     turn to reach for the <red>bus</red> and send their messages.
                 </enum>
-                <enum>The listening <azure>ECUs</azure> will <azure>read</azure> our <purple>binary</purple> <purple>data</purple>, and they will <azure>compare</azure> our ID with their ID, if the ID <azure>matches</azure>, it means
-                   we called their name, they need to receive the message. They will begin to <azure>write</azure> down every <purple>bit</purple> we send within that transmission.
+                <enum>The listening <azure>ECUs</azure> will <azure>read</azure> our <purple>binary</purple> <purple>data</purple> and 
+                     they will begin to <azure>write</azure> down every <purple>bit</purple> we send within that transmission.
                 </enum>
                 <enum>In case any other <azure>ECU</azure> with higher priority (lower <red>CAN</red> <red>Id</red>) 
                     within the network will request communication,
                     our message will be intrerrupted. 
+                    <br/><br/>
+                    Within a network: <azure>ECUs</azure> have <purple>static</purple> priority. Meaning that the priority 
+                    it's <red>pre</red>-<red>defined</red> in the network design and doesn't change during communication.
+                    <br/><br/>
+                    Also the priority an <azure>ECU</azure> has in one network for <red>instance</red> CAN may be bigger than the same <azure>ECU</azure> has on 
+                    a different network, for <red>instance</red>: <red>LIN</red>. This happens because on some network <azure>ECUs</azure> may transmit more important
+                    <purple>PDUs</purple> or communicate with more important <azure>ECUs</azure> than on other networks.
                     <br/><br/>
                     While our <azure>ECU</azure> is transmitting, it continuously monitors the <red>bus</red>. If it detects a dominant level 
                     (a <purple>logical</purple> '0') when we are actually sending a recessive level (a <purple>logical</purple> '1'), 
@@ -17486,25 +17539,34 @@
                     Once the <red>bus</red> gets free, we will restart our communication.
                 </enum>
                 <enum>
-                    Once all the <red>frames</red> were sent, the <red>CAN</red> <red>Transceiver</red> will send a distinguishable <purple>binary</purple> <azure>sequence</azure> (EOF <purple>bit</purple>) 
+                    Once all the <red>frames</red> were sent, the <red>CAN</red> <red>Transceiver</red> will send a distinguishable <purple>binary</purple> <azure>sequence</azure> (<purple>EOF</purple> <purple>bit</purple>) 
                     which will notify the receipient <azure>ECU</azure> that the message is complete, and the <red>bus</red> will become free again.
                 </enum>
                 <enum>
                     On the receipient <azure>ECU</azure>, the <red>CAN</red> <red>Transceiver</red> translates the last <purple>bit</purple> for the <azure>CAN</azure> <azure>Driver</azure>. The <azure>CAN</azure> <azure>Driver</azure> 
-                    now has all the <purple>data</purple> and knows
-                    that the message is complete, and will notify the <purple>CANIF</purple>.
+                    now has all the <purple>data</purple> buffered and knows that the transmission has ended, and it will notify the <purple>CanIf</purple>.
                 </enum>
                 <enum>
-                    <purple>CANIF</purple> has received through the <azure>CAN</azure> <azure>Driver</azure> all the <purple>bits</purple> within all the <red>frames</red>. Now it has everything 
-                    buffered and will attempt to 
-                    assemble all pieces together. It will check for <azure>SQC</azure> / <azure>SQN</azure> in order to determine which <red>frame</red> is 
-                    first. <red>Based</red> on the <azure>SQC</azure> / <azure>SQN</azure> 
-                    the <red>frames</red> are put together and a 
-                    Message is formed.
+                    <purple>CanIf</purple> will request each <red>frames</red> from the <azure>CAN</azure> <azure>Driver</azure> and will apply its acceptance criteria.
+                    Meaning if the Unique Message ID within every <red>frame</red> is within the predefined range that the 
+                    <purple>CanIf</purple> is configured to accept, then it will attempt to decode/assemble all pieces together. 
+                    <br/><br/>
+                    Otherwise the message will be <azure>blocked</azure>, as it's not meant for the receiving <azure>ECU</azure>.
+                    <br/><br/>
+                    Decoding is the <azure>process</azure> of turning individual <red>frames</red> into a single <purple>PDU</purple> Unit. During decoding the <purple>CanIf</purple>
+                    will <purple>remove</purple> <red>Staffing</red> <red>bits</red>, and <red>CAN</red> <red>ID</red> from each <red>frame</red>, as they are not supposed to be part of the <purple>PDU</purple>.
+                    Also for each <red>frame</red> <purple>CanIf</purple> will check for <azure>SQC</azure> / <azure>SQN</azure> in order to determine the order in which to assemble
+                    the <red>frames</red> into a single <purple>PDU</purple>. 
+                    <br/><br/>
+                    <red>Based</red> on the <azure>SQC</azure> / <azure>SQN</azure> the <red>frames</red> are put together and a <purple>PDU</purple> / Message is formed.
                 </enum>
                 <enum>
-                    <purple>CANIF</purple> will attempt to validate the message, by calculating the <red>CRC</red> for the message and <azure>comparing</azure> 
-                    the result with the <red>CRC</red> received from our <azure>ECU</azure>.
+                    <purple>CanIf</purple> will attempt to validate the <purple>PDU</purple>/Message, by calculating the <red>CRC</red> for the message.
+                    <br/><br/>
+                    The <red>CRC</red> calculation is performed on the entire message <purple>data</purple>, including the <red>CAN</red> <red>ID</red> and 
+                    other control <purple>fields</purple>.
+                    <br/><br/>
+                    The calculated <red>CRC</red> is then <azure>compared</azure> with the <red>CRC</red> received from our <azure>ECU</azure>. 
                     If the <red>CRCs</red> are identical, the message is valid.
                 </enum>
                 <enum>
@@ -17513,6 +17575,9 @@
                     the <azure>Error</azure> <azure>Frame</azure>, and we will know the message intrerruption caused a problem in our transmission, 
                     and the message that reached the destination
                     is different from what we meant to send.
+                    <br/><br/>
+                    The <azure>Error</azure> <azure>Frame</azure> triggers error recovery mechanisms. The transmitting <azure>ECU</azure> might retry the 
+                    transmission, or other <azure>ECUs</azure> might try to avoid sending messages to the problematic node.
                 </enum>
                 <enum>
                     Our <azure>ECU</azure> will retransmit the message. If the same scenario repeats multiple times, and we are unable 
@@ -17523,7 +17588,7 @@
             <br/>
             The same steps are taken in case of message reception. 
             <br/>
-            When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CANIF</purple> which assembles the message and informs 
+            When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CanIf</purple> which assembles the message and informs 
             directly or indirectly the <purple>RTOS</purple>, which can then pass the message to the appropriate <azure>task</azure> for <azure>processing</azure>.
             <br/><br/></can-interface>
         <can-collision-detection><purple>CAN</purple> <purple>protocol's</purple> collision detection mechanism enables a node (<azure>ECU</azure>) which is transmitting <purple>data</purple> to detect 
@@ -17533,7 +17598,7 @@
             <azure>Arbitration</azure> is the <azure>process</azure> by which multiple <azure>ECUs</azure> on the <red>CAN</red> <red>bus</red> compete to transmit a 
             message. It's a <purple>bit</purple> like a traffic light where only one <red>car</red> can go through at a time.
             <br/><br/>
-            Before our <azure>ECU</azure> begins to transmit, it sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (SOF <purple>bit</purple>), notifying all 
+            Before our <azure>ECU</azure> begins to transmit, it sends a distinguishable <purple>binary</purple> <azure>sequence</azure> (<purple>SOF</purple> <purple>bit</purple>), notifying all 
             other nodes, that we are going to communicate, and the <red>bus</red> will become busy.
             <br/><br/>
             While we are transmitting, we are <purple>constantly</purple> monitoring the <red>bus</red>. We will be able to detect a collision 
@@ -17683,7 +17748,7 @@
                     the stuffing <purple>bits</purple>.</enum>
                 
                 <br/>
-                It's the <purple>CANIF's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
+                It's the <purple>CanIf's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
                 stuffing <purple>bits</purple>.
                 <br/><br/>
                 <brown>Why using Stuffing Bits: </brown>

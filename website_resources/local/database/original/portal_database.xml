@@ -16349,40 +16349,93 @@ else
             <br></br>
         </can-controller-driver>
         <can-interface>
-            <brown>CAN Interface (CANIF)</brown>
+            <brown>CAN Interface (CanIf)</brown>
             <br></br><br></br>
             The RTOS manages multiple tasks that may need to send or receive CAN messages. When a task wants to send a 
-            message over the CAN network, it calls directly or indirectly the appropriate function from CANIF module 
+            message over the CAN network, it calls directly or indirectly the appropriate function from CanIf module 
             which builds reliable interfaces by calling functions defined within the CAN Driver. 
             <br></br><br></br>
             <indigo>Concrete Example of Communication between ECUs:</indigo>
-                <enum>RTOS Task calls CANIF interface for sending a message through the CAN bus.</enum>
-                <enum>CANIF interface receives the data from RTOS Task, and based on the size of message 
-                it performs the segmentation. On CAN bus we are only allowed to send messages up to 8 bytes. 
-                If the message to be sent is bigger than 8 bytes, it will be sliced into multiple Frames. 
-                Each Frame will contain the same message ID and CRC, a sequential SQC / SQN (Sequence Counter or 
-                Sequence Number) and only a portion of the actual data</enum>
-                <enum>CANIF then buffers the frames, and notifies the CAN Driver that everything is set for transmission.</enum>
-                <enum>CAN Driver monitors the activity on the bus, and once the bus is available, 
-                it will inform the CANIF, that the transmission can begin.</enum>
-                <enum>CANIF receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</enum>
+                <enum>SWC generates data that needs to be sent to external world through the CAN network.</enum>
+                <enum>SWC passed the data to RTE, which based on the system description knows in which 
+                    signal the data will end up. 
+                    <br></br><br></br>
+                    If the signal in which the data will be stored is meant to be sent to an external ECU, 
+                    and if the external ECU receiving it is of different architecture, then 
+                    RTE may convert the data (Ex: from Little Endian to Big Endian) to match 
+                    the receiver ECU's architecture.
+                </enum>
+                <enum>Once data is converted, RTE maps the data to an RTOS Scheduling Task, 
+                    which is responsible for managing the CAN communication.
+                </enum>
+                <enum>RTOS Task passes the data to a Communication Stack module which will map it to a Signal.</enum>
+                <enum>CanIf interface as part of Communication Stack, takes over the updated Signal which 
+                    may or may not be part of a Signal Group and packs it into a PDU.
+                    <br></br><br></br>
+                    Based on the size of the PDU / Message, the CanIf 
+                    will determine if the segmentation is needed. On CAN bus we are only allowed to send messages up to 8 bytes. 
+                    If the message to be sent is bigger than 8 bytes, it needs to be sliced into multiple Frames. 
+                    <br></br><br></br>
+                    Each Frame will contain the same message ID, CAN ID and CRC, a sequential SQC / SQN (Sequence Counter or 
+                    Sequence Number) and only a portion of the actual data
+                </enum>
+                <enum>In order to perform segmentation CanIf will call a specific function from CanTp module to inform that 
+                     a new CAN N-PDU frame has been received.
+                     <br></br><br></br>
+                     This is done through a reception indication function, which informs the CanTp module that it needs to 
+                     handle the segmentation of the incoming data.
+                     <br></br><br></br>
+                     CanTp module will then break down the larger message into smaller frames that fit within the 8-byte limit.
+                </enum>
+                <enum>CanIf then receives the frames from CanTp, and notifies the CAN Driver that everything is 
+                    set for transmission.
+                </enum>
+                <enum>CAN Driver monitors the activity on the bus.
+                    <br></br><br></br>
+                    Only if the bus is busy, the CAN Driver participates in the arbitration process to determine if 
+                    it can send its message. 
+                    <br></br><br></br>
+                    This happens before the actual frame data is transmitted.                
+                    <br></br><br></br>
+                    Once CAN Driver wins the Arbitration Phase or once the bus gets freed, CAN Driver
+                    will inform the CanIf, that the transmission can begin.
+                </enum>
+                <enum>CanIf receives the notification from CAN Driver, and passes the first frame to the CAN Driver.</enum>
                 <enum>CAN Driver takes the frame, and informs the CAN Transceiver that data will be coming.</enum>
                 <enum>CAN Transceiver sends a distinguishable binary sequence (SOF bit) on the bus, which would 
-                reserve a slot for message transmission.</enum>
+                    reserve a slot for message transmission.
+                </enum>
                 <enum>CAN Driver sends each bit within the frame, individually, to the CAN Transceiver.</enum>
-                <enum>CAN Transceiver receives the bit and turns it into voltage. A bit 0 is equivalent to 4.5V on CANH, 
-                and 1.5V on 
-                CANL. whereas bit 1 is equivalent to 2.5V on each wire: CANH and CANL</enum>
+                <enum>CAN Transceiver receives the bit and turns it into voltage. 
+                    A bit 0 is equivalent to a voltage difference greater than 0V between CANH and CANL 
+                    This typically means having 4.5V on CANH, and 1.5V on CANL. 
+                    <br></br><br></br>
+                    A bit 1 is equivalent to a voltage difference near 0V. 
+                    This typically means having 2.5V on each wire: CANH and CANL.
+                    <br></br><br></br>
+                    The transceivers use the voltage difference between the CANH and CANL to determine the bit value.
+                    <br></br><br></br>
+                    The transceiver might add staffing bits in their transmission if the same 5 bits are sent in a row.
+                    This means that the CAN Transceiver will add an extra bit of opposite value after every 5 bits of 
+                    the same value.
+                </enum>
                 <enum>While we are sending the message on the bus, bit by bit, frame by frame. All other ECUs listen, 
                     and wait for their 
                     turn to reach for the bus and send their messages.
                 </enum>
-                <enum>The listening ECUs will read our binary data, and they will compare our ID with their ID, if the ID matches, it means
-                   we called their name, they need to receive the message. They will begin to write down every bit we send within that transmission.
+                <enum>The listening ECUs will read our binary data and 
+                     they will begin to write down every bit we send within that transmission.
                 </enum>
                 <enum>In case any other ECU with higher priority (lower CAN Id) 
                     within the network will request communication,
                     our message will be intrerrupted. 
+                    <br></br><br></br>
+                    Within a network: ECUs have static priority. Meaning that the priority 
+                    it's pre-defined in the network design and doesn't change during communication.
+                    <br></br><br></br>
+                    Also the priority an ECU has in one network for instance CAN may be bigger than the same ECU has on 
+                    a different network, for instance: LIN. This happens because on some network ECUs may transmit more important
+                    PDUs or communicate with more important ECUs than on other networks.
                     <br></br><br></br>
                     While our ECU is transmitting, it continuously monitors the bus. If it detects a dominant level 
                     (a logical '0') when we are actually sending a recessive level (a logical '1'), 
@@ -16429,20 +16482,29 @@ else
                 </enum>
                 <enum>
                     On the receipient ECU, the CAN Transceiver translates the last bit for the CAN Driver. The CAN Driver 
-                    now has all the data and knows
-                    that the message is complete, and will notify the CANIF.
+                    now has all the data buffered and knows that the transmission has ended, and it will notify the CanIf.
                 </enum>
                 <enum>
-                    CANIF has received through the CAN Driver all the bits within all the frames. Now it has everything 
-                    buffered and will attempt to 
-                    assemble all pieces together. It will check for SQC / SQN in order to determine which frame is 
-                    first. Based on the SQC / SQN 
-                    the frames are put together and a 
-                    Message is formed.
+                    CanIf will request each frames from the CAN Driver and will apply its acceptance criteria.
+                    Meaning if the Unique Message ID within every frame is within the predefined range that the 
+                    CanIf is configured to accept, then it will attempt to decode/assemble all pieces together. 
+                    <br></br><br></br>
+                    Otherwise the message will be blocked, as it's not meant for the receiving ECU.
+                    <br></br><br></br>
+                    Decoding is the process of turning individual frames into a single PDU Unit. During decoding the CanIf
+                    will remove Staffing bits, and CAN ID from each frame, as they are not supposed to be part of the PDU.
+                    Also for each frame CanIf will check for SQC / SQN in order to determine the order in which to assemble
+                    the frames into a single PDU. 
+                    <br></br><br></br>
+                    Based on the SQC / SQN the frames are put together and a PDU / Message is formed.
                 </enum>
                 <enum>
-                    CANIF will attempt to validate the message, by calculating the CRC for the message and comparing 
-                    the result with the CRC received from our ECU.
+                    CanIf will attempt to validate the PDU/Message, by calculating the CRC for the message.
+                    <br></br><br></br>
+                    The CRC calculation is performed on the entire message data, including the CAN ID and 
+                    other control fields.
+                    <br></br><br></br>
+                    The calculated CRC is then compared with the CRC received from our ECU. 
                     If the CRCs are identical, the message is valid.
                 </enum>
                 <enum>
@@ -16451,6 +16513,9 @@ else
                     the Error Frame, and we will know the message intrerruption caused a problem in our transmission, 
                     and the message that reached the destination
                     is different from what we meant to send.
+                    <br></br><br></br>
+                    The Error Frame triggers error recovery mechanisms. The transmitting ECU might retry the 
+                    transmission, or other ECUs might try to avoid sending messages to the problematic node.
                 </enum>
                 <enum>
                     Our ECU will retransmit the message. If the same scenario repeats multiple times, and we are unable 
@@ -16461,7 +16526,7 @@ else
             <br></br>
             The same steps are taken in case of message reception. 
             <br></br>
-            When a message is received, the CAN Driver notifies CANIF which assembles the message and informs 
+            When a message is received, the CAN Driver notifies CanIf which assembles the message and informs 
             directly or indirectly the RTOS, which can then pass the message to the appropriate task for processing.
             <br></br><br></br>
         </can-interface>
@@ -16626,7 +16691,7 @@ else
                     the stuffing bits.</enum>
                 
                 <br></br>
-                It's the CANIF's job to decode the information, and turn it back into a PDU, hence removing the 
+                It's the CanIf's job to decode the information, and turn it back into a PDU, hence removing the 
                 stuffing bits.
                 <br></br><br></br>
                 <brown>Why using Stuffing Bits: </brown>

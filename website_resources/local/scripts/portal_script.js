@@ -1,8 +1,8 @@
-var domain = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/"
-//var domain = "http://localhost:8003/dragos-vacariu.github.io/"
+//var domain = "https://raw.githubusercontent.com/dragos-vacariu/portfolio/main/"
+var domain = "http://localhost:8003/dragos-vacariu.github.io/"
 
-const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml";
-//const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml"; //local resource can be ran using local server with cors
+//const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml";
+const online_xml_file = domain + "website_resources/local/database/processed/portal_database_processed.xml"; //local resource can be ran using local server with cors
 //const online_xml_file = domain + "website_resources/local/database/original/portal_database.xml"; //local resource can be ran using local server with cors
 
 const manifests = [];

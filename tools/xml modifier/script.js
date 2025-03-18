@@ -6,7 +6,7 @@ const red_colored_substr = {keyword: [
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
     "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", 
-    "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID"], color: "red"};
+    "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID", "Staffing bit"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -40,7 +40,8 @@ const purple_colored_words = {keyword: [
     "dereference", "reference", "field", "member", "typedef", "character", "vector", "iter", "valueless", "int", "logic", "meta",
     "protect", "public", "private", "file", "variable", "value", "property", "api", "library", "increment", "decrement", "remove", "arithmetic",
     "size", "arraylist", "abstractlist", "dictionary", "obsolete", "global", "garbage", "key", "set", "tuple", "cursor", "subtype",
-    "architect", "AUTOSAR", "Layer", "determinist", "PDU", "ACK", "Acknowledgment", "RTOS", "SPI", "CANIF", "E2E"], color: "purple"};
+    "architect", "AUTOSAR", "Layer", "determinist", "PDU", "ACK", "Acknowledgment", "RTOS", "SPI", "CANIF", "E2E",
+    "CanTp", "SOF", "EOF"], color: "purple"};
 
 //Words and expressions associated with various concepts or special terms:
 const azure_colored_substr = {keyword: [
@@ -52,7 +53,7 @@ const azure_colored_substr = {keyword: [
     "Services Layer", "ECU Abstraction Layer", "Microcontroller Abstraction Layer", "Complex Drivers", "SWC B", "Sequence Number",
     "CAN Low", "CAN Driver", "Error Frame", "Data Frame", "Overload Frame", "Remote Frame", "Baud rate", "Bus speed",
     "Least Significant Bit", "Arbitration Phase", "arbitration process", "Our Transmitted data", 
-    "Collision Resolution Process"], color: "azure"};
+    "Collision Resolution Process", "Communication Stack"], color: "azure"};
 
 const azure_colored_words = {keyword: [
     /*Single words should be second section*/
