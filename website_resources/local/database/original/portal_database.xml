@@ -15264,6 +15264,57 @@ sum = lambda arg1, arg2: arg1 + arg2;
             SWC A and SWC B, in order for SWC A to use some variables or functions from SWC B, the components SWC A it will have to connect 
             to the RTE which then will connect SWC A to SWC B through a series of interfaces for Reading/Writing.
             <br></br><br></br>
+            Runtime Environment Layer (RTE) is an implementation based on the abstract concept of Virtual Function Bus (VFB).
+            <br></br><br></br>
+            The Virtual Function Bus (VFB) serves as a communication layer that allows different software components to 
+            interact with each other 
+            in a standardized way. It abstracts the underlying hardware and software complexities, enabling easier 
+            integration and communication.
+            <br></br><br></br>
+            If SWC A and SWC B were two people trying to communicate, then RTE is their postman while VFB is their mailbox.
+            This means VFB provides addresses which allows RTE to deliver the data to the right receiver. RTE handles
+            sorting and routing ensuring that data travels the right way from one SWC to the other, and RTE also ensures that
+            data arrives at the right time, in case of asynchronous functions. 
+            <br></br><br></br>
+            In case of asynchronous functions, once the function generates the data, it passes the data to the RTE, then the 
+            RTE keeps the data stored until the receiver will come to collect it. 
+            <br></br><br></br>
+            In case of synchronous functions, once the function generates the data, it calls in for RTE API, which provides access 
+            to the receiver, and the sender ensure that the receiver has the data when it becomes available.
+            As an analogy, imagine that the sender calls in the RTE which is a cab, the RTE brings the sender to the receiver's destination
+            then the RTE (cab) gives the key to the receivers house, and the sender enters the receivers house, and leaves the data, 
+            then locks the door behind it, and it resumes its normal duties. 
+            <br></br><br></br>
+            The synchrounous SWCs causes blocking / delays because it has to do all this extra work. 
+            <br></br><br></br>
+            Several factors influence whether to use synchronous or asynchronous communication in SWCs:
+            <br></br><br></br>
+            <indigo>Timing Requirements:</indigo>
+            <br></br>
+            If the application requires immediate responses, synchronous communication is preferred.
+            For less time-sensitive operations, asynchronous communication is more suitable.
+            <br></br><br></br>
+            <indigo>Data Dependency:</indigo>
+            <br></br>
+            If the sender's operation depends on the receiver's response, synchronous is necessary.
+            If the operations can proceed independently, asynchronous is ideal.
+            <br></br><br></br>
+            <indigo>System Architecture:</indigo>
+            <br></br>
+            The overall design of the system and how components interact can dictate the choice.
+            For example, in a multi-core environment, asynchronous communication can help manage load and improve 
+            performance.
+            <br></br><br></br>
+            <indigo>Error Handling:</indigo>
+            <br></br>
+            Synchronous communication can simplify error handling since the sender waits for a response.
+            Asynchronous communication may require more complex error management strategies.
+            <br></br><br></br>
+            <indigo>Performance Considerations:</indigo>
+            <br></br>
+            Synchronous calls can introduce delays, especially if the receiver is busy.
+            Asynchronous calls can improve throughput by allowing multiple operations to occur simultaneously.
+            <br></br><br></br>
             <green>Application Layer</green>
             <br></br><br></br>
             The application layer is the highest layer of the AUTOSAR software architecture and supports custom functionalities 
@@ -16665,6 +16716,69 @@ else
                 delays and increased bus traffic.</enum>
             
         </can-collision-detection>
+        <can-tp-module>
+            CAN Transport Protocol (CanTp) Module is essential for efficient communication in automotive systems, especially 
+            when dealing 
+            with larger data packets. It has the ability to segment, reassemble, and manage flow control of PDUs / Messages.
+            <br></br><br></br>
+            The CanTp module is designed to handle the transport of larger data packets over the CAN bus, 
+            which has a maximum payload size of 8 bytes. When data exceeds this limit, CanTp comes into play to 
+            ensure that the data is transmitted efficiently and reliably.
+            <br></br><br></br>
+            <green>Key Functions of CanTp:</green>
+            <br></br><br></br>
+            <indigo>Segmentation:</indigo>
+            <br></br>
+            CanTp segments larger data packets into smaller frames that fit within the 8-byte limit of CAN messages.
+            This process ensures that data can be transmitted without loss or corruption.
+            <br></br><br></br>
+            <indigo>Reassembly:</indigo>
+            <br></br>
+            Once the segmented frames are received by the destination, CanTp is responsible for reassembling them 
+            into the original data packet.
+            This is crucial for maintaining data integrity.
+            <br></br><br></br>
+            <indigo>Flow Control:</indigo>
+            <br></br>
+            CanTp manages flow control to prevent data overflow. It ensures that the sender does not overwhelm the 
+            receiver with too many messages at once.
+            This is particularly important in scenarios where the receiver may take time to process incoming data.
+            <br></br><br></br>
+            It uses a "Flow Control Frame" to signal the sender to pause or continue sending data based on the receiver's 
+            readiness.
+            <br></br><br></br>
+            <indigo>State Management:</indigo>
+            <br></br>
+            The CanTp module operates in different states (e.g., CANTP_ON), and it performs segmentation and reassembly 
+            tasks only when in the appropriate state.
+            This state management helps maintain the protocol's integrity and functionality.
+            <br></br><br></br>
+            <indigo>Error Handling:</indigo>
+            <br></br>
+            CanTp includes mechanisms for error detection and handling. If a transmission error occurs, it can initiate 
+            retransmission of the affected frames, ensuring reliable communication.
+            <br></br><br></br>
+            <indigo>Configuration Parameters:</indigo>
+            <br></br>
+            The CanTp module can be configured with various parameters, such as maximum transmission unit 
+            (MTU) size, timeout values, and flow control settings. These configurations can be tailored to meet 
+            the specific needs of the application.
+            <br></br><br></br>
+            <indigo>Integration with Other Modules:</indigo>
+            <br></br>
+            CanTp sits between the PDU Router (PDUR) and the rest of the CAN stack, facilitating communication between 
+            different software components.
+            It interacts with other modules to ensure smooth data transmission across the system.
+            <br></br><br></br>
+            <indigo>Use Cases:</indigo>
+            <br></br>
+            CanTp is widely used in diagnostic communication, where larger data sets need to be 
+            transmitted for vehicle diagnostics and maintenance.
+            <br></br><br></br>
+            CanTp ensures that all data is transmitted 
+            without loss, maintaining the integrity of the information which is particulary important in applications 
+            requiring extensive data logging.
+        </can-tp-module>
         <error-detection>
                 CAN communication relies on a combination of techniques to ensure reliable data transmission. 
                 Stuffing bits, CRC codes, and timing considerations all work together to help the receiver interpret 

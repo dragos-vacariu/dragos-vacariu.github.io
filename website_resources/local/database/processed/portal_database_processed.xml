@@ -16299,6 +16299,57 @@
             <purple>SWC</purple> <purple>A</purple> and <azure>SWC</azure> <azure>B</azure>, in order for <purple>SWC</purple> <purple>A</purple> to use some <purple>variables</purple> or <red>functions</red> from <azure>SWC</azure> <azure>B</azure>, the components <purple>SWC</purple> <purple>A</purple> it will have to connect 
             to the <red>RTE</red> which then will connect <purple>SWC</purple> <purple>A</purple> to <azure>SWC</azure> <azure>B</azure> through a series of <red>interfaces</red> for <azure>Reading</azure>/<azure>Writing</azure>.
             <br/><br/>
+            <purple>Runtime</purple> <purple>Environment</purple> <purple>Layer</purple> (<red>RTE</red>) is an <red>implementation</red> <red>based</red> on the <azure>abstract</azure> concept of <red>Virtual</red> <red>Function</red> <red>Bus</red> (<azure>VFB</azure>).
+            <br/><br/>
+            The <red>Virtual</red> <red>Function</red> <red>Bus</red> (<azure>VFB</azure>) serves as a communication <purple>layer</purple> that <azure>allows</azure> different <red>software</red> <red>components</red> to 
+            interact with each other 
+            in a standardized way. It <azure>abstracts</azure> the underlying hardware and software complexities, enabling easier 
+            integration and communication.
+            <br/><br/>
+            If <purple>SWC</purple> <purple>A</purple> and <azure>SWC</azure> <azure>B</azure> were two people trying to communicate, then <red>RTE</red> is their postman while <azure>VFB</azure> is their mailbox.
+            This means <azure>VFB</azure> provides <purple>addresses</purple> which <azure>allows</azure> <red>RTE</red> to deliver the <purple>data</purple> to the right receiver. <red>RTE</red> handles
+            sorting and routing ensuring that <purple>data</purple> travels the right way from one SWC to the other, and <red>RTE</red> also ensures that
+            <purple>data</purple> arrives at the right time, in case of <azure>asynchronous</azure> <red>functions</red>. 
+            <br/><br/>
+            In case of <azure>asynchronous</azure> <red>functions</red>, once the <red>function</red> generates the <purple>data</purple>, it passes the <purple>data</purple> to the <red>RTE</red>, then the 
+            <red>RTE</red> keeps the <purple>data</purple> <azure>stored</azure> until the receiver will come to <purple>collect</purple> it. 
+            <br/><br/>
+            In case of <azure>synchronous</azure> <red>functions</red>, once the <red>function</red> generates the <purple>data</purple>, it calls in for <red>RTE</red> <purple>API</purple>, which provides access 
+            to the receiver, and the sender ensure that the receiver has the <purple>data</purple> when it becomes available.
+            As an analogy, imagine that the sender calls in the <red>RTE</red> which is a cab, the <red>RTE</red> brings the sender to the receiver's destination
+            then the <red>RTE</red> (cab) gives the <purple>key</purple> to the receivers house, and the sender enters the receivers house, and leaves the <purple>data</purple>, 
+            then locks the door behind it, and it resumes its normal duties. 
+            <br/><br/>
+            The synchrounous SWCs causes <azure>blocking</azure> / delays because it has to do all this extra work. 
+            <br/><br/>
+            Several factors influence whether to use <azure>synchronous</azure> or <azure>asynchronous</azure> communication in SWCs:
+            <br/><br/>
+            <indigo>Timing Requirements:</indigo>
+            <br/>
+            If the application requires immediate responses, <azure>synchronous</azure> communication is preferred.
+            For less time-sensitive <purple>operations</purple>, <azure>asynchronous</azure> communication is more suitable.
+            <br/><br/>
+            <indigo>Data Dependency:</indigo>
+            <br/>
+            If the sender's <purple>operation</purple> depends on the receiver's response, <azure>synchronous</azure> is necessary.
+            If the <purple>operations</purple> can proceed <azure>independently</azure>, <azure>asynchronous</azure> is ideal.
+            <br/><br/>
+            <indigo>System Architecture:</indigo>
+            <br/>
+            The overall design of the <red>system</red> and how components interact can dictate the choice.
+            For example, in a <azure>multi</azure>-<azure>core</azure> environment, <azure>asynchronous</azure> communication can help manage load and improve 
+            performance.
+            <br/><br/>
+            <indigo>Error Handling:</indigo>
+            <br/>
+            <azure>Synchronous</azure> communication can simplify <red>error</red> <red>handling</red> since the sender waits for a response.
+            <azure>Asynchronous</azure> communication may require more complex error management strategies.
+            <br/><br/>
+            <indigo>Performance Considerations:</indigo>
+            <br/>
+            <azure>Synchronous</azure> calls can introduce delays, especially if the receiver is busy.
+            <azure>Asynchronous</azure> calls can improve throughput by <azure>allowing</azure> multiple <purple>operations</purple> to occur <azure>simultaneously</azure>.
+            <br/><br/>
             <green>Application Layer</green>
             <br/><br/>
             The <purple>application</purple> <purple>layer</purple> is the highest <purple>layer</purple> of the <purple>AUTOSAR</purple> software architecture and supports custom functionalities 
@@ -17441,15 +17492,15 @@
                     Each <red>Frame</red> will contain the same message ID, <red>CAN</red> <red>ID</red> and <red>CRC</red>, a <azure>sequential</azure> <azure>SQC</azure> / <azure>SQN</azure> (<azure>Sequence</azure> <azure>Counter</azure> or 
                     <azure>Sequence</azure> <azure>Number</azure>) and only a <azure>portion</azure> of the actual <purple>data</purple>
                 </enum>
-                <enum>In order to perform segmentation <purple>CanIf</purple> will call a specific <red>function</red> from <purple>CanTp</purple> <red>module</red> to inform that 
+                <enum>In order to perform segmentation <purple>CanIf</purple> will call a specific <red>function</red> from <red>CanTp</red> <red>module</red> to inform that 
                      a new CAN N-<purple>PDU</purple> <red>frame</red> has been received.
                      <br/><br/>
-                     This is done through a reception indication <red>function</red>, which informs the <purple>CanTp</purple> <red>module</red> that it needs to 
+                     This is done through a reception indication <red>function</red>, which informs the <red>CanTp</red> <red>module</red> that it needs to 
                      handle the segmentation of the incoming <purple>data</purple>.
                      <br/><br/>
-                     <purple>CanTp</purple> <red>module</red> will then <purple>break</purple> down the larger message into smaller <red>frames</red> that fit within the 8-<purple>byte</purple> limit.
+                     <red>CanTp</red> <red>module</red> will then <purple>break</purple> down the larger message into smaller <red>frames</red> that fit within the 8-<purple>byte</purple> limit.
                 </enum>
-                <enum><purple>CanIf</purple> then receives the <red>frames</red> from <purple>CanTp</purple>, and notifies the <azure>CAN</azure> <azure>Driver</azure> that everything is 
+                <enum><purple>CanIf</purple> then receives the <red>frames</red> from <red>CanTp</red>, and notifies the <azure>CAN</azure> <azure>Driver</azure> that everything is 
                     <purple>set</purple> for transmission.
                 </enum>
                 <enum><azure>CAN</azure> <azure>Driver</azure> monitors the activity on the <red>bus</red>.
@@ -17723,6 +17774,67 @@
                 communication latency when a particular <azure>ECU</azure> is woken up, it could indicate a duplicate 
                 ID situation. The duplicate <azure>ECU</azure> might be interfering with message transmission, causing 
                 delays and increased <red>bus</red> traffic.</enum></can-collision-detection>
+        <can-tp-module><red>CAN</red> <red>Transport</red> <red>Protocol</red> (<red>CanTp</red>) <red>Module</red> is essential for <azure>efficient</azure> communication in automotive <red>systems</red>, especially 
+            when dealing 
+            with larger <purple>data</purple> packets. It has the ability to segment, reassemble, and manage flow control of <purple>PDUs</purple> / Messages.
+            <br/><br/>
+            The <red>CanTp</red> <red>module</red> is designed to handle the transport of larger <purple>data</purple> packets over the <red>CAN</red> <red>bus</red>, 
+            which has a maximum <red>payload</red> <purple>size</purple> of 8 <purple>bytes</purple>. When <purple>data</purple> exceeds this limit, <red>CanTp</red> comes into play to 
+            ensure that the <purple>data</purple> is transmitted <azure>efficiently</azure> and reliably.
+            <br/><br/>
+            <green>Key Functions of CanTp:</green>
+            <br/><br/>
+            <indigo>Segmentation:</indigo>
+            <br/>
+            <red>CanTp</red> segments larger <purple>data</purple> packets into smaller <red>frames</red> that fit within the 8-<purple>byte</purple> limit of CAN messages.
+            This <azure>process</azure> ensures that <purple>data</purple> can be transmitted without loss or corruption.
+            <br/><br/>
+            <indigo>Reassembly:</indigo>
+            <br/>
+            Once the segmented <red>frames</red> are received by the destination, <red>CanTp</red> is responsible for reassembling them 
+            into the original <purple>data</purple> packet.
+            This is crucial for <azure>maintaining</azure> <purple>data</purple> integrity.
+            <br/><br/>
+            <indigo>Flow Control:</indigo>
+            <br/>
+            <red>CanTp</red> manages flow control to prevent <purple>data</purple> <azure>overflow</azure>. It ensures that the sender does not overwhelm the 
+            receiver with too many messages at once.
+            This is particularly important in scenarios where the receiver may take time to <azure>process</azure> incoming <purple>data</purple>.
+            <br/><br/>
+            It uses a "<red>Flow</red> <red>Control</red> <red>Frame</red>" to <purple>signal</purple> the sender to pause or continue sending <purple>data</purple> <red>based</red> on the receiver's 
+            readiness.
+            <br/><br/>
+            <indigo>State Management:</indigo>
+            <br/>
+            The <red>CanTp</red> <red>module</red> <purple>operates</purple> in different states (e.g., <red>CANTP_ON</red>), and it performs segmentation and reassembly 
+            <azure>tasks</azure> only when in the appropriate state.
+            This state management helps <azure>maintain</azure> the protocol's integrity and functionality.
+            <br/><br/>
+            <indigo>Error Handling:</indigo>
+            <br/>
+            <red>CanTp</red> includes mechanisms for error detection and handling. If a transmission error occurs, it can initiate 
+            retransmission of the affected <red>frames</red>, ensuring reliable communication.
+            <br/><br/>
+            <indigo>Configuration Parameters:</indigo>
+            <br/>
+            The <red>CanTp</red> <red>module</red> can be configured with various <red>parameters</red>, such as maximum transmission unit 
+            (MTU) <purple>size</purple>, timeout <purple>values</purple>, and flow control settings. These configurations can be tailored to meet 
+            the specific needs of the application.
+            <br/><br/>
+            <indigo>Integration with Other Modules:</indigo>
+            <br/>
+            <red>CanTp</red> sits between the <red>PDU</red> <red>Router</red> (<red>PDUR</red>) and the rest of the CAN <purple>stack</purple>, facilitating communication between 
+            different <red>software</red> <red>components</red>.
+            It interacts with other <red>modules</red> to ensure smooth <purple>data</purple> transmission across the <red>system</red>.
+            <br/><br/>
+            <indigo>Use Cases:</indigo>
+            <br/>
+            <red>CanTp</red> is widely used in diagnostic communication, where larger <purple>data</purple> <purple>sets</purple> need to be 
+            transmitted for vehicle diagnostics and maintenance.
+            <br/><br/>
+            <red>CanTp</red> ensures that all <purple>data</purple> is transmitted 
+            without loss, <azure>maintaining</azure> the integrity of the information which is particulary important in applications 
+            requiring extensive <purple>data</purple> logging.</can-tp-module>
         <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
                 Stuffing <purple>bits</purple>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
                 the <purple>data</purple> accurately, even in challenging communication environments.

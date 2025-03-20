@@ -6,7 +6,8 @@ const red_colored_substr = {keyword: [
     "initialization expression", "test expression", "update expression", "error handle", "vanilla javascript", "react native", "non-generic",
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
     "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", 
-    "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID", "Staffing bit"], color: "red"};
+    "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID", "Staffing bit",
+    "CAN Transport Protocol", "Flow Control Frame", "PDU Router"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -18,7 +19,7 @@ const red_colored_words = {keyword: [
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
     "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame", "CANH", "Transceiver",
-    "MSB", "CANID"], color: "red"};
+    "MSB", "CANID", "CanTp", "CANTP_ON", "PDUR"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
