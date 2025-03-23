@@ -16779,6 +16779,50 @@ else
             without loss, maintaining the integrity of the information which is particulary important in applications 
             requiring extensive data logging.
         </can-tp-module>
+        <pdur-module>
+            The PduR module is primarily responsible for routing Protocol Data Units (PDUs) to the appropriate 
+            bus-specific interface modules. This ensures that data is transmitted correctly between different 
+            components of the vehicle's electronic systems.
+            <br></br><br></br>
+            The PduR module manages the transmission of data from the PDU transmit buffer to the designated interface 
+            module.<br></br>
+            The PduR module handles the reception of PDUs and routes them to the correct destination based on the 
+            configuration.
+            <br></br><br></br>
+            PduR operates above the lower layers of the communication stack, allowing it to interact with various 
+            communication protocols and services.
+            <br></br><br></br>
+            The PduR module is also responsible for reporting errors related to PDU transmission, ensuring that any 
+            issues are communicated to the Diagnostic Event Tracker (DET) module.
+            <br></br><br></br>
+            The behavior of the PduR can be configured based on the specific requirements of the vehicle's architecture, 
+            making it flexible for different applications. This means PduR can be configured to route specific messages, 
+            or messages within specified range of Message Ids to a specific bus.
+            <br></br><br></br>
+            Via PduR the ECU can redirect messages within the network. Allowing for bus traffic management over 
+            Network Segments. This function is also known as gatewaying.
+            <br></br><br></br>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="autosar architecture"></img>
+            <br></br><br></br>
+            <green>Use Case for PduR:</green>
+            <br></br><br></br>
+            ECUs within the network might be split into sectors, this would enable parallel trafic on the bus, meaning that ECUs within
+            a sector could only monitor the traffic on their sector, and only communicate to their neighbors. With this approach, when there
+            is traffic within the network but not in their sectors the ECUs could still communicate. This is reffer to as <indigo>network 
+            segmentation</indigo>.
+            <br></br><br></br>
+            <brown>Network Segmentation:</brown>
+            <br></br><br></br>
+            Within the picture above, there is a basic representation of a segmented network, with 2 sectors: Sector A and Sector B. 
+            The sender ECU from sector A cannot monitor the traffic within sector B, and in order to avoid jamming other ECUs 
+            communicating through sector B, it will communicate with it's neighbor the Gateway ECU, which will receive the Message
+            from the sender ECU, it will store it, and once the bus within sector B become available it will redirect the message to 
+            receiver ECU from sector B.
+            <br></br><br></br>
+            This workflow involves PduR, as PduR is the main responsible for routing messages within the network. 
+            The PduR has access to all buses through which an node (ECU) is connected. Meaning we could receive a message 
+            through CAN and route it further through LIN.
+        </pdur-module>
         <error-detection>
                 CAN communication relies on a combination of techniques to ensure reliable data transmission. 
                 Stuffing bits, CRC codes, and timing considerations all work together to help the receiver interpret 

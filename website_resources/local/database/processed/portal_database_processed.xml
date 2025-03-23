@@ -17835,6 +17835,48 @@
             <red>CanTp</red> ensures that all <purple>data</purple> is transmitted 
             without loss, <azure>maintaining</azure> the integrity of the information which is particulary important in applications 
             requiring extensive <purple>data</purple> logging.</can-tp-module>
+        <pdur-module>The <red>PduR</red> <red>module</red> is primarily responsible for routing <purple>Protocol</purple> <purple>Data</purple> <purple>Units</purple> (<purple>PDUs</purple>) to the appropriate 
+            <red>bus</red>-specific <red>interface</red> <red>modules</red>. This ensures that <purple>data</purple> is transmitted correctly between different 
+            components of the vehicle's electronic <red>systems</red>.
+            <br/><br/>
+            The <red>PduR</red> <red>module</red> manages the transmission of <purple>data</purple> from the <purple>PDU</purple> transmit buffer to the designated <red>interface</red> 
+            <red>module</red>.<br/>
+            The <red>PduR</red> <red>module</red> handles the reception of <purple>PDUs</purple> and routes them to the correct destination <red>based</red> on the 
+            configuration.
+            <br/><br/>
+            <red>PduR</red> <purple>operates</purple> above the lower <purple>layers</purple> of the <azure>communication</azure> <azure>stack</azure>, <azure>allowing</azure> it to interact with various 
+            communication protocols and services.
+            <br/><br/>
+            The <red>PduR</red> <red>module</red> is also responsible for reporting errors related to <purple>PDU</purple> transmission, ensuring that any 
+            issues are communicated to the Diagnostic Event Tracker (DET) <red>module</red>.
+            <br/><br/>
+            The behavior of the <red>PduR</red> can be configured <red>based</red> on the specific requirements of the vehicle's architecture, 
+            making it flexible for different applications. This means <red>PduR</red> can be configured to route specific messages, 
+            or messages within specified range of Message Ids to a specific <red>bus</red>.
+            <br/><br/>
+            Via <red>PduR</red> the <azure>ECU</azure> can redirect messages within the network. <azure>Allowing</azure> for <red>bus</red> traffic management over 
+            Network Segments. This <red>function</red> is also known as gatewaying.
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="autosar architecture"/>
+            <br/><br/>
+            <green>Use Case for PduR:</green>
+            <br/><br/>
+            <azure>ECUs</azure> within the network might be split into sectors, this would enable <azure>parallel</azure> trafic on the <red>bus</red>, meaning that <azure>ECUs</azure> within
+            a sector could only monitor the traffic on their sector, and only communicate to their neighbors. With this approach, when there
+            is traffic within the network but not in their sectors the <azure>ECUs</azure> could still communicate. This is reffer to as <indigo>network 
+            segmentation</indigo>.
+            <br/><br/>
+            <brown>Network Segmentation:</brown>
+            <br/><br/>
+            Within the picture above, there is a basic representation of a segmented network, with 2 sectors: Sector A and Sector B. 
+            The sender <azure>ECU</azure> from sector A cannot monitor the traffic within sector B, and in order to avoid jamming other <azure>ECUs</azure> 
+            communicating through sector B, it will communicate with it's neighbor the Gateway <azure>ECU</azure>, which will receive the Message
+            from the sender <azure>ECU</azure>, it will <azure>store</azure> it, and once the <red>bus</red> within sector B become available it will redirect the message to 
+            receiver <azure>ECU</azure> from sector B.
+            <br/><br/>
+            This workflow involves <red>PduR</red>, as <red>PduR</red> is the main responsible for routing messages within the network. 
+            The <red>PduR</red> has access to all <red>buses</red> through which an node (<azure>ECU</azure>) is connected. Meaning we could receive a message 
+            through CAN and route it further through <red>LIN</red>.</pdur-module>
         <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
                 Stuffing <purple>bits</purple>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
                 the <purple>data</purple> accurately, even in challenging communication environments.
