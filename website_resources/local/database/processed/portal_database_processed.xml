@@ -17847,6 +17847,8 @@
             <red>PduR</red> <purple>operates</purple> above the lower <purple>layers</purple> of the <azure>communication</azure> <azure>stack</azure>, <azure>allowing</azure> it to interact with various 
             communication protocols and services.
             <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/communication_stack.png" alt="autosar comstack"/>
+            <br/><br/>
             The <red>PduR</red> <red>module</red> is also responsible for reporting errors related to <purple>PDU</purple> transmission, ensuring that any 
             issues are communicated to the Diagnostic Event Tracker (DET) <red>module</red>.
             <br/><br/>
@@ -17857,7 +17859,7 @@
             Via <red>PduR</red> the <azure>ECU</azure> can redirect messages within the network. <azure>Allowing</azure> for <red>bus</red> traffic management over 
             Network Segments. This <red>function</red> is also known as gatewaying.
             <br/><br/>
-            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="autosar architecture"/>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="routing pdus through gateway"/>
             <br/><br/>
             <green>Use Case for PduR:</green>
             <br/><br/>
@@ -17876,7 +17878,47 @@
             <br/><br/>
             This workflow involves <red>PduR</red>, as <red>PduR</red> is the main responsible for routing messages within the network. 
             The <red>PduR</red> has access to all <red>buses</red> through which an node (<azure>ECU</azure>) is connected. Meaning we could receive a message 
-            through CAN and route it further through <red>LIN</red>.</pdur-module>
+            through CAN and route it further through <red>LIN</red>.
+            <br/><br/>
+            In many cases, the <red>PduR</red> simply acts as a <purple>data</purple> forwarder. It receives a <purple>PDU</purple> on one <red>bus</red>, translates it to the 
+            format required by the target <red>bus</red> (if necessary), and forwards it without any modification to the <purple>data</purple> 
+            content. In such scenarios, the Application SW doesn't need to be involved.
+            <br/><br/>
+            But, if the gatewaying <azure>process</azure> involves specific application <purple>logic</purple> (e.g., filtering, validation, or encryption),
+            the Application 
+            SW will be responsible for <red>implementing</red> this <purple>logic</purple>.
+            <br/><br/>
+            The goal of a gateway is often to make communication between different <red>bus</red> segments appear seamless to the <purple>application</purple> <purple>layer</purple>. 
+            The <red>PduR</red> handles the technical details of the <red>bus</red> protocol translation and routing, <azure>allowing</azure> the Application SW to focus on 
+            its specific <azure>tasks</azure>.
+            <br/><br/>
+            <brown>PDU Processing:</brown>
+            <br/><br/>
+            When a <purple>PDU</purple> is received from an external <azure>ECU</azure>, the <azure>processing</azure> flow proceeds as follows:
+            <br/><br/>
+            <indigo>Bus Driver:</indigo> The physical reception of the <purple>PDU</purple> happens at the lowest level, the <red>Bus</red> Driver. 
+            This <purple>layer</purple> handles the <azure>low</azure>-<azure>level</azure> details of the communication <red>bus</red> (CAN, <red>LIN</red>, etc.).
+            <br/><br/>
+            <indigo>Bus Interface (Bus IF):</indigo> The <red>Bus</red> IF <purple>layer</purple> receives the raw <purple>data</purple> from the <red>Bus</red> Driver 
+            and performs any necessary initial <azure>processing</azure>, such as error detection and <red>frame</red> extraction.
+            <br/><br/>
+            <indigo>Bus TP (Transport Protocol):</indigo> If a transport protocol is used (e.g., CAN TP for segmented 
+            messages), 
+            the <red>Bus</red> TP <purple>layer</purple> reassembles the <purple>PDU</purple> from potentially fragmented parts.
+            <br/><br/>
+            <indigo>PDU Router (PduR):</indigo> The <red>PduR</red> is the next <purple>layer</purple>. It receives the complete <purple>PDU</purple> and determines the 
+            destination <red>based</red> on its routing table. This is where routing decisions are made.
+            <br/><br/>
+            <indigo>Communication Manager (ComM):</indigo> If the <purple>PDU</purple> is destined for an internal SWC, ComM handles the 
+            internal transfer of the <purple>PDU</purple>.
+            <br/><br/>
+            <indigo>RTE (Runtime Environment):</indigo> Finally, the <purple>PDU</purple> is passed to the <red>RTE</red>, which acts as an intermediary 
+            between the <purple>AUTOSAR</purple> <purple>basic</purple> <purple>software</purple> <red>modules</red> and the application <red>software</red> <red>components</red> (SWCs). 
+            The <red>RTE</red> delivers the <purple>PDU</purple> to the appropriate SWC <red>based</red> on the configured communication <red>interfaces</red>. 
+            The SWC then <azure>processes</azure> the received <purple>data</purple>.
+            <br/><br/>
+            <indigo>Application Software:</indigo> Applies specific application <purple>logic</purple> (e.g., filtering, validation, or 
+            encryption) <red>based</red> on the requirements.</pdur-module>
         <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
                 Stuffing <purple>bits</purple>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
                 the <purple>data</purple> accurately, even in challenging communication environments.

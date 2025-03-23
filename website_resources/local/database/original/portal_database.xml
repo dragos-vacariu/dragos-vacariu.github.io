@@ -16792,6 +16792,8 @@ else
             PduR operates above the lower layers of the communication stack, allowing it to interact with various 
             communication protocols and services.
             <br></br><br></br>
+            <img class="database_image" src="./website_resources/local/database/pictures/communication_stack.png" alt="autosar comstack"></img>
+            <br></br><br></br>
             The PduR module is also responsible for reporting errors related to PDU transmission, ensuring that any 
             issues are communicated to the Diagnostic Event Tracker (DET) module.
             <br></br><br></br>
@@ -16802,7 +16804,7 @@ else
             Via PduR the ECU can redirect messages within the network. Allowing for bus traffic management over 
             Network Segments. This function is also known as gatewaying.
             <br></br><br></br>
-            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="autosar architecture"></img>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="routing pdus through gateway"></img>
             <br></br><br></br>
             <green>Use Case for PduR:</green>
             <br></br><br></br>
@@ -16822,6 +16824,46 @@ else
             This workflow involves PduR, as PduR is the main responsible for routing messages within the network. 
             The PduR has access to all buses through which an node (ECU) is connected. Meaning we could receive a message 
             through CAN and route it further through LIN.
+            <br></br><br></br>
+            In many cases, the PduR simply acts as a data forwarder. It receives a PDU on one bus, translates it to the 
+            format required by the target bus (if necessary), and forwards it without any modification to the data 
+            content. In such scenarios, the Application SW doesn't need to be involved.
+            <br></br><br></br>
+            But, if the gatewaying process involves specific application logic (e.g., filtering, validation, or encryption),
+            the Application 
+            SW will be responsible for implementing this logic.
+            <br></br><br></br>
+            The goal of a gateway is often to make communication between different bus segments appear seamless to the application layer. 
+            The PduR handles the technical details of the bus protocol translation and routing, allowing the Application SW to focus on 
+            its specific tasks.
+            <br></br><br></br>
+            <brown>PDU Processing:</brown>
+            <br></br><br></br>
+            When a PDU is received from an external ECU, the processing flow proceeds as follows:
+            <br></br><br></br>
+            <indigo>Bus Driver:</indigo> The physical reception of the PDU happens at the lowest level, the Bus Driver. 
+            This layer handles the low-level details of the communication bus (CAN, LIN, etc.).
+            <br></br><br></br>
+            <indigo>Bus Interface (Bus IF):</indigo> The Bus IF layer receives the raw data from the Bus Driver 
+            and performs any necessary initial processing, such as error detection and frame extraction.
+            <br></br><br></br>
+            <indigo>Bus TP (Transport Protocol):</indigo> If a transport protocol is used (e.g., CAN TP for segmented 
+            messages), 
+            the Bus TP layer reassembles the PDU from potentially fragmented parts.
+            <br></br><br></br>
+            <indigo>PDU Router (PduR):</indigo> The PduR is the next layer. It receives the complete PDU and determines the 
+            destination based on its routing table. This is where routing decisions are made.
+            <br></br><br></br>
+            <indigo>Communication Manager (ComM):</indigo> If the PDU is destined for an internal SWC, ComM handles the 
+            internal transfer of the PDU.
+            <br></br><br></br>
+            <indigo>RTE (Runtime Environment):</indigo> Finally, the PDU is passed to the RTE, which acts as an intermediary 
+            between the AUTOSAR basic software modules and the application software components (SWCs). 
+            The RTE delivers the PDU to the appropriate SWC based on the configured communication interfaces. 
+            The SWC then processes the received data.
+            <br></br><br></br>
+            <indigo>Application Software:</indigo> Applies specific application logic (e.g., filtering, validation, or 
+            encryption) based on the requirements.
         </pdur-module>
         <error-detection>
                 CAN communication relies on a combination of techniques to ensure reliable data transmission. 
