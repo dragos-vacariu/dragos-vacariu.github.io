@@ -7,7 +7,8 @@ const red_colored_substr = {keyword: [
     "exception handle", "parametric polymorph", "ad hoc polymorph", "type checking", "pre-defined", "command-line", "Electronic Control Unit",
     "software component", "real-time", "CAN FD", "Cyclic Redundancy Check", "CAN Frame", "Controller Area Network", "CAN High", 
     "CAN Transceiver", "CAN bus", "CAN network", "Most Significant Bit", "Our ECU's CANID", "CAN ID", "Staffing bit",
-    "CAN Transport Protocol", "Flow Control Frame", "PDU Router"], color: "red"};
+    "CAN Transport Protocol", "Flow Control Frame", "PDU Router", "COM module", "Communication Module", "Network Management", 
+    "Stuffing bit", "Bit Stuffing Process", "Stuff error", "CAN TP", "Bus Tp", "Bus Driver"], color: "red"};
     
 const red_colored_words = {keyword: [
     /*Single words should be second section*/ 
@@ -19,7 +20,7 @@ const red_colored_words = {keyword: [
     "inherit", "c", "c++", "c#", "js", "javascript", "python", "html", "css", "java", "nodejs", "php", "compile", "ajax", "react", "reactjs", "angular", 
     "angularjs", "opengl", "typescript", "bootstrap", "vanilla", "vuejs", "jquerry", "jquery", "xml", "json", "redux", "jre", "jdk", "gil", 
     "git", "re", "RTE", "bus", "LIN", "CRC", "CHK", "checksum", "payload", "frame", "CANH", "Transceiver",
-    "MSB", "CANID", "CanTp", "CANTP_ON", "PDUR"], color: "red"};
+    "MSB", "CANID", "CanTp", "CANTP_ON", "PDUR", "Ethernet"], color: "red"};
 
 //Words and expressions associated with variables, collections, data types, operations, values, programming keywords: 
 const purple_colored_substr = {keyword: [
@@ -30,7 +31,7 @@ const purple_colored_substr = {keyword: [
     "stack memory", "stack space", "global access", "global interpreter lock", "Runtime Environment", "Basic Software", 
     "Application Layer", "SWC A", "Data Integrity Check", "CRC-8", "CRC-16", "Protocol Data Unit", "CAN Controller", 
     "Serial Peripheral Interface", "CAN Interface", "CAN protocol", "CAN Hardware",  "End to end", "End-to-end", 
-    "Other ECU's CANID"], color: "purple"};
+    "Other ECU's CANID", "protocol-independent"], color: "purple"};
     
 const purple_colored_words = {keyword: [
     /*Single words*/

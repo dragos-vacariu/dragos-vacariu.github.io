@@ -16536,11 +16536,8 @@ else
                     now has all the data buffered and knows that the transmission has ended, and it will notify the CanIf.
                 </enum>
                 <enum>
-                    CanIf will request each frames from the CAN Driver and will apply its acceptance criteria.
-                    Meaning if the Unique Message ID within every frame is within the predefined range that the 
-                    CanIf is configured to accept, then it will attempt to decode/assemble all pieces together. 
-                    <br></br><br></br>
-                    Otherwise the message will be blocked, as it's not meant for the receiving ECU.
+                    CanIf will request each frames from the CAN Driver and will attempt to decode/assemble all pieces 
+                    together. 
                     <br></br><br></br>
                     Decoding is the process of turning individual frames into a single PDU Unit. During decoding the CanIf
                     will remove Staffing bits, and CAN ID from each frame, as they are not supposed to be part of the PDU.
@@ -16574,12 +16571,27 @@ else
                     CAN Transceiver, CAN Controller, or even 
                     the ECU, and same thing might happen with the receipient ECU. We will try again after that.
                 </enum>
+                <enum>
+                    If the CRCs are identical, and the message is valid. CanIF will pass the PDU to PduR which
+                    will decide upon its configuration whether the PDU needs to be routed to a different ECU (process 
+                    known as gatewaying). 
+                    <br></br><br></br>
+                    If the PduR is not configured to route the received PDU, then the PDU is gonna be passed to COM module,
+                    which will apply its acceptance criteria.
+                    <br></br><br></br>
+                    Meaning if the Unique Message ID of the PDU is within the predefined range that the 
+                    Com module is configured to accept, then the PDU processing within the ECU continues, 
+                    and the PDU is unpacked into signals and signal groups, and passed to the appropriate Software Components.
+                    <br></br><br></br>
+                    Otherwise the message will be blocked, as it's not meant for the receiving ECU.
+                </enum>
             <br></br>
             The same steps are taken in case of message reception. 
             <br></br>
             When a message is received, the CAN Driver notifies CanIf which assembles the message and informs 
             directly or indirectly the RTOS, which can then pass the message to the appropriate task for processing.
             <br></br><br></br>
+            <img class="database_image" src="./website_resources/local/database/pictures/ecu_communication.png" alt="autosar architecture ecus communicating"></img>
         </can-interface>
         <can-collision-detection>
             CAN protocol's collision detection mechanism enables a node (ECU) which is transmitting data to detect 
@@ -16865,6 +16877,69 @@ else
             <indigo>Application Software:</indigo> Applies specific application logic (e.g., filtering, validation, or 
             encryption) based on the requirements.
         </pdur-module>
+        <com-module>
+        The Communication Module (COM) in AUTOSAR is a fundamental component responsible for packing and unpacking signals 
+        into or from Protocol Data Units (PDUs) during transmission and reception. This ensures that data is formatted 
+        correctly for communication.
+        <br></br><br></br>
+        A PDU is a collection/group of signals of different values and different data types. These PDUs are also reffered 
+        to as Messages. They act as an abstraction layer that facilitates the transfer of data 
+        between different software components. 
+        <br></br><br></br>
+        PDUs are used to encapsulate data for transmission, allowing for efficient 
+        routing and handling of information across various communication protocols.
+        <br></br><br></br>
+        <indigo>Communication Services:</indigo>
+        <br></br>
+        The COM module provides essential communication services to other modules, facilitating the exchange of information 
+        between different software components within the vehicle. 
+        <br></br><br></br>
+        <indigo>Filtering Algorithms:</indigo>
+        <br></br>
+        The COM module supports various ComFilterAlgorithms, which help in filtering messages based on specific criteria, 
+        enhancing the efficiency of data transmission.
+        <br></br><br></br>
+         The COM module is configured with specific filtering settings that define which PDUs are relevant for a 
+         particular ECU. These settings can be based on various criteria, such as:
+         <br></br>
+        <enum>PDU Identifier (ID): The unique identifier of the PDU.</enum>
+        <enum>Signal IDs: The specific signals contained within the PDU.</enum>
+        <enum>ECU Addresses: The source or destination addresses of the PDU.</enum>
+        <enum>Protocol Type: The communication protocol used for the PDU.</enum>
+        <br></br>
+        When an ECU receives a PDU, the COM module checks its contents against the configured filtering settings.
+        <br></br><br></br>
+        If the PDU matches the filtering criteria, it is considered relevant and passed on to the appropriate 
+        application layer module.
+        <br></br><br></br>
+        If the PDU does not match the filtering criteria, it is discarded, preventing unnecessary processing 
+        and saving valuable resources.
+         <br></br><br></br>
+         This filtering mechanism ensures that only relevant PDUs are processed by the ECU, improving communication 
+         efficiency and reducing the workload on the system. This is particularly important in automotive systems 
+         where real-time performance and resource constraints are critical.
+        <br></br><br></br>
+        
+        Example: Imagine a scenario where an ECU is responsible for controlling the engine. The COM module could be 
+        configured to filter out all PDUs except those related to engine parameters like speed, temperature, and fuel 
+        pressure. This ensures that the ECU only receives and processes data that is relevant to its specific task.
+        <br></br><br></br>
+        <indigo>Protocol Independence:</indigo>
+        <br></br>
+        Similar to the PDU Router, the COM module operates in a protocol-independent manner, allowing it to work seamlessly with 
+        different communication protocols like CAN, LIN, and Ethernet. This means, regardless of how many Transfer Protocols are
+        used / implemented within an ECU, there should be only one PduR module and only one COM module.
+        <br></br><br></br>
+        <indigo>Configuration Flexibility:</indigo>
+        <br></br>
+        The COM module can be configured to meet the specific needs of different vehicle architectures, making it adaptable to 
+        various communication scenarios.
+        <br></br><br></br>
+        <indigo>Integration with Other Modules:</indigo>
+        <br></br>
+        The COM module interacts closely with other AUTOSAR modules, such as the PDU Router and the Network Management module, 
+        ensuring a cohesive communication framework.
+        </com-module>
         <error-detection>
                 CAN communication relies on a combination of techniques to ensure reliable data transmission. 
                 Stuffing bits, CRC codes, and timing considerations all work together to help the receiver interpret 

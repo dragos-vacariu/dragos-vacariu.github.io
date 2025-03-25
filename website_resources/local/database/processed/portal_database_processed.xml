@@ -16860,7 +16860,7 @@
                 higher <purple>data</purple> rates and larger <red>payloads</red>.
                 </enum>
                 <enum><indigo>Ethernet:</indigo> supports much higher speeds, ranging from 100 Mbps to 10 Gbps and beyond, 
-                making it suitable for high-bandwidth applications. Ethernet generally uses a star topology 
+                making it suitable for high-bandwidth applications. <red>Ethernet</red> generally uses a star topology 
                 and can support a more complex network <purple>structure</purple> with switches and routers.</enum>
                 <enum><indigo>FlexRay:</indigo> A high-speed <red>bus</red> that supports time-triggered communication, often used in safety-critical applications. 
                 Supports <purple>data</purple> rates of up to 10 Mbps. It utilizes a time-triggered communication <red>method</red>, <azure>allowing</azure> for deterministic 
@@ -17396,25 +17396,25 @@
                 </enum>
                 <enum><indigo>Stuff Error:</indigo> This happens when the <purple>bit</purple> stuffing rule is violated. In CAN, after five 
                 consecutive <purple>bits</purple> of the 
-                same <purple>value</purple>, a complementary <purple>bit</purple> is <azure>inserted</azure>. If this rule is not followed, a stuff error is reported.
+                same <purple>value</purple>, a complementary <purple>bit</purple> is <azure>inserted</azure>. If this rule is not followed, a <red>stuff</red> <red>error</red> is reported.
                 <br/><br/>
-                <purple>Bit</purple> Stuffing <azure>Process</azure>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> (either all 0s or all 1s), 
+                <red>Bit</red> <red>Stuffing</red> <red>Process</red>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> (either all 0s or all 1s), 
                 a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
                 If the receiver detects that a stuff <purple>bit</purple> was <azure>added</azure> incorrectly (i.e., it does not <azure>match</azure> the expected <purple>value</purple>), 
-                it <purple>registers</purple> a stuff error.
+                it <purple>registers</purple> a <red>stuff</red> <red>error</red>.
                 <br/>
                 This means the receiver does not expect more 5 <purple>bits</purple> of same <purple>value</purple> in a row. If it detects such a <azure>sequence</azure> 
-                it will raise an Stuff Error.
+                it will raise an <red>Stuff</red> <red>Error</red>.
                 <br/><br/>
-                Example: A <azure>sequence</azure> such as: 10111111000 will raise a Stuff error. Because there are 6 <purple>bits</purple> of 1 in a row.
+                Example: A <azure>sequence</azure> such as: 10111111000 will raise a <red>Stuff</red> <red>error</red>. Because there are 6 <purple>bits</purple> of 1 in a row.
                 <br/><br/>
-                Without this Stuffing <purple>Bit</purple> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
+                Without this <red>Stuffing</red> <red>Bit</red> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
                 from the communication is exactly the same number of <purple>bits</purple> sent by the <azure>source</azure>.
                 <br/><br/>
-                The stuffing <purple>bits</purple> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
+                The <red>stuffing</red> <red>bits</red> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
                 <br/><br/>
                 It's the <purple>CANIF's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
-                stuffing <purple>bits</purple>.
+                <red>stuffing</red> <red>bits</red>.
                 </enum>
                 <enum><indigo>CRC Error:</indigo> The <red>Cyclic</red> <red>Redundancy</red> <red>Check</red> (<red>CRC</red>) is used to detect errors in the 
                 transmitted <purple>data</purple>. If the <red>CRC</red> 
@@ -17598,11 +17598,8 @@
                     now has all the <purple>data</purple> buffered and knows that the transmission has ended, and it will notify the <purple>CanIf</purple>.
                 </enum>
                 <enum>
-                    <purple>CanIf</purple> will request each <red>frames</red> from the <azure>CAN</azure> <azure>Driver</azure> and will apply its acceptance criteria.
-                    Meaning if the Unique Message ID within every <red>frame</red> is within the predefined range that the 
-                    <purple>CanIf</purple> is configured to accept, then it will attempt to decode/assemble all pieces together. 
-                    <br/><br/>
-                    Otherwise the message will be <azure>blocked</azure>, as it's not meant for the receiving <azure>ECU</azure>.
+                    <purple>CanIf</purple> will request each <red>frames</red> from the <azure>CAN</azure> <azure>Driver</azure> and will attempt to decode/assemble all pieces 
+                    together. 
                     <br/><br/>
                     Decoding is the <azure>process</azure> of turning individual <red>frames</red> into a single <purple>PDU</purple> Unit. During decoding the <purple>CanIf</purple>
                     will <purple>remove</purple> <red>Staffing</red> <red>bits</red>, and <red>CAN</red> <red>ID</red> from each <red>frame</red>, as they are not supposed to be part of the <purple>PDU</purple>.
@@ -17636,12 +17633,27 @@
                     <red>CAN</red> <red>Transceiver</red>, <purple>CAN</purple> <purple>Controller</purple>, or even 
                     the <azure>ECU</azure>, and same thing might happen with the receipient <azure>ECU</azure>. We will try again after that.
                 </enum>
+                <enum>
+                    If the <red>CRCs</red> are identical, and the message is valid. <purple>CanIF</purple> will pass the <purple>PDU</purple> to <red>PduR</red> which
+                    will decide upon its configuration whether the <purple>PDU</purple> needs to be routed to a different <azure>ECU</azure> (<azure>process</azure> 
+                    known as gatewaying). 
+                    <br/><br/>
+                    If the <red>PduR</red> is not configured to route the received <purple>PDU</purple>, then the <purple>PDU</purple> is gonna be passed to <red>COM</red> <red>module</red>,
+                    which will apply its acceptance criteria.
+                    <br/><br/>
+                    Meaning if the Unique Message ID of the <purple>PDU</purple> is within the predefined range that the 
+                    <red>Com</red> <red>module</red> is configured to accept, then the <purple>PDU</purple> <azure>processing</azure> within the <azure>ECU</azure> continues, 
+                    and the <purple>PDU</purple> is unpacked into <azure>signals</azure> and <purple>signal</purple> groups, and passed to the appropriate <red>Software</red> <red>Components</red>.
+                    <br/><br/>
+                    Otherwise the message will be <azure>blocked</azure>, as it's not meant for the receiving <azure>ECU</azure>.
+                </enum>
             <br/>
             The same steps are taken in case of message reception. 
             <br/>
             When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CanIf</purple> which assembles the message and informs 
             directly or indirectly the <purple>RTOS</purple>, which can then pass the message to the appropriate <azure>task</azure> for <azure>processing</azure>.
-            <br/><br/></can-interface>
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/ecu_communication.png" alt="autosar architecture ecus communicating"/></can-interface>
         <can-collision-detection><purple>CAN</purple> <purple>protocol's</purple> collision detection mechanism enables a node (<azure>ECU</azure>) which is transmitting <purple>data</purple> to detect 
             if another node is trying to send <purple>data</purple> while the <red>bus</red> is already in use. The collision detection on <red>CAN</red> <red>network</red>
             happens through the <azure>Arbitration</azure>. 
@@ -17760,7 +17772,7 @@
                 the previously disconnected one to confirm the duplicate ID.</enum>
             
             <br/>
-            By leveraging network management capabilities we would have a new <purple>set</purple> of possibilities for detecting 
+            By leveraging <red>network</red> <red>management</red> capabilities we would have a new <purple>set</purple> of possibilities for detecting 
             duplicate <azure>ECU</azure> IDs.
             
                 <enum><indigo>Wake-up Cycle:</indigo> The Main <azure>ECU</azure> could initiate a wake-up cycle, bringing each 
@@ -17896,15 +17908,15 @@
             <br/><br/>
             When a <purple>PDU</purple> is received from an external <azure>ECU</azure>, the <azure>processing</azure> flow proceeds as follows:
             <br/><br/>
-            <indigo>Bus Driver:</indigo> The physical reception of the <purple>PDU</purple> happens at the lowest level, the <red>Bus</red> Driver. 
+            <indigo>Bus Driver:</indigo> The physical reception of the <purple>PDU</purple> happens at the lowest level, the <red>Bus</red> <red>Driver</red>. 
             This <purple>layer</purple> handles the <azure>low</azure>-<azure>level</azure> details of the communication <red>bus</red> (CAN, <red>LIN</red>, etc.).
             <br/><br/>
-            <indigo>Bus Interface (Bus IF):</indigo> The <red>Bus</red> IF <purple>layer</purple> receives the raw <purple>data</purple> from the <red>Bus</red> Driver 
+            <indigo>Bus Interface (Bus IF):</indigo> The <red>Bus</red> IF <purple>layer</purple> receives the raw <purple>data</purple> from the <red>Bus</red> <red>Driver</red> 
             and performs any necessary initial <azure>processing</azure>, such as error detection and <red>frame</red> extraction.
             <br/><br/>
-            <indigo>Bus TP (Transport Protocol):</indigo> If a transport protocol is used (e.g., CAN TP for segmented 
+            <indigo>Bus TP (Transport Protocol):</indigo> If a transport protocol is used (e.g., <red>CAN</red> <red>TP</red> for segmented 
             messages), 
-            the <red>Bus</red> TP <purple>layer</purple> reassembles the <purple>PDU</purple> from potentially fragmented parts.
+            the <red>Bus</red> <red>TP</red> <purple>layer</purple> reassembles the <purple>PDU</purple> from potentially fragmented parts.
             <br/><br/>
             <indigo>PDU Router (PduR):</indigo> The <red>PduR</red> is the next <purple>layer</purple>. It receives the complete <purple>PDU</purple> and determines the 
             destination <red>based</red> on its routing table. This is where routing decisions are made.
@@ -17919,37 +17931,98 @@
             <br/><br/>
             <indigo>Application Software:</indigo> Applies specific application <purple>logic</purple> (e.g., filtering, validation, or 
             encryption) <red>based</red> on the requirements.</pdur-module>
+        <com-module>The <red>Communication</red> <red>Module</red> (COM) in <purple>AUTOSAR</purple> is a fundamental component responsible for packing and unpacking <azure>signals</azure> 
+        into or from <purple>Protocol</purple> <purple>Data</purple> <purple>Units</purple> (<purple>PDUs</purple>) during transmission and reception. This ensures that <purple>data</purple> is formatted 
+        correctly for communication.
+        <br/><br/>
+        A <purple>PDU</purple> is a <purple>collection</purple>/group of <azure>signals</azure> of different <purple>values</purple> and different <purple>data</purple> <purple>types</purple>. These <purple>PDUs</purple> are also reffered 
+        to as Messages. They act as an <azure>abstraction</azure> <purple>layer</purple> that facilitates the transfer of <purple>data</purple> 
+        between different <red>software</red> <red>components</red>. 
+        <br/><br/>
+        <purple>PDUs</purple> are used to <red>encapsulate</red> <purple>data</purple> for transmission, <azure>allowing</azure> for <azure>efficient</azure> 
+        routing and handling of information across various communication protocols.
+        <br/><br/>
+        <indigo>Communication Services:</indigo>
+        <br/>
+        The <red>COM</red> <red>module</red> provides essential communication services to other <red>modules</red>, facilitating the exchange of information 
+        between different <red>software</red> <red>components</red> within the vehicle. 
+        <br/><br/>
+        <indigo>Filtering Algorithms:</indigo>
+        <br/>
+        The <red>COM</red> <red>module</red> supports various ComFilterAlgorithms, which help in filtering messages <red>based</red> on specific criteria, 
+        enhancing the <azure>efficiency</azure> of <purple>data</purple> transmission.
+        <br/><br/>
+         The <red>COM</red> <red>module</red> is configured with specific filtering settings that define which <purple>PDUs</purple> are relevant for a 
+         particular <azure>ECU</azure>. These settings can be <red>based</red> on various criteria, such as:
+         <br/>
+        <enum><purple>PDU</purple> <purple>Identifier</purple> (ID): The unique <purple>identifier</purple> of the <purple>PDU</purple>.</enum>
+        <enum><purple>Signal</purple> IDs: The specific <azure>signals</azure> contained within the <purple>PDU</purple>.</enum>
+        <enum><azure>ECU</azure> <purple>Addresses</purple>: The <azure>source</azure> or destination <purple>addresses</purple> of the <purple>PDU</purple>.</enum>
+        <enum>Protocol <purple>Type</purple>: The communication protocol used for the <purple>PDU</purple>.</enum>
+        <br/>
+        When an <azure>ECU</azure> receives a <purple>PDU</purple>, the <red>COM</red> <red>module</red> checks its contents against the configured filtering settings.
+        <br/><br/>
+        If the <purple>PDU</purple> <azure>matches</azure> the filtering criteria, it is considered relevant and passed on to the appropriate 
+        <purple>application</purple> <purple>layer</purple> <red>module</red>.
+        <br/><br/>
+        If the <purple>PDU</purple> does not <azure>match</azure> the filtering criteria, it is discarded, preventing unnecessary <azure>processing</azure> 
+        and <azure>saving</azure> <purple>valuable</purple> resources.
+         <br/><br/>
+         This filtering mechanism ensures that only relevant <purple>PDUs</purple> are <azure>processed</azure> by the <azure>ECU</azure>, improving communication 
+         <azure>efficiency</azure> and reducing the workload on the <red>system</red>. This is particularly important in automotive <red>systems</red> 
+         where <red>real</red>-<red>time</red> performance and resource constraints are critical.
+        <br/><br/>
+        
+        Example: Imagine a scenario where an <azure>ECU</azure> is responsible for controlling the engine. The <red>COM</red> <red>module</red> could be 
+        configured to filter out all <purple>PDUs</purple> except those related to engine <red>parameters</red> like speed, temperature, and fuel 
+        pressure. This ensures that the <azure>ECU</azure> only receives and <azure>processes</azure> <purple>data</purple> that is relevant to its specific <azure>task</azure>.
+        <br/><br/>
+        <indigo>Protocol Independence:</indigo>
+        <br/>
+        Similar to the <red>PDU</red> <red>Router</red>, the <red>COM</red> <red>module</red> <purple>operates</purple> in a <purple>protocol</purple>-<purple>independent</purple> manner, <azure>allowing</azure> it to work seamlessly with 
+        different communication protocols like CAN, <red>LIN</red>, and <red>Ethernet</red>. This means, regardless of how many Transfer Protocols are
+        used / <red>implemented</red> within an <azure>ECU</azure>, there should be only one <red>PduR</red> <red>module</red> and only one <red>COM</red> <red>module</red>.
+        <br/><br/>
+        <indigo>Configuration Flexibility:</indigo>
+        <br/>
+        The <red>COM</red> <red>module</red> can be configured to meet the specific needs of different vehicle architectures, making it adaptable to 
+        various communication scenarios.
+        <br/><br/>
+        <indigo>Integration with Other Modules:</indigo>
+        <br/>
+        The <red>COM</red> <red>module</red> interacts <azure>closely</azure> with other <purple>AUTOSAR</purple> <red>modules</red>, such as the <red>PDU</red> <red>Router</red> and the <red>Network</red> <red>Management</red> <red>module</red>, 
+        ensuring a cohesive communication framework.</com-module>
         <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
-                Stuffing <purple>bits</purple>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
+                <red>Stuffing</red> <red>bits</red>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
                 the <purple>data</purple> accurately, even in challenging communication environments.
                 <br/><br/>
                 <green>Bit Stuffing</green>
                 <br/><br/>
-                <purple>Bit</purple> Stuffing <azure>Process</azure>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> 
+                <red>Bit</red> <red>Stuffing</red> <red>Process</red>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> 
                 (either all 0s or all 1s), a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
                 <br/>
                 This means the receiver does not expect more 5 <purple>bits</purple> of same <purple>value</purple> in a row. If it detects such a <azure>sequence</azure> 
-                it will raise an Stuff Error.
+                it will raise an <red>Stuff</red> <red>Error</red>.
                 <br/><br/>
-                Example: A <azure>sequence</azure> such as: 10111111000 will raise a Stuff error. Because there are 6 <purple>bits</purple> of 1 in a row.
+                Example: A <azure>sequence</azure> such as: 10111111000 will raise a <red>Stuff</red> <red>error</red>. Because there are 6 <purple>bits</purple> of 1 in a row.
                 <br/><br/>
-                Without this Stuffing <purple>Bit</purple> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
+                Without this <red>Stuffing</red> <red>Bit</red> mechanism the receiver will not be sure if the number of <purple>bits</purple> it <azure>read</azure> 
                 from the communication is exactly the same number of <purple>bits</purple> sent by the <azure>source</azure>.
                 <br/><br/>
-                The stuffing <purple>bits</purple> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
+                The <red>stuffing</red> <red>bits</red> are part of the <red>Frames</red> but NOT part of the <purple>PDUs</purple>.
                 <br/>
                 
-                    <enum><indigo>Frame:</indigo> Contains the raw <purple>data</purple>, including stuffing <purple>bits</purple>.<br/></enum>
+                    <enum><indigo>Frame:</indigo> Contains the raw <purple>data</purple>, including <red>stuffing</red> <red>bits</red>.<br/></enum>
                     <enum><indigo>PDU:</indigo> Contains the actual <purple>data</purple> intended for the receiver, without 
-                    the stuffing <purple>bits</purple>.</enum>
+                    the <red>stuffing</red> <red>bits</red>.</enum>
                 
                 <br/>
                 It's the <purple>CanIf's</purple> job to decode the information, and turn it back into a <purple>PDU</purple>, hence <purple>removing</purple> the 
-                stuffing <purple>bits</purple>.
+                <red>stuffing</red> <red>bits</red>.
                 <br/><br/>
                 <brown>Why using Stuffing Bits: </brown>
                 <br/><br/>
-                By using stuffing <purple>bits</purple> the receiver will not get confused whether he <azure>read</azure> 5 <purple>bits</purple> of 1 or he <azure>read</azure> 4 
+                By using <red>stuffing</red> <red>bits</red> the receiver will not get confused whether he <azure>read</azure> 5 <purple>bits</purple> of 1 or he <azure>read</azure> 4 
                 <purple>bits</purple> of one but the reception was slow.
                 <br/><br/>
                 Let's imagine a sender sending 8 <purple>bits</purple>, but the communication is slow, and the receiver <azure>read</azure> the 11 <purple>bits</purple>. 
