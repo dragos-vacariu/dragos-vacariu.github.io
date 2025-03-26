@@ -133,54 +133,6 @@ nav div{
 
 .dropdown_menu:hover .dropdown_content {display: block;}
 
-
-#reference{
-	display: inline;
-	padding: 0%;
-}
-
-#reference table tr th{
-	text-align:center;
-	border-style: inset;
-	border-color: black;
-	border-width:1px;
-    border-radius: 100px;
-	padding:0%;
-    vertical-align: top;
-}
-
-#reference table tr {
-    background-image: repeating-linear-gradient(to right, rgba(255,0,0,0.1), rgba(255,255,0,0.1), 
-    rgba(0,255,0,0.1), rgba(0,0,255,0.1), rgba(0,255,255,0.1), rgba(255,0,255,0.1));
-}
-
-#reference table{
-	margin-left:auto;
-	margin-right:auto;
-	width:60%;
-    max-width:1200px;
-	padding:0%;
-	border: none 1px black;
-    margin-bottom: 1%;
-    table-layout: fixed;
-    word-wrap: break-word;
-}
-
-#reference table th div p 
-{
-    font-family: ZenDots;
-	font-size: 50%;
-    color: black;
-	width:auto;
-	word-wrap: break-word;
-    margin: 10%;
-}
-
-.ref_pic{
-	width:100%;
-	/*box-shadow:1vw 1vw 0.5vw lightgray;*/
-}
-
 footer{
 	height:auto;
 	background-image: linear-gradient(to right, #aa7700, #995500);

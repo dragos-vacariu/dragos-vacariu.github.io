@@ -138,3 +138,70 @@
     margin-top: 10px;
 }
 
+
+#reference{
+	display: inline;
+	padding: 0%;
+}
+
+#reference table tr th{
+	text-align:center;
+	border:ridge 3px rgba(0,0,0,0.3);
+    border-radius: 100px;
+	padding:0%;
+    vertical-align: top;
+}
+
+#reference table{
+    border-collapse: separate;
+    border-spacing: 2vw 0vw;
+}
+
+#reference table tr {
+    background-image: repeating-linear-gradient(to right, rgba(255,0,0,0.1), rgba(255,255,0,0.1), 
+    rgba(0,255,0,0.1), rgba(0,0,255,0.1), rgba(0,255,255,0.1), rgba(255,0,255,0.1));
+}
+
+#reference table{
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+    max-width:1200px;
+	padding:0%;
+	border: none 1px black;
+    margin-bottom: 1%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+#reference table th div p 
+{
+    font-family: ZenDots;
+	font-size: 50%;
+    color: black;
+	width:auto;
+	word-wrap: break-word;
+
+}
+#reference table th div
+{
+    margin: auto;
+    padding: 5%;
+}
+
+.ref_pic{
+	width:100%;
+	/*box-shadow:1vw 1vw 0.5vw lightgray;*/
+}
+
+#content #text_div .section_header_paragraph
+{
+    border-top: ridge 3px rgba(0,0,0,0.3); 
+    padding-top: 5px;
+}
+
+#content #text_div .section_header_paragraph_reverse
+{
+    border-bottom: ridge 3px rgba(0,0,0,0.3); 
+    padding-bottom: 5px;
+}
