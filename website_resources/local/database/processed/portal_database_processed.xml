@@ -16278,7 +16278,7 @@
                 <enum><purple>Application</purple> <purple>Layer</purple></enum>
             
             <br/>
-            <img class="database_image" src="./website_resources/local/database/pictures/autosar_architecture.png" alt="autosar architecture"/>
+            <img class="database_image" src="./website_resources/local/database/pictures/autosar_architecture.png" alt="autosar_architecture"/>
             <br/><br/>
             <green>Basic Software Architecture (BSW)</green>
             <br/><br/>
@@ -17653,7 +17653,17 @@
             When a message is received, the <azure>CAN</azure> <azure>Driver</azure> notifies <purple>CanIf</purple> which assembles the message and informs 
             directly or indirectly the <purple>RTOS</purple>, which can then pass the message to the appropriate <azure>task</azure> for <azure>processing</azure>.
             <br/><br/>
-            <img class="database_image" src="./website_resources/local/database/pictures/ecu_communication.png" alt="autosar architecture ecus communicating"/></can-interface>
+            <img class="database_image" src="./website_resources/local/database/pictures/ecu_communication.png" alt="autosar_architecture_ecus_communicating"/>
+            <br/>
+            Each Transport Protocol <red>implemented</red> within the <azure>ECU</azure> has it's own BusIF <red>module</red>. The BusIF <red>module</red> would <red>interface</red>
+            all the existing communication channels within its topology.
+            <br/><br/>
+            This means <purple>CanIF</purple> <purple>can</purple> <purple>interface</purple> multiple <purple>CAN</purple> <purple>Controllers</purple>, each controlled by its own 
+            <azure>CAN</azure> <azure>Driver</azure> and every Controller/Driver pair would be <purple>operating</purple> individually as separate communication channel.
+            <br/><br/>
+            So regardless of how many CAN communication channels are <red>implemented</red>, there should only be one <purple>CanIF</purple> <red>module</red> <red>interfacing</red> them.
+            <br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/canif_mutiple_can_controllers.png" alt="canif_multiple_can_channels"/></can-interface>
         <can-collision-detection><purple>CAN</purple> <purple>protocol's</purple> collision detection mechanism enables a node (<azure>ECU</azure>) which is transmitting <purple>data</purple> to detect 
             if another node is trying to send <purple>data</purple> while the <red>bus</red> is already in use. The collision detection on <red>CAN</red> <red>network</red>
             happens through the <azure>Arbitration</azure>. 
@@ -17859,7 +17869,7 @@
             <red>PduR</red> <purple>operates</purple> above the lower <purple>layers</purple> of the <azure>communication</azure> <azure>stack</azure>, <azure>allowing</azure> it to interact with various 
             communication protocols and services.
             <br/><br/>
-            <img class="database_image" src="./website_resources/local/database/pictures/communication_stack.png" alt="autosar comstack"/>
+            <img class="database_image" src="./website_resources/local/database/pictures/communication_stack.png" alt="autosar_comstack"/>
             <br/><br/>
             The <red>PduR</red> <red>module</red> is also responsible for reporting errors related to <purple>PDU</purple> transmission, ensuring that any 
             issues are communicated to the Diagnostic Event Tracker (DET) <red>module</red>.
@@ -17871,7 +17881,7 @@
             Via <red>PduR</red> the <azure>ECU</azure> can redirect messages within the network. <azure>Allowing</azure> for <red>bus</red> traffic management over 
             Network Segments. This <red>function</red> is also known as gatewaying.
             <br/><br/>
-            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="routing pdus through gateway"/>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_ecus.png" alt="routing_pdus_through_gateway"/>
             <br/><br/>
             <green>Use Case for PduR:</green>
             <br/><br/>
@@ -17890,7 +17900,12 @@
             <br/><br/>
             This workflow involves <red>PduR</red>, as <red>PduR</red> is the main responsible for routing messages within the network. 
             The <red>PduR</red> has access to all <red>buses</red> through which an node (<azure>ECU</azure>) is connected. Meaning we could receive a message 
-            through CAN and route it further through <red>LIN</red>.
+            through <red>LIN</red> and route it further through CAN.
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/routing_pdu_lin_can.png" alt="routing_pdus_from_lin_to_can"/>
+            <br/><br/>
+            The <red>PduR</red> can handle <red>payload</red>-dependent routing. This means that the routing decisions can be influenced by the content 
+            of the <purple>PDU</purple> <red>payload</red>, <azure>allowing</azure> for more intelligent <purple>data</purple> handling <red>based</red> on the actual <purple>data</purple> being transmitted.
             <br/><br/>
             In many cases, the <red>PduR</red> simply acts as a <purple>data</purple> forwarder. It receives a <purple>PDU</purple> on one <red>bus</red>, translates it to the 
             format required by the target <red>bus</red> (if necessary), and forwards it without any modification to the <purple>data</purple> 
@@ -17930,68 +17945,111 @@
             The SWC then <azure>processes</azure> the received <purple>data</purple>.
             <br/><br/>
             <indigo>Application Software:</indigo> Applies specific application <purple>logic</purple> (e.g., filtering, validation, or 
-            encryption) <red>based</red> on the requirements.</pdur-module>
+            encryption) <red>based</red> on the requirements.
+            <br/><br/>
+            <brown>PduR as PDU Collector</brown>
+            <br/><br/>
+            The <red>PduR</red> is important even if routing/gatewaying would not be <red>implemented</red> because <red>PduR</red> acts as a <purple>PDU</purple> <purple>collector</purple>.
+            This means all the <purple>PDUs</purple> received by our <azure>ECU</azure> regardless of the network (CAN, <red>LIN</red>, <red>Ethernet</red>, Flexray) get <purple>collected</purple> by 
+            <red>PduR</red> and passed to the <red>COM</red> <red>module</red> where they are unpacked into <azure>Signals</azure> and SignalGroups. 
+            <br/><br/>
+            Similarly, all the <azure>signals</azure> <purple>collected</purple> by <red>COM</red> <red>module</red> are packed into <purple>PDUs</purple> and passed to the <red>PduR</red>, and the <red>PduR</red> <red>based</red> on
+            its configuration it decides on which network to sent them.
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/pdur_as_collector.png" alt="pdur_as_collector"/>
+            <br/><br/>
+            <brown>PduR in error detection/handling:</brown>
+            <br/><br/>
+             The <red>PduR</red> can detect and/or handle errors related to <purple>PDU</purple> transmission. For <red>instance</red>: if there's an issue at the 
+             <red>interface</red> level, the <red>PduR</red> simply forwards the error to the upper <purple>layer</purple> without intervention.
+             <br/><br/>
+             The <red>PduR</red> focuses on routing and managing <purple>PDUs</purple> without getting involved in the error correction <azure>process</azure>.
+             <br/>
+             While the <red>PduR</red> does not handle errors directly, it does pass along the <purple>return</purple> <purple>values</purple> from lower <purple>layers</purple>. This means 
+             that any status or error <azure>codes</azure> generated by the lower <purple>layers</purple> are communicated to the upper <purple>layers</purple> through the <red>PduR</red>.
+             <br/><br/>
+             <brown>PduR data validation:</brown>
+             <br/><br/>
+             The <red>PduR</red> primarily validates the format and <purple>structure</purple> of the <purple>PDUs</purple> it receives. This means it checks that:
+            <enum>The <purple>PDU</purple> conforms to the expected layout and <purple>data</purple> <purple>types</purple> defined in the <purple>AUTOSAR</purple> configuration.</enum>
+            <enum>The <purple>PDU</purple> contains the correct number of <purple>bytes</purple> and <purple>fields</purple>. (No missing or invalid <purple>fields</purple> and no out-of-bounds <purple>values</purple>).</enum>
+            <enum>The <purple>data</purple> <purple>types</purple> within the <purple>PDU</purple> are consistent with the defined specifications. (No incorrect <purple>data</purple> <purple>types</purple>).</enum>
+            <br/>
+            The <red>PduR</red> can also perform validation <red>based</red> on the content of the <purple>PDU</purple> <red>payload</red>. This means that it can:
+            <enum>Check if the <purple>PDU</purple> <red>payload</red> <azure>matches</azure> certain predefined patterns or <azure>conditions</azure>.</enum>
+            <enum>Use the <red>payload</red> to determine the appropriate routing path for the <purple>PDU</purple>.</enum>
+            <br/><br/>
+            <indigo>Example of data validation:</indigo>
+            <br/>
+            Imagine a <purple>PDU</purple> that carries information about a vehicle's speed. The <red>PduR</red> would check that:
+            <br/>
+            <enum>The <purple>PDU</purple> is formatted correctly and contains the expected <purple>fields</purple> for speed <purple>data</purple>.</enum>
+            <enum>The <purple>data</purple> <purple>type</purple> for speed is defined as an <purple>integer</purple>.</enum>
+            <enum>The speed <purple>value</purple> falls within a reasonable range (e.g., not exceeding the maximum speed limit).</enum>
+            <br/></pdur-module>
         <com-module>The <red>Communication</red> <red>Module</red> (COM) in <purple>AUTOSAR</purple> is a fundamental component responsible for packing and unpacking <azure>signals</azure> 
-        into or from <purple>Protocol</purple> <purple>Data</purple> <purple>Units</purple> (<purple>PDUs</purple>) during transmission and reception. This ensures that <purple>data</purple> is formatted 
-        correctly for communication.
-        <br/><br/>
-        A <purple>PDU</purple> is a <purple>collection</purple>/group of <azure>signals</azure> of different <purple>values</purple> and different <purple>data</purple> <purple>types</purple>. These <purple>PDUs</purple> are also reffered 
-        to as Messages. They act as an <azure>abstraction</azure> <purple>layer</purple> that facilitates the transfer of <purple>data</purple> 
-        between different <red>software</red> <red>components</red>. 
-        <br/><br/>
-        <purple>PDUs</purple> are used to <red>encapsulate</red> <purple>data</purple> for transmission, <azure>allowing</azure> for <azure>efficient</azure> 
-        routing and handling of information across various communication protocols.
-        <br/><br/>
-        <indigo>Communication Services:</indigo>
-        <br/>
-        The <red>COM</red> <red>module</red> provides essential communication services to other <red>modules</red>, facilitating the exchange of information 
-        between different <red>software</red> <red>components</red> within the vehicle. 
-        <br/><br/>
-        <indigo>Filtering Algorithms:</indigo>
-        <br/>
-        The <red>COM</red> <red>module</red> supports various ComFilterAlgorithms, which help in filtering messages <red>based</red> on specific criteria, 
-        enhancing the <azure>efficiency</azure> of <purple>data</purple> transmission.
-        <br/><br/>
-         The <red>COM</red> <red>module</red> is configured with specific filtering settings that define which <purple>PDUs</purple> are relevant for a 
-         particular <azure>ECU</azure>. These settings can be <red>based</red> on various criteria, such as:
-         <br/>
-        <enum><purple>PDU</purple> <purple>Identifier</purple> (ID): The unique <purple>identifier</purple> of the <purple>PDU</purple>.</enum>
-        <enum><purple>Signal</purple> IDs: The specific <azure>signals</azure> contained within the <purple>PDU</purple>.</enum>
-        <enum><azure>ECU</azure> <purple>Addresses</purple>: The <azure>source</azure> or destination <purple>addresses</purple> of the <purple>PDU</purple>.</enum>
-        <enum>Protocol <purple>Type</purple>: The communication protocol used for the <purple>PDU</purple>.</enum>
-        <br/>
-        When an <azure>ECU</azure> receives a <purple>PDU</purple>, the <red>COM</red> <red>module</red> checks its contents against the configured filtering settings.
-        <br/><br/>
-        If the <purple>PDU</purple> <azure>matches</azure> the filtering criteria, it is considered relevant and passed on to the appropriate 
-        <purple>application</purple> <purple>layer</purple> <red>module</red>.
-        <br/><br/>
-        If the <purple>PDU</purple> does not <azure>match</azure> the filtering criteria, it is discarded, preventing unnecessary <azure>processing</azure> 
-        and <azure>saving</azure> <purple>valuable</purple> resources.
-         <br/><br/>
-         This filtering mechanism ensures that only relevant <purple>PDUs</purple> are <azure>processed</azure> by the <azure>ECU</azure>, improving communication 
-         <azure>efficiency</azure> and reducing the workload on the <red>system</red>. This is particularly important in automotive <red>systems</red> 
-         where <red>real</red>-<red>time</red> performance and resource constraints are critical.
-        <br/><br/>
-        
-        Example: Imagine a scenario where an <azure>ECU</azure> is responsible for controlling the engine. The <red>COM</red> <red>module</red> could be 
-        configured to filter out all <purple>PDUs</purple> except those related to engine <red>parameters</red> like speed, temperature, and fuel 
-        pressure. This ensures that the <azure>ECU</azure> only receives and <azure>processes</azure> <purple>data</purple> that is relevant to its specific <azure>task</azure>.
-        <br/><br/>
-        <indigo>Protocol Independence:</indigo>
-        <br/>
-        Similar to the <red>PDU</red> <red>Router</red>, the <red>COM</red> <red>module</red> <purple>operates</purple> in a <purple>protocol</purple>-<purple>independent</purple> manner, <azure>allowing</azure> it to work seamlessly with 
-        different communication protocols like CAN, <red>LIN</red>, and <red>Ethernet</red>. This means, regardless of how many Transfer Protocols are
-        used / <red>implemented</red> within an <azure>ECU</azure>, there should be only one <red>PduR</red> <red>module</red> and only one <red>COM</red> <red>module</red>.
-        <br/><br/>
-        <indigo>Configuration Flexibility:</indigo>
-        <br/>
-        The <red>COM</red> <red>module</red> can be configured to meet the specific needs of different vehicle architectures, making it adaptable to 
-        various communication scenarios.
-        <br/><br/>
-        <indigo>Integration with Other Modules:</indigo>
-        <br/>
-        The <red>COM</red> <red>module</red> interacts <azure>closely</azure> with other <purple>AUTOSAR</purple> <red>modules</red>, such as the <red>PDU</red> <red>Router</red> and the <red>Network</red> <red>Management</red> <red>module</red>, 
-        ensuring a cohesive communication framework.</com-module>
+            into or from <purple>Protocol</purple> <purple>Data</purple> <purple>Units</purple> (<purple>PDUs</purple>) during transmission and reception. This ensures that <purple>data</purple> is formatted 
+            correctly for communication.
+            <br/><br/>
+            A <purple>PDU</purple> is a <purple>collection</purple>/group of <azure>signals</azure> of different <purple>values</purple> and different <purple>data</purple> <purple>types</purple>. These <purple>PDUs</purple> are also reffered 
+            to as Messages. They act as an <azure>abstraction</azure> <purple>layer</purple> that facilitates the transfer of <purple>data</purple> 
+            between different <red>software</red> <red>components</red>. 
+            <br/><br/>
+            <purple>PDUs</purple> are used to <red>encapsulate</red> <purple>data</purple> for transmission, <azure>allowing</azure> for <azure>efficient</azure> 
+            routing and handling of information across various communication protocols.
+            <br/><br/>
+            <indigo>Communication Services:</indigo>
+            <br/>
+            The <red>COM</red> <red>module</red> provides essential communication services to other <red>modules</red>, facilitating the exchange of information 
+            between different <red>software</red> <red>components</red> within the vehicle. 
+            <br/><br/>
+            <indigo>Filtering Algorithms:</indigo>
+            <br/>
+            The <red>COM</red> <red>module</red> supports various ComFilterAlgorithms, which help in filtering messages <red>based</red> on specific criteria, 
+            enhancing the <azure>efficiency</azure> of <purple>data</purple> transmission.
+            <br/><br/>
+             The <red>COM</red> <red>module</red> is configured with specific filtering settings that define which <purple>PDUs</purple> are relevant for a 
+             particular <azure>ECU</azure>. These settings can be <red>based</red> on various criteria, such as:
+             <br/>
+            <enum><purple>PDU</purple> <purple>Identifier</purple> (ID): The unique <purple>identifier</purple> of the <purple>PDU</purple>.</enum>
+            <enum><purple>Signal</purple> IDs: The specific <azure>signals</azure> contained within the <purple>PDU</purple>.</enum>
+            <enum><azure>ECU</azure> <purple>Addresses</purple>: The <azure>source</azure> or destination <purple>addresses</purple> of the <purple>PDU</purple>.</enum>
+            <enum>Protocol <purple>Type</purple>: The communication protocol used for the <purple>PDU</purple>.</enum>
+            <br/>
+            When an <azure>ECU</azure> receives a <purple>PDU</purple>, the <red>COM</red> <red>module</red> checks its contents against the configured filtering settings.
+            <br/><br/>
+            If the <purple>PDU</purple> <azure>matches</azure> the filtering criteria, it is considered relevant and passed on to the appropriate 
+            <purple>application</purple> <purple>layer</purple> <red>module</red>.
+            <br/><br/>
+            If the <purple>PDU</purple> does not <azure>match</azure> the filtering criteria, it is discarded, preventing unnecessary <azure>processing</azure> 
+            and <azure>saving</azure> <purple>valuable</purple> resources.
+             <br/><br/>
+             This filtering mechanism ensures that only relevant <purple>PDUs</purple> are <azure>processed</azure> by the <azure>ECU</azure>, improving communication 
+             <azure>efficiency</azure> and reducing the workload on the <red>system</red>. This is particularly important in automotive <red>systems</red> 
+             where <red>real</red>-<red>time</red> performance and resource constraints are critical.
+            <br/><br/>
+            
+            Example: Imagine a scenario where an <azure>ECU</azure> is responsible for controlling the engine. The <red>COM</red> <red>module</red> could be 
+            configured to filter out all <purple>PDUs</purple> except those related to engine <red>parameters</red> like speed, temperature, and fuel 
+            pressure. This ensures that the <azure>ECU</azure> only receives and <azure>processes</azure> <purple>data</purple> that is relevant to its specific <azure>task</azure>.
+            <br/><br/>
+            <indigo>Protocol Independence:</indigo>
+            <br/>
+            Similar to the <red>PDU</red> <red>Router</red>, the <red>COM</red> <red>module</red> <purple>operates</purple> in a <purple>protocol</purple>-<purple>independent</purple> manner, <azure>allowing</azure> it to work seamlessly with 
+            different communication protocols like CAN, <red>LIN</red>, and <red>Ethernet</red>. This means, regardless of how many Transfer Protocols are
+            used / <red>implemented</red> within an <azure>ECU</azure>, there should be only one <red>PduR</red> <red>module</red> and only one <red>COM</red> <red>module</red>.
+            <br/><br/>
+            <indigo>Configuration Flexibility:</indigo>
+            <br/>
+            The <red>COM</red> <red>module</red> can be configured to meet the specific needs of different vehicle architectures, making it adaptable to 
+            various communication scenarios.
+            <br/><br/>
+            <indigo>Integration with Other Modules:</indigo>
+            <br/>
+            The <red>COM</red> <red>module</red> interacts <azure>closely</azure> with other <purple>AUTOSAR</purple> <red>modules</red>, such as the <red>PDU</red> <red>Router</red> and the <red>Network</red> <red>Management</red> <red>module</red>, 
+            ensuring a cohesive communication framework.
+            <br/><br/>
+            <img class="database_image" src="./website_resources/local/database/pictures/com_module_operation.png" alt="com_module_operation"/></com-module>
         <error-detection>CAN communication relies on a combination of techniques to ensure reliable <purple>data</purple> transmission. 
                 <red>Stuffing</red> <red>bits</red>, <red>CRC</red> <azure>codes</azure>, and timing considerations all work together to help the receiver interpret 
                 the <purple>data</purple> accurately, even in challenging communication environments.
