@@ -347,14 +347,14 @@
     <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;lambda-anonymous-functions</loc></url>
 
     <!-- Portal Route for AUTOSAR on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&description%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&ecu-communication%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&ecu-networks%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-protocol%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-transceiver%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-controller-driver%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-interface%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-collision-detection%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;description%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-communication%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-networks%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-protocol%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-transceiver%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-controller-driver%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-interface%regular</loc></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-collision-detection%regular</loc></url>
 
     <!-- Catalogue Categories Pages -->
     <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc></url>
