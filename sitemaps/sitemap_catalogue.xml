@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+
+    <!-- Catalogue Categories Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Html-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-OpenGL-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/AngularJS.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Portable-Downloads.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Java-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java Racing Environment.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java MP3 Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Unity-Csharp Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/TowerBlocks.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/Drag Racing.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Python-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects/PyPlay Mp3 Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue CSharp-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/WWBM Quizz Game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/MP3Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Cpp-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Pocket Calculator.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Traffic Simulator 2D.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Javascript-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/tower_blocks_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Javascript-Projects Games-Presentation-Video Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/knight_chess_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/snake_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/tetris_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/towerblocks_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/canvas_snake_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+</urlset>
