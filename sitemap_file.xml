@@ -1,406 +1,400 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 
-    <!-- Main Pages -->
-    <url><loc>https://dragos-vacariu.github.io/</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/contact.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/about.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal_classic.html</loc></url>
+<!-- Main Pages -->
+<url><loc>https://dragos-vacariu.github.io/</loc></url>
+<url><loc>https://dragos-vacariu.github.io/contact.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/about.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal_classic.html</loc></url>
 
-    <!-- Portal Route for everything selected-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<!-- Portal Route for everything selected-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
 
-    <!-- Portal Route for each programming languages with every concept selected-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&#38;description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface%regular</loc></url>
+<!-- Portal Route for each programming languages with every concept selected-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface%regular</loc></url>
 
-    <!-- Portal Route for each programming languages with every concept selected with workaround for google-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&#38;description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface</loc></url>
+<!-- Portal Route for each programming languages with every concept selected with workaround for google-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface</loc></url>
 
-    <!-- Portal Route for C language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for C language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for C++ language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for C++ language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for CSharp language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for CSharp language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for Java language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for Java language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for JavaScript language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for JavaScript language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for Python language on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;description</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;generic-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;variable-arguments-lists</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;simple-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;complex-data-types</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;preprocessor-directives</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;loops</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collections</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collection-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;dynamic-memory-allocation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;read-from-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;write-to-file</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;serialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;deserialization</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;enums</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;concurrent-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;exception-handling</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;bitwise-operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;default-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;interfaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;macros</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;defines</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;random-generators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;command-line-arguments</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;ternary-operator</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;modular-programming</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;string-methods</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;datatype-conversions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;optional-parameters</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;pre-post-incrementation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;recursion</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;polymorphism</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;oop</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;encapsulation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;inheritance</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstraction</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;constructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;instantiation</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;destructors</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;function-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operator-overloading</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;namespaces</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstract-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;decorators</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;reflection</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;partial-classes</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;minification</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;regular-expressions</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;lambda-anonymous-functions</loc></url>
+<!-- Portal Route for Python language on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;description</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;generic-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;variable-arguments-lists</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;simple-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;complex-data-types</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;preprocessor-directives</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;loops</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collections</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collection-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;dynamic-memory-allocation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;read-from-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;write-to-file</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;serialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;deserialization</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;enums</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;concurrent-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;exception-handling</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;bitwise-operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;default-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;interfaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;macros</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;defines</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;random-generators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;command-line-arguments</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;ternary-operator</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;modular-programming</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;string-methods</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;datatype-conversions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;optional-parameters</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;pre-post-incrementation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;recursion</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;polymorphism</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;oop</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;encapsulation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;inheritance</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstraction</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;constructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;instantiation</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;destructors</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;function-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operator-overloading</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;namespaces</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstract-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;decorators</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;reflection</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;partial-classes</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;minification</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;regular-expressions</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;lambda-anonymous-functions</loc></url>
 
-    <!-- Portal Route for AUTOSAR on every available concept-->
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;description%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-communication%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-networks%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-protocol%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-transceiver%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-controller-driver%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-interface%regular</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-collision-detection%regular</loc></url>
+<!-- Portal Route for AUTOSAR on every available concept-->
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&description%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&ecu-communication%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&ecu-networks%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-protocol%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-transceiver%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-controller-driver%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-interface%regular</loc></url>
+<url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&can-collision-detection%regular</loc></url>
 
-    <!-- Catalogue Categories Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Html-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-OpenGL-Projects.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/AngularJS.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Portable-Downloads.html</loc></url>
+<!-- Catalogue Categories Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Html-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-OpenGL-Projects.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/AngularJS.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Portable-Downloads.html</loc></url>
 
-    <!-- Catalogue Java-Projects Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java Racing Environment.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java MP3 Player.html</loc></url>
+<!-- Catalogue Java-Projects Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java Racing Environment.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java MP3 Player.html</loc></url>
 
-    <!-- Catalogue Unity-Csharp Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/TowerBlocks.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/Drag Racing.html</loc></url>
+<!-- Catalogue Unity-Csharp Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/TowerBlocks.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/Drag Racing.html</loc></url>
 
-    <!-- Catalogue Python-Projects Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects/PyPlay Mp3 Player.html</loc></url>
+<!-- Catalogue Python-Projects Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects/PyPlay Mp3 Player.html</loc></url>
 
-    <!-- Catalogue CSharp-Projects Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/WWBM Quizz Game.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/MP3Player.html</loc></url>
+<!-- Catalogue CSharp-Projects Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/WWBM Quizz Game.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/MP3Player.html</loc></url>
 
-    <!-- Catalogue Cpp-Projects Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Pocket Calculator.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Traffic Simulator 2D.html</loc></url>
+<!-- Catalogue Cpp-Projects Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Pocket Calculator.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Traffic Simulator 2D.html</loc></url>
 
-    <!-- Catalogue Javascript-Projects Pages -->
-    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_game.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_game.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_game.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/tower_blocks_game.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake.html</loc></url>
+<!-- Catalogue Javascript-Projects Pages -->
+<url><loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_game.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_game.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_game.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/tower_blocks_game.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake.html</loc></url>
 
-    <!-- Catalogue Javascript-Projects Games-Presentation-Video Pages -->
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/knight_chess_video_page.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/snake_video_page.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/tetris_video_page.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/towerblocks_video_page.html</loc></url>
-    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/canvas_snake_video_page.html</loc></url>
-
-</urlset>
+<!-- Catalogue Javascript-Projects Games-Presentation-Video Pages -->
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/knight_chess_video_page.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/snake_video_page.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/tetris_video_page.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/towerblocks_video_page.html</loc></url>
+<url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/canvas_snake_video_page.html</loc></url>
