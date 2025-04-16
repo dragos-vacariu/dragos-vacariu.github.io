@@ -1,41 +1,26 @@
 <!DOCTYPE html>
 <html  ng-app="myApplication" ng-controller="Controller">
-	<head>
-		<title>About</title>
-		<meta charset = "UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
-		<meta name="description" content="Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.">
+    <head>
+        <title>About</title>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
+        <meta name="description" content="Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.">
         <meta name="keywords" content="HTML,CSS,XML,JavaScript,C,C++,C#,Java,Python,Unity,Programming,IT,Learning,Portal,Projects,Github,Skills,Documentation,Exercise,Examples,Coding,Samples,LinkedIn,Online,Software,Engineering,Scripts,Games,Web,Development,CV,Demonstration,Practice,Electronic,Automation,Computers,Systems,Challenge,AI,Repositories,Tips,Tricks,Know,How,To">
         <meta name="author" content="Vacariu Dragos">
         <link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">
         <!--Global resources-->
-		<link rel="stylesheet" href="./website_resources/global/css/global.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<!--Local resources-->
-		<link rel="stylesheet" href="./website_resources/local/css/about_page.css">
-	</head>
-	<body>
-		<header>
-			<div id="header_title">
-                <h2 id="page_title"></h2>
-                <p id="page_description"></p>
-			</div>				
-		</header>
-<nav>
-			<div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'About')">
-				<a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
-				
-				<div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
-					<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
-					<div class="dropdown_content">
-						<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
-					</div>
-				</div>	
-			</div>
-		</nav>
-		<div id="page_block">
-			<h2>About:</h2>
-			<p id="introduction">This page is specifically designed to provide a comprehensive and concise summary, self-assessment 
+        <link rel="stylesheet" href="./website_resources/global/css/global.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!--Local resources-->
+        <link rel="stylesheet" href="./website_resources/local/css/about_page.css">
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="page_block">
+            <h2>About:</h2>
+            <p id="introduction">This page is specifically designed to provide a comprehensive and concise summary, self-assessment 
             and description of myself and the aspects surrounding the technical the expertize that is subject to this Portfolio. 
             </p>
                 <p>
@@ -71,24 +56,24 @@
                 <p id="core_tech">Technical Proficiency:</p>
                 
                 <p id="html_css_info" class="rounded_border">
-				<code class="title">HTML & CSS</code> <br><br>
+                <code class="title">HTML & CSS</code> <br><br>
                 <span class="header">Description:</span><br>
-				Hands-on Experience: < 2 years; <br>
-				&#10003; can design decent looking web templates;<br>
-				&#10003; can handle the responsiveness of the web page; <br>
+                Hands-on Experience: < 2 years; <br>
+                &#10003; can design decent looking web templates;<br>
+                &#10003; can handle the responsiveness of the web page; <br>
                 &#10003; can debug and fix visual flaws; <br>
                 &#10003; capable of refactoring and/or to reformating the content of a web page;<br>
-				&#10003; basic knowledge of photo editing; <br>
-				&#10003; basic knowledge of color wheels for creating complementary colors & contrasts; <br>
-				
-				<br><span class="header">Technical Background:</span> <br>
+                &#10003; basic knowledge of photo editing; <br>
+                &#10003; basic knowledge of color wheels for creating complementary colors & contrasts; <br>
+                
+                <br><span class="header">Technical Background:</span> <br>
                 Have studied and practiced web design on many occasions through 
-				the years and became capable in assisting or autonomously contributing or designing decent 
+                the years and became capable in assisting or autonomously contributing or designing decent 
                 looking web pages with responsive behaviour that is adjustable based on the viewport size, 
                 device and/or screen resolution. <br><br>
                 
                 <span class="header">On-Job Experience:</span><br>
-				Never worked within the web development industry, but worked on several scripts that outputted
+                Never worked within the web development industry, but worked on several scripts that outputted
                 <span class="highlighted_element">HTML</span> reports.
                 </p>
                 
@@ -240,20 +225,10 @@
                     No on-job experience to show.
                 </p>
         </div>
-        <footer>
-            <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
-            <div id = "footer_tabelation_div">
-                <div class="footer_columns" ng-repeat="list_item in footer_table_contents">
-                    <p class="column_title">{{list_item.name}}:</p>
-                    <ul class="footer_list">
-                        <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                        <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
-                    </ul>
-                </div>
-            </div>
-            <h5 id="footer_endline">{{pageObject.footer_paragraph}}</h5>
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
         </footer> 
-	</body>
+    </body>
     <!--This resource has to be added here because we need the elements in the HTML document to exist before 
     running the script-->
     <!--Global resources-->

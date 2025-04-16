@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html  ng-app="myApplication" ng-controller="Controller">
-	<head>
-		<title>Home</title>
-		<meta charset = "UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
+    <head>
+        <title>Home</title>
+        <meta charset = "UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> <!--For mobile viewport proper resizing-->
         <meta name="description" content="Portfolio implemented as means to present and/or demonstrate professional skills, work and efforts put into practice for building up a reliable knowledge foundation to facilitate the adaptability within a new environment, industry, toolchain workplace or with various technologies within the IT industry.">
         <meta name="keywords" content="HTML,CSS,XML,JavaScript,C,C++,C#,Java,Python,Unity,Programming,IT,Learning,Portal,Projects,Github,Skills,Documentation,Exercise,Examples,Coding,Samples,LinkedIn,Online,Software,Engineering,Scripts,Games,Web,Development,CV,Demonstration,Practice,Electronic,Automation,Computers,Systems,Challenge,AI,Repositories,Tips,Tricks,Know,How,To">
         <meta name="author" content="Vacariu Dragos">
@@ -11,44 +11,29 @@
         <link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">
         
         <!--Global resources-->
-		<link rel="stylesheet" href="./website_resources/global/css/global.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-		<!--Local resources-->
-		<link rel="stylesheet" href="./website_resources/local/css/home_page.css">
-	</head>
-	<body>
-		<header>
-			<div id="header_title">
-                <h2 id="page_title"></h2>
-                <p id="page_description"></p>
-			</div>				
-		</header>
-		<nav>
-			<div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'Home')">
-				<a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
-				
-				<div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
-					<a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
-					<div class="dropdown_content">
-						<a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
-					</div>
-				</div>	
-			</div>
-		</nav>
-		<div id="container">
-			<img src="./website_resources/local/images/computer.jpg" alt="background image">
+        <link rel="stylesheet" href="./website_resources/global/css/global.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!--Local resources-->
+        <link rel="stylesheet" href="./website_resources/local/css/home_page.css">
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="container">
+            <img src="./website_resources/local/images/computer.jpg" alt="background image">
             <!--
-			<div id="saying">
-				<span id="heuristic">Heuristic </span><span id="problem">problem</span> <span id="solving">solving</span>
-			</div>
-			<p id="message">HTML5 and CSS3 helped to create this portfolio as a means to display the skills and knowledge gathered 
+            <div id="saying">
+                <span id="heuristic">Heuristic </span><span id="problem">problem</span> <span id="solving">solving</span>
+            </div>
+            <p id="message">HTML5 and CSS3 helped to create this portfolio as a means to display the skills and knowledge gathered 
             through self-studying and/or on-job trainings and activities associated to the IT industry.</p>
             -->
-		</div>
-		<div id="content">
-			<div id="text_div">
-				<h2>Introduction:</h2>
-				<p>This webpage stands as a testament to the dedicated efforts poured into diverse projects 
+        </div>
+        <div id="content">
+            <div id="text_div">
+                <h2>Introduction:</h2>
+                <p>This webpage stands as a testament to the dedicated efforts poured into diverse projects 
                 over the years, each contributing to my professional growth and development within the realm of 
                 Information Technology.
                 The showcased materials, from code snippets to design mockups, reflects a journey fueled by 
@@ -70,84 +55,74 @@
                 to continuous learning and self-improvement within the ever-evolving landscape of Information Technology.
                 </p>
                 
-				<h2>Content:</h2>
-				<p>A collection of frontend applications, videos and contextual webpages showcasing various projects, 
+                <h2>Content:</h2>
+                <p>A collection of frontend applications, videos and contextual webpages showcasing various projects, 
                 that are publicly available on <a href="https://github.com/dragos-vacariu?tab=repositories">GitHub</a>, 
                 each illuminating a different facet of modern software development. 
                 </p>
                 <p>
                 The showcased projects feature some of the most modern tools and technologies available today.</p>
                 <br>
-			</div>
-			<div id="reference">
-				<table>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/html.png" alt="html logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/css.png" alt="css logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/javascript.png" alt="javascript logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/angular.png" alt="angular logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/cpp.png" alt="cpp logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/csharp.png" alt="csharp logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/java.png" alt="java logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/python.png" alt="python logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/unity.png" alt="unity logo"></p>
-						</div>
-					</th>
-					<th>
-						<div>
-							<p><img class="ref_pic" src="./website_resources/local/images/dotnet.png" alt=".net logo"></p>
-						</div>
-					</th>
-				</table>
-			</div>
-		</div>
-		<footer>
-            <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
-            <div id = "footer_tabelation_div">
-                <div class="footer_columns" ng-repeat="list_item in footer_table_contents">
-                    <p class="column_title">{{list_item.name}}:</p>
-                    <ul class="footer_list">
-                        <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                        <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
-                    </ul>
-                </div>
             </div>
-            <h5 id="footer_endline">{{pageObject.footer_paragraph}}</h5>
+            <div id="reference">
+                <table>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/html.png" alt="html logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/css.png" alt="css logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/javascript.png" alt="javascript logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/angular.png" alt="angular logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/cpp.png" alt="cpp logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/csharp.png" alt="csharp logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/java.png" alt="java logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/python.png" alt="python logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/unity.png" alt="unity logo"></p>
+                        </div>
+                    </th>
+                    <th>
+                        <div>
+                            <p><img class="ref_pic" src="./website_resources/local/images/dotnet.png" alt=".net logo"></p>
+                        </div>
+                    </th>
+                </table>
+            </div>
+        </div>
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
         </footer> 
-	</body>
+    </body>
     <!--This resource has to be added here because we need the elements in the HTML document to exist before 
     running the script-->
     <!--Global resources-->
