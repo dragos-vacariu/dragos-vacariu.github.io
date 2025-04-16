@@ -24,7 +24,7 @@ const page_header = `
                     <a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
                     
                     <div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
-                        <a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
+                        <a class="outer_href">{{pageObject.page_navigation[1].name}}▼</a>
                         <div class="dropdown_content">
                             <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
                         </div>
@@ -212,29 +212,6 @@ function Controller_Function($scope)
             {name: "Java 2D Racing Environment", value : "../../Portable-Downloads/Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.rar"},
             {name: "JavaScript Games Portable", value : "../../Portable-Downloads/JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
     ];
-    
-    $scope.selectedWebPageStyle = function (pageElement, activePageTitle)
-    {
-        var style = "";
-        if(pageElement.name == activePageTitle)
-        {
-            style = {
-                "background-color": "#aa4400", 
-                "border-style": "solid", 
-                "border-color": "#442200", 
-                "border-width": "2px", 
-                "border-radius": "5vw", 
-            };
-        }
-        else
-        {
-            style = {
-                "background-color": "rgba(0,0,0,0.0)", /*tranparent*/
-                "border-style": "none", 
-            };
-        }
-        return style;
-    }
 }
 
 /*
