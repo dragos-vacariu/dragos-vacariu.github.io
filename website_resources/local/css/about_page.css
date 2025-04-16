@@ -66,12 +66,13 @@
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
+    line-height: 25px;
 }
 
 #page_block .section_div{
     position: relative;
     width: 96%;
-    margin: 2% auto;
+    margin: 20px auto;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -83,7 +84,7 @@
 #page_block .section_header{
     position: relative;
     padding: 0%;
-    margin:0.5%;
+    margin:5px;
     font-family: ZenDots;
 	text-align: left;
 	font-size:24px;
@@ -98,6 +99,11 @@
     position: relative;
     list-style-type: '\2713  '; /*the V sign: &#10003;*/
     margin: 0%;
+    line-spacing: 20px;
+}
+
+#page_block .competences_list li{
+    margin: 5px;
 }
 
 #page_block #html_css_info{
@@ -140,7 +146,7 @@
 	letter-spacing: 1px;
 	text-shadow: 1px 1px white;
     margin: 0%;
-    margin: 1% 0%;
+    margin: 20px 0px;
     color: darkgreen;
 }
 
