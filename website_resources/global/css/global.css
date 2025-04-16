@@ -53,7 +53,13 @@ header #header_title p{
 }
 
 nav{
-	position: relative;
+    /*Sticky navbar*/
+    /*position: sticky;
+    top: 0;*/
+    
+    /*Regular navbar*/
+    position: relative;
+    
 	/*setting width and height for the element will help maintaing the proper ratio for elements with size in % or vw*/
 	width:100%;
 	height: auto; 
