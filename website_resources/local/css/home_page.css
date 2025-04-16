@@ -118,13 +118,55 @@
     border: solid 0px black;
 }
 
-#text_div{
+#content .paragraph{
+    border: none 0px black;
+    border-bottom: ridge 3px rgba(0,0,0,0.3); 
+
     position: relative;
     width: 90%;
-    margin-left: 5%;
+    margin: 10px auto;
+    padding: 10px;
     word-wrap: break-word;
-    font-family:Georgia;
-    font-size: 14px;
+	font-family: Times New Roman;
+    font-weight: normal;
+	font-size:18px;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    line-height: 25px;
+    width: 96%;
+    
+}
+
+#content #final_note
+{
+    width: 90%;
+    margin: 10px 25px;
+    padding: 0px;
+    text-align: left;
+    border: none 0px black;
+}
+
+#content .paragraph .section_header_paragraph
+{
+    padding: 0px;
+    margin: 0px;
+    font-family: ZenDots;
+    text-align: left;
+    font-size:24px;
+    color: rgba(143,55,0, 1);
+    letter-spacing: 3px;
+    text-shadow: 0.5px 1px pink;
+}
+
+#content .paragraph p
+{
+    padding: 0%;
+    margin: 15px auto;
 }
 
 #content #text_div p, #content #text_div h2{
@@ -142,6 +184,7 @@
 #reference{
 	display: inline;
 	padding: 0%;
+    margin: 0%;
 }
 
 #reference table tr th{
@@ -192,16 +235,4 @@
 .ref_pic{
 	width:100%;
 	/*box-shadow:1vw 1vw 0.5vw lightgray;*/
-}
-
-#content #text_div .section_header_paragraph
-{
-    border-top: ridge 3px rgba(0,0,0,0.3); 
-    padding-top: 5px;
-}
-
-#content #text_div .section_header_paragraph_reverse
-{
-    border-bottom: ridge 3px rgba(0,0,0,0.3); 
-    padding-bottom: 5px;
 }
