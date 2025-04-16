@@ -20,7 +20,7 @@ const page_header = `
                 <p id="page_description"></p>
             </div>
             <nav>
-                <div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'About')">
+                <div class = "menu_page_item" ng-repeat="page in pageObject.page_navigation">
                     <a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
                     
                     <div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
@@ -39,7 +39,7 @@ app.controller('Controller', Controller_Function);
 
 var domain = "dragos-vacariu.github.io";
 var page_title = "GitHub Portfolio";
-document.title = page_title + " " + document.title;
+document.title = document.title + " - " + page_title;
 document.getElementById("page_title").innerText = page_title;
 document.getElementById("page_description").innerText = domain;
     

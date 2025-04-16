@@ -19,18 +19,6 @@
         <header id="page_header">
             <!--The content will be added from javascript-->
         </header>
-        <nav>
-            <div ng-repeat="page in pageObject.page_navigation" ng-style="selectedWebPageStyle(page, 'Catalogue')">
-                <a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
-                
-                <div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
-                    <a class="outer_href">{{pageObject.page_navigation[1].name}}</a>
-                    <div class="dropdown_content">
-                        <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
-                    </div>
-                </div>    
-            </div>
-        </nav>
         <div id="page_block">
             <h2>Catalogue -> <a href={{unity_page.value}}>{{unity_page.name}}</a> -> TowerBlocks Game</h2>
             <div id = "block_content">
@@ -65,4 +53,5 @@
     running the script-->
     <!--Global resources-->
     <script src="../../website_resources/global/scripts/global_script.js"></script>
+    <script src="../../website_resources/global/scripts/catalogue_item_selection_styling.js"></script>
 </html>
