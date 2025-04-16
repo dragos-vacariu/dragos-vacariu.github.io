@@ -38,17 +38,14 @@
 }
 
 #page_block p{
-	padding:1%;
-	width:96%;
-	margin-left:2%;
 	font-family: Times New Roman;
     font-weight: normal;
 	font-size:18px;
-	margin-bottom: 0%;
 	color: black;
 	text-shadow: 1px 1px white;
-    word-wrap: break-word;
-    border: none;
+    padding: 0%;
+    margin: 0%;
+    border: none 0px black;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -57,66 +54,94 @@
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#page_block .rounded_border
-{
-    border-style: groove;
-    border-width: 5px;
-    border-color: rgba(255,255,255, 0.6);
-    border-radius: 4vw;
-    padding-left:3%;
-    margin-left:2%;
+#page_block .paragraph{
+    position: relative;
+    margin: 2% 0%;
+    padding:0%;
+    width: 100%;
+    border: none 0px black;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#page_block #core_tech{
+#page_block .section_div{
+    position: relative;
+    width: 96%;
+    margin: 2% auto;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block .section_header{
+    position: relative;
     padding: 0%;
-    padding-left:3%;
-    margin-left:0%;
+    margin:0.5%;
     font-family: ZenDots;
 	text-align: left;
 	font-size:24px;
     letter-spacing: 3px;
 	text-shadow: 0.5px 1px pink;
 	color: rgba(143,55,0, 1);
+    border: none 0px black;
+}
+
+#page_block .competences_list
+{
+    position: relative;
+    list-style-type: '\2713  '; /*the V sign: &#10003;*/
+    margin: 0%;
 }
 
 #page_block #html_css_info{
-	background-color: rgba(0,0,255,0.2); /*purple*/
+	/*background-color: rgba(0,0,255,0.2);*/ /*purple*/
 }
 
 #page_block #javascript_info{
-	background-color: rgba(255,0,0,0.3); /*pink*/
+	/*background-color: rgba(255,0,0,0.3);*/ /*pink*/
 }
 
 #page_block #c_language_info{
-	background-color: rgba(0,255,0,0.3); /*green*/
+	/*background-color: rgba(0,255,0,0.3);*/ /*green*/
 }
 
 #page_block #python_info{
-	background-color: rgba(0,255,255,0.3); /*cyan*/
+	/*background-color: rgba(0,255,255,0.3);*/ /*cyan*/
 }
 
 #page_block #cpp_info{
-	background-color: rgba(255,0,255,0.3); /*magenta*/
+	/*background-color: rgba(255,0,255,0.3);*/ /*magenta*/
 }
 
 #page_block #csharp_info{
-	background-color: rgba(255,255,0,0.5); /*yellow*/
+	/*background-color: rgba(255,255,0,0.5);*/ /*yellow*/
 }
 
 #page_block #unity_info{
-	background-color: rgba(0,0,0,0.1); /*gray*/
+	/*background-color: rgba(0,0,0,0.1);*/ /*gray*/
 }
 
 #page_block #java_info{
-	background-color: rgba(120,50,120,0.2) /*purple-gray*/
+	/*background-color: rgba(120,50,120,0.2);*/ /*purple-gray*/
 }
 
 
 #page_block .title{
 	font-family: ZenDots;
 	font-weight: bold;
+    font-size: 20px;
 	letter-spacing: 1px;
 	text-shadow: 1px 1px white;
+    margin: 0%;
+    margin: 1% 0%;
+    color: darkgreen;
 }
 
 #page_block .header{
@@ -133,4 +158,14 @@
 	color: rgba(143,55,0, 1);
 	font-weight: normal;
 	padding: 0vw;
+}
+
+#page_block a{
+    text-decoration: none;
+    font-weight: bold;
+    color: blue;
+}
+
+#page_block a:hover{
+    color: red;
 }
