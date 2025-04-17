@@ -11,6 +11,9 @@
         <!--Global resources-->
         <link rel="stylesheet" href="../website_resources/global/css/global.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!--Local resources-->
+        <link rel="stylesheet" href="../website_resources/local/css/catalogue_page.css">
+        <script src="../website_resources/local/scripts/catalogue_page_script.js"></script>
     </head>
     <body>
         <header id="page_header">
@@ -21,17 +24,29 @@
             <table id = "content_table">
                 <tr>
                     <td>
-                        <div id ="catalogue_div_left">
-                            <ul class = "content_list">
-                                <li ng-repeat="item in unity_csharp_catalogue"><a href = {{item.value}}>{{item.name}}</a></li>
-                            </ul>
+                        <div id="catalogue_description">
+                            <p id="description_title">Projects built using Unity and C#</p>
+                            <p id="description_message">These projects showcase my growth as a developer, driven 
+                            by curiosity and a passion for crafting interactive graphical applications using the 
+                            Unity Game Engine and C#.
+                            <p id="description_message">▼</p>
+                            <p>
                         </div>
                     </td>
+                </tr>
+                <tr>
                     <td>
+                        <div id ="catalogue_div_left">
+                            <ol class = "content_list">
+                                <li ng-repeat="item in unity_csharp_catalogue"><a href = {{item.value}}>{{item.name}}</a></li>
+                            </ol>
+                        </div>
+                    </td>
+                    <!--<td>
                         <div id="catalogue_div_right">
                             <img src="../website_resources/global/images/mario.gif" alt="mario gif">
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
             </table>
         </div>

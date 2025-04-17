@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="../../website_resources/global/css/global.css">
         <link rel="stylesheet" href="../../website_resources/global/css/video_page.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="../../website_resources/global/scripts/video_page_script.js"></script>
         
         <!--Local resources-->
     </head>
@@ -22,33 +23,32 @@
         <div id="page_block">
             <h2>Catalogue -> <a href={{c_sharp_page.value}}>{{c_sharp_page.name}}</a> -> WWBM Quizz Game</h2>
             <div id = "block_content">
-                <h3>WWBM Quizz Game</h3>
-
-                <video controls autoplay muted>
-                  <source src="WWBM Quizz Game.mp4" type="video/mp4">
-                  <source src="WWBM Quizz Game.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-                </video>
-
-                <h4>Description:</h4>
-                <h4>WWBM Quizz Game is a .NET GUI Game-like applications inspired by the
-                    TV Show: <code> Who wants to be a millionare </code></br></br>
-                    The player has to answer correctly to general knowledge questions of various 
-                    difficulty from various fields such as: Cinema, Music, Geography, Biology, Chemistry, 
-                    Astronomy, Literature, Internet, Technology, History, and so on. <br><br>
-                    There are about 200 questions available within the game, every question is presented with
-                    4 possible answers. As the player progresses and earns money, items beoome available
-                    withing the Item Shop. Among the available items are: 
-                    <br><br>
-                    - chances so that when player
-                    doesn't answer correctly the game will allow him to continue further with different question;
-                    <br><br>
-                    - reduce the number of wrong answers each question have;
-                    <br><br>
-                    - money multipliers;
-                    <br><br>
-                    <a style = "text-decoration: none; color: red;" href="../Portable-Downloads.html">Available for Download</a>
-                </h4>
+                <div id="project_description">
+                    <p id="description_title">WWBM Quizz Game</p>
+                    <p class="description_message">WWBM Quizz Game is a .NET GUI Game-like applications inspired by the
+                        TV Show: <code> Who wants to be a millionare </code></br></br>
+                        The player has to answer correctly to general knowledge questions of various 
+                        difficulty from various fields such as: Cinema, Music, Geography, Biology, Chemistry, 
+                        Astronomy, Literature, Internet, Technology, History, and so on. <br><br>
+                        There are about 200 questions available within the game, every question is presented with
+                        4 possible answers. As the player progresses and earns money, items beoome available
+                        withing the Item Shop. Among the available items are: 
+                        <ul class="regular_ul">
+                            <li>- chances so that when player
+                            doesn't answer correctly the game will allow him to continue further with different question;</li>
+                            <li>- reduce the number of wrong answers each question have;</li>
+                            <li>- money multipliers;</li>
+                        </ul>
+                    </p>
+                    <video controls autoplay muted>
+                      <source src="WWBM Quizz Game.mp4" type="video/mp4">
+                      <source src="WWBM Quizz Game.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video>
+                    <p class="description_message">
+                        <a href="../Portable-Downloads.html">Available for Download</a>
+                    </p>
+                </div>
             </div>
         </div>
         <footer id="page_footer">

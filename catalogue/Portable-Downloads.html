@@ -11,6 +11,9 @@
         <!--Global resources-->
         <link rel="stylesheet" href="../website_resources/global/css/global.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!--Local resources-->
+        <link rel="stylesheet" href="../website_resources/local/css/catalogue_page.css">
+        <script src="../website_resources/local/scripts/catalogue_page_script.js"></script>
     </head>
     <body>
         <header id="page_header">
@@ -20,10 +23,14 @@
             <h2>Catalogue -> <a href={{portable_downloads_page.value}}>{{portable_downloads_page.name}}</a></h2>
             <table id = "content_table">
                 <tr>
-                    <td style="background-image: none; background-color: rgba(255,255,255,0.1); border-color: transparent;">
-                        <h3 style = "margin:0%; left:0%; width: 96%; font-family:FjallaOne; font-size:17px; color: rgba(143,55,0, 1);text-align: center;">Direct Downloads</h3>
-                    </td>
-                    <td style="background-image: none; background-color: rgba(255,255,255,0.1); border-color: transparent;">
+                    <td>
+                        <div id="catalogue_description">
+                            <p id="description_title">Direct Downloads</p>
+                            <p id="description_message">On this page, you'll find direct download links for some of the most 
+                            impactful and valuable projects featured in the Portfolio.
+                            <p id="description_message">▼</p>
+                            <p>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -34,11 +41,11 @@
                             </ul>
                         </div>
                     </td>
-                    <td>
+                    <!--<td>
                         <div id="catalogue_div_right">
                             <img src="../website_resources/global/images/mario.gif" alt="mario gif">
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
             </table>
         </div>

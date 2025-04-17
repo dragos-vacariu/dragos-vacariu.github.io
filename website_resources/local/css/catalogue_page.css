@@ -1,0 +1,208 @@
+#page_block #content_table
+{
+    width:100%;
+    margin: auto;
+    /*background-color: rgba(255,255,255,0.8);
+    background-image: url("../images/catalogue_left_column_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: 200px;
+    background-repeat: repeat;*/
+    
+    border: none 0px blue;
+}
+
+#page_block #content_table td /*td:first-child accessing first column*/
+{
+    width:100%;
+    /*background-image: repeating-radial-gradient(farthest-side at 80% 45%, rgba(255,0,0,0.2), rgba(255,255,255,0.1));*/
+    border: none 0vw rgba(0,0,0,0.1);
+    border-radius: 20px;
+    
+    border: none 0px blue;
+}
+
+#content_table #catalogue_description
+{
+
+    position: relative;
+    word-wrap: break-word;
+    
+    margin: 2% auto;
+    padding: 2%;
+    text-align: center;
+    font-family: Times New Roman;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 25px;
+    width: 90%;
+    border: solid 15px rgba(0,0,0,0.1);
+    border-radius: 50px;
+    background-color: var(--header-footer-color);
+    background-image: url("../../global/images/header_footer_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: var(--header-footer-background-size);
+    background-repeat: repeat;*/
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+#content_table #catalogue_description.fade-out {
+  opacity: 0;
+}
+
+#content_table #catalogue_description {
+  transition: opacity 0.5s ease-out;
+}
+
+#content_table #catalogue_description #description_title
+{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5%;
+    font-family: Calibri;
+    text-align: center;
+    font-size:1.8rem;
+    font-style: italic;
+    color: var(--darkred-color);
+    letter-spacing: 1px;
+    text-shadow: 0.5px 1px pink;
+    border: none 0px black;
+}
+
+
+#content_table #catalogue_description #description_message
+{
+    position: relative;
+    width: 100%;
+    margin: 0%;
+    margin-top: 5%;
+    padding: auto;
+    font-family: Georgia;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+    border: none 0px black;
+    line-height:30px;
+}
+
+/*#page_block #content_table td:nth-child(2)*/ /*accessing second column*/
+/*{
+    width:90%;*/
+    /*background-image: repeating-radial-gradient(farthest-side at 20% 45%, rgba(0,0,255,0.3), rgba(255,255,255,0.1));*/
+    /*background-color: rgba(255,255,255,0.8);
+    background-image: url("../images/catalogue_right_column_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: 200px;
+    background-repeat: repeat;
+    border: none 0vw rgba(0,0,0,0.1);
+    border-radius: 20px;
+}
+*/
+
+/*#catalogue_div_right{
+    position:relative;
+    width:27vw;
+    height:auto;
+    margin:1vw; 
+    padding:1vw;
+    opacity:0.7;
+}
+
+
+#catalogue_div_right img{
+    position:relative;
+    bottom:0%;
+    width:100%;
+}
+*/
+
+#catalogue_div_left{
+    position: relative;
+    width:auto;
+    /*min-height:30vw;*/
+    height: auto;
+    margin:1vw; 
+    padding:3vw;
+    opacity:0.7;
+    text-shadow: 0.1vw 0.1vw black;
+    text-align:center;
+    word-wrap: break-word;
+    border: none 0px black;
+    background-color:rgba(255,255,255,0.8);
+    background-image: url("../images/catalogue_right_column_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: 200px;
+    background-repeat: repeat;
+}
+
+#catalogue_div_left a{
+    color: red;
+    font-family: ZenDots;
+    letter-spacing: 2px;
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+#catalogue_div_left a:hover{
+    color: blue;
+}
+
+/*part of #catalogue_div_left*/
+.content_list 
+{
+    list-style-type: none;
+    margin: 5px;
+    padding: 0px;
+}
+
+.content_list  li
+{
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) 
+{
+    #content_table #catalogue_description #description_title
+    {
+        font-size: 1.5rem; /* Smaller size for tablets */
+    }
+    #content_table #catalogue_description #description_message
+    {
+        font-size: 1.1rem; /* Smaller size for tablets */
+    }
+    #catalogue_div_left a, .content_list 
+    {
+        font-size: 1.3rem;
+    }
+    
+}
+
+@media (max-width: 480px) 
+{
+    #content_table #catalogue_description #description_title
+    {
+        font-size: 1.2rem; /* Smaller size for mobile */
+    }
+    #content_table #catalogue_description #description_message
+    {
+        font-size: 0.8rem; /* Even smaller for mobile */
+    }
+    #catalogue_div_left a, .content_list 
+    {
+        font-size: 1.1rem;
+    }
+}

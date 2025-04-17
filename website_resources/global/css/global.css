@@ -1,20 +1,51 @@
 /*GLOBALS STYLING*/
+:root {
+    --darkbrown-color: #484237; /* Example: A blue color */
+    --darkred-color: #b6042a; /* Example: A light gray color */
+    
+    --header-footer-color: rgba(255,255,255,0.9);
+    --header-footer-border-style: ridge 1px rgba(0,0,0,1.0);
+    --header-footer-background-image: url("../images/header_footer_texture.jpg");
+    --header-footer-background-blend-mode: overlay;
+    --header-footer-background-repeat: repeat;
+    --header-footer-background-position: center;
+    --header-footer-background-size: 500px;
+
+    --font-for-headings: ZenDots;
+}
+
 body{
-    background-color:#eeeeee;
-    font-family: Arial, Verdana, Tahoma, FjallaOne;
+    background-color:white;
+    font-family: Arial, Verdana, Tahoma;
     margin:0%;
     padding:0%;
 }
 
 header{
-    position:relative;
+    /*Sticky navbar*/
+    position:sticky;
+    top: 0;
+    z-index: 1; /*the rest of the body will not overlap over the header when scrolling*/
+    
     width:100%;
-    height:auto;
-    padding:0%;
+    height:fit-content;
+
+    padding:auto;
+    padding-bottom:10px;
     margin:0%;
-    background-image: linear-gradient(to right, #aa7700, #995500);
-    display: block;
+    margin-bottom:10px;
+    /*background-image: linear-gradient(to right, #aa7700, #995500);*/
+    background-color: var(--header-footer-color);
+    background-color: var(--header-footer-color);
+    background-image: var(--header-footer-background-image);
+    background-blend-mode: var(--header-footer-background-blend-mode); /* Blend the image and color */
+    background-repeat: var(--header-footer-background-repeat);
+    background-position: var(--header-footer-background-position);
+    background-size: var(--header-footer-background-size);
+    display: flex;
+    flex-wrap: wrap; /*this wrap will ensure the elements are displayed one on top of the other in case the viewport gets smaller*/
     border: none 0px black;
+    border-bottom: var(--header-footer-border-style); 
     /*overflow: hidden;*/ /*Overflow should be allowed because we have a dropdown menu*/
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -27,45 +58,112 @@ header{
 
 header #header_title{
     position: relative;
-    color:#ffffff;
-    width:200px;
-    padding:2% 10%;
+    width:fit-content;
+    height: fit-content;
+    padding:0%;
+    margin:10px 5%;
     word-wrap: break-word;
+    border: none 0px black;
+    display: flex;
 }
 
-header #header_title h2{
+header #header_title #logo_div {
+    position: relative;
+    padding: 0%;
+    margin: 0%;
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: none 0px black;
+}
+
+header #header_title #logo_div #logo{
+    position: relative;
+    width: 100%;
+}
+
+header #header_title #title_and_description_div {
+    position: relative;
+    padding: 0%;
+    margin: 0%;
+    width: auto;
+    height: auto;
+    border: none 0px black;
+}
+
+header #header_title #title_and_description_div #page_title{
     position: relative;
     text-align: center;
     font-family: FjallaOne;
-    font-size:20px;
+    font-size:24px;
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 2px;
     margin: 0%;
-    text-shadow: 2px 2px #000000;
+    text-shadow: 0px 0px #eeeeee;
+    width: fit-content;
+    border: none 0px black;
+    text-align: left;
+    word-wrap: break-word;
+    color: black;
 }
 
-header #header_title p{
+header #header_title #title_and_description_div #page_description{
     position: relative;
     text-align: center;
     font-family: ZenDots;
-    font-size:10px;
-    color: #ffeecc;
+    font-size:12px;
+    font-weight: normal;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    /*color: #ffeecc;*/
+    color: #b6042a;
     margin: 0%;
-    text-shadow: 1px 1px #000000;
+    text-shadow: 0px 0px #eeeeee;
     opacity: 100%;
+    width: fit-content;
+    border: none 0px black;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.background_img{
+    position:absolute;
+    display: block;
+    left:0px;
+    opacity:0.3;
+    width:100%;
+    height:100%;
+    padding:0%;
+    margin:0%;
+    border:2px red solid;
+    background-image: url("../images/cover.jpg");
+    background-size: 5%;
+    background-repeat: repeat;
+    background-position: center;
+    /*object-fit: cover;*/ /*this will make sure the object will not be stretched.*/
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+header #header_title, header nav{
+    padding:0%;
+    margin:10px;
+    word-wrap: break-word;
 }
 
 nav{
-    /*Sticky navbar*/
-    /*position: sticky;
-    top: 0;*/
-    
-    /*Regular navbar*/
     position: relative;
     /*setting width and height for the element will help maintaing the proper ratio for elements with size in % or vw*/
-    width:100%;
-    height: auto; 
-    margin: 0%;
+    width:auto;
+    height: fit-content; 
     /*margin-top: -1px;*/ /*with this negative margin the nav will overlap over the header element that is on top of it*/
-    padding: 1%;
     margin-bottom: 0px;
     /*background-image: linear-gradient(to right, #aa7700, #995500);*/
     background: transparent;
@@ -73,6 +171,9 @@ nav{
     text-align: center;
     font-family: FjallaOne;
     font-size: 18px;
+    
+    /* flex-grow: 2, flex-shrink: 1, flex-basis: 70% */
+    flex: 2 1 70%; /*the percentage within the flex row allocated for this element*/
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -85,18 +186,19 @@ nav{
 nav div{
     width: 120px;
     max-width: 90%;
-    padding: 0.7vw;
-    display: inline-block;
-    margin-bottom: 0.5%;
+    padding: 5px;
+    margin: 5px 1%;
     word-wrap:break-word;
+    border: none 0px black;
+    display: inline-block;
 }
 
 .outer_href{
     position: relative;
     text-decoration: none;
     margin:0%;
-    color:white;
-    text-shadow: 0.1vw 0.1vw #000000;    
+    color:var(--darkbrown-color);
+    text-shadow: 2px 2px #eeeeee;    
     letter-spacing: 0.1vw;
     background-color: rgba(0,0,0,0.0);
     text-decoration:none;
@@ -108,7 +210,7 @@ nav div{
 }
 
 .outer_href:hover{
-    color:yellow;
+    color:gray;
 }
 
 
@@ -121,6 +223,7 @@ nav div{
 .dropdown_content{
     display: none;
     position: absolute;
+    top:80%;
     background-color: #f1f1f1;
     min-width: 200px;
     max-width: 100%;
@@ -145,38 +248,47 @@ nav div{
 
 footer{
     height:auto;
-    background-image: linear-gradient(to right, #aa7700, #995500);
-    width:98%;
+    /*background-image: linear-gradient(to right, #aa7700, #995500);*/
+    background-color: var(--header-footer-color);
+    background-image: var(--header-footer-background-image);
+    background-blend-mode: var(--header-footer-background-blend-mode); /* Blend the image and color */
+    background-repeat: var(--header-footer-background-repeat);
+    background-position: var(--header-footer-background-position);
+    background-size: var(--header-footer-background-size);
+    width:100%;
     display:block;
-    color:white;
-    border-color: black;
-    border-style: solid;
-    border-width: 0px;
+    color:black;
+    border: none 0px black;
+    border-top: var(--header-footer-border-style);
+    border-bottom: var(--header-footer-border-style);
     margin: 0%;
-    padding: 1%;
+    padding: 0%;
     font-family: Georgia;
     font-size: 14px;
-    text-shadow: 1px 2px #000000;
-    box-shadow: inset 5px 5px 5px #884400;
+    /*box-shadow: inset 5px 5px 5px #884400;*/
 }
 
 footer h4{
     text-align:center;
-    color: #ffeecc;
+    color: black;
     font-family: Rockwell;
+    font-weight: normal;
     font-size: 90%;
     word-wrap:break-word;
+    text-shadow: 0px 0px gray;
 }
 
 footer h5{
     text-align:center;
-    color: white;
+    color: black;
     width:80%;
     margin-left:10%;
-    padding: 0.2vw;
+    padding: 2px;
     font-size: 80%;
     font-family: Rockwell;
+    font-weight: normal;
     word-wrap:break-word;
+    text-shadow: 0px 0px gray;
 }
 
 footer #footer_tabelation_div{
@@ -203,9 +315,10 @@ footer #footer_tabelation_div .footer_columns{
 }
 
 footer #footer_tabelation_div .footer_columns .column_title{
-    color: #ffeecc;
+    color: black;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
+    text-shadow: 0px 0px gray;
 }
 
 footer #footer_tabelation_div .footer_columns .footer_list {
@@ -229,7 +342,9 @@ footer #footer_tabelation_div .footer_columns .footer_list li
 footer #footer_tabelation_div .footer_columns .footer_list li a{
     font-family: inherit;
     font-size: inherit;
-    color: white;
+    font-weight: normal;
+    color: var(--darkbrown-color);
+    text-shadow: 1px 1px #ffeecc;
     /*
     animation-name: footer_link;
     animation-duration: 4s;
@@ -238,7 +353,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a{
 }
 
 footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
-    color: yellow; /*-> color is set via class .outer_href */
+    color: gray; /*-> color is set via class .outer_href */
     animation-duration: 0s;
 }
 
@@ -248,26 +363,13 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     100%{color:lightblue;}
 }
 
-/*This is for Catalogue/Video/Game pages*/
+/*This is for Catalogue/Video/Contact/About/Portal pages*/
 #page_block{
     padding-bottom:10px;
     margin: 0.5vw;
     margin-bottom: 5px;
     width:auto;
-    border-style:solid;
-    border-bottom-color:black;
-    border-width: 1px;
-    border-radius: 20px;
-    box-shadow: inset 1vw 1vw 0.5vw lightgray;
-}
-
-#page_block p{
-    padding:20px;
-    border-style:solid;
-    width:90%;
-    margin-left:20px;
-    font-family: Consolas;
-    font-size:1vw;
+    border:none 0px black;
 }
 
 #page_block h2{
@@ -278,113 +380,32 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     margin: 0px;
     margin-bottom: 0.5%;
     top:0vw;
-    color:white;
-    border-bottom-style:solid;
-    border-width:2px;
-    border-color:black;
-    border-radius: 20px;
+    color:black;
+    border:none 0px black;
     font-family:FjallaOne;
-    font-size: 24px;
-    background-color:#995500;
-    text-shadow: 2px 3px black;
+    font-size: 26px;
+    /*background-color:#995500;*/
+    /*
+    background-color:rgba(255,255,255,0.8);
+    background-image:url("../images/main_heading_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: 100px;
+    background-repeat: repeat;*/
+    text-shadow: 0px 0px white;
+    text-align: center;
+    letter-spacing:2px;
     word-wrap:break-word;
 }
 
-#page_block h2 a{
+#page_block a{
     text-decoration:none;
-    text-shadow: none;
-    color: lightblue;
-    text-shadow: 2px 3px black;
-}
-
-#page_block h2 a:hover{
-    color: pink;
-}
-
-#page_block #content_table
-{
-    width:90%;
-}
-
-#page_block #content_table td:first-child /*accessing first column*/
-{
-    width:90%;
-    background-image: repeating-radial-gradient(farthest-side at 80% 45%, rgba(255,0,0,0.2), rgba(255,255,255,0.1));
-    border: inset 0.5vw rgba(0,0,0,0.1);
-    border-radius: 20px;
-}
-
-#page_block #content_table td:nth-child(2) /*accessing second column*/
-{
-    width:90%;
-    background-image: repeating-radial-gradient(farthest-side at 20% 45%, rgba(0,0,255,0.3), rgba(255,255,255,0.1));
-    border: inset 0.5vw rgba(0,0,0,0.1);
-    border-radius: 20px;
-}
-
-#catalogue_div_right{
-    position:relative;
-    width:27vw;
-    height:auto;
-    margin:1vw; 
-    padding:1vw;
-    opacity:0.7;
-}
-
-#catalogue_div_right img{
-    position:relative;
-    bottom:0%;
-    width:100%;
-}
-
-#catalogue_div_left{
-    position: relative;
-    width:60vw;
-    min-height:30vw;
-    height: auto;
-    margin:1vw; 
-    padding:1vw;
-    background-color:transparent;
-    opacity:0.7;
-    text-shadow: 0.1vw 0.1vw black;
-    text-align:left;
-    word-wrap: break-word;
-}
-
-#catalogue_div_left h2{
-    font-family: ZenDots;
     color: blue;
-    font-size: 1.8vw;
+    text-shadow: 0px 0px black;
 }
 
-#catalogue_div_left h2 b{
-    color: pink;
-}
-
-#catalogue_div_left a{
+#page_block a:hover{
     color: red;
-    font-family: ZenDots;
-    letter-spacing: 2px;
-    margin: 0px;
-    padding: 0px;
-    font-weight: bold;
-    font-size: 20px;
-    text-decoration: none;
-}
-#catalogue_div_left a:hover{
-    color: blue;
-}
-
-.content_list /*part of #catalogue_div_left*/
-{
-    list-style-type: none;
-    margin: 5px;
-    padding: 0px;
-}
-
-.content_list  li
-{
-    margin-bottom: 10px;
 }
 
 /*Adding custom font*/

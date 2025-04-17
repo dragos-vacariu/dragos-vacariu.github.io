@@ -11,6 +11,9 @@
         <!--Global resources-->
         <link rel="stylesheet" href="../website_resources/global/css/global.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!--Local resources-->
+        <link rel="stylesheet" href="../website_resources/local/css/catalogue_page.css">
+        <script src="../website_resources/local/scripts/catalogue_page_script.js"></script>
     </head>
     <body>
         <header id="page_header">
@@ -21,17 +24,28 @@
             <table id = "content_table">
                 <tr>
                     <td>
+                        <div id="catalogue_description">
+                            <p id="description_title">Projects built using C++ and OpenGL</p>
+                            <p id="description_message">On this page, you’ll find links to presentations showcasing the projects 
+                            I’ve developed using C++ and the OpenGL graphics API.
+                            <p id="description_message">▼</p>
+                            <p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         <div id ="catalogue_div_left">
                             <ul class = "content_list">
                                 <li ng-repeat="item in cpp_opengl_projects_catalogue"><a href = {{item.value}}>{{item.name}}</a></li>
                             </ul>
                         </div>
                     </td>
-                    <td>
+                    <!--<td>
                         <div id="catalogue_div_right">
                             <img src="../website_resources/global/images/mario.gif" alt="mario gif">
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
             </table>
         </div>

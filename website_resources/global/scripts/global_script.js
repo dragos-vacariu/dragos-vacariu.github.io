@@ -1,3 +1,5 @@
+var domain = "dragos-vacariu.github.io";
+var rootDir = location.href.split(domain)[0] + domain;
 
 const page_footer = `
     <div id = "footer_tabelation_div">
@@ -15,9 +17,15 @@ const page_footer = `
 document.getElementById("page_footer").innerHTML = page_footer;
 
 const page_header = `
+            
             <div id="header_title">
-                <h2 id="page_title"></h2>
-                <p id="page_description"></p>
+                <div id = "logo_div">
+                    <img id="logo" src="/website_resources/global/images/logo.png" alt="logo image"></img>
+                </div>
+                <div id = "title_and_description_div">
+                    <div id="page_title"></div>
+                    <div id="page_description"></div>
+                </div>
             </div>
             <nav>
                 <div class = "menu_page_item" ng-repeat="page in pageObject.page_navigation">
@@ -32,18 +40,20 @@ const page_header = `
                 </div>
            </nav>
 `
-document.getElementById("page_header").innerHTML = page_header;
+document.getElementById("page_header").innerHTML = 
+    page_header.replace('<img id="logo" src="/website_resources/global/images/logo.png" alt="logo image"></img>',
+    '<img id="logo" src="'+rootDir + '/website_resources/global/images/logo.png" alt="logo image"></img>');
 
 var app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
-var domain = "dragos-vacariu.github.io";
+
 var page_title = "GitHub Portfolio";
 document.title = document.title + " - " + page_title;
 document.getElementById("page_title").innerText = page_title;
 document.getElementById("page_description").innerText = domain;
     
-var rootDir = location.href.split(domain)[0] + domain;
+
 var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
 /*window.location.protocol will be file: on local machine and http or https on the web.*/
 
@@ -51,9 +61,10 @@ function Controller_Function($scope)
 {
     //Initializing the models;
     $scope.dotSlash = "./";
-    $scope.exitDir = "../"
+    $scope.exitDir = "../";
+    $scope.root = rootDir;
     
-    $scope.java_page = {name: "Java Projects", value: rootDir + "/catalogue/Java-Projects.html"}; /*currently not indexed*/
+    $scope.java_page = {name: "Java Projects", value: rootDir + "/catalogue/Java-Projects.html"};
     $scope.unity_page = {name: "Unity C# Projects", value: rootDir + "/catalogue/Unity-Csharp-Projects.html"};
     $scope.python_page = {name: "Python tKinter Projects", value: rootDir + "/catalogue/Python-Projects.html"};
     $scope.html_page = {name: "HTML & CSS Templates", value : rootDir + "/catalogue/Html-Projects.html"};
@@ -76,7 +87,6 @@ function Controller_Function($scope)
             {name: "Portal", value : rootDir + "/portal.html"},
         ],
         page_navigation_dropdown : [
-            /*$scope.java,*/
             $scope.unity_page,
             $scope.javascript_games_page,
             $scope.python_page,
@@ -85,6 +95,7 @@ function Controller_Function($scope)
             $scope.html_page,
             $scope.angularjs_page,
             $scope.cpp_page,
+            $scope.java_page,
             /*$scope.javascript_webapps_page,*/
             $scope.portable_downloads_page,
             //$scope.github_repository_page,

@@ -1,115 +1,3 @@
-
-#container{
-	border-style:solid;
-	border-color:black;
-	border-width:0.1vw;
-    border-radius: 20px;
-	height: 22vw;
-	margin: 0.2%;
-	width: 99.6%;
-    background-image: repeating-linear-gradient(to right, rgba(255,0,0,1), rgba(255,255,0,1), rgba(0,0,255,1));
-    
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-/*
-#container #saying{
-	position: relative;
-	font-family: Verdana;
-	font-size: 1vw;
-	text-transform: uppercase;
-	letter-spacing:0vw;
-	text-shadow: -0.2vw 0,2vw #000000;
-	color: #ff0000;
-	text-align:right;
-	right:21%;
-	bottom:99%;
-	opacity:1.0;
-}
-
-#container #heuristic{
-	animation-name: color_animation_one;
-    animation-duration: 4s;
-	animation-iteration-count: infinite;
-}
-
-#container #problem{
-	animation-name: color_animation_two;
-    animation-duration: 4s;
-	animation-iteration-count: infinite;
-}
-
-#container #solving{
-	animation-name: color_animation_three;
-    animation-duration: 4s;
-	animation-iteration-count: infinite;
-}
-
-@keyframes color_animation_one {
-    0%{color:#ff0000;}
-	25%{color:#88ff00; }
-	50%{color:#00ff00;}
-	75%{color:#ff8800;}
-	100%{color:#ffaaaa;}
-}
-
-@keyframes color_animation_two {
-    0%{color:#ffffff;}
-	25%{color:#ffaa00; }
-	50%{color:#00ffaa;}
-	75%{color:#00aaff;}
-	100%{color:#aaaaff;}
-}
-
-@keyframes color_animation_three {
-    0%{color:#00ff00;}
-	25%{color:#00ff00; }
-	50%{color:#00bbff;}
-	75%{color:#bb00ff;}
-	100%{color:#ffff00;}
-}
-
-*/
-/*
-#container #message{
-	text-align:center;
-	position:relative;
-	left:60%;
-	font-family: Consolas;
-	font-size: 1vw;
-	color: #ffffff;
-	animation-name: move_animation;
-    animation-duration: 10s;
-	animation-iteration-count: infinite;
-	width:35vw;
-	text-shadow: 0.2vw 0.1vw #000000;
-}
-
-@keyframes move_animation{
-    0%{left:1%; bottom: 35%; color:white; font-size: 1vw;}
-    60%{left:1%; bottom: 90%; color:#00ff00; font-size: 1vw;}
-	80%{left:1%; bottom: 35%; color:#ff44dd; font-size:0px;}
-	100%{left:1%; bottom: 35%; color:white; font-size: 1vw;}
-}
-
-*/
-
-#container img{
-	position:relative;
-	left:0px;
-	opacity:0.7;
-	width:100%;
-	height:100%;
-	border:none;
-	object-fit: cover; /*this will make sure the object will not be stretched.*/
-    border-radius: 20px;
-}
-
 #content {
     position: relative;
     width: 96%;
@@ -127,9 +15,12 @@
     margin: 10px auto;
     padding: 10px;
     word-wrap: break-word;
-	font-family: Times New Roman;
+    font-family: Times New Roman;
     font-weight: normal;
-	font-size:18px;
+    font-size:18px;
+    
+    line-height: 25px;
+    width: 96%;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -137,8 +28,6 @@
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
-    line-height: 25px;
-    width: 96%;
     
 }
 
@@ -154,15 +43,95 @@
     font-size:18px;
 }
 
+#content #intro_paragraph.fade-out {
+  opacity: 0;
+}
+
+#content #intro_paragraph {
+  transition: opacity 0.5s ease-out;
+}
+
+#content #intro_paragraph
+{
+    margin: 2% auto;
+    padding: 6%;
+    border: none 0px black;
+    border-radius: 50px;
+    background-image: url(../images/home_page_intro.jpg);
+    background-color: rgba(255,255,255,0.7);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: 100px;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.big_header
+{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5%;
+    font-family: Calibri;
+    text-align: center;
+    font-size:1.8rem;
+    font-style: italic;
+    color: var(--darkred-color);
+    letter-spacing: 1px;
+    text-shadow: 0.5px 1px pink;
+    border: none 0px black;
+}
+
+#intro_message
+{
+    position: relative;
+    width: 100%;
+    margin: 0%;
+    margin-top: 5%;
+    padding: auto;
+    font-family: Georgia;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: normal;
+    font-style: italic;
+    border: none 0px black;
+    line-height:30px;
+}
+
+@media (max-width: 768px) {
+    .big_header
+    {
+        font-size: 1.5rem; /* Smaller size for tablets */
+    }
+    #intro_message {
+        font-size: 1.1rem; /* Smaller size for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .big_header
+    {
+        font-size: 1.2rem; /* Smaller size for mobile */
+    }
+    #intro_message {
+        font-size: 0.8rem; /* Even smaller for mobile */
+    }
+}
+
 #content .paragraph .section_header_paragraph
 {
     padding: 0px;
     margin: 0px;
-    font-family: ZenDots;
+    font-family: Arial;
     text-align: left;
     font-size:24px;
     color: rgba(143,55,0, 1);
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     text-shadow: 0.5px 1px pink;
 }
 
@@ -173,8 +142,8 @@
 }
 
 #content #text_div p, #content #text_div h2{
-	position: relative;
-	width: 100%;
+    position: relative;
+    width: 100%;
     border: solid 0px black;
     text-align: left;
 }
@@ -185,7 +154,7 @@
 
 #content .paragraph p a{
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     color: blue;
 }
 
@@ -194,16 +163,16 @@
 }
 
 #reference{
-	display: inline;
-	padding: 0%;
+    display: inline;
+    padding: 0%;
     margin: 0%;
 }
 
 #reference table tr th{
-	text-align:center;
-	border:ridge 3px rgba(0,0,0,0.3);
+    text-align:center;
+    border:ridge 3px rgba(0,0,0,0.3);
     border-radius: 100px;
-	padding:0%;
+    padding:0%;
     vertical-align: top;
 }
 
@@ -218,12 +187,12 @@
 }
 
 #reference table{
-	margin-left:auto;
-	margin-right:auto;
-	width:100%;
+    margin-left:auto;
+    margin-right:auto;
+    width:100%;
     max-width:1200px;
-	padding:0%;
-	border: none 1px black;
+    padding:0%;
+    border: none 1px black;
     margin-bottom: 1%;
     table-layout: fixed;
     word-wrap: break-word;
@@ -232,10 +201,10 @@
 #reference table th div p 
 {
     font-family: ZenDots;
-	font-size: 50%;
+    font-size: 50%;
     color: black;
-	width:auto;
-	word-wrap: break-word;
+    width:auto;
+    word-wrap: break-word;
 
 }
 #reference table th div
@@ -245,6 +214,6 @@
 }
 
 .ref_pic{
-	width:100%;
-	/*box-shadow:1vw 1vw 0.5vw lightgray;*/
+    width:100%;
+    /*box-shadow:1vw 1vw 0.5vw lightgray;*/
 }

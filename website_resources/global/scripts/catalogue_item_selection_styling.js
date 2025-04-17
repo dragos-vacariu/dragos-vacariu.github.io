@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
         if ("Catalogue▼" == menu_items[index].children[0].innerText)
         {
-           menu_items[index].style = "background-color: #aa4400; border-style: solid; border-color: #442200; border-width: 2px; border-radius: 5vw";
+           menu_items[index].style = "border-bottom:solid 2px black; font-weight: bold";
            break;
         }
     }

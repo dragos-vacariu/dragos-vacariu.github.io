@@ -22,25 +22,24 @@
         <div id="page_block">
             <h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> <a href={{exitDir}}{{exitDir}}{{javascript_games_presentation_video.value}}>Video Presentation Page</a> -> Snake Video</h2>
             <div id = "block_content">
-                <h3>Snake Video</h3>
-
-                <video controls autoplay muted>
-                  <source src="snake_video.mp4" type="video/mp4">
-                  <source src="snake_video.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-                </video>
-
-                <h4>Description:</h4>
-                <h4>
-                    Classic Snake Game<br><br>
-                    The purpose of the game is to control the snake within the table, grabbing the fruit will raise the score and allow 
-                    the snake to grow longer hence rewarding the player with points.
-                    <br><br>
-                    This version of the game allows the player to drive through walls so the only available collision
-                    is between the snake head and the tail. If the head hit the tail the game will end.
-                    <br><br>
-                    <a style = "text-decoration: none; color: red;" href = "../../../Javascript-Projects/snake_resources/snake_game.html" >Snake Game Web Page</a>
-                </h4>
+                <div id="project_description">
+                    <p id="description_title">Snake Video</p>
+                    <p class="description_message">The purpose of the game is to control the snake within the table, 
+                        grabbing the fruit will raise the score and allow 
+                        the snake to grow longer hence rewarding the player with points.
+                        <br><br>
+                        This version of the game allows the player to drive through walls so the only available collision
+                        is between the snake head and the tail. If the head hit the tail the game will end.
+                    </p>
+                    <video controls autoplay muted>
+                      <source src="snake_video.mp4" type="video/mp4">
+                      <source src="snake_video.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video>
+                    <p class="description_message">
+                        <a href = "../../../Javascript-Projects/snake_resources/snake_game.html" >Snake Game Web Page</a>
+                    </p>
+                </div>
             </div>
         </div>
         <footer id="page_footer">

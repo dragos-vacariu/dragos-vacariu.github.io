@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="../../website_resources/global/css/global.css">
         <link rel="stylesheet" href="../../website_resources/global/css/video_page.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-        
+        <script src="../../website_resources/global/scripts/video_page_script.js"></script>
         <!--Local resources-->
     </head>
     <body>
@@ -22,24 +22,24 @@
         <div id="page_block">
             <h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> <a href={{exitDir}}{{exitDir}}{{javascript_games_presentation_video.value}}>Video Presentation Page</a> -> Canvas Snake Video</h2>
             <div id = "block_content">
-                <h3>Canvas Snake Video</h3>
-                <video controls autoplay muted>
-                  <source src="canvas_snake_video.mp4" type="video/mp4">
-                  <source src="canvas_snake_video.ogg" type="video/ogg">
-                Your browser does not support the video tag.
-                </video>
-
-                <h4>Description:</h4>
-                <h4>                
-                    Classic Snake Game developed using HTML Canvas for rendering.<br><br>
-                    The purpose of the game is to control the snake within the canvas, grabbing the fruit will raise the score and allow 
-                    the snake to grow longer hence rewarding the player with points.
-                    <br><br>
-                    This version of the game does not allow the player to drive through walls so 
-                    if the player collides with the tail or with the wall the game will end.
-                    <br><br>
-                    <a style = "text-decoration: none; color: red;" href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >Canvas Snake Web Page</a>
-                </h4>
+                <div id="project_description">
+                    <p id="description_title">Canvas Snake Video</p>
+                    <p class="description_message">Classic Snake Game developed using HTML Canvas for rendering.<br><br>
+                        The purpose of the game is to control the snake within the canvas, grabbing the fruit will raise the score and allow 
+                        the snake to grow longer hence rewarding the player with points.
+                        <br><br>
+                        This version of the game does not allow the player to drive through walls so 
+                        if the player collides with the tail or with the wall the game will end.
+                    </p>
+                    <video controls autoplay muted>
+                      <source src="canvas_snake_video.mp4" type="video/mp4">
+                      <source src="canvas_snake_video.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                    </video>
+                    <p class="description_message">
+                        <a href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >Canvas Snake Web Page</a>
+                    </p>
+                </div>
             </div>
         </div>
         <footer id="page_footer">
