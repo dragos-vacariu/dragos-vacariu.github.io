@@ -4,6 +4,13 @@
     border: none 0px black;
 }
 
+#page_block h3 {
+    font-family:FjallaOne;
+	font-size:17px;
+	text-align: center;
+
+}
+
 #page_block #game_content
 {
     position:relative;
@@ -19,6 +26,12 @@
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+ 
+#page_block #game_content
+{
+    width:100%;
+    border-radius: 10px;
 }
 
 #page_block #block_content
@@ -43,6 +56,7 @@
 {
     position: relative;
     display: block;
+    overflow: hidden;
     /*flex-wrap: wrap;*/
     word-wrap: break-word;
     overflow: hidden; /*this will ensure that the floated video will not overlap with anything outside this container*/
@@ -88,33 +102,12 @@
     padding: 0px;
 }
 
-#page_block video{
-    position:relative;
-    float: left;
-    width: 60%;
-    margin: 0%;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    padding: 0%;
-    border: ridge 1vw rgba(0,0,0,0.1);
-    border-radius: 5vw;
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
 @media (max-width: 768px) 
 {
     #block_content #project_description
     {
         font-size: 1.0rem; /* Smaller size for tablets */
         line-height:1.6rem;
-    }
-    #block_content #project_description video{
-        width: 80%;
     }
 }
 
@@ -124,8 +117,5 @@
     {
         font-size: 0.9rem; /* Even smaller for mobile */
         line-height:1.4rem;
-    }
-    #block_content #project_description video{
-        width: 100%;
     }
 }
