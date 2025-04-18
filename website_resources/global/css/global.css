@@ -424,6 +424,12 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     color: red;
 }
 
+/*subscript/supscript elements style*/
+sub, sup{
+    font-size: 60%; 
+    color: gray;
+}
+
 /*Adding custom font*/
 
 @font-face {

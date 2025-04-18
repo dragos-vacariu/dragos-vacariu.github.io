@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     for(var index = 0; index < menu_items.length; index++)
     {
-        if ("Catalogue▼" == menu_items[index].children[0].innerText)
+        if ("Project Catalogue▼" == menu_items[index].children[0].innerText)
         {
            menu_items[index].style = "border-bottom:solid 2px black; font-weight: bold";
            break;

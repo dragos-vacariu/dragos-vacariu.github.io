@@ -29,9 +29,9 @@ const page_header = `
             </div>
             <nav>
                 <div class = "menu_page_item" ng-repeat="page in pageObject.page_navigation">
-                    <a ng-if="page.name!='Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
+                    <a ng-if="page.name!='Project Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
                     
-                    <div ng-if="page.name=='Catalogue'" class="dropdown_menu" style="padding:0%;">
+                    <div ng-if="page.name=='Project Catalogue'" class="dropdown_menu" style="padding:0%;">
                         <a class="outer_href">{{pageObject.page_navigation[1].name}}▼</a>
                         <div class="dropdown_content">
                             <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
@@ -81,10 +81,10 @@ function Controller_Function($scope)
     $scope.pageObject = {
         page_navigation : [
             {name: "Home", value : homePage},
-            {name: "Catalogue", value : rootDir + "#"},
-            {name: "Contact", value : rootDir + "/contact.html"},
-            {name: "About", value : rootDir + "/about.html"},
-            {name: "Portal", value : rootDir + "/portal.html"},
+            {name: "Project Catalogue", value : rootDir + "#"},
+            {name: "Contact Info", value : rootDir + "/contact.html"},
+            {name: "About Me", value : rootDir + "/about.html"},
+            {name: "Learning Portal", value : rootDir + "/portal.html"},
         ],
         page_navigation_dropdown : [
             $scope.unity_page,
@@ -138,9 +138,9 @@ function Controller_Function($scope)
                              
     $scope.footer_table_contents = [
                                     {name: "Technical References",  list_values: $scope.pageObject.connections_list, content: "objects_with_links"}, 
-                                    {name: "Application Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown, content: "objects_with_links"},
+                                    {name: "Project Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown, content: "objects_with_links"},
                                     {name: "Social Networking",  list_values: $scope.social_networks, content: "objects_with_links"},
-                                    {name: "Training Materials",  list_values: $scope.training_materials, content: "objects_with_links"},
+                                    {name: "Learning Manifests",  list_values: $scope.training_materials, content: "objects_with_links"},
                                     //{name: "Page Stats",  list_values: $scope.page_statistics, content: "text"},
                                     //{name: "Template Info",  list_values: $scope.pageObject.template_info, content: "text"}, 
                                     ];
