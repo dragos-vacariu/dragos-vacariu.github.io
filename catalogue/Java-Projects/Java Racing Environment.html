@@ -23,56 +23,88 @@
             <h2>Catalogue -> <a href={{java_page.value}}>{{java_page.name}}</a> -> Java Racing Environment</h2>
             <div id = "block_content">
                 <div id="project_description">
-                    <p id="description_title">Java Racing Environment</p>
-                    <p class="description_message">This application was developed in JAVA using NetBeans 8.2 IDE and java.Swing GUI Interface.</br></br>
-                    
-                    The environment is trying to simulate the Drag Racing behavior defined in older Need For Speed games:</br></br>
-                    
-                    The player has to compete against different AI opponents with different stats and characteristics such as: such as: 
-                    top speed, acceleration, driving skills within 1:1 Race Events. The player progresses through by winning at 
-                    least one event with the given opponent. The event is won by first who wins 2 of 3 rounds. Once an opponent is defeated
-                    the next one become available. If the opponent wins 2 succesive races then the driver record resets such that the player will 
-                    need to challenge the opponent again and win it again, in order to progress further. </br></br>
-                    
-                    A betting system was implemented in order to add a stake to
-                    the race events. Placing a bet is one way to earn money, the amount of money that the player can bet on, 
-                    depends on the driver records that the player and the given opponent has: wins vs losses. When 
-                    the player wins the race the stake of the future bets with the given opponent is gonna decrease, 
-                    and when the player loses the stake will raise. </br></br>
-                    
-                    The player also wins prizes through racing. The race prize also depend on the driver experience and also the person records that the 
-                    player had with a particular opponnent.    </br></br>    
-                    
-                    About Cars: More cars become available in the Car Lot as the player progresses.
-                    The performance of every car is customizable, there are improvement packages available for purchase within 
-                    the Garage.  The player can own an unlimited amount of cars, and money up to billions. 
-                    The cars owned get stored in the Safehouse.</br></br>
-                    
-                    About shifting gears: In older NFS games the player has to manually switch the gears and to synchronize 
-                    with the RPM for a perfect gear shift. The perfect shifts is the ability of gearing at the proper RPM. Each perfect
-                    shift boosts up the acceleration and gives a speed boost until the end of the race event. </br></br>
-                    
-                    About Collisions: A collision is the impact that the car has with the traffic - unfortunately, at that time, I lacked 
-                    the means to create an environment capable of simulating physics, drawing graphics or supporting the rendenring of 
-                    textures and animations in order to provide a game experience. A collision with the traffic will decrease the car speed and 
-                    lower the acceleration until the end of the race event. </br></br>
-                    
-                    Carreer Completion: To complete the game the player has to defeat all the opponents in 1:1 race events. 
-                    Defeating an opponent. The total number of opponents available is 110.</br></br>
-                    
-                    Player Experience: The amount of experience that the player gains depends on the perfomance 
-                    shown on within the race event. More collisions will result in less amount of experience being gained whereas 
-                    more perfect shifts, higher amount of experience being gained. Defeating high-skilled drivers, also increases 
-                    the player's experience. Experience decreases the traffic that the player has to face.
-                    </p>
                     <video controls autoplay muted>
                       <source src="Java Racing Environment.mp4" type="video/mp4">
                       <source src="Java Racing Environment.ogg" type="video/ogg">
-                    Your browser does not support the video tag.
+                        Your browser does not support the video tag.
                     </video>
-                    <p class="description_message">
-                        <a href="../../../Portable-Downloads/index.html">Available for Download</a>
-                    </p>
+                    <b>Java Racing Environment</b> is a racing simulation project developed during my early days of programming, 
+                    using Java, the NetBeans 8.2 IDE, and the Swing GUI toolkit. Inspired by the drag racing mechanics from 
+                    older <b>Need for Speed</b> titles, this project was a bold attempt to simulate game-like behavior in a non-game 
+                    engine environment.
+                    <br><br>
+                    At the time, I had no prior experience with graphics APIs or dedicated game engines. As a result, I opted to use 
+                    Java’s Swing library to simulate racing interactions through GUI components. For example:
+                    <ul class="regular_ul">
+                        <li>Car visuals were displayed using JLabel elements with images.</li>
+                        <li>Progress bars represented race progress for each racer.</li>
+                        <li>HUD elements such as speed, gear, and performance stats were displayed using labels and text fields.</li>
+                    </ul>
+                    </br>
+                    Despite lacking real-time rendering, physics simulation, or advanced mechanics, I managed to create a functional and 
+                    visually engaging prototype that could serve as the foundation for a full-fledged racing game.
+                    <br><br>
+                    <b>Core Gameplay Mechanics:</b>
+                    <br><br>
+                    <ul class="regular_ul">
+                    <li><b>1 v 1 Race Events:</b><br>
+                    The player competes against AI-controlled opponents with unique attributes like top speed, acceleration, 
+                    and reaction time. Each event is structured as a best-of-three format — win 2 out of 3 rounds to defeat the 
+                    opponent and unlock the next one.
+                    </li>
+                    <li><b>Progression System:</b><br>
+                    If the player loses two races in a row, the current challenge resets, and the player must defeat the same 
+                    opponent again to progress. A total of 110 opponents are available throughout the career mode.
+                    </li>
+                    <li><b>Betting System:</b><br>
+                    Players can place bets before races. The size of the stake depends on the win/loss history between the player 
+                    and opponent. Winning reduces future stakes against that opponent, while losing increases them.
+                    </li>
+                    <li><b>Rewards & Prizes:</b><br>
+                    Players earn money and experience based on race performance. Prize amounts scale with driver stats and past 
+                    matchups with each opponent.</li>
+                    </ul>
+                    <br>
+                    <b>Cars, Customization & Garage</b>
+                    <ul class="regular_ul">
+                        <li>New vehicles become available in the Car Lot as the player advances.</li>
+                        <li>The Garage allows performance upgrades through improvement packages.</li>
+                        <li>Owned vehicles are stored in the Safehouse.</li>
+                        <li>There is no limit to the number of cars or amount of money the player can accumulate.</li>
+                    </ul>
+                    <br>
+                    <b>Game Mechanics & Features</b>
+                    <ul class="regular_ul">
+                        <li><b>Gear Shifting:</b><br>
+                        Inspired by old-school drag racing, gear changes are manual. Timing shifts perfectly with the correct 
+                        RPM provides acceleration boosts, simulating “perfect shifts.”
+                        </li>
+                        <li><b>Collisions & Penalties:</b><br>
+                        While physics-based collision handling wasn’t implemented, the game penalizes the player when traffic 
+                        collisions occur by reducing speed and acceleration for the remainder of the event.
+                        </li>
+                        <li><b>Player Experience System:</b><br>
+                        XP is awarded based on performance — frequent collisions reduce experience gain, while perfect shifts 
+                        and wins against skilled opponents increase it. Higher experience levels reduce traffic frequency in future races.
+                        </li>
+                    </ul>
+                    <br>
+                    <b>Reflections</b>
+                    Although this project lacks real-time 2D/3D graphics or physics engines, it served as a major stepping stone in 
+                    my programming journey. It taught me how to:
+                    <ul class="regular_ul">
+                        <li>Work with GUI elements in non-graphical environments</li>
+                        <li>Organize event-driven logic and simulate game-like systems</li>
+                        <li>Think critically about design decisions, gameplay balancing, and user interaction</li>
+                    </ul>
+                    <br>
+                    Combining this Java-based simulator with my more recent 
+                    <a href="../Unity-Csharp-Projects/Drag Racing.html">Unity Racing Environment</a> 
+                     would result in a powerful hybrid — blending 
+                    game mechanics with modern rendering and interaction.
+                    <br><br>
+                    A portable version of this project is available for download: 
+                    <a href="../../../Portable-Downloads/index.html">[Portable-Downloads]</a>
                 </div>
             </div>
         </div>

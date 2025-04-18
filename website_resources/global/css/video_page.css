@@ -52,22 +52,29 @@
 
 #block_content #project_description
 {
-
     position: relative;
+    display: block;
+    overflow: hidden;
+    /*flex-wrap: wrap;*/
     word-wrap: break-word;
-    
+    overflow: hidden; /*this will ensure that the floated video will not overlap with anything outside this container*/
     margin: 2% auto;
     padding: 2%;
-    text-align: center;
-    font-family: Times New Roman;
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 25px;
+
+    font-family: Georgia;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    border: solid 5px black;
+    line-height:1.7rem;
+
     width: 98%;
+    height: fit-content;
     border: solid 2px rgba(0,0,0,0.1);
-    border-radius: 50px;
+    border-radius: 5vw;
     background-color: var(--header-footer-color);
-    background-image: url("../../global/images/header_footer_texture.jpg");
+    background-image: url("../../local/images/video_page_texture.jpg");
     background-blend-mode: overlay;
     background-position: center;
     background-size: var(--header-footer-background-size);
@@ -85,80 +92,54 @@
   transition: opacity 0.5s ease-out;
 }
 
-#block_content #project_description #description_title
-{
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 5%;
-    font-family: Calibri;
-    text-align: center;
-    font-size:1.8rem;
-    font-style: italic;
-    color: var(--darkred-color);
-    letter-spacing: 1px;
-    text-shadow: 0.5px 1px pink;
-    border: none 0px black;
-}
-
 .regular_ul{
-    list-style-type: none;
+    margin-left: 20px;
+    list-style-type: square;
+    list-style-position: inside; /*this will make the marker stick inside the list*/
     margin: 10px;
     padding: 0px;
 }
 
-#block_content #project_description .description_message
-{
-    position: relative;
-    width: 100%;
-    margin: 0%;
-    margin-top: 0%;
-    padding: auto;
-    font-family: Georgia;
-    font-size: 1.3rem;
-    text-align: center;
-    font-weight: normal;
-    font-style: italic;
-    border: none 0px black;
-    line-height:30px;
-}
-
-@media (max-width: 768px) 
-{
-    #block_content #project_description #description_title
-    {
-        font-size: 1.5rem; /* Smaller size for tablets */
-    }
-    #block_content #project_description #description_message
-    {
-        font-size: 1.1rem; /* Smaller size for tablets */
-    }
-}
-
-@media (max-width: 480px) 
-{
-    #block_content #project_description #description_title
-    {
-        font-size: 1.2rem; /* Smaller size for mobile */
-    }
-    #block_content #project_description #description_message
-    {
-        font-size: 0.8rem; /* Even smaller for mobile */
-    }
-}
-
 #page_block video{
     position:relative;
+    float: left;
     width: 60%;
-    margin: 5% 20%;
+    margin: 0%;
+    margin-right: 20px;
+    margin-bottom: 20px;
     padding: 0%;
-    border: ridge 10px rgba(0,0,0,0.1);
-    border-radius: 50px;
+    border: ridge 1vw rgba(0,0,0,0.1);
+    border-radius: 5vw;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@media (max-width: 768px) 
+{
+    #block_content #project_description
+    {
+        font-size: 1.0rem; /* Smaller size for tablets */
+        line-height:1.6rem;
+    }
+    #block_content #project_description video{
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) 
+{
+    #block_content #project_description
+    {
+        font-size: 0.9rem; /* Even smaller for mobile */
+        line-height:1.4rem;
+    }
+    #block_content #project_description video{
+        width: 100%;
+    }
 }
 
 #page_block #game_content

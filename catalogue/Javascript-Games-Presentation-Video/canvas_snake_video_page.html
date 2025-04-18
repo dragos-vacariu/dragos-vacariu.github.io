@@ -23,22 +23,30 @@
             <h2>Catalogue -> <a href={{javascript_games_page.value}}>{{javascript_games_page.name}}</a> -> <a href={{exitDir}}{{exitDir}}{{javascript_games_presentation_video.value}}>Video Presentation Page</a> -> Canvas Snake Video</h2>
             <div id = "block_content">
                 <div id="project_description">
-                    <p id="description_title">Canvas Snake Video</p>
-                    <p class="description_message">Classic Snake Game developed using HTML Canvas for rendering.<br><br>
-                        The purpose of the game is to control the snake within the canvas, grabbing the fruit will raise the score and allow 
-                        the snake to grow longer hence rewarding the player with points.
-                        <br><br>
-                        This version of the game does not allow the player to drive through walls so 
-                        if the player collides with the tail or with the wall the game will end.
-                    </p>
                     <video controls autoplay muted>
                       <source src="canvas_snake_video.mp4" type="video/mp4">
                       <source src="canvas_snake_video.ogg" type="video/ogg">
-                    Your browser does not support the video tag.
+                        Your browser does not support the video tag.
                     </video>
-                    <p class="description_message">
-                        <a href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >Canvas Snake Web Page</a>
-                    </p>
+                    This <b>Classic Snake Game</b> was developed using the HTML5 Canvas API for rendering, offering a smoother and more 
+                    modern experience compared to the earlier version which used table cells as tiles.
+                    <br><br>
+                    By transitioning to canvas, the game now benefits from:
+                    <ul class="regular_ul">
+                        <li>Flexible aspect ratios</li>
+                        <li>Improved rendering performance</li>
+                        <li>Enhanced graphic possibilities</li>
+                        <li>Higher-resolution visuals and smoother animations</li>
+                    </ul>
+                    <br><br>
+                    The objective remains true to the original: guide the snake across the playfield to collect fruit. 
+                    Each fruit increases your score and extends the length of the snake, increasing the challenge as the game progresses.
+                    <br><br>
+                    Unlike the previous version, this build introduces stricter rules—colliding with either the wall or the snake’s own 
+                    tail ends the game, raising the stakes for careful control and strategic movement.
+                    <br><br>
+                    You can try the game here:
+                    <a href = "../../../Javascript-Projects/canvas_snake/canvas_snake.html" >[Canvas Snake Web Page]</a>
                 </div>
             </div>
         </div>

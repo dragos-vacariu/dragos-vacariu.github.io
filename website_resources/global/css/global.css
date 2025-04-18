@@ -383,7 +383,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     color:black;
     border:none 0px black;
     font-family:FjallaOne;
-    font-size: 26px;
+    font-size: 1.5rem;
     /*background-color:#995500;*/
     /*
     background-color:rgba(255,255,255,0.8);
@@ -396,6 +396,22 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     text-align: center;
     letter-spacing:2px;
     word-wrap:break-word;
+}
+
+@media (max-width: 768px) 
+{
+    #page_block h2
+    {
+        font-size: 1.3rem; /* Smaller size for tablets */
+    }
+}
+
+@media (max-width: 480px) 
+{
+    #page_block h2
+    {
+        font-size: 1.1rem; /* Smaller size for mobile */
+    }
 }
 
 #page_block a{
