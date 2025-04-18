@@ -4,55 +4,7 @@
     border: none 0px black;
 }
 
-#page_block h3 {
-    font-family:FjallaOne;
-	font-size:17px;
-	text-align: center;
-
-}
-
-#page_block #game_content
-{
-    position:relative;
-    margin: 0%;
-    height: auto;
-    left:0%;
-    border: ridge 2px rgba(255,255,255, 0.1);
-    word-wrap: break-word;
-    
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
- 
-#page_block #game_content
-{
-    width:100%;
-    border-radius: 10px;
-}
-
 #page_block #block_content
-{
-    position:relative;
-    width:100%;
-    height: auto;
-    margin: auto;
-    border: solid 2px rgba(0,0,0,0.1);
-    word-wrap: break-word;
-    /*background-image: repeating-linear-gradient(to right, rgba(255,0,0, 0.1), rgba(255,255,0, 0.1), rgba(0,0,255, 0.1));*/
-    
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-#block_content #project_description
 {
     position: relative;
     display: block;
@@ -90,10 +42,6 @@
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-#block_content #project_description {
-  transition: opacity 0.5s ease-out;
-}
-
 .regular_ul{
     margin-left: 20px;
     list-style-type: square;
@@ -104,18 +52,14 @@
 
 @media (max-width: 768px) 
 {
-    #block_content #project_description
-    {
-        font-size: 1.0rem; /* Smaller size for tablets */
-        line-height:1.6rem;
+    #page_block #block_content #game_content{
+        width: 80%;
     }
 }
 
 @media (max-width: 480px) 
 {
-    #block_content #project_description
-    {
-        font-size: 0.9rem; /* Even smaller for mobile */
-        line-height:1.4rem;
+    #page_block #block_content #game_content{
+        width: 100%;
     }
 }
