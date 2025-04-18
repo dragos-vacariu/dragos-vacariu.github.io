@@ -2,12 +2,12 @@
     position: relative;
     width: 99%;
     color:#663300;
-    border: solid 1px #995500;
-    margin: 0.5%;
+    border: none 0px #995500;
+    margin: auto;
     font-family: Tahoma; /*font set from javacript*/
     font-size:14px;
     background-color: white;
-    background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
+    /*background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));*/
     text-shadow: 1px 1px white;
     word-wrap: break-word;
     height: auto;
@@ -78,7 +78,8 @@
     width: 98%;
     padding: 1%;
     padding-left: 3%;
-    background-image: linear-gradient(to right, white, #ffeecc);
+    /*background-image: linear-gradient(to right, white, #ffeecc);*/
+    background-image: linear-gradient(to right, white, rgba(230,230,230,1.0));
     font-size: 12px;
     font-family: Georgia;
     color: #995500;
@@ -624,14 +625,16 @@ searchHighlight{
 /* Handle */
 #page_block #menu_div::-webkit-scrollbar-thumb 
 {
-    background: #995500; 
+    /*background: #995500;*/
+    background: rgba(0,0,0,0.5);
     border-radius: 10px;
 }
 
 /* Handle on hover */
 #page_block #menu_div::-webkit-scrollbar-thumb:hover
 {
-    background: #aa7700; 
+    background: rgba(0,0,0,1.0);
+    /*background: #aa7700;*/
 }
 
 #page_block .database_image{

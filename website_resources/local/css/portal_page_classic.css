@@ -1,22 +1,27 @@
 #page_block h4{
     position:relative;
-    width:98%;
+    width:100%;
     height: auto;
     top:0%;
-    margin-left:1%;
-    margin-top:1%;
+    margin: auto;
     text-align: center;
-    border-style:solid;
-    border-width:0.2vw;
-    border-color:black;
+    border: ridge 2px rgba(0,0,0,0.4);
+    border-radius: 5vw;
     font-family:Verdana;
     font-size:14px;
     color:#663300;
-    background-color: rgba(153,85,00, 0.1);
-    background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));
+    background-color: var(--header-footer-color);
+    /*background-color: rgba(153,85,00, 0.1);
+    background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));*/
     text-shadow: 1px 1px white;
-    box-shadow: 0.1vw 1vw 0.5vw lightgray;
     word-wrap: break-word;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block h4 p{
