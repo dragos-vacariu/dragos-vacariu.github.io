@@ -18,7 +18,8 @@
     --paragraph-font: normal normal 1.1rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --paragraph-header-font: normal bold 1.4rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --mini-font: normal normal 80%/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
-    --menu-font: normal bold 1.1rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --menu-title-font: normal bold 1.1rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --menu-font: normal bold 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --code-font: normal normal 1.0rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
 }
 
@@ -30,7 +31,8 @@
         --intro-message-font: italic normal 1.1rem/1.6 Georgia, serif;
         --paragraph-font: normal normal 1rem/1.6 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
-        --menu-font: normal normal 1.0rem/1.3 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-title-font: normal bold 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-font: normal normal 0.9rem/1.3 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --code-font: normal normal 0.9rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     }
 }
@@ -42,7 +44,8 @@
         --intro-message-font: italic normal 0.9rem/1.5 Georgia, serif;
         --paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
-        --menu-font: normal normal 0.9rem/1.2 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-title-font: normal bold 0.9rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-font: normal normal 0.8rem/1.2 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --code-font: normal normal 0.8rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     }
 }

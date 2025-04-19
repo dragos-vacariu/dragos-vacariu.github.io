@@ -19,8 +19,8 @@ allConceptsSelection = false;
 const disabledElementOpacity = 0.3;
 
 //different styles for list tag selection:
-const tag_selection_on = "font:var(--paragraph-font); font-size: 16px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: solid 0.5vw rgba(0,0,0,0.1); text-shadow: 0px 0px black; padding: 1% 5%; margin: 1%;";
-const tag_selection_off = "font:var(--paragraph-font); font-size: 16px; font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: solid 0.5vw rgba(0,0,0,0.1); padding: 1% 5%; margin: 1%;";
+const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 0.2vw rgba(255,255,255,0.7); text-shadow: 0px 0px black; padding: 1% 5%; margin: 1%;";
+const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: solid 0.2vw rgba(0,0,0,0.7); padding: 1% 5%; margin: 1%;";
 
 //special class to add separate styles for list tag concept_selection_elements:
 const concept_item_class = "concept_collection_element"

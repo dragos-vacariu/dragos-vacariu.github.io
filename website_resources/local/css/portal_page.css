@@ -221,7 +221,7 @@ searchHighlight{
     margin:auto;
     text-align: center;
     /*font: var(--paragraph-font);*/
-    font: var(--menu-font);
+    font: var(--menu-title-font);
     color: var(--darkblue-color);
     font-variant: small-caps;
     padding: 0px;
@@ -234,11 +234,6 @@ searchHighlight{
     margin:auto;
     margin-top: 5%;
     /*border-top: ridge 1vw rgba(255,255,255,0.2);*/
-}
-
-#page_block #menu_div .selection_list:hover, #concept_selection:hover
-{
-    cursor: pointer; /*this is the hand arrow*/
 }
 
 .selection_list_element, .concept_collection_element
@@ -273,16 +268,19 @@ searchHighlight{
     display: inline-block;
 }
 
-.selection_list_element li:hover{
-    color: yellow;
-}
-
 /*selecting from element with concept_selection id the children which are part of class .selection_list_element*/
 #page_block #menu_div .concept_collection_element
 {
     /*overwrite the display property for the concept_seleciton*/
     display: block;
     text-align: center;
+}
+
+
+.selection_list_element:hover, .concept_collection_element:hover{
+    background-image: none !important; /*!important fixes the specificity issues, as this element's style is mainly set from the script*/
+    background-color: silver;
+    cursor: pointer; /*this is the hand arrow*/
 }
 
 #page_block #content{
