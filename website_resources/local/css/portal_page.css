@@ -49,7 +49,8 @@
     margin-left:2px;
     height: 98vh; /*height in percent of viewport height*/
     padding: 2px;
-    border: solid 1px #995500;
+    /*border: solid 1px #995500;*/
+    border: groove 0.5vw rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -260,9 +261,10 @@ searchHighlight{
 #page_block #content{
     position: relative;
     width: 68%;
-    border: solid 1px #995500;
+    /*border: solid 1px #995500;*/
+    border: groove 0.5vw rgba(0,0,0,0.1);
     border-radius: 10px;
-    margin:0px 2px;
+    margin:0px 0.5vw;
     /*flex and md-flex sets the width*/
    -ms-flex: 1;  /* IE 10 */ 
     flex: 1;

@@ -1,11 +1,29 @@
 /*THIS IS FOR THE CONTACT PAGE*/
+.fading_paragraph
+{
+    position: relative;
+    word-wrap: break-word;
+    
+    margin: 1% auto;
+    padding: 1%;
+    width: 96%;
+    border: groove 0.5vw rgba(0,0,0,0.1);
+    border-radius: 5vw;
+    background-color: var(--header-footer-color);
+    background-image: url("../images/tex.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: var(--header-footer-background-size);
+    background-repeat: repeat;*/
+}
+
 #contact_content{
     position: relative;
     width:98%;
     margin: 1%;
     padding: 0%;
     min-height: 32vw;
-    border: none 0px black;
+    border: groove 0.5vw rgba(0,0,0,0.1);
     /*background-image: linear-gradient(to left, white, #ffeecc);*/
     background-color: rgba(255,255,255,0.8);
     background-image: url("../images/contact_form_texture.jpg");
@@ -63,19 +81,20 @@
 article{
     position: relative;
     width: 98%;
-    border: none 2px red;
+    border: none 0px red;
     border-width: 2px;
     text-align: left;
     padding-left: 2%;
 }
 
 article p{
+    width: fit-content;
     font-family: Calibri;
     font-size: 18px;
     font-weight: bold;
     border: none 0px black;
-    padding: 0px;
-    margin: 5px;
+    padding: 0.5%;
+    margin: 0.5%;
     line-height: 25px;
 }
 
@@ -96,7 +115,9 @@ article img{
 }
 
 article audio{
-    width: 100px;
+    position: relative;
+    margin: auto 5%;
+    width: 90%;
     max-width: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
     height: 10px;
     max-height: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/

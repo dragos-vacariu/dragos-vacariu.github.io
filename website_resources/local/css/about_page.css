@@ -13,7 +13,7 @@
     width:96%;
     margin-left:2%;
     margin-top:2%;
-    font: var(--paragraph-font);
+    font-family: var(--paragraph-font);
     text-align: center;
     font-size:12px;
     margin-bottom: 0%;
