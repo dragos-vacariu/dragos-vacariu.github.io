@@ -37,7 +37,7 @@
     background-blend-mode: overlay;
     background-position: center;
     background-size: var(--header-footer-background-size);
-    background-repeat: repeat;*/
+    background-repeat: repeat;
 }
 
 /*#page_block #content_table td:nth-child(2)*/ /*accessing second column*/

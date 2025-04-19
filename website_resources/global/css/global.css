@@ -2,6 +2,7 @@
 :root {
     --darkbrown-color: #484237; /* Example: A blue color */
     --darkred-color: #b6042a; /* Example: A light gray color */
+    --darkblue-color: rgba(0,0,250,1.0); /* Example: A light gray color */
     
     --header-footer-color: rgba(255,255,255,0.9);
     --header-footer-border-style: ridge 1px rgba(0,0,0,1.0);
@@ -16,6 +17,9 @@
     --intro-message-font: italic normal 1.3rem/1.7 Georgia, serif;
     --paragraph-font: normal normal 1.1rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --paragraph-header-font: normal bold 1.4rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --mini-font: normal normal 80%/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --menu-font: normal bold 1.1rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --code-font: normal normal 1.0rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
 }
 
 
@@ -26,6 +30,8 @@
         --intro-message-font: italic normal 1.1rem/1.6 Georgia, serif;
         --paragraph-font: normal normal 1rem/1.6 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-font: normal normal 1.0rem/1.3 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --code-font: normal normal 0.9rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     }
 }
 
@@ -36,6 +42,8 @@
         --intro-message-font: italic normal 0.9rem/1.5 Georgia, serif;
         --paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --menu-font: normal normal 0.9rem/1.2 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --code-font: normal normal 0.8rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     }
 }
 
@@ -363,9 +371,7 @@ footer h5{
     width:80%;
     margin-left:10%;
     padding: 2px;
-    font-size: 80%;
-    font-family: Georgia;
-    font-weight: normal;
+    font: var(--mini-font);
     word-wrap:break-word;
     text-shadow: 0px 0px gray;
 }
@@ -493,6 +499,8 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 sub, sup{
     font-size: 60%; 
     color: gray;
+    font-variant: normal;
+    text-transform: none;
 }
 
 

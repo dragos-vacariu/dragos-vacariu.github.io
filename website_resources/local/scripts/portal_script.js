@@ -19,8 +19,8 @@ allConceptsSelection = false;
 const disabledElementOpacity = 0.3;
 
 //different styles for list tag selection:
-const tag_selection_on = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black";
-const tag_selection_off = "font-family:Georgia; font-size: 12px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black";
+const tag_selection_on = "font:var(--paragraph-font); font-size: 16px; font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: solid 0.5vw rgba(0,0,0,0.1); text-shadow: 0px 0px black; padding: 1% 5%; margin: 1%;";
+const tag_selection_off = "font:var(--paragraph-font); font-size: 16px; font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: solid 0.5vw rgba(0,0,0,0.1); padding: 1% 5%; margin: 1%;";
 
 //special class to add separate styles for list tag concept_selection_elements:
 const concept_item_class = "concept_collection_element"
@@ -45,9 +45,9 @@ selection_type.appendChild(createLiElement("multiple", false, switchSelectionTyp
 
 const table_content = document.getElementById("table_content");
 
-const language_title_style = "color: #663300; font-family: Calibri; font-size: 24px; font-weight: bold; text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); letter-spacing: 2px;";
-const concept_title_style = "color: darkred; font-family: Calibri; font-size: 22px; font-weight: bold; text-align: left; text-transform: capitalize; border: double 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: 1px; ";
-const concept_value_style = "color: #663300; text-shadow: 0px 0px #663300; font-family: Calibri; font-size: 18px; font-weight: normal; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; line-height: 25px;";
+const language_title_style = "color: black; font: var(--paragraph-header-font); text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.1), rgba(143,55,0, 0.05)); letter-spacing: 2px;";
+const concept_title_style = "color: var(--darkred-color); font: var(--big-header-font); font-style: normal; text-align: left; text-transform: capitalize; border: groove 0.2vw rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: var(--big-header-font-letter-spacing)";
+const concept_value_style = "color: black; text-shadow: 0px 0px #663300; font:var(--paragraph-font); text-align: left; text-transform: none; border: none 0px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;"
 const cell_style = "vertical-align: top;";
 
 function dbCookieRouteHandling()
@@ -613,7 +613,7 @@ function fillTableCompare()
                 manifest_selection.children[i].value==true)
             {
                 cell = row.insertCell();
-                cell.innerHTML = manifests[index].name;
+                cell.innerHTML = manifests[index].name + "<sup>(Manifest)</sup>";
                 cell.style = language_title_style;
                 cell.style.width = String(100 / active_columns + "%");
             }
@@ -647,7 +647,7 @@ function fillTableCompare()
                         cell = row.insertCell(); //empty cell
                         /*Insert the concept name within the cell*/
                         var p = document.createElement("p");
-                        p.innerHTML = concept_collection[concept_index] + ":";
+                        p.innerHTML = concept_collection[concept_index] + ": <sup>(Concept)</sup>";
                         p.style = concept_title_style;
                         cell.appendChild(p);
                         p = document.createElement("p");
@@ -696,7 +696,7 @@ function fillTableRegular()
                 /*Insert a new row for each language title selected to be displayed*/
                 row = table_content.insertRow();
                 cell = row.insertCell();
-                cell.innerHTML = manifests[index].name;
+                cell.innerHTML = manifests[index].name + "<sup>(Manifest)</sup>";
                 cell.style = language_title_style;
                 cell.style.paddingTop = "1%";
                 /*For each concept the language has*/
@@ -722,7 +722,7 @@ function fillTableRegular()
 
                             /*Insert the concept name within the cell*/
                             var p = document.createElement("p");
-                            p.innerHTML = concept_collection[concept_index] + ":";
+                            p.innerHTML = concept_collection[concept_index] + ":<sup>(Concept)</sup>";
                             p.style = concept_title_style;
                             cell.appendChild(p);
                             p = document.createElement("p");
@@ -1264,6 +1264,7 @@ function setSelectionType()
             overall_concept_selection.children[0].remove()
         }
         document.getElementById("overall_concept_selection_title").setAttribute("hidden", "hidden");
+        document.getElementById("overall_concept_selection_div").setAttribute("hidden", "hidden");
         
         //Removing overall_language_selection elements:
         while(overall_language_selection.children.length > 0)
@@ -1271,6 +1272,7 @@ function setSelectionType()
             overall_language_selection.children[0].remove()
         }
         document.getElementById("overall_language_selection_title").setAttribute("hidden", "hidden");
+        document.getElementById("overall_language_selection_div").setAttribute("hidden", "hidden");
         
         /*
             Get the active language. There should be only one active language selected 
@@ -1315,7 +1317,9 @@ function setSelectionType()
             overall_concept_selection.appendChild( createLiElement("select all", true, selectionOfAllConceptElements) );
         }
         document.getElementById("overall_concept_selection_title").removeAttribute("hidden", "hidden");
+        document.getElementById("overall_concept_selection_div").removeAttribute("hidden", "hidden");
         document.getElementById("overall_language_selection_title").removeAttribute("hidden", "hidden");
+        document.getElementById("overall_language_selection_div").removeAttribute("hidden", "hidden");
     }
     showTable();
 }

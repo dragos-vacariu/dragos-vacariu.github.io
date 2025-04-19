@@ -1,19 +1,24 @@
 #page_block {
     position: relative;
     width: 99%;
-    color:#663300;
+    color: black;
     border: none 0px #995500;
     margin: auto;
-    font-family: Tahoma; /*font set from javacript*/
-    font-size:14px;
     background-color: white;
+    
     /*background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));*/
-    text-shadow: 1px 1px white;
     word-wrap: break-word;
     height: auto;
     top: 0px;
-    font-weight: bold;
     box-shadow: none;
+    
+    /*Properties overwritten from JavaScript*/
+    font-family: Georgia;
+    font-size:14px;
+    
+    /*Properties partially set from JavaScript*/
+    text-shadow: 0px 0px black;
+    font-weight: normal;
 }
 
 #page_block h2
@@ -56,9 +61,10 @@
     overflow-y: auto;
     /*flex and md-flex sets the width*/
     -ms-flex:  0.2;  /* IE 10 */  
-    flex: 0.2; /*0.5 means 25% as 1 means 50:50*/
+    flex: 0.25; /*0.5 means 25% as 1 means 50:50*/
     /*menu_div flex width is decreased by 10%. 0.2 is like 20% of 50% screen width. 
     Aproximatively: 10% of screen width.*/
+    min-width: 130px; /*prevents shrinking too far */
 }
 
 #page_block #menu_div #menu #searchForm
@@ -80,12 +86,12 @@
     padding: 1%;
     padding-left: 3%;
     /*background-image: linear-gradient(to right, white, #ffeecc);*/
-    background-image: linear-gradient(to right, white, rgba(230,230,230,1.0));
+    background-image: linear-gradient(to right, white, rgba(143,55,0, 0.01));
     font-size: 12px;
     font-family: Georgia;
-    color: #995500;
+    color: black;
     margin: 0%;
-    border: outset 1px #995500;
+    border: outset 1px black;
     border-radius: 5px;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -104,9 +110,9 @@
     padding: 1% 0px;
     margin: 0%;
     margin-top: 2%;
-    background-image: linear-gradient(to right, white, #ffeecc);
+    background-image: radial-gradient(circle, rgba(255,255,255,1.0), rgba(143,55,0, 0.001));
     font-size: 12px;
-    border: outset 1px #995500;
+    border: outset 1px black;
     border-radius: 5px;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -125,11 +131,11 @@
     margin-top: 2%;
     padding: 0%;
     padding-left: 3%;
-    background-image: linear-gradient(to right, white, #ffeecc);
+    background-image: linear-gradient(to right, white, rgba(143,55,0, 0.01));
     font-size: 12px;
     font-family: Georgia;
-    color: #995500;
-    border: outset 1px #995500;
+    color: black;
+    border: outset 1px black;
     border-radius: 5px;
     text-align: center;
     
@@ -172,8 +178,7 @@ searchHighlight{
     position: relative;
     width: 98%;
     top:0%;
-    font-family: Verdana;
-    font-size:16px;
+    font: var(--paragraph-font);
     color: #005500;
     margin: 0%;
     text-shadow: 1px 1px white;
@@ -182,35 +187,53 @@ searchHighlight{
     height: auto;
 }
 
+#page_block #menu_div .selection_list
+{
+    display: flex;
+    justify-content: center; /* THIS evenly distributes content vertically */
+    flex-wrap: wrap;
+    margin: auto;
+    width: auto;
+}
+
 #page_block #menu_div .selection_list, #concept_selection{
     position: relative;
-    width: 96%;
-    padding: 0%;
-    margin: 2%;
+    padding: 5% 0%;
     list-style: none;
     text-align: left;
+
+    
+    /*Properties overwritten from JavaScript*/
     color: #995500;
     font-variant: small-caps;
-    font-family: Calibri;
-    font-size: 14px;
-    font-weight: normal;
-    /*some properties are changed from the script*/
+    font: var(--menu-font);
+    margin: 0%;
+
+}
+
+#concept_selection{
+    margin-bottom: 30%;
 }
 
 #page_block #menu_div  p{
     position: relative;
-    width: 90%;
-    margin:0px;
-    margin-left: 2%;
-    list-style: none;
-    text-align: left;
-    color: #995500;
+    width: 100%;
+    margin:auto;
+    text-align: center;
+    /*font: var(--paragraph-font);*/
+    font: var(--menu-font);
+    color: var(--darkblue-color);
     font-variant: small-caps;
-    padding: 3px;
-    font-family:Calibri;
-    font-size: 16px;
-    border: none;
-    text-shadow: 0.4px 0.4px black;
+    padding: 0px;
+
+    border-bottom: solid 2px rgba(0,0,0,0.2);
+}
+
+#page_block #menu_div .selection_div{
+    width: 90%;
+    margin:auto;
+    margin-top: 5%;
+    /*border-top: ridge 1vw rgba(255,255,255,0.2);*/
 }
 
 #page_block #menu_div .selection_list:hover, #concept_selection:hover
@@ -232,8 +255,7 @@ searchHighlight{
     border: solid 1px white;
     padding: 5px;
     background-image: linear-gradient(to right, white, #ffeecc);
-    font-size: 12px;
-    font-family: Georgia;
+    font: var(--menu-font);
     color: #995500;
     text-shadow: 0px 0px white;
     
@@ -251,11 +273,16 @@ searchHighlight{
     display: inline-block;
 }
 
+.selection_list_element li:hover{
+    color: yellow;
+}
+
 /*selecting from element with concept_selection id the children which are part of class .selection_list_element*/
 #page_block #menu_div .concept_collection_element
 {
     /*overwrite the display property for the concept_seleciton*/
     display: block;
+    text-align: center;
 }
 
 #page_block #content{
@@ -272,46 +299,36 @@ searchHighlight{
 
 #page_block #database_info{
     position:relative;
-    width: 96%;
-    margin: 1%;
+    width: 100%;
+    margin: auto;
     padding: 1%;
-    font-family: Verdana;
-    font-size:16px;
-    color: #663300;
-    border: none 2px blue;
-    text-shadow: 1px 1px white;
-    text-align: center;
+    border: ridge 0.5vw rgba(0,0,0,0.1);
+    text-align: center;    
+    color: black;
+    font: var(--mini-font);
+    background-image: radial-gradient(circle, rgba(255,255,255,0.1), rgba(143,55,0, 0.05))
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block #database_info info{
     position: relative;
-    margin: 0%;
-    margin-bottom: 1%;
-    padding: 10px;
-    text-shadow: 1px 1px white;
-    text-decoration: none;
-    text-align: center;
-    font-family: Tahoma;
-    font-size:14px;
-    color: #663300;
     border-style: none;
-    left: 0%;
-
+    text-decoration: none;
 }
 
 #page_block #database_info description{
     position: relative;
-    font-family: Tahoma;
-    font-size:15px;
-    color: #663300;
     border-style: none;
-    margin: 0%;
-    margin-bottom: 1%;
-    padding: 10px;
-    text-shadow: 1px 1px white;
     text-decoration: none;
 }
 
+/*
 #page_block #database_info info a{
     position: relative;
     font-family: Tahoma;
@@ -322,18 +339,11 @@ searchHighlight{
 
 #page_block #database_info info a:hover{
     color: darkblue;
-}
+}*/
 
 #page_block #database_info q{
     position: relative;
-    font-family:Calibri;
-    font-size:15px;
-    color: #663300;
     border-style: none;
-    margin: 0%;
-    margin-bottom: 1%;
-    padding: 10px;
-    text-shadow: 1px 1px white;
     text-decoration: none;
 }
 
@@ -347,9 +357,11 @@ searchHighlight{
 
 #page_block #database_info q blue{
     position: relative;
+    
+    /*Overwriting parent properties*/
     font-family: Consolas;
-    font-size:12px;
-    color: blue;
+    font-weight: bold;
+    color: rgba(255,0,0,1.0);
 }
 
 #page_block #table_content{
@@ -375,8 +387,7 @@ searchHighlight{
 }
 
 #page_block code{
-    font-family: Consolas;
-    font-size: 16px;
+    font: var(--code-font);
     white-space: pre-wrap;
     color: blue;
 }
@@ -404,8 +415,9 @@ searchHighlight{
     border: solid 1px rgba(0,0,0,0.1);
     
     /*workaround for keeping colors and style when saving webpage*/
-    font-family: Consolas;
-    font-size: 16px;
+    /*font-family: Consolas;
+    font-size: 16px;*/
+    font: var(--code-font);
     white-space: pre-wrap;
     color: blue;
     
@@ -431,9 +443,8 @@ searchHighlight{
     color: rgba(0,0,0,0.5);
     margin:0px;
     padding:0px;
-    font-family: Consolas;
+    font: var(--code-font);
     height: auto;
-    font-weight: inherit;
     /*border and other properties are set from the script*/
 }
 
@@ -530,16 +541,17 @@ searchHighlight{
     position: relative;
     display: inline-block; /*this will allow us to set margins for the element*/
     
-    color: darkred;
+    color: var(--darkbrown-color);
     font-family: inherit;
     font-size: 20px;
     font-weight: bold;
     text-shadow: 0px 0px white; /*shadow will surround the text even with 0px on all sides*/
-    background-color: rgba(255,255,0,0.3);
+    background-color: rgba(255,255,0,0.1);
     padding: 2px;
+    padding-bottom: 0px;
     margin: 5px 0px;
-    border: solid 1px rgba(0,0,0,0.1);
-    
+    border-bottom: solid 2px darkred;
+
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -581,12 +593,18 @@ searchHighlight{
     font-size: 22px;
     font-weight: bold;
     text-shadow: 0px 0px white; /*shadow will surround the text even with 0px on all sides*/
-    background-color: rgba(0,255,0,0.1);
+    background-color: rgba(0,255,0,0.01);
+
+    
+    border: solid 0.2vw rgba(0,0,0,0.1);       /* inner border */
+    outline: solid 0.2vw rgba(0,0,0,0.1);        /* outer border */
+    outline-offset: 0.4vw;           /* controls spacing between the two */
+    
     /*workaround for maintaining same style when saving the webpage*/
     /*these values will be overwritten by the script.*/
     text-align: left; 
     width: auto; 
-    padding: 2px;
+    padding: 3px;
     margin: 5px 0px;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -594,6 +612,25 @@ searchHighlight{
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@media (max-width: 768px) {
+    #page_block green{
+        font-size: 19px;
+    }
+    #page_block brown{
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    #page_block green{
+        font-size: 16px;
+    }
+    #page_block brown{
+        font-size: 13px;
+    }
+}
 }
 
 #page_block bold{
