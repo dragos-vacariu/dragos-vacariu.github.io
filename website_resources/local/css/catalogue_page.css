@@ -29,7 +29,7 @@
     word-wrap: break-word;
     
     margin: 2% auto;
-    padding: 2%;
+    padding: 1%;
     text-align: center;
     font-family: Times New Roman;
     font-size: 20px;
@@ -37,7 +37,7 @@
     line-height: 25px;
     width: 90%;
     border: solid 15px rgba(0,0,0,0.1);
-    border-radius: 50px;
+    border-radius: 5vw;
     background-color: var(--header-footer-color);
     background-image: url("../../global/images/header_footer_texture.jpg");
     background-blend-mode: overlay;
@@ -67,12 +67,10 @@
     padding: 0px;
     margin: 0px;
     margin-bottom: 5%;
-    font-family: Calibri;
+    font: var(--big-header-font);
     text-align: center;
-    font-size:1.8rem;
-    font-style: italic;
     color: var(--darkred-color);
-    letter-spacing: 1px;
+    letter-spacing: var(--big-header-font-letter-spacing);
     text-shadow: 0.5px 1px pink;
     border: none 0px black;
 }
@@ -85,13 +83,9 @@
     margin: 0%;
     margin-top: 5%;
     padding: auto;
-    font-family: Georgia;
-    font-size: 1.3rem;
+    font: var(--intro-message-font);
     text-align: center;
-    font-weight: normal;
-    font-style: italic;
     border: none 0px black;
-    line-height:30px;
 }
 
 /*#page_block #content_table td:nth-child(2)*/ /*accessing second column*/
@@ -176,14 +170,6 @@
 
 @media (max-width: 768px) 
 {
-    #content_table #catalogue_description #description_title
-    {
-        font-size: 1.5rem; /* Smaller size for tablets */
-    }
-    #content_table #catalogue_description #description_message
-    {
-        font-size: 1.1rem; /* Smaller size for tablets */
-    }
     #catalogue_div_left a, .content_list 
     {
         font-size: 1.3rem;
@@ -193,14 +179,6 @@
 
 @media (max-width: 480px) 
 {
-    #content_table #catalogue_description #description_title
-    {
-        font-size: 1.2rem; /* Smaller size for mobile */
-    }
-    #content_table #catalogue_description #description_message
-    {
-        font-size: 0.8rem; /* Even smaller for mobile */
-    }
     #catalogue_div_left a, .content_list 
     {
         font-size: 1.1rem;

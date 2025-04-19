@@ -11,12 +11,37 @@
     --header-footer-background-position: center;
     --header-footer-background-size: 500px;
 
-    --font-for-headings: ZenDots;
+    --big-header-font: italic bold 1.8rem/1.2 Calibri, serif;
+    --big-header-font-letter-spacing: 1px;
+    --intro-message-font: italic normal 1.3rem/1.7 Georgia, serif;
+    --paragraph-font: normal normal 1.1rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --paragraph-header-font: normal bold 1.4rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+}
+
+
+@media (max-width: 768px) {
+    :root
+    {
+        --big-header-font: italic bold 1.6rem/1.0 Calibri, serif;
+        --intro-message-font: italic normal 1.1rem/1.6 Georgia, serif;
+        --paragraph-font: normal normal 1rem/1.6 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --paragraph-header-font: normal bold 1.2rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    }
+}
+
+@media (max-width: 480px) {
+    :root
+    {
+        --big-header-font: italic bold 1.4rem/1.0 Calibri, serif;
+        --intro-message-font: italic normal 0.9rem/1.5 Georgia, serif;
+        --paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --paragraph-header-font: normal bold 1.2rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    }
 }
 
 body{
     background-color:white;
-    font-family: Arial, Verdana, Tahoma;
+    font-family: Georgia, Calibri, Tahoma;
     margin:0%;
     padding:0%;
 }
@@ -285,7 +310,7 @@ footer h5{
     margin-left:10%;
     padding: 2px;
     font-size: 80%;
-    font-family: Rockwell;
+    font-family: Georgia;
     font-weight: normal;
     word-wrap:break-word;
     text-shadow: 0px 0px gray;
@@ -357,11 +382,12 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     animation-duration: 0s;
 }
 
+/*
 @keyframes footer_link{
     0%{color:white;}
     50%{color:silver;}
     100%{color:lightblue;}
-}
+}*/
 
 /*This is for Catalogue/Video/Contact/About/Portal pages*/
 #page_block{
@@ -372,6 +398,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     border:none 0px black;
 }
 
+/*This is the h2 element displaying the page title*/
 #page_block h2{
     position:relative;
     width:98%;
@@ -398,22 +425,6 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     word-wrap:break-word;
 }
 
-@media (max-width: 768px) 
-{
-    #page_block h2
-    {
-        font-size: 1.3rem; /* Smaller size for tablets */
-    }
-}
-
-@media (max-width: 480px) 
-{
-    #page_block h2
-    {
-        font-size: 1.1rem; /* Smaller size for mobile */
-    }
-}
-
 #page_block a{
     text-decoration:none;
     color: blue;
@@ -428,6 +439,25 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 sub, sup{
     font-size: 60%; 
     color: gray;
+}
+
+
+/*Resizing the h2 elements displaying page title*/
+
+@media (max-width: 768px) 
+{
+    #page_block h2
+    {
+        font-size: 1.3rem; /* Smaller size for tablets */
+    }
+}
+
+@media (max-width: 480px) 
+{
+    #page_block h2
+    {
+        font-size: 1.1rem; /* Smaller size for mobile */
+    }
 }
 
 /*Adding custom font*/

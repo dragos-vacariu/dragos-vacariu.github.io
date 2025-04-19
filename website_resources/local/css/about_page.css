@@ -6,20 +6,21 @@
 }
 
 #page_block #introduction{
-	padding:1%;
-	border: none 0px rgba(0,0,0, 0.1);
+    padding:1%;
+    border: none 0px rgba(0,0,0, 0.1);
     border-radius: 4vw;
     background-color: rgba(0,0,0, 0.05);
-	width:96%;
-	margin-left:2%;
-	margin-top:2%;
-	font-family: Verdana;
-	font-size:11px;
-	margin-bottom: 0%;
-	color: black;
+    width:96%;
+    margin-left:2%;
+    margin-top:2%;
+    font: var(--paragraph-font);
+    text-align: center;
+    font-size:12px;
+    margin-bottom: 0%;
+    color: black;
     /*background-color: rgba(153,85,00, 0.1);*/
     
-	text-shadow: 1px 1px white;
+    text-shadow: 1px 1px white;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -39,11 +40,11 @@
 }
 
 #page_block p{
-	font-family: Times New Roman;
+    font-family: var(--paragraph-font);
     font-weight: normal;
-	font-size:18px;
-	color: black;
-	text-shadow: 1px 1px white;
+    font-size:18px;
+    color: black;
+    text-shadow: 1px 1px white;
     padding: 0%;
     margin: 0%;
     border: none 0px black;
@@ -72,6 +73,7 @@
 
 #page_block .section_div{
     position: relative;
+    font-family: var(--paragraph-font);
     width: 96%;
     margin: 20px auto;
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -87,11 +89,11 @@
     padding: 0%;
     margin:5px;
     font-family: ZenDots;
-	text-align: left;
-	font-size:24px;
+    text-align: left;
+    font-size:24px;
     letter-spacing: 3px;
-	text-shadow: 0.5px 1px pink;
-	color: rgba(143,55,0, 1);
+    text-shadow: 0.5px 1px pink;
+    color: rgba(143,55,0, 1);
     border: none 0px black;
 }
 
@@ -108,63 +110,62 @@
 }
 
 #page_block #html_css_info{
-	/*background-color: rgba(0,0,255,0.2);*/ /*purple*/
+    /*background-color: rgba(0,0,255,0.2);*/ /*purple*/
 }
 
 #page_block #javascript_info{
-	/*background-color: rgba(255,0,0,0.3);*/ /*pink*/
+    /*background-color: rgba(255,0,0,0.3);*/ /*pink*/
 }
 
 #page_block #c_language_info{
-	/*background-color: rgba(0,255,0,0.3);*/ /*green*/
+    /*background-color: rgba(0,255,0,0.3);*/ /*green*/
 }
 
 #page_block #python_info{
-	/*background-color: rgba(0,255,255,0.3);*/ /*cyan*/
+    /*background-color: rgba(0,255,255,0.3);*/ /*cyan*/
 }
 
 #page_block #cpp_info{
-	/*background-color: rgba(255,0,255,0.3);*/ /*magenta*/
+    /*background-color: rgba(255,0,255,0.3);*/ /*magenta*/
 }
 
 #page_block #csharp_info{
-	/*background-color: rgba(255,255,0,0.5);*/ /*yellow*/
+    /*background-color: rgba(255,255,0,0.5);*/ /*yellow*/
 }
 
 #page_block #unity_info{
-	/*background-color: rgba(0,0,0,0.1);*/ /*gray*/
+    /*background-color: rgba(0,0,0,0.1);*/ /*gray*/
 }
 
 #page_block #java_info{
-	/*background-color: rgba(120,50,120,0.2);*/ /*purple-gray*/
+    /*background-color: rgba(120,50,120,0.2);*/ /*purple-gray*/
 }
 
 
 #page_block .title{
-	font-family: ZenDots;
-	font-weight: bold;
+    font-family: ZenDots;
+    font-weight: bold;
     font-size: 20px;
-	letter-spacing: 1px;
-	text-shadow: 1px 1px white;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px white;
     margin: 0%;
     margin: 20px 0px;
     color: darkgreen;
 }
 
 #page_block .header{
-	font-family: FjallaOne;
-	font-weight: bold;
-	letter-spacing: 1px;
-	text-shadow: 1px 1px white;
+    font-family: FjallaOne;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px white;
     margin-bottom: 15px;
 }
 
 #page_block .highlighted_element{
-	font-family:Calibri;
-	text-shadow: 0.5px 1px pink;
-	color: rgba(143,55,0, 1);
-	font-weight: normal;
-	padding: 0vw;
+    text-shadow: 0.5px 1px pink;
+    color: rgba(143,55,0, 1);
+    font-weight: normal;
+    padding: 0vw;
 }
 
 #page_block a{

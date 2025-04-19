@@ -49,13 +49,9 @@
     margin: 2% auto;
     padding: 2%;
 
-    font-family: Georgia;
-    font-size: 1.1rem;
+    font: var(--paragraph-font);
     text-align: left;
-    font-weight: normal;
-    font-style: italic;
     border: solid 5px black;
-    line-height:1.7rem;
 
     width: 98%;
     height: fit-content;
@@ -108,23 +104,6 @@
 
 @media (max-width: 768px) 
 {
-    #block_content #project_description
-    {
-        font-size: 1.0rem; /* Smaller size for tablets */
-        line-height:1.6rem;
-    }
-    #block_content #project_description video{
-        width: 80%;
-    }
-}
-
-@media (max-width: 480px) 
-{
-    #block_content #project_description
-    {
-        font-size: 0.9rem; /* Even smaller for mobile */
-        line-height:1.4rem;
-    }
     #block_content #project_description video{
         width: 100%;
     }
