@@ -4,8 +4,8 @@
     color: black;
     border: none 0px #995500;
     margin: auto;
-    background-color: white;
-    
+    /*background-color: white;*/
+    background: var(--background-gradient);
     /*background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));*/
     word-wrap: break-word;
     height: auto;

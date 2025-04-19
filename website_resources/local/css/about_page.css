@@ -1,23 +1,14 @@
 #page_block {
-    background: 
-        repeating-radial-gradient(farthest-side at 0% 0%, rgba(0,0,255, 0.01) 40%, rgba(255,255,255, 1)),
-        repeating-radial-gradient(rgba(0,0,255, 0.01) 10%, rgba(255,255,255, 1));
+    background: var(--background-gradient);
     box-shadow: none;
 }
 
 #page_block #introduction{
+    margin: auto;
     padding:1%;
-    border: none 0px rgba(0,0,0, 0.1);
-    border-radius: 4vw;
-    background-color: rgba(0,0,0, 0.05);
     width:96%;
-    margin-left:2%;
-    margin-top:2%;
     font-family: var(--paragraph-font);
     text-align: center;
-    font-size:12px;
-    margin-bottom: 0%;
-    color: black;
     /*background-color: rgba(153,85,00, 0.1);*/
     
     text-shadow: 1px 1px white;
