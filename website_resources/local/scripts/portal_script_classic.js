@@ -10,8 +10,8 @@ const cookie_element_separator = "<br>";
 allConceptsSelection = false;
 
 //different styles for list tag selection:
-const tag_selection_on = "background-image: linear-gradient(to right, #aa7700, #995500); color: white; border-color: white; text-shadow: 1px 1px black; border-width: 1px";
-const tag_selection_off = "background-image: linear-gradient(to right, white, #ffeecc); color: #995500; border-color: black; text-shadow: 0.4px 0.4px black; border-width: 1px";
+const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 0.2vw rgba(255,255,255,0.7); text-shadow: 0px 0px black; padding: 1px 5px; margin: 1px;";
+const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: solid 0.2vw rgba(0,0,0,0.7); padding: 1px 5px; margin: 1px;";
 
 const copy_GeneralKnowledge_token = "*General-Programming-Knowledge*";
 
@@ -23,9 +23,9 @@ page_selection.appendChild( createLiElement("Classic", true, changeToClassicPage
 
 const table_content = document.getElementById("table_content");
 
-const language_title_style = "color: #663300; font-family: Calibri; font-size: 22px; text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.3), rgba(143,55,0, 0.2)); letter-spacing: 2px;";
-const concept_title_style = "color: darkred; font-family: Calibri; font-size: 20px; text-align: left; text-transform: capitalize; border: double 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: 1px; ";
-const concept_value_style = "color: #663300; font-family: Calibri; font-size: 18px; text-align: left; text-transform: none; border: solid 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;";
+const language_title_style = "color: black; font: var(--paragraph-header-font); text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.1), rgba(143,55,0, 0.05)); letter-spacing: 2px;";
+const concept_title_style = "color: var(--darkred-color); font: var(--big-header-font);  text-align: left; text-transform: capitalize; border: groove 0.2vw rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: var(--big-header-font-letter-spacing)";
+const concept_value_style = "color: black; text-shadow: 0px 0px #663300; font:var(--paragraph-font); text-align: left; text-transform: none; border: none 0px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;"
 const cell_style = "vertical-align: top;";
 
 function dbCookieRouteHandling()

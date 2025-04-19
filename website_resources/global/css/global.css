@@ -504,6 +504,7 @@ sub, sup{
     color: gray;
     font-variant: normal;
     text-transform: none;
+    letter-spacing: 1px;
 }
 
 
