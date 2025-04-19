@@ -37,15 +37,7 @@
     font: var(--paragraph-font);
 }
 
-#content #intro_paragraph.fade-out {
-  opacity: 0;
-}
-
-#content #intro_paragraph {
-  transition: opacity 0.5s ease-out;
-}
-
-#content #intro_paragraph
+.fading_paragraph
 {
     margin: 2% auto;
     padding: 6%;
@@ -57,38 +49,6 @@
     background-position: center;
     background-repeat: repeat;
     background-size: 100px;
-    
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-.big_header
-{
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 5%;
-    text-align: center;
-    font: var(--big-header-font);
-    color: var(--darkred-color);
-    letter-spacing: var(--big-header-font-letter-spacing);
-    text-shadow: 0.5px 1px pink;
-    border: none 0px black;
-}
-
-#intro_message
-{
-    position: relative;
-    width: 100%;
-    margin: 0%;
-    margin-top: 5%;
-    padding: auto;
-    text-align: center;
-    border: none 0px black;
-    font: var(--intro-message-font);
 }
 
 #content .paragraph .section_header_paragraph

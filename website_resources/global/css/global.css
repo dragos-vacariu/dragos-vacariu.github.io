@@ -271,6 +271,60 @@ nav div{
 
 .dropdown_menu:hover .dropdown_content {display: block;}
 
+.fading_paragraph
+{
+
+    position: relative;
+    word-wrap: break-word;
+    
+    margin: 2% auto;
+    padding: 1%;
+    text-align: center;
+    font: var(--intro-message-font);
+    width: 90%;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+.fading_paragraph.fade-out {
+    opacity: 0;
+}
+
+.fading_paragraph {
+    transition: opacity 0.5s ease-out;
+}
+
+.fading_paragraph .title
+{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 5%;
+    font: var(--big-header-font);
+    text-align: center;
+    color: var(--darkred-color);
+    letter-spacing: var(--big-header-font-letter-spacing);
+    text-shadow: 0.5px 1px pink;
+    border: none 0px black;
+}
+
+.fading_paragraph .message
+{
+    position: relative;
+    width: 100%;
+    margin: 0%;
+    margin-top: 5%;
+    padding: auto;
+    font: var(--intro-message-font);
+    text-align: center;
+    border: none 0px black;
+}
+
 footer{
     height:auto;
     /*background-image: linear-gradient(to right, #aa7700, #995500);*/

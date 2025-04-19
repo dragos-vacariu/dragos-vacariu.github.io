@@ -225,6 +225,42 @@ function Controller_Function($scope)
     ];
 }
 
+/*Adding fading-out transition to the homepage first paragraph*/
+window.addEventListener("scroll", function () 
+{
+    const fading_elements = document.getElementsByClassName("fading_paragraph");
+    const page_header = document.getElementById("page_header");
+    
+    for(var index=0; index < fading_elements.length; index++)
+    {
+        const rect = fading_elements[index].getBoundingClientRect();
+        const elementHeight = rect.height;
+
+        // Adjust visible area to account for sticky nav
+        const viewportTop = page_header.getBoundingClientRect().height;
+        const viewportBottom = window.innerHeight;
+
+        const visibleTop = Math.max(rect.top, viewportTop);
+        const visibleBottom = Math.min(rect.bottom, viewportBottom);
+
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const ratio = visibleHeight / elementHeight;
+
+        // Fade out when visible part is less than..
+        if (ratio < 0.8) 
+        {
+          //fading_elements[index].style.opacity = ratio * 2; // Smooth transition
+          fading_elements[index].classList.add("fade-out");
+        } 
+        else 
+        {
+          //fading_elements[index].style.opacity = 1;
+          fading_elements[index].classList.remove("fade-out");
+        }
+    }
+});
+
+
 /*
 //This works on client side and is not suitable for visit counter
 //localStorage could be used to store various settings on client side similar to document.cookie
