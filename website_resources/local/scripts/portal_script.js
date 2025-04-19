@@ -46,7 +46,7 @@ selection_type.appendChild(createLiElement("multiple", false, switchSelectionTyp
 const table_content = document.getElementById("table_content");
 
 const language_title_style = "color: black; font: var(--paragraph-header-font); text-align: center; text-transform: uppercase; border: outset 1px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 1% 0%; background-image: radial-gradient(circle, rgba(255,255,255,0.1), rgba(143,55,0, 0.05)); letter-spacing: 2px;";
-const concept_title_style = "color: var(--darkred-color); font: var(--big-header-font); font-style: normal; text-align: left; text-transform: capitalize; border: groove 0.2vw rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: var(--big-header-font-letter-spacing)";
+const concept_title_style = "color: var(--darkred-color); font: var(--big-header-font);  text-align: left; text-transform: capitalize; border: groove 0.2vw rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%; background-image: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1)); letter-spacing: var(--big-header-font-letter-spacing)";
 const concept_value_style = "color: black; text-shadow: 0px 0px #663300; font:var(--paragraph-font); text-align: left; text-transform: none; border: none 0px rgba(143,55,0, 0.1); width: 98%; padding: 1%; margin: 0%;"
 const cell_style = "vertical-align: top;";
 
@@ -1690,15 +1690,23 @@ function saveWebPage()
         
         //Removing external resources from page's source, so no errors will popup
         finalHtml = finalHtml.replaceAll('<link rel="stylesheet" href="./website_resources/global/css/global.css">', "");
-        finalHtml = finalHtml.replaceAll('<link rel="stylesheet" href="./website_resources/global/css/portal_page.css">', "");
+        finalHtml = finalHtml.replaceAll('<link rel="stylesheet" href="./website_resources/local/css/portal_page.css">', "");
         finalHtml = finalHtml.replaceAll('<link rel="icon" type="image/x-icon" href="./website_resources/global/images/favicon.ico">', "");
         finalHtml = finalHtml.replaceAll('<script src="./website_resources/global/scripts/global_script.js"></script>', "");
         finalHtml = finalHtml.replaceAll('<script src="./website_resources/local/scripts/portal_script.js"></script>', "");
+        finalHtml = finalHtml.replaceAll('<script src="./website_resources/global/scripts/page_selection_styling.js"></script>', "");
+        finalHtml = finalHtml.replaceAll('<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>', "");
         
-        /*This will ensure we will still access the same fonts.*/
+        /*This will ensure we will still access the same fonts and background images.*/
         finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/ZenDots-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources//global/fonts/ZenDots-Regular.ttf");');
         finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/FjallaOne-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/FjallaOne-Regular.ttf");');
         finalHtml = finalHtml.replaceAll('src: url("../../global/fonts/ZenTokyoZoo-Regular.ttf");', 'src: url("https://dragos-vacariu.github.io/website_resources/global/fonts/ZenTokyoZoo-Regular.ttf");');
+        finalHtml = finalHtml.replaceAll('--header-footer-background-image: url("../images/header_footer_texture.jpg");', '--header-footer-background-image: url("https://dragos-vacariu.github.io/website_resources/global/images/header_footer_texture.jpg");');
+        finalHtml = finalHtml.replaceAll('<img id="logo" src="file:///C:/Users/black/Documents/GitHub/dragos-vacariu.github.io/website_resources/global/images/logo.png" alt="logo image">', '<img id="logo" src="https://dragos-vacariu.github.io/website_resources/global/images/logo.png" alt="logo image">');
+        finalHtml = finalHtml.replaceAll('<img id="logo" src="file:///C:/Users/black/Documents/GitHub/dragos-vacariu.github.io/website_resources/global/images/logo.png" alt="logo image">', '<img id="logo" src="https://dragos-vacariu.github.io/website_resources/global/images/logo.png" alt="logo image">');
+        
+        /*Removing the hovering effect, as now the page is not interactable, it's just a screenshot*/
+        finalHtml = finalHtml.replaceAll(':hover', '::hover');
         
         /*This will ensure we will still be able to see the pictures*/
         finalHtml = finalHtml.replaceAll('<img class="database_image" src="./website_resources/local/database/pictures/', '<img class="database_image" src="https://dragos-vacariu.github.io/website_resources/local/database/pictures/');
