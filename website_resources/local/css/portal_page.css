@@ -52,7 +52,14 @@
     top:0%;
     margin:0px;
     margin-left:2px;
-    height: 98vh; /*height in percent of viewport height*/
+    
+    /* this will ensure that the menu will never go beneath the header nav*/
+    /*top: 120px;*/ 
+    /*height: calc(100vh - 120px);*/ /*fills remaining space */
+    /*This will be done from JavaScript as I can't get the actual height of the header*/
+    
+    /*height: 98vh;*/ /*height in percent of viewport height*/
+    
     padding: 2px;
     /*border: solid 1px #995500;*/
     border: groove 0.5vw rgba(0,0,0,0.1);

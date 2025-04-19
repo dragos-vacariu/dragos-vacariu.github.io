@@ -1749,6 +1749,22 @@ document.getElementById("searchButton").addEventListener("click", function (e) {
     SearchFunction(e);
 });
 
+function updateSidebarOffset() 
+{
+    const navbar = document.getElementById("page_header");
+    const sideMenu = document.getElementById("menu_div");
+
+    const navbarHeight = navbar.offsetHeight;
+
+    // Set dynamic top and height
+    sideMenu.style.top = navbarHeight + "px";
+    sideMenu.style.height = "calc(100vh - " + navbarHeight + "px)";
+}
+
+//Call on load and on resize (if navbar might change height)
+window.addEventListener("DOMContentLoaded", updateSidebarOffset);
+window.addEventListener("resize", updateSidebarOffset);
+
 //Triggered event when clicking on clearSearchButton
 document.getElementById("clearSearchButton").addEventListener("click", function (e) {ClearSearchBox();});
 
