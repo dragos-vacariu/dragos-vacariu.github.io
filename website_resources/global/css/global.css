@@ -267,7 +267,7 @@ nav div{
     display: block;
 }
 
-.dropdown_content a:hover {background-color: red;}
+.dropdown_content a:hover {background-color: var(--darkred-color); color: white;}
 
 .dropdown_menu:hover .dropdown_content {display: block;}
 
