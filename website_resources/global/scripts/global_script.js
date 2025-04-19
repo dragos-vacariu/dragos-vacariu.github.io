@@ -161,6 +161,7 @@ function Controller_Function($scope)
             {name: "Musician Web Page Template", value : "../../Html-Projects/Web Templates/project39 musician web page template/index.html"},
             {name: "Python MP3 Player Webpage", value : "../../Html-Projects/Web Templates/project40 python mp3 player webpage/index.html"},
             {name: "Free Sound Effects Web Template", value : "../../Html-Projects/Web Templates/free sound effects web template/index.html"},
+            {name: "Old Portfolio", value : "../../Html-Projects/Web Templates/portfolio_old/index.html"},
     ];
     $scope.c_sharp_projects_catalogue = [
             {name: "WWBM Quizz Game", value : "CSharp-Projects/WWBM Quizz Game.html"},
