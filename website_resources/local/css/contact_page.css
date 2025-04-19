@@ -10,7 +10,7 @@
     border: groove 0.5vw rgba(0,0,0,0.1);
     border-radius: 5vw;
     background-color: var(--header-footer-color);
-    background-image: url("../images/tex.jpg");
+    background-image: url("../images/contact_message_texture.jpg");
     background-blend-mode: overlay;
     background-position: center;
     background-size: var(--header-footer-background-size);
