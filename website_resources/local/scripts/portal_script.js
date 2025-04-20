@@ -812,7 +812,7 @@ function toggleConceptOnOff(concept_element)
         }
         updateCookie("SingleSelectionConcept", concept_element.innerHTML);
         //each time a new item is selected just scroll to the beggining
-        window.scrollTo(0, 400);
+        window.scrollTo(0, 250);
     }
     else if(selection_type.children[1].value == true)
     {
@@ -1638,16 +1638,6 @@ function ClearSearchBox()
         searchBox.value = "";
         SearchFunction(); // this should not put everything as it used to be before the search
     }
-}
-
-function workaroundForFooterRoutedLinksForPortalPage(value)
-{
-    /*This function will be called if I'm on the Portal Page and click on a footer link pointing to a 
-    route of the Portal Page*/
-    window.location.href = value
-    
-    /*Force a reload, that will ensure the route is loaded*/
-    window.location.reload()
 }
 
 function getObjectSize(obj) 

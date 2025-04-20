@@ -7,7 +7,8 @@ const page_footer = `
             <p class="column_title">{{list_item.name}}:</p>
             <ul class="footer_list">
                 <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                <li ng-if = "list_item.content == 'objects_with_links'" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
+                <li ng-if = "list_item.content == 'objects_with_links' && isPortalPage == true" ng-repeat="item in list_item.list_values"><a href="{{item.value}}" ng-click="workaroundForFooterRoutedLinksForPortalPage(item.value)">{{item.name}}aa</a></li>
+                <li ng-if = "list_item.content == 'objects_with_links' && isPortalPage == false" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
             </ul>
         </div>
     </div>
@@ -60,6 +61,9 @@ var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : r
 function Controller_Function($scope)
 {
     //Initializing the models;
+    var baseUrl = window.location.href.split("#")[0]
+    $scope.isPortalPage = baseUrl.endsWith(rootDir + "/portal.html") || 
+                          baseUrl.endsWith(rootDir + "/portal_classic.html");
     $scope.dotSlash = "./";
     $scope.exitDir = "../";
     $scope.root = rootDir;
@@ -224,6 +228,19 @@ function Controller_Function($scope)
             {name: "Java 2D Racing Environment", value : "../../Portable-Downloads/Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.rar"},
             {name: "JavaScript Games Portable", value : "../../Portable-Downloads/JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
     ];
+    
+    
+    $scope.workaroundForFooterRoutedLinksForPortalPage = function(value)
+    {
+        /*This function will be called if I'm on the Portal Page and click on a footer link pointing to a 
+        route of the Portal Page*/
+        window.location.href = value
+        
+        /*Go to the beggining*/
+        window.scrollTo(0,0);
+        /*Force a reload, that will ensure the route is loaded*/
+        window.location.reload()
+    }
 }
 
 /*Adding fading-out transition to the homepage first paragraph*/

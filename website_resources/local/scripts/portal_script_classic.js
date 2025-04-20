@@ -684,16 +684,6 @@ function updateRoute()
     window.location.href = href + "#" + routeString;
 }
 
-function workaroundForFooterRoutedLinksForPortalPage(value)
-{
-    /*This function will be called if I'm on the Portal Page and click on a footer link pointing to a 
-    route of the Portal Page*/
-    window.location.href = value
-    
-    /*Force a reload, that will ensure the route is loaded*/
-    window.location.reload()
-}
-
 //Restore the cookies which can be restored before accessing the database
 restoreCookiePredefinedElements();
 
