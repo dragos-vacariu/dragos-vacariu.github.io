@@ -735,11 +735,16 @@ function fillTableRegular()
                             cell.appendChild(p);
                             cell.style = cell_style;
                             
+                            /*Insert the concept value within the cell*/
                             row = table_content.insertRow();
                             cell = row.insertCell();
+                            cell.style = cell_style;
                             
+                            /*Inserting buttons elements at the end of each paragraph based on the selection type*/
                             if(selection_type.children[0].value == true)
                             {
+                                /*Selection type is single. We'll insert 2 buttons for switching between Previous / Next Concepts*/
+                                
                                 var ul = document.createElement("ul");
                                 ul.style = "position: relative; width:  auto; padding: 0%;" +
                                             "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
@@ -747,14 +752,15 @@ function fillTableRegular()
                                 
                                 if (concept_index-1 >= 0)
                                 {
-                                    var li = createLiElement("◀ Previous", false, nextPreviousConceptBehaviour)
+                                    var li = createLiElement("◀ Previous", false, paragraphButtonBehavior);
                                     var span = document.createElement("span");
                                     li.innerHTML += "<br>";
                                     span.innerHTML = concept_selection.children[concept_index-1].innerHTML;
+                                    li.concept_substitue = concept_selection.children[concept_index-1].innerHTML;
                                     span.style.setProperty("color", "var(--darkred-color)");
                                     span.style.setProperty("font-weight", "normal");
                                     span.id = "concept_name_value";
-                                    li.append(span)
+                                    li.append(span);
                                     li.style.setProperty("display", "block"); /*if our li has children, those children will be displayed underneath*/
                                     li.style.setProperty("text-align", "center");
                                     li.style.setProperty("border-radius", "2vw");
@@ -765,10 +771,11 @@ function fillTableRegular()
                                 }
                                 if (concept_index+1 < concept_collection.length)
                                 {
-                                    var li = createLiElement(" Next ▶", false, nextPreviousConceptBehaviour)
+                                    var li = createLiElement(" Next ▶", false, paragraphButtonBehavior);
                                     var span = document.createElement("span");
                                     li.innerHTML += "<br>";
                                     span.innerHTML = concept_selection.children[concept_index+1].innerHTML;
+                                    li.concept_substitue = concept_selection.children[concept_index+1].innerHTML;
                                     span.style.setProperty("color", "var(--darkred-color)");
                                     span.style.setProperty("font-weight", "normal");
                                     span.id = "concept_name_value";
@@ -782,33 +789,65 @@ function fillTableRegular()
                                     li.style.setProperty("border", "solid 1px black");
                                     li.style.setProperty("overflow", "hidden"); /*this will ensure the content of the li will not overlap outside the ul*/
                                     li.style.setProperty("box-sizing", "border-box"); /*borders size will be contained within the element's width*/
-                                    ul.appendChild(li)
+                                    ul.appendChild(li);
                                 }
                                 cell.appendChild(ul);
 
                             }
+                            else
+                            {
+                                var p = document.createElement("p");
+                                p.style = concept_title_style;
+                                p.innerHTML = "<sub style='font-variant: small-caps'>" +  manifests[index].name  + " - " + concept_selection.children[concept_index].innerHTML + "</sub>"
+                                p.style.setProperty("text-align", "center");
+
+                                cell.append(p)
+                                
+                                /*Selection type is multiple. We'll insert 1 buttons for deselection of the Concept element that was read.*/
+                                var ul = document.createElement("ul");
+                                ul.style = "position: relative; width:  auto; padding: 0%;" +
+                                            "display: block;" + /*this will ensure we have 2 columns of equal size*/
+                                            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
+                                
+
+                                var li = createLiElement("↑ Deselect", false, paragraphButtonBehavior);
+                                li.concept_substitue = concept_selection.children[concept_index].innerHTML;
+                                
+                                //li.insertAdjacentElement('afterbegin', sup)
+                                li.style.setProperty("display", "inline-block"); /*if our li has children, those children will be displayed underneath*/
+
+                                li.style.setProperty("text-align", "center");
+                                li.style.setProperty("border-radius", "2vw");
+                                li.style.setProperty("padding", "0% 2%");
+                                li.style.setProperty("border", "solid 1px black");
+                                li.style.setProperty("width", "auto");
+                                li.style.setProperty("overflow", "hidden"); /*this will ensure the content of the li will not overlap outside the ul*/
+                                li.style.setProperty("box-sizing", "border-box"); /*borders size will be contained within the element's width*/
+                                ul.appendChild(li);
+                                cell.appendChild(ul);
+                                cell.style = cell_style;
+                            }
                             
-                            cell.style = cell_style;
+                            //THIS CODE IS NOT NEEDED HERE:
+                            //else if (view_selection.children[1].value == true)
+                            //{
+                            //    row = table_content.insertRow();
+                            //    cell = row.insertCell(); //empty cell
+                            //
+                            //    /*Insert the concept name within the cell*/
+                            //    var p = document.createElement("p");
+                            //    p.innerHTML = concept_collection[concept_index] + ":";
+                            //    p.style = concept_title_style;
+                            //    cell.appendChild(p);
+                            //    p = document.createElement("p");
+                            //    
+                            //    p.innerHTML += "Concept not present in this manifest.";
+                            //    
+                            //    p.style = concept_value_style;
+                            //    cell.appendChild(p);
+                            //    cell.style = cell_style;
+                            //}
                         }
-                        //
-                        //else if (view_selection.children[1].value == true)
-                        //{
-                        //    row = table_content.insertRow();
-                        //    cell = row.insertCell(); //empty cell
-                        //
-                        //    /*Insert the concept name within the cell*/
-                        //    var p = document.createElement("p");
-                        //    p.innerHTML = concept_collection[concept_index] + ":";
-                        //    p.style = concept_title_style;
-                        //    cell.appendChild(p);
-                        //    p = document.createElement("p");
-                        //    
-                        //    p.innerHTML += "Concept not present in this manifest.";
-                        //    
-                        //    p.style = concept_value_style;
-                        //    cell.appendChild(p);
-                        //    cell.style = cell_style;
-                        //}
                     }
                 }
             }
@@ -889,20 +928,19 @@ function toggleConceptOnOff(concept_element)
     showTable();
 }
 
-function nextPreviousConceptBehaviour()
+function paragraphButtonBehavior()
 {
-    const concept_name_value = this.querySelector("#concept_name_value").innerHTML
-    /*This function will be called when switching the concept from within the paragraph*/
-    if(selection_type.children[0].value == true)
+    /*This function will be called when clicking the paragraph buttons for Deselect Concepts or switching Previous/Next Concepts*/
+    
+    //const concept_name_value = this.querySelector("#concept_name_value").innerHTML;
+    for(var index=0; index < concept_selection.children.length; index++)
     {
-        for(var index=0; index < concept_selection.children.length; index++)
-        {
 
-            if(concept_selection.children[index].innerHTML == concept_name_value)
-            {
-                concept_selection.children[index].click();
-                return;
-            }
+        if(concept_selection.children[index].innerHTML == this.concept_substitue)
+        {
+            concept_selection.children[index].click();
+            //window.scrollTo(0, window.scrollY-500);
+            return;
         }
     }
 }
