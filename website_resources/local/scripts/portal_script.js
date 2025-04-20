@@ -647,7 +647,7 @@ function fillTableCompare()
                         cell = row.insertCell(); //empty cell
                         /*Insert the concept name within the cell*/
                         var p = document.createElement("p");
-                        p.innerHTML = concept_collection[concept_index] + ": <sup>(Concept)</sup>";
+                        p.innerHTML =  "<sup>" + manifests[index].name + "</sup> "+ concept_collection[concept_index] + ": <sup>(Concept)</sup>";
                         p.style = concept_title_style;
                         cell.appendChild(p);
                         p = document.createElement("p");
@@ -722,7 +722,7 @@ function fillTableRegular()
 
                             /*Insert the concept name within the cell*/
                             var p = document.createElement("p");
-                            p.innerHTML = concept_collection[concept_index] + ":<sup>(Concept)</sup>";
+                            p.innerHTML = "<sup>" + manifests[index].name + "</sup> "+ concept_collection[concept_index] + ":<sup>(Concept)</sup>";
                             p.style = concept_title_style;
                             cell.appendChild(p);
                             p = document.createElement("p");
@@ -730,29 +730,85 @@ function fillTableRegular()
                             p.innerHTML += manifests[index].concepts[found_element_index].concept_value;
                             checkCopyConceptFromGeneralKnowledge(p, manifests[index].concepts[found_element_index]);
                             
+                                                        
                             p.style = concept_value_style;
                             cell.appendChild(p);
                             cell.style = cell_style;
-                                                    
-                        }
-                        else if (view_selection.children[1].value == true)
-                        {
+                            
                             row = table_content.insertRow();
-                            cell = row.insertCell(); //empty cell
+                            cell = row.insertCell();
+                            
+                            if(selection_type.children[0].value == true)
+                            {
+                                var ul = document.createElement("ul");
+                                ul.style = "position: relative; width:  auto; padding: 0%;" +
+                                            "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
+                                            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
+                                
+                                if (concept_index-1 >= 0)
+                                {
+                                    var li = createLiElement("◀ Previous", false, nextPreviousConceptBehaviour)
+                                    var span = document.createElement("span");
+                                    li.innerHTML += "<br>";
+                                    span.innerHTML = concept_selection.children[concept_index-1].innerHTML;
+                                    span.style.setProperty("color", "var(--darkred-color)");
+                                    span.style.setProperty("font-weight", "normal");
+                                    span.id = "concept_name_value";
+                                    li.append(span)
+                                    li.style.setProperty("display", "block"); /*if our li has children, those children will be displayed underneath*/
+                                    li.style.setProperty("text-align", "center");
+                                    li.style.setProperty("border-radius", "2vw");
+                                    li.style.setProperty("border", "solid 1px black");
+                                    li.style.setProperty("overflow", "hidden"); /*this will ensure the content of the li will not overlap outside the ul*/
+                                    li.style.setProperty("box-sizing", "border-box"); /*borders size will be contained within the element's width*/
+                                    ul.appendChild(li);
+                                }
+                                if (concept_index+1 < concept_collection.length)
+                                {
+                                    var li = createLiElement(" Next ▶", false, nextPreviousConceptBehaviour)
+                                    var span = document.createElement("span");
+                                    li.innerHTML += "<br>";
+                                    span.innerHTML = concept_selection.children[concept_index+1].innerHTML;
+                                    span.style.setProperty("color", "var(--darkred-color)");
+                                    span.style.setProperty("font-weight", "normal");
+                                    span.id = "concept_name_value";
+                                    
+                                    //li.insertAdjacentElement('afterbegin', span); /*Inserting child before the actual content of li element*/
+                                    
+                                    li.append(span);
+                                    li.style.setProperty("display", "block"); /*if our li has children, those children will be displayed underneath*/
+                                    li.style.setProperty("text-align", "center");
+                                    li.style.setProperty("border-radius", "2vw");
+                                    li.style.setProperty("border", "solid 1px black");
+                                    li.style.setProperty("overflow", "hidden"); /*this will ensure the content of the li will not overlap outside the ul*/
+                                    li.style.setProperty("box-sizing", "border-box"); /*borders size will be contained within the element's width*/
+                                    ul.appendChild(li)
+                                }
+                                cell.appendChild(ul);
 
-                            /*Insert the concept name within the cell*/
-                            var p = document.createElement("p");
-                            p.innerHTML = concept_collection[concept_index] + ":";
-                            p.style = concept_title_style;
-                            cell.appendChild(p);
-                            p = document.createElement("p");
+                            }
                             
-                            p.innerHTML += "Concept not present in this manifest.";
-                            
-                            p.style = concept_value_style;
-                            cell.appendChild(p);
                             cell.style = cell_style;
                         }
+                        //
+                        //else if (view_selection.children[1].value == true)
+                        //{
+                        //    row = table_content.insertRow();
+                        //    cell = row.insertCell(); //empty cell
+                        //
+                        //    /*Insert the concept name within the cell*/
+                        //    var p = document.createElement("p");
+                        //    p.innerHTML = concept_collection[concept_index] + ":";
+                        //    p.style = concept_title_style;
+                        //    cell.appendChild(p);
+                        //    p = document.createElement("p");
+                        //    
+                        //    p.innerHTML += "Concept not present in this manifest.";
+                        //    
+                        //    p.style = concept_value_style;
+                        //    cell.appendChild(p);
+                        //    cell.style = cell_style;
+                        //}
                     }
                 }
             }
@@ -760,7 +816,7 @@ function fillTableRegular()
     }
 }
 
-function createLiElement(string_value, enablingStatus, function_behaviour, class_style="selection_list_element")
+function createLiElement(string_value, enablingStatus, function_behaviour, class_name="selection_list_element")
 {
     /*
     This function will create li elements to allow selection and deselection of elements 
@@ -769,9 +825,9 @@ function createLiElement(string_value, enablingStatus, function_behaviour, class
     var li = document.createElement("li");
     li.appendChild(document.createTextNode(string_value));
     li.value = enablingStatus;
-    if(class_style != "")
+    if(class_name != "")
     {
-        li.classList.add(class_style);
+        li.classList.add(class_name);
     }
     if (li.value == true)
     {
@@ -809,6 +865,7 @@ function toggleConceptOnOff(concept_element)
                 concept_element.value = true;
                 concept_element.style = tag_selection_on;
             }
+            console.log(concept_element.value);
         }
         updateCookie("SingleSelectionConcept", concept_element.innerHTML);
         //each time a new item is selected just scroll to the beggining
@@ -831,6 +888,25 @@ function toggleConceptOnOff(concept_element)
     allConceptsSelection = false;
     showTable();
 }
+
+function nextPreviousConceptBehaviour()
+{
+    const concept_name_value = this.querySelector("#concept_name_value").innerHTML
+    /*This function will be called when switching the concept from within the paragraph*/
+    if(selection_type.children[0].value == true)
+    {
+        for(var index=0; index < concept_selection.children.length; index++)
+        {
+
+            if(concept_selection.children[index].innerHTML == concept_name_value)
+            {
+                concept_selection.children[index].click();
+                return;
+            }
+        }
+    }
+}
+
 
 function manifestSelectionBehaviour()
 {

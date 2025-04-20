@@ -507,6 +507,10 @@ sub, sup{
     text-transform: none;
     letter-spacing: 1px;
     line-height: 10px;
+    word-wrap: break-word; /* For older browsers */
+    overflow-wrap: break-word; /* For modern browsers */
+    white-space: normal; /* Allow normal whitespace handling */
+}
 }
 
 

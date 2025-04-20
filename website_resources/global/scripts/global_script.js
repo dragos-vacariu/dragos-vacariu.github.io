@@ -30,7 +30,7 @@ const page_header = `
             </div>
             <nav>
                 <div class = "menu_page_item" ng-repeat="page in pageObject.page_navigation">
-                    <a ng-if="page.name!='Project Catalogue'" class = "outer_href" href={{page.value}}>{{page.name}}</a>
+                    <a ng-if="page.name!='Project Catalogue'" id={{page.name}} class = "outer_href" href={{page.value}}>{{page.name}}</a>
                     
                     <div ng-if="page.name=='Project Catalogue'" class="dropdown_menu" style="padding:0%;">
                         <a class="outer_href">{{pageObject.page_navigation[1].name}}▼</a>
