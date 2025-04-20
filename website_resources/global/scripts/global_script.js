@@ -7,7 +7,7 @@ const page_footer = `
             <p class="column_title">{{list_item.name}}:</p>
             <ul class="footer_list">
                 <li ng-if = "list_item.content == 'text'" ng-repeat="item in list_item.list_values">{{item}}</li>
-                <li ng-if = "list_item.content == 'objects_with_links' && isPortalPage == true" ng-repeat="item in list_item.list_values"><a href="{{item.value}}" ng-click="workaroundForFooterRoutedLinksForPortalPage(item.value)">{{item.name}}aa</a></li>
+                <li ng-if = "list_item.content == 'objects_with_links' && isPortalPage == true" ng-repeat="item in list_item.list_values"><a href="{{item.value}}" ng-click="workaroundForFooterRoutedLinksForPortalPage(item.value)">{{item.name}}</a></li>
                 <li ng-if = "list_item.content == 'objects_with_links' && isPortalPage == false" ng-repeat="item in list_item.list_values"><a href="{{item.value}}">{{item.name}}</a></li>
             </ul>
         </div>
