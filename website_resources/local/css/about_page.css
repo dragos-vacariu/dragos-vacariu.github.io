@@ -187,3 +187,14 @@
 #page_block a:hover{
     color: red;
 }
+
+#final_image{
+    margin: 0% auto;
+    margin-bottom: 2%;
+    width: 80%;
+}
+
+#final_image img{
+    width: 100%;
+    opacity: 0.6;
+}
