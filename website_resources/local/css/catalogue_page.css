@@ -93,7 +93,7 @@
 }
 
 #catalogue_div_left a{
-    color: red;
+
     font-family: ZenDots;
     letter-spacing: 2px;
     margin: 0px;
@@ -101,10 +101,6 @@
     font-weight: bold;
     text-decoration: none;
     font-size: 1.5rem;
-}
-
-#catalogue_div_left a:hover{
-    color: blue;
 }
 
 /*part of #catalogue_div_left*/
