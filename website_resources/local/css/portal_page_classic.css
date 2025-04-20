@@ -13,7 +13,7 @@
     background-color: var(--header-footer-color);
     /*background-color: rgba(153,85,00, 0.1);
     background-image: linear-gradient(to right, rgba(153,85,00, 0.1), rgba(153,85,0, 0.3));*/
-    text-shadow: 1px 1px white;
+    text-shadow: 0px 0px black;
     word-wrap: break-word;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -48,7 +48,7 @@
     margin: 0%;
     margin-bottom: 1%;
     padding: 10px;
-    text-shadow: 1px 1px white;
+    text-shadow: 0px 0px black;
     text-decoration: none;
 }
 
@@ -58,7 +58,7 @@
     margin: 0%;
     margin-bottom: 1%;
     padding: auto;
-    text-shadow: 1px 1px white;
+    text-shadow: 0px 0px black;
     text-decoration: none;
 }
 
@@ -70,10 +70,13 @@
   content: none;
 }
 
-#database_infoq blue{
+#page_block #database_info q blue{
+    position: relative;
+    
+    /*Overwriting parent properties*/
     font-family: Consolas;
-    font-size:12px;
-    color: blue;
+    font-weight: bold;
+    color: rgba(255,0,0,1.0);
 }
 
 #page_block h4 .selection_title{

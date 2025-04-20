@@ -906,6 +906,7 @@ function toggleConceptOnOff(concept_element)
             }
             console.log(concept_element.value);
         }
+        
         updateCookie("SingleSelectionConcept", concept_element.innerHTML);
         //each time a new item is selected just scroll to the beggining
         window.scrollTo(0, 250);
