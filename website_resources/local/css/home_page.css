@@ -100,7 +100,9 @@
     border: none 0px black;
 }
 
-.ref_pic{
+.img_container{
+    overflow: visible;
+    position: relative; /*this will ensure the absolute elements are contained*/
     width:6%;
     min-width:50px;
     border: none 0px black;
@@ -109,3 +111,41 @@
     border:solid 1px rgba(0,0,180,1);
     border-radius: 10vw;
 }
+
+.ref_pic{
+    width:100%;
+}
+
+/*Tooltip is used for adding additional info on hovering on an element*/
+.img_container tooltip{
+    color: black;
+    font: var(--mini-font);
+    position: absolute;
+    margin: 0%;
+    /*Aligning the item with the parent*/
+    /*width: 100%;*/
+    max-width: none;
+    top:100%;
+    left: 0%;
+    visibility: hidden;
+    text-align: center;
+    z-index: 1;
+    padding: 5px;
+    border-radius: 6px;
+    white-space: normal;
+    word-wrap: break-word;
+    border: solid 1px black;
+    /*background-image: linear-gradient(to right, white, #ffeecc);*/
+    background-color: white;
+    background-image: radial-gradient(circle, rgba(255,255,255,1.0), rgba(143,55,0, 0.05));
+}
+
+.img_container:hover tooltip {
+    display: block;
+    visibility: visible;
+}
+.img_container:hover{
+    background-color: rgba(0,0,255,0.1);
+}
+
+/*End of tooltip*/

@@ -457,7 +457,6 @@ searchHighlight{
     color: #aa0000;
 }
 
-/*Tooltip is used for adding additional info on hovering on an element*/
 #page_block red{
     color: #dd0000;
     font-weight: inherit;
@@ -514,31 +513,6 @@ searchHighlight{
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
-
-#page_block red tooltip{
-    color: black;
-    font-family: inherit;
-    font-size: inherit;
-    position: absolute;
-    /*Aligning the item with the parent*/
-    min-width: 200%;
-    max-width: 800%;
-    top:100%;
-    left: -25%;
-    visibility: hidden;
-    text-align: center;
-    z-index: 1;
-    padding: 5px 0;
-    border-radius: 6px;
-    border: solid 1px black;
-    background-image: linear-gradient(to right, white, #ffeecc);
-    
-}
-
-#page_block red:hover tooltip {
-  visibility: visible;
-}
-/*End of tooltip*/
 
 #page_block brown
 {

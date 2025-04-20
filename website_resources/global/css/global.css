@@ -29,7 +29,7 @@
 @media (max-width: 768px) {
     :root
     {
-        --big-header-font: italic bold 1.6rem/1.0 Calibri, serif;
+        --big-header-font: italic bold 1.5rem/1.0 Calibri, serif;
         --intro-message-font: italic normal 1.1rem/1.6 Georgia, serif;
         --paragraph-font: normal normal 1rem/1.6 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
@@ -42,7 +42,7 @@
 @media (max-width: 480px) {
     :root
     {
-        --big-header-font: italic bold 1.4rem/1.0 Calibri, serif;
+        --big-header-font: italic bold 1.2rem/1.0 Calibri, serif;
         --intro-message-font: italic normal 0.9rem/1.5 Georgia, serif;
         --paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
@@ -507,6 +507,7 @@ sub, sup{
     font-variant: normal;
     text-transform: none;
     letter-spacing: 1px;
+    line-height: 10px;
 }
 
 

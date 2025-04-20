@@ -3,15 +3,30 @@
     box-shadow: none;
 }
 
+@keyframes sub_animation{
+    0%{color:black;}
+    25%{color:var(--darkred-color);}
+    50%{color:var(--darkblue-color);}
+    75%{color:var(--darkred-color);}
+    100%{color:black;}
+}
+
+#page_block #introduction sub
+{
+    animation-name: none;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;*/
+}
+
 #page_block #introduction{
     margin: auto;
-    padding:1%;
+    padding:0%;
     width:96%;
-    font-family: var(--paragraph-font);
+    font: var(--big-header-font);
     text-align: center;
     /*background-color: rgba(153,85,00, 0.1);*/
     
-    text-shadow: 1px 1px white;
+    text-shadow: 0px 0px black;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -60,6 +75,10 @@
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     line-height: 25px;
+}
+
+#page_block .paragraph p{
+    margin: 20px auto;
 }
 
 #page_block .section_div{
