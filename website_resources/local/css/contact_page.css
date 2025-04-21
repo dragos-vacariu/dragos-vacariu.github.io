@@ -91,7 +91,7 @@ article p{
     width: fit-content;
     font: var(paragraph-font);
     border: none 0px black;
-    padding: 0.5%;
+    padding: 5px;
     margin: 0.5%;
 }
 

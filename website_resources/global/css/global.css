@@ -235,7 +235,7 @@ nav div{
     width: 120px;
     max-width: 90%;
     padding: 0px;
-    margin: 0%;
+    margin: 10px 0px;
     word-wrap:break-word;
     border: none 0px black;
     display: inline-block;
