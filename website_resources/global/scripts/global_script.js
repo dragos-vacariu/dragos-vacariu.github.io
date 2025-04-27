@@ -182,7 +182,7 @@ function Controller_Function($scope)
             {name: "Traffic Simulator 2D", value : "Cpp-OpenGL-Projects/Traffic Simulator 2D.html"},
     ];
     $scope.embedded_c_catalogue = [
-            {name: "Embedded Timer", value : "Embedded-C-Projects/Embedded Timer.html"},
+            {name: "Embedded Countdown Timer", value : "Embedded-C-Projects/Embedded Countdown Timer.html"},
     ];
     $scope.angularjs_projects_catalogue = [
             {value: "../../AngularJS/Applications/project26-27 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
