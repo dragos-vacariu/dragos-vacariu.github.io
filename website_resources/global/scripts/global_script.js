@@ -80,6 +80,7 @@ function Controller_Function($scope)
     $scope.javascript_games_presentation_video = {name: "Video Presentation Page", value : "/catalogue/Javascript-Games-Presentation-Video.html"};
     $scope.javascript_webapps_page = {name: "JavaScript WebApps", value : rootDir + "/catalogue/Javascript-WebApps.html"}; /*currently not indexed*/
     $scope.portable_downloads_page = {name: "Portable Downloads", value : rootDir + "/catalogue/Portable-Downloads.html"};
+    $scope.github_project_external_links_page = {name: "GitHub Projects Links", value : rootDir + "/catalogue/Github-Projects-Links.html"};
     $scope.github_repository_page = {name: "GitHub Repositories", value : "https://github.com/dragos-vacariu?tab=repositories"};
     
     $scope.pageObject = {
@@ -101,7 +102,8 @@ function Controller_Function($scope)
             $scope.cpp_page,
             $scope.java_page,
             /*$scope.javascript_webapps_page,*/
-            $scope.portable_downloads_page,
+            /*$scope.portable_downloads_page,*/
+            $scope.github_project_external_links_page,
             //$scope.github_repository_page,
         ],
         template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", 
@@ -229,6 +231,15 @@ function Controller_Function($scope)
             {name: "JavaScript Games Portable", value : "../../Portable-Downloads/JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
     ];
     
+    $scope.github_projects_links = [
+            {name: "Python MP3 Player", value : "https://github.com/dragos-vacariu/Python-Projects/tree/master/pyplay%20mp3%20player"},
+            {name: "Unity TowerBlocks", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/TowerBlocks"},
+            {name: "Unity 3D Racing Environment", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/Drag%20Racing"},
+            {name: "C# WWBM Quizz Game", value : "https://github.com/dragos-vacariu/CSharp-Projects/tree/master/VS%20Projects%20GUI/WWBM%20Quizz%20Game"},
+            {name: "OpenGL Traffic Simulator 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Traffic%20Simulator%202D"},
+            {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
+            //{name: "Java MP3 Player", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project34%20java%20mp3%20player%20application"},
+    ];
     
     $scope.workaroundForFooterRoutedLinksForPortalPage = function(value)
     {
