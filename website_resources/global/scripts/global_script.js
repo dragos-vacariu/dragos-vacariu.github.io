@@ -237,7 +237,6 @@ function Controller_Function($scope)
             {name: "C# WWBM Quizz Game", value : "https://github.com/dragos-vacariu/CSharp-Projects/tree/master/VS%20Projects%20GUI/WWBM%20Quizz%20Game"},
             {name: "OpenGL Traffic Simulator 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Traffic%20Simulator%202D"},
             {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
-            {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
             //{name: "Java MP3 Player", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project34%20java%20mp3%20player%20application"},
     ];
     
