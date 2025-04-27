@@ -219,16 +219,15 @@ function Controller_Function($scope)
             {name: "Roadcross Game", value : "../../Javascript-Projects/roadcross_resources/roadcross_game.html"},
     ];
     $scope.portable_downloads = [
-            {name: "Python MP3 Player V3 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V3 - Runnable Script.rar"},
-            {name: "Python MP3 Player V3 - Windows Executable", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V3 - Windows Executable.7z"},
-            {name: "Python MP3 Player V4 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V4 - Runnable Script.7z"},
-            {name: "Python MP3 Player V4 - Windows Executable", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V4 - Windows Executable.7z"},
+            //{name: "Python MP3 Player V3 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V3 - Runnable Script.7z"},
+            {name: "Python MP3 Player V3 - Windows Executable", value : "../../Portable-Downloads/PyPlay MP3 Player/Windows/Python MP3 Player V3 - Windows Executable.7z"},
+            //{name: "Python MP3 Player V4 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V4 - Runnable Script.7z"},
+            {name: "Python MP3 Player V4 - Windows Executable", value : "../../Portable-Downloads/PyPlay MP3 Player/Windows/Python MP3 Player V4 - Windows Executable.7z"},
             {name: "Unity TowerBlocks", value : "../../Portable-Downloads/TowerBlocks Game/TowerBlocks Game.7z"},
             {name: "Unity 3D Racing Environment", value : "../../Portable-Downloads/Unity 3D Drag Racing Environment/Unity 3D Drag Racing Environment.7z"},
-            {name: "WWBM Quizz Game", value : "../../Portable-Downloads/WWBM Quizz Game/WWBM Quizz Game.rar"},
-            {name: "Traffic Simulator 2D", value : "../../Portable-Downloads/Traffic Simulator 2D/Traffic Simulator 2D.rar"},
-            {name: "Java 2D Racing Environment", value : "../../Portable-Downloads/Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.rar"},
-            {name: "JavaScript Games Portable", value : "../../Portable-Downloads/JavaScript In-Browser Games/Javascript Portable In-Browser Games.rar"},
+            {name: "WWBM Quizz Game", value : "../../Portable-Downloads/WWBM Quizz Game/WWBM Quizz Game.7z"},
+            {name: "Traffic Simulator 2D", value : "../../Portable-Downloads/Traffic Simulator 2D/Traffic Simulator 2D.7z"},
+            {name: "Java 2D Racing Environment", value : "../../Portable-Downloads/Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.7z"},
     ];
     
     $scope.github_projects_links = [
@@ -237,6 +236,7 @@ function Controller_Function($scope)
             {name: "Unity 3D Racing Environment", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/Drag%20Racing"},
             {name: "C# WWBM Quizz Game", value : "https://github.com/dragos-vacariu/CSharp-Projects/tree/master/VS%20Projects%20GUI/WWBM%20Quizz%20Game"},
             {name: "OpenGL Traffic Simulator 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Traffic%20Simulator%202D"},
+            {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
             {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
             //{name: "Java MP3 Player", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project34%20java%20mp3%20player%20application"},
     ];
