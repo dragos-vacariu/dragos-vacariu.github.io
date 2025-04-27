@@ -70,6 +70,7 @@ function Controller_Function($scope)
     
     $scope.java_page = {name: "Java Projects", value: rootDir + "/catalogue/Java-Projects.html"};
     $scope.unity_page = {name: "Unity C# Projects", value: rootDir + "/catalogue/Unity-Csharp-Projects.html"};
+    /*$scope.embedded_c_page = {name: "Embedded C Projects", value: rootDir + "/catalogue/Embedded-C-Projects.html"};*/
     $scope.python_page = {name: "Python tKinter Projects", value: rootDir + "/catalogue/Python-Projects.html"};
     $scope.html_page = {name: "HTML & CSS Templates", value : rootDir + "/catalogue/Html-Projects.html"};
     $scope.c_sharp_page = {name: "C# .NET Projects", value : rootDir + "/catalogue/CSharp-Projects.html"};
@@ -101,6 +102,7 @@ function Controller_Function($scope)
             $scope.angularjs_page,
             $scope.cpp_page,
             $scope.java_page,
+            /*$scope.embedded_c_page,*/
             /*$scope.javascript_webapps_page,*/
             /*$scope.portable_downloads_page,*/
             $scope.github_project_external_links_page,
@@ -179,6 +181,9 @@ function Controller_Function($scope)
     $scope.cpp_opengl_projects_catalogue = [
             {name: "Traffic Simulator 2D", value : "Cpp-OpenGL-Projects/Traffic Simulator 2D.html"},
     ];
+    /*$scope.embedded_c_catalogue = [
+            {name: "Embedded Timer", value : "Embedded-C-Projects/Embedded Timer.html"},
+    ];*/
     $scope.angularjs_projects_catalogue = [
             {value: "../../AngularJS/Applications/project26-27 car shop catalogue/project26 car shop catalogue.html" , name : "Car Shop"},
             {value: "../../AngularJS/Applications/project26-27 car shop catalogue/project27 car shop catalogue new template.html" , name : "Car Shop New"},
