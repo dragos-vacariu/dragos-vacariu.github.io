@@ -1,14 +1,402 @@
-<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
-    <sitemap>
-        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_general.txt</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_main_pages.txt</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_catalogue.txt</loc>
-    </sitemap>
-    <sitemap>
-        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_portal_routes.txt</loc>
-    </sitemap>
-</sitemapindex>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+
+    <!-- Main Pages -->
+    <url><loc>https://dragos-vacariu.github.io/</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/contact.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/about.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal_classic.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    
+    <!-- Catalogue Categories Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Html-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-OpenGL-Projects.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/AngularJS.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-WebApps.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Portable-Downloads.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Java-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java Racing Environment.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Java-Projects/Java MP3 Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Unity-Csharp Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/TowerBlocks.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Unity-Csharp-Projects/Drag Racing.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Python-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Python-Projects/PyPlay Mp3 Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue CSharp-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/WWBM Quizz Game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/CSharp-Projects/MP3Player.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Cpp-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Pocket Calculator.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Cpp-Projects/Traffic Simulator 2D.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Javascript-Projects Pages -->
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/knight_chess_resources/knight_chess_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/snake_resources/snake_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/tetris_resources/tetris_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/towerblocks_resources/tower_blocks_game.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/Javascript-Projects/canvas_snake/canvas_snake.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Catalogue Javascript-Projects Games-Presentation-Video Pages -->
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/knight_chess_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/snake_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/tetris_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/towerblocks_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/catalogue/Javascript-Games-Presentation-Video/canvas_snake_video_page.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+<!-- Portal Route for everything selected-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for each programming languages with every concept selected-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&#38;description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for each programming languages with every concept selected with workaround for google-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C_C++_CSharp_JavaScript_Java_Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@C++&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@CSharp&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Java&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@JavaScript&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@Python&#38;description_generic-programming_variable-arguments-lists_simple-data-types_complex-data-types_preprocessor-directives_loops_collections_collection-methods_dynamic-memory-allocation_read-from-file_write-to-file_serialization_deserialization_enums_concurrent-programming_exception-handling_bitwise-operators_default-parameters_interfaces_macros_defines_random-generators_command-line-arguments_ternary-operator_modular-programming_string-methods_datatype-conversions_optional-parameters_operators_pre-post-incrementation_recursion_polymorphism_oop_encapsulation_inheritance_abstraction_constructors_instantiation_destructors_function-overloading_operator-overloading_namespaces_abstract-classes_decorators_reflection_partial-classes_minification_regular-expressions_lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#multiple@AutoSAR&#38;description_ecu-communication_ecu-networks_can-protocol_can-transceiver_can-controller-driver_can-interface</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for C language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for C++ language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@C++&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for CSharp language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@CSharp&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for Java language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Java&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for JavaScript language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@JavaScript&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for Python language on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;description</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;generic-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;variable-arguments-lists</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;simple-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;complex-data-types</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;preprocessor-directives</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;loops</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collections</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;collection-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;dynamic-memory-allocation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;read-from-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;write-to-file</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;serialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;deserialization</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;enums</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;concurrent-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;exception-handling</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;bitwise-operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;default-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;interfaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;macros</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;defines</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;random-generators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;command-line-arguments</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;ternary-operator</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;modular-programming</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;string-methods</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;datatype-conversions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;optional-parameters</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;pre-post-incrementation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;recursion</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;polymorphism</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;oop</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;encapsulation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;inheritance</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstraction</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;constructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;instantiation</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;destructors</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;function-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;operator-overloading</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;namespaces</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;abstract-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;decorators</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;reflection</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;partial-classes</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;minification</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;regular-expressions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@Python&#38;lambda-anonymous-functions</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+    <!-- Portal Route for AUTOSAR on every available concept-->
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;description%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-communication%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;ecu-networks%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-protocol%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-transceiver%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-controller-driver%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-interface%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+    <url><loc>https://dragos-vacariu.github.io/portal.html#single@AutoSAR&#38;can-collision-detection%regular</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
+
+</urlset>
