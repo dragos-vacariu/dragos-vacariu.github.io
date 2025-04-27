@@ -4,23 +4,23 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     
     <url>
-        <loc>https://dragos-vacariu.github.io/{{page.value}}/</loc>
+        <loc>https://dragos-vacariu.github.io/</loc>
         <priority>0.1</priority>
     </url>
     <url>
-        <loc>https://dragos-vacariu.github.io/{{item.value}}/</loc>
+        <loc>https://dragos-vacariu.github.io/contact.html</loc>
         <priority>0.1</priority>
     </url>
     <url>
-        <loc>https://dragos-vacariu.github.io/{{page.value}}/</loc>
+        <loc>https://dragos-vacariu.github.io/about.html</loc>
         <priority>0.1</priority>
     </url>
     <url>
-        <loc>https://dragos-vacariu.github.io/{{page.value}}/</loc>
+        <loc>https://dragos-vacariu.github.io/portal.html/</loc>
         <priority>0.1</priority>
     </url>
     <url>
-        <loc>https://dragos-vacariu.github.io/{{item.value}}/</loc>
+        <loc>https://dragos-vacariu.github.io/portal_classic.html/</loc>
         <priority>0.1</priority>
     </url>
 </urlset>
