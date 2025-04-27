@@ -1,3 +1,2 @@
 User-agent: *
-
-sitemap: https://dragos-vacariu.github.io/sitemap.xml
+Sitemap: https://dragos-vacariu.github.io/sitemap.xml
