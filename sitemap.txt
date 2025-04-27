@@ -1,0 +1,14 @@
+<sitemapindex xmlns="http://www.google.com/schemas/sitemap/0.84">
+    <sitemap>
+        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_general.txt</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_main_pages.txt</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_catalogue.txt</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://dragos-vacariu.github.io/sitemaps/sitemap_portal_routes.txt</loc>
+    </sitemap>
+</sitemapindex>
