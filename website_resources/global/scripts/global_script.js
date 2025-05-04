@@ -241,7 +241,8 @@ function Controller_Function($scope)
             {name: "Unity TowerBlocks", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/TowerBlocks"},
             {name: "Unity 3D Racing Environment", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/Drag%20Racing"},
             {name: "C# WWBM Quizz Game", value : "https://github.com/dragos-vacariu/CSharp-Projects/tree/master/VS%20Projects%20GUI/WWBM%20Quizz%20Game"},
-            {name: "OpenGL Traffic Simulator 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Traffic%20Simulator%202D"},
+            {name: "OpenGL Car Game Project 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Projects/car%20game%20project"},
+            {name: "OpenGL Traffic Simulator 2D", value : "https://github.com/dragos-vacariu/Cpp-OpenGL-Projects/tree/master/Projects/traffic%20simulator%202d"},
             {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
             //{name: "Java MP3 Player", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project34%20java%20mp3%20player%20application"},
     ];
