@@ -38,11 +38,22 @@
                     <a href ="./Traffic Simulator 2D.html">Traffic Simulator 2D</a>, also developed using C++ and OpenGL.
                     <br></br>
                     <b>Game Mechanics</b>
+                    <br></br>
                     The objective is to drive through traffic while avoiding collisions. The player earns:
-                    <ul>
+                    <ul class="regular_ul">
                         <li><b>+10 points</b> for overtaking another car,</li>
                         <li><b>–5 points</b> for colliding with a traffic car,</li>
                         <li><b>–1 point</b> for each car that overtakes the player.</li>
+                        <li>Game Over occurs when the player's car accumulates over 100% damage.</li>
+                    </ul>
+                    <b>Additional gameplay dynamics:</b>
+                    <ul class="regular_ul">
+                        <li>The player's speed is significantly reduced when leaving the road or during collisions.</li>
+                        <li>Damage severity depends on the type and direction of the collision:</li>
+                        <li>Side collisions cause minor damage.</li>
+                        <li>Frontal collisions with cars moving in the same direction cause moderate damage.</li>
+                        <li>Frontal collisions with cars moving in the opposite direction cause severe 
+                        damage due to the combined impact forces.</li>
                     </ul>
                     <br>
                     <b>Technical Challenges and Solutions</b>
