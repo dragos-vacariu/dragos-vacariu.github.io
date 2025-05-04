@@ -179,6 +179,7 @@ function Controller_Function($scope)
             {name: "Pocket Calculator", value : "Cpp-Projects/Pocket Calculator.html"},
     ];
     $scope.cpp_opengl_projects_catalogue = [
+            {name: "Car Game Project 2D", value : "Cpp-OpenGL-Projects/Car Game Project 2D.html"},
             {name: "Traffic Simulator 2D", value : "Cpp-OpenGL-Projects/Traffic Simulator 2D.html"},
     ];
     $scope.embedded_c_catalogue = [
