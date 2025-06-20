@@ -17006,7 +17006,7 @@ else
                 <green>Bit Stuffing</green>
                 <br></br><br></br>
                 Bit Stuffing Process: In CAN communication, if there are five consecutive bits of the same value 
-                (either all 0s or all 1s), a stuff bit (the opposite value) is inserted to break the sequence.  
+                (either all 0's or all 1's), a stuff bit (the opposite value) is inserted to break the sequence.  
                 <br></br>
                 This means the receiver does not expect more 5 bits of same value in a row. If it detects such a sequence 
                 it will raise an Stuff Error.
@@ -17040,6 +17040,78 @@ else
                 in order to properly interpret the information. This is done by calculating the variation of the 
                 information on the bus. So internally the ECU is counting how many times the voltages have varried.
         </error-detection>
+        <lin-protocol>
+            LIN is a serial communication protocol used in automotive networks for low-cost, low-speed communication 
+            between components (nodes) like switches, sensors, actuators, and simple ECUs.
+            <br></br><br></br>
+            It's often used alongside CAN, but only for non-critical, less data-intensive tasks (like window controls, 
+            seat adjustment, climate control, etc.).
+            <br></br><br></br>
+            <brown>Key features of LIN:</brown>
+            <br></br><br></br>
+            <indigo>
+            Feature<code>                   </code>Description</indigo><br></br>
+            Speed<code>                     </code>Up to 20 kbps<br></br>
+            Topology<code>                  </code>Single master, multiple slaves<br></br>
+            Communication<code>            </code>Deterministic, schedule-based<br></br>
+            Cost<code>                      </code>Very low (uses UART hardware)<br></br>
+            Wiring<code>                    </code>One-wire bus (plus ground)<br></br>
+            Standard<code>                  </code>Part of the AUTOSAR standard<br></br>
+            <br></br><br></br>
+            <brown>LIN Network Structure:</brown>
+            <br></br><br></br>
+            <indigo>1 Master Node:</indigo>
+            <enum>Controls the communication.</enum>
+            <enum>Sends "header" (a signal to initiate communication).</enum>
+            <enum>Keeps the schedule.</enum>
+            <br></br><br></br>
+            <indigo>1–15 Slave Nodes:</indigo>
+            <enum>Wait for a specific identifier to know when to transmit/receive.</enum>
+            <enum>Can be ECUs or smart sensors/actuators.</enum>
+            <br></br><br></br>
+            <brown>LIN Frame Format</brown>
+            <br></br><br></br>
+            A LIN frame has two parts: the Header and the Response.
+            <br></br><br></br>
+            <indigo>1. Header (sent by Master)</indigo><br></br>
+            <enum>Break Field: signals start of a new frame.</enum>
+            <enum>Sync Field: for slave nodes to sync baud rate.</enum>
+            <enum>Identifier (ID): tells which slave should respond and what data is expected.</enum>
+            <br></br><br></br>
+            <indigo>2. Response (from Slave)</indigo><br></br>
+            <enum>Data Bytes (1–8): actual data.</enum>
+            <enum>Checksum: error detection.</enum>
+            <br></br><br></br>
+            <brown>Schedule Table (Determinism)</brown>
+            <br></br><br></br>
+            The master uses a schedule table to decide which frames to send and when. This ensures:
+            <br></br><br></br>
+            <enum>No collisions.</enum>
+            <enum>Predictable timing.</enum>
+            <enum>Real-time operation (within LIN’s low-speed range).</enum>
+            <br></br><br></br>
+            <brown>Example Use Case</brown>
+            <br></br><br></br>
+            A car door module might use LIN like this:
+            <br></br><br></br>
+            Master LIN ECU: Door Control Unit (DCU)
+            <br></br><br></br>
+            Slave sensors and actuators:
+            <br></br>
+            <enum>Window switch</enum>
+            <enum>Mirror adjustment motor</enum>
+            <enum>Lock actuator</enum>
+            <enum>Ambient light</enum>
+            <br></br>
+            DCU polls each device in a timed schedule using LIN IDs, and they respond accordingly.
+            <br></br><br></br>
+            <brown>LIN stack components:</brown>
+            <br></br>
+            <enum>LIN Interface (LinIf): abstracts LIN driver for upper layers.</enum>
+            <enum>LIN Driver (LinDrv): handles the actual LIN hardware.</enum>
+            <enum>LIN Transceiver Driver: controls the LIN physical layer.</enum>
+            <enum>LIN State Manager (LinSM): handles initialization and sleep/wake states.</enum>
+        </lin-protocol>
     </manifest>
     
 </content>

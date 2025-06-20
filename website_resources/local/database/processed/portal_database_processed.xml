@@ -18057,7 +18057,7 @@
                 <green>Bit Stuffing</green>
                 <br/><br/>
                 <red>Bit</red> <red>Stuffing</red> <red>Process</red>: In CAN communication, if there are five consecutive <purple>bits</purple> of the same <purple>value</purple> 
-                (either all 0s or all 1s), a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
+                (either all 0's or all 1's), a stuff <purple>bit</purple> (the opposite <purple>value</purple>) is <azure>inserted</azure> to <purple>break</purple> the <azure>sequence</azure>.  
                 <br/>
                 This means the receiver does not expect more 5 <purple>bits</purple> of same <purple>value</purple> in a row. If it detects such a <azure>sequence</azure> 
                 it will raise an <red>Stuff</red> <red>Error</red>.
@@ -18090,6 +18090,76 @@
                 The receiver will have to figure out how many <purple>bits</purple> were actually transmitted,
                 in order to properly interpret the information. This is done by calculating the variation of the 
                 information on the <red>bus</red>. So internally the <azure>ECU</azure> is <azure>counting</azure> how many times the voltages have varried.</error-detection>
+        <lin-protocol><red>LIN</red> is a serial communication protocol used in automotive networks for low-cost, low-speed communication 
+            between components (nodes) like switches, sensors, actuators, and simple <azure>ECUs</azure>.
+            <br/><br/>
+            It's often used alongside CAN, but only for non-critical, less <purple>data</purple>-intensive <azure>tasks</azure> (like window controls, 
+            seat adjustment, climate control, etc.).
+            <br/><br/>
+            <brown>Key features of LIN:</brown>
+            <br/><br/>
+            <indigo>
+            Feature<code>                   </code>Description</indigo><br/>
+            Speed<code>                     </code>Up to 20 kbps<br/>
+            Topology<code>                  </code>Single master, multiple slaves<br/>
+            Communication<code>            </code>Deterministic, schedule-<red>based</red><br/>
+            Cost<code>                      </code>Very low (uses UART hardware)<br/>
+            Wiring<code>                    </code>One-wire <red>bus</red> (plus ground)<br/>
+            Standard<code>                  </code>Part of the <purple>AUTOSAR</purple> standard<br/>
+            <br/><br/>
+            <brown>LIN Network Structure:</brown>
+            <br/><br/>
+            <indigo>1 Master Node:</indigo>
+            <enum>Controls the communication.</enum>
+            <enum>Sends "<azure>header</azure>" (a <purple>signal</purple> to initiate communication).</enum>
+            <enum>Keeps the schedule.</enum>
+            <br/><br/>
+            <indigo>1–15 Slave Nodes:</indigo>
+            <enum>Wait for a specific <purple>identifier</purple> to know when to transmit/receive.</enum>
+            <enum>Can be <azure>ECUs</azure> or smart sensors/actuators.</enum>
+            <br/><br/>
+            <brown>LIN Frame Format</brown>
+            <br/><br/>
+            A <red>LIN</red> <red>frame</red> has two parts: the <azure>Header</azure> and the Response.
+            <br/><br/>
+            <indigo>1. Header (sent by Master)</indigo><br/>
+            <enum><purple>Break</purple> <purple>Field</purple>: <azure>signals</azure> <azure>start</azure> of a new <red>frame</red>.</enum>
+            <enum>Sync <purple>Field</purple>: for slave nodes to sync <azure>baud</azure> <azure>rate</azure>.</enum>
+            <enum><purple>Identifier</purple> (ID): tells which slave should respond and what <purple>data</purple> is expected.</enum>
+            <br/><br/>
+            <indigo>2. Response (from Slave)</indigo><br/>
+            <enum><purple>Data</purple> <purple>Bytes</purple> (1–8): actual <purple>data</purple>.</enum>
+            <enum><red>Checksum</red>: error detection.</enum>
+            <br/><br/>
+            <brown>Schedule Table (Determinism)</brown>
+            <br/><br/>
+            The master uses a schedule table to decide which <red>frames</red> to send and when. This ensures:
+            <br/><br/>
+            <enum>No collisions.</enum>
+            <enum>Predictable timing.</enum>
+            <enum><red>Real</red>-<red>time</red> <purple>operation</purple> (within LIN’s low-speed range).</enum>
+            <br/><br/>
+            <brown>Example Use Case</brown>
+            <br/><br/>
+            A <red>car</red> door <red>module</red> might use <red>LIN</red> like this:
+            <br/><br/>
+            Master <red>LIN</red> <azure>ECU</azure>: Door Control Unit (DCU)
+            <br/><br/>
+            Slave sensors and actuators:
+            <br/>
+            <enum>Window switch</enum>
+            <enum>Mirror adjustment motor</enum>
+            <enum>Lock actuator</enum>
+            <enum>Ambient light</enum>
+            <br/>
+            DCU polls each device in a timed schedule using <red>LIN</red> IDs, and they respond accordingly.
+            <br/><br/>
+            <brown>LIN stack components:</brown>
+            <br/>
+            <enum><red>LIN</red> <red>Interface</red> (LinIf): <azure>abstracts</azure> <red>LIN</red> driver for upper <purple>layers</purple>.</enum>
+            <enum><red>LIN</red> Driver (LinDrv): handles the actual <red>LIN</red> hardware.</enum>
+            <enum><red>LIN</red> <red>Transceiver</red> Driver: controls the <red>LIN</red> physical <purple>layer</purple>.</enum>
+            <enum><red>LIN</red> State Manager (LinSM): handles initialization and sleep/wake states.</enum></lin-protocol>
     </manifest>
     
 </content>
