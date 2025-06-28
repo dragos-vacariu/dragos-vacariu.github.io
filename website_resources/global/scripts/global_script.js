@@ -235,8 +235,9 @@ function Controller_Function($scope)
             //{name: "Message Encoder", value : "../../Javascript-Projects/webapps_resources/message_encoder.html"},
             //{name: "Message Decoder", value : "../../Javascript-Projects/webapps_resources/message_decoder.html"},
             //{name: "RandomORG", value : "../../Javascript-Projects/webapps_resources/random_org.html"},
-            //{name: "Roadcross Game", value : "../../Javascript-Projects/roadcross_resources/roadcross_game.html"},
-            {name: "AI Pal Chatboot", value : "https://ai-pal-chatbot.onrender.com"},
+            //{name: "Roadcross Game", value : "../../Javascript-Projects/webapps_resources/roadcross_game.html"},
+            //{name: "AI Pal Chatboot", value : "https://ai-pal-chatbot.onrender.com"},
+            {name: "AI Pal Chatboot", value : "../../Javascript-Projects/webapps_resources/ai_pal_chatbot.html"},
     ];
     $scope.portable_downloads = [
             //{name: "Python MP3 Player V3 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V3 - Runnable Script.7z"},
