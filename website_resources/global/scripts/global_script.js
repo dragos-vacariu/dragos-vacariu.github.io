@@ -1,16 +1,12 @@
 var domain = "dragos-vacariu.github.io";
 
-var root = location.href.split(domain)[0];
+var rootDir = location.href.split(domain)[0] + domain;
 
-if (root.endsWith("AI_Pal_Chatbot/templates/index.html"))
+const HTML_Object_PageFooter = document.getElementById("page_footer")
+
+if (HTML_Object_PageFooter != null)
 {
-    root = root.replace("AI_Pal_Chatbot/templates/index.html", "")
-}
-
-var rootDir = root + domain;
-
-
-const page_footer = `
+    const page_footer = `
     <div id = "footer_tabelation_div">
         <div class="footer_columns" ng-repeat="list_item in footer_table_contents">
             <p class="column_title">{{list_item.name}}:</p>
@@ -24,9 +20,15 @@ const page_footer = `
     <h5 id="footer_endline">{{pageObject.footer_paragraph}}</h5>
     <h4 id="copyright_message">{{pageObject.footer_copyright}}</h4>
 `;
-document.getElementById("page_footer").innerHTML = page_footer;
 
-const page_header = `
+    HTML_Object_PageFooter.innerHTML = page_footer;
+}
+
+const HTML_Object_PageHeader = document.getElementById("page_header");
+
+if (HTML_Object_PageHeader != null)
+{
+    const page_header = `
             
             <div id="header_title">
                 <div id = "logo_div">
@@ -50,11 +52,13 @@ const page_header = `
                 </div>
            </nav>
 `
-document.getElementById("page_header").innerHTML = 
-    page_header.replace('<img id="logo" src="/website_resources/global/images/logo.png" alt="logo image"></img>',
-    '<img id="logo" src="'+rootDir + '/website_resources/global/images/logo.png" alt="logo image"></img>');
 
-var app = angular.module('myApplication', []);
+    HTML_Object_PageHeader.innerHTML = 
+        page_header.replace('<img id="logo" src="/website_resources/global/images/logo.png" alt="logo image"></img>',
+        '<img id="logo" src="' + rootDir + '/website_resources/global/images/logo.png" alt="logo image"></img>');
+}
+
+const app = angular.module('myApplication', []);
 app.controller('Controller', Controller_Function);
 
 
@@ -64,7 +68,7 @@ document.getElementById("page_title").innerText = page_title;
 document.getElementById("page_description").innerText = domain;
     
 
-var homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
+const homePage = window.location.protocol == "file:" ? rootDir + "/index.html" : rootDir + "/";
 /*window.location.protocol will be file: on local machine and http or https on the web.*/
 
 function Controller_Function($scope)
