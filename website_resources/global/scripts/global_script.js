@@ -1,5 +1,14 @@
 var domain = "dragos-vacariu.github.io";
-var rootDir = location.href.split(domain)[0] + domain;
+
+var root = location.href.split(domain)[0];
+
+if (root.endsWith("AI_Pal_Chatbot/templates/index.html"))
+{
+    root = root.replace("AI_Pal_Chatbot/templates/index.html", "")
+}
+
+var rootDir = root + domain;
+
 
 const page_footer = `
     <div id = "footer_tabelation_div">
@@ -95,6 +104,7 @@ function Controller_Function($scope)
         page_navigation_dropdown : [
             $scope.unity_page,
             $scope.javascript_games_page,
+            $scope.javascript_webapps_page,
             $scope.python_page,
             $scope.c_sharp_page,
             $scope.cpp_opengl_page,
@@ -103,7 +113,6 @@ function Controller_Function($scope)
             $scope.cpp_page,
             $scope.java_page,
             $scope.embedded_c_page,
-            /*$scope.javascript_webapps_page,*/
             /*$scope.portable_downloads_page,*/
             $scope.github_project_external_links_page,
             //$scope.github_repository_page,
@@ -219,10 +228,11 @@ function Controller_Function($scope)
             {name: "Canvas Snake Game Video", value : "./Javascript-Games-Presentation-Video/canvas_snake_video_page.html"},
     ];
     $scope.javascript_webapps_catalogue = [
-            {name: "Message Encoder", value : "../../Javascript-Projects/webapps_resources/message_encoder.html"},
-            {name: "Message Decoder", value : "../../Javascript-Projects/webapps_resources/message_decoder.html"},
-            {name: "RandomORG", value : "../../Javascript-Projects/webapps_resources/random_org.html"},
-            {name: "Roadcross Game", value : "../../Javascript-Projects/roadcross_resources/roadcross_game.html"},
+            //{name: "Message Encoder", value : "../../Javascript-Projects/webapps_resources/message_encoder.html"},
+            //{name: "Message Decoder", value : "../../Javascript-Projects/webapps_resources/message_decoder.html"},
+            //{name: "RandomORG", value : "../../Javascript-Projects/webapps_resources/random_org.html"},
+            //{name: "Roadcross Game", value : "../../Javascript-Projects/roadcross_resources/roadcross_game.html"},
+            {name: "AI Pal Chatboot", value : "https://ai-pal-chatbot.onrender.com/"},
     ];
     $scope.portable_downloads = [
             //{name: "Python MP3 Player V3 - Runnable Script", value : "../../Portable-Downloads/PyPlay MP3 Player/Python MP3 Player V3 - Runnable Script.7z"},
@@ -235,7 +245,6 @@ function Controller_Function($scope)
             {name: "Traffic Simulator 2D", value : "../../Portable-Downloads/Traffic Simulator 2D/Traffic Simulator 2D.7z"},
             {name: "Java 2D Racing Environment", value : "../../Portable-Downloads/Java 2D Drag Racing Environment/Java 2D Drag Racing Environment.7z"},
     ];
-    
     $scope.github_projects_links = [
             {name: "Python MP3 Player", value : "https://github.com/dragos-vacariu/Python-Projects/tree/master/pyplay%20mp3%20player"},
             {name: "Unity TowerBlocks", value : "https://github.com/dragos-vacariu/Unity-Csharp-Projects/tree/master/TowerBlocks"},
@@ -246,7 +255,6 @@ function Controller_Function($scope)
             {name: "Java 2D Racing Environment", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project44%20drag%20racing%20simulator"},
             //{name: "Java MP3 Player", value : "https://github.com/dragos-vacariu/Java-Projects/tree/master/Projects%20GUI/project34%20java%20mp3%20player%20application"},
     ];
-    
     $scope.workaroundForFooterRoutedLinksForPortalPage = function(value)
     {
         /*This function will be called if I'm on the Portal Page and click on a footer link pointing to a 
