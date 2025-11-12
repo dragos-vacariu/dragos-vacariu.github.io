@@ -91,6 +91,11 @@
     float: left;
     width: 60%;
     aspect-ratio: 16 / 9; /* or your preferred ratio */
+    /*
+    aspect ratio will help setting the video element height properly
+    if aspect ratio is not defined, the video element may have disproportional height 
+    until the first frames of the video are loaded within the browser
+    */
     margin: 0%;
     margin-right: 20px;
     margin-bottom: 10px;
