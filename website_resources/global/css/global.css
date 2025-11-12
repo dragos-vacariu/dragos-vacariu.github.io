@@ -23,7 +23,7 @@
     --code-font: normal normal 1.0rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
     --site-title-font: normal bold 1.4rem/1.2 FjallaOne, serif;
-    --navigation-font: normal normal 1.2rem/1.2 FjallaOne, serif;
+    --navigation-font: normal normal 1.1rem/1 FjallaOne, serif;
     
     --background-gradient: linear-gradient(to bottom, #ffffff, rgba(0,0,255,0.01));
 }
@@ -41,7 +41,7 @@
         --code-font: normal normal 0.9rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.3rem/1.2 FjallaOne, serif;
-        --navigation-font: normal normal 1.1rem/1.1 FjallaOne, serif;
+        --navigation-font: normal normal 1rem/1 FjallaOne, serif;
     }
 }
 
@@ -57,7 +57,7 @@
         --code-font: normal normal 0.8rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --site-description-font: normal normal 0.6rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.2rem/1.2 FjallaOne, serif;
-        --navigation-font: normal normal 1rem/1 FjallaOne, serif;
+        --navigation-font: normal normal 0.9rem/1 FjallaOne, serif;
     }
 }
 
@@ -80,9 +80,8 @@ header{
     padding:auto;
     padding-bottom:0px;
     margin:0%;
-    margin-bottom:1vw;
+
     /*background-image: linear-gradient(to right, #aa7700, #995500);*/
-    background-color: var(--header-footer-color);
     background-color: var(--header-footer-color);
     background-image: var(--header-footer-background-image);
     background-blend-mode: var(--header-footer-background-blend-mode); /* Blend the image and color */
@@ -216,7 +215,7 @@ nav{
     margin-bottom: 0px;
     /*background-image: linear-gradient(to right, #aa7700, #995500);*/
     background: transparent;
-    border: none 0px black;
+    border: none 2px black;
     text-align: center;
     font: var(--navigation-font);
 
@@ -232,12 +231,12 @@ nav{
 }
 
 nav div{
-    width: 120px;
+    width: 140px;
     max-width: 90%;
-    padding: 0px;
-    margin: 10px 0px;
+    padding: 3px;
+    margin: 5px 0px;
     word-wrap:break-word;
-    border: none 0px black;
+    border: none 2px black;
     display: inline-block;
 }
 
@@ -266,16 +265,20 @@ nav div{
     position: relative;
     display: inline-block;
     height:auto;
+    border: none 2px red;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
 }
 
 .dropdown_content{
     display: none;
     position: absolute;
-    top:80%;
+    top:90%;
     background-color: #f1f1f1;
     min-width: 200px;
     max-width: 100%;
-    left: -50%; /*-50% so that it will be centered*/
+    left: -30%; /*-50% so that it will be centered*/
     z-index: 1;
     text-align: center;
     font-size: 10px;
@@ -289,6 +292,15 @@ nav div{
     text-decoration: none;
     display: block;
 }
+
+/*
+nav div:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+.dropdown_content:hover{
+    background-color: white;
+}*/
 
 .dropdown_content a:hover {background-color: var(--darkred-color); color: white;}
 
@@ -466,9 +478,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 
 /*This is for Catalogue/Video/Contact/About/Portal pages*/
 #page_block{
-    padding-bottom:10px;
     margin: 0.5vw;
-    margin-bottom: 5px;
     width:auto;
     border:none 0px black;
 }
@@ -476,15 +486,16 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 /*This is the h2 element displaying the page title*/
 #page_block h2{
     position:relative;
-    width:98%;
-    padding: 0.5% 0%;
-    padding-left: 0%;
-    margin: 0px;
-    top:0vw;
-    color:black;
-    border:none 0px black;
+    width:fit-content;
+    padding: 10px;
+    margin: auto;
+    color:var(--darkred-color);
+    border:none 2px black;
+    border-radius: 5px;
     font-family:FjallaOne;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: normal;
+
     /*background-color:#995500;*/
     /*
     background-color:rgba(255,255,255,0.8);
@@ -497,6 +508,13 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     text-align: center;
     letter-spacing:2px;
     word-wrap:break-word;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 #page_block a{
@@ -521,8 +539,6 @@ sub, sup{
     overflow-wrap: break-word; /* For modern browsers */
     white-space: normal; /* Allow normal whitespace handling */
 }
-}
-
 
 /*Resizing the h2 elements displaying page title*/
 
@@ -530,7 +546,7 @@ sub, sup{
 {
     #page_block h2
     {
-        font-size: 1.3rem; /* Smaller size for tablets */
+        font-size: 1rem; /* Smaller size for tablets */
     }
 }
 
@@ -538,7 +554,7 @@ sub, sup{
 {
     #page_block h2
     {
-        font-size: 1.1rem; /* Smaller size for mobile */
+        font-size: 0.9rem; /* Smaller size for mobile */
     }
 }
 

@@ -25,10 +25,12 @@
 {
     position:relative;
     width:100%;
-    height: auto;
+    height: fit-content;
     margin: auto;
+    margin-top: 2px;
     border: solid 2px rgba(0,0,0,0.1);
     word-wrap: break-word;
+    padding: 0px;
     /*background-image: repeating-linear-gradient(to right, rgba(255,0,0, 0.1), rgba(255,255,0, 0.1), rgba(0,0,255, 0.1));*/
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -46,8 +48,8 @@
     /*flex-wrap: wrap;*/
     word-wrap: break-word;
     overflow: hidden; /*this will ensure that the floated video will not overlap with anything outside this container*/
-    margin: 2% auto;
-    padding: 2%;
+    margin: 1%;
+    padding: 5px;
 
     font: var(--paragraph-font);
     text-align: left;
@@ -56,7 +58,7 @@
     width: 98%;
     height: fit-content;
     border: solid 2px rgba(0,0,0,0.1);
-    border-radius: 5vw;
+    border-radius: 5px;
     background-color: var(--header-footer-color);
     background-image: url("../../local/images/video_page_texture.jpg");
     background-blend-mode: overlay;
@@ -90,10 +92,10 @@
     width: 60%;
     margin: 0%;
     margin-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding: 0%;
     border: ridge 1vw rgba(0,0,0,0.1);
-    border-radius: 5vw;
+    border-radius: 1vw;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */

@@ -3,6 +3,31 @@
     box-shadow: none;
 }
 
+.fading_paragraph
+{
+    position: relative;
+    word-wrap: break-word;
+    font: var(--big-header-font);
+    text-align: left;
+    margin: 1% auto;
+    padding: 1%;
+    width: 96%;
+    border: groove 0.5vw rgba(0,0,0,0.1);
+    border-radius: 5vw;
+    background-color: var(--header-footer-color);
+    background-image: url("../images/contact_message_texture.jpg");
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: var(--header-footer-background-size);
+    background-repeat: repeat;*/
+}
+
+
+#message
+{
+    text-align: center;
+}
+
 @keyframes sub_animation{
     0%{color:black;}
     25%{color:var(--darkred-color);}
@@ -93,13 +118,23 @@
     position: relative;
     font-family: var(--paragraph-font);
     width: 96%;
-    margin: 20px auto;
+    margin: 5px auto;
+    border-top: groove 0.5vw rgba(0,0,0,0.1);
+    padding-top: 10px;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block .separator{
+    width: 100%;
+    margin:0px;
+    padding: 0px;
+    border-bottom: ridge 0.5vw rgba(50,0,0,0.2);
+
 }
 
 #page_block .section_header{
