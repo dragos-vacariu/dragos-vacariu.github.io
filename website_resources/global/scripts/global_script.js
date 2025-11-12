@@ -169,7 +169,7 @@ function Controller_Function($scope)
                                     ];
     $scope.fullstack_catalogue = [
             {name: "Note Taking App", value : "../../Note_taking_app_demo/index.html"},
-            {name: "AI Pal Chatboot", value : "../../Javascript-Projects/webapps_resources/ai_pal_chatbot.html"},
+            {name: "AI Pal Chatbot", value : "../../Javascript-Projects/webapps_resources/ai_pal_chatbot.html"},
     ];
     $scope.java_catalogue = [
             {name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
