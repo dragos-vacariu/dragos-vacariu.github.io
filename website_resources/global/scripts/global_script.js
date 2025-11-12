@@ -81,6 +81,7 @@ function Controller_Function($scope)
     $scope.exitDir = "../";
     $scope.root = rootDir;
     
+    $scope.fullstack_apps_page = {name: "FullStack WebApps", value: rootDir + "/catalogue/FullStack-WebApps.html"};
     $scope.java_page = {name: "Java Projects", value: rootDir + "/catalogue/Java-Projects.html"};
     $scope.unity_page = {name: "Unity C# Projects", value: rootDir + "/catalogue/Unity-Csharp-Projects.html"};
     $scope.embedded_c_page = {name: "Embedded C Projects", value: rootDir + "/catalogue/Embedded-C-Projects.html"};
@@ -106,6 +107,7 @@ function Controller_Function($scope)
             {name: "Learning Portal", value : rootDir + "/portal.html"},
         ],
         page_navigation_dropdown : [
+            $scope.fullstack_apps_page,
             $scope.unity_page,
             $scope.javascript_games_page,
             $scope.javascript_webapps_page,
@@ -165,7 +167,9 @@ function Controller_Function($scope)
                                     //{name: "Page Stats",  list_values: $scope.page_statistics, content: "text"},
                                     //{name: "Template Info",  list_values: $scope.pageObject.template_info, content: "text"}, 
                                     ];
-    
+    $scope.fullstack_catalogue = [
+            {name: "Note Taking App", value : "../../Note_taking_app_demo/index.html"},
+    ];
     $scope.java_catalogue = [
             {name: "Java Racing Environment", value : "Java-Projects/Java Racing Environment.html"},
             {name: "Java MP3 Player", value : "Java-Projects/Java MP3 Player.html"},
