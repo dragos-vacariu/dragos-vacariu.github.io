@@ -5,7 +5,7 @@
     --darkblue-color: rgba(0,0,250,1.0); /* Example: A light gray color */
     
     --header-footer-color: rgba(255,255,255,0.9);
-    --header-footer-border-style: ridge 1px rgba(0,0,0,1.0);
+    --header-footer-border-style: solid 5px rgba(0,0,0,0.1) ;
     --header-footer-background-image: url("../images/header_footer_texture.jpg");
     --header-footer-background-blend-mode: overlay;
     --header-footer-background-repeat: repeat;
