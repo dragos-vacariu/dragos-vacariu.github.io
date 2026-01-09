@@ -429,49 +429,53 @@ function fillTableRegular()
                             cell = row.insertCell();
                             cell.style = cell_style;
                             
-                            /*Selection type is single. We'll insert 2 buttons for switching between Previous / Next Concepts*/
-                            
-                            /*Inserting buttons elements at the end of each paragraph based on the selection type*/
-                            var ul = document.createElement("ul");
-                            ul.classList.add("selection_list");
-                            
-                            ul.style = "display: flex; justify-content: space-between; width: max-content; gap: 10vw; margin: 0 auto; padding: 0;";
+                            /*If multiple concepts are not selected*/
+                            if(allConceptsSelection != true)
+                            {
+                                /*Selection type is single. We'll insert 2 buttons for switching between Previous / Next Concepts*/
+                                
+                                /*Inserting buttons elements at the end of each paragraph based on the selection type*/
+                                var ul = document.createElement("ul");
+                                ul.classList.add("selection_list");
+                                
+                                ul.style = "display: flex; justify-content: space-between; width: max-content; gap: 10vw; margin: 0 auto; padding: 0;";
 
-                            if (concept_index-1 >= 0)
-                            {
-                                var li = createLiElement("◀ Previous", false, paragraphButtonBehavior);
-                                var span = document.createElement("span");
-                                li.innerHTML += "<br>";
-                                span.innerHTML = concept_selection.children[concept_index-1].innerHTML;
-                                li.concept_substitue = concept_selection.children[concept_index-1].innerHTML;
-                                span.style.setProperty("color", "var(--darkred-color)");
-                                span.style.setProperty("font-weight", "normal");
-                                span.id = "concept_name_value";
-                                li.append(span);
-                                
-                                li.id = "page_switch_button";
-                                
-                                ul.appendChild(li);
+                                if (concept_index-1 >= 0)
+                                {
+                                    var li = createLiElement("◀ Previous", false, paragraphButtonBehavior);
+                                    var span = document.createElement("span");
+                                    li.innerHTML += "<br>";
+                                    span.innerHTML = concept_selection.children[concept_index-1].innerHTML;
+                                    li.concept_substitue = concept_selection.children[concept_index-1].innerHTML;
+                                    span.style.setProperty("color", "var(--darkred-color)");
+                                    span.style.setProperty("font-weight", "normal");
+                                    span.id = "concept_name_value";
+                                    li.append(span);
+                                    
+                                    li.id = "page_switch_button";
+                                    
+                                    ul.appendChild(li);
+                                }
+                                if (concept_index+1 < concept_collection.length)
+                                {
+                                    var li = createLiElement(" Next ▶", false, paragraphButtonBehavior);
+                                    var span = document.createElement("span");
+                                    li.innerHTML += "<br>";
+                                    span.innerHTML = concept_selection.children[concept_index+1].innerHTML;
+                                    li.concept_substitue = concept_selection.children[concept_index+1].innerHTML;
+                                    span.style.setProperty("color", "var(--darkred-color)");
+                                    span.style.setProperty("font-weight", "normal");
+                                    span.id = "concept_name_value";
+                                    
+                                    //li.insertAdjacentElement('afterbegin', span); /*Inserting child before the actual content of li element*/
+                                    
+                                    li.append(span);
+                                    li.id = "page_switch_button";
+                                    
+                                    ul.appendChild(li);
+                                }
+                                cell.appendChild(ul);
                             }
-                            if (concept_index+1 < concept_collection.length)
-                            {
-                                var li = createLiElement(" Next ▶", false, paragraphButtonBehavior);
-                                var span = document.createElement("span");
-                                li.innerHTML += "<br>";
-                                span.innerHTML = concept_selection.children[concept_index+1].innerHTML;
-                                li.concept_substitue = concept_selection.children[concept_index+1].innerHTML;
-                                span.style.setProperty("color", "var(--darkred-color)");
-                                span.style.setProperty("font-weight", "normal");
-                                span.id = "concept_name_value";
-                                
-                                //li.insertAdjacentElement('afterbegin', span); /*Inserting child before the actual content of li element*/
-                                
-                                li.append(span);
-                                li.id = "page_switch_button";
-                                
-                                ul.appendChild(li);
-                            }
-                            cell.appendChild(ul);
                         }
                     }
                 }
