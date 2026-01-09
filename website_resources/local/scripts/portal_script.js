@@ -748,11 +748,6 @@ function fillTableRegular()
                                 
                                 var ul = document.createElement("ul");
                                 ul.classList.add("selection_list");
-                                //ul.classList.add("selection_list");
-                                //ul.style = "position: relative; width:  auto; padding: 0%;" +
-                                //            "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
-                                //            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
-                                
 
                                 ul.style = "display: flex; justify-content: space-between; width: 100%; gap: 10%; margin: 0 auto; padding: 0;";
                                 
