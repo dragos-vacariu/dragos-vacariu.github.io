@@ -102,7 +102,7 @@ function Controller_Function($scope)
         page_navigation : [
             {name: "Home", value : homePage},
             {name: "Project Catalogue", value : rootDir + "#"},
-            {name: "Contact Info", value : rootDir + "/contact.html"},
+            {name: "Contact", value : rootDir + "/contact.html"},
             {name: "About Me", value : rootDir + "/about.html"},
             {name: "Learning Portal", value : rootDir + "/portal.html"},
         ],
@@ -297,7 +297,9 @@ window.addEventListener("scroll", function ()
         const visibleBottom = Math.min(rect.bottom, viewportBottom);
 
         const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-        const ratio = visibleHeight / elementHeight;
+        
+        const maxVisible = Math.min(elementHeight, viewportBottom - viewportTop);
+        const ratio = visibleHeight / maxVisible;
 
         // Fade out when visible part is less than..
         if (ratio < 0.8) 

@@ -19,8 +19,9 @@ allConceptsSelection = false;
 const disabledElementOpacity = 0.3;
 
 //different styles for list tag selection:
-const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 0.2vw rgba(255,255,255,0.7); text-shadow: 0px 0px black; padding: 1% 5%; margin: 1%;";
-const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: solid 0.2vw rgba(0,0,0,0.7); padding: 1% 5%; margin: 1%;";
+const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 1px rgba(0,0,0,0.1); text-shadow: 0px 0px black; padding: 1px 5px; margin: 1px;";
+const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: ridge 1px rgba(0,0,0,0.4); padding: 1px 5px; margin: 1px;";
+
 
 //special class to add separate styles for list tag concept_selection_elements:
 const concept_item_class = "concept_collection_element"
@@ -746,9 +747,13 @@ function fillTableRegular()
                                 /*Selection type is single. We'll insert 2 buttons for switching between Previous / Next Concepts*/
                                 
                                 var ul = document.createElement("ul");
-                                ul.style = "position: relative; width:  auto; padding: 0%;" +
-                                            "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
-                                            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
+                                ul.classList.add("selection_list");
+                                //ul.style = "position: relative; width:  auto; padding: 0%;" +
+                                //            "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
+                                //            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
+                                
+                                ul.style = "display: flex; justify-content: space-between; width: max-content; gap: 10vw; margin: 0 auto; padding: 0;";
+
                                 
                                 if (concept_index-1 >= 0)
                                 {
@@ -763,16 +768,22 @@ function fillTableRegular()
                                     li.append(span);
                                     
                                     /*if our li has children, those children will be displayed underneath*/
-                                    li.style.setProperty("display", "block");
-                                    li.style.setProperty("text-align", "center");
-                                    li.style.setProperty("border-radius", "2vw");
-                                    li.style.setProperty("border", "solid 1px black");
+                                    //li.style.setProperty("display", "block");
+                                    //li.style.setProperty("text-align", "center");
+                                    //li.style.setProperty("border-radius", "0vw");
+                                    //li.style.setProperty("border", "solid 1px rgba(0,0,0,0.5)");
                                     
                                     /*overflow: hidden will ensure the content of the li will not overlap outside the ul*/
-                                    li.style.setProperty("overflow", "hidden");
+                                    //li.style.setProperty("overflow", "hidden");
                                     
                                     /*box-sizing: border-box will ensure that borders size will be contained within the element's width*/
-                                    li.style.setProperty("box-sizing", "border-box");
+                                    //li.style.setProperty("box-sizing", "border-box");
+                                    
+                                li.style.setProperty("display", "block");
+                                li.style.setProperty("min-width", "180px");
+                                li.style.setProperty("text-align", "center");
+                                li.style.setProperty("white-space", "nowrap");
+                                    
                                     ul.appendChild(li);
                                 }
                                 if (concept_index+1 < concept_collection.length)
@@ -792,16 +803,23 @@ function fillTableRegular()
                                     li.append(span);
                                     
                                     /*if our li has children, those children will be displayed underneath*/
-                                    li.style.setProperty("display", "block"); 
-                                    li.style.setProperty("text-align", "center");
-                                    li.style.setProperty("border-radius", "2vw");
-                                    li.style.setProperty("border", "solid 1px black");
+                                    //li.style.setProperty("display", "block"); 
+                                    //li.style.setProperty("text-align", "center");
+                                    //li.style.setProperty("border-radius", "0vw");
+                                    //li.style.setProperty("border", "solid 1px rgba(0,0,0,0.5)");
                                     
                                     /*overflow: hidden will ensure the content of the li will not overlap outside the ul*/
-                                    li.style.setProperty("overflow", "hidden");
+                                    //li.style.setProperty("overflow", "hidden");
                                     
                                     /*box-sizing: border-box will ensure that borders size will be contained within the element's width*/
-                                    li.style.setProperty("box-sizing", "border-box");
+                                    //li.style.setProperty("box-sizing", "border-box");
+                                    
+                                li.style.setProperty("display", "block");
+                                li.style.setProperty("min-width", "180px");
+                                li.style.setProperty("text-align", "center");
+                                li.style.setProperty("white-space", "nowrap");
+                                li.style.setProperty("white-space", "nowrap");
+                                    
                                     ul.appendChild(li);
                                 }
                                 cell.appendChild(ul);

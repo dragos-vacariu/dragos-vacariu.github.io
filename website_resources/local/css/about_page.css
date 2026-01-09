@@ -79,7 +79,7 @@
 }
 
 #page_block p{
-    font-family: var(--paragraph-font);
+    font: var(--paragraph-font);
     font-weight: normal;
     font-size:18px;
     color: black;
@@ -108,6 +108,7 @@
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
     line-height: 25px;
+    font: var(--paragraph-font);
 }
 
 #page_block .paragraph p{

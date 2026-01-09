@@ -3,7 +3,7 @@
 {
     position: relative;
     word-wrap: break-word;
-    
+    text-align: left;
     margin: 1% auto;
     padding: 1%;
     width: 96%;
@@ -14,7 +14,86 @@
     background-blend-mode: overlay;
     background-position: center;
     background-size: var(--header-footer-background-size);
-    background-repeat: repeat;*/
+    background-repeat: repeat;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.fading_paragraph .paragraph{
+
+    position: relative;
+    margin: 2% auto;
+    padding:0%;
+    width: 80%;
+    height: auto;
+    border: none 0px black;
+
+    font: var(--paragraph-font);
+    line-height: 2.3rem;
+    border: none 1px red;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/*if the text is too short the parent will parent to contain the floated image.*/
+.fading_paragraph .paragraph::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.fading_paragraph span{
+    display: block;        /* makes it behave like its own line */
+    margin-bottom: 15px;
+}
+
+.centered_span{
+    text-align: center;
+}
+
+#contact_logo_img {
+    position: relative;
+    float: left;
+    border: groove 0.5vw rgba(0,0,0,0.1);
+    margin: 0%;
+    margin-right: 1%;
+    width: 200px;
+    max-width: 100%;
+}
+
+@media (max-width: 768px) 
+{
+    #contact_logo_img
+    {
+        width: 170px;
+    }
+    
+    .fading_paragraph .paragraph{
+        line-height: 1.9rem;
+    }
+    
+}
+
+@media (max-width: 480px) 
+{
+    #contact_logo_img
+    {
+        width: 150px;
+    }
+    
+    .fading_paragraph .paragraph{
+        line-height: 1.7rem;
+    }
 }
 
 #contact_content{

@@ -12,14 +12,14 @@
     --header-footer-background-position: center;
     --header-footer-background-size: 500px;
 
-    --big-header-font: italic bold 1.8rem/1.2 Calibri, serif;
+    --big-header-font: italic bold 1.6rem/1.2 Calibri, serif;
     --big-header-font-letter-spacing: 1px;
     --intro-message-font: italic normal 1.3rem/1.7 Georgia, serif;
     --paragraph-font: normal normal 1.1rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --paragraph-header-font: normal bold 1.4rem/1.8 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --mini-font: normal normal 80%/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
-    --menu-title-font: normal bold 1.1rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
-    --menu-font: normal bold 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --menu-title-font: normal normal 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --menu-font: normal normal 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --code-font: normal normal 1.0rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
     --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
     --site-title-font: normal bold 1.4rem/1.2 FjallaOne, serif;
@@ -32,8 +32,8 @@
 @media (max-width: 768px) {
     :root
     {
-        --big-header-font: italic bold 1.5rem/1.0 Calibri, serif;
-        --intro-message-font: italic normal 1.1rem/1.6 Georgia, serif;
+        --big-header-font: italic normal 1.2rem/1.0 Calibri, serif;
+        --intro-message-font: italic normal 1rem/1.6 Georgia, serif;
         --paragraph-font: normal normal 1rem/1.6 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --menu-title-font: normal bold 1.0rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
@@ -48,8 +48,8 @@
 @media (max-width: 480px) {
     :root
     {
-        --big-header-font: italic bold 1.2rem/1.0 Calibri, serif;
-        --intro-message-font: italic normal 0.9rem/1.5 Georgia, serif;
+        --big-header-font: italic normal 1rem/1.0 Calibri, serif;
+        --intro-message-font: italic normal 0.8rem/1.5 Georgia, serif;
         --paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --paragraph-header-font: normal bold 1.2rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --menu-title-font: normal bold 0.9rem/1.4 Calibri, serif; /*italic bold 16px/1.5 Georgia, serif*/
@@ -339,7 +339,8 @@ nav div:hover{
 {
     padding: 0px;
     margin: 0px;
-    margin-bottom: 5%;
+    margin-top: 1%;
+    margin-bottom: 3%;
     font: var(--big-header-font);
     text-align: center;
     color: var(--darkred-color);
@@ -352,8 +353,8 @@ nav div:hover{
 {
     position: relative;
     width: 100%;
-    margin: 0%;
-    margin-top: 5%;
+    margin: 0px;
+    margin-bottom: 1%;
     padding: auto;
     font: var(--intro-message-font);
     text-align: center;

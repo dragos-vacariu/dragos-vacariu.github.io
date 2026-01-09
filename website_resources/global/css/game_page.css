@@ -51,6 +51,9 @@
 
 @media (max-width: 768px) 
 {
+    #page_block #block_content{
+        font-size: 1.0rem;
+    }
     #page_block #block_content #game_content{
         width: 80%;
     }
@@ -58,7 +61,11 @@
 
 @media (max-width: 480px) 
 {
+    #page_block #block_content{
+        font-size: 0.8rem;
+    }
     #page_block #block_content #game_content{
         width: 100%;
+
     }
 }
