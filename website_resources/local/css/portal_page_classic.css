@@ -5,8 +5,10 @@
     top:0%;
     margin: auto;
     text-align: center;
-    border: ridge 2px rgba(0,0,0,0.4);
-    border-radius: 5vw;
+    border: groove 2px rgba(0,0,0,0.2);
+    border-top-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+
     font-family:Verdana;
     font-size:14px;
     color:#663300;
