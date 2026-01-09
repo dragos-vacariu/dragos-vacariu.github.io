@@ -188,7 +188,8 @@
     overflow-wrap: break-word;
     word-break: break-word;
 
-    border: solid 2px red;
+    border: 5px groove rgba(0,0,0,0.1) !important;
+    border-radius: 10px;
 }
 
 @media (max-width: 768px) {
