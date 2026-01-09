@@ -162,7 +162,7 @@
     of li elements to tag_selection_on or tag_selection_off*/
     
     border: solid 1px white;
-    padding: 5px;
+    padding: 2px 5px;
     background-image: linear-gradient(to right, white, #ffeecc);
     font: var(--menu-font);
     color: #995500;
