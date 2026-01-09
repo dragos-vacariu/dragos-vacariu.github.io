@@ -217,6 +217,35 @@ searchHighlight{
     margin-bottom: 30%;
 }
 
+#page_switch_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 160px;
+
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    border: solid 2px red;
+}
+
+@media (max-width: 768px) {
+    #page_switch_button {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    #page_switch_button {
+        width: 90px;
+    }
+}
+
 #page_block #menu_div  p{
     position: relative;
     width: 100%;
@@ -279,7 +308,7 @@ searchHighlight{
 }
 
 
-.selection_list_element:hover, .concept_collection_element:hover{
+.selection_list_element:hover, .concept_collection_element:hover, .page_switch_button:hover{
     background-image: none !important; /*!important fixes the specificity issues, as this element's style is mainly set from the script*/
     background-color: silver;
     cursor: pointer; /*this is the hand arrow*/

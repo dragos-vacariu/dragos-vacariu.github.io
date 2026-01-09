@@ -19,8 +19,8 @@ allConceptsSelection = false;
 const disabledElementOpacity = 0.3;
 
 //different styles for list tag selection:
-const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 1px rgba(0,0,0,0.1); text-shadow: 0px 0px black; padding: 1px 5px; margin: 1px;";
-const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: ridge 1px rgba(0,0,0,0.4); padding: 1px 5px; margin: 1px;";
+const tag_selection_on = "font:var(--menu-font); font-variant: small-caps; font-weight: normal; background-image: linear-gradient(to right, rgba(90,0,0,0.8), rgba(90,0,0,0.7)); color: white; border: ridge 1px rgba(0,0,0,0.1);";
+const tag_selection_off = "font:var(--menu-font); font-variant: small-caps; background-image: linear-gradient(to right, white, rgba(255,200,200,0.1)); color: black; border: ridge 1px rgba(0,0,0,0.4);";
 
 
 //special class to add separate styles for list tag concept_selection_elements:
@@ -748,12 +748,13 @@ function fillTableRegular()
                                 
                                 var ul = document.createElement("ul");
                                 ul.classList.add("selection_list");
+                                //ul.classList.add("selection_list");
                                 //ul.style = "position: relative; width:  auto; padding: 0%;" +
                                 //            "display: inline-grid; grid-template-columns: 1fr 1fr;" + /*this will ensure we have 2 columns of equal size*/
                                 //            "border: none 0px black; word-wrap: break-word; overflow-wrap: break-word; white-space: normal;";
                                 
-                                ul.style = "display: flex; justify-content: space-between; width: max-content; gap: 10vw; margin: 0 auto; padding: 0;";
 
+                                ul.style = "display: flex; justify-content: space-between; width: 100%; gap: 10%; margin: 0 auto; padding: 0;";
                                 
                                 if (concept_index-1 >= 0)
                                 {
@@ -764,25 +765,11 @@ function fillTableRegular()
                                     li.concept_substitue = concept_selection.children[concept_index-1].innerHTML;
                                     span.style.setProperty("color", "var(--darkred-color)");
                                     span.style.setProperty("font-weight", "normal");
+                                    span.style.setProperty("word-wrap", "break-word");
                                     span.id = "concept_name_value";
+                                    
                                     li.append(span);
-                                    
-                                    /*if our li has children, those children will be displayed underneath*/
-                                    //li.style.setProperty("display", "block");
-                                    //li.style.setProperty("text-align", "center");
-                                    //li.style.setProperty("border-radius", "0vw");
-                                    //li.style.setProperty("border", "solid 1px rgba(0,0,0,0.5)");
-                                    
-                                    /*overflow: hidden will ensure the content of the li will not overlap outside the ul*/
-                                    //li.style.setProperty("overflow", "hidden");
-                                    
-                                    /*box-sizing: border-box will ensure that borders size will be contained within the element's width*/
-                                    //li.style.setProperty("box-sizing", "border-box");
-                                    
-                                li.style.setProperty("display", "block");
-                                li.style.setProperty("min-width", "180px");
-                                li.style.setProperty("text-align", "center");
-                                li.style.setProperty("white-space", "nowrap");
+                                    li.id = "page_switch_button";
                                     
                                     ul.appendChild(li);
                                 }
@@ -801,25 +788,9 @@ function fillTableRegular()
                                     //li.insertAdjacentElement('afterbegin', span);
                                     
                                     li.append(span);
-                                    
-                                    /*if our li has children, those children will be displayed underneath*/
-                                    //li.style.setProperty("display", "block"); 
-                                    //li.style.setProperty("text-align", "center");
-                                    //li.style.setProperty("border-radius", "0vw");
-                                    //li.style.setProperty("border", "solid 1px rgba(0,0,0,0.5)");
-                                    
-                                    /*overflow: hidden will ensure the content of the li will not overlap outside the ul*/
-                                    //li.style.setProperty("overflow", "hidden");
-                                    
-                                    /*box-sizing: border-box will ensure that borders size will be contained within the element's width*/
-                                    //li.style.setProperty("box-sizing", "border-box");
-                                    
-                                li.style.setProperty("display", "block");
-                                li.style.setProperty("min-width", "180px");
-                                li.style.setProperty("text-align", "center");
-                                li.style.setProperty("white-space", "nowrap");
-                                li.style.setProperty("white-space", "nowrap");
-                                    
+                                    li.id = "page_switch_button";
+
+                                
                                     ul.appendChild(li);
                                 }
                                 cell.appendChild(ul);
