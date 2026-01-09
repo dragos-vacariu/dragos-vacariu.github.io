@@ -234,7 +234,7 @@ searchHighlight{
 #page_block #menu_div .selection_div{
     width: 90%;
     margin:auto;
-    margin-top: 5%;
+    margin-top: 1%;
     /*border-top: ridge 1vw rgba(255,255,255,0.2);*/
 }
 
