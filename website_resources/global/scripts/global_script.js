@@ -278,7 +278,7 @@ function Controller_Function($scope)
     }
 }
 
-/*Adding fading-out transition to the homepage first paragraph*/
+/*Adding fading-out transition to paragraphs on scrolling*/
 window.addEventListener("scroll", function () 
 {
     const fading_elements = document.getElementsByClassName("fading_paragraph");
@@ -315,6 +315,32 @@ window.addEventListener("scroll", function ()
     }
 });
 
+/*Adding roll-over transition to paragraphs on scrolling*/
+const sections = document.querySelectorAll('.scale_scroll_img_anim');
+
+/*
+IntersectionObserver is a JavaScript API that allows you to watch when an element 
+enters or leaves the viewport (or another container).
+
+You don’t need to manually calculate scroll positions or offsets.
+
+It’s efficient because the browser handles the observation, rather than running 
+code on every scroll event.
+*/
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting)
+        {
+            entry.target.classList.add('visible');  // element enters viewport
+        }
+        else
+        {
+            entry.target.classList.remove('visible'); // element leaves viewport
+        }
+    });
+}, { threshold: 0.2 }); // 20% of element must be visible
+
+sections.forEach(section => observer.observe(section));
 
 /*
 //This works on client side and is not suitable for visit counter

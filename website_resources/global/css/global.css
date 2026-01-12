@@ -356,6 +356,24 @@ nav div:hover{
     border: none 0px black;
 }
 
+.scale_scroll_img_anim .img_wrapper img {
+    transform: scale(0.6);
+    transition: transform 3s ease;
+}
+
+.scale_scroll_img_anim.visible .img_wrapper img {
+    transform: scale(1);
+}
+
+.hover_scale {
+    transition: transform 0.5s ease; /* smooth animation */
+    display: inline-block;           /* ensures transform works properly */
+}
+
+.hover_scale:hover {
+    transform: scale(1.1);        /* rotate 10 degrees on hover */
+}
+
 footer{
     height:auto;
     /*background-image: linear-gradient(to right, #aa7700, #995500);*/

@@ -65,8 +65,64 @@
 
 #content .paragraph p
 {
-    padding: 0%;
+    position: relative;
+    padding: 3px 0px;
     margin: 15px auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* vertical center */
+    gap: 15px; /* space between image and text */
+}
+
+#content .paragraph .separator_p_element{
+
+    border-bottom: 2px dashed rgba(170,0,0,1.0);
+    margin: 4px 0px;
+}
+
+#content .paragraph .img_wrapper{
+    position: relative;
+    display: inline-block;       /* allows wrapping inside <p> */
+    flex-shrink: 0;       /* prevents shrinking in flex */
+    border: 5px groove rgba(220,0,0,1.0);
+    background-color: rgba(255,255,0, 0.05);
+    border-radius: 20px;
+    padding: 2px;
+    width: 150px;
+    height: 150px;
+    max-width: 100%;
+}
+
+#content .paragraph .text_wrapper {
+    display: inline-block;  /* keeps text normal and inline <a> intact */
+}
+
+#content .paragraph  .separator_p_element.reverse {
+    flex-direction: row-reverse;
+}
+
+#content .paragraph .img_wrapper img
+{
+    position: relative;
+    display: block;              /* prevents inline spacing issues */
+    vertical-align: middle; /* aligns inline-block images with text line */
+    height: auto;
+    border: 5px none rgba(0,0,0,0.2);
+    width: 100%;
+    margin: 0%;
+    margin-right: 1%;
+    padding: 0px;
+}
+
+#content .paragraph p a{
+    display: inline;
+    text-decoration: none;
+    font-weight: normal;
+    color: blue;
+}
+
+#content .paragraph p a:hover{
+    color: red;
 }
 
 #content #text_div p, #content #text_div h2{
@@ -78,16 +134,6 @@
 
 #content #text_div p{
     margin-top: 10px;
-}
-
-#content .paragraph p a{
-    text-decoration: none;
-    font-weight: normal;
-    color: blue;
-}
-
-#content .paragraph p a:hover{
-    color: red;
 }
 
 #reference{
