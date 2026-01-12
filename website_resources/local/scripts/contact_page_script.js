@@ -1,3 +1,5 @@
+const API_URL = "https://dragos-vacariu-github-io-backend.vercel.app"
+
 function startTime() 
 {
     /*The difference between let and var is in the scope of the variables they create: 
@@ -42,7 +44,7 @@ function checkTime(i)
 
 startTime();
 
-fetch("https://your-vercel-project.vercel.app/api/api_manager", {
+fetch(API_URL + "/api/api_manager", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
