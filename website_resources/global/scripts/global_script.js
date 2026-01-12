@@ -138,6 +138,22 @@ function Controller_Function($scope)
             {lst: $scope.github_project_external_links_page, hasSeparator: true},
             /*{lst: //$scope.github_repository_page, stylingClass: ""}, */
         ],
+        
+        page_navigation_dropdown_footer : [
+            $scope.fullstack_apps_page, 
+            $scope.unity_page, 
+            $scope.javascript_games_page,
+            $scope.python_page, 
+            $scope.cpp_opengl_page, 
+            $scope.embedded_c_page,
+            $scope.c_sharp_page,
+            $scope.html_page,
+            $scope.cpp_page,
+            $scope.angularjs_page,
+            $scope.java_page,
+            
+            $scope.github_project_external_links_page,
+        ],
         template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", 
                         "Revised in: 2024", "Hosted by: GitHub", " ", "Tools: HTML4, HTML5, CSS, CSS3, JavaScript, Angular"],
         tools_used : ["HTML4", "HTML5", "CSS3", "CSS", "JavaScript", "Angular"],
@@ -176,7 +192,7 @@ function Controller_Function($scope)
                              
     $scope.footer_table_contents = [
                                     {name: "Technical References",  list_values: $scope.pageObject.connections_list, content: "objects_with_links"}, 
-                                    {name: "Project Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown, content: "objects_with_links"},
+                                    {name: "Project Catalogue",  list_values: $scope.pageObject.page_navigation_dropdown_footer, content: "objects_with_links"},
                                     {name: "Social Networking",  list_values: $scope.social_networks, content: "objects_with_links"},
                                     {name: "Learning Manifests",  list_values: $scope.training_materials, content: "objects_with_links"},
                                     //{name: "Page Stats",  list_values: $scope.page_statistics, content: "text"},
