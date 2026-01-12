@@ -90,4 +90,4 @@ async function sendUserEmail(e)
 
 startTime();
 
-form.addEventListener("submit", async (e) => sendUserEmail(e));
+document.getElementById("send_message_button").addEventListener("submit", async (e) => sendUserEmail(e));
