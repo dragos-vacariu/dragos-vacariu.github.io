@@ -42,22 +42,52 @@ function checkTime(i)
     return i;
 }
 
-startTime();
+async function sendUserEmail(e)
+{
+    e.preventDefault(); // Prevent form from reloading the page
 
-fetch(API_URL + "/api/api_manager", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
+    // Collect form data
+    const data = {
         method_name: "sendEmail",
         method_params: {
-            user_email: "visitor@example.com",
-            user_topic: "Portfolio question",
-            user_message: "Hello, I liked your portfolio!",
-        },
-    }),
-})
-.then(res => res.json())
-.then(data => {
-    console.log(data.message); // log success or failure
-})
-.catch(err => console.error(err));
+            user_email: form.email.value,
+            user_topic: form.topic.value,
+            user_message: form.message.value
+        }
+    };
+
+    // Optional: show a "sending..." message
+    log.textContent = "Sending...";
+    log.style.color = "black";
+
+    try
+    {
+        const response = await fetch(API_URL + "/api/api_manager", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        // Display result message
+        log.textContent = result.message;
+        log.style.color = result.success ? "green" : "red";
+
+        // Clear form if success
+        if (result.success)
+        {
+            form.reset();
+        }
+    }
+    catch (err)
+    {
+        console.error(err);
+        log.textContent = "Error sending message. Please try again.";
+        log.style.color = "red";
+    }
+}
+
+startTime();
+
+form.addEventListener("submit", async (e) => sendUserEmail(e));
