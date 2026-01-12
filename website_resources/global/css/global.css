@@ -414,6 +414,10 @@ nav div:hover{
     transform: scale(1.1);        /* rotate 10 degrees on hover */
 }
 
+.required{
+    color: red;
+    font-weight: bold;
+}
 
 ul.custom_bullets_list{
     list-style: none; /* remove default bullets */
