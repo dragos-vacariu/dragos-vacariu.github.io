@@ -44,6 +44,7 @@ function checkTime(i)
 
 async function sendUserEmail(e)
 {
+    alert("Called");
     e.preventDefault(); // Prevent form from reloading the page
 
     // Collect form data
@@ -90,4 +91,5 @@ async function sendUserEmail(e)
 
 startTime();
 
-document.getElementById("send_message_button").addEventListener("submit", async (e) => sendUserEmail(e));
+/*The submit event only fires on <form> elements, not on buttons.*/
+document.getElementById("contact_form").addEventListener("submit", async (e) => sendUserEmail(e));
