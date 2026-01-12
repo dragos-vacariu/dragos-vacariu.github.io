@@ -44,7 +44,7 @@ function checkTime(i)
 
 async function sendUserEmail(e)
 {
-    alert("Called");
+    const form = document.getElementById("contact_form");
     e.preventDefault(); // Prevent form from reloading the page
 
     // Collect form data
@@ -78,7 +78,7 @@ async function sendUserEmail(e)
         // Clear form if success
         if (result.success)
         {
-            document.getElementById("contact_form").reset();
+            form.reset();
         }
     }
     catch (err)
