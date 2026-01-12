@@ -69,50 +69,73 @@
     padding: 3px 0px;
     margin: 15px auto;
     overflow: hidden;
-    display: flex;
-    align-items: center; /* vertical center */
-    gap: 15px; /* space between image and text */
+    display: block;
 }
 
-#content .paragraph .separator_p_element{
-
+#content .paragraph .separator_p_element
+{
     border-bottom: 2px dashed rgba(170,0,0,1.0);
     margin: 4px 0px;
 }
 
+
 #content .paragraph .img_wrapper{
     position: relative;
-    display: inline-block;       /* allows wrapping inside <p> */
-    flex-shrink: 0;       /* prevents shrinking in flex */
+    display: block;       /* allows wrapping inside <p> */
     border: 5px groove rgba(220,0,0,1.0);
     background-color: rgba(255,255,0, 0.05);
     border-radius: 20px;
     padding: 2px;
+    margin: 2px 7px;
     width: 150px;
-    height: 150px;
     max-width: 100%;
 }
 
-#content .paragraph .text_wrapper {
-    display: inline-block;  /* keeps text normal and inline <a> intact */
+#content .wrapper_float_left
+{
+    float: left;
 }
 
-#content .paragraph  .separator_p_element.reverse {
-    flex-direction: row-reverse;
+#content .wrapper_float_right
+{
+    float: right;
 }
-
-#content .paragraph .img_wrapper img
+#content .paragraph .img_wrapper img, #content .paragraph .sharp_wrapper img
 {
     position: relative;
-    display: block;              /* prevents inline spacing issues */
-    vertical-align: middle; /* aligns inline-block images with text line */
-    height: auto;
     border: 5px none rgba(0,0,0,0.2);
     width: 100%;
-    margin: 0%;
-    margin-right: 1%;
+    margin: auto;
     padding: 0px;
 }
+
+#content .paragraph .sharp_wrapper{
+    width: 30px;
+    display: block;       /* allows wrapping inside <p> */
+    border: 5px groove rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 0px;
+    margin: 0px 2px;
+}
+
+@media (max-width: 768px) {
+    #content .paragraph .img_wrapper {
+        width: 120px;
+    }
+    #content .paragraph .sharp_wrapper{
+        width: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    #content .paragraph .img_wrapper {
+        width: 100px;
+    }
+    #content .paragraph .sharp_wrapper{
+        width: 20px;
+    }
+}
+
 
 #content .paragraph p a{
     display: inline;
