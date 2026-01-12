@@ -41,10 +41,17 @@ if (HTML_Object_PageHeader != null)
             </div>
             <nav>
                 <div class = "menu_page_item" ng-repeat="page in pageObject.page_navigation">
-                    <a ng-if="page.name!='Project Catalogue'" id={{page.name}} class = "outer_href" href={{page.value}}>{{page.name}}</a>
+                    
+                    <a ng-if="page.name!='Project Catalogue'" id={{page.name}} class = "outer_href" href={{page.value}} ng-attr-page_name="{{page.name}}">
+                        <span class="link_icon">{{page.icon}}</span>
+                        <span id="link_text">{{page.name}}</span>
+                    </a>
                     
                     <div ng-if="page.name=='Project Catalogue'" class="dropdown_menu" style="padding:0%;">
-                        <a class="outer_href">{{pageObject.page_navigation[1].name}}▼</a>
+                        <a class="outer_href">
+                            <span class="link_icon">{{page.icon}}</span>
+                            <span id="link_text">{{pageObject.page_navigation[1].name}}▼</span>
+                        </a>
                         <div class="dropdown_content">
                             <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
                         </div>
@@ -100,11 +107,11 @@ function Controller_Function($scope)
     
     $scope.pageObject = {
         page_navigation : [
-            {name: "Home", value : homePage},
-            {name: "Project Catalogue", value : rootDir + "#"},
-            {name: "Contact", value : rootDir + "/contact.html"},
-            {name: "About Me", value : rootDir + "/about.html"},
-            {name: "Learning Portal", value : rootDir + "/portal.html"},
+            {icon: "🏡", name: "Home", value : homePage},
+            {icon: "💼", name: "Project Catalogue", value : rootDir + "#"},
+            {icon: "☎", name: "Contact", value : rootDir + "/contact.html"},
+            {icon: "👤", name: "About Me", value : rootDir + "/about.html"},
+            {icon: "📚", name: "Learning Portal", value : rootDir + "/portal.html"},
         ],
         page_navigation_dropdown : [
             $scope.fullstack_apps_page,

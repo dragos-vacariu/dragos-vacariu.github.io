@@ -14,8 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
            break;
         }
         */
-        
-        if (document.title.split(" - ")[0] == menu_items[index].children[0].text)
+        let link_text = menu_items[index].children[0].querySelector('#link_text');
+
+        if (document.title.split(" - ")[0] == link_text.textContent)
         {
            menu_items[index].style = "border-bottom:solid 2px black; font-weight: bold";
            break;

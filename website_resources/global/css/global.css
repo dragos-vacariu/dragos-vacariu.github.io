@@ -24,6 +24,7 @@
     --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
     --site-title-font: normal bold 1.3rem/1.2 FjallaOne, serif;
     --navigation-font: normal normal 1.0rem/1 FjallaOne, serif;
+    --navigation-icon-font: normal normal 1.5em/1 FjallaOne, serif;
     
     --background-gradient: linear-gradient(to bottom, #ffffff, rgba(0,0,255,0.01));
 }
@@ -42,6 +43,7 @@
         --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.2rem/1.2 FjallaOne, serif;
         --navigation-font: normal normal 0.9rem/1 FjallaOne, serif;
+        --navigation-icon-font: normal normal 1.2em/1 FjallaOne, serif;
     }
 }
 
@@ -58,6 +60,7 @@
         --site-description-font: normal normal 0.6rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.1rem/1.2 FjallaOne, serif;
         --navigation-font: normal normal 0.8rem/1 FjallaOne, serif;
+        --navigation-icon-font: normal normal 0.9em/1 FjallaOne, serif;
     }
 }
 
@@ -217,6 +220,11 @@ nav{
     /* flex-grow: 2, flex-shrink: 1, flex-basis: 70% */
     flex: 2 1 70%; /*the percentage within the flex row allocated for this element*/
     
+    display: flex;           /* arrange menu items in a row */
+    flex-wrap: wrap;         /* allow wrapping if viewport is small */
+    justify-content: center;   /* <-- this centers the menu items */
+    gap: 5px;                /* spacing between items */
+    
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -226,17 +234,37 @@ nav{
 }
 
 nav div{
-    width: 120px;
+
     max-width: 90%;
     padding: 3px;
-    margin: 5px 0px;
+    margin: 2px 0px;
     word-wrap:break-word;
     border: none 2px black;
     display: inline-block;
 }
 
+nav div .link_icon{
+    font: var(--navigation-icon-font);
+    display:block;
+    padding: 0px;
+    padding-bottom: 3px;
+}
+
+nav .menu_page_item {
+    flex: 0 0 160px;         /* fixed width for uniform size */
+    display: flex;           /* allows icon + text vertically aligned */
+    flex-direction: column;  /* icon above text */
+    align-items: center;     /* center content horizontally */
+    padding: 1px;
+    box-sizing: border-box;
+    border: none 2px blue;
+    position: relative;      /* for dropdown positioning */
+}
+
+
 .outer_href{
     position: relative;
+    display: block;
     text-decoration: none;
     margin:0%;
     color:var(--darkbrown-color);
@@ -244,11 +272,12 @@ nav div{
     letter-spacing: 0.5px;
     background-color: rgba(0,0,0,0.0);
     text-decoration:none;
-    border-style: none;
     text-align: center;
-    padding: 1%;
+    padding: 0px;
     word-wrap:break-word;
     max-width: 100%;
+    border: none 2px red;
+    width: 100%;
 }
 
 .outer_href:hover{
@@ -273,17 +302,18 @@ nav div{
     background-color: #f1f1f1;
     min-width: 200px;
     max-width: 100%;
-    left: -30%; /*-50% so that it will be centered*/
+    left: -50%; /*-50% so that it will be centered*/
     z-index: 1;
     text-align: center;
-    font-size: 10px;
-    letter-spacing: 0.1vw;
+    font-size: 12px;
+    padding: 0px;
     font-family: ZenDots;
+    font-weight: normal;
 }
 
 .dropdown_content a {
     color: black;
-    padding: 0.8vw 0.2vw;
+    padding: 8px 2px;
     text-decoration: none;
     display: block;
 }
