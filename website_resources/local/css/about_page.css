@@ -166,36 +166,88 @@
 
 #page_block #html_css_info{
     /*background-color: rgba(0,0,255,0.2);*/ /*purple*/
+    background-color: var(--header-footer-color);
+    background-image: url("../images/html_css.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
 }
 
 #page_block #javascript_info{
     /*background-color: rgba(255,0,0,0.3);*/ /*pink*/
+    background-color: var(--header-footer-color);
+    background-image: url("../images/javascript.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
 }
 
 #page_block #c_language_info{
     /*background-color: rgba(0,255,0,0.3);*/ /*green*/
+    background-color: var(--header-footer-color);
+    background-image: url("../images/c_language.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
 }
 
 #page_block #python_info{
     /*background-color: rgba(0,255,255,0.3);*/ /*cyan*/
+    background-color: var(--header-footer-color);
+    background-image: url("../images/python.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
 }
 
 #page_block #cpp_info{
     /*background-color: rgba(255,0,255,0.3);*/ /*magenta*/
+    background-color: var(--header-footer-color);
+    background-image: url("../images/cpp.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
 }
 
 #page_block #csharp_info{
+    background-color: var(--header-footer-color);
+    background-image: url("../images/csharp.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
     /*background-color: rgba(255,255,0,0.5);*/ /*yellow*/
 }
 
 #page_block #unity_info{
+    background-color: var(--header-footer-color);
+    background-image: url("../images/unity.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
     /*background-color: rgba(0,0,0,0.1);*/ /*gray*/
 }
 
 #page_block #java_info{
+    background-color: var(--header-footer-color);
+    background-image: url("../images/java_background.png");
+    background-repeat: no-repeat; 
+    background-size: contain;
+    background-position: center;
+    background-blend-mode: var(--header-footer-background-blend-mode);
     /*background-color: rgba(120,50,120,0.2);*/ /*purple-gray*/
 }
 
+@keyframes wave {
+    from { background-position-x: 0; }
+    to   { background-position-x: 1000px; } /* scroll image */
+}
 
 #page_block .title{
     font-family: ZenDots;
