@@ -96,8 +96,13 @@
     }
 }
 
-#contact_content{
+#contact_details{
     position: relative;
+    display: flex;
+    flex-wrap: wrap; /*this wrap will ensure the elements are displayed one on top of the other in case the viewport gets smaller*/
+    
+    word-wrap: break-word;
+    
     width:98%;
     margin: 1%;
     padding: 0%;
@@ -112,188 +117,46 @@
     background-size: 600px;
     border-radius: 5px;
     border-collapse: separate;
-    table-layout: fixed; /*will allow the table to shrink beyond regular to maintain its pre-defined shape*/
-    word-wrap: break-word; /*will allow word to break-up in so that it won't drift outside the given width*/
 }
 
-#contact_content #first_column
-{
-    width: 70%;
-    border-right: none 0px yellow;
-    vertical-align: top;
-    /*background-image: linear-gradient(to left, white, #ffeecc);*/
-    padding: 2px;
-}
-
-#contact_content #second_column
-{
-    width: 30%;
-    border: none 0px yellow;
-    vertical-align: top;
-    /*background-image: linear-gradient(to right, white, #ffeecc);*/
-    padding: 2px;
-}
-
-#contact_content #clock
+#contact_details #contact_form, #contact_details #contact_info
 {
     position: relative;
-    width: 97%;
-    margin:0%;
-    height:4vw;
-    padding-left: 2%;
-    padding-top: 2vw;
-    text-align: center;
-    font-family: FjallaOne;
-    font-size:15px;
-    text-decoration:none;
-    color:var(--darkred-color);
-    letter-spacing: 1px;
-    border-style:none;
-    border-top:inset;
-    border-width:2px;
-    border-color:black;
-    background-color: transparent;
-    text-shadow: 0.1vw 0.1vw pink;
-    vertical-align: bottom;
-}
-
-article{
-    position: relative;
-    width: 98%;
-    border: none 0px red;
-    border-width: 2px;
-    text-align: left;
-    padding-left: 2%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    
+    border: solid 2px rgba(0, 120, 0, 0.2);
+    border-radius: 15px;
+    margin: 0.5% auto;
+    padding: 30px;
+    vertical-align: top;
+    display: block;
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
+    
     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-article p{
-    width: 100%;
-    font: var(paragraph-font);
-    border: none 0px black;
-    padding: 5px;
-    margin: 2%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-article p .value{
-    color: var(--darkbrown-color);
-    font-weight: bold;
-}
-
-article a{
-    text-decoration: none;
-    font-weight: bold;
-    word-wrap: break-word;
-}
-
-article a:hover{
-    color: red;
-}
-
-article a:selected{
-    color:green;
-}
-
-article img{
-    width: 5vw;
-}
-
-article audio{
-    position: relative;
-    margin: 0% 5%;
-    margin-top: 2%;
-    width: 90%;
-    max-width: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
-    height: 10px;
-    max-height: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
-    border: solid 1px black;
-    border-radius: 10px;
-    padding: 0.2vw;
-}
-
-aside{
-    position:relative;
-    width: 100%;
-    color: red;
-    padding-top: 5%;
-    height: 12vw;
-    border: none 1px black;
-    margin: 1% 0%;
-}
-
-aside #anim{
-    width:3vw;
-    position: absolute;
-    text-shadow: 1vw 1vw 0.3vw lightgray;
-    animation-name: animation-contact;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes animation-contact{
-    0%{top: 0%; left: 5%;}
-    15%{top: 75%; left: 5%;}
-    30%{top: 75%; left: 80%;}
-    45%{top: 0%; left: 80%;}
-    60%{top: 75%; left: 80%;}
-    75%{top: 75%; left: 5%;}
-    100%{ top: 0%; left: 5%;}
-}
-
-aside #image{
-    position: relative;
-    width: 50%;
-    left: 25%;    
-}
-
-aside #greetings{
-    position: absolute;
-    z-index: 1;
-    top: 15%;
-    left: 37%;
-    font-family: FjallaOne;
-    font-variant: small-caps;
-    letter-spacing: 0.1vw;
-    font-size: 1.3vw;
-    font-weight: bold;
-    color: var(--darkred-color);
-}
-
-#div_with_gif
+#contact_details #contact_form
 {
-    position: relative;
-    border: none 1px black;
-}
-
-#div_with_gif #image
-{
-    position: relative;
-    width: 50%;
-}
-
-/* Contact Form Container */
-.contact-form {
-    max-width: 100%;
-    margin: 0.5% auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 68%;
     font-family: 'Arial', sans-serif;
     color: #333333;
+}
+
+
+#contact_details #contact_info
+{
+    position: relative;
+
+    width: 28%;
+
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
     
-    border: solid 2px rgba(0, 120, 0, 0.2);
-    
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
     */
@@ -303,15 +166,15 @@ aside #greetings{
 }
 
 /* Form Heading */
-.contact-form h2 {
+#contact_form h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.8em;
+    font-size: 1.2em;
     color: rgba(0,100,0,0.7) !important;
 }
 
 /* Labels */
-.contact-form label {
+#contact_form label {
     display: inline-block;
     margin-top: 15px;
     margin-bottom: 5px;
@@ -319,8 +182,8 @@ aside #greetings{
 }
 
 /* Inputs & Textarea */
-.contact-form input,
-.contact-form textarea {
+#contact_form input, #contact_form textarea
+{
     width: 100%;
     padding: 10px 15px;
     border-radius: 8px;
@@ -338,14 +201,15 @@ aside #greetings{
 }
 
 /* Focus effect */
-.contact-form input:focus,
-.contact-form textarea:focus {
+#contact_form input:focus, #contact_form textarea:focus
+{
     border-color: #00aa00;
     box-shadow: 0 0 5px rgba(170,0,0,0.4);
 }
 
 /* Submit Button */
-.contact-form button {
+#contact_form button
+{
     margin-top: 20px;
     width: 100%;
     padding: 12px;
@@ -358,22 +222,95 @@ aside #greetings{
     transition: background-color 0.3s, transform 0.2s;
 }
 
-.contact-form button:hover {
+#contact_form button:hover
+{
     background-color: rgba(0,100,0,0.9);
     transform: translateY(-2px);
 }
 
 /* Log message */
-.log-message {
+#contact_form .log-message {
     margin-top: 15px;
     font-size: 0.95em;
     text-align: center;
 }
 
 /* Responsive for mobile */
-@media (max-width: 600px) {
-    .contact-form {
-        padding: 20px;
-        margin: 20px auto;
+@media (max-width: 768px)
+{
+    #contact_details
+    {
+        flex-direction: column; /* stack vertically */
     }
+
+    #contact_details #contact_form, #contact_details #contact_info
+    {
+        width: 100%; /* full width */
+    }
+}
+
+/*========================================================================*/
+#contact_details #clock
+{
+    position: relative;
+    width: 97%;
+    margin:0%;
+    height:4vw;
+    padding-left: 2%;
+    padding-top: 2vw;
+    text-align: left;
+    font-family: FjallaOne;
+    font-size:15px;
+    text-decoration:none;
+    color:var(--darkred-color);
+    letter-spacing: 1px;
+    background-color: transparent;
+    text-shadow: 0.1vw 0.1vw pink;
+    vertical-align: bottom;
+}
+
+#contact_info p{
+    width: 100%;
+    font: var(paragraph-font);
+    border: none 0px black;
+    padding: 5px;
+    margin: 2%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+#contact_info p .value{
+    color: var(--darkbrown-color);
+    font-weight: bold;
+}
+
+#contact_info a{
+    text-decoration: none;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+#contact_info a:hover{
+    color: red;
+}
+
+#contact_info a:selected{
+    color:green;
+}
+
+#contact_info img{
+    width: 5vw;
+}
+
+#contact_info audio{
+    position: relative;
+    margin: 0% 5%;
+    margin-top: 2%;
+    width: 300px;
+    max-width: 90%;
+    height: 10px;
+    max-height: 100%; /*This will forbid the element to overpass the bounderies of viewport.*/
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 0.2vw;
 }
