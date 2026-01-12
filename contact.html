@@ -45,6 +45,27 @@
             <table id = "contact_content">
                 <tr>
                     <td id="first_column">
+                        <form id="contactForm" class="contact-form">
+                            <h2>Contact Me</h2>
+
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required />
+
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+
+                            <label for="topic">Subject</label>
+                            <input type="text" id="topic" name="topic" placeholder="Subject" required />
+
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+
+                            <button type="submit">Send</button>
+
+                          <div id="logMessage" class="log-message"></div>
+                        </form>
+                    </td>
+                    <td id="second_column">
                         <article>
                             <p>Email Address: <span class="value"><a href="MAILTO:dragos.vacariu@mail.com">dragos.vacariu@mail.com</a></span></p>
                             <p>GitHub: <span class="value"><a href="https://github.com/dragos-vacariu">Dragos Vacariu</a></span></p>
@@ -62,16 +83,17 @@
                             <p>Location: <span class="value">Iasi, Romania</span></p>
                             <p><img src="./website_resources/local/images/romania.png" alt="romania flag"></p>
                         </article>
-                    </td>
-                    <td id="second_column">
+                        <!--
                         <aside>
                             <img id="anim" src="./website_resources/local/images/square.png" alt="animation">
                             <img id="image" src="./website_resources/local/images/laptop.png" alt="logo">
                             <span id="greetings">Greetings!</span>
                         </aside>
+                        
                         <div id="div_with_gif">
                             <img id="image" src="./website_resources/local/images/mario_hopping.gif" alt="mario hopping gif">
                         </div>
+                        -->
                         <p id = "clock"></p>
                     </td>
                 </tr>

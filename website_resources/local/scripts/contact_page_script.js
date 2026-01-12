@@ -41,3 +41,21 @@ function checkTime(i)
 }
 
 startTime();
+
+fetch("https://your-vercel-project.vercel.app/api/api_manager", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+        method_name: "sendEmail",
+        method_params: {
+            user_email: "visitor@example.com",
+            user_topic: "Portfolio question",
+            user_message: "Hello, I liked your portfolio!",
+        },
+    }),
+})
+.then(res => res.json())
+.then(data => {
+    console.log(data.message); // log success or failure
+})
+.catch(err => console.error(err));
