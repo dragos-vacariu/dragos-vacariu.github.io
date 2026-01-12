@@ -45,6 +45,7 @@ function checkTime(i)
 async function sendUserEmail(e)
 {
     const form = document.getElementById("contact_form");
+    const log = document.getElementById("logMessage");
     e.preventDefault(); // Prevent form from reloading the page
 
     // Collect form data
