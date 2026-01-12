@@ -274,7 +274,7 @@
     font: var(paragraph-font);
     border: none 0px black;
     padding: 5px;
-    margin: 2%;
+    margin: 4% 2%;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }

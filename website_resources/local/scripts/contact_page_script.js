@@ -52,6 +52,7 @@ async function sendUserEmail(e)
     const data = {
         method_name: "sendEmail",
         method_params: {
+            user_name: form.name.value,
             user_email: form.email.value,
             user_topic: form.topic.value,
             user_message: form.message.value
