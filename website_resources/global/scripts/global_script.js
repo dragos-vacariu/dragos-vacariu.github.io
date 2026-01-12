@@ -53,7 +53,12 @@ if (HTML_Object_PageHeader != null)
                             <span id="link_text">{{pageObject.page_navigation[1].name}}▼</span>
                         </a>
                         <div class="dropdown_content">
-                            <a ng-repeat="page in pageObject.page_navigation_dropdown" href={{page.value}}>{{page.name}}</a>
+                            <span ng-repeat="page in pageObject.page_navigation_dropdown">
+                                <div class="dropdown_content_separator" ng-if="page.hasSeparator == true"></div>
+                                <a href={{page.lst.value}}>{{page.lst.name}}</a>
+                            </span>
+                            
+
                         </div>
                     </div>    
                 </div>
@@ -114,21 +119,24 @@ function Controller_Function($scope)
             {icon: "📚", name: "Learning Portal", value : rootDir + "/portal.html"},
         ],
         page_navigation_dropdown : [
-            $scope.fullstack_apps_page,
-            $scope.unity_page,
-            $scope.javascript_games_page,
-            //$scope.javascript_webapps_page,
-            $scope.python_page,
-            $scope.c_sharp_page,
-            $scope.cpp_opengl_page,
-            $scope.html_page,
-            $scope.angularjs_page,
-            $scope.cpp_page,
-            $scope.java_page,
-            $scope.embedded_c_page,
-            /*$scope.portable_downloads_page,*/
-            $scope.github_project_external_links_page,
-            //$scope.github_repository_page,
+            {lst: $scope.fullstack_apps_page, hasSeparator: false},
+            {lst: $scope.unity_page, hasSeparator: false},
+            {lst: $scope.javascript_games_page, hasSeparator: false},
+            //{lst: $scope.javascript_webapps_page, stylingClass: ""},
+            {lst: $scope.python_page, hasSeparator: false},
+            {lst: $scope.cpp_opengl_page, hasSeparator: false},
+            /*=================================================*/
+            {lst: $scope.embedded_c_page, hasSeparator: true},
+            {lst: $scope.c_sharp_page, hasSeparator: false},
+            {lst: $scope.html_page, hasSeparator: false},
+            {lst: $scope.cpp_page, hasSeparator: false},
+            {lst: $scope.angularjs_page, hasSeparator: false},
+            {lst: $scope.java_page, hasSeparator: false},
+            
+            /*{lst: $scope.portable_downloads_page, stylingClass: ""}, */
+            /*=================================================*/
+            {lst: $scope.github_project_external_links_page, hasSeparator: true},
+            /*{lst: //$scope.github_repository_page, stylingClass: ""}, */
         ],
         template_info : ["Author: Dragos Vacariu", "Date: 2017", "Title: Full Web Page Template", 
                         "Revised in: 2024", "Hosted by: GitHub", " ", "Tools: HTML4, HTML5, CSS, CSS3, JavaScript, Angular"],

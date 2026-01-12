@@ -78,7 +78,7 @@ async function sendUserEmail(e)
         // Clear form if success
         if (result.success)
         {
-            form.reset();
+            document.getElementById("contact_form").reset();
         }
     }
     catch (err)

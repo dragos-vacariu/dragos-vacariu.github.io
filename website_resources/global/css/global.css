@@ -302,7 +302,7 @@ nav .menu_page_item {
     background-color: #f1f1f1;
     min-width: 200px;
     max-width: 100%;
-    left: -50%; /*-50% so that it will be centered*/
+    left: -25%; /*-50% so that it will be centered*/
     z-index: 1;
     text-align: center;
     font-size: 12px;
@@ -311,11 +311,20 @@ nav .menu_page_item {
     font-weight: normal;
 }
 
-.dropdown_content a {
+.dropdown_content  a {
     color: black;
     padding: 8px 2px;
     text-decoration: none;
     display: block;
+}
+
+.dropdown_content .dropdown_content_separator
+{
+    padding:0px;
+    margin:3px auto;
+    border-bottom: ridge 2px rgba(120,0,0,0.8);
+    display: block;
+    width: 100%;
 }
 
 /*
