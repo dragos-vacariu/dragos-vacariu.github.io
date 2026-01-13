@@ -110,6 +110,9 @@
     box-sizing: border-box;         /* Opera/IE 8+ */
     line-height: 25px;
     font: var(--paragraph-font);
+    
+    overflow: hidden;
+    transition: max-height 0.5s ease;
 }
 
 #page_block .paragraph p{
@@ -136,7 +139,6 @@
     margin:0px;
     padding: 0px;
     border-bottom: ridge 0.5vw rgba(50,0,0,0.2);
-
 }
 
 #page_block .section_header{
@@ -242,11 +244,6 @@
     background-position: center;
     background-blend-mode: var(--header-footer-background-blend-mode);
     /*background-color: rgba(120,50,120,0.2);*/ /*purple-gray*/
-}
-
-@keyframes wave {
-    from { background-position-x: 0; }
-    to   { background-position-x: 1000px; } /* scroll image */
 }
 
 #page_block .title{

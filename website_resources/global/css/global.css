@@ -414,6 +414,33 @@ nav div:hover{
     transform: scale(1.1);        /* rotate 10 degrees on hover */
 }
 
+/* Style the truncated elements */
+.truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 10; /* show only 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Style the button for Show More/Show Less */
+.show_more_less_toggle_button {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 0.35em 1em;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(150,0,0,0.7);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.show_more_less_toggle_button:hover {
+    background-color: #666;
+    transform: translateY(-2px);
+}
+
 .required{
     color: red;
     font-weight: bold;

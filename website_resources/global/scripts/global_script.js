@@ -309,69 +309,129 @@ function Controller_Function($scope)
     }
 }
 
-/*Adding fading-out transition to paragraphs on scrolling*/
-window.addEventListener("scroll", function () 
+function fadingParagraphsOnScrolling_Effect()
 {
-    const fading_elements = document.getElementsByClassName("fading_paragraph");
-    const page_header = document.getElementById("page_header");
+    /*Adding fading-out transition to paragraphs on scrolling*/
     
-    for(var index=0; index < fading_elements.length; index++)
+    const fading_elements = document.getElementsByClassName("fading_paragraph");
+    
+    if(fading_elements)
     {
-        const rect = fading_elements[index].getBoundingClientRect();
-        const elementHeight = rect.height;
-
-        // Adjust visible area to account for sticky nav
-        const viewportTop = page_header.getBoundingClientRect().height;
-        const viewportBottom = window.innerHeight;
-
-        const visibleTop = Math.max(rect.top, viewportTop);
-        const visibleBottom = Math.min(rect.bottom, viewportBottom);
-
-        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        window.addEventListener("scroll",  () => { addFadingEffect() });
         
-        const maxVisible = Math.min(elementHeight, viewportBottom - viewportTop);
-        const ratio = visibleHeight / maxVisible;
+        function addFadingEffect()
+        {
+            const page_header = document.getElementById("page_header");
+            
+            for(var index=0; index < fading_elements.length; index++)
+            {
+                const rect = fading_elements[index].getBoundingClientRect();
+                const elementHeight = rect.height;
 
-        // Fade out when visible part is less than..
-        if (ratio < 0.8) 
-        {
-          //fading_elements[index].style.opacity = ratio * 2; // Smooth transition
-          fading_elements[index].classList.add("fade-out");
-        } 
-        else 
-        {
-          //fading_elements[index].style.opacity = 1;
-          fading_elements[index].classList.remove("fade-out");
+                // Adjust visible area to account for sticky nav
+                const viewportTop = page_header.getBoundingClientRect().height;
+                const viewportBottom = window.innerHeight;
+
+                const visibleTop = Math.max(rect.top, viewportTop);
+                const visibleBottom = Math.min(rect.bottom, viewportBottom);
+
+                const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+                
+                const maxVisible = Math.min(elementHeight, viewportBottom - viewportTop);
+                const ratio = visibleHeight / maxVisible;
+
+                // Fade out when visible part is less than..
+                if (ratio < 0.8) 
+                {
+                  //fading_elements[index].style.opacity = ratio * 2; // Smooth transition
+                  fading_elements[index].classList.add("fade-out");
+                } 
+                else 
+                {
+                  //fading_elements[index].style.opacity = 1;
+                  fading_elements[index].classList.remove("fade-out");
+                }
+            }
         }
     }
-});
+}
 
-/*Adding roll-over transition to paragraphs on scrolling*/
-const sections = document.querySelectorAll('.scale_scroll_img_anim');
+function imageScaleOnScrolling_Effect()
+{
+    /*Adding roll-over transition to paragraphs on scrolling*/
+    const sections = document.querySelectorAll('.scale_scroll_img_anim');
 
-/*
-IntersectionObserver is a JavaScript API that allows you to watch when an element 
-enters or leaves the viewport (or another container).
+    /*
+    IntersectionObserver is a JavaScript API that allows you to watch when an element 
+    enters or leaves the viewport (or another container).
 
-You don’t need to manually calculate scroll positions or offsets.
+    You don’t need to manually calculate scroll positions or offsets.
 
-It’s efficient because the browser handles the observation, rather than running 
-code on every scroll event.
-*/
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting)
+    It’s efficient because the browser handles the observation, rather than running 
+    code on every scroll event.
+    */
+    
+    if(sections)
+    {
+        const scale_scroll_observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting)
+                {
+                    entry.target.classList.add('visible');  // element enters viewport
+                }
+                else
+                {
+                    entry.target.classList.remove('visible'); // element leaves viewport
+                }
+            });
+        }, { threshold: 0.2 }); // 20% of element must be visible
+        
+        sections.forEach(section => scale_scroll_observer.observe(section));
+    }
+}
+
+function truncatedParagraphsHandling()
+{
+    const paras = document.getElementsByClassName("paragraph");
+    if(paras)
+    {
+        for (let index = 0; index < paras.length; index++)
         {
-            entry.target.classList.add('visible');  // element enters viewport
+                const para = paras[index]; // single element
+                const toggle_button = para.querySelector(".show_more_less_toggle_button");
+                
+                if(toggle_button)
+                {
+                    toggle_button.addEventListener("click", 
+                           (e) => {showMoreLessToggleButton(e.target) } );
+                }
         }
-        else
-        {
-            entry.target.classList.remove('visible'); // element leaves viewport
-        }
-    });
-}, { threshold: 0.2 }); // 20% of element must be visible
 
-sections.forEach(section => observer.observe(section));
+        function showMoreLessToggleButton(btn)
+        {
+            const content = btn.parentElement.querySelector(".content");
+            if(content)
+            {
+                if (content.classList.contains("truncated"))
+                {
+                    content.classList.remove("truncated");
+                    btn.textContent = "See Less";
+                }
+                else
+                {
+                    content.classList.add("truncated");
+                    btn.textContent = "See More";
+                }
+            }
+        }
+    }
+}
+
+imageScaleOnScrolling_Effect();
+
+truncatedParagraphsHandling();
+
+fadingParagraphsOnScrolling_Effect();
 
 /*
 //This works on client side and is not suitable for visit counter
