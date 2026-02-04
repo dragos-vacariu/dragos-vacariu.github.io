@@ -347,7 +347,7 @@ nav div:hover{
     position: relative;
     word-wrap: break-word;
     
-    margin: 2% auto;
+    margin: 1px auto;
     padding: 1%;
     text-align: center;
     font: var(--intro-message-font);
@@ -368,6 +368,14 @@ nav div:hover{
 
 .fading_paragraph {
     transition: opacity 0.5s ease-out;
+}
+
+.fading_paragraph #heading{
+    width: fit-content;
+    text-align: left;
+    font: var(--navigation-font);
+    color: var(--darkred-color);
+    font-weight: normal;
 }
 
 .fading_paragraph .title
@@ -576,10 +584,24 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
 }*/
 
 /*This is for Catalogue/Video/Contact/About/Portal pages*/
-#page_block{
-    margin: 0.5vw;
-    width:auto;
-    border:none 0px black;
+
+#page_block {
+    position: relative;
+    width: 99%;
+    color: black;
+    border: none 0px #995500;
+    margin: auto;
+    background: var(--background-gradient);
+    word-wrap: break-word;
+    height: auto;
+    top: 0px;
+    box-shadow: none;
+    
+    font-family: Georgia;
+    font-size:14px;
+    
+    text-shadow: 0px 0px black;
+    font-weight: normal;
 }
 
 /*This is the h2 element displaying the page title*/
@@ -587,7 +609,7 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     position:relative;
     width:fit-content;
     padding: 10px;
-    margin: auto;
+    margin: 0px auto;
     color:var(--darkred-color);
     border:none 2px black;
     border-radius: 5px;
@@ -595,15 +617,6 @@ footer #footer_tabelation_div .footer_columns .footer_list li a:hover{
     font-size: 1.1rem;
     font-weight: normal;
 
-    /*background-color:#995500;*/
-    /*
-    background-color:rgba(255,255,255,0.8);
-    background-image:url("../images/main_heading_texture.jpg");
-    background-blend-mode: overlay;
-    background-position: center;
-    background-size: 100px;
-    background-repeat: repeat;*/
-    text-shadow: 0px 0px white;
     text-align: center;
     letter-spacing:2px;
     word-wrap:break-word;

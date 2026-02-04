@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Game Project 2D</title>
+        
+        <meta charset = "UTF-8">
+        <!--For mobile viewport proper resizing-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Google verification -->
+        <meta name="google-site-verification" content="onS_i1AOmpRlObgSmQ5S3Hc2vWXqpaGcGb6_Nc0w6-s" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../../../website_resources/global/images/favicon.ico">
+        
+        <!--Global resources-->
+        <link rel="stylesheet" href="../../../website_resources/global/css/global.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/video_page.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/catalogue_style.css">
+        <script src="../../../website_resources/global/scripts/video_page_script.js"></script>
+        
+        <!--Local resources-->
+        
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        
+        <div id="page_block">
+            <div id="page_content">
+                <div id="navigation">
+                    <!-- Actual sidebar content -->
+                    <div id="sidebar">
+
+                    </div>
+                </div>
+                <div id = "block_content">
+                    <div id="project_description">
+                        <video controls autoplay>
+                          <source src="Car Game Project 2D.mp4" type="video/mp4">
+                          <source src="Car Game Project 2D.ogg" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                        <b>Car Game Project 2D</b> is one of my most recent projects, developed entirely from scratch using C++ and OpenGL.
+                        <br><br>
+                        While it may appear simple at first—with PNG-based graphics and limited player interaction—it required significant 
+                        effort due to the low-level nature of both C++ and OpenGL, which lack the conveniences of higher-level languages, 
+                        APIs, or modern game frameworks.
+                        <br><br>
+                        This project builds upon the foundations laid in earlier efforts, including the
+                        <a href ="./Traffic Simulator 2D.html">Traffic Simulator 2D</a>, also developed using C++ and OpenGL.
+                        <br></br>
+                        <b>Game Mechanics</b>
+                        <br></br>
+                        The objective is to drive through traffic while avoiding collisions. The player earns:
+                        <ul class="regular_ul">
+                            <li><b>+10 points</b> for overtaking another car,</li>
+                            <li><b>–5 points</b> for colliding with a traffic car,</li>
+                            <li><b>–1 point</b> for each car that overtakes the player.</li>
+                            <li>Game Over occurs when the player's car accumulates over 100% damage.</li>
+                        </ul>
+                        <b>Additional gameplay dynamics:</b>
+                        <ul class="regular_ul">
+                            <li>The player's speed is significantly reduced when leaving the road or during collisions.</li>
+                            <li>Damage severity depends on the type and direction of the collision:</li>
+                            <li>Side collisions cause minor damage.</li>
+                            <li>Frontal collisions with cars moving in the same direction cause moderate damage.</li>
+                            <li>Frontal collisions with cars moving in the opposite direction cause severe 
+                            damage due to the combined impact forces.</li>
+                        </ul>
+                        <br>
+                        <b>Technical Challenges and Solutions</b>
+                            <br><br>
+                            <b>&check; Road and Curves</b><br>
+                            OpenGL lacks built-in support for curved surfaces, so I had to experiment with mathematical functions and 
+                            rendering techniques (e.g., scanline drawing, quad distortion) to simulate a dynamically curving road.
+                            <br><br>
+                            <b>&check; Traffic Car AI</b><br>
+                            To ensure AI cars follow the road correctly, I implemented a custom system that adjusts their position and heading based on the 
+                            road's curvature. This allows AI cars to steer naturally, regardless of direction.
+                            <br><br>
+                            <b>&check; Animation and Effects</b><br>
+                            Without built-in animation support, I developed custom logic for effects. For example, on collision, the area around the player's 
+                            car fades in and out by modifying opacity over time.
+                            <br><br>
+                            <b>&check; Texture-Based HUD</b><br>
+                            OpenGL doesn't support text rendering natively. I used SDL_Surface objects to render text and converted them into OpenGL 
+                            textures to build a heads-up display (HUD).
+                            <br><br>
+                            <b>&check; Traffic Car Spawning and Recycling</b><br>
+                            I implemented logic to spawn traffic cars while avoiding immediate collisions. A major challenge was managing cars that 
+                            became stationary due to collisions—they would linger off-screen and block new spawns. I solved this by tracking 
+                            Y-positions and recycling cars only when they leave the visible or active world space.
+                            <br><br>
+                            <b>&check; Car Steering Animation</b><br>
+                            To simulate the car turning, I created a system where the player's car quad rotates proportionally to steering input, 
+                            mimicking the behavior of more advanced game engines.
+                            <br><br>
+                            <b>&check; Infinite World System</b><br>
+                            I built a looping world using reusable segments. As the player progresses, old segments are recycled to the end of the world 
+                            queue, creating a seamless scrolling environment.
+                            <br><br>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
+        </footer> 
+    </body>
+    <!--This resource has to be added here because we need the elements in the HTML document to exist before 
+    running the script-->
+    <!--Global resources-->
+    <script src="../../../website_resources/global/scripts/global_script.js"></script>
+</html>

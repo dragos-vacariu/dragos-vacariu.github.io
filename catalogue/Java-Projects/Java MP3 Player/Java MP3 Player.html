@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Java MP3 Player Video</title>
+        
+        <meta charset = "UTF-8">
+        <!--For mobile viewport proper resizing-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Google verification -->
+        <meta name="google-site-verification" content="onS_i1AOmpRlObgSmQ5S3Hc2vWXqpaGcGb6_Nc0w6-s" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../../../website_resources/global/images/favicon.ico">
+        
+        <!--Global resources-->
+        <link rel="stylesheet" href="../../../website_resources/global/css/global.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/video_page.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/catalogue_style.css">
+
+        <script src="../../../website_resources/global/scripts/video_page_script.js"></script>
+        <!--Local resources-->
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="page_block">
+            <div id="page_content">
+                <div id="navigation">
+                    <!-- Actual sidebar content -->
+                    <div id="sidebar">
+
+                    </div>
+                </div>
+                <div id = "block_content">
+                    <div id="project_description">
+                        <video controls autoplay muted>
+                          <source src="Java MP3 Player.mp4" type="video/mp4">
+                          <source src="Java MP3 Player.ogg" type="video/ogg">
+                        Your browser does not support the video tag.
+                        </video>
+                        <b>Java MP3 Player</b> is a desktop music player application developed during my early programming days, 
+                        using Java, the NetBeans 8.2 IDE, and the Swing GUI toolkit. It builds upon an earlier 
+                        <a href="../CSharp-Projects/MP3Player.html">MP3 Player</a>
+                        I created in C#, offering enhanced functionality and a more refined user interface.
+                        <br><br>
+                        Key improvements include:
+                        <ul class="regular_ul">
+                            <li>A more polished and responsive GUI using Java Swing components</li>
+                            <li>Support for creating, saving, and loading playlists via .txt files</li>
+                            <li>Playlist functionality with serialization and deserialization, allowing 
+                            users to save and reload their music collections across sessions</li>
+                            <li>A visual playlist viewer using a JList (listbox), enabling users to browse 
+                            and manage their current tracklist more easily</li>
+                        </ul>
+                        <br>
+                        This project helped solidify my understanding of Java’s GUI capabilities, file handling, and basic 
+                        object serialization while continuing to explore media integration in desktop applications.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
+        </footer> 
+    </body>
+    <!--This resource has to be added here because we need the elements in the HTML document to exist before 
+    running the script-->
+    <!--Global resources-->
+    <script src="../../../website_resources/global/scripts/global_script.js"></script>
+</html>

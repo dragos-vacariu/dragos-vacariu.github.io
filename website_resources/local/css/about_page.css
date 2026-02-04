@@ -9,7 +9,6 @@
     word-wrap: break-word;
     font: var(--big-header-font);
     text-align: left;
-    margin: 1% auto;
     padding: 1%;
     width: 96%;
     border: groove 0.5vw rgba(0,0,0,0.1);

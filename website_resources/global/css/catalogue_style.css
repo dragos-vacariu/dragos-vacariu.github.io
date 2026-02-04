@@ -1,0 +1,255 @@
+:root 
+{
+    --background-gradient: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+}
+
+body 
+{
+    background: var(--background-gradient);
+}
+
+/* Make all elements include padding/border in width */
+*,
+*::before,
+*::after {
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block {
+    border: none 2px purple! important;
+}
+
+#page_content {
+    position: relative;   /* IMPORTANT */
+    display: flex;
+    align-items: flex-start;   /* align sidebar & content to top */
+    width: 100%;
+
+    padding: 0px;
+    margin: 0px;
+    background-color: #f7f7f7;
+    border: solid 1px #ddd !important;
+}
+
+/* LEFT NAVIGATION */
+#navigation {
+    position: sticky;
+    top: 65px;            /* adjust for header height */
+    display: flex;
+    flex-direction: row;  /* sidebar + toggle button */
+
+    align-items: flex-start;
+    height: 100%;         /* take full height of parent */
+    
+    border: none 2px green;
+    margin-right: 3px;
+    
+    flex: 0 0 18%;   /* grow:0, shrink:0, basis:30% */
+    
+    max-width: 300px; /* optional safety cap */
+    min-width: 200px; /* optional safety floor */
+    width: 200px;     /*optional - width is decided by flex*/
+}
+
+/* Sidebar content */
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 12px;
+
+    width: 100%;
+    overflow-y: auto;
+    order: 2; /* push below toggle button visually */
+}
+
+#content_list {
+    list-style: none;          /* remove bullets */
+    padding: 0;
+    margin: 0;
+}
+
+#content_list .active{
+    border-left: 3px solid #1a73e8; /* optional: highlight on left */
+    padding-left: 5px;       /* space for the border */
+
+    color: #1a73e8;
+}
+
+.project_catalogue:hover{
+    color: var(--darkblue-color);
+}
+
+/* RIGHT CONTENT AREA */
+#catalogue_content {
+    position: relative;
+    padding: 8px;
+    overflow-y: visible; /* no independent scrolling */
+    display: block;
+    flex: 1;         /* fill remaining space */
+    min-width: 0;    /* IMPORTANT: allows wrapping instead of forcing shrink */
+
+    border-left: solid 1px #ddd;
+    background-color: white;
+    min-height: 80vh;
+}
+
+
+#projects_container {
+    position: relative;
+    border: none 2px yellow;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* exactly 2 columns */
+    gap: 16px;                             /* equal spacing everywhere */
+    padding: 16px;                        /* equal edge spacing */
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+
+    #projects_container
+    {
+        grid-template-columns: repeat(1, 1fr); /* exactly 2 columns */
+
+    }
+}
+
+@media (max-width: 480px) {
+
+}
+
+.project_div {
+    position: relative;
+    width: 100%;
+    /*margin: 10px;*/ /*not needed - causes overflowing outside the parent due to display: grid*/
+    border-radius: 0.5vw;
+    /*overflow: hidden;*/ /*not working with the tooltip.*/
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    border: groove 2px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.project_div:hover {
+    transform: scale(1.01); /* subtle zoom */
+    border-width: 4px;
+}
+
+
+.project_title{
+    text-align: center;
+    padding: 5px;
+    background-color: rgba(80,80,80,0.7);
+
+    font: var(--navigation-font);
+    border: groove 2px rgba(0,0,0,0.1);
+    color: white;
+}
+
+.paragraph
+{
+    text-align: left;
+    width: 95%;
+    margin: auto;
+}
+
+.paragraph .catalogue_title
+{
+    border-left: 3px solid #1a73e8; /* optional: highlight on left */
+    padding-left: 5px;       /* space for the border */
+    color: #1a73e8;
+    
+    margin: 1%  0px ;
+    font: var(--navigation-font);
+}
+
+.paragraph .catalogue_description
+{
+    position: relative;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 1%;
+    padding: 5px 0px;
+    font: var(--menu-font);
+    color: rgb(100,100,100);
+    border: none 0px black;
+}
+
+.project_div .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 6px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 3;
+}
+
+.project_div:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.media_container {
+    width: 100%;
+    /* Set desired aspect ratio, e.g., 16:9 */
+    aspect-ratio: 16 / 9; 
+    position: relative;
+    background-color: #111; /* fallback color if video is missing */
+    overflow: hidden;
+}
+
+/* Make img and video fill the container */
+.media_container img,
+.media_container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* keeps aspect ratio, fills container */
+    display: block;
+    pointer-events: none; /* IMPORTANT */
+}
+
+.media_container img {
+    opacity: 1;
+}
+
+.media_container video {
+    opacity: 0;
+}
+
+#catalogue_title{
+    font: var(--navigation-font);
+    color: var(--darkbrown-color);
+    font-size: 1.1rem;
+    padding: 0px;
+    text-align: left;
+    line-height: 1rem;
+    border: solid 1px brown;
+    margin-left: 10px;
+}
+
+/* Remove default button styles */
+.project_catalogue {
+    background: none;       /* no background */
+    border: none;           /* no border */
+    padding: 2px;             /* remove default padding */
+    margin: 5px;              /* remove default margin */
+    font: var(--navigation-font);          /* inherit font from parent */
+    color: var(--darkred-color);         /* Google-link blue */
+    cursor: pointer;        /* pointer on hover */
+    transition: color 0.2s, color 0.2s;
+}
