@@ -33,7 +33,8 @@ function displayCatalogueLinks()
                     active_Index = index;
                     
                     /*Setting the cookie*/
-                    document.cookie = String(index);
+                    //document.cookie = String(index);
+                    document.cookie = "activeIndex=" + index + "; path=/";
                     
                     /*Show catalogue content*/
                     showContent();
@@ -55,6 +56,12 @@ function displayCatalogueLinks()
 function processRouteCookie()
 {
     var routeProvided = window.location.href.split("/catalogue.html#")[1];
+    
+    // Read named cookie
+    const cookieValue = document.cookie
+        .split('; ')
+        .find(row => row.startsWith('activeIndex='))
+        ?.split('=')[1];
     
     //Replacing '%20' with ' '
     if(routeProvided)
@@ -93,20 +100,20 @@ function processRouteCookie()
         /*if route is incorrect - attempt to load the cookie*/
         else if(route && routeProcessingFailed)
         {
-            if(document.cookie != "")
+            if(cookieValue)
             {
-                active_Index = parseInt(document.cookie);
+                active_Index = parseInt(cookieValue);
             }
         }
         /*Loading the cookie if available.*/
-        else  if(document.cookie != "")
+        else if(cookieValue)
         {
-            active_Index = parseInt(document.cookie);
+            active_Index = parseInt(cookieValue);
         }
     }
-    else  if(document.cookie != "")
+    else if(cookieValue)
     {
-        active_Index = parseInt(document.cookie);
+        active_Index = parseInt(cookieValue);
     }
 }
 

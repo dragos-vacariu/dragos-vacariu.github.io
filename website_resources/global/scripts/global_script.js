@@ -745,6 +745,10 @@ function updateHeadMeta()
     {
         parsed_title += "Project Catalogue - ";
     }
+    else if(lastPart == "")
+    {
+        parsed_title += "Home";
+    }
 
     // Append the last segment (e.g., filename)
     let lastSegment = page_title_list[page_title_list.length - 1];
