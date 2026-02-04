@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal Journal</title>
+    <!-- Appwrite v17 Web SDK -->
+    <script src="./note_taking_appwrite_17_0_0.js"></script>
+</head>
+<body>
+    <h2>My Minimal Journal</h2>
+    <div id="journal" contenteditable="true"
+         style="width:80%; height:200px; border:1px solid black; padding:5px;">
+        <!-- User content here -->
+    </div>
+    <button id="saveBtn">Save</button>
+
+    <script>
+        // ======== Initialize Appwrite ========
+        const client = new Appwrite.Client();
+        client
+            .setEndpoint('https://fra.cloud.appwrite.io/v1') // Your Appwrite endpoint
+            .setProject('6909c9540011adc86250');            // Your Project ID
+
+        // Note the plural "Databases" here
+        const databases = new Appwrite.Databases(client);
+
+        const DATABASE_ID = '690a5da7002ec7d37dd0';  // Your database ID
+        const COLLECTION_ID = 'collections';         // Your collection ID
+
+        // ======== Load content ========
+        async function loadContent() {
+            try {
+                const result = await databases.listDocuments(DATABASE_ID, COLLECTION_ID);
+                if (result.documents.length > 0) {
+                    document.getElementById('journal').innerText = result.documents[0].content;
+                    window.docId = result.documents[0].$id;
+                }
+            } catch (err) {
+                console.error('Error loading content:', err);
+            }
+        }
+
+        // ======== Save content ========
+        async function saveContent() {
+            const content = document.getElementById('journal').innerText;
+
+            try {
+                if (window.docId) {
+                    await databases.updateDocument(DATABASE_ID, COLLECTION_ID, window.docId, { content });
+                } else {
+                    const doc = await databases.createDocument(
+                      DATABASE_ID,
+                      COLLECTION_ID,
+                      'unique()',
+                      { 
+                        content: content, 
+                        createdAt: new Date().toISOString(), 
+                        updatedAt: new Date().toISOString()
+                      }
+                    );
+                    window.docId = doc.$id;
+                }
+                alert('Content saved!');
+            } catch (err) {
+                console.error('Error saving content:', err);
+            }
+        }
+
+        document.getElementById('saveBtn').addEventListener('click', saveContent);
+
+        // Load content on page start
+        loadContent();
+    </script>
+</body>
+</html>

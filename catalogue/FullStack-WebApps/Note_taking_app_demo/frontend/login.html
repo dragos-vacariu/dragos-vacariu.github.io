@@ -1,0 +1,74 @@
+<!DOCTYPE html >
+<html>
+    <head>
+        <title>Login - Note Taking App</title>
+        
+        <meta charset = "UTF-8">
+         <!--For mobile viewport proper resizing-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Google verification -->
+        <meta name="google-site-verification" content="onS_i1AOmpRlObgSmQ5S3Hc2vWXqpaGcGb6_Nc0w6-s" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../../../../website_resources/global/images/favicon.ico"/>
+        
+        <!--Global resources-->
+        <link rel="stylesheet" href="../../../../website_resources/global/css/global.css"/>
+        <link rel="stylesheet" href="../../../../website_resources/global/css/video_page.css">
+        <link rel="stylesheet" href="../../../../website_resources/global/css/catalogue_style.css">
+        <script src="../../../../website_resources/global/scripts/video_page_script.js"></script>
+        
+        <!--Local resources-->
+        <link rel="stylesheet" href="./styles/login_style.css"/>
+        <link rel="stylesheet" href="./styles/global.css"/>
+        <link rel="stylesheet" href="./styles/portfolio_style.css"/>
+        
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        
+        <div id="page_block">
+            <div id="page_content">
+                <div id="navigation">
+                    <!-- Actual sidebar content -->
+                    <div id="sidebar">
+
+                    </div>
+                </div>
+                <div id="block_content">
+                    <div id = "project_description">
+                        <h2>Note Taking App <sup> -> Login </sup></h2>
+                        <div id="app_page_content">
+                            <div id="form_container">
+                                <form id="authForm">
+                                    <input type="text" name="email_address" placeholder="Email" required />
+                                    <input type="password" name="password" placeholder="Password" required />
+                                    <ul id="extraOptions"></ul><!-- dynamic form area -->
+                                    <button id="login_sigup" class="page_button" type="submit">Login</button>
+                                    <button id="login_as_guest_button" class="page_button" type="submit" onclick="LogIn_AsGuest()">Login as Guest</button>
+                                </form>
+                                <button id="toggleMode" class="page_button" >Switch to Sign Up</button>
+                                <div id="message"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
+        </footer> 
+        
+        <!--The frontend script should be added/loaded at the end, because we need the 
+        div elements to exist in the document-->
+        <script src="./scripts/auth_frontend_script.js"></script>
+        <script src="./scripts/crypto_utils.js"></script>
+        <script src="./scripts/global_functions.js"></script>
+        <script src="./scripts/login_frontend_script.js"></script>
+        
+        <!--Global resources-->
+        <script src="../../../../website_resources/global/scripts/global_script.js"></script>
+    </body>
+</html>

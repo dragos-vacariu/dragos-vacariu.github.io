@@ -1,0 +1,396 @@
+:root {
+  --vh: 100vh; /* Fallback */
+  /*It defines --vh as 100vh, which is the full height of the viewport (the visible part of the browser window).*/
+}
+
+#chatbot_container {
+    display: block;
+    flex-direction: column;
+    border-radius: 2vw;
+    background-color: rgba(255,255,255,0.8);
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+#chatbot_app {
+    position: relative;
+    padding: 0.6rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 98%;
+    min-height: calc(var(--vh, 1vh) * 65);
+    margin: 0px;
+    background-color: rgba(255,255,255,0.8);
+    border: solid 2px rgba(0,0,0,0.1);
+    border-radius: 2vw;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#chatbot_background_div
+{
+    position: absolute;
+    inset: 0;                 /* top, right, bottom, left = 0 */
+    display: block;
+    top: 5vw;
+    opacity: 0.1;
+    pointer-events: none;   /* prevents blocking clicks */
+
+    border: none 2px blue;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    
+    /*Background logo text is unselectable*/
+    user-select: none;        /* Standard */
+    -webkit-user-select: none; /* Chrome, Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+.bubble, .user {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 5px 10px;
+    margin: 1% 5px;
+    width: 98%;
+    font-family: Arial, sans-serif;
+}
+
+.bubble {
+    background: rgba(240,240,240,0.9);
+}
+
+.user {
+    background: rgba(100,255,0,0.05);
+}
+
+.admin {
+    background: rgba(100,0,255,0.05);
+}
+
+custom_bold{
+    font-weight: bold;
+    color: #b6042a;
+}
+
+pre {
+    background: rgba(0,0,0,0.05);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+}
+
+h1, h2, h3 {
+    font-family: 'Arial Black', sans-serif;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+
+code{
+    white-space: pre;
+    color: blue;
+    font-weight: bold;
+}
+
+#inputs{
+
+    /*flex: 0 0 calc(var(--vh, 1vh) * 20);*/ /* 20% of viewport */
+    display: flex;
+    gap: 0.5rem; /* Adds consistent space between textarea and button */
+    position: sticky;
+    bottom: 0;
+
+    padding: 1rem;
+    background: #fff;
+    margin:0%;
+    border-top: 1px solid rgba(0,0,0,0.1);        
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#userInput{
+    flex: 1;           /* Expand textarea to fill remaining space */
+    resize: none;
+    height: 80%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin: 0%;
+    overflow: hidden;
+    overflow-y: auto;
+    border: solid 1px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    font: var(--mini-font);
+    gap: 0rem;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#sendButton{
+    flex: 0 0 auto;    /* Button keeps natural width */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+
+    cursor: pointer;
+    
+    height: 40%;
+    font-size: 1rem;
+    width: auto;
+    margin: 0%;
+    background-color: rgba(0,0,0, 0.1);
+}
+
+#sendButton:hover{
+    background-color: rgba(0,0,0, 0.05);
+    cursor: pointer; /* 👈 This makes the cursor a hand */
+}
+
+/*Responsiveness for the fonts based on the viewport's size*/
+:root {
+    --chatbot-site-title-font: normal bold 2.2rem/1.2 FjallaOne, serif;
+    --chatbot-site-description-font: normal normal 1.6rem/1.2 ZenDots, serif;
+    --chatbot-paragraph-font: normal normal 0.9rem/1.4 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+    --chatbot-app-title-font: normal normal 2.5rem/2 ZenTokyoZoo, serif;
+}
+
+@media (max-width: 768px) {
+    :root
+    {
+        --chatbot-site-title-font: normal bold 1.8rem/1.1 FjallaOne, serif;
+        --chatbot-site-description-font: normal normal 1.2rem/1.1 ZenDots, serif;
+        --chatbot-paragraph-font: normal normal 0.8rem/1.2 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --chatbot-app-title-font: normal normal 1.8rem/1.4 ZenTokyoZoo, serif;
+    }
+    
+    #logo_image_div {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root
+    {
+        --chatbot-site-title-font: normal bold 1.4rem/1 FjallaOne, serif;
+        --chatbot-site-description-font: normal normal 0.8rem/1 ZenDots, serif;
+        --chatbot-paragraph-font: normal normal 0.7rem/1 Georgia, serif; /*italic bold 16px/1.5 Georgia, serif*/
+        --chatbot-app-title-font: normal normal 1.3rem/1.1 ZenTokyoZoo, serif;
+    }
+    
+    #logo_image_div {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+#footer_link
+{
+    position: relative;
+    text-decoration: none;
+    width:auto;
+    height: fit-content;
+    padding: auto;
+    margin:auto;
+}
+
+#background_logo_div{
+    position: relative;
+    width:fit-content;
+    height: inherit;
+    max-height: 100%;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+    margin:auto;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+    border: none 2px red;
+    border-radius: 5vw;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#logo_image_div {
+    position: relative;
+    padding: 0%;
+    margin: 0%;
+    width: 200px;
+    display: flex; /*this will reduce the uneven padding around the element*/
+    flex-direction: column;
+    height: auto;
+    margin-right: 1vw;
+    border: none 1px black;
+    background-color: rgba(0,0,0,1);
+    overflow: hidden; /* optional, if you want to hide overflow parts */
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@media (max-width: 768px) {
+    #background_logo_div #logo_image_div {
+        width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    #background_logo_div #logo_image_div {
+        width: 120px;
+    }
+}
+
+#background_logo_div #logo_image_div #logo_img{
+    position: relative;
+    width: 100%;
+    height: length;
+    border: none 2px red;
+    margin:0%;
+    padding: 0%;
+    display: auto; /*this will reduce the uneven padding around the element*/
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#chatbot_title_and_description_div {
+    position: relative;
+    padding: 0%;
+    margin-top: 2%;
+    width: auto;
+    height: fit-content;
+    border: none 0px black;
+    display: flex; /*this will reduce the uneven padding around the element*/
+    flex-direction: column;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#chatbot_title_and_description_div #chatbot_page_title{
+    position: relative;
+    text-align: center;
+    font: var(--chatbot-site-title-font);
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    margin: 0%;
+    padding: 0%;
+    text-shadow: 0px 0px #eeeeee;
+    width: fit-content;
+    border: none 0px black;
+    text-align: left;
+    word-wrap: break-word;
+    color: black;
+}
+
+#chatbot_title_and_description_div  #chatbot_app_title
+{
+    position: relative;
+    text-align: center;
+    font: var(--chatbot-app-title-font);
+    font-variant: small-caps;
+    letter-spacing: 2px;
+    margin: 0%;
+    text-shadow: 0px 0px #eeeeee;
+    width: fit-content;
+    border: none 0px black;
+    text-align: left;
+    word-wrap: break-word;
+    color: black;
+}
+
+#chatbot_title_and_description_div #chatbot_page_description{
+    position: relative;
+    text-align: center;
+    font: var(--chatbot-site-description-font);
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    /*color: #ffeecc;*/
+    color: #b6042a;
+    margin: 0%;
+    text-shadow: 0px 0px #eeeeee;
+    opacity: 100%;
+    width: fit-content;
+    border: none 0px black;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+#back_sign{
+    position: relative;
+    display: block; /*this will reduce the uneven padding around the element*/
+    margin:0px;
+    margin-left: 1vw;
+    height: fit-content;
+    border: none 0px blue;
+}
+
+#back_sign h2{
+    height: fit-content;
+    margin: 0px;
+    position: relative;
+    border: none 0px green;
+}
+
+/*Adding custom font*/
+
+@font-face {
+    font-family: FjallaOne;
+    src: url("./fonts/FjallaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenDots;
+    src: url("./fonts/ZenDots-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenTokyoZoo;
+    src: url("./fonts/ZenTokyoZoo-Regular.ttf");
+}

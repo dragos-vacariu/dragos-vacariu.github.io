@@ -1,0 +1,234 @@
+#game_div table{
+	position: relative;
+	background-image: url(snake_background2.bmp);
+    padding:0%;
+    width: 40vw;
+    background-repeat: repeat; 
+    background-size: 100%;
+    margin:0%;
+    width: 100%;
+    border-spacing: 0.2vw;
+	border-color:black;
+	border-width:0.1vw;
+	opacity: 0.9;
+}
+
+#game_div table td{
+	position: relative;
+	padding: 5%;
+	border-style: ridge; 
+	border-color:black;
+	border-width:0.2vw;
+    position: relative;
+    background-size: 80%;
+    background-repeat: no-repeat;
+	background-position: center;
+    margin:0%;
+}
+
+#controls{
+    border-style:solid;
+	border-width:0.1vw;
+	border-color:black;
+    width: 90%;
+	padding:2%;
+	margin: 2%;
+    background-color: rgba(255,255,255,0.5);
+    display: inline-block;
+}
+
+#controls input{
+    width:40%;
+	padding:0.5vw;
+	margin:0.3vw;
+    text-align: center;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#turnUp, #turnDown{
+    position: relative;
+    display: inline-block;
+    left: 25%;
+}
+
+#turnLeft, #turnRight{
+    position: relative;
+    left: 5%;
+	margin-left:0%;
+    display:inline-block;
+}
+
+#controls h6{
+    position: relative;
+    height: auto;
+    margin:0%;
+    padding: 0%;
+    left:0%;
+    font-family:Georgia;
+	font-size: 1.2vw; /* font-size 1% of the viewport size.*/
+    text-align: center;
+    font-weight: normal;
+	background-color: transparent;
+	color:black;
+	font-weight: bold;
+	opacity: 1.0;
+	text-shadow: 0px 0px black;
+    line-height: 1.2; /*the line height is proportional to the font*/
+}
+
+#game_hud{
+    position: absolute;
+    display:flex;
+    flex-direction: column; /* 👈 This makes it vertical */
+    justify-content: space-between; /* THIS evenly distributes content vertically */
+    overflow: hidden;
+    margin: 0%;
+    padding:0%;
+    width: 100%;
+    height: 100%;
+    border: none 0px white;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/*The button container divs will help styling the buttons inside as flex elements which 
+will allow them better responsiveness on extreme small viewports*/
+.button_container
+{
+    display: flex;
+}
+
+.game_button{
+	position:relative;
+    border-style:solid;
+	border-width: 0.2vw;
+	border-color:darkred;
+	padding:1%;
+	margin-left:2%;
+    text-align: center;
+    font-size: 1.3vw; /* font-size in percent of the viewport size.*/
+    color: darkred;
+	font-weight: bold;
+    font-family: Georgia;
+}
+
+#menu_div
+{
+    width: 96%;
+    margin-left: 2%;
+    display: flex;
+}
+
+#startgame, #restartgame, #fullscreen_button{
+	position: relative;
+    width:35%;
+    margin: 1%;
+    font-size: 1vw; /* font-size in percent of the viewport size.*/
+}
+
+#fullscreen_button
+{
+	background-color: #eeeeee;
+}
+
+#speed{
+    float: right;
+    position: relative;
+    left: 50%;
+	text-shadow: 5px 5px blue;
+}
+
+#game_hud #score
+{
+	width: 90%;
+    border: none 0px black;
+	background-color: rgba(255,255,255,0.7);
+	text-align: left;
+	font-weight: bold;
+	text-shadow: 3px 4px white;
+    font-size: 1.2vw;
+    padding: 1%;
+    line-height: 1.2; /*the line height is proportional to the font*/
+}
+
+#game_hud #author
+{
+	position: relative;
+	width: 90%;
+	right: 0%;
+    font-family: Georgia;
+	font-size: 1vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
+    color: white;
+    text-align: left;
+    font-weight: bold;
+    padding: 1%;
+    margin: 0% auto;
+    border: none 0px red;
+}
+
+#result
+{
+    width: 90%;
+	background-color: rgba(0,0,255,0.2);
+	text-shadow: 0px 0px black;
+	color: yellow;
+	height: 3vw;
+    border: none 0px black;
+	text-align: center;
+    font-size:1.2vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
+}
+
+#score, #result, #speed, input{
+    margin: 2%;
+}
+
+#game_content_first_column
+{
+    width: 60%;
+}
+
+#game_div
+{
+	width: 100%;
+	height:auto;
+	left: 0%;
+}
+
+#page_block #game_content
+{
+    position:relative;
+    float: left;
+    table-layout: fixed;
+    width:60%; /* the width of game_content is also influenced by width of game_div*/
+    margin: 0%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 0%;
+    height:auto;
+    background-image: url(snake_page_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    border: ridge 2px rgba(255,255,255, 0.1);
+    border-radius: 1vw;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block #game_content tr td{
+    vertical-align: top;
+    position: relative; 
+    /*by having columns with position: relative will ensure that no element 
+    with absolute position is gonna drift outside the table*/
+}

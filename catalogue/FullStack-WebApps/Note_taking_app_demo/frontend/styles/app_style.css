@@ -1,0 +1,700 @@
+:root 
+{
+    --background-gradient: linear-gradient(to right, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+}
+
+body 
+{
+    background: var(--background-gradient);
+}
+
+/* Make all elements include padding/border in width */
+*,
+*::before,
+*::after {
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_content header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff; /* or match your theme */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1)!important;
+    border: none 2px black! important;
+    padding: 8px 16px;
+}
+
+#page_content {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-height: 100vh;
+    /*height: 100vh;*/ /* full viewport height */
+}
+
+#page_layout {
+    position: relative;   /* IMPORTANT */
+    display: flex;
+    align-items: flex-start;   /* align sidebar & content to top */
+    width: 100%;
+    border: none 2px black! important;
+    /*box-shadow: 0 2px 5px rgba(0,0,0,0.1)!important;*/
+}
+
+/* LEFT NAVIGATION */
+
+
+#jour_navigation {
+    position: sticky;
+    top: 65px;            /* adjust for header height */
+    display: flex;
+    flex-direction: row;  /* sidebar + toggle button */
+    width: 250px;
+    align-items: flex-start;
+    height: 100%;         /* take full height of parent */
+    
+    border: none 2px green;
+    margin-right: 3px;
+}
+
+#sidebar_controls{
+    width: 100%;
+    display: flex;
+    flex-direction: row;  /* stack sidebar + button vertically */
+    align-items: flex-start;
+    padding: 1px;
+    border: solid 2px red;
+}
+
+#sidebar_wrapper {
+    display: flex;
+    flex-direction: column;  /* stack sidebar + button vertically */
+    align-items: flex-start;
+    position: relative;      /* anchor for button if needed */
+    padding: 8px;
+}
+
+/* Sidebar content */
+#sidebar_content {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    gap: 12px;
+    background-color: #f7f7f7;
+
+    border: 1px solid #ddd;
+    width: 100%;
+    min-height: 70vh;
+    overflow-y: auto;
+    order: 2; /* push below toggle button visually */
+}
+
+#logged_user_info{
+    position: relative;
+
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    width: auto;
+    max-width: 100%;
+    
+    margin: 0px;
+
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#logged_user_info #user{
+    color: var(--blue-color);
+
+    word-wrap: break-word;
+    overflow-wrap: break-word; /* For modern browsers */
+}
+
+/* Toggle button stays at the top */
+.sidebar_toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 30px;
+    padding: 0px;
+    margin-bottom: 8px;
+    background-color: var(--blue-color) !important;
+    font: var(--button-font) !important;
+    font-weight: bold !important;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px !important;
+    z-index: 999;
+    order: 1; /* visually appears before sidebar */
+    align-self: flex-end; /* align to right */
+}
+
+#backButton{
+    position: absolute;
+    left: 0px;
+    display: block;
+    justify-content: left;
+    align-items: left;
+    width: auto;
+    height: 30px;
+    padding: 5px;
+    margin-bottom: 8px;
+    color: var(--blue-color) !important;
+    font: var(--button-font) !important;
+    font-weight: bold !important;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px !important;
+    z-index: 1;
+    order: 1; /* visually appears before sidebar */
+    align-self: flex-end; /* align to right */
+}
+
+/* Collapsed state */
+#jour_navigation.collapsed {
+    width: 24px; /* only the toggle button visible */
+}
+
+#jour_navigation.collapsed #sidebar_content {
+    display: none;  /* hide sidebar content */
+}
+
+#jour_navigation.collapsed .sidebar_toggle {
+    background-color: var(--blue-color);
+}
+
+/* Search Section */
+#search_section
+{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+#search_input {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search_type {
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+/* Categories Section */
+#categories_section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#categories_section strong
+{
+    font: var(--post-content-font);
+    font-weight: bold;
+    color: var(--darkbrown-color);
+}
+
+#tag_buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+
+#clear_search_button, .sidebar_controls{
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    color: var(--blue-color);
+    background-color: #fff;
+}
+
+#sidebar_control_buttons{
+    display: flex;
+    gap: 30px;
+}
+
+.drag-handle {
+    cursor: grab;            /* Shows a hand for dragging */
+    user-select: none;        /* Prevent selecting the handle text */
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: var(--blue-color);
+    font-weight: bold;
+}
+
+.sidebar_controls{
+    width: 30px;
+}
+
+/* Tag buttons */
+.tag_button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    border: 1px solid #aaa;
+    color: black;
+    background-color: #eee;
+    
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.tag_button:hover, #clear_search_button:hover, .sidebar_controls:hover {
+    background-color: #ddd;
+}
+
+#tag_buttons .tagEnabled{
+    color: white;
+    background-color: var(--blue-color);
+}
+
+#tag_buttons .tagEnabled:hover {
+    background-color: #00d;
+}
+
+.sidebar_controls{
+    padding: 2px !important;
+}
+
+.sidebar_controls {
+    transition: border 0.2s ease;
+}
+
+/* Stats Section */
+#sidebar_stats {
+    margin-top: auto; /* push stats to bottom */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #555;
+    padding: 5px 0px;
+    border-bottom: groove 2px rgba(0,0,0,0.1);
+    border-top: groove 2px rgba(0,0,0,0.1);
+}
+
+.add_fab {
+    position: sticky !important;
+    bottom: 20px !important;
+    margin-left: auto;
+    margin-right: 20px;
+
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 28px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--blue-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+
+    z-index: 1;
+}
+
+/* RIGHT CONTENT AREA */
+#journalled_content {
+    flex-grow: 1;
+    padding: 8px;
+    overflow-y: visible; /* no independent scrolling */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 12px;
+    align-items: start;
+    border: none 2px red;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px) {
+    #page_layout {
+        flex-direction: column;  /* stack vertically */
+    }
+
+    #jour_navigation {
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    #sidebar_content{
+        min-height: auto;
+    }
+
+    #tag_buttons {
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    #sidebar_stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #journalled_content {
+        width: 100%;    /* take full width */
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* smaller min width for notes */
+    }
+}
+
+@media (max-width: 480px) {
+    #journalled_content {
+        padding: 8px;
+        grid-template-columns: 1fr;  /* single column of notes */
+    }
+}
+
+.jour_entry
+{
+    position: relative;
+    overflow: visible;
+    
+    width:100%;
+
+    padding: 8px;
+    margin: 10px auto;          /* gap handles spacing */
+    box-sizing: border-box;
+    
+    border: groove 1px rgba(0,0,0,0.1);
+    border-radius: 0.5vw;
+    background-color: var(--light-gray-color);
+}
+
+.jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #text_editor_toolbar,
+.jour_entry #jour_entry_tags
+{
+    width: 98%;
+    margin: 2px 0px;
+    padding: 2px 15px;
+    
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.jour_entry #text_editor_toolbar {
+    display: flex;
+    gap: 2px;
+    height: auto;
+    padding: 0px;
+    border: none 1px rgba(0,0,0,0.6);
+    overflow: hidden;         /* IMPORTANT */
+}
+
+#text_editor_toolbar .toolbar_button
+{
+    margin: 2px;
+    padding: 3px 5px;
+    border: groove 1px #555555;
+    border-radius: 0px;
+    background-color: rgba(100 100 100, 1.0);
+    height: 26px;            /* force consistent height */
+    color: #555555;
+    font: var(--button-font);
+    cursor: pointer;
+    
+}
+
+#text_editor_toolbar .colorPicker{
+    position: relative;
+    top: 3px;
+    margin: 2px;
+    padding: 0px;
+    height: 26px;            /* force consistent height */
+    /* Remove native styles */
+    appearance: none;
+    -webkit-appearance: none;
+
+}
+
+#text_editor_toolbar .fontSizeSelect{
+    position: relative;
+
+    margin: 2px;
+    padding: 0px 2px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    line-height: 1.0;
+
+
+    min-height: 26px;        /* force consistent min-height */
+    height: 26px;            /* force consistent height */
+    box-sizing: border-box;
+
+    border-radius: 0px;
+    border: 1px solid black;
+    background-color: #fff;
+}
+
+#text_editor_toolbar .toolbar_button:hover, #text_editor_toolbar .colorPicker:hover
+{
+    background-color: lightgray !important;
+    transition: background-color 0.5s;
+}
+#text_editor_toolbar .fontSizeSelect:hover
+{
+    font-weight: bold;
+    transition: font-weight 0.5s;
+}
+
+#collapseableDiv{
+    padding:0px;
+}
+
+#note_timestamp
+{
+    display: none;
+    padding: 5px;
+    line-height: 1.2rem;
+    color: rgba(0,0,0,0.5);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.jour_entry #jour_entry_title, .jour_entry #jour_entry_content,
+.jour_entry #jour_entry_tags
+{
+    border: none 1px rgba(0,0,0,0.1);
+    border-radius: 5px;
+}
+
+.jour_entry #jour_entry_title[contenteditable="true"],
+.jour_entry #jour_entry_content[contenteditable="true"],
+.jour_entry #jour_entry_tags[contenteditable="true"] {
+    border: groove 2px rgba(200,0,0,0.7);
+    background-color: white;
+}
+
+.jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #jour_entry_tags
+{
+    background-color: var(--light-gray-color);
+}
+
+.jour_entry #jour_entry_title
+{
+    font: var(--post-title-font);
+    color: black;
+}
+
+.jour_entry #jour_entry_content
+{
+    font: var(--post-content-font); 
+    color: black;
+}
+
+.jour_entry #jour_entry_tags
+{
+    margin-top: 3px;
+    font: var(--post-content-font);
+    color: rgba(100,100,100,0.5);
+}
+
+/* Style the truncated elements */
+.jour_entry .truncated_entries
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 10; /* show only 10 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Style the truncated elements */
+.edit_mode {
+    position: fixed;
+    inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: auto;             /* allow scrolling if content is tall */
+    padding: 16px;              /* optional spacing */
+}
+
+.edit_mode .jour_entry {
+    width: 100%;
+    max-width: 800px;
+    height: auto;               /* let it grow */
+    max-height: 90vh;           /* don’t overflow screen */
+    overflow: auto;             /* scroll if content too tall */
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* Entry inside overlay */
+.edit_mode .jour_entry #jour_entry_title, 
+.edit_mode .jour_entry #jour_entry_content, 
+.edit_mode .jour_entry #jour_entry_tags
+{
+    overflow: auto;
+}
+
+.edit_mode .jour_entry #jour_entry_title{
+    max-height: 10vh;
+}
+.edit_mode .jour_entry #jour_entry_content{
+    max-height: 50vh;
+    height: 50vh;
+}
+.edit_mode .jour_entry #jour_entry_tags{
+    max-height: 10vh;
+}
+
+/* Style the button for Show More/Show Less */
+#show_more_button, #save_button, #discard_button {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 0.35em 1em;
+    border: none;
+    background-color: var(--blue-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#show_more_button{
+    border-radius: 25px;
+}
+
+#save_button, #discard_button{
+    border-radius: 10px;
+    display: inline-block;
+    margin: 5px;
+}
+
+#show_more_button:hover, #save_button:hover, #discard_button:hover {
+    opacity: 0.5;
+    transform: translateY(-2px);
+} 
+
+#statusInfo {
+    display: inline-block;
+    min-width: 50px;
+    padding: auto;
+    font: var(--button-font);
+    font-size: 15px;
+    color: #555555;
+    border-radius: 4px;
+    border: none 2px red;
+    text-align: center;
+    opacity: 0; /* initially hidden */
+    transition: opacity 0.5s ease, transform 0.3s ease;
+
+    pointer-events: none; /* prevent clicks */
+}
+
+#postControls {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center; /* vertically center button + status box */
+    gap: 6px; /* space between the ... button and status box */
+}
+
+/* Basic styling for the button */
+.dropdown 
+{
+    position: relative;
+    display: inline-block;
+    padding: 2px;
+}
+
+.dropdown #dropbtn, #close_button, #copy_clipboard, #dragHandleButton, #postDetailsButton
+{
+    border: none 1px #ccc;
+    color: var(--blue-color);
+    font: var(--button-font);
+    cursor: pointer;
+    padding: 2px;
+}
+
+.dropdown #dropbtn
+{
+    /*writing-mode: vertical-rl;*/ /* vertical text from bottom to top */
+    /* or */
+    /* writing-mode: vertical-lr; */ /* vertical text from top to bottom */
+    /*text-orientation: mixed;*/ /* ensures proper orientation for characters */
+}
+
+.dropdown #dropbtn:hover, #close_button:hover, #copy_clipboard:hover, #dragHandleButton:hover, 
+.add_fab:hover, .sidebar_toggle:hover, #postDetailsButton:hover
+{
+    background-color: #00d !important;
+    color: white;
+}
+/* Container for the dropdown menu */
+.dropdown-content 
+{
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: var(--light-gray-color);
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    
+    /*centering the content with respect to the parent element*/
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Style for each menu item */
+.dropdown-content a 
+{
+    color: black;
+    font: var(--button-font);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Hover effect for menu items */
+.dropdown-content a:hover 
+{
+    background-color: #ddd;
+}
+
+/* Show the menu when active */
+.show 
+{
+    display: block;
+}

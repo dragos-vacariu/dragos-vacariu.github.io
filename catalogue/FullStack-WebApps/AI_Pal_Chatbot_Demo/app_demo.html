@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI Pal Chatbot</title>
+        
+        <meta charset = "UTF-8">
+        <!--For mobile viewport proper resizing-->
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--Google verification -->
+        <meta name="google-site-verification" content="onS_i1AOmpRlObgSmQ5S3Hc2vWXqpaGcGb6_Nc0w6-s" />
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../../../website_resources/global/images/favicon.ico">
+        
+        <!--Global resources-->
+        <link rel="stylesheet" href="../../../website_resources/global/css/global.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/video_page.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/catalogue_style.css">
+        <script src="../../../website_resources/global/scripts/video_page_script.js"></script>
+        
+        <!--Local resources-->
+        <link rel="stylesheet" href="./styles/app_style.css">
+        <script src="./scripts/app_frontend_script.js"></script>
+        
+        <!-- Browser ready library for styling AI text responses-->
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        
+    </head>
+    <body>
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="page_block">
+            <div id="page_content">
+                <div id="navigation">
+                    <!-- Actual sidebar content -->
+                    <div id="sidebar">
+
+                    </div>
+                </div>
+                <div id="block_content">
+                    <div id="project_description">
+                        <div id="chatbot_container">
+                            <div id="chatbot_app">
+                                <div id="chatbot_background_div">
+                                    <div id="background_logo_div">
+                                        <div id = "logo_image_div">
+                                            <img id="logo_img" src="./styles/resources/logo.png" alt="logo image"></img>
+                                        </div>
+                                        <div id = "chatbot_title_and_description_div">
+                                            <div id="chatbot_page_title">GitHub Portfolio</div>
+                                            <div id="chatbot_page_description">dragos-vacariu.github.io</div>
+                                            <div id="chatbot_app_title">AI Pal Chatbot</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- messages will appear here -->
+                                <div class="bubble admin"><strong>NOTE:</strong> <custom_bold>The Chatbot is a demo app:</custom_bold> Your chat is private. No data is stored anywhere, and the AI only receives your latest message...</div>
+                            </div>
+                            <div id="inputs">
+                                <textarea id="userInput" placeholder="Ask anything..."></textarea>
+                                <button id="sendButton" onclick="send()">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
+        </footer> 
+    </body>
+    <!--This resource has to be added here because we need the elements in the HTML document to exist before 
+    running the script-->
+    <!--Global resources-->
+    <script src="../../../website_resources/global/scripts/global_script.js"></script>
+</html>

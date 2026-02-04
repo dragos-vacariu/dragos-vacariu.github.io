@@ -1,0 +1,50 @@
+#left_div h6{
+	font-family: Verdana;
+	font-size: 14px;
+	color: black;
+	background-color: rgba(255,255,255,0.6);
+	width: 90%;
+	padding:0.5%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+}
+
+#left_div{
+	position: relative;
+	width: 80%;
+	padding-left: 2%;
+	left: 10%;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	background-image: url(div_background.png)
+}
+
+#text_box{
+	position: relative;
+	width:90%;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	font-family:Verdana;
+	font-size:14px;
+	font-weight:bold;
+	padding: 2px;
+	font-size:13px;
+	color:black;
+	text-shadow: 0.1vw 0.1vw white;
+	background-color: rgba(255,255,255,0.6)
+}
+
+#button_decode, #button_encode, #random_items{
+	margin-top: 1%;
+	margin-bottom: 1%;
+	font-family:Verdana;
+	font-size:14px;
+	width: 120px;
+	padding: 0.5%;
+	border-style: inset;
+	border-width: 2px;
+	boder-color: black;
+}

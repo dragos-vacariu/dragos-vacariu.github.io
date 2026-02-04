@@ -1,0 +1,60 @@
+table td{
+	padding: 3%;
+	padding-top: 3.8%;
+    margin: 0px;
+	border-left: solid;
+	border-width: 1px;
+	border-color: white;
+    background-repeat: no-repeat; background-size: contain;
+}
+table{
+    border-style: none;
+    position: relative;
+    float:left;
+	margin-left:0%;
+    width: 40%;
+    border-color: black;
+    background-image: url(asphalt.jpg);
+    background-size: 50px;
+    background-repeat: repeat;
+}
+#hud h3, h4{
+    margin-left: 10px;
+}
+#hud h3{
+    font-family: Consolas;
+    font-size : 16px;
+	color: black;
+}
+#controlInfo{
+    color:blue;
+}
+#hud{
+    left:50%;
+	width:15%;
+    top: 10px;
+	position:absolute;
+	border-style:solid;
+	padding: 20px;
+	background-color: pink;
+    font-family: Courier New;
+    font-size : 16px;
+	color: black;
+}
+#gameStatus{
+    color: red;
+}
+#menu{
+	border-style:none;
+	padding: 10px;
+	background-color: pink;
+}
+#controls{
+	border-style:solid;
+	padding: 20px;
+	background-color: pink;
+}
+#restartgame, #startgame{
+	margin-top:10px;
+	width: 100px;
+}

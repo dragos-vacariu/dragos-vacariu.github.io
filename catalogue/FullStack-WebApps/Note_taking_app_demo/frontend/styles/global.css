@@ -1,0 +1,346 @@
+:root {
+    --darkbrown-color: #484237; /* Example: A blue color */
+    --darkred-color: #b6042a; /* Example: A light gray color */
+    --darkblue-color: rgba(50,50,250,1.0); /* Example: A light gray color */
+    --blue-color: #007bff; /* Example: A light gray color */
+    --light-gray-color: #f5f5f5; /* Example: A light gray color */
+    
+    
+    --h2-header-font: normal bold 1.6rem/1 Calibri, serif;
+    --h3-header-font: normal bold 1.4rem/1 Calibri, serif;
+    --site-title-font: normal bold 1.2rem/1.2 FjallaOne, serif;
+    --user-logged-font: normal normal 0.7rem/1 FjallaOne, serif;
+    --nav-font: normal bold 0.9rem/1 FjallaOne, serif;
+    --button-font: normal bold 1.1rem/1 Calibri, serif;
+    --login-labels-font: normal normal 1rem/1.2 Calibri, serif;
+    
+    --post-title-font: italic bold 1.4rem/1.2 Calibri, serif;
+    --post-title-font-letter-spacing: 1px;
+    --post-content-font: normal normal 1rem/1.8 Georgia, serif;
+    --post-tags-font: normal normal 0.8rem/1.8 Georgia, serif;
+    
+}
+
+@media (max-width: 768px) 
+{
+    :root {
+        --h2-header-font: normal bold 1.3rem/1 Calibri, serif;
+        --h3-header-font: normal bold 1.1rem/1 Calibri, serif;
+        --site-title-font: normal bold 1rem/1.2 FjallaOne, serif;
+        --user-logged-font: normal normal 0.8rem/1 FjallaOne, serif;
+        --nav-font: normal bold 1rem/1.2 FjallaOne, serif;
+        --button-font: normal bold 1rem/1 Calibri, serif;
+        --login-labels-font: normal normal 0.9rem/1.2 Calibri, serif;
+        
+        --post-title-font: italic bold 1.2rem/1.2 Calibri, serif;
+        --post-content-font: normal normal 0.9rem/1.8 Georgia, serif;
+        --post-tags-font: normal normal 0.7rem/1.8 Georgia, serif;
+    }
+}
+
+@media (max-width: 480px) 
+{
+    :root {
+        --h2-header-font: normal bold 1.1rem/1 Calibri, serif;
+        --h3-header-font: normal bold 0.9rem/1 Calibri, serif;
+        --site-title-font: normal bold 0.8rem/1.2 FjallaOne, serif;
+        --user-logged-font: normal normal 0.7rem/1 FjallaOne, serif;
+        --nav-font: normal bold 0.8rem/1.4 FjallaOne, serif;
+        --button-font: normal bold 0.8rem/1 Calibri, serif;
+        --login-labels-font: normal normal 0.8rem/1.2 Calibri, serif;
+        
+        --post-title-font: italic bold 1.1rem/1.2 Calibri, serif;
+        --post-content-font: normal normal 0.8rem/1.8 Georgia, serif;
+        --post-tags-font: normal normal 0.6rem/1.8 Georgia, serif;
+    }
+}
+
+/* Make all elements include padding/border in width */
+*,
+*::before,
+*::after {
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+
+#page_title
+{
+    font: var(--site-title-font);
+    color: var(--darkbrown-color);
+    text-align: center;
+    padding: 1%;
+}
+
+#page_title sup
+{
+    color: var(--darkred-color);
+}
+
+.app-nav {
+    display: block;
+    margin: 0px;
+    width: 100%;
+    font: var(--nav-font);
+    background-color: transparent;
+    
+    padding: 10px 0px;
+    border-bottom: groove 2px rgba(0,0,0,0.1);
+    border-top: groove 2px rgba(0,0,0,0.1);
+
+}
+
+.app-nav a {
+    color: var(--blue-color) !important;
+    text-decoration: none !important;
+    font-weight: normal !important;
+    letter-spacing: 0.2px !important;
+    text-align: left !important;
+    padding: 0px !important;
+}
+
+/*.app-nav a + a {
+  border-left: 1px solid #ccc;
+  padding-left: 10px;
+}*/
+
+.app-nav .selected_link{
+    color: var(--darkred-color) !important;
+    /*border-bottom: solid 2px var(--darkred-color) !important;*/
+}
+
+.app-nav a:hover {
+  opacity: 0.7;
+}
+
+h2{
+
+    text-align: center;
+    font: var(--h2-header-font);
+
+    letter-spacing: 1px;
+    text-shadow: 0px 0px #eeeeee;
+    border: none 0px black;
+    word-wrap: break-word;
+    color: var(--darkred-color);
+}
+
+h3{
+
+    text-align: center;
+    font: var(--h3-header-font);
+
+    letter-spacing: 0px;
+    text-shadow: 0px 0px #eeeeee;
+    border: none 0px black;
+    word-wrap: break-word;
+    color: var(--darkblue-color);
+}
+
+#form_container {
+    position: relative;
+    max-width: 450px;
+    margin:20px auto;
+    display: block;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: #fff;
+    font-family: Arial, sans-serif;
+    
+   /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#form_container label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+#form_container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+     /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#form_container button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+
+.page_button{
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--blue-color);
+    color: white;
+    font: var(--button-font);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) 
+{
+    #page_button{
+        padding: 7px;
+    }
+}
+
+@media (max-width: 480px) 
+{
+    #page_button{
+        padding: 5px;
+    }
+}
+
+#menu #page_button{
+    margin: 5px;
+    font: var(--button-font);
+}
+
+#page_button:hover {
+    background-color: #0056b3;
+}
+
+#extraOptions
+{
+    font: var(--login-labels-font);
+    text-align: left; 
+    width: 100%;
+    display: block;
+    border: 0px solid red;
+    list-style-type: none;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+#extraOptions li
+{
+    text-align: left;
+    padding: 5px 0px;
+}
+
+#extraOptions li a{
+    margin: 0px;
+    padding: 0px;
+}
+
+#keep_me_logged_in_ul
+{
+    position:relative;
+    width: fit-content;
+    display: block;
+    border: 0px solid red;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+
+#keep_me_logged_in_ul li
+{
+    width: fit-content;
+    display: inline-block;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+.success { color: green; margin-top: 10px; }
+.error { color: red; margin-top: 10px; }
+.warning { color: blue; margin-top: 10px; }
+
+.message
+{
+    margin: auto;
+    text-align: center;
+}
+
+/*Adding custom font*/
+
+@font-face {
+    font-family: FjallaOne;
+    src: url("../fonts/FjallaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenDots;
+    src: url("../fonts/ZenDots-Regular.ttf");
+}
+
+@font-face {
+    font-family: ZenTokyoZoo;
+    src: url("../fonts/ZenTokyoZoo-Regular.ttf");
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.7rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #4338ca;
+}
+
+.error {
+  color: red;
+  font-size: 0.9rem;
+}

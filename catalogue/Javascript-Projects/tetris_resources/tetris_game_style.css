@@ -1,0 +1,251 @@
+#page_block #game_content
+{
+    position:relative;
+    float: left;
+    table-layout: fixed;
+    width:60%; /* the width of game_content is also influenced by width of game_div*/
+    margin: 0%;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 0%;
+    height:auto;
+    background-image: url(tetris_page_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    border: ridge 2px rgba(255,255,255, 0.1);
+    border-radius: 1vw;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block #game_content tr td{
+    vertical-align: top;
+    position: relative; 
+    /*by having columns with position: relative will ensure that no element 
+    with absolute position is gonna drift outside the table*/
+}
+
+#page_block #game_content #game_content_first_column
+{
+    border: none 0px black;
+    width: 60%;
+}
+
+#page_block #game_content #hud_column
+{
+    border: none 0px black;
+}
+
+#game_div
+{
+    position: relative;
+    width: 100%;
+    height:auto;
+    padding: 0%;
+    margin: 0%;
+}
+
+#game_div table{
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    margin: 3%;
+    padding:0px;
+    border-style: none;
+    border-spacing: 2px;
+    border-color:blue;
+    border-width:1px;
+    opacity: 0.9;
+
+    word-wrap: break-word;
+    
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#game_div table tr td{
+    
+    width: 2px;
+    padding-top: 20px;
+    aspect-ratio: 1 / 1;
+    background-repeat: no-repeat; 
+    background-size: 100%;
+    margin:0%;
+    border-style:solid; 
+    border-color:black;
+    border-width:1px;
+
+}
+
+#gameHud{
+    position: absolute;
+    display:flex;
+    flex-direction: column; /* 👈 This makes it vertical */
+    justify-content: space-between; /* THIS evenly distributes content vertically */
+    overflow: hidden;
+    margin: 0% 5%;
+    padding:0%;
+    width: 90%;
+    height: 100%;
+    border: none 0px white;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#gameHud #score, #gameHud #gameStatus{
+    position: relative;
+    padding: 2%;
+    font-weight: bold;
+    font-family: Consolas;
+    border-width: 1px;
+    border-style: inset;
+    border-color: gray;
+    width: 80%;
+    margin: 5% 0%;
+    
+    width: 100%;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#gameHud #score
+{
+    background-color: rgba(255,255,255,0.5);
+    color: red;
+    text-align: left;
+    text-shadow: 0.2vw 0.2vw white;
+    font-size: 1.5vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
+    /*width: 80%;*/ /*percent width on text elements are not accurate they don't respect boundaries*/
+}
+
+#gameHud #gameStatus
+{
+    background-color: rgba(0,0,255,0.2);
+    color: white;
+    text-shadow: 0.2vw 0.2vw black;
+    text-align: center;
+    font-size: 1.2vw;
+    line-height: 1.2; /*the line height is proportional to the font*/
+}
+
+#menu{
+    position: relative;
+    width: 100%;
+    padding:2% 0%;
+    border-style:solid;
+    border-width: 1px;
+    background-color: pink;
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#controls{
+    position: relative;
+    width: 100%;
+    border-style:solid;
+    border-width: 1px;
+    background-color: pink;
+    padding: 2% 0%;
+    margin: 5% 0%;
+}
+
+/*The button container divs will help styling the buttons inside as flex elements which 
+will allow them better responsiveness on extreme small viewports*/
+.button_container
+{
+    display: flex;
+}
+
+#restartgame, #startgame, #fullscreen{
+    margin-top:1%;
+    margin-bottom:1%;
+    margin-left: 5%;
+    width: 90%;
+    font-variant: small-caps;
+    font-size: 1.2vw;
+    font-family: Arial;
+    font-weight: bold;
+    padding: 2% 0%;
+}
+
+#rotate{
+    position:relative;
+    background-color: red;
+    border: solid 0.1vw black;
+    margin: 2%;
+    margin-left: 10%;
+    color: white;
+    font-size: 1.2vw;
+    font-family: Arial;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding: 0.5%;
+    width: 80%;
+    padding:2%;
+}
+
+#right, #left, #down {
+    position:relative;
+    right: 0%;
+    background-color: blue;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    color: white;
+    font-size: 1.2vw;
+    font-family: Arial;
+    font-variant: small-caps;
+    font-weight: bold;
+    padding: 0.5vw;
+    margin-left:2%;
+    margin-top:1vw;
+    width: 46%;
+}
+
+#down
+{
+    margin-left: 27%;
+}
+
+#author
+{
+    position: relative;
+    border: inset 0px blue;
+    border-radius: 10px;
+    color: blue;
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    background-color: rgba(255,255,255,0.9);
+    margin: 5% 0%;
+    padding: 2%;
+    width: 100%;
+    line-height: 1.2; /*the line height is proportional to the font*/
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
