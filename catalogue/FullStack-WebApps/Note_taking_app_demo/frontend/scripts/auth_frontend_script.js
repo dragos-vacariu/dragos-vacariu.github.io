@@ -1,6 +1,6 @@
 // global variable
 var PLATFORM = "";
-var API_URL = "";
+const API_URL = "https://dragos-vacariu-note-taking.vercel.app";
 var API_SCRIPT = "backend_api_manager";
 var MEK = ""; /*Master Encryption Key (MEK) that will actually be used for encrypting and decrypting your data.*/
 var oldMEK = null; /*pre-Migration Master Encryption Key (MEK)*/
@@ -12,16 +12,15 @@ var variable have global scope (and can be used in external files).
 let variable have global scope ONLY in the file in which is declared.
 */
 
-if(location.href.startsWith("https://dragos-vacariu.github.io"))
+if(window.location.href.startsWith("https://dragos-vacariu.github.io"))
 {
     PLATFORM = "github";
-    API_URL = "https://dragos-vacariu-note-taking.vercel.app";
     APP_LOCATION = "https://dragos-vacariu.github.io/catalogue/FullStack-WebApps/Note_taking_app_demo";
 }
-else if(location.href.startsWith("http://localhost:8003"))
+
+else if(window.location.href.startsWith("http://localhost:8003"))
 {
      PLATFORM = "localhost";
-     API_URL = "https://dragos-vacariu-note-taking.vercel.app";
      APP_LOCATION = "http://localhost:8003/catalogue/FullStack-WebApps/Note_taking_app_demo";
 }
 

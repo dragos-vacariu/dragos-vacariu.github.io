@@ -364,9 +364,9 @@ async function LogIn_AsGuest()
             submitBtn.disabled = false;
             return;
         }
-        
+        /*
         if (res.ok) 
-        {   
+        {
             //Check if there is a migration ongoing
             if (data)
             {
@@ -402,7 +402,7 @@ async function LogIn_AsGuest()
         {
             messageDiv.style.color = 'red';
             messageDiv.innerText = data.message || 'Something went wrong';
-        }
+        }*/
     }
     catch (err)
     {
