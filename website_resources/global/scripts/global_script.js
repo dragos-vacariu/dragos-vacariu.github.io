@@ -763,15 +763,19 @@ function updateHeadMeta()
     }
     else if (lastPart.includes("catalogue.html#"))
     {
-        // Remove fragment part
         parsed_title = "Project Catalogue - ";
+    }
+    else if (lastPart.includes("portal_classic.html#") || lastPart.includes("portal.html#"))
+    {
+        parsed_title = "Learning Portal - ";
     }
     else
     {
         lastPart = lastPart.replace('.html', '');
         lastPart = lastPart.replace('index', 'home');
-        lastPart = lastPart.replace('about', 'About Me');
+        lastPart = lastPart.replace('portal_classic', 'Learning Portal');
         lastPart = lastPart.replace('portal', 'Learning Portal');
+        lastPart = lastPart.replace('about', 'About Me');
         lastPart = lastPart.replace('catalogue', 'Project Catalogue');
         
         if(page_title_list.includes("catalogue"))
