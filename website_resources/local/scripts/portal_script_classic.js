@@ -202,21 +202,16 @@ function restoreDBSingleSelectionCookie()
 
 function updateCookie(property, value)
 {
-    console.log("Entry Cookie: " + document.cookie);
-    
     // We DO NOT rebuild document.cookie manually
     // Browser handles merging cookies automatically
     
     document.cookie = property + "=" + value +
                       "; path=/; max-age=31536000";
 
-    console.log("Exit Cookie: " + document.cookie);
 }
 
 function loadCookie(property)
 {
-    console.log("Reading cookie: " + document.cookie);
-
     var cookie_elements = document.cookie.split("; ");
     var found = cookie_elements.find(element =>
         String(element).split("=")[0] == property
@@ -225,7 +220,6 @@ function loadCookie(property)
     if(found != undefined)
     {
         var pairs = found.split("=");
-        console.log("Pairs = " + pairs);
 
         if(pairs.length > 1 && pairs[1] != "")
         {

@@ -1001,12 +1001,14 @@ function closeNote(e)
         if(entry_post)
         {
             const tagsDiv = entry_post.querySelector("#jour_entry_tags");
-            console.log("Org Tags: " + tagsDiv.innerHTML);
+            //console.log("Org Tags: " + tagsDiv.innerHTML);
+            
             let unformatted_tags = tagsDiv.innerHTML;
             unformatted_tags = unformatted_tags.replaceAll("#", "");
             unformatted_tags = unformatted_tags.split(", ");
             const tags = unformatted_tags;
-            console.log("Tags: " + tags);
+            
+            //console.log("Tags: " + tags);
             for(item of tags)
             {
                 const index = activeTags.indexOf(item);
@@ -1062,7 +1064,7 @@ async function performSearch()
     }
     else
     {
-        console.log("visibleNotes: "+ visibleNotes);
+        //console.log("visibleNotes: "+ visibleNotes);
         for(note of NOTES_CACHE)
         {
             const index = visibleNotes.indexOf(note.id);
@@ -1085,10 +1087,10 @@ function copyToClipboard(e)
     var text = titleDiv.innerText + "\n\n" + contentDiv.innerText;
     navigator.clipboard.writeText(text)
         .then(() => {
-            console.log("Copied to clipboard");
+            //console.log("Copied to clipboard");
         })
         .catch(err => {
-            console.error("Copy failed:", err);
+            console.error("Failed to copy note to clipboard:", err);
         });
 }
 
@@ -1194,7 +1196,7 @@ function showHidePostDetails(e)
 
 function updateCookie(property, value)
 {
-    console.log("Entry Cookie: " + document.cookie);
+    //console.log("Entry Cookie: " + document.cookie);
     
     // We DO NOT rebuild document.cookie manually
     // Browser handles merging cookies automatically
@@ -1202,12 +1204,12 @@ function updateCookie(property, value)
     document.cookie = property + "=" + value +
                       "; path=/; max-age=31536000";
 
-    console.log("Exit Cookie: " + document.cookie);
+    //console.log("Exit Cookie: " + document.cookie);
 }
 
 function loadCookie(property)
 {
-    console.log("Reading cookie: " + document.cookie);
+    //console.log("Reading cookie: " + document.cookie);
 
     var cookie_elements = document.cookie.split("; ");
     var found = cookie_elements.find(element =>
@@ -1217,7 +1219,7 @@ function loadCookie(property)
     if(found != undefined)
     {
         var pairs = found.split("=");
-        console.log("Pairs = " + pairs);
+        //console.log("Pairs = " + pairs);
 
         if(pairs.length > 1 && pairs[1] != "")
         {
