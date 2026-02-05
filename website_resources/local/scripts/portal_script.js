@@ -11,7 +11,6 @@ concept_collection = [];
 const concept_selection = document.getElementById("concept_selection");
 const overall_concept_selection = document.getElementById("overall_concept_selection");
 const overall_language_selection = document.getElementById("overall_language_selection");
-const cookie_element_separator = "<br>"; 
 const searchBox = document.getElementById("SearchBox");
 const searchType = document.getElementById("searchType");
 allConceptsSelection = false;
@@ -1838,80 +1837,3 @@ document.getElementById("clearSearchButton").addEventListener("click", function 
 restoreCookiePredefinedElements();
 
 loadXMLDoc(online_xml_file);
-
-/*
-//Fullscreen no longer available:
-
-function FullscreenMode(e) 
-{
-    //Function not used - fullscreen no longer available
-    var fullscreen_element = document.getElementById("page_table");
-    if (document.fullscreenElement == null)
-    {
-        if (fullscreen_element.requestFullscreen) 
-        {
-            fullscreen_element.requestFullscreen();
-        } 
-        else if (fullscreen_element.webkitRequestFullscreen) 
-        { 
-            //Safari
-            fullscreen_element.webkitRequestFullscreen();
-        } 
-        else if (fullscreen_element.msRequestFullscreen) 
-        { 
-            // IE11
-            fullscreen_element.msRequestFullscreen();
-        }
-    }
-    else
-    {
-
-        if (document.exitFullscreen) 
-        {
-            document.exitFullscreen();
-        } 
-        else if (document.webkitExitFullscreen) 
-        { 
-            //Safari
-            document.webkitExitFullscreen();
-        } 
-        else if (document.msExitFullscreen) 
-        { 
-            // IE11
-            document.msExitFullscreen();
-        }
-    }
-}
-
-function Enter_FullScreen(e)
-{
-    //Function not used - fullscreen no longer available
-    if (e.key == "f")
-    {
-        FullscreenMode(); 
-    }
-}
-
-function FullScreenZoom()
-{
-    //Function not used - fullscreen no longer available
-   if (document.fullscreenElement != null)
-   {
-        //Fullscreen turned on -> Zooming in:
-        document.getElementById("content_div").style.height = "98%";
-        document.getElementById("menu_div").style.height = "98%";
-   }
-   else
-   {
-        //Fullscreen turned off - > Zooming out:
-        document.getElementById("content_div").style.height = "40vw";
-        document.getElementById("menu_div").style.height = "40vw";
-   }
-}
-
-//When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false); //fullscreen no longer available
-
-//When this button is pressed call this function
-document.getElementById("fullscreen_button").addEventListener("click", function (e) {FullscreenMode();});
-*/

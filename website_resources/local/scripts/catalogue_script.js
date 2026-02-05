@@ -1,5 +1,4 @@
 let active_Index = 0;
-const cookie_element_separator = "<br>"; 
 
 document.addEventListener('DOMContentLoaded', () => {
     

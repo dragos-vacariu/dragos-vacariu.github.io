@@ -1,7 +1,6 @@
 let activeTags = [];
 let visibleNotes = [];
 let areEntriesExpanded = false;
-const cookie_element_separator = "<br>"; 
 
 window.onload = async function() 
 {
@@ -1224,8 +1223,18 @@ function loadCookie(property)
         if(pairs.length > 1 && pairs[1] != "")
         {
             console.log("Found cookie value: " + pairs[1]);
-
-            document.getElementById('journalled_content').style.display = pairs[1]; 
+            
+            var jour_content = document.getElementById('journalled_content');
+            jour_content.style.display = pairs[1];
+            
+            if(jour_content.style.display == "grid")
+            {
+                gridViewButton.style.borderColor = "var(--blue-color)";
+            }
+            else
+            {
+                listViewButton.style.borderColor = "var(--blue-color)";
+            }
         }
     }
 }
@@ -1264,15 +1273,6 @@ gridViewButton.addEventListener("click", function() {
     gridViewButton.style.borderColor = "var(--blue-color)";
     listViewButton.style.borderColor = "#aaa";
 });
-
-if(getComputedStyle(document.getElementById("journalled_content")).display == "grid")
-{
-    gridViewButton.style.borderColor = "var(--blue-color)";
-}
-else
-{
-    listViewButton.style.borderColor = "var(--blue-color)";
-}
 
 //Add search_box
 const searchInput = document.getElementById("search_input");
