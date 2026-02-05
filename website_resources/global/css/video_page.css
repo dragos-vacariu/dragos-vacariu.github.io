@@ -27,8 +27,7 @@
     position:relative;
     width:100%;
     height: auto;
-    margin: 5px auto;
-
+    margin: 0px auto; /*vertical margins create shadow from the outter div*/
     border: none 2px rgba(0,0,0,0.5);
     word-wrap: break-word;
     padding: 0px;
@@ -57,7 +56,7 @@
     text-align: left;
 
     width: 100%;
-    height: fit-content;
+    height: 90%;
     border: none 2px rgba(0,0,0,0.1);
     border-radius: 0px;
     border-left: solid 1px #ddd;
@@ -148,48 +147,4 @@
     cursor: pointer;
     border-radius: 4px !important;
     z-index: 1;
-
-}
-
-.highlighted{
-    border-top: groove 1px rgba(0,0,0,0.1); /* optional: highlight on left */
-    border-bottom: groove 1px rgba(0,0,0,0.1); /* optional: highlight on left */
-    padding: 5px 0px;       /* space for the border */
-
-}
-
-.highlighted .project_catalogue{
-    color: #1a73e8;
-}
-
-.project_catalogue:hover, .project_catalogue_app_button:hover{
-    color: var(--darkblue-color);
-}
-
-/* Remove default button styles */
-.project_catalogue_app_button {
-    display: block;
-    background: none;       /* no background */
-    border: none;           /* no border */
-    padding: 4px 0px;             /* remove default padding */
-    margin: 2px;              /* remove default margin */
-    margin-left: 25px;              /* remove default margin */
-    font: var(--navigation-font);          /* inherit font from parent */
-    font-size: 0.8rem;
-    font-weight: normal;
-    color: #1a73e8;         /* Google-link blue */
-    cursor: pointer;        /* pointer on hover */
-    transition: color 0.2s, color 0.2s;
-}
-
-.app_nav_buttons_div{
-
-}
-
-.selected{
-
-    border-left: 2px solid var(--darkblue-color); /* optional: highlight on left */
-    padding-left: 5px;       /* space for the border */
-
-    color: var(--darkblue-color);         /* Google-link blue */
 }

@@ -135,14 +135,14 @@ body
     transition: transform 0.2s;
     border: groove 2px rgba(0,0,0,0.3);
     cursor: pointer;
-    z-index: 1;
+    z-index: 0;
     overflow: visible;
 }
 
 .project_div:hover {
     transform: scale(1.01); /* subtle zoom */
     border-width: 4px;
-    z-index: 10; 
+    z-index: 1; 
     /*bring the element on top when hovering... this will ensure the tooltip is not covered by 
     the elements beneath*/
 }
@@ -257,4 +257,61 @@ body
     color: var(--darkred-color);         /* Google-link blue */
     cursor: pointer;        /* pointer on hover */
     transition: color 0.2s, color 0.2s;
+}
+
+
+/*Styles for app page / video_page*/
+
+.highlighted{
+    border-top: groove 1px rgba(0,0,0,0.2); /* optional: highlight on left */
+    border-bottom: groove 1px rgba(0,0,0,0.2); /* optional: highlight on left */
+    padding: 2px 0px;       /* space for the border */
+    margin: 2px 0px;       /* space after the border */
+
+}
+
+.highlighted .project_catalogue{
+    color: #1a73e8;
+}
+
+.project_catalogue:hover, .project_catalogue_app_button:hover{
+    color: var(--darkblue-color);
+}
+
+/* Remove default button styles */
+.project_catalogue_app_button {
+    display: block;
+    width: calc(100% - 15px);
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    text-align: left;
+    padding: 6px 0px;
+    padding-left: 15px;
+    margin: 2px 15px;
+    
+    font: var(--navigation-font);          /* inherit font from parent */
+    font-size: 0.8rem;
+    font-weight: normal;
+    
+    color: #555;
+    
+    cursor: pointer;        /* pointer on hover */
+    transition: color 0.2s, color 0.2s;
+}
+
+
+.app_nav_buttons_div{
+
+}
+
+.project_catalogue_app_button.selected {
+
+    color: var(--darkblue-color);
+}
+
+.project_catalogue_app_button.selected::before {
+    content: "▶"; /*arrow marker*/
+    margin-right: 4px;
+
 }

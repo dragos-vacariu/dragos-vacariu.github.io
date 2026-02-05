@@ -75,7 +75,7 @@ header{
     /*Sticky navbar*/
     position:sticky;
     top: 0;
-    z-index: 1; /*the rest of the body will not overlap over the header when scrolling*/
+    z-index: 10; /*the rest of the body will not overlap over the header when scrolling*/
     
     width:100%;
     height:fit-content;
