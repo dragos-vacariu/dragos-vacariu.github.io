@@ -54,27 +54,11 @@ function displayCatalogueLinks()
                 buttonDiv.className = "catalogue_buttons_container";
                     const buttonElem = document.createElement("button");
                     buttonElem.className = "project_catalogue";
-                    let href = ""
                     
-                    /*If html file is accessed without a server*/
-                    if(window.location.href.includes("file:///"))
-                    {
-                        let domain = window.location.href.split("dragos-vacariu.github.io");
-                        href = domain[0] + "dragos-vacariu.github.io/";
-                        
-                    }
-                    
-                    /*else html file is accessed using localhost server or online server*/
-                    else
-                    {
-                        var item = window.location.href.split("catalogue");
-                        let count = item[1].length - 1;
 
-                        if(count > 0)
-                        {
-                            href = "../".repeat(count)
-                        }
-                    }
+                    let domain = window.location.href.split("dragos-vacariu.github.io");
+                    let href = domain[0] + "dragos-vacariu.github.io/";
+                    
                     buttonElem.onclick = function ()
                     {
                         
