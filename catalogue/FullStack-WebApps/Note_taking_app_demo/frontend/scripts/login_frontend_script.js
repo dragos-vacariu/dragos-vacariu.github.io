@@ -1,10 +1,10 @@
 let mode = 'login'; // default mode
 
-document.getElementById("login_sigup").onclick = LogIn_SignUp;
-document.getElementById("login_as_guest_button").onclick = LogIn_AsGuest;
-document.getElementById("toggleMode").addEventListener('click', () => toggleLoginSignup());
-
 document.addEventListener('DOMContentLoaded', async () => {
+    
+    document.getElementById("login_sigup_button").onclick = LogIn_SignUp;
+    document.getElementById("login_as_guest_button").onclick = LogIn_AsGuest;
+    document.getElementById("toggleMode").addEventListener('click', () => toggleLoginSignup());
     
     //Load the token from the localStorage
     const token = localStorage.getItem('jwt_token') || sessionStorage.getItem('jwt_token');

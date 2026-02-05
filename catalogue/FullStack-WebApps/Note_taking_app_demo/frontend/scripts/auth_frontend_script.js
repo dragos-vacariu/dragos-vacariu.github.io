@@ -24,6 +24,12 @@ else if(window.location.href.startsWith("http://localhost:8003"))
      APP_LOCATION = "http://localhost:8003/catalogue/FullStack-WebApps/Note_taking_app_demo";
 }
 
+else if(window.location.href.startsWith("http://localhost:8004"))
+{
+     PLATFORM = "localhost";
+     APP_LOCATION = "http://localhost:8004/";
+}
+
 document.addEventListener("visibilitychange", async () => {
     if (document.visibilityState === "visible")
     {

@@ -1304,14 +1304,18 @@ toggleButton.addEventListener("click", () => {
 });
 
 const backButton = document.getElementById("backButton");
-backButton.addEventListener("click", () => {
-    
-    var route = window.location.href.split("catalogue");
-    route = route[1].split("/");
-    route = route[0]
-    
-    window.location.href = "../../../../catalogue.html#" + route;
-});
+
+if(backButton)
+{
+    backButton.addEventListener("click", () => {
+        
+        var route = window.location.href.split("catalogue");
+        route = route[1].split("/");
+        route = route[0]
+        
+        window.location.href = "../../../../catalogue.html#" + route;
+    });
+}
 
 //Add selection control buttons
 

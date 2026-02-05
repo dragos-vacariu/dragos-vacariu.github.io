@@ -11,6 +11,11 @@
     display: flow-root; /*fixes problems with margins collapsing*/
 }
 
+#jour_navigation {
+    /*Overwriting the property*/
+    top: 65px !important;  /* adjust for header height */
+}
+
 #page_content header{
     position: relative !important;
     z-index: 0 !important;
