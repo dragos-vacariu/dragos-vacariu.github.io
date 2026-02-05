@@ -262,7 +262,7 @@ const fullstack_apps_page = {
     name: "FullStack WebApps", 
     catalogue: fullstack_catalogue,
     description: "These projects demonstrate my ability to design, develop, and deploy comprehensive \
-            fullstack applications that deliver seamless user interactions and robust functionality",
+            fullstack applications that deliver seamless user interactions and robust functionality.",
 };
 fullstack_apps_page.value = `${rootDir}/catalogue.html#${fullstack_apps_page.name}`;
 
