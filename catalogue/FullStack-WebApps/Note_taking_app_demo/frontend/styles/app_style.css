@@ -402,6 +402,7 @@ body
     padding: 0px;
     border: none 1px rgba(0,0,0,0.6);
     overflow: hidden;         /* IMPORTANT */
+    margin-top: 3px;
 }
 
 #text_editor_toolbar .toolbar_button
@@ -444,11 +445,12 @@ body
     background-color: #fff;
 }
 
-#text_editor_toolbar .toolbar_button:hover, #text_editor_toolbar
+.toolbar_button:hover
 {
     background-color: lightgray !important;
     transition: background-color 0.5s;
 }
+
 #text_editor_toolbar .fontSizeSelect:hover
 {
     font-weight: bold;
