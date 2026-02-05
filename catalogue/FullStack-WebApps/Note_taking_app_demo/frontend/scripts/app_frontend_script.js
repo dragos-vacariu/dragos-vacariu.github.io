@@ -151,7 +151,6 @@ async function addNoteToUI(title, content, tags, id, editDate=undefined)
     
     const dragHandle = document.createElement('button');
     dragHandle.id = 'dragHandleButton';
-    dragHandle.className = 'drag-handle';
     dragHandle.innerText = '✥';
     dragHandle.draggable = true;
     dragHandle.title = 'Drag & Drop Handler';
@@ -171,8 +170,7 @@ async function addNoteToUI(title, content, tags, id, editDate=undefined)
     statusInfo.id = 'statusInfo';
     statusInfo.innerText = 'status';
 
-    postControls.appendChild(statusInfo);
-    
+    postHeader.appendChild(statusInfo);
     postHeader.appendChild(postControls);
     
     const timestamp = document.createElement('span');
@@ -186,7 +184,6 @@ async function addNoteToUI(title, content, tags, id, editDate=undefined)
     }
     
     timestamp.innerText = post_date;
-    postHeader.appendChild(timestamp);
     
     const dropdownContentDiv = document.createElement('div');
     dropdownContentDiv.className = 'dropdown-content';
@@ -285,6 +282,7 @@ async function addNoteToUI(title, content, tags, id, editDate=undefined)
     jourEntryButtons.appendChild(discardButton);
     
     entryDiv.appendChild(postHeader);
+    entryDiv.appendChild(timestamp);
     entryDiv.appendChild(collapsableContent);
     entryDiv.appendChild(jourEntryButtons);
 
@@ -356,31 +354,66 @@ function createToolbar()
     toolbar.appendChild(addButton('S', 'strikeThrough', "StrikeThrough Font"));
     
     // Lists
-    toolbar.appendChild(addButton('• List', 'insertUnorderedList', "Unodered List"));
-    toolbar.appendChild(addButton('1. List', 'insertOrderedList', "Ordered List"));
+    toolbar.appendChild(addButton('●.', 'insertUnorderedList', "Unodered List"));
+    toolbar.appendChild(addButton('1-9.', 'insertOrderedList', "Ordered List"));
     
     // Alignment
-    toolbar.appendChild(addButton('Left', 'justifyLeft', "Text Allign Left"));
-    toolbar.appendChild(addButton('Center', 'justifyCenter', "Text Allign Center"));
-    toolbar.appendChild(addButton('Right', 'justifyRight', "Text Allign Right"));
+    toolbar.appendChild(addButton('⊢ ', 'justifyLeft', "Text Allign Left"));
+    toolbar.appendChild(addButton(' ≡ ', 'justifyCenter', "Text Allign Center"));
+    toolbar.appendChild(addButton(' ⊣', 'justifyRight', "Text Allign Right"));
     
-    // Color picker
-    const colorInput = document.createElement('input');
-    colorInput.type = 'color';
-    colorInput.title = 'Font Color';
-    colorInput.classList.add("colorPicker");
-    colorInput.addEventListener('input', (e) => 
-                    document.execCommand('foreColor', false, e.target.value));
-    toolbar.appendChild(colorInput);
+    // Create the wrapper for font color
+    const fontColorButton = document.createElement('button');
+    fontColorButton.classList.add('toolbar_button');
+    fontColorButton.type = 'button';
+    fontColorButton.id = 'fontColorButton';
+    fontColorButton.title = 'Font color';
+    fontColorButton.innerHTML = '✒️';
+
+    // Create the hidden color input
+    const fontColorInput = document.createElement('input');
+    fontColorInput.type = 'color';
+    fontColorInput.id = "fontColorInput";
+
+    // When a color is selected, apply it to selected text
+    fontColorInput.addEventListener('input', (e) => {
+      document.execCommand('foreColor', false, e.target.value);
+    });
+    
+    fontColorButton.addEventListener('click', () => {
+      fontColorInput.click();
+    });
+
+    // Append icon and input to wrapper
+    fontColorButton.appendChild(fontColorInput);
+
+    // Append the wrapper to your toolbar
+    toolbar.appendChild(fontColorButton);
     
     // Highlight (background color)
+    const highlightButton = document.createElement('button');
+    highlightButton.classList.add('toolbar_button');
+    highlightButton.type = 'button';
+    highlightButton.id = 'highlightInputButton';
+    highlightButton.title = 'Highlight color';
+    highlightButton.innerHTML = '✎';
+    
+    // Create the hidden color input
     const highlightInput = document.createElement('input');
     highlightInput.type = 'color';
-    highlightInput.title = 'Highlight Color';
-    highlightInput.classList.add("colorPicker");
-    highlightInput.addEventListener('input', (e) => 
-                    document.execCommand('hiliteColor', false, e.target.value));
-    toolbar.appendChild(highlightInput);
+    highlightInput.id = "highlightInput";
+
+    // When a color is selected, apply it to selected text
+    highlightInput.addEventListener('input', (e) => {
+      document.execCommand('hiliteColor', false, e.target.value);
+    });
+    
+    highlightButton.addEventListener('click', () => {
+      highlightInput.click();
+    });
+
+    highlightButton.appendChild(highlightInput);
+    toolbar.appendChild(highlightButton);
     
     // Font size (1-7 scale)
     const fontSizeSelect = document.createElement('select');

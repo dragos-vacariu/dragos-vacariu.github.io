@@ -208,19 +208,6 @@ body
     gap: 30px;
 }
 
-.drag-handle {
-    cursor: grab;            /* Shows a hand for dragging */
-    user-select: none;        /* Prevent selecting the handle text */
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 8px;
-    color: var(--blue-color);
-    font-weight: bold;
-}
-
 .sidebar_controls{
     width: 30px;
 }
@@ -382,7 +369,7 @@ body
     
     width:100%;
 
-    padding: 8px;
+    padding: 0px;
     margin: 10px auto;          /* gap handles spacing */
     box-sizing: border-box;
     
@@ -394,9 +381,8 @@ body
 .jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #text_editor_toolbar,
 .jour_entry #jour_entry_tags
 {
-    width: 98%;
-    margin: 2px 0px;
-    padding: 2px 15px;
+    width: 100%;
+    margin: 0px;
     
     word-break: break-word;
     overflow-wrap: anywhere;
@@ -432,16 +418,9 @@ body
     
 }
 
-#text_editor_toolbar .colorPicker{
-    position: relative;
-    top: 3px;
-    margin: 2px;
+#fontColorButton, #highlightInputButton{
+    width: fit-content;
     padding: 0px;
-    height: 26px;            /* force consistent height */
-    /* Remove native styles */
-    appearance: none;
-    -webkit-appearance: none;
-
 }
 
 #text_editor_toolbar .fontSizeSelect{
@@ -465,7 +444,7 @@ body
     background-color: #fff;
 }
 
-#text_editor_toolbar .toolbar_button:hover, #text_editor_toolbar .colorPicker:hover
+#text_editor_toolbar .toolbar_button:hover, #text_editor_toolbar
 {
     background-color: lightgray !important;
     transition: background-color 0.5s;
@@ -490,6 +469,16 @@ body
     font-weight: bold;
 }
 
+#postHeader{
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px;
+    width: 100%;
+    margin: 0px;
+    margin-bottom: 5px;
+    border-bottom: groove 2px rgba(0,0,0,0.05);
+}
+
 .jour_entry #jour_entry_title, .jour_entry #jour_entry_content,
 .jour_entry #jour_entry_tags
 {
@@ -512,20 +501,24 @@ body
 .jour_entry #jour_entry_title
 {
     font: var(--post-title-font);
-    color: black;
+    color: #555;
+    border-bottom: ridge 1px rgba(0,0,0,0.1);
+    padding: 5px 15px;
 }
 
 .jour_entry #jour_entry_content
 {
     font: var(--post-content-font); 
-    color: black;
+    color: #333;
+    padding: 2px 15px;
 }
 
 .jour_entry #jour_entry_tags
 {
     margin-top: 3px;
-    font: var(--post-content-font);
-    color: rgba(100,100,100,0.5);
+    font: var(--post-tags-font);
+    color: #888;
+    padding: 2px 15px;
 }
 
 /* Style the truncated elements */
@@ -572,13 +565,16 @@ body
 
 .edit_mode .jour_entry #jour_entry_title{
     max-height: 10vh;
+    color: black;
 }
 .edit_mode .jour_entry #jour_entry_content{
     max-height: 50vh;
     height: 50vh;
+    color: black;
 }
 .edit_mode .jour_entry #jour_entry_tags{
     max-height: 10vh;
+    color: black;
 }
 
 /* Style the button for Show More/Show Less */
@@ -596,6 +592,7 @@ body
 
 #show_more_button{
     border-radius: 25px;
+    margin: 5px 10px;
 }
 
 #save_button, #discard_button{
@@ -607,10 +604,30 @@ body
 #show_more_button:hover, #save_button:hover, #discard_button:hover {
     opacity: 0.5;
     transform: translateY(-2px);
-} 
+}
+
+#note_timestamp
+{
+    font: var(--post-timestamp-font);
+    color: #888;
+    padding: 2px 15px;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+
+#highlightInput, #fontColorInput
+{
+    position: relative;
+    opacity: 0;
+    pointer-events: none;
+    width: 0px;
+    height: 0px;
+}
 
 #statusInfo {
+    position: absolute;
     display: inline-block;
+    width: auto;
     min-width: 50px;
     padding: auto;
     font: var(--button-font);
@@ -618,6 +635,8 @@ body
     color: #555555;
     border-radius: 4px;
     border: none 2px red;
+    left: 0%;
+    margin: 10px;
     text-align: center;
     opacity: 0; /* initially hidden */
     transition: opacity 0.5s ease, transform 0.3s ease;
@@ -626,27 +645,51 @@ body
 }
 
 #postControls {
+    position: relative;
     display: flex;
     flex-direction: row-reverse;
     align-items: center; /* vertically center button + status box */
     gap: 6px; /* space between the ... button and status box */
+    
+    background-color: #eee;
+    border-left: none 1px #ccc;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 2px 10px;
+    width: fit-content;
+    margin-left: auto; /* pushes the element to the right within a flex container */
 }
+
+/*
+#postControls * {
+    outline: 1px solid red;
+}
+*/
 
 /* Basic styling for the button */
 .dropdown 
 {
     position: relative;
-    display: inline-block;
-    padding: 2px;
+    display: flex;   /* ← important */
 }
 
 .dropdown #dropbtn, #close_button, #copy_clipboard, #dragHandleButton, #postDetailsButton
 {
-    border: none 1px #ccc;
-    color: var(--blue-color);
-    font: var(--button-font);
+    display: flex;
+    border: none 0px #ccc;
+    color: #555;
+    background-color: transparent;
+    font: var(--site-title-font);
     cursor: pointer;
+
+    margin: auto;
     padding: 2px;
+}
+
+#dragHandleButton {
+    cursor: grab;            /* Shows a hand for dragging */
+    user-select: none;        /* Prevent selecting the handle text */
 }
 
 .dropdown #dropbtn

@@ -17,8 +17,9 @@
     
     --post-title-font: italic bold 1.4rem/1.2 Calibri, serif;
     --post-title-font-letter-spacing: 1px;
-    --post-content-font: normal normal 1rem/1.8 Georgia, serif;
+    --post-content-font: normal normal 1.1rem/1.7 Calibri, serif;
     --post-tags-font: normal normal 0.8rem/1.8 Georgia, serif;
+    --post-timestamp-font: normal normal 0.8rem/1.5 Calibri, serif;
     
 }
 
