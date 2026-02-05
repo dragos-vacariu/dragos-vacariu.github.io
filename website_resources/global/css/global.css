@@ -24,7 +24,7 @@
     --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
     --site-title-font: normal bold 1.3rem/1.2 FjallaOne, serif;
     --navigation-font: normal normal 1.0rem/1 FjallaOne, serif;
-    --navigation-icon-font: normal normal 1.5em/1 FjallaOne, serif;
+    --navigation-icon-font: normal normal 1.5em/1.2 FjallaOne, serif;
     
     --background-gradient: linear-gradient(to bottom, #ffffff, rgba(0,0,255,0.01));
 }
@@ -42,7 +42,7 @@
         --code-font: normal normal 0.9rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --site-description-font: normal normal 0.7rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.2rem/1.2 FjallaOne, serif;
-        --navigation-font: normal normal 0.9rem/1 FjallaOne, serif;
+        --navigation-font: normal normal 0.9rem/1.2 FjallaOne, serif;
         --navigation-icon-font: normal normal 1.2em/1 FjallaOne, serif;
     }
 }
@@ -59,7 +59,7 @@
         --code-font: normal normal 0.8rem/1.4 Consolas, serif; /*italic bold 16px/1.5 Georgia, serif*/
         --site-description-font: normal normal 0.6rem/1.1 ZenDots, serif;
         --site-title-font: normal bold 1.1rem/1.2 FjallaOne, serif;
-        --navigation-font: normal normal 0.8rem/1 FjallaOne, serif;
+        --navigation-font: normal normal 0.8rem/1.2 FjallaOne, serif;
         --navigation-icon-font: normal normal 0.9em/1 FjallaOne, serif;
     }
 }

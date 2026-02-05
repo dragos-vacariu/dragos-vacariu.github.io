@@ -4,9 +4,7 @@
     float: left;
     table-layout: fixed;
     width:60%; /* the width of game_content is also influenced by width of game_div*/
-    margin: 0%;
-    margin-right: 20px;
-    margin-bottom: 10px;
+
     padding: 0%;
     height:auto;
     background-image: url(tetris_page_background.jpg);

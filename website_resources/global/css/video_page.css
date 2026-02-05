@@ -5,23 +5,6 @@
     margin: 25px auto !important; /*overwriting the global property of page_block*/
 }
 
-#page_block #game_content
-{
-    position:relative;
-    margin: 0%;
-    height: auto;
-    left:0%;
-    border: ridge 2px rgba(255,255,255, 0.1);
-    word-wrap: break-word;
-    
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
 #page_block #block_content
 {
     position:relative;
@@ -90,6 +73,23 @@
     padding: 0px;
 }
 
+#page_block #game_content
+{
+    position:relative;
+    margin: 0%;
+    height: auto;
+    left:0%;
+    border: ridge 2px rgba(255,255,255, 0.1);
+    word-wrap: break-word;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
 #page_block video{
     position:relative;
     float: left;
@@ -102,7 +102,7 @@
     */
     margin: 0%;
     margin-right: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     padding: 0%;
     border: ridge 2px rgba(0,0,0,0.1);
     border-radius: 1vw;
