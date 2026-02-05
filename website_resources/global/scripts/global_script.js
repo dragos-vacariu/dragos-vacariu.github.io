@@ -13,7 +13,8 @@ const fullstack_catalogue = [
         {
             name: "Note Taking App", 
             value : "FullStack-WebApps/Note_taking_app_demo/frontend/login.html",
-            description : "A full-stack web application for creating and managing notes with end-to-end encryption (E2EE).",
+            description : "A full-stack web application for creating and managing notes with end-to-end \
+            encryption (E2EE).",
             thumbnail : "FullStack-WebApps/Note_taking_app_demo/index.png",
         },
         {
@@ -30,12 +31,16 @@ const unity_csharp_catalogue = [
             value : "Unity-Csharp-Projects/TowerBlocks Game/TowerBlocks Game.html",
             video : "Unity-Csharp-Projects/TowerBlocks Game/TowerBlocks Game.mp4",
             thumbnail : "Unity-Csharp-Projects/TowerBlocks Game/TowerBlocks Game.png",
+            description: "TowerBlocks is an engaging game that challenges players to carefully drop blocks to \
+            build the tallest skyscraper possible.",
         },
         {
             name: "Unity Racing Environment", 
             value : "Unity-Csharp-Projects/Unity Racing Environment/Unity Racing Environment.html",
             video : "Unity-Csharp-Projects/Unity Racing Environment/Unity Racing Environment.mp4",
             thumbnail : "Unity-Csharp-Projects/Unity Racing Environment/Unity Racing Environment.png",
+            description: "Unity Racing Environment is a drag racing-inspired prototype where players aim to time \
+            their gear shifts perfectly by syncing with the ideal RPM."
         },
 ];
 
@@ -45,6 +50,7 @@ const python_projects_catalogue = [
             value : "Python-Projects/PyPlay Mp3 Player/PyPlay Mp3 Player.html",
             video : "Python-Projects/PyPlay Mp3 Player/PyPlay Mp3 Player.mp4",
             thumbnail : "Python-Projects/PyPlay Mp3 Player/PyPlay Mp3 Player.png",
+            description: "PyPlay MP3 Player is a user-friendly desktop application built with Python.",
         },
 ];
 
@@ -54,12 +60,15 @@ const c_sharp_projects_catalogue = [
             value : "CSharp-Projects/WWBM Quizz Game/WWBM Quizz Game.html", 
             video: "CSharp-Projects/WWBM Quizz Game/WWBM Quizz Game.mp4",
             thumbnail: "CSharp-Projects/WWBM Quizz Game/WWBM Quizz Game.png",
+            description: "WWBM Quizz Game is an early-developed desktop GUI application \
+            inspired by the TV Show 'Who Wants to Be a Millionaire?'",
         },
         {
             name: "Basic MP3 Player", 
             value : "CSharp-Projects/MP3Player/MP3Player.html", 
             video: "CSharp-Projects/MP3Player/MP3Player.mp4",
             thumbnail: "CSharp-Projects/MP3Player/MP3Player.png",
+            description: "This is an early-developed  Basic MP3 Player designed for .mp3 media playback."
         },
 ];
 
@@ -69,12 +78,16 @@ const cpp_opengl_projects_catalogue = [
             value : "Cpp-OpenGL-Projects/Car Game Project 2D/Car Game Project 2D.html", 
             video: "Cpp-OpenGL-Projects/Car Game Project 2D/Car Game Project 2D.mp4", 
             thumbnail: "Cpp-OpenGL-Projects/Car Game Project 2D/Car Game Project 2D.png",
+            description: "Car Game 2D is a mini-game focusing on driving through traffic while \
+            avoiding collisions."
         },
         {
             name: "Traffic Simulator 2D", 
             value : "Cpp-OpenGL-Projects/Traffic Simulator 2D/Traffic Simulator 2D.html", 
             video: "Cpp-OpenGL-Projects/Traffic Simulator 2D/Traffic Simulator 2D.mp4",
             thumbnail: "Cpp-OpenGL-Projects/Traffic Simulator 2D/Traffic Simulator 2D.png",
+            description: "2D Traffic Simulator is an early ambitious project aimed at creating \
+            a dynamic traffic environment with AI-controlled vehicles."
         },
 ];
 
@@ -84,6 +97,7 @@ const embedded_c_catalogue = [
             value : "Embedded-C-Projects/Embedded Countdown Timer/Embedded Countdown Timer.html", 
             video: "Embedded-C-Projects/Embedded Countdown Timer/Embedded Countdown Timer.mp4",
             thumbnail: "Embedded-C-Projects/Embedded Countdown Timer/Embedded Countdown Timer.png",
+            description: "Simulated Embedded Countdown Timer with a 7-segment LED controller and microcontroller.",
         },
 ];
 
@@ -93,26 +107,36 @@ const javascript_games_catalogue = [
             name: "Knight Chess Game", 
             value : "Javascript-Projects/knight_chess_resources/knight_chess_game.html",
             thumbnail : "Javascript-Projects/knight_chess_resources/knight_chess_game.png",
+            description: "Knight Chess is a puzzle game where players move the Knight piece across every square \
+            on the chessboard, following its unique movement pattern. "
         },
         {
             name: "Snake Game", 
             value : "Javascript-Projects/snake_resources/snake_game.html",
             thumbnail : "Javascript-Projects/snake_resources/snake_game.png",
+            description: "Classic Snake Game prototype - focuses on controlling the snake within a grid-based \
+            play area."
         },
         {
             name: "Tetris Game", 
             value : "Javascript-Projects/tetris_resources/tetris_game.html",
             thumbnail : "Javascript-Projects/tetris_resources/tetris_game.png",
+            description: "Tetris is a classic game in the player must move and rotate falling bricks of various \
+            shapes to complete horizontal rows."
         },
         {
             name: "TowerBlocks Game", 
             value : "Javascript-Projects/towerblocks_resources/tower_blocks_game.html",
             thumbnail : "Javascript-Projects/towerblocks_resources/tower_blocks_game.png",
+            description: "TowerBlocks is a timing-based stacking game where the player must drop blocks one on top \
+            of the other to build the tallest skyscraper possible."
         },
         {
             name: "Canvas Snake", 
             value : "Javascript-Projects/canvas_snake/canvas_snake.html",
             thumbnail : "Javascript-Projects/canvas_snake/canvas_snake.png",
+            description: "Snake is a game in which the player has to guide the snake across the playfield to \
+            collect fruit."
         },
 ];
 

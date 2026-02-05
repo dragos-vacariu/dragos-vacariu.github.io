@@ -1,4 +1,5 @@
 let active_Index = 0;
+const cookie_element_separator = "<br>"; 
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -34,8 +35,9 @@ function displayCatalogueLinks()
                     
                     /*Setting the cookie*/
                     //document.cookie = String(index);
-                    document.cookie = "activeIndex=" + index + "; path=/";
-                    
+                    //document.cookie = "activeIndex=" + index + "; path=/";
+                    updateCookie("active_Index", index);
+                    updateRoute(pageObject.project_catalogue_dropdown[index].name);
                     /*Show catalogue content*/
                     showContent();
                     
@@ -53,21 +55,21 @@ function displayCatalogueLinks()
     }
 }
 
+function updateRoute(value)
+{
+    window.location.href += "#" + value;
+}
+
 function processRouteCookie()
 {
     var routeProvided = window.location.href.split("/catalogue.html#")[1];
     
-    // Read named cookie
-    const cookieValue = document.cookie
-        .split('; ')
-        .find(row => row.startsWith('activeIndex='))
-        ?.split('=')[1];
-    
     //Replacing '%20' with ' '
+    var routeProvidedIndex = -1;
+    
     if(routeProvided)
     {
         const route = routeProvided.replaceAll("%20", " ");
-        var routeProcessingFailed = false;
         
         /*if route provided - load the route*/
         if (route)
@@ -79,41 +81,65 @@ function processRouteCookie()
             {
               // Convert NodeList to Array
                 const buttonArray = Array.from(button_elements);
-
-                const match = buttonArray.findIndex(element => element.innerText == route);
                 
-                if(match >= 0)
+                routeProvidedIndex = buttonArray.findIndex(element =>
                 {
-                    active_Index = match;
-                }
-                else
-                {
-                    routeProcessingFailed = true;
-                }
+                    
+                    //console.log("Comparing " + element.innerText.toLowerCase() + " == " + route.toLowerCase())
+                    return element.innerText.toLowerCase() == route.toLowerCase();
+                });
+                
             }
-            else
-            {
-                routeProcessingFailed = true;
-            }
-        }
-        
-        /*if route is incorrect - attempt to load the cookie*/
-        else if(route && routeProcessingFailed)
-        {
-            if(cookieValue)
-            {
-                active_Index = parseInt(cookieValue);
-            }
-        }
-        /*Loading the cookie if available.*/
-        else if(cookieValue)
-        {
-            active_Index = parseInt(cookieValue);
         }
     }
-    else if(cookieValue)
+
+    if(routeProvidedIndex >= 0)
     {
-        active_Index = parseInt(cookieValue);
+        active_Index = routeProvidedIndex;
+        //console.log("Setting index to routeProvidedIndex");
+    }
+    else ( routeProvidedIndex < 0 )
+    {
+        loadCookie();
+    }
+}
+
+function updateCookie(property, value)
+{
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
+    
+    if(matchIndex >= 0)
+    {
+        var pairs = cookie_elements[matchIndex].split("=");
+        pairs[1] = value;
+        cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
+        document.cookie = cookie_elements.join(cookie_element_separator);
+    }
+    
+    else
+    {
+        var element =  property + "=" + value;
+        if(document.cookie.length > 0)
+        {
+            /*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
+            element = cookie_element_separator + element;  
+        }
+        document.cookie += element;
+    }
+}
+
+function loadCookie()
+{
+    var cookie_elements = document.cookie.split(cookie_element_separator);
+    var index = cookie_elements.find(element => String(element).split("=")[0] == "active_Index");
+    if(index) //if selection type found amongst cookies
+    {
+        var pairs = index.split("=");
+        if(pairs.length > 1 && pairs[1] != "")
+        {
+           active_Index = pairs[1]; 
+        }
     }
 }
 

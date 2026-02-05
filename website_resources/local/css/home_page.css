@@ -163,21 +163,31 @@
     position: relative;  
     display: flex;
     flex-wrap: wrap;
-    padding: 1%;
-    margin: 0%;
-    width: 100%;
-    border: none 0px black;
+    padding: 2px;
+    margin: auto;
+    width: 80%;
+    border: none 2px black;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 768px)
+{
+    #reference
+    {
+        width: 100%;
+
+    }
 }
 
 .img_container{
     overflow: visible;
     position: relative; /*this will ensure the absolute elements are contained*/
-    width:6%;
+    width:10%;
     min-width:50px;
     border: none 0px black;
     margin: auto;
     padding: 1%;
-    border:solid 1px rgba(0,0,180,1);
+    border:none 1px rgba(0,0,180,1);
     border-radius: 10vw;
 }
 
