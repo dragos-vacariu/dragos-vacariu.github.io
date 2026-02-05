@@ -333,7 +333,8 @@ async function LogIn_AsGuest()
         // Get the "Keep me logged in" checkbox value (if in login mode)
         const rememberMeCheckbox = document.getElementById('rememberMe');
         const rememberMe = rememberMeCheckbox ? rememberMeCheckbox.checked : false;
-            
+        
+        /*
         const res = await fetch(API_URL + '/api/' + API_SCRIPT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -359,7 +360,7 @@ async function LogIn_AsGuest()
             submitBtn.disabled = false;
             return;
         }
-        /*
+        
         if (res.ok) 
         {
             //Check if there is a migration ongoing

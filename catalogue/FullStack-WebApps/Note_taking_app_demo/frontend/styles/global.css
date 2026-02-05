@@ -280,10 +280,13 @@ h3{
 .error { color: red; margin-top: 10px; }
 .warning { color: blue; margin-top: 10px; }
 
-.message
+#message
 {
+    width: 100%;
     margin: auto;
+    margin-top: 10px;
     text-align: center;
+    border: none 0px red;
 }
 
 /*Adding custom font*/
