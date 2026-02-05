@@ -755,38 +755,37 @@ function updateHeadMeta()
     var page_title_list = window.location.href.split("/");
     var parsed_title = "";
 
-    const lastPart = page_title_list[page_title_list.length - 1];
-
-    if (lastPart.includes("catalogue.html#"))
+    let lastPart = page_title_list[page_title_list.length - 1];
+    
+    if(lastPart == "")
+    {
+        parsed_title += "Home - ";
+    }
+    else if (lastPart.includes("catalogue.html#"))
     {
         // Remove fragment part
-        page_title_list[page_title_list.length - 1] = lastPart.split("catalogue.html#")[0];
+        parsed_title = "Project Catalogue - ";
     }
-    else if (   page_title_list.includes("catalogue") || 
-                page_title_list.includes("Javascript-Projects") || 
-                page_title_list.includes("AI_Pal_Chatbot_Demo") || 
-                page_title_list.includes("Note_taking_app_demo") )
+    else
     {
-        parsed_title += "Project Catalogue - ";
-    }
-    else if(lastPart == "")
-    {
-        parsed_title += "Home";
-    }
-
-    // Append the last segment (e.g., filename)
-    let lastSegment = page_title_list[page_title_list.length - 1];
-    lastSegment = lastSegment.replace('.html', '');
-    lastSegment = lastSegment.replace('index', 'home');
-    lastSegment = lastSegment.replace('about', 'About Me');
-    lastSegment = lastSegment.replace('portal', 'Learning Portal');
-    lastSegment = lastSegment.replace('catalogue', 'Project Catalogue');
-    // Remove ".html" if present
-    const cleanSegment = lastSegment;
-
-    parsed_title += cleanSegment + " - " + page_title;
+        lastPart = lastPart.replace('.html', '');
+        lastPart = lastPart.replace('index', 'home');
+        lastPart = lastPart.replace('about', 'About Me');
+        lastPart = lastPart.replace('portal', 'Learning Portal');
+        lastPart = lastPart.replace('catalogue', 'Project Catalogue');
+        
+        if(page_title_list.includes("catalogue"))
+        {
+            parsed_title += "Project Catalogue - " + lastPart + " - ";
+        }
+        else
+        {
+            parsed_title += lastPart + " - ";
+        }
+    }   
     
     //Capitalizing
+    parsed_title += page_title;
     parsed_title = parsed_title.charAt(0).toUpperCase() + parsed_title.slice(1);
     
     //Adding the space

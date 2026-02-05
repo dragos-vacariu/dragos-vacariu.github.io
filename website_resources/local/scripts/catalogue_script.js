@@ -169,7 +169,7 @@ function videoHoveringHandler()
 
 function showContent()
 {
-    console.log("ACtive index: " + active_Index)
+    //console.log("ACtive index: " + active_Index)
     const catalogue_content = document.getElementById("catalogue_content");
     const fading_paragraph = catalogue_content.querySelector(".paragraph");
     const catalogue_title = fading_paragraph.querySelector(".catalogue_title");
