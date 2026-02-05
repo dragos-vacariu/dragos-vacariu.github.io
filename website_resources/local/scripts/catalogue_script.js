@@ -34,10 +34,11 @@ function displayCatalogueLinks()
                     active_Index = index;
                     
                     /*Setting the cookie*/
-                    //document.cookie = String(index);
-                    //document.cookie = "activeIndex=" + index + "; path=/";
                     updateCookie("active_Index", index);
+                    
+                    /*Updating route*/
                     updateRoute(pageObject.project_catalogue_dropdown[index].name);
+                    
                     /*Show catalogue content*/
                     showContent();
                     
@@ -96,9 +97,9 @@ function processRouteCookie()
     if(routeProvidedIndex >= 0)
     {
         active_Index = routeProvidedIndex;
-        //console.log("Setting index to routeProvidedIndex");
+        //console.log("Setting index to routeProvidedIndex: " + active_Index);
     }
-    else ( routeProvidedIndex < 0 )
+    else if ( routeProvidedIndex < 0 )
     {
         loadCookie();
     }
@@ -168,6 +169,7 @@ function videoHoveringHandler()
 
 function showContent()
 {
+    console.log("ACtive index: " + active_Index)
     const catalogue_content = document.getElementById("catalogue_content");
     const fading_paragraph = catalogue_content.querySelector(".paragraph");
     const catalogue_title = fading_paragraph.querySelector(".catalogue_title");

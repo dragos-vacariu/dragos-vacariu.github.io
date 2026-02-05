@@ -54,16 +54,28 @@ function displayCatalogueLinks()
                 buttonDiv.className = "catalogue_buttons_container";
                     const buttonElem = document.createElement("button");
                     buttonElem.className = "project_catalogue";
+                    let href = ""
                     
-
-                    let domain = window.location.href.split("dragos-vacariu.github.io");
-                    let href = domain[0] + "dragos-vacariu.github.io/";
+                    /*If html file is accessed without a server*/
+                    if(window.location.href.includes("dragos-vacariu.github.io"))
+                    {
+                        let domain = window.location.href.split("dragos-vacariu.github.io");
+                        href = domain[0] + "dragos-vacariu.github.io/catalogue.html#";
+                        
+                    }
+                    
+                    /*else html file is accessed using localhost server or online server*/
+                    else if (window.location.href.includes("localhost"))
+                    {
+                        let domain = window.location.href.split("catalogue");
+                        href = domain[0] + "catalogue.html#";
+                    }
                     
                     buttonElem.onclick = function ()
                     {
-                        
-                        window.location.href = href + "catalogue.html#" + 
-                                                pageObject.project_catalogue_dropdown[index].name;
+                        href += pageObject.project_catalogue_dropdown[index].name
+                        //alert(href)
+                        window.location.href = href;
                     };
                     buttonElem.innerText = pageObject.project_catalogue_dropdown[index].name;
                     buttonElem.title = "Click to see " + pageObject.project_catalogue_dropdown[index].name;
