@@ -348,7 +348,7 @@ async function LogIn_AsGuest()
                 method_params: {}
             })
         });
-        alert("Fetched");
+        //alert("Fetched");
         let data = null;
         try
         {

@@ -101,45 +101,42 @@ function processRouteCookie()
     }
     else if ( routeProvidedIndex < 0 )
     {
-        loadCookie();
+        loadCookie("active_Index");
     }
 }
 
 function updateCookie(property, value)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
+    //console.log("Entry Cookie: " + document.cookie);
     
-    if(matchIndex >= 0)
-    {
-        var pairs = cookie_elements[matchIndex].split("=");
-        pairs[1] = value;
-        cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
-        document.cookie = cookie_elements.join(cookie_element_separator);
-    }
+    // We DO NOT rebuild document.cookie manually
+    // Browser handles merging cookies automatically
     
-    else
-    {
-        var element =  property + "=" + value;
-        if(document.cookie.length > 0)
-        {
-            /*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
-            element = cookie_element_separator + element;  
-        }
-        document.cookie += element;
-    }
+    document.cookie = property + "=" + value +
+                      "; path=/; max-age=31536000";
+
+    //console.log("Exit Cookie: " + document.cookie);
 }
 
-function loadCookie()
+function loadCookie(property)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var index = cookie_elements.find(element => String(element).split("=")[0] == "active_Index");
-    if(index) //if selection type found amongst cookies
+    //console.log("Reading cookie: " + document.cookie);
+
+    var cookie_elements = document.cookie.split("; ");
+    var found = cookie_elements.find(element =>
+        String(element).split("=")[0] == property
+    );
+
+    if(found != undefined)
     {
-        var pairs = index.split("=");
+        var pairs = found.split("=");
+        //console.log("Pairs = " + pairs);
+
         if(pairs.length > 1 && pairs[1] != "")
         {
-           active_Index = pairs[1]; 
+            //console.log("Found cookie value: " + pairs[1]);
+
+            active_Index = parseInt(pairs[1]);
         }
     }
 }

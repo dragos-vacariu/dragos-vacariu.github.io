@@ -147,8 +147,8 @@ function restoreCookiePredefinedElements()
         These cookies should be restored instantly as they don't have to wait until the HTTP Request is ready
     */
     
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var foundPageView = cookie_elements.findIndex(element => String(element) == "page=modern");
+    //var foundPageView = cookie_elements.findIndex(element => String(element) == "page=modern");
+    var foundPageView = loadCookie("page");
     /*
         The findIndex() method of Array instances returns the index of the first element in an 
         array that satisfies the provided testing function. If no elements satisfy the testing 
@@ -158,7 +158,7 @@ function restoreCookiePredefinedElements()
         satisfies the provided testing function. If no values satisfy the testing function, undefined 
         is returned.
     */
-    if(foundPageView >= 0) //if page view found amongst cookies
+    if(foundPageView != null && foundPageView == "modern") //if page view found amongst cookies
     {
         window.location.href = "./portal.html";
         /*Page will change and script run will stop*/
@@ -167,70 +167,72 @@ function restoreCookiePredefinedElements()
 
 function restoreDBSingleSelectionCookie()
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var active_language = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionLanguage");
-    var active_concept = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionConcept");
-    /*
-        The find() method of Array instances returns the first element in the provided array that 
-        satisfies the provided testing function. If no values satisfy the testing function, undefined 
-        is returned.
-    */
-    if(active_language != undefined) //if selection type found amongst cookies
+    var active_language = loadCookie("SingleSelectionLanguage");
+    
+    var active_concept = loadCookie("SingleSelectionConcept");
+    
+     //if selection type found amongst cookies
+    if(active_language != undefined)
     {
-        var pairs = active_language.split("="); 
-        
-        if(pairs.length > 1)
+        var language_index = manifests.findIndex(element => String(element.name) == active_language);
+        if(language_index >= 0 )
         {
-            var language_index = manifests.findIndex(element => String(element.name) == String(pairs[1]))
-            if(language_index >= 0 )
-            {
-                 /*
-                    manifest_selection is built based on manifests without General-Programming-Knowledge. 
-                    manifest_selection has 1 less element compared to manifests so 1 less index.
-                */
-                language_index-=1;
-                toggleManifestOnOff(manifest_selection.children[language_index])
-            }
+            /*
+                manifest_selection is built based on manifests without General-Programming-Knowledge. 
+                manifest_selection has 1 less element compared to manifests so 1 less index.
+            */
+            language_index-=1;
+            manifest_selection.children[language_index].click(); 
+            //click will select this item and deselect all others
         }
     }
-    if(active_concept != undefined) //if selection type found amongst cookies
+     //if selection type found amongst cookies
+    if(active_concept != undefined)
     {
-        var pairs = active_concept.split("="); 
-        if(pairs.length > 1)
+        var concept_index = concept_collection.findIndex(element => String(element) == active_concept)
+         
+        if(concept_index >= 0 )
         {
-            var concept_index = concept_collection.findIndex(element => String(element) == String(pairs[1]))
-             
-            if(concept_index >= 0 )
-            {
-                 /*concept_selection is built based on concept_collection. They have the same indexing*/
-                toggleConceptOnOff(concept_selection.children[concept_index])
-            }
+             /*concept_selection is built based on concept_collection. They have the same indexing*/
+            concept_selection.children[concept_index].click(); 
+            //click will select this item and deselect all others
         }
     }
 }
 
 function updateCookie(property, value)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
-    if(matchIndex >= 0)
-    {
-        var pairs = cookie_elements[matchIndex].split("=");
-        pairs[1] = value;
-        cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
-        document.cookie = cookie_elements.join(cookie_element_separator);
-    }
-    else
-    {
-        var element =  property + "=" + value;
-        if(document.cookie.length > 0)
-        {
-            /*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
-            element = cookie_element_separator + element;  
-        }
-        document.cookie += element;
-    }
+    console.log("Entry Cookie: " + document.cookie);
+    
+    // We DO NOT rebuild document.cookie manually
+    // Browser handles merging cookies automatically
+    
+    document.cookie = property + "=" + value +
+                      "; path=/; max-age=31536000";
 
+    console.log("Exit Cookie: " + document.cookie);
+}
+
+function loadCookie(property)
+{
+    console.log("Reading cookie: " + document.cookie);
+
+    var cookie_elements = document.cookie.split("; ");
+    var found = cookie_elements.find(element =>
+        String(element).split("=")[0] == property
+    );
+
+    if(found != undefined)
+    {
+        var pairs = found.split("=");
+        console.log("Pairs = " + pairs);
+
+        if(pairs.length > 1 && pairs[1] != "")
+        {
+            return pairs[1];
+        }
+    }
+    return null;
 }
 
 class Programming_Language

@@ -32,7 +32,7 @@ window.onload = async function()
             // You can add more code here to run after addPost() finishes
         });
     }
-    loadCookie();
+    loadCookie("display");
 };
 
 // ---------------------------------------------------------
@@ -1194,41 +1194,38 @@ function showHidePostDetails(e)
 
 function updateCookie(property, value)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
-    if(matchIndex >= 0)
-    {
-        var pairs = cookie_elements[matchIndex].split("=");
-        pairs[1] = value;
-        cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
-        document.cookie = cookie_elements.join(cookie_element_separator);
-    }
-    else
-    {
-        var element =  property + "=" + value;
-        if(document.cookie.length > 0)
-        {
-            /*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
-            element = cookie_element_separator + element;  
-        }
-        document.cookie += element;
-    }
-    //alert("Cookie: " + document.cookie);
+    console.log("Entry Cookie: " + document.cookie);
+    
+    // We DO NOT rebuild document.cookie manually
+    // Browser handles merging cookies automatically
+    
+    document.cookie = property + "=" + value +
+                      "; path=/; max-age=31536000";
+
+    console.log("Exit Cookie: " + document.cookie);
 }
 
-function loadCookie()
+function loadCookie(property)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var displayMode = cookie_elements.find(element => String(element).split("=")[0] == "display");
-    if(displayMode != undefined) //if selection type found amongst cookies
+    console.log("Reading cookie: " + document.cookie);
+
+    var cookie_elements = document.cookie.split("; ");
+    var found = cookie_elements.find(element =>
+        String(element).split("=")[0] == property
+    );
+
+    if(found != undefined)
     {
-        var pairs = displayMode.split("=");
+        var pairs = found.split("=");
+        console.log("Pairs = " + pairs);
+
         if(pairs.length > 1 && pairs[1] != "")
         {
-           document.getElementById('journalled_content').style.display = pairs[1]; 
+            console.log("Found cookie value: " + pairs[1]);
+
+            document.getElementById('journalled_content').style.display = pairs[1]; 
         }
     }
-    //alert(cookie_elements);
 }
 
 //Add dropdown handler: If dropdown content is displayed hide the content when clicking outside of it

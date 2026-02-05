@@ -209,30 +209,27 @@ function restoreCookiePredefinedElements()
 {
     /*
         Restoring the values from the cookie for elements defined outside the database.
-        These cookies should be restored instantly as they don't have to wait until the HTTP Request is ready
+        These cookies should be restored instantly as they don't have to wait until the 
+        HTTP Request is ready
     */
     
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var foundPageView = cookie_elements.findIndex(element => String(element) == "page=classic");
-    var foundViewSelection = cookie_elements.find(element => String(element).split("=")[0] == "view");
-    var foundSelectionType = cookie_elements.find(element => String(element).split("=")[0] == "selection");
-    /*
-        The findIndex() method of Array instances returns the index of the first element in an 
-        array that satisfies the provided testing function. If no elements satisfy the testing 
-        function, -1 is returned.
-        
-        The find() method of Array instances returns the first element in the provided array that 
-        satisfies the provided testing function. If no values satisfy the testing function, undefined 
-        is returned.
-    */
-    if(foundPageView >= 0) //if page view found amongst cookies
+    var foundPageView = loadCookie("page");
+
+    var foundViewSelection = loadCookie("view");
+    
+    var foundSelectionType = loadCookie("selection");
+    
+    //if page view found amongst cookies
+    if(foundPageView != null && foundPageView == "classic")
     {
         window.location.href = "./portal_classic.html";
         /*Page will change and script run will stop*/
     }
-    if(foundViewSelection != undefined) //if view selection found amongst cookies
+    
+    //if view selection found amongst cookies
+    if(foundViewSelection != null)
     {
-        if(foundViewSelection.split("=")[1] == "compare")
+        if(foundViewSelection == "compare")
         {
             //Set compare view to true
             view_selection.children[1].value = true;
@@ -249,10 +246,11 @@ function restoreCookiePredefinedElements()
             view_selection.children[0].style = tag_selection_on;
         }
     }
-    if(foundSelectionType != undefined) //if selection type found amongst cookies
+    //if selection type found amongst cookies
+    if(foundSelectionType != null)
     {        
         /*if selection type is single*/
-        if(foundSelectionType.split("=")[1] == selection_type.children[0].innerHTML)
+        if(foundSelectionType == selection_type.children[0].innerHTML)
         {
             selection_type.children[0].value = true;
             selection_type.children[1].value = false;
@@ -267,177 +265,129 @@ function restoreCookiePredefinedElements()
             selection_type.children[1].style = tag_selection_on;
         }
     }
-    setSelectionType();
+}
+
+function restoreDBSingleSelectionCookie()
+{
+    var active_language = loadCookie("SingleSelectionLanguage");
+    
+    var active_concept = loadCookie("SingleSelectionConcept");
+    
+     //if selection type found amongst cookies
+    if(active_language != undefined)
+    {
+        var language_index = manifests.findIndex(element => String(element.name) == active_language);
+        if(language_index >= 0 )
+        {
+            /*
+                manifest_selection is built based on manifests without General-Programming-Knowledge. 
+                manifest_selection has 1 less element compared to manifests so 1 less index.
+            */
+            language_index-=1;
+            manifest_selection.children[language_index].click(); 
+            //click will select this item and deselect all others
+        }
+    }
+     //if selection type found amongst cookies
+    if(active_concept != undefined)
+    {
+        var concept_index = concept_collection.findIndex(element => String(element) == active_concept)
+         
+        if(concept_index >= 0 )
+        {
+             /*concept_selection is built based on concept_collection. They have the same indexing*/
+            concept_selection.children[concept_index].click(); 
+            //click will select this item and deselect all others
+        }
+    }
 }
 
 function restoreDBMultipleSelectionCookie()
 {
     /*Restoring values from the cookie for Selection Type Multiple for elements added based on Database*/
     
-    //Ensuring every manifest is deselected
     for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
     {
-        if(manifest_selection.children[lang_sel_index].value == true)
+        var manifestCookieElement = loadCookie(manifest_selection.children[lang_sel_index].innerHTML);
+        
+        if(manifestCookieElement != null)
         {
-            manifest_selection.children[lang_sel_index].value = false
-            manifest_selection.children[lang_sel_index].style = tag_selection_off;
-        }
-    }
-    //Ensuring every concept is removed
-    for(var index = 0; index < concept_selection.children.length; index++)
-    {
-        concept_selection.children[index].remove();
-        concept_collection.splice(index, 1);
-        index--;
-    }
-    
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    
-    for(var i=0; i < cookie_elements.length; i++)
-    {
-        var pairs = cookie_elements[i].split("=");
-        
-        //Process and restore the values stored in the cookie
-        
-        //Checking if pairs[0] is a CONCEPT:
-        var concept_index = concept_collection.findIndex(element => element == pairs[0]);
-        
-        /*
-        The findIndex() method of Array instances returns the index of the first element in an 
-        array that satisfies the provided testing function. If no elements satisfy the testing 
-        function, -1 is returned.
-        */
-        
-        if(concept_index >= 0)
-        {
-            /*The concept_selection.children were added based on concept_collection array. 
-            So they wear same index.
-            */
-            if(pairs[1]=="1") // if element was selected
+            //console.log("Manifest value = " + manifestCookieElement);
+            if(manifestCookieElement == "1")
             {
-                //Ensuring concept is deselected
-                if(concept_selection.children[concept_index].value == true)
+                manifest_selection.children[lang_sel_index].value = true;
+                manifest_selection.children[lang_sel_index].style = tag_selection_on;
+                
+                //manifests have one extra element:
+                var selected_language = manifests[lang_sel_index+1];
+                
+                //Appending the new concepts
+                for(var index=0; index < selected_language.concepts.length; index++)
                 {
-                    concept_selection.children[concept_index].value = false;
-                    concept_selection.children[concept_index].style = tag_selection_off;
+                    var match = concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name);
+                    if (match < 0)
+                    {
+                        var cookieElement = loadCookie(selected_language.concepts[index].concept_name);
+                        //console.log ("Concept cookie = " + cookieElement);
+                        if (cookieElement != null && cookieElement=="1")
+                        {
+                            concept_selection.appendChild(
+                                createLiElement(selected_language.concepts[index].concept_name, true, 
+                                                conceptSelectionBehavior, concept_item_class));
+                        }
+                        else
+                        {
+                            concept_selection.appendChild(
+                                createLiElement(selected_language.concepts[index].concept_name, false, 
+                                                conceptSelectionBehavior, concept_item_class));
+                        }
+                        concept_collection.push(selected_language.concepts[index].concept_name);
+                    }       
                 }
-                //Selecting the concept
-                toggleConceptOnOff(concept_selection.children[concept_index])
             }
             else
             {
-                //Ensuring concept is selected
-                if(concept_selection.children[concept_index].value == false)
-                {
-                    concept_selection.children[concept_index].value = true;
-                    concept_selection.children[concept_index].style = tag_selection_on;
-                }
-                //Deselecting the concept
-                toggleConceptOnOff(concept_selection.children[concept_index])
+                manifest_selection.children[lang_sel_index].value = false
+                manifest_selection.children[lang_sel_index].style = tag_selection_off;
             }
         }
-        else
-        {
-            //Checking if pairs[0] is a LANGUAGE:
-            var language_index = -1;
-            for(var lang_sel_index = 0; lang_sel_index < manifest_selection.children.length; lang_sel_index++)
-            {
-                if(pairs[0] == manifest_selection.children[lang_sel_index].innerHTML)
-                {
-                    language_index = lang_sel_index;
-                    break;
-                }
-            }
-            if( language_index >= 0 )
-            {
-                if(pairs[1]=="1")
-                {
-                    var selected_language = manifests.find(element => element.name == manifest_selection.children[language_index].innerHTML);
-                    manifest_selection.children[language_index].value = true;
-                    manifest_selection.children[language_index].style = tag_selection_on;
-                    
-                    //Appending the new concepts
-                    for(var index=0; index < selected_language.concepts.length; index++)
-                    {
-                        if (concept_collection.findIndex(element => element == selected_language.concepts[index].concept_name) < 0)
-                        {
-                            concept_selection.appendChild(createLiElement(selected_language.concepts[index].concept_name, false, conceptSelectionBehavior, concept_item_class));
-                            concept_collection.push(selected_language.concepts[index].concept_name);
-                        }                 
-                    }
-                }
-            }
-        }
-    }
-}
-
-function restoreDBSingleSelectionCookie()
-{
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var active_language = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionLanguage");
-    var active_concept = cookie_elements.find(element => String(element).split("=")[0] == "SingleSelectionConcept");
-    /*
-        The find() method of Array instances returns the first element in the provided array that 
-        satisfies the provided testing function. If no values satisfy the testing function, undefined 
-        is returned.
-    */
-    if(active_language != undefined) //if selection type found amongst cookies
-    {
-        var pairs = active_language.split("="); 
         
-        if(pairs.length > 1)
-        {
-            var language_index = manifests.findIndex(element => String(element.name) == String(pairs[1]))
-            if(language_index >= 0 )
-            {
-                 /*
-                    manifest_selection is built based on manifests without General-Programming-Knowledge. 
-                    manifest_selection has 1 less element compared to manifests so 1 less index.
-                */
-                language_index-=1;
-                manifest_selection.children[language_index].click(); 
-                //click will select this item and deselect all others
-            }
-        }
-    }
-    if(active_concept != undefined) //if selection type found amongst cookies
-    {
-        var pairs = active_concept.split("="); 
-        if(pairs.length > 1)
-        {
-            var concept_index = concept_collection.findIndex(element => String(element) == String(pairs[1]))
-             
-            if(concept_index >= 0 )
-            {
-                 /*concept_selection is built based on concept_collection. They have the same indexing*/
-                concept_selection.children[concept_index].click(); 
-                //click will select this item and deselect all others
-            }
-        }
     }
 }
 
 function updateCookie(property, value)
 {
-    var cookie_elements = document.cookie.split(cookie_element_separator);
-    var matchIndex = cookie_elements.findIndex(element => String(element.split("=")[0]) == String(property) ); //check whether the property exists in the document.cookie
-    if(matchIndex >= 0)
+    //console.log("Entry Cookie: " + document.cookie);
+    
+    // We DO NOT rebuild document.cookie manually
+    // Browser handles merging cookies automatically
+    
+    document.cookie = property + "=" + value +
+                      "; path=/; max-age=31536000";
+
+    //console.log("Exit Cookie: " + document.cookie);
+}
+
+function loadCookie(property)
+{
+    //console.log("Reading cookie: " + document.cookie);
+
+    var cookie_elements = document.cookie.split("; ");
+    var found = cookie_elements.find(element =>
+        String(element).split("=")[0] == property
+    );
+
+    if(found != undefined)
     {
-        var pairs = cookie_elements[matchIndex].split("=");
-        pairs[1] = value;
-        cookie_elements[matchIndex] = pairs[0] + "=" + pairs[1];
-        document.cookie = cookie_elements.join(cookie_element_separator);
-    }
-    else
-    {
-        var element =  property + "=" + value;
-        if(document.cookie.length > 0)
+        var pairs = found.split("=");
+        //console.log("Pairs = " + pairs);
+
+        if(pairs.length > 1 && pairs[1] != "")
         {
-            /*cookie_element_separator = <br> is used as separator. There is no need adding separator before the first item*/
-            element = cookie_element_separator + element;  
+            return pairs[1];
         }
-        document.cookie += element;
     }
+    return null;
 }
 
 class Programming_Language
