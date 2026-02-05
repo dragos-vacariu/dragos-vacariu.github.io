@@ -334,7 +334,7 @@ async function LogIn_AsGuest()
         const rememberMeCheckbox = document.getElementById('rememberMe');
         const rememberMe = rememberMeCheckbox ? rememberMeCheckbox.checked : false;
         
-        /*
+        
         const res = await fetch(API_URL + '/api/' + API_SCRIPT, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -348,7 +348,7 @@ async function LogIn_AsGuest()
                 method_params: {}
             })
         });
-        
+        alert("Fetched");
         let data = null;
         try
         {
@@ -357,7 +357,6 @@ async function LogIn_AsGuest()
         catch (err)
         {
             console.error('Failed to parse JSON:', err);
-            submitBtn.disabled = false;
             return;
         }
         
@@ -398,7 +397,7 @@ async function LogIn_AsGuest()
         {
             messageDiv.style.color = 'red';
             messageDiv.innerText = data.message || 'Something went wrong';
-        }*/
+        }
     }
     catch (err)
     {

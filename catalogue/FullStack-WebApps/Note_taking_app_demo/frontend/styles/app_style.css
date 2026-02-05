@@ -95,29 +95,6 @@ body
     order: 2; /* push below toggle button visually */
 }
 
-#logged_user_info{
-    position: relative;
-
-
-    word-break: break-word;
-    overflow-wrap: anywhere;
-    white-space: normal;
-    width: auto;
-    max-width: 100%;
-    
-    margin: 0px;
-
-    border-radius: 20px;
-    padding: 5px;
-}
-
-#logged_user_info #user{
-    color: var(--blue-color);
-
-    word-wrap: break-word;
-    overflow-wrap: break-word; /* For modern browsers */
-}
-
 /* Toggle button stays at the top */
 .sidebar_toggle {
     display: flex;
@@ -293,6 +270,30 @@ body
     padding: 5px 0px;
     border-bottom: groove 2px rgba(0,0,0,0.1);
     border-top: groove 2px rgba(0,0,0,0.1);
+}
+
+
+#logged_user_info{
+    position: relative;
+    
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.2rem;
+    
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    width: auto;
+    max-width: 100%;
+    
+    margin: 0px;
+
+    border-radius: 20px;
+    padding: 5px;
+}
+
+#logged_user_info #user_logged{
+    /*font-style: italic;*/
 }
 
 .add_fab {
