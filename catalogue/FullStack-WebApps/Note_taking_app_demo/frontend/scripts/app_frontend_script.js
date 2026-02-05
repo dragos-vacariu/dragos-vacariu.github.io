@@ -151,6 +151,7 @@ async function addNoteToUI(title, content, tags, id, editDate=undefined)
     
     const dragHandle = document.createElement('button');
     dragHandle.id = 'dragHandleButton';
+    dragHandle.className = 'drag-handle';
     dragHandle.innerText = '✥';
     dragHandle.draggable = true;
     dragHandle.title = 'Drag & Drop Handler';

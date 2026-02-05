@@ -111,7 +111,7 @@ body
     border: none;
     cursor: pointer;
     border-radius: 4px !important;
-    z-index: 999;
+    z-index: 3;
     order: 1; /* visually appears before sidebar */
     align-self: flex-end; /* align to right */
 }
@@ -307,15 +307,25 @@ body
 }
 
 /* RIGHT CONTENT AREA */
+
+/*
 #journalled_content {
     flex-grow: 1;
     padding: 8px;
-    overflow-y: visible; /* no independent scrolling */
+    overflow-y: visible; 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 12px;
     align-items: start;
     border: none 2px red;
+}*/
+
+#journalled_content {
+    display: block;
+    column-width: 250px;
+    column-gap: 12px;
+    padding: 8px;
+    overflow-y: visible; 
 }
 
 /* Responsive: stack on small screens */
@@ -370,12 +380,21 @@ body
     width:100%;
 
     padding: 0px;
-    margin: 10px auto;          /* gap handles spacing */
+    margin: 10px auto;
     box-sizing: border-box;
     
     border: groove 1px rgba(0,0,0,0.1);
     border-radius: 0.5vw;
     background-color: var(--light-gray-color);
+    
+    /*Fixes parts of the items drifting outside the parent element*/
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 12px;
 }
 
 .jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #text_editor_toolbar,
