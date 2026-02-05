@@ -1,13 +1,8 @@
 let mode = 'login'; // default mode
 
-if(PLATFORM.toLowerCase() == "github")
-{
-    API_URL = "https://dragos-vacariu-note-taking.vercel.app";
-    
-    document.getElementById("login_sigup").onclick = LogIn_SignUp;
-    document.getElementById("login_as_guest_button").onclick = LogIn_AsGuest;
-    document.getElementById("toggleMode").addEventListener('click', () => toggleLoginSignup());
-}
+document.getElementById("login_sigup").onclick = LogIn_SignUp;
+document.getElementById("login_as_guest_button").onclick = LogIn_AsGuest;
+document.getElementById("toggleMode").addEventListener('click', () => toggleLoginSignup());
 
 document.addEventListener('DOMContentLoaded', async () => {
     
