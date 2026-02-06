@@ -43,6 +43,7 @@ body
     display: flex;
     align-items: flex-start;   /* align sidebar & content to top */
     width: 100%;
+    background-color: #f7f7f7;
     border: none 2px black! important;
     /*box-shadow: 0 2px 5px rgba(0,0,0,0.1)!important;*/
 }
@@ -61,6 +62,7 @@ body
     
     border: none 2px green;
     margin-right: 3px;
+    margin-bottom: 3px;
 }
 
 #sidebar_controls{
@@ -69,7 +71,7 @@ body
     flex-direction: row;  /* stack sidebar + button vertically */
     align-items: flex-start;
     padding: 1px;
-    border: solid 2px red;
+    border: none 2px red;
 }
 
 #sidebar_wrapper {
@@ -77,7 +79,8 @@ body
     flex-direction: column;  /* stack sidebar + button vertically */
     align-items: flex-start;
     position: relative;      /* anchor for button if needed */
-    padding: 8px;
+    padding: 0px;
+    width: 100%;             /* ensure parent contains the child */
 }
 
 /* Sidebar content */
@@ -157,12 +160,35 @@ body
     display: flex;
     flex-direction: row;
     gap: 8px;
+    width: 100%;
+    border: none 2px black;
 }
 
 #search_input {
     padding: 6px 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
+}
+#controls
+{
+    border: none 2px red;
+}
+
+
+#sidebar_control_buttons{
+    display: flex;
+    justify-content: space-between; /* items stretch to fill container, gap is automatic */
+}
+
+.sidebar_controls{
+    width: 30px;
+}
+
+#selection_controls, #display_controls, #other_controls{
+    display: flex;
+    border: none 2px green;
+    gap: 1px;
 }
 
 #search_type {
@@ -203,14 +229,6 @@ body
     background-color: #fff;
 }
 
-#sidebar_control_buttons{
-    display: flex;
-    gap: 30px;
-}
-
-.sidebar_controls{
-    width: 30px;
-}
 
 /* Tag buttons */
 .tag_button {
@@ -320,29 +338,50 @@ body
     border: none 2px red;
 }*/
 
-#journalled_content {
+#journalled_content
+{
+    flex: 1;              /* TAKE REMAINING SPACE */
+    min-width: 0;         /* CRITICAL: allow shrinking inside flex */
+    background-color: white;
+    min-height: 100vh;
     display: block;
-    column-width: 250px;
+    align-items: start;
     column-gap: 12px;
     padding: 8px;
-    overflow-y: visible; 
+    border: none 2px red;
+}
+
+/*#journalled_content.list_view*/
+.list_view
+{
+    column-count: 1;
+}
+
+/*#journalled_content.grid_view*/
+.grid_view
+{
+    column-count: 3;
 }
 
 /* Responsive: stack on small screens */
 @media (max-width: 768px) {
     #page_layout {
+        position:relative;
         flex-direction: column;  /* stack vertically */
+        margin: 0px; padding: 0px;
     }
 
-    #jour_navigation {
-        width: 100%;
-        height: auto;
-        position: relative;
-        top: 0;
+    #jour_navigation 
+    {
+        position: static;
+        display: block;
+        width: 100%; /* 🔴 NOT 250px anymore */
+        margin: 0px;
+        height: auto;       /* 🔴 remove 100% */
+
         flex-direction: row;
         flex-wrap: wrap;
-        padding: 8px;
-        gap: 8px;
+        margin-bottom: 8px;
     }
     
     #sidebar_content{
@@ -360,15 +399,23 @@ body
     }
 
     #journalled_content {
-        width: 100%;    /* take full width */
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* smaller min width for notes */
+        flex: none;        /* 🔴 STOP vertical stretching */
+        width: 100%;       /* fill container normally */
+        min-width: 0;
+    }
+
+    /*#journalled_content.grid_view*/
+    .grid_view
+    {
+        column-count: 2;
     }
 }
 
 @media (max-width: 480px) {
-    #journalled_content {
-        padding: 8px;
-        grid-template-columns: 1fr;  /* single column of notes */
+    /*#journalled_content.grid_view*/
+    .grid_view
+    {
+        column-count: 1;
     }
 }
 
@@ -376,25 +423,27 @@ body
 {
     position: relative;
     overflow: visible;
-    
-    width:100%;
 
     padding: 0px;
-    margin: 10px auto;
+    
     box-sizing: border-box;
     
     border: groove 1px rgba(0,0,0,0.1);
     border-radius: 0.5vw;
-    background-color: var(--light-gray-color);
+    /*background-color: var(--light-gray-color);*/
+    background-color: white;
     
     /*Fixes parts of the items drifting outside the parent element*/
     break-inside: avoid;
     -webkit-column-break-inside: avoid;
     page-break-inside: avoid;
-
-    display: inline-block;
-    width: 100%;
+    
+    /*margin: 10px auto;*/
     margin-bottom: 12px;
+    
+    /* IMPORTANT */
+    width: 100%;
+    display: inline-block; /* ← required for column layout */
 }
 
 .jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #text_editor_toolbar,
@@ -525,11 +574,13 @@ body
     color: #555;
     border-bottom: ridge 1px rgba(0,0,0,0.1);
     padding: 5px 15px;
+    background-color: var(--light-gray-color);
 }
 
 .jour_entry #jour_entry_content
 {
-    font: var(--post-content-font); 
+    font: var(--post-content-font);
+    background-color: transparent;
     color: #333;
     padding: 2px 15px;
 }
@@ -540,6 +591,9 @@ body
     font: var(--post-tags-font);
     color: #888;
     padding: 2px 15px;
+    background-color: var(--light-gray-color);
+    border-top: groove 2px rgba(0,0,0,0.05);
+    border-bottom: groove 2px rgba(0,0,0,0.05);
 }
 
 /* Style the truncated elements */

@@ -1258,15 +1258,18 @@ function loadCookie(property)
         {
             console.log("Found cookie value: " + pairs[1]);
             
-            var jour_content = document.getElementById('journalled_content');
-            jour_content.style.display = pairs[1];
+            var jour = document.getElementById('journalled_content');
             
-            if(jour_content.style.display == "grid")
+            if(jour.style.display == "grid_view")
             {
+                jour.classList.remove("list_view");
+                jour.classList.add("grid_view");
                 gridViewButton.style.borderColor = "var(--blue-color)";
             }
             else
             {
+                jour.classList.remove("grid_view");
+                jour.classList.add("list_view");
                 listViewButton.style.borderColor = "var(--blue-color)";
             }
         }
@@ -1291,8 +1294,13 @@ const listViewButton = document.getElementById("listViewToggle");
 
 listViewButton.addEventListener("click", function() {
     const jour = document.getElementById("journalled_content");
-    jour.style.display = "block";
-    updateCookie("display", "block");
+    
+    jour.classList.remove("grid_view");
+    jour.classList.add("list_view");
+    //jour.style.display = "block";
+    
+    
+    updateCookie("display", "list_view");
     listViewButton.style.borderColor = "var(--blue-color)";
     gridViewButton.style.borderColor = "#aaa";
 });
@@ -1302,8 +1310,12 @@ const gridViewButton = document.getElementById("gridViewToggle");
 
 gridViewButton.addEventListener("click", function() {
     const jour = document.getElementById("journalled_content");
-    jour.style.display = "grid";
-    updateCookie("display", "grid");
+    
+    //jour.style.display = "grid";
+    jour.classList.remove("list_view");
+    jour.classList.add("grid_view");
+    
+    updateCookie("display", "grid_view");
     gridViewButton.style.borderColor = "var(--blue-color)";
     listViewButton.style.borderColor = "#aaa";
 });

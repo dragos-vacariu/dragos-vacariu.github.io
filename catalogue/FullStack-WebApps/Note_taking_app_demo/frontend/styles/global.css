@@ -84,8 +84,10 @@
 }
 
 .app-nav {
-    display: block;
-    margin: 0px;
+    display: flex;               /* make it a flex container */
+    justify-content: space-between; /* equal distance between links */
+    align-items: center;         /* vertically center links */
+    
     width: 100%;
     font: var(--nav-font);
     background-color: transparent;
@@ -97,12 +99,15 @@
 }
 
 .app-nav a {
+    display: inline-block;
+    margin: auto;
     color: var(--blue-color) !important;
     text-decoration: none !important;
     font-weight: normal !important;
     letter-spacing: 0.2px !important;
     text-align: left !important;
     padding: 0px !important;
+    border: none 0px red;
 }
 
 /*.app-nav a + a {
