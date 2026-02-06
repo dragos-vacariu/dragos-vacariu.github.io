@@ -155,6 +155,10 @@ body
     the elements beneath*/
 }
 
+.project_div:hover .project_title{
+    transition: background-color 0.5s ease;
+    background-color: var(--darkred-color);
+}
 
 .project_title{
     text-align: center;

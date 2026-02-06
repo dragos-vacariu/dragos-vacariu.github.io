@@ -780,11 +780,11 @@ function truncatedContentHandling()
         for (let index = 0; index < divs.length; index++)
         {
                 const para = divs[index]; // single element
-                const toggle_button = para.querySelector("#show_more_button");
+                const showMoreButton = para.querySelector("#show_more_button");
                 
-                if(toggle_button)
+                if(showMoreButton)
                 {
-                    toggle_button.addEventListener("click", 
+                    showMoreButton.addEventListener("click", 
                            (e) => {showMoreLessToggleButton(e.currentTarget) } );
                 }
         }
@@ -836,7 +836,6 @@ function populateTags(tags)
                 
                 //Remove tag from the list of active tags
                 const index = activeTags.indexOf(btn.dataset.tag);
-                
                 if (index !== -1)
                 {
                   // Remove it using slice or splice
@@ -1080,20 +1079,64 @@ function closeNote(e)
 
 async function performSearch()
 {
+
     const visibleNotes_Temp = visibleNotes;
+    const activeTags_Temp = activeTags;
+    
     await deselectAllElements();
+    
     visibleNotes = visibleNotes_Temp;
+    activeTags = activeTags_Temp;
+    
     searchValue = document.getElementById("search_input").value;
     
     if(searchValue.trim() != "")
     {
         for(note of NOTES_CACHE)
         {
-            if(note.title.includes(searchValue) || note.content.includes(searchValue) || note.tags.includes(searchValue))
+            searchValueLower = searchValue.toLowerCase();
+            
+            if( note.title.toLowerCase().includes(searchValueLower) || 
+                note.content.toLowerCase().includes(searchValueLower) || 
+                note.tags.toLowerCase().includes(searchValueLower) )
             {
-                await addNoteToUI(note.title, note.content, note.tags, note.id, note.editDate);
+                // Create a regex with 'g' and 'i' flags
+                const regex_replace = new RegExp(searchValue, 'gi');
+                const regexFind = new RegExp(searchValue, 'gi');
+
+                const title_matches = new Set(note.title.match(regexFind));
+                const content_matches = new Set(note.content.match(regexFind));
+                const tags_matches = new Set(note.tags.match(regexFind));
+                
+                var note_title = note.title;
+                var note_content = note.content;
+                var note_tags = note.tags;
+                
+                for(value of title_matches)
+                {
+                    note_title = note_title.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_title = note_title.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_title = note_title.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                }
+                
+                for(value of content_matches)
+                {
+                    note_content = note_content.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_content = note_content.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_content = note_content.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                }
+                
+                for(value of note_tags)
+                {
+                    note_tags = note_tags.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_tags = note_tags.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                    note_tags = note_tags.replaceAll(regex_replace, "<highlight>" + value + "</highlight>")
+                }
+                
+                await addNoteToUI(note_title, note_content, note_tags, note.id, note.editDate);
             }
         }
+        truncatedContentHandling(); // attach click handler
     }
     else
     {
@@ -1334,12 +1377,28 @@ searchInput.addEventListener("keydown", async function (event)
 
 //Clear Searching
 const clearSearch = document.getElementById("clear_search_button");
-clearSearch.addEventListener("click", async function (e)
-{
+clearSearch.addEventListener("click", async function (e) {
     document.getElementById("search_input").value = "";
-    await performSearch();          // call your function
-});
+    await performSearch(); // call your function
 
+    const tagContainer = document.getElementById("tag_buttons");
+    const tag_button_array = Array.from(tagContainer.children); // get child elements
+
+    for (let tag of activeTags)
+    {
+        
+        let matchIndex = tag_button_array.findIndex(element =>
+        {
+            return element.dataset.tag == tag;
+        });
+
+        if (matchIndex > -1)
+        {
+            const matchedButton = tag_button_array[matchIndex];
+            matchedButton.classList.add("tagEnabled");
+        }
+    }
+});
 
 //Add toggleSidebar button handler
 const sidebar = document.getElementById("jour_navigation");

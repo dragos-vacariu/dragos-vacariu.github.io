@@ -119,6 +119,11 @@ body
     align-self: flex-end; /* align to right */
 }
 
+.sidebar_toggle:hover, .add_fab:hover {
+    background-color: var(--darkblue-color) !important;
+    /*transition: background-color 0.5s ease;*/
+}
+
 #backButton{
     position: absolute;
     left: 0px;
@@ -139,6 +144,10 @@ body
     z-index: 1;
     order: 1; /* visually appears before sidebar */
     align-self: flex-end; /* align to right */
+}
+#backButton:hover{
+    color: var(--darkblue-color) !important;
+    /*transition: color 0.5s ease;*/
 }
 
 /* Collapsed state */
@@ -280,6 +289,8 @@ body
 
 #logged_user_info{
     position: relative;
+    
+    text-align: center;
     
     font-size: 0.85rem;
     color: #555;
@@ -444,6 +455,11 @@ body
     /* IMPORTANT */
     width: 100%;
     display: inline-block; /* ← required for column layout */
+}
+
+.jour_entry highlight{
+    background-color: rgba(255,0,0,0.1);
+    padding: 2px;
 }
 
 .jour_entry #jour_entry_title, .jour_entry #jour_entry_content, .jour_entry #text_editor_toolbar,
@@ -776,10 +792,10 @@ body
 }
 
 .dropdown #dropbtn:hover, #close_button:hover, #copy_clipboard:hover, #dragHandleButton:hover, 
-.add_fab:hover, .sidebar_toggle:hover, #postDetailsButton:hover
+#postDetailsButton:hover
 {
-    background-color: #00d !important;
-    color: white;
+    color: var(--blue-color);
+    transition: background-color 0.5s ease;
 }
 /* Container for the dropdown menu */
 .dropdown-content 
