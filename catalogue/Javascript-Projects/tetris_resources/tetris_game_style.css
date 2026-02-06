@@ -176,6 +176,10 @@
     margin: 5px 0px;
 }
 
+#controls input:hover{
+    opacity: 0.7;
+}
+
 /*The button container divs will help styling the buttons inside as flex elements which 
 will allow them better responsiveness on extreme small viewports*/
 .button_container
@@ -220,7 +224,7 @@ will allow them better responsiveness on extreme small viewports*/
     font-weight: bold;
     padding: 5px;
     margin: 5px;
-    width: 46%;
+    width: fit-content;
 }
 
 #down
