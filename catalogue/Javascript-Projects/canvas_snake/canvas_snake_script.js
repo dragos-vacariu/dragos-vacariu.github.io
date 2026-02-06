@@ -347,7 +347,7 @@ class Game
         this.snakeAccelerationFactor =  5;
         this.snakeMaxSpeed = 100;
         this.msCounter = 0;
-        this.scoreTextComponent = new text_component(gameCanvas.width - (90/120 * gameCanvas.width), (gameCanvas.height- (90/115 * gameCanvas.height)), "Score:", "14vw", "black", labelCanvas,labelContext);
+        this.scoreTextComponent = new text_component(gameCanvas.width - (90/120 * gameCanvas.width), (gameCanvas.height- (90/115 * gameCanvas.height)), "Score:", "170px", "black", labelCanvas,labelContext);
         this.gameOverTextComponent = new text_component( gameCanvas.width/2-250, gameCanvas.height/2, "", "7vw", "red", gameCanvas, gameContext);
         this.gameResultTextComponent = new text_component( gameCanvas.width/2-350, gameCanvas.height/2+100, "", "5vw", "red", gameCanvas, gameContext);
         this.scoreValue = 0;
@@ -574,29 +574,11 @@ function Enter_FullScreen(e)
     }
 }
 
-function FullScreenZoom()
-{
-   if (document.fullscreenElement != null)
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "pink";
-        //document.getElementById("left_block").style.width = "70vw";
-        
-   }
-   else
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "lightgray";
-        //document.getElementById("left_block").style.width = "50vw";
-   }
-}
-
 function restartGame() 
 {
     gameObj.restart();
     gameObj.updateGameArea();
 }
-
-//When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);
 
 //The magic happens here:
 

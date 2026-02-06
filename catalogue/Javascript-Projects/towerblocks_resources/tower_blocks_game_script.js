@@ -75,18 +75,6 @@ function Enter_FullScreen(e)
 	}
 }
 
-function FullScreenZoom()
-{
-   if (document.fullscreenElement != null)
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "pink";
-   }
-   else
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "lightgray";
-   }
-}
-
 class Platform
 {
 	constructor()
@@ -542,6 +530,3 @@ window.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
 }, false);
-
-//When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);

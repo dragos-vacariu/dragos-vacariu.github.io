@@ -62,12 +62,12 @@ function FullScreenZoom()
 {
    if (document.fullscreenElement != null)
    {
-        document.getElementById("fullscreen_button").style.backgroundColor = "pink";
+        //document.getElementById("fullscreen_button").style.backgroundColor = "pink";
         //document.getElementById("game_div").style.width = "55vw";
    }
    else
    {
-        document.getElementById("fullscreen_button").style.backgroundColor = "#eeeeee";
+        //document.getElementById("fullscreen_button").style.backgroundColor = "#eeeeee";
         //document.getElementById("game_div").style.width = "45vw";
    }
 }
@@ -76,7 +76,7 @@ function SquareClicked(x)
 {
     if(snakeSeettled==false)
     {
-        document.getElementById(x).style.borderColor="red";
+        document.getElementById(x).style.border = "solid 1px red";
         snakeHeadPos.push(x);
         snakeSeettled = true;
     }
@@ -90,7 +90,7 @@ function gameStart()
     }
     else
     {
-        document.getElementById("result").style.backgroundColor =  "rgba(0,0,255,0.2)";
+        document.getElementById("result").style.backgroundColor =  "transparent";
         document.getElementById("result").text = "";
         for(var i = 0 ; i<snakeHeadPos.length; i++) //Only the snake head is available in snakeHeadPos currently
         {
@@ -157,10 +157,10 @@ function setDirLeft()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="right" )
     {
-        document.getElementById("turnUp").style.backgroundColor = "white";
-        document.getElementById("turnLeft").style.backgroundColor = "rgba(200,200,200,1.0)";
-        document.getElementById("turnRight").style.backgroundColor = "white";
-        document.getElementById("turnDown").style.backgroundColor = "white";
+        document.getElementById("turnUp").style.opacity = "0.7";
+        document.getElementById("turnLeft").style.opacity = "1";
+        document.getElementById("turnRight").style.opacity = "0.7";
+        document.getElementById("turnDown").style.opacity = "0.7";
         SnakeDirMoving="left";
     }
 }
@@ -170,10 +170,10 @@ function setDirRight()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="left" )
     {
-        document.getElementById("turnUp").style.backgroundColor = "white";
-        document.getElementById("turnLeft").style.backgroundColor = "white";
-        document.getElementById("turnRight").style.backgroundColor = "rgba(200,200,200,1.0)";
-        document.getElementById("turnDown").style.backgroundColor = "white";
+        document.getElementById("turnUp").style.opacity = "0.7";
+        document.getElementById("turnLeft").style.opacity = "0.7";
+        document.getElementById("turnRight").style.opacity = "1";
+        document.getElementById("turnDown").style.opacity = "0.7";
         SnakeDirMoving="right";
     }
 }
@@ -183,10 +183,10 @@ function setDirUp()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="down" )
     {
-        document.getElementById("turnUp").style.backgroundColor = "rgba(200,200,200,1.0)";
-        document.getElementById("turnLeft").style.backgroundColor = "white";
-        document.getElementById("turnRight").style.backgroundColor = "white";
-        document.getElementById("turnDown").style.backgroundColor = "white";
+        document.getElementById("turnUp").style.opacity = "1";
+        document.getElementById("turnLeft").style.opacity = "0.7";
+        document.getElementById("turnRight").style.opacity = "0.7";
+        document.getElementById("turnDown").style.opacity = "0.7";
         SnakeDirMoving="up";
     }
 }
@@ -196,10 +196,10 @@ function setDirDown()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving!="up")
     {
-        document.getElementById("turnUp").style.backgroundColor = "white";
-        document.getElementById("turnLeft").style.backgroundColor = "white";
-        document.getElementById("turnRight").style.backgroundColor = "white";
-        document.getElementById("turnDown").style.backgroundColor = "rgba(200,200,200,1.0)";
+        document.getElementById("turnUp").style.opacity = "0.7";
+        document.getElementById("turnLeft").style.opacity = "0.7";
+        document.getElementById("turnRight").style.opacity = "0.7";
+        document.getElementById("turnDown").style.opacity = "1";
         SnakeDirMoving="down";
     }
 }
@@ -478,7 +478,7 @@ function gameRestart()
 	gameOver=false;
     gameStarted = false;
 	document.getElementById("result").innerHTML = "";
-    document.getElementById("result").style.backgroundColor = "rgba(0,0,255,0.2)";
+    document.getElementById("result").style.backgroundColor = "transparent";
 	document.getElementById("startgame").disabled = false;
 	document.getElementById("restartgame").disabled = true;
 	//Clear the table:

@@ -52,15 +52,11 @@ function FullScreenZoom()
 {
    if (document.fullscreenElement != null)
    {
-        document.getElementById("fullscreen_button").style.backgroundColor = "pink";
-        document.getElementById("fullscreen_button").value = "Exit Fullscreen";
-        //document.getElementById("game_div").style.width = "55vw";
+        //document.getElementById("fullscreen_button").style.fontStyle = "italic";
    }
    else
    {
-        document.getElementById("fullscreen_button").style.backgroundColor = "white";
-        document.getElementById("fullscreen_button").value = "Enter Fullscreen";
-        //document.getElementById("game_div").style.width = "45vw";
+        //document.getElementById("fullscreen_button").style.fontStyle = "normal";
    }
 }
 
@@ -112,7 +108,7 @@ function SquareClicked(x)
 					}
 					else if(document.getElementById("elem"+piece).style.backgroundColor == "black")
 					{
-						document.getElementById("elem"+piece).style.backgroundColor="blue";
+						document.getElementById("elem"+piece).style.backgroundColor="green";
 					}
 				}
 				piece = x[4] + x[5];
@@ -184,7 +180,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow+2)+(tdCol+1);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 
@@ -194,7 +190,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow+2)+(tdCol-1);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -203,7 +199,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow+1)+(tdCol+2);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -212,7 +208,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow-1)+(tdCol+2);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 
 			validOption.push(elem);
@@ -222,7 +218,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow+1)+(tdCol-2);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -231,7 +227,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow-1)+(tdCol-2);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -240,7 +236,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow-2)+(tdCol+1);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="blue")
+				document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -249,7 +245,7 @@ function SearchOption()
 	{
 		var elem="elem"+(tdRow-2)+(tdCol-1);
 		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-			document.getElementById(elem).style.backgroundColor!="blue")
+			document.getElementById(elem).style.backgroundColor!="green")
 		{
 			validOption.push(elem);
 		}
@@ -275,7 +271,7 @@ function getGameOverStatus()
 	if(gameOver!=0)
 	{
 		document.getElementById("result").innerHTML = "Congratulations. You have conquered the checkerboard.";
-        document.getElementById("result").style.color = "blue";
+        document.getElementById("result").style.color = "green";
     }
 }
 
@@ -298,7 +294,7 @@ function gameRestart()
 			{
 				document.getElementById("elem"+i+j).style.backgroundColor = "white";
 			}
-			else if(document.getElementById("elem"+i+j).style.backgroundColor == "blue" ||
+			else if(document.getElementById("elem"+i+j).style.backgroundColor == "green" ||
 				document.getElementById("elem"+i+j).style.backgroundColor == "red")
 			{
 				document.getElementById("elem"+i+j).style.backgroundColor = "black";

@@ -15,20 +15,24 @@ function Enter_FullScreen(e)
 
 function FullscreenMode(e) {
     var game_content = document.getElementById("game_content");
+    var game_div = document.getElementById("game_div");
     var fullscreen_button = document.getElementById("fullscreen");
 	if (document.fullscreenElement == null)
 	{
 		if (game_content.requestFullscreen) 
 		{
 			game_content.requestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
 		} 
 		else if (game_content.webkitRequestFullscreen) 
 		{ /* Safari */
 			game_content.webkitRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
 		} 
         else if (game_content.msRequestFullscreen) 
 		{ /* IE11 */
 			game_content.msRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
 		}
 	}
 	else
@@ -36,28 +40,19 @@ function FullscreenMode(e) {
 		if (document.exitFullscreen) 
 		{
 			document.exitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
 		} 
 		else if (document.webkitExitFullscreen) 
 		{ /* Safari */
 			document.webkitExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
 		} 
         else if (document.msExitFullscreen) 
 		{ /* IE11 */
 			document.msExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
 		}
 	}
-}
-
-function FullScreenZoom()
-{
-   if (document.fullscreenElement != null)
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "pink";
-   }
-   else
-   {
-        document.getElementById("fullscreen").style.backgroundColor = "lightgray";
-   }
 }
 
 class Shape
@@ -1556,6 +1551,3 @@ window.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
 }, false);
-
-//When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);
