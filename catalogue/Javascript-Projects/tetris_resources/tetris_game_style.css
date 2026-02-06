@@ -32,6 +32,7 @@
 {
     position: relative;
     width: fit-content;
+
     height:fit-content;
     margin: 1% 2%;
     padding: 0%;
@@ -48,10 +49,11 @@
 #game_div table
 {
     position: relative;
+
     height: auto;
     padding:0px;
     
-    border: none 2px blue;
+    border: solid 2px blue;
     border-spacing: 2px;
     
     opacity: 0.9;
@@ -63,7 +65,7 @@
 }
 
 #game_div table tr td{
-    padding-top: 20px;
+    padding-top: 1.9vw;
     aspect-ratio: 1 / 1;
     background-repeat: no-repeat; 
     background-size: 100%;
@@ -76,6 +78,23 @@
     padding-top: 3vw;
 }
 
+@media (max-width: 768px) {
+    #game_div table tr td{
+        padding-top: 2.5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #page_block #game_content{
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #game_div.game_div_fullscreen table tr td{
+        padding-top: 5vw;
+    }
+}
+
 #gameHud{
     position: relative;
     display:flex;
@@ -83,8 +102,9 @@
 
     overflow: hidden;
     padding: 2px;
-    width: 300px;
-    margin: auto 3%;
+    width: fit-content;
+
+    margin: 1%;
     height: fit-content;
     border: none 2px white;
     
@@ -174,19 +194,17 @@ will allow them better responsiveness on extreme small viewports*/
 }
 
 #rotate{
-    position:relative;
+    position: relative;
     background-color: red;
-    border: solid 0.1vw black;
-    margin: 2%;
-    margin-left: 10%;
+    border: solid 1px black;
     color: white;
-    font-size: 1.2vw;
+    font-size: 15px;
     font-family: Arial;
-    font-variant: small-caps;
     font-weight: bold;
-    padding: 0.5%;
-    width: 80%;
-    padding:2%;
+    font-variant: small-caps;
+    padding: 5px;
+    margin: 5px auto;
+    width: fit-content;
 }
 
 #right, #left, #down {
