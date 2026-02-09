@@ -71,33 +71,38 @@ function SquareClicked(x)
 		square.style.backgroundImage = knightChess;
 		piece = x[4] + x[5];
 		SearchOption(); //validOption will get filled here
+        displayMoveOption();
 	}
-	else if(x[4] + x[5] == piece)
-	{
-		if(displayOptions == true)
-		{
-			displayMoveOption();
-		}
-
-	}
+	//else if(x[4] + x[5] == piece)
+	//{
+	//	//if(displayOptions == true)
+	//	//{
+	//		//displayMoveOption();
+	//	//}
+    //
+	//}
 	else 
 	{
-		for(var i=0;i<validOption.length;i++)
+		for(var i=0; i < validOption.length; i++)
 		{
-			if(x==validOption[i])
+            
+
+			if(x == validOption[i])
 			{
-				displayOptions = false;
+                displayOptions = false;
 				square = document.getElementById(x);
 				square.style.backgroundImage = knightChess;
 				score++;
 				document.getElementById("score").innerHTML = "Score: " + score + " out of 64.";
-				if(square.style.backgroundColor == "red") 
+				if(square.classList.contains("td_pulse_red")) 
 				{
 					square.style.backgroundColor = "black";
+                    square.classList.remove("td_pulse_red");
 				}
-				else if (square.style.backgroundColor == "pink")
+				else if (square.classList.contains("td_pulse_pink"))
 				{
 					square.style.backgroundColor = "white";
+                    square.classList.remove("td_pulse_pink");
 				}
 				if (square != document.getElementById("elem"+piece))
 				{
@@ -105,10 +110,12 @@ function SquareClicked(x)
 					if(document.getElementById("elem"+piece).style.backgroundColor == "white")
 					{
 						document.getElementById("elem"+piece).style.backgroundColor="yellow";
+                        document.getElementById("elem"+piece).classList.remove("td_pulse_pink");
 					}
 					else if(document.getElementById("elem"+piece).style.backgroundColor == "black")
 					{
 						document.getElementById("elem"+piece).style.backgroundColor="green";
+                        document.getElementById("elem"+piece).classList.remove("td_pulse_red");
 					}
 				}
 				piece = x[4] + x[5];
@@ -116,19 +123,23 @@ function SquareClicked(x)
 			}
 			else
 			{
-				if(document.getElementById(validOption[i]).style.backgroundColor == "pink")
+               
+				if(document.getElementById(validOption[i]).classList.contains("td_pulse_pink"))
 				{
 					document.getElementById(validOption[i]).style.backgroundColor="white";
+                    document.getElementById(validOption[i]).classList.remove("td_pulse_pink");
 				}
-				else if(document.getElementById(validOption[i]).style.backgroundColor == "red")
+				else if(document.getElementById(validOption[i]).classList.contains("td_pulse_red"))
 				{
 					document.getElementById(validOption[i]).style.backgroundColor="black";
+                    document.getElementById(validOption[i]).classList.remove("td_pulse_red");
 				}
 			}
 		}
 		
 		validOption = [];
 		SearchOption(); //validOption will get filled here
+        displayMoveOption();
 		if(validOption.length == 0)
 		{
 			getGameOverStatus();
@@ -162,11 +173,28 @@ function displayMoveOption()
 	{
 			if(document.getElementById(element).style.backgroundColor=="white")
 			{
-				document.getElementById(element).style.backgroundColor="pink";
+
+                document.getElementById(element).classList.add("td_pulse_pink");
 			}
 			else if(document.getElementById(element).style.backgroundColor=="black")
 			{		
-				document.getElementById(element).style.backgroundColor="red";
+
+                document.getElementById(element).classList.add("td_pulse_red");
+			}
+	});
+}
+
+function hideValidOptions()
+{
+    validOption.forEach(element => 
+	{
+			if(document.getElementById(element).classList.contains("td_pulse_pink"))
+			{
+                document.getElementById(element).classList.remove("td_pulse_pink");
+			}
+			else if(document.getElementById(element).classList.contains("td_pulse_red"))
+			{		
+                document.getElementById(element).classList.remove("td_pulse_red");
 			}
 	});
 }
@@ -277,14 +305,17 @@ function getGameOverStatus()
 
 function gameRestart()
 {
+    hideValidOptions();
 	emptyTable=true;
 	piece=""
 	validOption = [];
 	score = 0;
 	gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
 	document.getElementById("score").innerHTML = "Score: ";
+	document.getElementById("score").style.color = "white";
     document.getElementById("result").innerHTML = "Choose a square in order to begin.";
-    document.getElementById("result").style.backgroundColor = "white";
+    //document.getElementById("result").style.backgroundColor = "white";
+    document.getElementById("result").style.color = "lightgreen";
 	for(var i =0; i<8; i++)
 	{
 		for(var j=0;j<8;j++)

@@ -59,6 +59,28 @@
     opacity: 0.9;
 }
 
+@keyframes tdPulsePink {
+    0%   { background-color: white; }
+    50%  { background-color: pink; }
+    100% { background-color: white; }
+}
+
+/* class that activates the animation */
+.td_pulse_pink {
+    animation: tdPulsePink 1s infinite;
+}
+
+@keyframes tdPulseRed {
+    0%   { background-color: black; }
+    50%  { background-color: red; }
+    100% { background-color: black; }
+}
+
+/* class that activates the animation */
+.td_pulse_red {
+    animation: tdPulseRed 1s infinite;
+}
+
 #result{
     position: relative;
     width:100%;
