@@ -1,1499 +1,1660 @@
 var score=0;
 var game_started=false;
-var gameOverRowReferece = 6;
-var tableNumberOfCols = 10
-var tableNumberOfRows = 16
+var game_paused=false;
+const gameOverRowReferece = 6;
+const tableNumberOfCols = 11
+const tableNumberOfRows = 16
+const gameOverRow = 1;
+
+const reccurence = 100;
+var msCounter = 0;
+const normalGameSpeed = 500; // every 500ms
+var AccelerateGame = false;
+
+let gameTickRunning = false;
+
+var sq = null; // let this be default;
 
 
 function Enter_FullScreen(e)
 {
-	if (e.key == "f")
-	{
-		FullscreenMode(); 
-	}
+    if (e.key == "f")
+    {
+        FullscreenMode(); 
+    }
 }
 
-function FullscreenMode(e) {
+function FullscreenMode(e)
+{
     var game_content = document.getElementById("game_content");
     var game_div = document.getElementById("game_div");
     var fullscreen_button = document.getElementById("fullscreen");
-	if (document.fullscreenElement == null)
-	{
-		if (game_content.requestFullscreen) 
-		{
-			game_content.requestFullscreen();
-            game_div.classList.add("game_div_fullscreen");
-		} 
-		else if (game_content.webkitRequestFullscreen) 
-		{ /* Safari */
-			game_content.webkitRequestFullscreen();
-            game_div.classList.add("game_div_fullscreen");
-		} 
-        else if (game_content.msRequestFullscreen) 
-		{ /* IE11 */
-			game_content.msRequestFullscreen();
-            game_div.classList.add("game_div_fullscreen");
-		}
-	}
-	else
-	{
-		if (document.exitFullscreen) 
-		{
-			document.exitFullscreen();
-            game_div.classList.remove("game_div_fullscreen");
-		} 
-		else if (document.webkitExitFullscreen) 
-		{ /* Safari */
-			document.webkitExitFullscreen();
-            game_div.classList.remove("game_div_fullscreen");
-		} 
-        else if (document.msExitFullscreen) 
-		{ /* IE11 */
-			document.msExitFullscreen();
-            game_div.classList.remove("game_div_fullscreen");
-		}
-	}
-}
-
-class Shape
-{
-	constructor(name, x, y)
-	{
-		this.Name = name.toLowerCase();
-		this.reachedDown = false;
-		this.FormBuilder(x,y);
-	}
-	MoveDown()
-	{
-		if(this.Name=="square" || this.Name=="l1" || this.Name=="l2" || this.Name=="l3" || this.Name=="l4" 
-				 || this.Name=="s1" || this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
-				|| this.Name=="f2" || this.Name=="f3" || this.Name=="f4")
-		{
-			if(this.Coords[3][0]+ 1 < tableNumberOfRows)
-			{
-				this.ClearShape(); //always clear before changing values.
-				this.Coords[0][0]++;
-				this.Coords[1][0]++;
-				this.Coords[2][0]++;
-				this.Coords[3][0]++;
-			}
-			else
-			{
-				this.reachedDown = true; //make this before check score
-				this.ClearShape(); // make the last clear before it gets unclearable
-			}
-		}
-	}
-	MoveLeft()
-	{
-		if(this.reachedDown == false)
-		{	
-			//Check if there is a form
-			if(this.Name=="square" || this.Name=="l1" || this.Name=="l2" || this.Name=="l3" || this.Name=="l4" 
-				|| this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
-				|| this.Name=="f2" || this.Name=="f3" || this.Name=="f4")
-			{
-				if(this.Coords[2][1]- 1 >= 0) //check the left part to still be on the screen after moving.
-				{
-					var elemName = "elem0"+ this.Coords[2][0]+ "0"+ (this.Coords[2][1]-1);
-					if (this.Coords[1][0] >= 10)
-					{
-						elemName = "elem"+ this.Coords[2][0]+ "0"+ (this.Coords[2][1]-1);
-					}
-					var elem = document.getElementById(elemName);
-					
-					if(elem.style.backgroundColor=="transparent")
-					{
-						this.ClearShape(); // always clear before changing values.
-						this.Coords[0][1]--;
-						this.Coords[1][1]--;
-						this.Coords[2][1]--;
-						this.Coords[3][1]--;
-					}
-				}
-			}
-			else if (this.Name=="s1" )
-			{
-				if(this.Coords[0][1]- 1 >= 0) //check the left part to still be on the screen after moving.
-				{
-					
-					var elemName = "elem0"+ this.Coords[0][0]+ "0"+ (this.Coords[0][1]-1);
-					if (this.Coords[1][0] >= 10)
-					{
-						elemName = "elem"+ this.Coords[0][0]+ "0"+ (this.Coords[0][1]-1);
-					}
-					var elem = document.getElementById(elemName);
-					
-					if(elem.style.backgroundColor=="transparent")
-					{
-						this.ClearShape(); // always clear before changing values.
-						this.Coords[0][1]--;
-						this.Coords[1][1]--;
-						this.Coords[2][1]--;
-						this.Coords[3][1]--;
-					}
-				}
-			}
-		}
-
-	}
-	MoveRight()
-	{
-		if(this.reachedDown == false)
-		{
-			//Check if there is a form.
-			if(this.Name=="square" || this.Name=="l1" || this.Name=="l2" || this.Name=="l3" || this.Name=="l4" 
-				 || this.Name=="s1" || this.Name=="s2" || this.Name=="i1" || this.Name=="i2" || this.Name=="f1"
-				|| this.Name=="f2" || this.Name=="f3" || this.Name=="f4")
-			{
-				
-				if(this.Coords[1][1] +1 < tableNumberOfCols ) //check the right part to still be on the screen after moving.
-				{
-					var elemName = "elem0"+ this.Coords[1][0]+ "0"+ (this.Coords[1][1]+1);
-					if (this.Coords[1][0] >= 10)
-					{
-						elemName = "elem"+ this.Coords[1][0]+ "0"+ (this.Coords[1][1]+1);
-					}
-					var elem = document.getElementById(elemName);
-					if(elem.style.backgroundColor=="transparent")
-					{
-						this.ClearShape(); // always clear before changing values.
-						this.Coords[0][1]++;
-						this.Coords[1][1]++;
-						this.Coords[2][1]++;
-						this.Coords[3][1]++;
-					}
-				}
-			}
-		}
-	}
-	RotateShape()
-	{
-		if(this.reachedDown == false)
-		{
-			switch(this.Name)
-			{
-				case "l1": { 
-					if(this.Coords[0][0]-1 >= 0 && this.Coords[2][1]-1 >= 0)
-					{	
-						this.ClearShape();
-						this.Name = "l2";
-						this.FormBuilder(this.Coords[2][1], this.Coords[0][0]);
-					}
-					break;
-				}
-				case "l2": {
-					if(this.Coords[3][0]+2 < tableNumberOfRows)
-					{
-						this.ClearShape();
-						this.Name = "l3"; 
-						this.FormBuilder(this.Coords[3][1], this.Coords[3][0]);
-					}
-					break;
-				}
-				case "l3": { 
-					if(this.Coords[0][0]-1 >= 0 && this.Coords[0][1]-1 >= 0)
-					{
-						this.ClearShape();
-						this.Name = "l4"; 
-						this.FormBuilder(this.Coords[0][1],this.Coords[0][0]);
-					}
-					break;
-				}
-				case "l4": { 
-					if(this.Coords[3][0]+2 < tableNumberOfRows)
-					{
-						this.ClearShape();
-						this.Name = "l1"; 
-						this.FormBuilder(this.Coords[3][1],this.Coords[3][0]); //send pure x and y
-					}
-					break;
-				}
-				case "s1": { 
-					if(this.Coords[3][0]+1 < tableNumberOfRows)
-					{
-						this.ClearShape();
-						this.Name = "s2"; 
-						this.FormBuilder(this.Coords[3][1],this.Coords[3][0]); //send pure x and y
-					}
-					break;
-				}
-				case "s2": { 
-					if(this.Coords[2][1]-1>=0)
-					{
-						this.ClearShape();	
-						this.Name = "s1";	
-						this.FormBuilder(this.Coords[2][1],this.Coords[2][0]); //send pure x and y						
-					}
-					break;
-				}
-				case "i1": { 
-					if(this.Coords[0][1]+2 < 8 && this.Coords[0][1]-1 >= 0)
-					{
-						this.ClearShape();
-						this.Name = "i2";
-						this.FormBuilder(this.Coords[0][1],this.Coords[0][0]); //send pure x and y	
-					}
-					break;
-				}
-				case "i2": { 
-					if(this.Coords[0][0]+3 < tableNumberOfRows)
-					{
-						this.ClearShape();
-						this.Name = "i1";
-						this.FormBuilder(this.Coords[0][1],this.Coords[0][0]); //send pure x and y	
-					}
-					break;
-				}
-				case "f1": { 
-					if(this.Coords[3][0]+1 < tableNumberOfRows)
-					{
-						this.ClearShape();
-						this.Name = "f2"; 
-						this.FormBuilder(this.Coords[3][1],this.Coords[3][0]); //send pure x and y	
-					}
-					break;
-				}
-				case "f2": {
-					if(this.Coords[1][1]+1 < 8)
-					{
-						this.ClearShape();
-						this.Name = "f3"; 
-						this.FormBuilder(this.Coords[1][1],this.Coords[1][0]); //send pure x and y	
-					}
-					break;
-				}
-				case "f3": { 
-					if(this.Coords[0][0]-1 >= 0)
-					{
-						this.ClearShape();
-						this.Name = "f4"; 
-						this.FormBuilder(this.Coords[0][1],this.Coords[0][0]); //send pure x and y	
-					}
-					break;
-				}
-				case "f4": { 
-					if(this.Coords[2][1]-1 >= 0)
-					{
-						this.ClearShape();
-						this.Name = "f1"; 
-						this.FormBuilder(this.Coords[2][1],this.Coords[2][0]); //send pure x and y	
-					}
-					break;
-				}
-				default: {/*Enter here in case of square*/ break;}
-			}
-		}
-	}
-	DrawShape()
-	{
-		if(this.Name=="square")
-		{
-			this.DrawSquare("color");
-		}
-		else if(this.Name=="l1")
-		{
-			this.DrawL1("color");
-		}
-		else if(this.Name=="l2")
-		{
-			this.DrawL2("color");
-		}
-		else if(this.Name=="l3")
-		{
-			this.DrawL3("color");
-		}
-		else if(this.Name=="l4")
-		{
-			this.DrawL4("color");
-		}
-		else if(this.Name=="s1")
-		{
-			this.DrawS1("color");
-		}
-		else if(this.Name=="s2")
-		{
-			this.DrawS2("color");
-		}
-		else if(this.Name=="i1")
-		{
-			this.DrawI1("color");
-		}
-		else if(this.Name=="i2")
-		{
-			this.DrawI2("color");
-		}
-		else if(this.Name=="f1")
-		{
-			this.DrawF1("color");
-		}
-		else if(this.Name=="f2")
-		{
-			this.DrawF2("color");
-		}
-		else if(this.Name=="f3")
-		{
-			this.DrawF3("color");
-		}
-		else if(this.Name=="f4")
-		{
-			this.DrawF4("color");
-		}
-	}
-	DrawSquare(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]==9)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawL1(optionChoice) //shape for L
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]==8)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[0][0]==9)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if (this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawL2(optionChoice) //shape for __|
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]==9)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if (this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawL3(optionChoice) //shape for L flipped vertically
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]==8)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[0][0]==9)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if (this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawL4(optionChoice) //shape for L flipped horizontally I__.
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if (this.Coords[3][0]>10)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawS1(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>10)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawS2(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]==11)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>11)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawI1(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]==7)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[0][0]==8)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if (this.Coords[0][0]==9)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawI2(optionChoice) //shape for I flipped horizontally _
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[0][0]>9)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else 
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawF1(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>10)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawF2(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]==11)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>11)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawF3(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>10)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	DrawF4(optionChoice)
-	{
-		var color = "red";
-		if(optionChoice=="color")
-		{
-			color = "blue";
-		}
-		else if(optionChoice=="clear")
-		{
-			color = "transparent";
-		}
-		if(this.Coords[3][0]==10)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]==11)
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else if(this.Coords[3][0]>11)
-		{
-			document.getElementById("elem"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-		else
-		{
-			document.getElementById("elem0"+ this.Coords[0][0]+ "0"+ this.Coords[0][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[1][0]+ "0"+ this.Coords[1][1]).style.backgroundColor=color;			
-			document.getElementById("elem0"+ this.Coords[2][0]+ "0" + this.Coords[2][1]).style.backgroundColor=color;
-			document.getElementById("elem0"+ this.Coords[3][0]+ "0" + this.Coords[3][1]).style.backgroundColor=color;
-		}
-	}
-	ClearShape()
-	{
-		if(this.Name=="square")
-		{
-			this.DrawSquare("clear");
-		}
-		else if(this.Name=="l1")
-		{
-			this.DrawL1("clear");
-		}
-		else if(this.Name=="l2")
-		{
-			this.DrawL2("clear");
-		}
-		else if(this.Name=="l3")
-		{
-			this.DrawL3("clear");
-		}
-		else if(this.Name=="l4")
-		{
-			this.DrawL4("clear");
-		}
-		else if(this.Name=="s1")
-		{
-			this.DrawS1("clear");
-		}
-		else if(this.Name=="s2")
-		{
-			this.DrawS2("clear");
-		}
-		else if(this.Name=="i1")
-		{
-			this.DrawI1("clear");
-		}
-		else if(this.Name=="i2")
-		{
-			this.DrawI2("clear");
-		}
-		else if(this.Name=="f1")
-		{
-			this.DrawF1("clear");
-		}
-		else if(this.Name=="f2")
-		{
-			this.DrawF2("clear");
-		}
-		else if(this.Name=="f3")
-		{
-			this.DrawF3("clear");
-		}
-		else if(this.Name=="f4")
-		{
-			this.DrawF4("clear");
-		}
-	}
-	FormRecycle()
-	{
-		if(this.reachedDown==true)
-		{
-			var rand = Math.floor(Math.random() * 13)
-			var x = 4;
-			var y = 0;
-			this.reachedDown = false;
-			switch(rand)
-			{
-				case 0: { //grab a square
-					this.Name = "square";
-					x = 4;
-					y = 0;
-					break;
-				}
-				case 1: {
-					this.Name = "l1";
-					x = 4;
-					y = 0;
-					break;
-				}
-				case 2: {
-					this.Name = "l2";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 3: {
-					this.Name = "l3";
-					x = 4;
-					y = 0;
-					break;
-				}
-				case 4: {
-					this.Name = "l4";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 5: {
-					this.Name = "s1";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 6: {
-					this.Name = "s2";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 7: {
-					this.Name = "i1";
-					x = 4;
-					y = 0;
-					break;
-				}
-				case 8: {
-					this.Name = "i2";
-					x = 3;
-					y = 0;
-					break;
-				}
-				case 9: {
-					this.Name = "f1";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 10: {
-					this.Name = "f2";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				case 11: {
-					this.Name = "f3";
-					x = 4;
-					y = 0;
-					break;
-				}
-				case 12: {
-					this.Name = "f4";
-					x = 4;
-					y = 1; //this has to be 1.
-					break;
-				}
-				default : {break; /*Never come here*/}
-			}
-			this.FormBuilder(x, y);
-		}
-	}
-	FormBuilder(x, y)
-	{
-		this.Coords=[[]]; //clear the form.
-		switch(this.Name)
-		{
-			case "square": {
-				this.Coords[0] = [y,x];   //Upper part
-				this.Coords.push([y,x+1]); //Right part;
-				this.Coords.push([y+1,x]); //left part;
-				this.Coords.push([y+1,x+1]); //bottom part
-				break;
-			}
-			case "s2": {
-				this.Coords[0] = [y-1,x+1]; //Upper part
-				this.Coords.push([y,x+1]);  //Right part
-				this.Coords.push([y,x]);    //left part
-				this.Coords.push([y+1,x]);  //bottom part
-				break;
-			}
-			case "s1": {
-				this.Coords[0] = [y-1,x-1]; //Upper part
-				this.Coords.push([y,x+1]);  //Right part
-				this.Coords.push([y-1,x]);  //left part
-				this.Coords.push([y,x]);    //bottom part
-				break;
-			}
-			case "l1": {
-				this.Coords[0] = [y,x];//Upper part
-				this.Coords.push([y+2,x+1]);//Right part
-				this.Coords.push([y+1,x]);//left part
-				this.Coords.push([y+2,x]);//bottom part
-				break;
-			}
-			case "l2": {
-				this.Coords[0] = [y-1,x+1];//Upper part
-				this.Coords.push([y,x+1]); //Right part
-				this.Coords.push([y,x-1]); //left part
-				this.Coords.push([y,x]);   //bottom part
-				break;
-			}
-			case "l3": {
-				this.Coords[0] = [y,x];//Upper part
-				this.Coords.push([y,x+1]);  //Right part
-				this.Coords.push([y+1,x]);  //left part
-				this.Coords.push([y+2,x]);  //bottom part
-				break;
-			}
-			case "l4": {
-				this.Coords[0] = [y-1,x-1];//Upper part
-				this.Coords.push([y,x+1]); //Right part
-				this.Coords.push([y,x-1]); //left part
-				this.Coords.push([y,x]);   //bottom part
-				break;
-			}
-			case "i1": {
-				this.Coords[0] = [y,x];//Upper part
-				this.Coords.push([y+1,x]); //Right part
-				this.Coords.push([y+2,x]);//left part
-				this.Coords.push([y+3,x]); //bottom part
-				break;
-			}
-			case "i2": {
-				this.Coords[0] = [y,x];//Upper part
-				this.Coords.push([y,x+2]); //Right part
-				this.Coords.push([y,x-1]); //left part
-				this.Coords.push([y,x+1]);//bottom part
-				break;
-			}
-			case "f1": {
-				this.Coords[0] = [y-1,x];//Upper part
-				this.Coords.push([y,x+1]);//Right part
-				this.Coords.push([y,x-1]);//left part
-				this.Coords.push([y,x]); //bottom part
-				break;
-			}
-			case "f2": {
-				this.Coords[0] = [y-1,x];//Upper part
-				this.Coords.push([y,x]); //Right part
-				this.Coords.push([y,x-1]);//left part
-				this.Coords.push([y+1,x]);//bottom part
-				break;
-			}
-			case "f3": {
-				this.Coords[0] = [y,x];//Upper part
-				this.Coords.push([y,x+1]);//Right part
-				this.Coords.push([y,x-1]);//left part
-				this.Coords.push([y+1,x]);//bottom part]);
-				break;
-			}
-			case "f4": {
-				//Order is important;
-				this.Coords[0] = [y-1,x]; 	//Upper part
-				this.Coords.push([y,x+1]);	//Right part
-				this.Coords.push([y,x]); 	//left part
-				this.Coords.push([y+1,x]); 	//bottom part
-				break;
-			}
-		}
-	}
-	CheckOverlap()
-	{
-		if(this.reachedDown == false)
-		{
-			switch(this.Name)
-			{
-				case "square":
-				{
-					if(this.Coords[3][0]+1 < 10)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-							|| (document.getElementById("elem0" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-							|| (document.getElementById("elem" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "s1":
-				case "l1":
-				{
-					if( this.Coords[1][0]+1 < 10)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "i1":
-				{
-					if(this.Coords[3][0]+1 < 10)
-					{
-						if(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "i2":
-				{
-					if(this.Coords[3][0]+1 < 10)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[0][0] +1)+ "0" + this.Coords[0][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[1][0] +1)+ "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[2][0] +1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0] + 1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[0][0] +1) + "0" + this.Coords[0][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" +  parseInt(this.Coords[1][0] +1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[2][0] +1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0] + 1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "l2":
-				case "l4":
-				case "f1":
-				{
-					if(this.Coords[3][0]+1 < 10)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1)+ "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1)+ "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "f4":
-				case "s2":
-				{
-					if( this.Coords[1][0]+1 < 9)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if( this.Coords[1][0]+1 == 9)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "l3":
-				{
-					if( this.Coords[1][0]+1 < 8)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if( this.Coords[1][0]+1 == 8 || this.Coords[1][0]+1 == 9)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "f2":
-				{
-					if( this.Coords[2][0]+1 < 9)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if( this.Coords[2][0]+1 == 9)
-					{
-						
-						if( (document.getElementById("elem0" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[2][0]+1) + "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1) + "0" + this.Coords[3][1]).style.backgroundColor == "blue") )
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-				case "f3":
-				{
-					if(this.Coords[2][0]+1 < 9)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[3][0]+1)+ "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(this.Coords[2][0]+1 == 9)
-					{
-						if( (document.getElementById("elem0" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem0" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1)+ "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					else if(parseInt(this.Coords[3][0]+1) < tableNumberOfRows)
-					{
-						if( (document.getElementById("elem" + parseInt(this.Coords[1][0]+1) + "0" + this.Coords[1][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[2][0]+1)+ "0" + this.Coords[2][1]).style.backgroundColor == "blue") ||
-							(document.getElementById("elem" + parseInt(this.Coords[3][0]+1)+ "0" + this.Coords[3][1]).style.backgroundColor == "blue")
-						)
-						{
-							this.reachedDown = true;
-						}
-					}
-					break;
-				}
-			}
-			
-			if(this.reachedDown == true && this.Coords[3][0] < gameOverRowReferece)
-			{	//if the buttom part of the form overlap with something below row 5
-				//the game can continue, otherwise, let it be gameover - the player 
-				game_started = false;
-				document.getElementById("gameStatus").innerHTML = "Game Over";
-			}
-		}
-	}
-	checkScore()
-	{
-		var hit;
-		if(this.reachedDown == true)
-		{			
-			for (var i=(tableNumberOfRows-1); i>=0; i--)
-			{
-				hit=0;
-				for (var j=0; j<tableNumberOfCols; j++)
-				{
-					if(i > 9)
-					{
-						if(document.getElementById("elem" + i + "0" + j).style.backgroundColor == "blue")
-						{
-							hit++;
-						}
-					}
-					else
-					{
-						if(document.getElementById("elem0" + i + "0" + j).style.backgroundColor == "blue")
-						{
-							hit++;
-						}
-					}
-				}
-
-				if(hit==tableNumberOfCols)
-				{
-					//Clear the current row:
-					for(var j=0; j<tableNumberOfCols; j++)
-					{
-						if(i > 9)
-						{
-							document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
-						}
-						else
-						{
-							document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
-						}
-					}
-					//Copy the row above:
-					this.copyRowsAbove(i);
-					score++;
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-	copyRowsAbove(row)
-	{
-		for(var i = row; i>0; i--)
-		{
-			for(var j=0; j<tableNumberOfCols; j++)
-			{
-				if( parseInt(i-1) > 9)
-				{
-					if(document.getElementById("elem" + parseInt(i-1) + "0" + j).style.backgroundColor == "blue")
-					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "blue";
-					}
-					else
-					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
-					}
-				}
-				else if( parseInt(i-1)==9)
-				{
-					if(document.getElementById("elem0" + parseInt(i-1) + "0" + j).style.backgroundColor == "blue")
-					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "blue";
-					}
-					else
-					{
-						document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
-					}
-				}
-				else
-				{
-					if(document.getElementById("elem0" + parseInt(i-1) + "0" + j).style.backgroundColor == "blue")
-					{
-						document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "blue";
-					}
-					else
-					{
-						document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
-					}
-				}
-			}
-		}
-		//Clear the top row:
-		for(var j = 0; j<tableNumberOfCols; j++)
-		{
-			document.getElementById("elem000" + j).style.backgroundColor = "transparent";
-		}
-	}
-}
-
-var sq = new Shape("f3", 3, 2); // let this be default;
-var reccurence = 100;
-var msCounter = 0;
-var normalGameSpeed = 500; // every 500ms
-var AccelerateGame = false;
-
-setInterval(function() {
-	if(game_started)
-	{
-		window.msCounter += window.reccurence;
-        if (window.msCounter % normalGameSpeed == 0 || window.AccelerateGame)
+    if (document.fullscreenElement == null)
+    {
+        if (game_content.requestFullscreen) 
         {
-            if(sq.reachedDown)
+            game_content.requestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
+        } 
+        else if (game_content.webkitRequestFullscreen) 
+        { /* Safari */
+            game_content.webkitRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
+        } 
+        else if (game_content.msRequestFullscreen) 
+        { /* IE11 */
+            game_content.msRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
+        }
+    }
+    else
+    {
+        if (document.exitFullscreen) 
+        {
+            document.exitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
+        } 
+        else if (document.webkitExitFullscreen) 
+        { /* Safari */
+            document.webkitExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
+        } 
+        else if (document.msExitFullscreen) 
+        { /* IE11 */
+            document.msExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
+        }
+    }
+}
+
+class ShapeSegment
+{
+    constructor(y, x)
+    {
+        this.y = y
+        this.x = x;
+        this.reachedBottom = false;
+    }
+    
+    notExistsSegmentAt(y, x)
+    {
+        var elemName = getElementIdName(y, x);
+        let cell = document.getElementById(elemName);
+
+        if(cell && (cell.style.backgroundColor == "transparent"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    clear()
+    {
+        this.drawSegment("transparent");
+    }
+    
+    draw()
+    {
+        this.drawSegment("blue");
+    }
+
+    moveDown()
+    {
+        if(this.notExistsSegmentAt(this.y+1, this.x))
+        {
+            this.y += 1;
+            this.reachedBottom = false;
+        }
+        else
+        {
+            this.reachedBottom = true;
+        }
+        return this.reachedBottom;
+    }
+    
+    moveLeft()
+    {
+        this.x -= 1;
+    }
+    
+    moveRight()
+    {
+        this.x += 1;
+    }
+    
+    drawSegment(color)
+    {
+        
+        var elemName = getElementIdName(this.y, this.x);
+        //console.log("ElemName " + elemName);
+        
+        var DOM_Element = document.getElementById(elemName);
+        if(DOM_Element)
+        {
+            DOM_Element.style.backgroundColor = color;
+        }
+    }
+    
+}
+
+function getElementIdName(y, x)
+{
+    var xStr = "";
+    var yStr = "";
+    
+    if (x >= 10)
+    {
+        xStr = x.toString();
+    }
+    else
+    {
+        xStr = "0" + x.toString();
+    }
+    
+    if (y >= 10)
+    {
+        yStr = y.toString();
+    }
+    else
+    {
+        yStr = "0" + y.toString();
+    }
+    
+    var elemName = "elem" + yStr + xStr;
+    
+    return elemName;
+}
+
+class TetrisShape
+{
+    constructor(name, y, x)
+    {
+        this.FormBuilder(name.toLowerCase(), y,x);
+    }
+    
+    recycleForm(x, y)
+    {
+        if(this.reachedDown==true)
+        {
+            var rand = Math.floor(Math.random() * 19)
+            var x = 4;
+            var y = -1;
+            
+            switch(rand)
             {
-				
-                while(sq.checkScore()); // call checkScore until it return false
-				/*in case 2 line are completely checkScore() will make both dissappear at once*/
-                sq.FormRecycle();
-                updateScore();
-				Decelerate();
-            }
-            else
-            {
-                sq.MoveDown();
-                //Keep the MoveDown() above this one in order to make sure reachDown flag is set to true when it's case.
-                sq.CheckOverlap();
-                sq.DrawShape();
+                case 0: { //grab a square
+                    this.FormBuilder("square", y, x);
+                    break;
+                }
+                case 1: {
+                    this.FormBuilder("i_vertical", y, x);
+                    break;
+                }
+                case 2: {
+                    this.FormBuilder("i_horizontal", y, x);
+                    break;
+                }
+                case 3: {
+                    this.FormBuilder("s_vertical", y, x);
+                    break;
+                }
+                case 4: {
+                    this.FormBuilder("s_vertical_flipped", y, x);
+                    break;
+                }
+                case 5: {
+                    this.FormBuilder("s_horizontal", y, x);
+                    break;
+                }
+                case 6: {
+                    this.FormBuilder("s_horizontal_flipped", y, x);
+                    break;
+                }
+                case 7: {
+                    this.FormBuilder("l_vertical_normal", y, x);
+                    break;
+                }
+                case 8: {
+                    this.FormBuilder("l_horizontal_normal", y, x);
+                    break;
+                }
+                case 9: {
+                    this.FormBuilder("l_vertical_normal_reversed", y, x);
+                    break;
+                }
+                case 10: {
+                    this.FormBuilder("l_horizontal_normal_reversed", y, x);
+                    break;
+                }
+                case 11: {
+                    this.FormBuilder("l_vertical_flipped", y, x);
+                    break;
+                }
+                case 12: {
+                    this.FormBuilder("l_horizontal_flipped", y, x);
+                    break;
+                }
+                case 13: {
+                    this.FormBuilder("l_vertical_flipped_reversed", y, x);
+                    break;
+                }
+                case 14: {
+                    this.FormBuilder("l_horizontal_flipped_reversed", y, x);
+                    break;
+                }
+                case 15: {
+                    this.FormBuilder("f_horizontal", y, x);
+                    break;
+                }
+                case 16: {
+                    this.FormBuilder("f_vertical", y, x);
+                    break;
+                }
+                case 17: {
+                    this.FormBuilder("f_vertical_reversed", y, x);
+                    break;
+                }
+                case 18: {
+                    this.FormBuilder("f_horizontal_reversed", y, x);
+                    break;
+                }
+                default : {break; /*Never come here*/}
             }
         }
-	}
-}, reccurence);
+    }
+    
+    FormBuilder(name, y, x)
+    {
+        switch(name)
+        {
+            case "square": {
+                /*
+                    ##
+                    ##
+                */
+                
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,  x));
+                temp.push(new ShapeSegment(y,  x+1));
+                temp.push(new ShapeSegment(y+1,x+1));
+                temp.push(new ShapeSegment(y+1,x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "i_vertical": {
+                /*
+                    #
+                    #
+                    #
+                    #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,  x));
+                temp.push(new ShapeSegment(y+1,  x));
+                temp.push(new ShapeSegment(y+2,x));
+                temp.push(new ShapeSegment(y+3,x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "i_horizontal": {
+                /*
+                    ####
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y, x));
+                temp.push(new ShapeSegment(y, x+1));
+                temp.push(new ShapeSegment(y, x+2));
+                temp.push(new ShapeSegment(y, x+3));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "s_vertical": {
+                /*
+                    #
+                   ##
+                   #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x-1));
+                temp.push(new ShapeSegment(y+2, x-1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "s_vertical_flipped": {
+                /*
+                   # 
+                   ##
+                    #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x+1));
+                temp.push(new ShapeSegment(y+2, x+1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "s_horizontal": {
+                /*
+                     ##
+                    ##
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y, x+1));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x-1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;
+            }
+            case "s_horizontal_flipped": {
+                /*
+                    ##
+                     ##
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y, x-1));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x+1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_vertical_normal": {
+                /*
+                     #
+                     #
+                     ##
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+2, x));
+                temp.push(new ShapeSegment(y+2, x+1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_horizontal_normal": {
+                /*
+                       #
+                    ####
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x-1));
+                temp.push(new ShapeSegment(y+1, x-2));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_vertical_normal_reversed": {
+                /*
+                      ##
+                       #
+                       #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y,  x-1));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+2, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;
+            }
+            case "l_horizontal_normal_reversed": {
+                /*
+                      ####
+                      #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y, x+1));
+                temp.push(new ShapeSegment(y,  x+2));
+                temp.push(new ShapeSegment(y+1, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_vertical_flipped": {
+                /*
+                       #
+                       #
+                      ##
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+2, x));
+                temp.push(new ShapeSegment(y+2, x-1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_horizontal_flipped": {
+                /*
+                     ####
+                        #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y, x+1));
+                temp.push(new ShapeSegment(y, x+2));
+                temp.push(new ShapeSegment(y+1, x+2));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "l_vertical_flipped_reversed": {
+                /*
+                      ##
+                      #
+                      #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y,   x+1));
+                temp.push(new ShapeSegment(y+1,  x));
+                temp.push(new ShapeSegment(y+2, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+                
+            }
+            case "l_horizontal_flipped_reversed": {
+                /*
+                      #
+                      ####
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x+1));
+                temp.push(new ShapeSegment(y+1, x+2));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                break;
+            }
+            case "f_horizontal": {
+                /*
+                      #
+                     ###
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1,   x));
+                temp.push(new ShapeSegment(y+1,   x-1));
+                temp.push(new ShapeSegment(y+1,  x+1));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "f_vertical": {
+                /*
+                      #
+                     ##
+                      #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x-1));
+                temp.push(new ShapeSegment(y+2, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "f_horizontal_reversed": {
+                /*
+                     ###
+                      #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y, x-1));
+                temp.push(new ShapeSegment(y, x+1));
+                temp.push(new ShapeSegment(y+1, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+            case "f_vertical_reversed": {
+                /*
+                      #
+                      ##
+                      #
+                */
+                let temp = [];
+                
+                /*the first segment always starts with x and y*/
+                temp.push(new ShapeSegment(y,   x));
+                temp.push(new ShapeSegment(y+1, x));
+                temp.push(new ShapeSegment(y+1, x+1));
+                temp.push(new ShapeSegment(y+2, x));
+                /*the last element should be the lowest one  from the buttom*/
+                
+                this.checkAssignSegments(temp, name);
+                
+                break;  
+            }
+        }
+    }
+    
+    checkAssignSegments(segments, name)
+    {
+        /*Segment cell exist in the DOM table OR if the segments cell has just respawned*/
+        if (this.validateSegments(segments) == true || segments[0].y < 0)
+        {
+            this.name = name;
+            this.segments = segments;
+            this.reachedDown = false;
+            this.leftestSegment = this.getLeftestElement();
+            this.rightestSegment = this.getRightestElement();
+            this.lowestSegment = this.getLowestElement();
+            this.highestSegment = this.getHighestElement();
+        }
+    }
+    
+    validateSegments(segments_list)
+    {
+        //Clearing the form drawing to help processing of notExistsSegmentAt()
+        if(this.reachedDown == false)
+        {
+            this.clearFormDrawing();
+        }
+        for(var index = 0; index < segments_list.length; index++)
+        {
+            var result = segments_list[index].notExistsSegmentAt( segments_list[index].y, segments_list[index].x )
+            
+            if(result == false)
+            {
+                //console.log("Segment: invalid");
+                if(this.reachedDown == false)
+                {
+                    this.drawForm();
+                }
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    checkBottomReached()
+    {
+        if(this.reachedDown == false)
+        {
+            /*Perform the check only if all segments are on the screen*/
+            if(this.highestSegment.y < tableNumberOfRows)
+            {
+                let index = this.segments.length -1;
+                
+                //Clearing the form before the check
+                this.clearFormDrawing();
+                
+                while(index >= 0)
+                {
+                    let result = this.segments[index].notExistsSegmentAt(this.segments[index].y+1, this.segments[index].x);
+                    
+                    index--;
+                    
+                    if(result == false)
+                    {
+                        this.reachedDown = true;
+                        break;
+                    }
+                }
+                
+                //Redraw the form after the check
+                this.drawForm();
+            }
+        }
+    }
+    
+    MoveDown()
+    {
+        //Check if any of the segments has reached the bottom
+        this.checkBottomReached();
+        
+        if(this.reachedDown == false)
+        {
+            let index = this.segments.length -1;
+            
+            while(index >= 0)
+            {
+                this.segments[index].clear();
+                this.reachedDown = this.segments[index].moveDown();
+                index--;
+                
+                if(this.reachedDown)
+                {
+                    break;
+                }
+            }
+            
+            //Redrawing segments
+            //Redrawing after all segments are moved will help avoid drawing artifacts
+            index = this.segments.length -1;
+            while(index >= 0)
+            {
+
+                this.segments[index].draw();
+                index--;
+            }
+        }
+    }
+    
+    MoveLeft()
+    {
+        if(this.reachedDown == false)
+        {
+            
+            let index = this.segments.length -1;
+            
+            while(index >= 0)
+            {
+                 if ( this.leftestSegment.notExistsSegmentAt(this.leftestSegment.y, this.leftestSegment.x-1) )
+                 {
+                     index--;
+                 }
+                 else
+                 {
+                     /*At least one segment cannot be moved anymore*/
+                     return;
+                 }
+            }
+            
+            //Clearing screen a moving segments
+            index = this.segments.length -1;
+            while(index >= 0)
+            {
+                this.segments[index].clear();
+                this.segments[index].moveLeft();
+                index--;
+            }
+            
+            //Redrawing segments
+            //Redrawing after all segments are moved will help avoid drawing artifacts
+            index = this.segments.length -1;
+            while(index >= 0)
+            {
+
+                this.segments[index].draw();
+                index--;
+            }
+        }
+    }
+    
+    MoveRight()
+    {
+        if(this.reachedDown == false)
+        {
+            let index = this.segments.length -1;
+            while(index >= 0)
+            {
+                 if (this.rightestSegment.notExistsSegmentAt(this.rightestSegment.y, this.rightestSegment.x+1))
+                 {
+                     index--;
+                 }
+                 else
+                 {
+                     /*At least one segment cannot be moved anymore*/
+                     return;
+                 }
+            }
+            
+            //Moving all segment to the right
+            index = this.segments.length -1;
+            while(index >= 0)
+            {
+                this.segments[index].clear();
+                this.segments[index].moveRight();
+                index--;
+            }
+                
+            //Redrawing segments
+            //Redrawing after all segments are moved will help avoid drawing artifacts
+            index = this.segments.length -1;
+            while(index >= 0)
+            {
+
+                this.segments[index].draw();
+                index--;
+            }
+        }
+    }
+    
+    getLowestElement()
+    {
+        var lowestIndex = 0;
+        for(var index = 0; index < this.segments.length; index++)
+        {
+            if (this.segments[lowestIndex].y > this.segments[index].y)
+            {
+                lowestIndex = index;
+            }
+        }
+        return this.segments[lowestIndex];
+    }
+    
+    getHighestElement()
+    {
+        var highestIndex = 0;
+        for(var index = 0; index < this.segments.length; index++)
+        {
+            if (this.segments[highestIndex].y < this.segments[index].y)
+            {
+                highestIndex = index;
+            }
+        }
+        return this.segments[highestIndex];
+    }
+    
+    getLeftestElement()
+    {
+        var leftestIndex = 0;
+        for(var index = 0; index < this.segments.length; index++)
+        {
+            if (this.segments[leftestIndex].x > this.segments[index].x)
+            {
+                leftestIndex = index;
+            }
+        }
+        return this.segments[leftestIndex];
+    }
+    
+    getRightestElement()
+    {
+        var rightestIndex = 0;
+        for(var index = 0; index < this.segments.length; index++)
+        {
+            if (this.segments[rightestIndex].x < this.segments[index].x)
+            {
+                rightestIndex = index;
+            }
+        }
+        return this.segments[rightestIndex];
+    }
+    
+    RotateShape()
+    {
+        let x = this.segments[0].x
+        let y = this.segments[0].y
+        
+        if(this.reachedDown == false)
+        {
+            switch(this.name)
+            {
+                case "square": {
+                    /*Nothing to do*/
+                    break;
+                }
+                case "i_vertical":{
+                    /*
+                        #
+                        #
+                        #
+                        #
+                    */
+                    this.FormBuilder("i_horizontal", y, x);
+                    break;
+                }
+                case "i_horizontal":{
+                    /*
+                        ####
+                    */
+                    
+                    this.FormBuilder("i_vertical", y, x);
+                    break;
+                }
+                case "s_vertical": {
+                    /*
+                        #
+                       ##
+                       # 
+                    */
+                    this.FormBuilder("s_horizontal_flipped", y, x);
+                    break;
+                }
+                case "s_horizontal_flipped": {
+                    /*
+                        ##
+                         ##
+                    */
+                    this.FormBuilder("s_vertical", y, x);
+                    break;
+                }
+                case "s_vertical_flipped": {
+                    /*
+                       # 
+                       ##
+                        #
+                    */
+                    
+                    this.FormBuilder("s_horizontal", y, x);
+                    break;
+                }
+                case "s_horizontal": {
+                    /*
+                         ##
+                        ##
+                    */
+                    this.FormBuilder("s_vertical_flipped", y, x);
+                    break;
+
+                }
+                case "l_vertical_normal": {
+                    /*
+                         #
+                         #
+                         ##
+                    */
+                    this.FormBuilder("l_horizontal_normal", y, x);
+                    break;
+                }
+                case "l_horizontal_normal": {
+                    /*
+                           #
+                         ###
+                    */
+                    this.FormBuilder("l_vertical_flipped_reversed", y, x);
+                    break;
+                }
+                case "l_vertical_flipped_reversed": {
+                    /*
+                          ##
+                           #
+                           #
+                    */
+                    this.FormBuilder("l_horizontal_flipped_reversed", y, x);
+                    break;
+                }
+                case "l_horizontal_flipped_reversed": {
+                    /*
+                          ###
+                          #
+                    */
+                    this.FormBuilder("l_vertical_normal", y, x);
+                    break;
+                }
+                case "l_vertical_normal_reversed": {
+                    /*
+                          ##
+                          #
+                          #
+                    */
+                    this.FormBuilder("l_horizontal_normal_reversed", y, x);
+                    break;
+                }
+                case "l_horizontal_normal_reversed": {
+                    /*
+                          ####
+                          #
+                    */
+                    
+                    this.FormBuilder("l_vertical_flipped", y, x);
+                    break;
+                }
+                case "l_vertical_flipped": {
+                    /*
+                           #
+                           #
+                          ##
+                    */
+                    this.FormBuilder("l_horizontal_flipped", y, x);
+                    break;
+                }
+                case "l_horizontal_flipped": {
+                    /*
+                          ###
+                            #
+                    */
+                    this.FormBuilder("l_vertical_flipped_reversed", y, x);
+                    break; 
+                }
+                case "f_horizontal": {
+                    /*
+                          #
+                         ###
+                    */
+                    
+                    this.FormBuilder("f_vertical", y, x);
+                    break;
+                }
+                case "f_vertical": {
+                    /*
+                          #
+                         ##
+                          #
+                    */
+                    
+                    this.FormBuilder("f_horizontal_reversed", y, x);
+                    break;
+                }
+                case "f_horizontal_reversed": {
+                    /*
+                         ###
+                          #
+                    */
+                    this.FormBuilder("f_vertical_reversed", y, x);
+                    break;
+                }
+                case "f_vertical_reversed": {
+                    /*
+                          #
+                          ##
+                          #
+                    */
+                    this.FormBuilder("f_horizontal", y, x);
+                    break;
+                }
+            }
+        }
+    }
+    
+    FlipShapeHorizontally()
+    {
+        let x = this.segments[0].x
+        let y = this.segments[0].y
+        
+        if(this.reachedDown == false)
+        {
+            switch(this.name)
+            {
+                case "square": {
+                    /*
+                        ##
+                        ##
+                    */
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                case "i_vertical":{
+                    /*
+                        #
+                        #
+                        #
+                        #
+                    */
+                    
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                case "i_horizontal":{
+                    /*
+                        ####
+                    */
+                    
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                
+                case "s_vertical": {
+                    /*
+                        #
+                       ##
+                       # 
+                    */
+                    this.FormBuilder("s_vertical_flipped", y, x);
+                    break;
+                }
+                case "s_vertical_flipped": {
+                    /*
+                       # 
+                       ##
+                        #
+                    */
+                    
+                    this.FormBuilder("s_vertical", y, x);
+                    break;
+                }
+                case "s_horizontal": {
+                    /*
+                         ##
+                        ##
+                    */
+                    this.FormBuilder("s_horizontal_flipped", y, x);
+                    break;
+                }
+                case "s_horizontal_flipped": {
+                    /*
+                        ##
+                         ##
+                    */
+                    this.FormBuilder("s_horizontal", y, x);
+                    break;
+                }
+                
+                case "l_vertical_normal_reversed": {
+                    /*
+                          ##
+                          #
+                          #
+                    */
+                    this.FormBuilder("l_vertical_flipped_reversed", y, x);
+                    break;
+                }
+                case "l_vertical_flipped_reversed": {
+                    /*
+                          ##
+                           #
+                           #
+                    */
+                    this.FormBuilder("l_vertical_normal_reversed", y, x);
+                    break;
+                }
+                
+                case "l_horizontal_flipped_reversed": {
+                    /*
+                          #
+                          ####
+                    */
+                    
+                    this.FormBuilder("l_horizontal_normal", y, x);
+                    break;
+                }
+                case "l_horizontal_normal": {
+                    /*
+                           #
+                        ####
+                    */
+                    this.FormBuilder("l_horizontal_flipped_reversed", y, x);
+                    break;
+                }
+                
+                case "l_horizontal_normal_reversed": {
+                    /*
+                          ####
+                          #
+                    */
+                    
+                    this.FormBuilder("l_horizontal_flipped", y, x);
+                    break;
+                }
+                case "l_horizontal_flipped": {
+                    /*
+                          ####
+                             #
+                    */
+                    this.FormBuilder("l_horizontal_normal_reversed", y, x);
+                    break;
+                }
+                
+                case "l_vertical_flipped": {
+                    /*
+                           #
+                           #
+                          ##
+                    */
+                    this.FormBuilder("l_vertical_normal", y, x);
+                    break;
+                }
+                case "l_vertical_normal": {
+                    /*
+                         #
+                         #
+                         ##
+                    */
+                    this.FormBuilder("l_vertical_flipped", y, x);
+                    break;
+                }
+                
+                case "f_vertical": {
+                    /*
+                          #
+                         ##
+                          #
+                    */
+                    this.FormBuilder("f_vertical_reversed", y, x);
+                    break;
+                }
+                case "f_vertical_reversed": {
+                    /*
+                          #
+                          ##
+                          #
+                    */
+                    this.FormBuilder("f_vertical", y, x);
+                    break;
+                }
+            }
+        }
+    }
+    
+    FlipShapeVertically()
+    {
+        let x = this.segments[0].x
+        let y = this.segments[0].y
+        
+        if(this.reachedDown == false)
+        {
+            switch(this.name)
+            {
+                case "square": {
+                    /*
+                        ##
+                        ##
+                    */
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                case "i_vertical":{
+                    /*
+                        #
+                        #
+                        #
+                        #
+                    */
+                    
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                case "i_horizontal":{
+                    /*
+                        ####
+                    */
+                    
+                    /*Nothing to do - No flip available for this form*/
+                    break;
+                }
+                case "s_vertical": {
+                    /*
+                        #
+                       ##
+                       # 
+                    */
+                    this.FormBuilder("s_vertical_flipped", y, x);
+                    break;
+                }
+                case "s_vertical_flipped": {
+                    /*
+                       # 
+                       ##
+                        #
+                    */
+                    
+                    this.FormBuilder("s_vertical", y, x);
+                    break;
+                }
+                case "s_horizontal": {
+                    /*
+                         ##
+                        ##
+                    */
+                    this.FormBuilder("s_horizontal_flipped", y, x);
+                    break;
+                }
+                case "s_horizontal_flipped": {
+                    /*
+                        ##
+                         ##
+                    */
+                    this.FormBuilder("s_horizontal", y, x);
+                    break;
+                }
+                case "l_vertical_normal_reversed": {
+                    /*
+                          ##
+                          #
+                          #
+                    */
+                    this.FormBuilder("l_vertical_normal", y, x);
+                    break;
+                }
+                case "l_vertical_normal": {
+                    /*
+                         #
+                         #
+                         ##
+                    */
+                    this.FormBuilder("l_vertical_normal_reversed", y, x);
+                    
+                    break;  
+                }
+                
+                
+                case "l_vertical_flipped_reversed": {
+                    /*
+                          ##
+                           #
+                           #
+                    */
+                    this.FormBuilder("l_vertical_flipped", y, x);
+                    break;
+                }
+                case "l_vertical_flipped": {
+                    /*
+                           #
+                           #
+                          ##
+                    */
+                    this.FormBuilder("l_vertical_flipped_reversed", y, x);
+                    break;
+                }
+                case "l_horizontal_flipped_reversed": {
+                    /*
+                          #
+                          ####
+                    */
+                    this.FormBuilder("l_horizontal_normal_reversed", y, x);
+                    break;
+                }
+                case "l_horizontal_normal_reversed": {
+                    /*
+                          ####
+                          #
+                    */
+                    
+                    this.FormBuilder("l_horizontal_flipped_reversed", y, x);
+                    break;
+                }
+                case "l_horizontal_normal": {
+                    /*
+                           #
+                         ###
+                    */
+                    this.FormBuilder("l_horizontal_flipped", y, x);
+                    
+                    break;  
+                }
+                case "l_horizontal_flipped": {
+                    /*
+                          ###
+                            #
+                    */
+                    this.FormBuilder("l_horizontal_normal", y, x);
+                    break;
+                }
+                case "f_horizontal": {
+                    /*
+                          #
+                         ###
+                    */
+                    
+                    this.FormBuilder("f_horizontal_reversed", y, x);
+                    break;
+                }
+                case "f_horizontal_reversed": {
+                    /*
+                         ###
+                          #
+                    */
+                    
+                    this.FormBuilder("f_horizontal", y, x);
+                    break;
+                }
+            }
+        }
+    }
+    
+    clearFormDrawing()
+    {
+        if(this.segments && this.segments.length > 0)
+        {
+            let index = this.segments.length-1;
+            
+            while(index >= 0)
+            {
+                //remove one element at index 0
+                this.segments[index].clear();
+                index--;
+            }
+        }
+    }
+    
+    drawForm()
+    {
+        if(this.segments && this.segments.length > 0)
+        {
+            let index = this.segments.length -1;
+            
+            while(index >= 0)
+            {
+                //remove one element at index 0
+                this.segments[index].draw();
+                index--;
+            }
+        }
+    }
+    
+    eraseForm()
+    {
+        if(this.segments && this.segments.length > 0)
+        {
+            let index = this.segments.length -1;
+            
+            while(this.segments.length > 0 )
+            {
+                //remove one element at index 0
+                this.segments[0].clear();
+                
+                //splice() modifies the array in place and returns the removed elements as a new array.
+                this.segments.splice(0, 1);
+            }
+        }
+    }
+    
+    async checkScore()
+    {
+        if (!this.reachedDown)
+        {
+            return false;
+        }
+        
+        let rowsToClear = [];
+
+        // find all full rows first
+        for (let i = tableNumberOfRows - 1; i >= 0; i--)
+        {
+            let hit = 0;
+
+            for (let j = 0; j < tableNumberOfCols; j++)
+            {
+                let elem = document.getElementById(getElementIdName(i, j));
+                
+                if (elem.style.backgroundColor === "blue")
+                {
+                    hit++;
+                }
+            }
+
+            if (hit === tableNumberOfCols)
+            {
+                rowsToClear.push(i);
+            }
+        }
+
+        if (rowsToClear.length === 0) return false;
+
+        // animate all rows
+        let animations = [];
+
+        for (let row of rowsToClear)
+        {
+            for (let j = 0; j < tableNumberOfCols; j++)
+            {
+                let elem = document.getElementById(getElementIdName(row, j));
+                
+                //add animation
+                elem.classList.add("fadingout");
+                
+                //clear background-color
+                elem.style.backgroundColor = "transparent";
+                
+                //add animation to animationlist to keep track of how many waits to perform
+                animations.push(waitForAnimation(elem, (elem) => {
+                    // remove animation class
+                    elem.classList.remove("fadingout");
+
+                    // reset inline styles if your animation changed them
+                    elem.style.opacity = "1";
+                    elem.style.transform = "";
+                }));
+            }
+        }
+        
+        //wait for all animations to finish
+        await Promise.all(animations);
+        
+        /*rowsToClear is in descending order because the loop above was run from tableNumberOfRows - 1 to 0
+        
+        By sorting the rowsToClear to ascending order, we can run the loop in normal order from 0 to rowsToClear.length
+        */
+        
+        rowsToClear.sort( (a,b) => a-b); //sorting to ascending order
+        
+        // collapse rows after animation
+        for (let index = 0; index < rowsToClear.length; index++)
+        {
+            //if multiple rows... the row number changes each time a row is copied
+            //so adjustments are needed
+            
+            let adjustedRow = rowsToClear[index] - index; // accounts for previous calls of copyRowsAbove()
+            
+            this.copyRowsAbove(adjustedRow, index);
+            score += 1 + index;
+        }
+
+        return true;
+    }
+    
+    copyRowsAbove(row, offset=0)
+    {
+        for (var i = row; i > 0; i--)
+        {
+            for (var j = 0; j < tableNumberOfCols; j++)
+            {
+                let bottomElemName = getElementIdName(i + offset, j);
+                let topElemName = getElementIdName(i - 1 + offset, j);
+
+                if (document.getElementById(topElemName).style.backgroundColor == "blue")
+                    document.getElementById(bottomElemName).style.backgroundColor = "blue";
+                else
+                    document.getElementById(bottomElemName).style.backgroundColor = "transparent";
+            }
+        }
+
+        // clear top row
+        for (var j = 0; j < tableNumberOfCols; j++)
+        {
+            let elemName = getElementIdName(0 + offset, j);
+            document.getElementById(elemName).style.backgroundColor = "transparent";
+        }
+    }
+    
+    isGameOver()
+    {
+        if(this.reachedDown == true)
+        {   
+            for(let index=0; index < this.segments.length; index++)
+            {
+                if(this.segments[index].y <= gameOverRow)
+                {
+                    game_started = false;
+                    document.getElementById("gameStatus").innerHTML = "Game Over";
+                    document.getElementById("gameStatus").style.backgroundColor = "rgba(255,0,0,0.2)";
+                    document.getElementById("pausegame").disabled = true;
+                    addGameOverEffect();
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+
 function StartGame()
 {
-	sq.FormRecycle(); // let it be randomized.
-	game_started = true;
-	updateScore();
-	document.getElementById("startgame").disabled = true;
-	document.getElementById("restartgame").disabled = false;
-	document.getElementById("gameStatus").innerHTML = "Game Started";
-	
+    //sq.FormRecycle(); // let it be randomized.
+    game_started = true;
+    updateScore();
+    document.getElementById("startgame").disabled = true;
+    document.getElementById("pausegame").disabled = false;
+    document.getElementById("restartgame").disabled = false;
+    document.getElementById("gameStatus").innerHTML = "Game Started";
+    
 }
+
+function PauseGame()
+{
+    if(game_paused == false)
+    {
+        game_paused = true;
+        document.getElementById("gameStatus").innerHTML = "Game Paused";
+        document.getElementById("gameStatus").style.backgroundColor = "rgba(0,255,0,0.2)";
+    }
+    else
+    {
+        game_paused = false;
+        document.getElementById("gameStatus").innerHTML = "Game Started";
+        document.getElementById("gameStatus").style.backgroundColor = "rgba(0,0,255,0.2)";
+    }
+}
+
 function RestartGame()
 {
-	for(var i = 0; i<tableNumberOfRows; i++)
-	{
-		for(var j=0;j<tableNumberOfCols;j++)
-		{
-			if(i<10)
-			{
-				document.getElementById("elem0" + i + "0" + j).style.backgroundColor = "transparent";
-			}
-			else
-			{
-				document.getElementById("elem" + i + "0" + j).style.backgroundColor = "transparent";
-			}
-		}
-	}
-	score = 0;
-	updateScore();
-	sq.reachedDown=true;
-	sq.FormRecycle(); // let it be randomized.
-	game_started = true;
-	document.getElementById("startgame").disabled = true;
-	document.getElementById("restartgame").disabled = false;
+    
+    /*Clearing the table*/
+    for(var i = 0; i < tableNumberOfRows; i++)
+    {
+        for(var j=0; j < tableNumberOfCols; j++)
+        {
+            var elem = document.getElementById(getElementIdName(i, j));
+            elem.style.backgroundColor = "transparent";
+            elem.classList.remove("gameOverEffect");
+        }
+    }
+    
+    /*Resetting the game*/
+    score = 0;
+    updateScore();
+    sq.reachedDown = true;
+    sq.recycleForm();
+    game_started = true;
+    gameTickRunning = false;
+    document.getElementById("startgame").disabled = true;
+    document.getElementById("restartgame").disabled = false;
+    document.getElementById("pausegame").disabled = false;
+    document.getElementById("gameStatus").style.backgroundColor = "rgba(0,0,255,0.2)";
+}
+
+function waitForAnimation(element, recoverFunction)
+{
+    return new Promise(resolve => {
+
+        function onEnd()
+        {
+            if(recoverFunction)
+            {
+                recoverFunction(element);
+            }
+            resolve();
+        }
+
+        element.addEventListener("animationend", onEnd, { once: true });
+    });
+}
+
+function addGameOverEffect()
+{
+    for(var i = 0; i < tableNumberOfRows; i++)
+    {
+        for(var j=0;j < tableNumberOfCols;j++)
+        {
+            var elem = document.getElementById(getElementIdName(i, j));
+            
+            if(elem && elem.style.backgroundColor == "blue")
+            {
+                elem.classList.add("gameOverEffect");
+            }
+        }
+    }
 }
 
 document.onkeydown = function (e) //trigger event when key is pressed down
 {
     switch (e.key) //if the key pressed is SPACE KEY
     {
-		case "a":
-		case "A":
+        case "a":
+        case "A":
         case "ArrowLeft":
         {
             TurnLeft();
             break;
         }
-		case "d":
-		case "D":
+        case "d":
+        case "D":
         case "ArrowRight":
         {
             TurnRight();
             break;
         }
-		case "s":
-		case "S":
+        case "s":
+        case "S":
         case "ArrowDown":
         {
             Accelerate();
@@ -1503,6 +1664,16 @@ document.onkeydown = function (e) //trigger event when key is pressed down
         case " ":
         {
             Rotate();
+            break;
+        }
+        case "Shift":
+        {
+            FlipHorizontally();
+            break;
+        }
+        case "Control":
+        {
+            FlipVertically();
             break;
         }
         default:
@@ -1524,25 +1695,102 @@ function Accelerate()
 {
     window.AccelerateGame = true;
 }
+
 function Decelerate()
 {
     window.AccelerateGame = false;
 }
+
 function Rotate()
 {
-	sq.RotateShape();
+    sq.RotateShape();
 }
+
+function FlipHorizontally()
+{
+    sq.FlipShapeHorizontally();
+}
+
+function FlipVertically()
+{
+    sq.FlipShapeVertically();
+}
+
 function TurnLeft()
 {
-	sq.MoveLeft();
+    sq.MoveLeft();
 }
+
 function TurnRight()
 {
-	sq.MoveRight();
+    sq.MoveRight();
 }
-function updateScore()
+
+async function updateScore()
 {
-	document.getElementById("score").innerHTML = "Score: " + score;
+    var scoreBoard = document.getElementById("score");
+    
+    if( ("Score: " + score ) != scoreBoard.innerHTML )
+    {
+
+        scoreBoard.innerHTML = "Score: " + score;
+        
+        scoreBoard.classList.add("scoreBoard")
+        
+        var animations = [];
+        
+        animations.push( waitForAnimation(scoreBoard, (scoreBoard) => {
+            scoreBoard.classList.remove("scoreBoard");
+        }));
+
+        //wait for all animations to finish
+        await Promise.all(animations);
+    }
+}
+
+function createTable()
+{
+    var game_div = document.getElementById("game_div");
+    if(game_div)
+    {
+        var table = document.createElement("table");
+        
+        for(var row = 0; row < tableNumberOfRows; row++)
+        {
+            var table_row = document.createElement("tr");
+            for(var col = 0; col < tableNumberOfCols; col++)
+            {
+                var cell = document.createElement("td");
+                
+                let cell_id = getElementIdName(row, col);
+                
+                cell.id = cell_id
+                cell.style.backgroundColor = "transparent";
+                
+                /*Adding delimiter*/
+                if(row == gameOverRow)
+                {
+                    cell.style.borderBottom = "solid 2px darkred";
+                }
+                else if(row == (gameOverRow+1) )
+                {
+                    cell.style.borderTop = "solid 2px darkred";
+                }
+                
+                table_row.appendChild(cell);
+            }
+            table.appendChild(table_row);
+        }
+        game_div.appendChild(table);
+        
+        return true;
+    }
+    else
+    {
+        alert("game_div is not part of DOM.");
+        
+        return false;
+    }
 }
 
 //Prevent the default behaviour on this window.
@@ -1551,3 +1799,63 @@ window.addEventListener("keydown", function(e) {
         e.preventDefault();
     }
 }, false);
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+    if( createTable() )
+    {
+        sq = new TetrisShape("l_horizontal_flipped_reversed", -1, 3); // let this be default;
+        
+        /*setInterval does not await for async functions to execute.
+        After async finished setInterval will compensate for the lost time... and may end up colling multiple times
+        the function - which will damage the gameloop by throwing multiple bricks onto the game.
+        
+        User can only control one brick and the game can only handle one brick at a time.
+        
+        Stacking mechanism using gameTickRunning was added into place to block multiple executions of setInterval
+        */
+        
+        setInterval(async function()
+        {
+            if(game_started && game_paused == false)
+            {
+                /*Block the execution of the function if another function instance is in await*/
+                if (gameTickRunning)
+                {
+                    return;   // ← prevents stacking
+                }
+                
+                //Enable
+                gameTickRunning = true;
+                
+                msCounter += reccurence;
+                if (msCounter % normalGameSpeed == 0 || AccelerateGame)
+                {
+                    if(sq.reachedDown)
+                    {
+                        if(sq.isGameOver() == false)
+                        {
+                            await sq.checkScore();
+                            /*in case 2 line are completely checkScore() will make both dissappear at once*/
+                            
+                            sq.recycleForm();
+                            await updateScore();
+                            Decelerate();
+                        }
+                        else
+                        {
+                            /*Do nothing - the game will stop after this iteration*/
+                        }
+                    }
+                    else
+                    {
+                        sq.MoveDown();
+                    }
+                }
+                
+                //Disable
+                gameTickRunning = false;
+            }
+        }, reccurence);
+    }
+});

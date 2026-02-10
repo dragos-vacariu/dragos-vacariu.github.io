@@ -9,7 +9,7 @@
     
     gap: 20px; /* ?? equal spacing between ALL children */
     float: left;
-    width:50%; /* the width of game_content is also influenced by width of game_div*/
+    width:60%; /* the width of game_content is also influenced by width of game_div*/
 
     padding: 0%;
 
@@ -153,6 +153,36 @@
     margin: 10px auto;
 }
 
+/* class that activates the animation */
+.gameOverEffect {
+    animation: redBlueEffect 1s infinite;
+}
+
+@keyframes redBlueEffect {
+    0%   { background-color: blue; }
+    50%  { background-color: red; }
+    100% { background-color: blue; }
+}
+
+.fadingout {
+    animation: fadeOut 300ms forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+.scoreBoard {
+    animation: highlight 1s forwards;
+}
+
+@keyframes highlight {
+    0%   {color: black; font-size: 15px;}
+    50%  {color: green; font-size: 16px}
+    100% {color: black; font-size: 15px}
+}
+
 #menu{
     position: relative;
     width: 100%;
@@ -187,7 +217,7 @@ will allow them better responsiveness on extreme small viewports*/
     display: flex;
 }
 
-#restartgame, #startgame, #fullscreen{
+#restartgame, #startgame, #fullscreen, #pausegame{
     margin: 2px auto;
     width: 100px;
     font-variant: small-caps;
@@ -200,6 +230,20 @@ will allow them better responsiveness on extreme small viewports*/
 #rotate{
     position: relative;
     background-color: red;
+    border: solid 1px black;
+    color: white;
+    font-size: 15px;
+    font-family: Arial;
+    font-weight: bold;
+    font-variant: small-caps;
+    padding: 5px;
+    margin: 5px auto;
+    width: fit-content;
+}
+
+#h_flip, #v_flip{
+    position: relative;
+    background-color: blue;
     border: solid 1px black;
     color: white;
     font-size: 15px;
