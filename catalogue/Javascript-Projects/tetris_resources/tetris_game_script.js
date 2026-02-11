@@ -172,92 +172,146 @@ class TetrisShape
 {
     constructor(name, y, x)
     {
-        this.FormBuilder(name.toLowerCase(), y,x);
+        this.FormBuilder(name.toLowerCase(), y, x);
     }
     
     recycleForm(x, y)
     {
         if(this.reachedDown==true)
         {
-            var rand = Math.floor(Math.random() * 19)
+            var rand = Math.floor(Math.random() * 40)
             var x = 4;
             var y = -1;
             
+            /*
+            LEGEND:
+            8 of 33 chances to generate a square form
+            8 of 33 changes to generate F form.
+            8 of 33 changes to generate I form.
+            8 of 33 changes to generate S form.
+            8 of 33 chances to generate L form
+            */
+            
             switch(rand)
-            {
-                case 0: { //grab a square
+            {   
+                /*Generate a square form*/
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                {
                     this.FormBuilder("square", y, x);
                     break;
                 }
-                case 1: {
+                /*Generate I shape*/
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                {
                     this.FormBuilder("i_vertical", y, x);
                     break;
                 }
-                case 2: {
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                {
                     this.FormBuilder("i_horizontal", y, x);
                     break;
                 }
-                case 3: {
+                /*Generate S shape*/
+                case 16:
+                case 17:
+                {
                     this.FormBuilder("s_vertical", y, x);
                     break;
                 }
-                case 4: {
+                case 18:
+                case 19:
+                {
                     this.FormBuilder("s_vertical_flipped", y, x);
                     break;
                 }
-                case 5: {
+                case 20:
+                case 21:
+                {
                     this.FormBuilder("s_horizontal", y, x);
                     break;
                 }
-                case 6: {
+                case 22:
+                case 23:
+                {
                     this.FormBuilder("s_horizontal_flipped", y, x);
                     break;
                 }
-                case 7: {
+                /*Generate L shape*/
+                case 24:
+                {
                     this.FormBuilder("l_vertical_normal", y, x);
                     break;
                 }
-                case 8: {
+                case 25:
+                {
                     this.FormBuilder("l_horizontal_normal", y, x);
                     break;
                 }
-                case 9: {
+                case 26:
+                {
                     this.FormBuilder("l_vertical_normal_reversed", y, x);
                     break;
                 }
-                case 10: {
+                case 27:
+                {
                     this.FormBuilder("l_horizontal_normal_reversed", y, x);
                     break;
                 }
-                case 11: {
+                case 28:
+                {
                     this.FormBuilder("l_vertical_flipped", y, x);
                     break;
                 }
-                case 12: {
+                case 29:
+                {
                     this.FormBuilder("l_horizontal_flipped", y, x);
                     break;
                 }
-                case 13: {
+                case 30:
+                {
                     this.FormBuilder("l_vertical_flipped_reversed", y, x);
                     break;
                 }
-                case 14: {
+                case 31:
+                {
                     this.FormBuilder("l_horizontal_flipped_reversed", y, x);
                     break;
                 }
-                case 15: {
+                /*Generate F shape*/
+                case 32:
+                case 33:
+                {
                     this.FormBuilder("f_horizontal", y, x);
                     break;
                 }
-                case 16: {
+                case 34:
+                case 35:
+                {
                     this.FormBuilder("f_vertical", y, x);
                     break;
                 }
-                case 17: {
+                case 36:
+                case 37:
+                {
                     this.FormBuilder("f_vertical_reversed", y, x);
                     break;
                 }
-                case 18: {
+                case 38:
+                case 39:
+                {
                     this.FormBuilder("f_horizontal_reversed", y, x);
                     break;
                 }
@@ -277,6 +331,9 @@ class TetrisShape
                 */
                 
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 1);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,  x));
@@ -315,6 +372,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 3);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y, x));
                 temp.push(new ShapeSegment(y, x+1));
@@ -333,6 +393,9 @@ class TetrisShape
                    #
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 0);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -353,6 +416,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 1);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -371,6 +437,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 1);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y, x+1));
@@ -388,6 +457,9 @@ class TetrisShape
                      ##
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 1);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -408,6 +480,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 1);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -425,6 +500,9 @@ class TetrisShape
                     ####
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 2, 0);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -445,6 +523,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 0);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y,  x-1));
@@ -462,6 +543,9 @@ class TetrisShape
                       #
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 2);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -482,6 +566,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 0);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -499,6 +586,9 @@ class TetrisShape
                         #
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 2);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -519,6 +609,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 1);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y,   x+1));
@@ -538,6 +631,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 2);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -554,6 +650,9 @@ class TetrisShape
                      ###
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 1);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -574,6 +673,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 0);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -591,6 +693,9 @@ class TetrisShape
                       #
                 */
                 let temp = [];
+                
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 1, 1);
                 
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
@@ -611,6 +716,9 @@ class TetrisShape
                 */
                 let temp = [];
                 
+                /*Checking if x positions needs to be adjusted to fit within the table*/
+                x = this.adjustXPos(x, 0, 1);
+                
                 /*the first segment always starts with x and y*/
                 temp.push(new ShapeSegment(y,   x));
                 temp.push(new ShapeSegment(y+1, x));
@@ -622,7 +730,34 @@ class TetrisShape
                 
                 break;  
             }
+            default:
+            {
+                /*if no valid form name is provided - generate a random form*/
+                console.log("No valid form name is provided. Generating a random form.");
+                this.reachedDown = true;
+                this.recycleForm(x, y);
+                break;
+            }
         }
+    }
+    
+    adjustXPos(x, leftOffset = 0, rightOffset = 0)
+    {
+        /*while x + offset needed to display the full shape is outside the rendering table*/
+        while(x + rightOffset >= tableNumberOfCols)
+        {
+            /*decrement x as much as needed in order to be able to display the element within the table*/
+            x--;
+        }
+        
+        /*while x - offset needed to display the full shape is outside the rendering table*/
+        while(x - leftOffset < 0)
+        {
+            /*increment x as much as needed in order to be able to display the element within the table*/
+            x++;
+        }
+        
+        return x;
     }
     
     checkAssignSegments(segments, name)
@@ -1804,7 +1939,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if( createTable() )
     {
-        sq = new TetrisShape("l_horizontal_flipped_reversed", -1, 3); // let this be default;
+        //sq = new TetrisShape("l_horizontal_flipped_reversed", -1, 3); // let this be default;
+        sq = new TetrisShape("", -1, 3); // generate a random shape
         
         /*setInterval does not await for async functions to execute.
         After async finished setInterval will compensate for the lost time... and may end up colling multiple times

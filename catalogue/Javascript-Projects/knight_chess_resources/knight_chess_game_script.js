@@ -1,53 +1,133 @@
-var emptyTable=true;
-var knightChess = "url('knight_chess.png')"
-var piece = "";
-var validOption = [];
+const knightChess = "url('knight_chess.png')"
+var pieceCell = null;
+var validOptions = [];
 var score = 0;
-var gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
-var displayOptions=false
+var gameOver = 2; // 0 for game lost, 1 for game won, 2 for init.
 
-function FullscreenMode(e) {
+const black_cellColor = "black";
+const white_cellColor = "white";
+const black_visitedCellColor = "darkgreen";
+const white_visitedCellColor = "lightgreen";
+const visitedCellBorderColor = "black";
+const regularCellBorderColor = "green";
+
+function createTable()
+{
+    var game_div = document.getElementById("game_div");
+    
+    if(game_div)
+    {
+        var table = document.createElement("table");
+        
+        for(var row = 0; row < 8; row++)
+        {
+            var table_row = document.createElement("tr");
+            for(var col = 0; col < 8; col++)
+            {
+                let cell = document.createElement("td");
+                
+                let cell_id = getElementIdName(row, col);
+                
+                cell.id = cell_id
+                cell.dataset.visited = "false";
+                cell.onclick = function () {
+                    SquareClicked(cell)
+                };
+                
+                if(row % 2 == 0)
+                {
+                    if(col % 2 == 0)
+                    {
+                        cell.style.backgroundColor = white_cellColor;
+                    }
+                    else
+                    {
+                        cell.style.backgroundColor = black_cellColor;
+                    }
+                }
+                else if( row % 2 == 1)
+                {
+                    if(col % 2 == 0)
+                    {
+                        cell.style.backgroundColor = black_cellColor;
+                    }
+                    else
+                    {
+                        cell.style.backgroundColor = white_cellColor;
+                    }
+                }
+                
+                table_row.appendChild(cell);
+            }
+            table.appendChild(table_row);
+        }
+        game_div.appendChild(table);
+        
+        return true;
+    }
+    else
+    {
+        alert("game_div is not part of DOM.");
+        
+        return false;
+    }
+}
+
+function FullscreenMode(e)
+{
     var game_content = document.getElementById("game_content");
-	if (document.fullscreenElement == null)
-	{
-		if (game_content.requestFullscreen) 
-		{
-			game_content.requestFullscreen();
-		} 
-		else if (game_content.webkitRequestFullscreen) 
-		{ /* Safari */
-			game_content.webkitRequestFullscreen();
-		} 
+    
+    if (document.fullscreenElement == null)
+    {
+        if (game_content.requestFullscreen) 
+        {
+            game_content.requestFullscreen();
+        } 
+        else if (game_content.webkitRequestFullscreen) 
+        { /* Safari */
+            game_content.webkitRequestFullscreen();
+        } 
         else if (game_content.msRequestFullscreen) 
-		{ /* IE11 */
-			game_content.msRequestFullscreen();
-		}
-	}
-	else
-	{
-		if (document.exitFullscreen) 
-		{
-			document.exitFullscreen();
-		} 
-		else if (document.webkitExitFullscreen) 
-		{ /* Safari */
-			document.webkitExitFullscreen();
-		} 
+        { /* IE11 */
+            game_content.msRequestFullscreen();
+        }
+    }
+    else
+    {
+        if (document.exitFullscreen) 
+        {
+            document.exitFullscreen();
+        } 
+        else if (document.webkitExitFullscreen) 
+        { /* Safari */
+            document.webkitExitFullscreen();
+        } 
         else if (document.msExitFullscreen) 
-		{ /* IE11 */
-			document.msExitFullscreen();
-		}
-	}
+        { /* IE11 */
+            document.msExitFullscreen();
+        }
+    }
 }
 
 function Enter_FullScreen(e)
 {
-	if (e.key == "f")
-	{
-		FullscreenMode(); 
-	}
+    if (e.key == "f")
+    {
+        FullscreenMode(); 
+    }
 }
 
+function getElementIdName(y, x)
+{
+    var xStr = x.toString();
+    var yStr = y.toString();
+    
+    var elemName = "elem" + yStr + xStr;
+    
+    return elemName;
+}
+
+/*
 function FullScreenZoom()
 {
    if (document.fullscreenElement != null)
@@ -58,282 +138,269 @@ function FullScreenZoom()
    {
         //document.getElementById("fullscreen_button").style.fontStyle = "normal";
    }
-}
+}*/
 
-function SquareClicked(x)
+function SquareClicked(cell)
 {
-	var square = document.getElementById(x);
-	if(emptyTable)
-	{
-        document.getElementById("result").innerHTML = "";
-		document.getElementById("result").color = "white";
-		emptyTable = false;
-		square.style.backgroundImage = knightChess;
-		piece = x[4] + x[5];
-		SearchOption(); //validOption will get filled here
+    if(pieceCell == null)
+    {
+        let resultElement = document.getElementById("result");
+        resultElement.innerHTML = "";
+        resultElement.color = "white";
+        
+        cell.style.backgroundImage = knightChess;
+        
+        pieceCell = cell;
+        
+        //validOptions will get filled here
+        SearchOptions(); //searching for valid move options
+        
+        //displaying the valid move options
         displayMoveOption();
-	}
-	//else if(x[4] + x[5] == piece)
-	//{
-	//	//if(displayOptions == true)
-	//	//{
-	//		//displayMoveOption();
-	//	//}
-    //
-	//}
-	else 
-	{
-		for(var i=0; i < validOption.length; i++)
-		{
-            
+    }
+    else 
+    {
+        let scoreElement = document.getElementById("score");
+        
+        for(var i=0; i < validOptions.length; i++)
+        {
+            /*If the clicked cell is a valid move option*/
+            if(cell == validOptions[i])
+            {
+                cell.style.backgroundImage = knightChess;
+                score++;
+                
+                scoreElement.innerHTML = "Score: " + score + " out of 64.";
+                
+                /*clearing the visual effects*/
+                if(cell.classList.contains("td_pulse_red")) 
+                {
+                    cell.style.backgroundColor = black_cellColor;
+                    cell.classList.remove("td_pulse_red");
+                }
+                else if (cell.classList.contains("td_pulse_pink"))
+                {
+                    cell.style.backgroundColor = white_cellColor;
+                    cell.classList.remove("td_pulse_pink");
+                }
+                
+                /*if cell that was clicked is not the pieceCell*/
+                if (cell != pieceCell)
+                {
+                    /*clear the pieceCell and mark it as visited*/
+                    pieceCell.style.backgroundImage = "";
+                    
+                    if(pieceCell.style.backgroundColor == white_cellColor)
+                    {
+                        pieceCell.style.backgroundColor = white_visitedCellColor;
+                        pieceCell.style.borderColor = visitedCellBorderColor;
+                        pieceCell.dataset.visited = "true";
+                        pieceCell.classList.remove("td_pulse_pink");
+                    }
+                    else if(pieceCell.style.backgroundColor == black_cellColor)
+                    {
+                        pieceCell.style.backgroundColor = black_visitedCellColor;
+                        pieceCell.style.borderColor = visitedCellBorderColor;
+                        pieceCell.dataset.visited = "true";
+                        pieceCell.classList.remove("td_pulse_red");
+                    }
+                }
+                pieceCell = cell;
 
-			if(x == validOption[i])
-			{
-                displayOptions = false;
-				square = document.getElementById(x);
-				square.style.backgroundImage = knightChess;
-				score++;
-				document.getElementById("score").innerHTML = "Score: " + score + " out of 64.";
-				if(square.classList.contains("td_pulse_red")) 
-				{
-					square.style.backgroundColor = "black";
-                    square.classList.remove("td_pulse_red");
-				}
-				else if (square.classList.contains("td_pulse_pink"))
-				{
-					square.style.backgroundColor = "white";
-                    square.classList.remove("td_pulse_pink");
-				}
-				if (square != document.getElementById("elem"+piece))
-				{
-					document.getElementById("elem"+piece).style.backgroundImage="";
-					if(document.getElementById("elem"+piece).style.backgroundColor == "white")
-					{
-						document.getElementById("elem"+piece).style.backgroundColor="yellow";
-                        document.getElementById("elem"+piece).classList.remove("td_pulse_pink");
-					}
-					else if(document.getElementById("elem"+piece).style.backgroundColor == "black")
-					{
-						document.getElementById("elem"+piece).style.backgroundColor="green";
-                        document.getElementById("elem"+piece).classList.remove("td_pulse_red");
-					}
-				}
-				piece = x[4] + x[5];
-
-			}
-			else
-			{
+            }
+            else
+            {
                
-				if(document.getElementById(validOption[i]).classList.contains("td_pulse_pink"))
-				{
-					document.getElementById(validOption[i]).style.backgroundColor="white";
-                    document.getElementById(validOption[i]).classList.remove("td_pulse_pink");
-				}
-				else if(document.getElementById(validOption[i]).classList.contains("td_pulse_red"))
-				{
-					document.getElementById(validOption[i]).style.backgroundColor="black";
-                    document.getElementById(validOption[i]).classList.remove("td_pulse_red");
-				}
-			}
-		}
-		
-		validOption = [];
-		SearchOption(); //validOption will get filled here
+                if(validOptions[i].classList.contains("td_pulse_pink"))
+                {
+                    validOptions[i].style.backgroundColor = white_cellColor;
+                    validOptions[i].classList.remove("td_pulse_pink");
+                }
+                else if(validOptions[i].classList.contains("td_pulse_red"))
+                {
+                    validOptions[i].style.backgroundColor = black_cellColor;
+                    validOptions[i].classList.remove("td_pulse_red");
+                }
+            }
+        }
+        
+        validOptions = [];
+        SearchOptions(); //validOptions will get filled here
         displayMoveOption();
-		if(validOption.length == 0)
-		{
-			getGameOverStatus();
-		}
-		if(score >= 10 && score < 20)
-		{
-			document.getElementById("score").style.color = "lightgray"; //bronze color
-		}
-		else if(score >= 20 && score < 30)
-		{
-			document.getElementById("score").style.color = "yellow"; //yellow color;
-		}
-		else if(score >= 30 && score < 45)
-		{
-			document.getElementById("score").style.color = "azure";
-		}
-		else if(score >= 45 && score < 60)
-		{
-			document.getElementById("score").style.color = "lightblue";
-		}
-		else if(score >= 60)
-		{
-			document.getElementById("score").style.color = "lightgreen";
-		}
-	}
+        
+        if(validOptions.length == 0)
+        {
+            getGameOverStatus();
+        }
+        if(score >= 10 && score < 20)
+        {
+            scoreElement.style.color = "lightgray"; //bronze color
+        }
+        else if(score >= 20 && score < 30)
+        {
+            scoreElement.style.color = "yellow"; //yellow color;
+        }
+        else if(score >= 30 && score < 45)
+        {
+            scoreElement.style.color = "azure";
+        }
+        else if(score >= 45 && score < 60)
+        {
+            scoreElement.style.color = "lightblue";
+        }
+        else if(score >= 60)
+        {
+            scoreElement.style.color = "lightgreen";
+        }
+    }
 }
 
 function displayMoveOption()
 {
-	validOption.forEach(element => 
-	{
-			if(document.getElementById(element).style.backgroundColor=="white")
-			{
-
-                document.getElementById(element).classList.add("td_pulse_pink");
-			}
-			else if(document.getElementById(element).style.backgroundColor=="black")
-			{		
-
-                document.getElementById(element).classList.add("td_pulse_red");
-			}
-	});
+    validOptions.forEach(cell => 
+    {
+        if(cell.style.backgroundColor == white_cellColor)
+        {
+            cell.classList.add("td_pulse_pink");
+        }
+        else if(cell.style.backgroundColor == black_cellColor)
+        {        
+            cell.classList.add("td_pulse_red");
+        }
+    });
 }
 
 function hideValidOptions()
 {
-    validOption.forEach(element => 
-	{
-			if(document.getElementById(element).classList.contains("td_pulse_pink"))
-			{
-                document.getElementById(element).classList.remove("td_pulse_pink");
-			}
-			else if(document.getElementById(element).classList.contains("td_pulse_red"))
-			{		
-                document.getElementById(element).classList.remove("td_pulse_red");
-			}
-	});
+    validOptions.forEach(cell => 
+    {
+        if(cell.classList.contains("td_pulse_pink"))
+        {
+            cell.classList.remove("td_pulse_pink");
+        }
+        else if(cell.classList.contains("td_pulse_red"))
+        {        
+            cell.classList.remove("td_pulse_red");
+        }
+    });
 }
 
-function SearchOption()
+function SearchOptions()
 {
-	displayOptions = true;
-	var tdRow = parseInt(piece[0]);
-	var tdCol = parseInt(piece[1]);
-	if(tdRow+2 < 8 && tdCol+1 < 8) //hard coded option 1
-	{
-		var elem="elem"+(tdRow+2)+(tdCol+1);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
+    //extracting the coordinate from the pieceCell.id
+    var knight_row = parseInt(pieceCell.id[4]); //elem00
+    var knight_col = parseInt(pieceCell.id[5]); //elem00
 
-		}
-	}
-	if(tdRow+2 < 8 && tdCol-1 >=0) //hard coded option 2
-	{
-		var elem="elem"+(tdRow+2)+(tdCol-1);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
-	if(tdRow+1 < 8 && tdCol+2 < 8) //hard coded option 3
-	{
-		var elem="elem"+(tdRow+1)+(tdCol+2);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
-	if(tdRow-1 >= 0 && tdCol+2 < 8) //hard coded option 4
-	{
-		var elem="elem"+(tdRow-1)+(tdCol+2);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
+    
+    const knightOffsets = [
+      [ 2,  1],  
+      //knight_row + 2  and knight_col + 1 can be a valid move
+      [ 2, -1],
+      //knight_row + 2  and knight_col - 1 can be a valid move
+      [ 1,  2], 
+      //knight_row + 1  and knight_col + 2 can be a valid move
+      [-1,  2],
+      //knight_row - 1  and knight_col + 2 can be a valid move
+      [ 1, -2],
+      //knight_row + 1  and knight_col - 2 can be a valid move      
+      [-1, -2],
+      //knight_row - 1  and knight_col - 2 can be a valid move
+      [-2,  1],
+      //knight_row - 2  and knight_col + 1 can be a valid move
+      [-2, -1]
+      //knight_row - 2  and knight_col - 1 can be a valid move
+    ];
 
-			validOption.push(elem);
-		}
-	}
-	if(tdRow+1 < 8 && tdCol-2 >=0) //hard coded option 5
-	{
-		var elem="elem"+(tdRow+1)+(tdCol-2);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
-	if(tdRow-1 >= 0 && tdCol-2 >=0) //hard coded option 6
-	{
-		var elem="elem"+(tdRow-1)+(tdCol-2);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
-	if(tdRow-2 >= 0 && tdCol+1 < 8) //hard coded option 7
-	{
-		var elem="elem"+(tdRow-2)+(tdCol+1);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-				document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
-	if(tdRow-2 >= 0 && tdCol-1 >= 0) //hard coded option 8
-	{
-		var elem="elem"+(tdRow-2)+(tdCol-1);
-		if(document.getElementById(elem).style.backgroundColor!="yellow" &&
-			document.getElementById(elem).style.backgroundColor!="green")
-		{
-			validOption.push(elem);
-		}
-	}
+    for(let item of knightOffsets)
+    {
+        let move_row = knight_row + item[0];
+        let move_col = knight_col + item[1];
+        
+        let cell_id = getElementIdName(move_row, move_col);
+        let cell = document.getElementById(cell_id);
+        
+        /*if the cell exists and was not visited*/
+        if(cell && cell.dataset.visited === "false")
+        {
+            validOptions.push(cell);
+        }
+    }
 }
 
 function getGameOverStatus()
 {
-	for(var i =0; i<8; i++)
-	{
-		for(var j=0;j<8;j++)
-		{
-			if(document.getElementById("elem"+i+j).style.backgroundColor == "white" ||
-				document.getElementById("elem"+i+j).style.backgroundColor == "black")
-			{
-				document.getElementById("result").innerHTML = "Game Over. You failed to conquer the checkerboard.";
-				document.getElementById("result").style.color = "red";
-                gameOver=0;
-				break;
-			}
-		}
-	}
-	if(gameOver!=0)
-	{
-		document.getElementById("result").innerHTML = "Congratulations. You have conquered the checkerboard.";
-        document.getElementById("result").style.color = "green";
+    let resultElement =  document.getElementById("result");
+    
+    /*Checking for game over or game's end.*/
+    for(let i =0; i<8; i++)
+    {
+        for(let j=0; j<8; j++)
+        {
+            let elemName = getElementIdName(i, j);
+            let cell = document.getElementById(elemName);
+            
+            /*if there are still cells that were not visited*/
+            if(cell.dataset.visited === "false")
+            {
+                resultElement.innerHTML = "Game Over. You failed to conquer the checkerboard.";
+                resultElement.style.color = "red";
+                
+                gameOver = 0;
+                break;
+            }
+        }
+    }
+    if(gameOver != 0)
+    {
+        resultElement.innerHTML = "Congratulations. You have conquered the checkerboard.";
+        resultElement.style.color = "green";
     }
 }
 
 function gameRestart()
 {
     hideValidOptions();
-	emptyTable=true;
-	piece=""
-	validOption = [];
-	score = 0;
-	gameOver=2; // 0 for game lost, 1 for game won, 2 for init.
-	document.getElementById("score").innerHTML = "Score: ";
-	document.getElementById("score").style.color = "white";
-    document.getElementById("result").innerHTML = "Choose a square in order to begin.";
-    //document.getElementById("result").style.backgroundColor = "white";
-    document.getElementById("result").style.color = "lightgreen";
-	for(var i =0; i<8; i++)
-	{
-		for(var j=0;j<8;j++)
-		{
-			if(document.getElementById("elem"+i+j).style.backgroundColor == "yellow" ||
-				document.getElementById("elem"+i+j).style.backgroundColor == "pink")
-			{
-				document.getElementById("elem"+i+j).style.backgroundColor = "white";
-			}
-			else if(document.getElementById("elem"+i+j).style.backgroundColor == "green" ||
-				document.getElementById("elem"+i+j).style.backgroundColor == "red")
-			{
-				document.getElementById("elem"+i+j).style.backgroundColor = "black";
-			}
-			document.getElementById("elem"+i+j).style.backgroundImage = "";		
-		}
-	}
+    pieceCell = null
+    validOptions = [];
+    score = 0;
+    gameOver = 2; // 0 for game lost, 1 for game won, 2 for init.
+    
+    
+    let scoreElement =  document.getElementById("score");
+    scoreElement.innerHTML = "Score: ";
+    scoreElement.style.color = "white";
+    
+    let resultElement =  document.getElementById("result");
+    resultElement.innerHTML = "Choose a square in order to begin.";
+    resultElement.style.color = "lightgreen";
+    
+    /*Clearing the chessboard table*/
+    for(var i =0; i<8; i++)
+    {
+        for(var j=0;j<8; j++)
+        {
+            let elemName = getElementIdName(i, j);
+            
+            let cell = document.getElementById(elemName);
+            
+            if(cell.style.backgroundColor == white_visitedCellColor)
+            {
+                cell.style.backgroundColor = white_cellColor;
+            }
+            else if(cell.style.backgroundColor == black_visitedCellColor)
+            {
+                cell.style.backgroundColor = black_cellColor;
+            }
+            cell.style.backgroundImage = "";
+            cell.style.borderColor = regularCellBorderColor;
+            cell.dataset.visited = "false";
+        }
+    }
 }
 
+document.addEventListener('DOMContentLoaded', async () => {
+    createTable();
+});
+
 //When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);
+//document.addEventListener("fullscreenchange", FullScreenZoom, false);

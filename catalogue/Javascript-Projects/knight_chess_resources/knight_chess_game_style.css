@@ -3,7 +3,7 @@
     background-repeat: no-repeat; 
     background-size: 100%;
     margin:0%;
-    border: groove 2px lightblue;
+    border: solid 2px green;
 }
 
 #game_div table{
@@ -12,8 +12,9 @@
     margin:0%;
     padding:0%;
     width: 100%;
-    border: groove 2px lightblue;
-    border-collapse: collapse;
+    border: solid 2px green;
+    border-collapse: separate;
+    border-spacing: 1px;
 }
 
 #gameHud{
