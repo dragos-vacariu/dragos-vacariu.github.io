@@ -1,98 +1,205 @@
-#game_div table{
+#page_block #game_content
+{
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    
+    /*justify-content: center;*/
+    
+    gap: 3px; /* equal spacing between ALL children */
+    float: left;
+    
+    width: 55%; /* the width of game_content is also influenced by width of game_div*/
+    height:auto;
+    padding: 0%;
+
+    background-image: url(./textures/snake_page_background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: ridge 2px rgba(255,255,255, 0.1);
+    border-radius: 1vw;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#game_div
+{
+    position: relative;
+    width: auto;
+
+    height:fit-content;
+    margin: 1% 2%;
+    padding: 0%;
+    border: none 1px red;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#game_div table
+{
     position: relative;
     
-    background-image: url(snake_background2.bmp);
+    background-image: url(./textures/snake_background.bmp);
     background-repeat: repeat; 
-    background-size: 100%;
+    background-size: 25%;
     
-    /*background-color: rgba(255,255,255,0.7);*/
-    padding:0%;
+    background-color: transparent;
+    padding: auto;
+    margin: auto;
     width: auto;
-    margin:0%;
-    width: 100%;
 
-    border: ridge 1px black;
-    opacity: 0.8;
+    border: solid 1px black;
+    border-radius: 1vw;
+    opacity: 0.9;
     border-collapse: collapse;
     border-spacing: 1px;
     table-layout: fixed;
 }
 
-#game_div table td{
+#game_div table td
+{
     position: relative;
     padding-top: 1.9vw;
     aspect-ratio: 1 / 1;
-    border: ridge 1px black;
+    
+    border: groove 0px lightgreen;
     position: relative;
-    background-size: 80%;
+    background-size: 120%;
     background-repeat: no-repeat;
     background-position: center;
     margin:0%;
 }
 
+/* class that activates the animation */
+.fruitEffect {
+    animation: fruitAnim 2s infinite;
+}
+
+@keyframes fruitAnim {
+    0%   { background-size: 70%; }
+    40% { background-size: 120%; }
+    100% { background-size: 70%; }
+}
+
+.snakeGrowingEffect {
+    animation: snakeGrowingAnim 0.05s 1;
+}
+
+.scoreBoard {
+    animation: highlight 1s forwards;
+}
+
+@keyframes highlight {
+    0%   {color: black; font-size: 16px;}
+    50%  {color: green; font-size: 17px}
+    100% {color: black; font-size: 16px}
+}
+
+@keyframes snakeGrowingAnim {
+    0%   { background-size: 50%; }
+    100% { background-size: 120%; }
+}
+
+/*game_div uses game_div_fullscreen class on fullscreen*/
+#game_div.game_div_fullscreen table tr td
+{
+    padding-top: 3vw;
+}
+
+@media (max-width: 768px)
+{
+    #game_div table tr td
+    {
+        padding-top: 3vw;
+    }
+    
+    #game_div.game_div_fullscreen table tr td
+    {
+        padding-top: 5vw;
+    }
+}
+
+@media (max-width: 480px) {
+    #page_block #game_content
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    #game_div
+    {
+        width: 100%;
+    }
+    #game_div table tr td
+    {
+        padding-top: 3vw;
+    }
+
+    #game_div.game_div_fullscreen table tr td
+    {
+        padding-top: 6vw;
+    }
+}
+
 #controls{
     border: none 2px black;
-    width: 90%;
-    padding:2%;
-    margin: auto;
+    width: 100%;
+    padding: 2px;
+    margin: 5px auto;
     background-color: transparent;
-    display: inline-block;
+    display: block;
 }
 
 #controls input{
-    width:40%;
+    width: 40%;
     padding: 4px 2px;
-    margin: 3px;
     text-align: center;
+    
     font-family: Calibri;
-    font-size: 18px; /* font-size in percent of the viewport size.*/
+    font-size: 18px;
+    font-weight: bold;
+    
     background-color: white;
     opacity: 0.7;
-    font-weight: bold;
 }
 
 #turnUp, #turnDown{
     position: relative;
-    display: inline-block;
-    left: 25%;
+    display: block;
+    margin: auto;
 }
 
 #turnLeft, #turnRight{
     position: relative;
-    left: 5%;
-    margin-left:0%;
+    left: 10%;
     display:inline-block;
 }
 
-#controls h6{
+#gameHud{
     position: relative;
-    height: auto;
-    margin:0%;
-    padding: 0%;
-    left:0%;
-    font-family:Georgia;
-    font-size: 1.2vw; /* font-size 1% of the viewport size.*/
-    text-align: center;
-    font-weight: normal;
-    background-color: transparent;
-    color:black;
-    font-weight: bold;
-    opacity: 1.0;
-    text-shadow: 0px 0px black;
-    line-height: 1.2; /*the line height is proportional to the font*/
-}
-
-#game_hud{
-    position: absolute;
-    display:flex;
-    flex-direction: column; /* 👈 This makes it vertical */
-    justify-content: space-between; /* THIS evenly distributes content vertically */
+    display:block;
+    flex-direction: column; /* This makes it vertical */
+    
+    /*justify-content: space-between;*/ /* THIS evenly distributes content vertically */
     overflow: hidden;
-    margin: 0%;
-    padding:0%;
-    width: 100%;
+    margin: 1%;
+    padding: 2px;
     height: 100%;
-    border: none 0px white;
+    
+    width: 100%;
+    max-width: 200px;
+    height: auto; /* or just delete height entirely */
+    border: none 1px white;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -107,17 +214,18 @@ will allow them better responsiveness on extreme small viewports*/
 .button_container
 {
     display: block;
+    margin: 5px auto;
+    border: none 1px blue;
 }
 
-.game_button{
+.game_button
+{
     position:relative;
     border: solid 1px black;
-    padding:2%;
-    margin-left:2%;
     text-align: center;
-    font-size: 13px; /* font-size in percent of the viewport size.*/
+    
     color: darkred;
-    font-weight: normal;
+    
     font-family: Georgia;
 }
 
@@ -128,17 +236,18 @@ will allow them better responsiveness on extreme small viewports*/
 
 #menu_div
 {
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    margin: 10px auto;
     display: flex;
+    flex-wrap: wrap;
     border: none 2px red;
 }
 
 #startgame, #pausegame, #restartgame, #fullscreen_button{
     position: relative;
     display: block;
-    width: 60%;
-    margin: 1%;
+    width: 75px;
+    margin: 2px auto;
     font-size: 13px; /* font-size in percent of the viewport size.*/
 }
 
@@ -147,97 +256,74 @@ will allow them better responsiveness on extreme small viewports*/
     /*background-color: #eeeeee;*/
 }
 
-#speed{
-    float: right;
-    position: relative;
-    left: 50%;
-    text-shadow: 5px 5px blue;
-}
-
-#game_hud #score
+#gameHud #score
 {
-    width: 90%;
+    position: relative;
+    display: block;
+    width: 100%;
+
     border: none 0px black;
     background-color: rgba(255,255,255,0.7);
     text-align: left;
+    
+    font-family: Calibri;
     font-weight: bold;
-    font-size: 1.2vw;
-    padding: 1%;
-    line-height: 1.2; /*the line height is proportional to the font*/
+    font-size: 16px;
+    line-height: 1.2rem; /*the line height is proportional to the font*/
+    
+    padding: 2px;
+    margin: 10px auto;
 }
 
-#game_hud #author
+#gameHud #author
 {
     position: relative;
-    width: 90%;
-    right: 0%;
+    display: block;
+    width: fit-content;
+    
     font-family: Calibri;
     font-size: 12px;
-    line-height: 1.2; /*the line height is proportional to the font*/
+    line-height: 1.2rem; /*the line height is proportional to the font*/
+    font-weight: normal;
+    
     color: white;
     text-align: center;
-    font-weight: bold;
-    padding: 1%;
-    margin: 0% auto;
-    border: none 0px red;
+    
+    border: none 2px red;
+    
+    padding: 2px;
+    margin: 10px auto;
 }
 
-#result {
+#result
+{
+    position: relative;
     display: flex;
-    justify-content: center; /* center horizontally */
-    align-items: center;     /* center vertically */
-    width: 90%;
+    
+    width: 100%;
     background-color: transparent;
     color: white;
-    height: 3vw;
-    border: none;
-    font-size: 1.2vw;
-    line-height: 1.2;
+    height: fit-content;
+    border: none 2px red;
+    
+    justify-content: center;
+    text-align: center;
+    
+    font-family: Calibri;
+    font-size: 16px;
+    line-height: 1.2rem;
+    
+    min-height: 3lh;   /* always at least 3 lines tall */
+    
     padding: 0px 5px;
+    
+    margin: 10px auto;
 }
 
-#score, #result, #speed, input{
-    margin: 2% auto;
-}
-
-#game_content_first_column
+@media (max-width: 768px)
 {
-    width: 60%;
-}
-
-#game_div
-{
-    width: 100%;
-    height:auto;
-    left: 0%;
-}
-
-#page_block #game_content
-{
-    position:relative;
-    float: left;
-    table-layout: fixed;
-    width:60%; /* the width of game_content is also influenced by width of game_div*/
-
-    padding: 0%;
-    height:auto;
-    background-image: url(snake_page_background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position:relative;
-    border: ridge 2px rgba(255,255,255, 0.1);
-    border-radius: 1vw;
-    /*The following will ensure that the width of the element will not grow with the added border-size.
-    So the border will be within the defined element width.
-    */
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
-#page_block #game_content tr td{
-    vertical-align: top;
-    position: relative; 
-    /*by having columns with position: relative will ensure that no element 
-    with absolute position is gonna drift outside the table*/
+    #result, #score
+    {
+        font-size: 13px;
+    }
 }

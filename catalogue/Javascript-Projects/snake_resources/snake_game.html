@@ -33,44 +33,38 @@
                     </div>
                 </div>
                 <div id = "block_content">
-                    <table id="game_content">
-                        <tr>
-                            <td id="game_content_first_column">
-                                <div id = "game_div">
-                                    
-                                </div>
-                            </td>
-                            <td>
-                                <div id="game_hud">
-                                    <h6 id="score">Score: </h6> 
-                                    <h6 id="result">Please select a square before hitting START.</h6>
-                                    <!--The menu div will help styling the buttons inside as flex elements which 
-                                        will allow them better responsiveness on extreme small viewports-->
-                                    <div id="menu_div">
-                                        <input class = "game_button" type="button" id="startgame" onclick="gameStart()" value="Start"></input>
-                                        <input class = "game_button" type="button" id="restartgame" disabled="true" onclick="gameRestart()" value="Restart"></input>
-                                        <input class = "game_button" type="button" id="fullscreen_button" onclick="FullscreenMode()" value="Fullscreen"></input>
+                    <div id="game_content">
+                        <div id = "game_div">
+                            
+                        </div>
+                        <div id="gameHud">
+                            <h6 id="score">Score: </h6> 
+                            <h6 id="result">Please select a square before hitting START.</h6>
+                                <!--The menu div will help styling the buttons inside as flex elements which 
+                                    will allow them better responsiveness on extreme small viewports-->
+                            <div id="menu_div">
+                                <input class = "game_button" type="button" id="startgame" onclick="gameStart()" value="Start"></input>
+                                <input class = "game_button" type="button" id="restartgame" disabled="true" onclick="gameRestart()" value="Restart"></input>
+                                <input class = "game_button" type="button" id="fullscreen_button" onclick="FullscreenMode()" value="Fullscreen"></input>
 
-                                    </div>
-                                    <form id="controls">
-                                        <!--The button container divs will help styling the buttons inside as flex elements which 
-                                        will allow them better responsiveness on extreme small viewports-->
-                                        <div class="button_container">
-                                            <input class = "game_button" type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input>
-                                        </div>
-                                        <div class="button_container">
-                                            <input class = "game_button" type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
-                                            <input class = "game_button" type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input>
-                                        </div>
-                                        <div class="button_container">
-                                            <input class = "game_button" type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
-                                        </div>
-                                    </form>
-                                    <h6 id="author">Dragos Vacariu @ 2019</h6> 
+                            </div>
+                            <form id="controls">
+                                <!--The button container divs will help styling the buttons inside as flex elements which 
+                                will allow them better responsiveness on extreme small viewports-->
+                                <div class="button_container">
+                                    <input class = "game_button" type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input>
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
+                                <div class="button_container">
+                                    <input class = "game_button" type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
+                                    <input class = "game_button" type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input>
+                                </div>
+                                <div class="button_container">
+                                    <input class = "game_button" type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
+                                </div>
+                            </form>
+                            <h6 id="author">Dragos Vacariu @ 2019</h6> 
+                        </div>
+                    </div>
                         This is a browser-based version of the classic <b>Snake</b> game, developed using JavaScript, HTML, and CSS.
                         <br><br>
                         The objective of the game is to control a snake within a grid-based play area. Each time the snake collects a fruit, 

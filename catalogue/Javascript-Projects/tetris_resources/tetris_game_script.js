@@ -1958,7 +1958,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 /*Block the execution of the function if another function instance is in await*/
                 if (gameTickRunning)
                 {
-                    return;   // ← prevents stacking
+                    return;   // prevents setInterval function execution stacking
                 }
                 
                 //Enable

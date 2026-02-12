@@ -10,12 +10,19 @@ var gameOver = false;
 var gameStarted = false;
 var gamePaused = false;
 
-const FruitTexture = "url('snake_game_fruit.png')";
-const snakeHeadTexture = "url('snake_head.png')";
-const snakeBodyTexture = "url('snake_body.png')";
+const FruitTexture = "url('./textures/snake_game_fruit.png')";
+
+var snakeHeadTexture_LEFT = "url(./textures/snake_head_left.png)";
+var snakeHeadTexture_RIGHT = "url(./textures/snake_head_right.png)";
+var snakeHeadTexture_UP = "url(./textures/snake_head_up.png)";
+var snakeHeadTexture_DOWN = "url(./textures/snake_head_down.png)";
+var snakeBodyTexture = "url(./textures/snake_body.png)";
 
 //this will be the game rendering speed -> 200 ms = around 5FPS
 const gameRenderingSpeed = 10; 
+let gameTickRunning = false;
+var previousSnakeCell = null;
+const activeAnimations = new Set();
 
 //Snake will be the initial speed of the Snake. Initially move 2 square in 800ms
 var SnakeSpeed = 400;
@@ -41,16 +48,17 @@ function FullscreenMode(e)
         if (game_content.requestFullscreen) 
         {
             game_content.requestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
         } 
         else if (game_content.webkitRequestFullscreen) 
-        {
-            /* Safari */
+        { /* Safari */
             game_content.webkitRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
         } 
         else if (game_content.msRequestFullscreen) 
-        {
-            /* IE11 */
+        { /* IE11 */
             game_content.msRequestFullscreen();
+            game_div.classList.add("game_div_fullscreen");
         }
     }
     else
@@ -59,16 +67,17 @@ function FullscreenMode(e)
         if (document.exitFullscreen) 
         {
             document.exitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
         } 
         else if (document.webkitExitFullscreen) 
-        {
-            /* Safari */
+        { /* Safari */
             document.webkitExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
         } 
         else if (document.msExitFullscreen) 
-        {
-            /* IE11 */
+        { /* IE11 */
             document.msExitFullscreen();
+            game_div.classList.remove("game_div_fullscreen");
         }
     }
 }
@@ -130,7 +139,7 @@ function createTable()
                 cell.dataset.row = row;
                 cell.dataset.col = col;
                 cell.dataset.available = "true";
-                cell.style.backgroundColor = "transparent";
+                
                 cell.onclick = function (){
                     SquareClicked(this);
                 }
@@ -186,9 +195,8 @@ function SquareClicked(cell)
 {
     if(snake.length == 0)
     {
-        cell.style.border = "solid 1px red";
-        cell.dataset.available = "false";
         snake.push(cell);
+        setTexture(cell, snakeHeadTexture_UP);
     }
 }
 
@@ -204,10 +212,6 @@ function gameStart()
         document.getElementById("result").style.backgroundColor =  "transparent";
         document.getElementById("result").text = "";
         
-        //Add the texture to snake_head
-        setTexture(snake[0], snakeHeadTexture);
-        snake[0].style.borderColor = "black";
-
         document.getElementById("result").innerHTML = "";
         
         document.getElementById("startgame").id = "pausegame";
@@ -349,12 +353,15 @@ function setDirDown()
     }
 }
 
-function moveSnake()
+async function moveSnake()
 {
-    var previousSnakeCell = snake[0];
+    //check and if needed await for this animation
+    await waitForAnimation("snakeGrowingEffect");
+    
+    previousSnakeCell = snake[0];
     
     for(var i = 0; i < snake.length; i++)
-    {
+    {       
         //if the snake head
         if( i == 0)
         {
@@ -382,6 +389,8 @@ function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
+                //draw the texture
+                setTexture(snake[i], snakeHeadTexture_LEFT);
             }
             else if(SnakeDirMoving == "right")
             {
@@ -399,6 +408,8 @@ function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
+                //draw the texture
+                setTexture(snake[i], snakeHeadTexture_RIGHT);
             }
             else if(SnakeDirMoving == "up")
             {
@@ -416,6 +427,8 @@ function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
+                //draw the texture
+                setTexture(snake[i], snakeHeadTexture_UP);
             }
             else if(SnakeDirMoving == "down")
             {
@@ -433,10 +446,9 @@ function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
+                //draw the texture
+                setTexture(snake[i], snakeHeadTexture_DOWN);
             }
-            
-            //draw the texture
-            setTexture(snake[i], snakeHeadTexture);
             
             //check for gameover
             checkSnakeCollision();
@@ -493,6 +505,9 @@ function checkGenerateFruit()
             
             //add fruit texture to the new respawned fruit
             setTexture(Fruit, FruitTexture);
+            
+            //add fruit animation
+            Fruit.classList.add("fruitEffect");
         }
         else
         {
@@ -515,9 +530,12 @@ function checkFruitEaten()
         if(snake_row == fruit_row && snake_col == fruit_col)
         {
             score += scoreFactor;
-            document.getElementById("score").innerHTML = "Score: " + score;
+            let scoreElement = document.getElementById("score");
+            scoreElement.innerHTML = "Score: " + score;
+            scheduleAnimation(scoreElement, "scoreBoard");
             
             // the fruit just been eaten.
+            Fruit.classList.remove("fruitEffect");
             Fruit = null; 
             
             //increase the snake speed with every fruit eaten
@@ -539,81 +557,15 @@ function checkFruitEaten()
             */
             if(snake.length <= maximumSnakeSegments)
             {
-                var lastTailY = parseInt(snake[snake.length-1].dataset.row);
-                var lastTailX = parseInt(snake[snake.length-1].dataset.col);
-                
-                if(SnakeDirMoving == "down")
+                /*previousSnakeCell will have the last segment's previous position*/
+                if(previousSnakeCell != null)
                 {
-                    if(lastTailY - 1 >= 0)
-                    {
-                        lastTailY -= 1;
-                        let elemName = getElementIdName(lastTailY, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        snake.push(cell);
-                    }
-                    else
-                    {
-                        let elemName = getElementIdName(tableNumberOfRows-1, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        snake.push(cell);
-                    }
-                }
-                else if (SnakeDirMoving == "up")
-                {
-                    if(lastTailY + 1 < tableNumberOfRows)
-                    {
-                        lastTailY += 1;
-                        let elemName = getElementIdName(lastTailY, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        snake.push(cell);
-                    }
-                    else
-                    {
-                        let elemName = getElementIdName(0, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        
-                        snake.push(cell);
-                    }
-                }
-                else if (SnakeDirMoving == "left")
-                {
-                    if(lastTailX + 1 < tableNumberOfCols)
-                    {
-                        lastTailX += 1;
-                        let elemName = getElementIdName(lastTailY, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        
-                        snake.push(cell);
-                    }
-                    else
-                    {
-                        let elemName = getElementIdName(lastTailY, 0);
-                        let cell = document.getElementById(elemName);
-                        
-                        snake.push(cell);
-                    }
-                }
-                else if (SnakeDirMoving == "right")
-                {
-                    if(lastTailX - 1 >= 0)
-                    {
-                        lastTailX -= 1;
-                        
-                        let elemName = getElementIdName(lastTailY, lastTailX);
-                        let cell = document.getElementById(elemName);
-                        
-                        snake.push(cell);
-                    }
-                    else
-                    {
-                        let elemName = getElementIdName(lastTailY, tableNumberOfCols-1);
-                        let cell = document.getElementById(elemName);
-                        
-                        snake.push(cell);
-                    }
+                    snake.push(previousSnakeCell);
+                    setTexture(previousSnakeCell, snakeBodyTexture);
+                    
+                    scheduleAnimation(previousSnakeCell, "snakeGrowingEffect");
                 }
             }
-            
             checkGenerateFruit();
         }
     }
@@ -672,11 +624,92 @@ function gameRestart()
     }
 }
 
+function scheduleAnimation(element, className)
+{
+    element.classList.add(className);
+
+    let resolveFn;
+
+    const promise = new Promise(resolve => {
+        resolveFn = resolve;
+    });
+
+    const animObj = {
+        promise,
+        animation: className
+    };
+
+    activeAnimations.add(animObj);
+
+    function handler()
+    {
+        element.classList.remove(className);
+        element.removeEventListener("animationend", handler);
+
+        // delete ONLY this animation instance
+        activeAnimations.delete(animObj);
+
+        resolveFn();
+    }
+
+    element.addEventListener("animationend", handler);
+
+    return promise;
+}
+
+async function waitForAnimation(active_animation_name)
+{
+    var anim = null;
+    
+    activeAnimations.forEach(elem => {
+        
+        if (elem.animation === active_animation_name)
+        {
+            anim = elem;
+        }
+    });
+    
+    if (anim)
+    {
+        console.log("Here");
+        await anim.promise;
+    }
+}
+
+function relocateControls()
+{
+    const controls = document.getElementById("controls");
+    const gameDiv = document.getElementById("game_div");
+    const gameHud = document.getElementById("gameHud");
+    const author = document.getElementById("author");
+
+    if(window.innerWidth < 768)
+    {
+        // move into gameDiv
+        if(controls.parentElement !== gameDiv)
+        {
+            gameDiv.appendChild(controls);
+        }
+    }
+    else
+    {
+        // move back into HUD
+        if(controls.parentElement !== gameHud)
+        {
+            gameHud.appendChild(controls);
+            gameHud.insertBefore(controls, author);
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
+    
     if( createTable() )
     {
+        relocateControls();
+        
         //The main loop function:
-        window.setInterval( function()
+        window.setInterval( async function()
         {
             //Creating a main loop;
             renderCounterInMs += gameRenderingSpeed;
@@ -684,6 +717,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             //if game is started and its time to render the snake.
             if( gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) && gamePaused == false)
             {
+                /*Block the execution of the function if another function instance is in await*/
+                if (gameTickRunning)
+                {
+                    return;   // prevents setInterval function execution stacking
+                }
+                
+                //Locking the window.setInterval from proceeding with the execution of this function
+                //during the awaits
+                gameTickRunning = true;
+                
                 renderCounterInMs = 0;
                 
                 // apply queued direction ONCE per move
@@ -692,12 +735,24 @@ document.addEventListener('DOMContentLoaded', async () => {
                     SnakeDirMoving = snakeNextDirection;
                 }
                 
-                moveSnake();
+                /* if the snake is moving*/
+                if ( (SnakeDirMoving === "left")  ||
+                     (SnakeDirMoving === "right") ||
+                     (SnakeDirMoving === "up")    ||
+                     (SnakeDirMoving === "down" ) )
+                {
+                    await moveSnake();
+                }
+                
+                //Unlocking the window.setInterval
+                gameTickRunning = false;
             }
         }, 
         gameRenderingSpeed); //this functions is executed every SnakeSpeed mili-seconds.
     }
 });
+
+window.addEventListener("resize", relocateControls);
 
 //When fullscreen changes call my function to handle the zooming
 //document.addEventListener("fullscreenchange", FullScreenZoom, false);

@@ -7,9 +7,9 @@
     /*justify-content: center;
     align-items: center;*/
     
-    gap: 20px; /* ?? equal spacing between ALL children */
+    gap: 20px; /* equal spacing between ALL children */
     float: left;
-    width:60%; /* the width of game_content is also influenced by width of game_div*/
+    width:50%; /* the width of game_content is also influenced by width of game_div*/
 
     padding: 0%;
 
@@ -55,7 +55,8 @@
     
     border: solid 2px blue;
     border-spacing: 2px;
-    
+    width: auto;
+        
     opacity: 0.9;
     word-wrap: break-word;
     
@@ -79,7 +80,7 @@
 }
 
 @media (max-width: 768px) {
-    #game_div table tr td{
+    #game_div.game_div_fullscreen table tr td{
         padding-top: 2.5vw;
     }
 }
@@ -98,7 +99,7 @@
 #gameHud{
     position: relative;
     display:flex;
-    flex-direction: column; /* 👈 This makes it vertical */
+    flex-direction: column; /* This makes it vertical */
 
     overflow: hidden;
     padding: 2px;
