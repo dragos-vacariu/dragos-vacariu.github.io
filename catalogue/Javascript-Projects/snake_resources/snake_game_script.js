@@ -1,22 +1,40 @@
-var snakeSeettled=false;
-var snakeHeadPos = [];
-var SnakeDirMoving="";
-var Fruit = "";
+var snake = [];
+var SnakeDirMoving = "";
+var snakeNextDirection = "";
+var Fruit = null;
 var score = 0;
-var scoreFactor = 1; // this will be used to increase the score;
-var gameOver=false;
+
+//this will be used to increase the score;
+var scoreFactor = 1;
+var gameOver = false;
 var gameStarted = false;
+
 const FruitTexture = "url('snake_game_fruit.png')";
 const snakeHeadTexture = "url('snake_head.png')";
 const snakeBodyTexture = "url('snake_body.png')";
-const gameRenderingSpeed = 10; // this will be the game rendering speed -> 200 ms = around 5FPS
-var SnakeSpeed = 400; //Snake will be the initial speed of the Snake. Initially move 2 square in 800ms
-var maxSnakeSpeed = 250; //this will be the maximum speed of the snake. Meaning the snake will move maximum 4 square a second
-var renderCounterInMs = 0; // this will count the miliseconds passed since last time snake was rendered
+
+//this will be the game rendering speed -> 200 ms = around 5FPS
+const gameRenderingSpeed = 10; 
+
+//Snake will be the initial speed of the Snake. Initially move 2 square in 800ms
+var SnakeSpeed = 400;
+
+//this will be the maximum speed of the snake. Meaning the snake will move maximum 4 square a second
+var maxSnakeSpeed = 250;
+
+//this will count the miliseconds passed since last time snake was rendered
+var renderCounterInMs = 0; 
+
 var SnakeAccelerationFactor = 10; //this will be used to increase the value of SnakeSpeed.
 
-function FullscreenMode(e) {
+const tableNumberOfRows = 8;
+const tableNumberOfCols = 8;
+const maximumSnakeSegment = 25;
+
+function FullscreenMode(e)
+{
     var game_content = document.getElementById("game_content");
+    
     if (document.fullscreenElement == null)
     {
         if (game_content.requestFullscreen) 
@@ -24,11 +42,13 @@ function FullscreenMode(e) {
             game_content.requestFullscreen();
         } 
         else if (game_content.webkitRequestFullscreen) 
-        { /* Safari */
+        {
+            /* Safari */
             game_content.webkitRequestFullscreen();
         } 
         else if (game_content.msRequestFullscreen) 
-        { /* IE11 */
+        {
+            /* IE11 */
             game_content.msRequestFullscreen();
         }
     }
@@ -40,11 +60,13 @@ function FullscreenMode(e) {
             document.exitFullscreen();
         } 
         else if (document.webkitExitFullscreen) 
-        { /* Safari */
+        {
+            /* Safari */
             document.webkitExitFullscreen();
         } 
         else if (document.msExitFullscreen) 
-        { /* IE11 */
+        {
+            /* IE11 */
             document.msExitFullscreen();
         }
     }
@@ -58,33 +80,120 @@ function Enter_FullScreen(e)
     }
 }
 
-function FullScreenZoom()
+function getElementIdName(y, x)
 {
-   if (document.fullscreenElement != null)
-   {
-        //document.getElementById("fullscreen_button").style.backgroundColor = "pink";
-        //document.getElementById("game_div").style.width = "55vw";
-   }
-   else
-   {
-        //document.getElementById("fullscreen_button").style.backgroundColor = "#eeeeee";
-        //document.getElementById("game_div").style.width = "45vw";
-   }
+    var xStr = "";
+    var yStr = "";
+    
+    if (x >= 10)
+    {
+        xStr = x.toString();
+    }
+    else
+    {
+        xStr = "0" + x.toString();
+    }
+    
+    if (y >= 10)
+    {
+        yStr = y.toString();
+    }
+    else
+    {
+        yStr = "0" + y.toString();
+    }
+    
+    var elemName = "elem" + yStr + xStr;
+    
+    return elemName;
 }
 
-function SquareClicked(x)
+function createTable()
 {
-    if(snakeSeettled==false)
+    var game_div = document.getElementById("game_div");
+    if(game_div)
     {
-        document.getElementById(x).style.border = "solid 1px red";
-        snakeHeadPos.push(x);
-        snakeSeettled = true;
+        var table = document.createElement("table");
+        table.id = "game_table";
+        
+        for(var row = 0; row < tableNumberOfRows; row++)
+        {
+            var table_row = document.createElement("tr");
+            for(var col = 0; col < tableNumberOfCols; col++)
+            {
+                let cell = document.createElement("td");
+                
+                let cell_id = getElementIdName(row, col);
+                
+                cell.id = cell_id
+                cell.dataset.row = row;
+                cell.dataset.col = col;
+                cell.dataset.available = "true";
+                cell.style.backgroundColor = "transparent";
+                cell.onclick = function (){
+                    SquareClicked(this);
+                }
+                
+                table_row.appendChild(cell);
+            }
+            table.appendChild(table_row);
+        }
+        game_div.appendChild(table);
+        
+        return true;
+    }
+    else
+    {
+        alert("game_div is not part of DOM.");
+        
+        return false;
+    }
+}
+
+function getAvailableTableCells()
+{
+    var game_div = document.getElementById("game_div");
+    var table = game_div.querySelector("#game_table");
+    var freeCells = [];
+    if(table)
+    {
+        for(var row_index = 0; row_index < table.children.length; row_index++)
+        {
+            var table_row = table.children[row_index];
+            
+            for(var col_index = 0; col_index < table_row.children.length; col_index++)
+            {
+                let cell = table_row.children[col_index];
+                
+                if(cell.dataset.available == "true")
+                {
+                    freeCells.push(cell);
+                }
+
+            }
+        }
+    }
+    else
+    {
+        alert("game_table is not part of DOM.");
+    }
+    
+    return freeCells;
+}
+
+function SquareClicked(cell)
+{
+    if(snake.length == 0)
+    {
+        cell.style.border = "solid 1px red";
+        cell.dataset.available = "false";
+        snake.push(cell);
     }
 }
 
 function gameStart()
 {
-    if(snakeSeettled==false)
+    if(snake.length == 0)
     {
         document.getElementById("result").style.backgroundColor =  "rgba(255,0,0,0.4)";
     }
@@ -92,11 +201,11 @@ function gameStart()
     {
         document.getElementById("result").style.backgroundColor =  "transparent";
         document.getElementById("result").text = "";
-        for(var i = 0 ; i<snakeHeadPos.length; i++) //Only the snake head is available in snakeHeadPos currently
-        {
-            document.getElementById(snakeHeadPos[i]).style.backgroundImage = snakeHeadTexture;
-            document.getElementById(snakeHeadPos[i]).style.borderColor="black";
-        }
+        
+        //Add the texture to snake_head
+        setTexture(snake[0], snakeHeadTexture);
+        snake[0].style.borderColor = "black";
+
         document.getElementById("result").innerHTML = "";
         document.getElementById("startgame").disabled = true;
         document.getElementById("restartgame").disabled = false;
@@ -104,12 +213,20 @@ function gameStart()
         document.getElementById("turnRight").disabled = false;
         document.getElementById("turnUp").disabled = false;
         document.getElementById("turnDown").disabled = false;
-        var fruitX = Math.floor(Math.random() * 8);
-        var fruitY = Math.floor(Math.random() * 8);
-        Fruit = "elem" + fruitX + fruitY;
-        document.getElementById(Fruit).style.backgroundImage = FruitTexture;
-        document.getElementById("score").innerHTML = "Score: " + score;
-        gameStarted = true;
+        
+        checkGenerateFruit();
+        
+        if(Fruit)
+        {
+            setTexture(Fruit, FruitTexture);
+            
+            document.getElementById("score").innerHTML = "Score: " + score;
+            gameStarted = true;
+        }
+        else
+        {
+            alert("Game could not be started. Fruit element doesn't exist.");
+        }
     }
 }
 
@@ -155,344 +272,409 @@ document.onkeydown = function (e) //trigger event when key is pressed down
 function setDirLeft()
 {
     //do this check to avoid turning 180 degrees around.
-    if(SnakeDirMoving!="right" )
+    if(SnakeDirMoving != "right" )
     {
         document.getElementById("turnUp").style.opacity = "0.7";
         document.getElementById("turnLeft").style.opacity = "1";
         document.getElementById("turnRight").style.opacity = "0.7";
         document.getElementById("turnDown").style.opacity = "0.7";
-        SnakeDirMoving="left";
+        
+        /*queuing the next directional movement*/
+        snakeNextDirection = "left";
     }
 }
 
 function setDirRight()
 {
     //do this check to avoid turning 180 degrees around.
-    if(SnakeDirMoving!="left" )
+    if(SnakeDirMoving != "left" )
     {
         document.getElementById("turnUp").style.opacity = "0.7";
         document.getElementById("turnLeft").style.opacity = "0.7";
         document.getElementById("turnRight").style.opacity = "1";
         document.getElementById("turnDown").style.opacity = "0.7";
-        SnakeDirMoving="right";
+        
+        /*queuing the next directional movement*/
+        snakeNextDirection = "right";
     }
 }
 
 function setDirUp()
 {
     //do this check to avoid turning 180 degrees around.
-    if(SnakeDirMoving!="down" )
+    if(SnakeDirMoving != "down" )
     {
         document.getElementById("turnUp").style.opacity = "1";
         document.getElementById("turnLeft").style.opacity = "0.7";
         document.getElementById("turnRight").style.opacity = "0.7";
         document.getElementById("turnDown").style.opacity = "0.7";
-        SnakeDirMoving="up";
+        
+        /*queuing the next directional movement*/
+        snakeNextDirection = "up";
     }
 }
 
 function setDirDown()
 {
     //do this check to avoid turning 180 degrees around.
-    if(SnakeDirMoving!="up")
+    if(SnakeDirMoving != "up")
     {
         document.getElementById("turnUp").style.opacity = "0.7";
         document.getElementById("turnLeft").style.opacity = "0.7";
         document.getElementById("turnRight").style.opacity = "0.7";
         document.getElementById("turnDown").style.opacity = "1";
-        SnakeDirMoving="down";
+        
+        /*queuing the next directional movement*/
+        snakeNextDirection = "down";
     }
 }
 
-//The main loop function:
-window.setInterval(function(){
-    //Creating a main loop;
-    renderCounterInMs += gameRenderingSpeed;
-    //if game is started and its time to render the snake.
-    if(gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) )
+function moveSnake()
+{
+    var previousSnakeCell = snake[0];
+    
+    for(var i = 0; i < snake.length; i++)
     {
-        renderCounterInMs=0;
-        if(SnakeDirMoving=="left")
+        //if the snake head
+        if( i == 0)
         {
-            for(var i = 0 ; i<snakeHeadPos.length; i++)
-            {
-                document.getElementById(snakeHeadPos[i]).style.backgroundImage="";
-                var buffer; //this variable will store the previous position of the head in order to pass it to the body.
-                if(i==0)
-                {
-                    buffer = snakeHeadPos[i];
-                    if(parseInt(snakeHeadPos[i][5])-1 < 0)
-                    {
-                        snakeHeadPos[i] = "elem" + snakeHeadPos[i][4] + "7";
-                    }
-                    else
-                    {
-                        snakeHeadPos[i]    = "elem" + snakeHeadPos[i][4] + (parseInt(snakeHeadPos[i][5])-1);
-                    }
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeHeadTexture; //let this be drawed before checking gameover
-                    checkSnakeCollision();
-                }
-                else
-                {
-                    var aux = snakeHeadPos[i];
-                    snakeHeadPos[i] = buffer;
-                    buffer = aux;
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeBodyTexture;
-                }
+            //clear the texture
+            removeTexture(snake[i]);
+            
+            //get the head coordinates
+            let snake_col = parseInt(snake[i].dataset.col);
+            let snake_row = parseInt(snake[i].dataset.row);
                 
-            }
-        }
-        else if(SnakeDirMoving=="right")
-        {
-            for(var i = 0 ; i<snakeHeadPos.length; i++)
+            //move the snake
+            if(SnakeDirMoving == "left")
             {
-                document.getElementById(snakeHeadPos[i]).style.backgroundImage=""; //remove the texture
-                var buffer; //this variable will store the previous position of the head in order to pass it to the body.
-                if(i==0)
+                /*if snake_head gets out of the screen*/
+                if(snake_col - 1 < 0)
                 {
-                    buffer = snakeHeadPos[i];
-                    if(parseInt(snakeHeadPos[i][5])+1 > 7)
-                    {
-                        snakeHeadPos[i] = "elem" + snakeHeadPos[i][4] + "0";
-                    }
-                    else
-                    {
-                        snakeHeadPos[i] = "elem" + snakeHeadPos[i][4] + (parseInt(snakeHeadPos[i][5])+1);
-                    }
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeHeadTexture; //let this be drawed before checking gameover
-                    checkSnakeCollision();
+                    /*snake_head enters back to the screen from the opposite side*/
+                    let elemName = getElementIdName(snake_row, tableNumberOfCols - 1);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
                 else
                 {
-                    var aux = snakeHeadPos[i];
-                    snakeHeadPos[i] = buffer;
-                    buffer = aux;
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeBodyTexture;
+                    let elemName = getElementIdName(snake_row, snake_col-1);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
             }
-        }
-        else if(SnakeDirMoving=="up")
-        {
-            for(var i = 0 ; i<snakeHeadPos.length; i++)
+            else if(SnakeDirMoving == "right")
             {
-                document.getElementById(snakeHeadPos[i]).style.backgroundImage="";
-                var buffer; //this variable will store the previous position of the head in order to pass it to the body.
-                if(i==0)
+                /*if snake_head gets out of the screen*/
+                if(snake_col+1 >= tableNumberOfCols)
                 {
-                    buffer = snakeHeadPos[i];
-                    if(parseInt(snakeHeadPos[i][4])-1 < 0)
-                    {
-                        snakeHeadPos[i] = "elem" + "7" + snakeHeadPos[i][5];
-                    }
-                    else
-                    {
-                        snakeHeadPos[i] = "elem" + (parseInt(snakeHeadPos[i][4])-1) + snakeHeadPos[i][5];
-                    }
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeHeadTexture; //let this be drawed before checking gameover
-                    checkSnakeCollision();
+                    /*snake_head enters back to the screen from the opposite side*/
+                    let elemName = getElementIdName(snake_row, 0);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
                 else
                 {
-                    var aux = snakeHeadPos[i];
-                    snakeHeadPos[i] = buffer;
-                    buffer = aux;
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeBodyTexture;
+                    let elemName = getElementIdName(snake_row, snake_col + 1);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
             }
-        }
-        else if(SnakeDirMoving=="down")
-        {
-            for(var i = 0 ; i<snakeHeadPos.length; i++)
+            else if(SnakeDirMoving == "up")
             {
-                document.getElementById(snakeHeadPos[i]).style.backgroundImage="";
-                var buffer; //this variable will store the previous position of the head in order to pass it to the body.
-                if(i==0)
+                /*if snake_head gets out of the screen*/
+                if(snake_row - 1 < 0)
                 {
-                    buffer = snakeHeadPos[i];
-                    if(parseInt(snakeHeadPos[i][4])+1 > 7)
-                    {
-                        snakeHeadPos[i] = "elem" + "0" + snakeHeadPos[i][5];
-                    }
-                    else
-                    {
-                        snakeHeadPos[i] = "elem" + (parseInt(snakeHeadPos[i][4])+1) + snakeHeadPos[i][5];
-                    }
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeHeadTexture; //let this be drawed before checking gameover
-                    checkSnakeCollision();
+                    /*snake_head enters back to the screen from the opposite side*/
+                    let elemName = getElementIdName(tableNumberOfRows-1, snake_col);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
                 else
                 {
-                    var aux = snakeHeadPos[i];
-                    snakeHeadPos[i] = buffer;
-                    buffer = aux;
-                    document.getElementById(snakeHeadPos[i]).style.backgroundImage=snakeBodyTexture;
+                    let elemName = getElementIdName(snake_row-1, snake_col);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
                 }
             }
+            else if(SnakeDirMoving == "down")
+            {
+                /*if snake_head gets out of the screen*/
+                if(snake_row + 1 > tableNumberOfRows-1)
+                {
+                    /*snake_head enters back to the screen from the opposite side*/
+                    let elemName = getElementIdName(0, snake_col);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
+                }
+                else
+                {
+                    let elemName = getElementIdName(snake_row + 1, snake_col);
+                    let cell = document.getElementById(elemName);
+                    snake[i] = cell;
+                }
+            }
+            
+            //draw the texture
+            setTexture(snake[i], snakeHeadTexture);
+            
+            //check for gameover
+            checkSnakeCollision();
+            
+            //check if fruit was eaten
+            checkFruitEaten();
         }
-        if(snakeHeadPos.length>0)
+        
+        //do this to the snake_body
+        else
         {
-            for(var i=0; i<snakeHeadPos.length; i++)
+            //clear the texture
+            removeTexture(snake[i]);
+            
+            //move the body
+            var aux = snake[i];
+            snake[i] = previousSnakeCell;
+            previousSnakeCell = aux;
+            
+            //draw the texture
+            setTexture(snake[i], snakeBodyTexture);
+        }
+        /*Checking if anything went wrong while moving the snake / respawning the fruit*/
+        if(!snake[i])
+        {
+            alert("Snake cell id: " + snake[i].id + " is unavailable.");
+        }
+    }
+}
+
+function setTexture(cell, texture)
+{
+    cell.style.backgroundImage = texture;
+    cell.dataset.available = "false";
+}
+
+function removeTexture(cell)
+{
+    cell.style.backgroundImage = "";
+    cell.dataset.available = "true";
+}
+
+function checkGenerateFruit()
+{
+    if(Fruit == null)
+    {
+        var availableCells = getAvailableTableCells();
+        if(availableCells.length > 0)
+        {
+            let index = Math.floor(Math.random() * availableCells.length);
+        
+            Fruit = availableCells[index];
+            
+            //add fruit texture to the new respawned fruit
+            setTexture(Fruit, FruitTexture);
+        }
+        else
+        {
+            console.log("Could not find any available cell.");
+        }
+        console.log(Fruit.id);
+    }
+}
+
+function checkFruitEaten()
+{
+    //Checking if fruit was eaten by snake_head
+    if(Fruit != null)
+    {
+        let fruit_row = parseInt(Fruit.dataset.row);
+        let fruit_col = parseInt(Fruit.dataset.col);
+        let snake_row = parseInt(snake[0].dataset.row)
+        let snake_col = parseInt(snake[0].dataset.col)
+        
+        if(snake_row == fruit_row && snake_col == fruit_col)
+        {
+            score += scoreFactor;
+            document.getElementById("score").innerHTML = "Score: " + score;
+            
+            // the fruit just been eaten.
+            Fruit = null; 
+            
+            //increase the snake speed with every fruit eaten
+            if (SnakeSpeed > maxSnakeSpeed)
             {
-                if(snakeHeadPos[i][4] == Fruit[4] && snakeHeadPos[i][5] == Fruit[5]) //the head of the snake is at index [0]
+                SnakeSpeed -= SnakeAccelerationFactor;
+                
+                //Increase the score factor each time the Snake speed gets increased by 50 ms
+                if((SnakeSpeed - maxSnakeSpeed) / SnakeAccelerationFactor % 5 == 0)
                 {
-                    //document.getElementById(Fruit).style.backgroundImage = ""; //remove fruit texture from the table is not necessary as the loop drawing the snake will handle this.
-                    score+=scoreFactor;
-                    document.getElementById("score").innerHTML = "Score: " + score;
-                    Fruit=""; // the fruit just been eaten.
-                    
-                    //increase the snake speed with every fruit eaten
-                    if (SnakeSpeed > maxSnakeSpeed)
-                    {
-                        SnakeSpeed-=SnakeAccelerationFactor;
-                        //Increase the score factor each time the Snake speed gets increased by 50 ms
-                        if((SnakeSpeed - maxSnakeSpeed) / SnakeAccelerationFactor % 5 == 0)
-                        {
-                            scoreFactor++;
-                        }
-                    }
-                    /*
-                      Grow the snake tail by one element if the size of the snake is less than 25
-                      Else we will keep the snake at 25 this means we will always have at least 64-25 
-                      free square to move through
-                    */
-                    if(snakeHeadPos.length <= 25)
-                    {
-                        var lastTailY = parseInt(snakeHeadPos[snakeHeadPos.length-1][4]);
-                        var lastTailX = parseInt(snakeHeadPos[snakeHeadPos.length-1][5]);
-                        if(SnakeDirMoving == "down")
-                        {
-                            if(lastTailY-1 >=0)
-                            {
-                                lastTailY-=1;
-                                snakeHeadPos.push("elem" + lastTailY + lastTailX);
-                            }
-                            else
-                            {
-                                snakeHeadPos.push("elem" + "7" + lastTailX);
-                            }
-                        }
-                        else if (SnakeDirMoving == "up")
-                        {
-                            if(lastTailY+1 < 8)
-                            {
-                                lastTailY+=1;
-                                snakeHeadPos.push("elem" + lastTailY + lastTailX);
-                            }
-                            else
-                            {
-                                snakeHeadPos.push("elem" + "0" + lastTailX);
-                            }
-                        }
-                        else if (SnakeDirMoving == "left")
-                        {
-                            if(lastTailX+1 < 8)
-                            {
-                                lastTailX+=1;
-                                snakeHeadPos.push("elem" + lastTailY + lastTailX);
-                            }
-                            else
-                            {
-                                snakeHeadPos.push("elem" + lastTailY +  "7" );
-                            }
-                        }
-                        else if (SnakeDirMoving == "right")
-                        {
-                            if(lastTailX-1 >= 0)
-                            {
-                                lastTailX-=1;
-                                snakeHeadPos.push("elem" + lastTailY + lastTailX);
-                            }
-                            else
-                            {
-                                snakeHeadPos.push("elem" + lastTailY + "0");
-                            }
-                        }
-                    }
+                    scoreFactor++;
                 }
             }
-            if (Fruit =="")
+            
+            /*
+              Grow the snake tail by one element if the size of the snake is less than 25
+              Else we will keep the snake at 25 this means we will always have at least 64-25 
+              free square to move through
+            */
+            if(snake.length <= maximumSnakeSegment)
             {
-                fruitX = Math.floor(Math.random() * 8);
-                fruitY = Math.floor(Math.random() * 8);
-                //Make sure the fruit gets respawned on a free square.
-                var counter = 0;
-                Fruit = "elem" + fruitY + fruitX;
-                while(true)
+                var lastTailY = parseInt(snake[snake.length-1].dataset.row);
+                var lastTailX = parseInt(snake[snake.length-1].dataset.col);
+                
+                if(SnakeDirMoving == "down")
                 {
-                    var freeRandomSquareGenerated = true;
-                    var index = 0;
-                    
-                    for(index = 0; index < snakeHeadPos.length; index++) 
+                    if(lastTailY - 1 >= 0)
                     {
-                        if(String(Fruit).toLowerCase() == String(snakeHeadPos[index]).toLowerCase())
-                        {
-                            freeRandomSquareGenerated = false;
-                            //break the loop - we need to peform the check from the beggining;
-                            break;
-                        }
-                    }
-                    //if the loop ended because of the value stored in index and not because of the break.
-                    if(freeRandomSquareGenerated==false)
-                    {
-                            fruitX = Math.floor(Math.random() * 8);
-                            fruitY = Math.floor(Math.random() * 8);
-                            Fruit = "elem" + fruitY + fruitX;
+                        lastTailY -= 1;
+                        let elemName = getElementIdName(lastTailY, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        snake.push(cell);
                     }
                     else
                     {
-                        //the generated square is free
-                        break;
+                        let elemName = getElementIdName(tableNumberOfRows-1, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        snake.push(cell);
                     }
-                    counter++;
                 }
-				document.getElementById(Fruit).style.backgroundImage = FruitTexture; //add fruit texture to the new respawned fruit
-			}
-		}
-	}
-}, gameRenderingSpeed); //this functions is executed every SnakeSpeed mili-seconds.
+                else if (SnakeDirMoving == "up")
+                {
+                    if(lastTailY + 1 < tableNumberOfRows)
+                    {
+                        lastTailY += 1;
+                        let elemName = getElementIdName(lastTailY, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        snake.push(cell);
+                    }
+                    else
+                    {
+                        let elemName = getElementIdName(0, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        
+                        snake.push(cell);
+                    }
+                }
+                else if (SnakeDirMoving == "left")
+                {
+                    if(lastTailX + 1 < tableNumberOfCols)
+                    {
+                        lastTailX += 1;
+                        let elemName = getElementIdName(lastTailY, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        
+                        snake.push(cell);
+                    }
+                    else
+                    {
+                        let elemName = getElementIdName(lastTailY, 0);
+                        let cell = document.getElementById(elemName);
+                        
+                        snake.push(cell);
+                    }
+                }
+                else if (SnakeDirMoving == "right")
+                {
+                    if(lastTailX - 1 >= 0)
+                    {
+                        lastTailX -= 1;
+                        
+                        let elemName = getElementIdName(lastTailY, lastTailX);
+                        let cell = document.getElementById(elemName);
+                        
+                        snake.push(cell);
+                    }
+                    else
+                    {
+                        let elemName = getElementIdName(lastTailY, tableNumberOfCols-1);
+                        let cell = document.getElementById(elemName);
+                        
+                        snake.push(cell);
+                    }
+                }
+            }
+            
+            checkGenerateFruit();
+        }
+    }
+}
 
 function checkSnakeCollision()
 {
-	for(var j=0;j<snakeHeadPos.length; j++) //Check for Snake Collision.
-	{
-		if(j!=0)
-		{
-			if(snakeHeadPos[0][5] == snakeHeadPos[j][5] && snakeHeadPos[0][4] == snakeHeadPos[j][4])
-			{
-				document.getElementById("result").innerHTML = "Game Over!";
-				document.getElementById("result").style.backgroundColor = "rgba(255,0,0,0.4)";
-				gameOver=true;
+    for(var j=0; j < snake.length; j++) //Check for Snake Collision.
+    {
+        /*if not the snake_head*/
+        if(j != 0)
+        {
+            /*if snake_head collides with the snake_body*/
+            if(snake[0].dataset.row == snake[j].dataset.row && snake[0].dataset.col == snake[j].dataset.col)
+            {
+                document.getElementById("result").innerHTML = "Game Over!";
+                document.getElementById("result").style.backgroundColor = "rgba(255,0,0,0.4)";
+                gameOver = true;
                 gameStarted = false;
-			}
-		}
-	}
+            }
+        }
+    }
 }
 
 function gameRestart()
 {
-	snakeSeettled=false;
-	snakeHeadPos = [];
-	SnakeDirMoving="";
-	Fruit = "";
-	score = 0;
-	gameOver=false;
+    snake = [];
+    freeCells = [];
+    SnakeDirMoving = "";
+    snakeNextDirection = "";
+    Fruit = null;
+    score = 0;
+    gameOver = false;
     gameStarted = false;
-	document.getElementById("result").innerHTML = "";
+    SnakeSpeed = 400;
+    
+    document.getElementById("result").innerHTML = "";
     document.getElementById("result").style.backgroundColor = "transparent";
-	document.getElementById("startgame").disabled = false;
-	document.getElementById("restartgame").disabled = true;
-	//Clear the table:
-	for(var i=0;i<8; i++)
-	{
-		for (var j=0;j<8;j++)
-		{
-			document.getElementById("elem" + i + j).style.backgroundImage="";
-		}
-	}
+    document.getElementById("startgame").disabled = false;
+    document.getElementById("restartgame").disabled = true;
+    
+    //Clear the table:
+    for(var i=0; i<8; i++)
+    {
+        for (var j=0; j<8; j++)
+        {
+            let elemName = getElementIdName(i, j)
+            document.getElementById(elemName).style.backgroundImage = "";
+            document.getElementById(elemName).dataset.available = "true";
+        }
+    }
 }
 
+document.addEventListener('DOMContentLoaded', async () => {
+    if( createTable() )
+    {
+        //The main loop function:
+        window.setInterval( function()
+        {
+            //Creating a main loop;
+            renderCounterInMs += gameRenderingSpeed;
+            
+            //if game is started and its time to render the snake.
+            if( gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) )
+            {
+                renderCounterInMs = 0;
+                
+                // apply queued direction ONCE per move
+                if ( SnakeDirMoving != snakeNextDirection)
+                {
+                    SnakeDirMoving = snakeNextDirection;
+                }
+                
+                moveSnake();
+            }
+        }, 
+        gameRenderingSpeed); //this functions is executed every SnakeSpeed mili-seconds.
+    }
+});
+
 //When fullscreen changes call my function to handle the zooming
-document.addEventListener("fullscreenchange", FullScreenZoom, false);
+//document.addEventListener("fullscreenchange", FullScreenZoom, false);
 
 //Prevent the default behaviour on this window.
 window.addEventListener("keydown", function(e) {
