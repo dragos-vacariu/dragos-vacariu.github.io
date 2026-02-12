@@ -8,6 +8,7 @@ var score = 0;
 var scoreFactor = 1;
 var gameOver = false;
 var gameStarted = false;
+var gamePaused = false;
 
 const FruitTexture = "url('snake_game_fruit.png')";
 const snakeHeadTexture = "url('snake_head.png')";
@@ -27,9 +28,9 @@ var renderCounterInMs = 0;
 
 var SnakeAccelerationFactor = 10; //this will be used to increase the value of SnakeSpeed.
 
-const tableNumberOfRows = 8;
-const tableNumberOfCols = 8;
-const maximumSnakeSegment = 25;
+const tableNumberOfRows = 12;
+const tableNumberOfCols = 12;
+const maximumSnakeSegments = Math.floor((tableNumberOfRows * tableNumberOfCols) / 2);
 
 function FullscreenMode(e)
 {
@@ -195,6 +196,7 @@ function gameStart()
 {
     if(snake.length == 0)
     {
+        document.getElementById("result").innerHTML = "Please select a square before hitting START.";
         document.getElementById("result").style.backgroundColor =  "rgba(255,0,0,0.4)";
     }
     else
@@ -207,7 +209,11 @@ function gameStart()
         snake[0].style.borderColor = "black";
 
         document.getElementById("result").innerHTML = "";
-        document.getElementById("startgame").disabled = true;
+        
+        document.getElementById("startgame").id = "pausegame";
+        document.getElementById("pausegame").value = "Pause";
+        document.getElementById("pausegame").onclick = pauseGame;
+        
         document.getElementById("restartgame").disabled = false;
         document.getElementById("turnLeft").disabled = false;
         document.getElementById("turnRight").disabled = false;
@@ -227,6 +233,20 @@ function gameStart()
         {
             alert("Game could not be started. Fruit element doesn't exist.");
         }
+    }
+}
+
+function pauseGame()
+{
+    if(gamePaused)
+    {
+        gamePaused = false;
+        document.getElementById("pausegame").value = "Pause";
+    }
+    else
+    {
+        gamePaused = true;
+        document.getElementById("pausegame").value = "Resume";
     }
 }
 
@@ -420,9 +440,6 @@ function moveSnake()
             
             //check for gameover
             checkSnakeCollision();
-            
-            //check if fruit was eaten
-            checkFruitEaten();
         }
         
         //do this to the snake_body
@@ -444,7 +461,11 @@ function moveSnake()
         {
             alert("Snake cell id: " + snake[i].id + " is unavailable.");
         }
+        
     }
+    
+    //check if fruit was eaten
+    checkFruitEaten();
 }
 
 function setTexture(cell, texture)
@@ -516,7 +537,7 @@ function checkFruitEaten()
               Else we will keep the snake at 25 this means we will always have at least 64-25 
               free square to move through
             */
-            if(snake.length <= maximumSnakeSegment)
+            if(snake.length <= maximumSnakeSegments)
             {
                 var lastTailY = parseInt(snake[snake.length-1].dataset.row);
                 var lastTailX = parseInt(snake[snake.length-1].dataset.col);
@@ -627,17 +648,22 @@ function gameRestart()
     score = 0;
     gameOver = false;
     gameStarted = false;
+    gamePaused = false;
     SnakeSpeed = 400;
     
     document.getElementById("result").innerHTML = "";
     document.getElementById("result").style.backgroundColor = "transparent";
-    document.getElementById("startgame").disabled = false;
+
     document.getElementById("restartgame").disabled = true;
     
+    document.getElementById("pausegame").id = "startgame";
+    document.getElementById("startgame").value = "Start";
+    document.getElementById("startgame").onclick = gameStart;
+    
     //Clear the table:
-    for(var i=0; i<8; i++)
+    for(var i=0; i < tableNumberOfRows; i++)
     {
-        for (var j=0; j<8; j++)
+        for (var j=0; j < tableNumberOfCols; j++)
         {
             let elemName = getElementIdName(i, j)
             document.getElementById(elemName).style.backgroundImage = "";
@@ -656,7 +682,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderCounterInMs += gameRenderingSpeed;
             
             //if game is started and its time to render the snake.
-            if( gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) )
+            if( gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) && gamePaused == false)
             {
                 renderCounterInMs = 0;
                 

@@ -1,43 +1,48 @@
 #game_div table{
-	position: relative;
-	background-image: url(snake_background2.bmp);
+    position: relative;
+    
+    background-image: url(snake_background2.bmp);
     background-repeat: repeat; 
     background-size: 100%;
+    
+    /*background-color: rgba(255,255,255,0.7);*/
     padding:0%;
-    width: 40vw;
+    width: auto;
     margin:0%;
     width: 100%;
 
-	border: ridge 1px black;
-	opacity: 0.8;
+    border: ridge 1px black;
+    opacity: 0.8;
     border-collapse: collapse;
+    border-spacing: 1px;
     table-layout: fixed;
 }
 
 #game_div table td{
-	position: relative;
-	padding: 5%;
-	border: ridge 1px black;
+    position: relative;
+    padding-top: 1.9vw;
+    aspect-ratio: 1 / 1;
+    border: ridge 1px black;
     position: relative;
     background-size: 80%;
     background-repeat: no-repeat;
-	background-position: center;
+    background-position: center;
     margin:0%;
 }
 
 #controls{
     border: none 2px black;
     width: 90%;
-	padding:2%;
-	margin: 2%;
+    padding:2%;
+    margin: auto;
     background-color: transparent;
     display: inline-block;
 }
 
 #controls input{
     width:40%;
-	padding: 4px 2px;
-	margin: 3px;
+    padding: 4px 2px;
+    margin: 3px;
     text-align: center;
     font-family: Calibri;
     font-size: 18px; /* font-size in percent of the viewport size.*/
@@ -55,7 +60,7 @@
 #turnLeft, #turnRight{
     position: relative;
     left: 5%;
-	margin-left:0%;
+    margin-left:0%;
     display:inline-block;
 }
 
@@ -66,14 +71,14 @@
     padding: 0%;
     left:0%;
     font-family:Georgia;
-	font-size: 1.2vw; /* font-size 1% of the viewport size.*/
+    font-size: 1.2vw; /* font-size 1% of the viewport size.*/
     text-align: center;
     font-weight: normal;
-	background-color: transparent;
-	color:black;
-	font-weight: bold;
-	opacity: 1.0;
-	text-shadow: 0px 0px black;
+    background-color: transparent;
+    color:black;
+    font-weight: bold;
+    opacity: 1.0;
+    text-shadow: 0px 0px black;
     line-height: 1.2; /*the line height is proportional to the font*/
 }
 
@@ -101,18 +106,18 @@
 will allow them better responsiveness on extreme small viewports*/
 .button_container
 {
-    display: flex;
+    display: block;
 }
 
 .game_button{
-	position:relative;
+    position:relative;
     border: solid 1px black;
-	padding:2%;
-	margin-left:2%;
+    padding:2%;
+    margin-left:2%;
     text-align: center;
     font-size: 13px; /* font-size in percent of the viewport size.*/
     color: darkred;
-	font-weight: normal;
+    font-weight: normal;
     font-family: Georgia;
 }
 
@@ -123,37 +128,39 @@ will allow them better responsiveness on extreme small viewports*/
 
 #menu_div
 {
-    width: 96%;
-    margin-left: 2%;
+    width: 90%;
+    margin: auto;
     display: flex;
+    border: none 2px red;
 }
 
-#startgame, #restartgame, #fullscreen_button{
-	position: relative;
-    width:35%;
+#startgame, #pausegame, #restartgame, #fullscreen_button{
+    position: relative;
+    display: block;
+    width: 60%;
     margin: 1%;
-    font-size: 1vw; /* font-size in percent of the viewport size.*/
+    font-size: 13px; /* font-size in percent of the viewport size.*/
 }
 
 #fullscreen_button
 {
-	/*background-color: #eeeeee;*/
+    /*background-color: #eeeeee;*/
 }
 
 #speed{
     float: right;
     position: relative;
     left: 50%;
-	text-shadow: 5px 5px blue;
+    text-shadow: 5px 5px blue;
 }
 
 #game_hud #score
 {
-	width: 90%;
+    width: 90%;
     border: none 0px black;
-	background-color: rgba(255,255,255,0.7);
-	text-align: left;
-	font-weight: bold;
+    background-color: rgba(255,255,255,0.7);
+    text-align: left;
+    font-weight: bold;
     font-size: 1.2vw;
     padding: 1%;
     line-height: 1.2; /*the line height is proportional to the font*/
@@ -161,11 +168,11 @@ will allow them better responsiveness on extreme small viewports*/
 
 #game_hud #author
 {
-	position: relative;
-	width: 90%;
-	right: 0%;
+    position: relative;
+    width: 90%;
+    right: 0%;
     font-family: Calibri;
-	font-size: 11px;
+    font-size: 12px;
     line-height: 1.2; /*the line height is proportional to the font*/
     color: white;
     text-align: center;
@@ -200,9 +207,9 @@ will allow them better responsiveness on extreme small viewports*/
 
 #game_div
 {
-	width: 100%;
-	height:auto;
-	left: 0%;
+    width: 100%;
+    height:auto;
+    left: 0%;
 }
 
 #page_block #game_content
