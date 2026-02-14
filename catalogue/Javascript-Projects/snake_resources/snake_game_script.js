@@ -41,7 +41,8 @@ const maximumSnakeSegments = Math.floor((tableNumberOfRows * tableNumberOfCols) 
 
 function FullscreenMode(e)
 {
-    var game_content = document.getElementById("game_content");
+    const game_content = document.getElementById("game_content");
+    const gameDiv = document.getElementById("game_div");
     
     if (document.fullscreenElement == null)
     {
