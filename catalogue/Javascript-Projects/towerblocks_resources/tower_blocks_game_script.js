@@ -1,7 +1,7 @@
 var blocksClimbed = 0;
 var score = 0;
 var game_started = false;
-const blockSquareTexture = "url('brick.jpg')";
+const towerblockTexture = "url('toweblock_texture2.jpg')";
 const platformTexture = "url('platform.jpg')"
 const TableRows = 15
 const TableCols = 15
@@ -9,11 +9,12 @@ var spareBlocks = 3;
 const initialCombo = 3;
 var combo = initialCombo;
 var comboMessage = "";
-var blockDone = false;
+
+//Table height is reversed - 15 means the lowest row whereas 0 is the uppermost row.
+var block_altitude = TableRows - 1; //initialized with last row from the bottom
 
 var msCounter = 0;
 var recurrence = 100;
-var block;
 var build_platform;
 
 const scoreAnimation = [
@@ -87,56 +88,299 @@ function Enter_FullScreen(e)
 	}
 }
 
-/*
-class Form
+class Block
 {
-	constructor(cells, texture)
+	constructor(cell, texture)
 	{
-        if(cells.length && cells.length > 0)
+        if(!cell)
         {
-            let cellsValid = true;
-            for(let index = 0; index < cells.length; index++)
-            {
-                if(cells[index] == null)
-                {
-                    alert("The expected cell element at index: " + index + " - is null.");
-                    cellsValid = false;
-                    break;
-                }
-            }
-            if (cellsValid)
-            {
-                this.cells = cells;
-            }
+            alert("The expected cell element is invalid.");
         }
-        else
+        if( texture == "")
         {
-            alert("The expected cell elements list is empty or invalid.");
+            alert("The expected texture is empty");
         }
-        
+        this.cell = cell;
+        this.texture = texture;
+        this.row = parseInt(this.cell.dataset.row);
+        this.col = parseInt(this.cell.dataset.col);
 	}
     draw()
     {
-        for(let elem in this.cells)
+        if(this.cell)
         {
-            elem.style.backgroundImage = this.texture;
-            elem.dataset.available = "false";
+            this.cell.style.backgroundImage = this.texture;
         }
     }
     
     clear()
     {
-        for(let elem in this.cells)
+        if(this.cell)
         {
-            elem.style.backgroundImage = "";
-            elem.dataset.available = "true";
+            this.cell.style.backgroundImage = "";
         }
     }
+    
+    moveLeft()
+    {
+        this.col--;
+        let elemName = getElementIdName(this.row, this.col);
+        this.cell = document.getElementById(elemName);
+    }
+    
+    moveRight()
+    {
+        this.col++;
+        let elemName = getElementIdName(this.row, this.col);
+        this.cell = document.getElementById(elemName);
+    }
+    
+    moveDown()
+    {
+        this.row++;
+        let elemName = getElementIdName(this.row, this.col);
+        this.cell = document.getElementById(elemName);
+    }
+    
+    getLeftNeighbourCell()
+    {
+        let elemName = getElementIdName(this.row, this.col - 1);
+        let cell = document.getElementById(elemName);
+        return cell;
+    }
+    
+    getRightNeighbourCell()
+    {
+        let elemName = getElementIdName(this.row, this.col + 1);
+        let cell = document.getElementById(elemName);
+        return cell;
+    }
+    
+    getBottomNeighbourCell()
+    {
+        let elemName = getElementIdName(this.row + 1, this.col);
+        let cell = document.getElementById(elemName);
+        return cell
+    }
 }
-*/
+
+class TowerBlock
+{
+    /*Towerblock is built on top of Block class*/
+	constructor()
+	{
+        this.reachedDown = false;
+        
+        //Pick a random bendDirection
+        var rand = Math.floor(Math.random() * 40)
+        
+        if( rand % 2 == 0)
+        {
+            this.bendDirection = "left";
+        }
+        else
+        {
+            this.bendDirection = "right";
+        }
+
+        this.isFalling = false;
+		this.FormBuilder();
+	}
+    
+    MoveBlockLeftRight()
+	{
+        if (this.isFalling == false)
+        {
+            if(this.bendDirection == "left")
+            {
+                this.MoveBlockLeft();
+            }
+            else
+            {
+                this.MoveBlockRight();
+            }
+        }
+        else
+        {
+            this.dropShape();
+        }
+		this.DrawShape();
+	}
+    
+    dropShape()
+    {
+        if(this.reachedDown == false)
+        {
+			this.isFalling = true;
+            this.ClearShape(); // always clear before changing values.
+            
+            this.bottomLeftBlock.moveDown();
+            this.bottomRightBlock.moveDown();
+            this.upperLeftBlock.moveDown();
+            this.upperRightBlock.moveDown();
+
+            
+            //if the block is completely off the screen
+            if ( this.upperLeftBlock.row >= TableRows || this.upperRightBlock.row >= TableRows)
+			{
+				window.spareBlocks--;
+                comboMessage = ""
+                document.getElementById("ComboMessage").style.opacity = "0";
+                combo = initialCombo;
+				this.isFalling = false;
+				this.reachedDown = true;
+			}
+        }
+    }
+    
+    MoveBlockRight()
+    {
+        //check the left part to still be on the screen after moving.
+        if( this.bottomRightBlock.col + 1 < TableCols)
+        {
+            this.ClearShape(); // always clear before changing values.
+            
+            this.upperLeftBlock.moveRight();
+            this.upperRightBlock.moveRight();
+            this.bottomLeftBlock.moveRight();
+            this.bottomRightBlock.moveRight();
+        }
+        else
+        {
+            this.bendDirection = "left";
+        }
+    }
+    
+    MoveBlockLeft()
+    {
+        //check the left part to still be on the screen after moving.
+        if( this.bottomLeftBlock.col - 1 >= 0)
+        {
+            this.ClearShape(); // always clear before changing values.
+            
+            this.upperLeftBlock.moveLeft();
+            this.upperRightBlock.moveLeft();
+            this.bottomLeftBlock.moveLeft();
+            this.bottomRightBlock.moveLeft();
+            
+        }
+        else
+        {
+            this.bendDirection = "right";
+        }
+    }
+	
+    DrawShape()
+	{
+        this.upperLeftBlock.draw();
+        this.upperRightBlock.draw();
+        this.bottomLeftBlock.draw();
+        this.bottomRightBlock.draw();
+        
+		this.Check_Overlapping()
+	}
+	
+    ClearShape()
+	{
+		if (this.reachedDown == false)
+		{
+            this.upperLeftBlock.clear();
+            this.upperRightBlock.clear();
+            this.bottomLeftBlock.clear();
+            this.bottomRightBlock.clear();
+		}
+	}
+	
+    FormBuilder()
+	{
+        let middleOfTable = parseInt(TableCols/2);
+        
+        let elemName = getElementIdName(0, middleOfTable);
+        let cell = document.getElementById(elemName);
+        this.upperLeftBlock = new Block(cell, towerblockTexture);
+        
+        elemName = getElementIdName(0, middleOfTable + 1);
+        cell = document.getElementById(elemName);
+        this.upperRightBlock = new Block(cell, towerblockTexture);
+		        
+        elemName = getElementIdName(1, middleOfTable);
+        cell = document.getElementById(elemName);
+        this.bottomLeftBlock = new Block(cell, towerblockTexture);
+        
+        elemName = getElementIdName(1, middleOfTable + 1);
+        cell = document.getElementById(elemName);
+        this.bottomRightBlock = new Block(cell, towerblockTexture);
+	}
+	
+    Check_Overlapping()
+	{
+		if(this.reachedDown == false)
+		{
+            //if the block is completely on the screen
+			if (this.bottomRightBlock.row < TableRows - 1)
+			{
+                let left_neighbor_cell = this.bottomLeftBlock.getLeftNeighbourCell();
+                let right_neighbor_cell = this.bottomRightBlock.getRightNeighbourCell();
+                let left_bottom_neighbor_cell = this.bottomLeftBlock.getBottomNeighbourCell();
+                let right_bottom_neighbor_cell = this.bottomRightBlock.getBottomNeighbourCell();
+                
+				if(  (right_bottom_neighbor_cell.style.backgroundImage != "") ||
+					 (left_bottom_neighbor_cell.style.backgroundImage != "")  )
+				{
+                    //Calculating the earned points based on the quality of the drop
+                    if( ( left_neighbor_cell != null) && (left_neighbor_cell.style.backgroundImage != "") )
+                    {
+                        //Bonus for perfect alignment with the blocks from the left
+                        window.score += combo;
+                        combo = combo + initialCombo;
+                        comboMessage = "Horizontal Alignment"
+                        document.getElementById("ComboMessage").style.color = "red";
+                    }
+                    else if( (right_neighbor_cell != null) && (right_neighbor_cell.style.backgroundImage != "") )
+                    {
+                        //Bonus for perfect alignment with the blocks from the right
+                        window.score += combo;
+                        combo = combo + initialCombo;
+                        comboMessage = "Horizontal Alignment"
+                        document.getElementById("ComboMessage").style.color = "red";
+                    }
+                    else if( (left_bottom_neighbor_cell != null) && 
+                             (right_bottom_neighbor_cell != null) && 
+                             (left_bottom_neighbor_cell.style.backgroundImage != "") && 
+                             (right_bottom_neighbor_cell.style.backgroundImage != "")
+                           )
+                    {
+                        //Bonus for perfect alignment with the blocks from below
+                        window.score += combo;
+                        combo = combo + initialCombo;
+                        comboMessage = "Vertical Alignment"
+                        document.getElementById("ComboMessage").style.color = "blue";
+                    }
+                    else
+                    {
+                        //no allignment
+                        comboMessage = ""
+                        document.getElementById("ComboMessage").style.opacity = "0";
+                        combo = initialCombo;
+                        window.score++;
+                    }
+                    
+                    //Getting the game ready for the next iteration
+                    window.blocksClimbed++; // increase the global variable 
+					this.reachedDown = true;
+					this.isFalling = false;
+                    
+                    window.block_altitude = this.upperLeftBlock.row;
+                    
+				}
+			}
+		}
+	}
+}
 
 class Platform
 {
+    /*Platform is built on top of Block class and Towerblock class*/
 	constructor()
 	{
 		this.PosX = parseInt(TableCols / 2) - 1;
@@ -145,101 +389,83 @@ class Platform
         this.bendValue = 0;
         this.currentBend = parseInt(TableCols / 2);
         
+        this.towerblock = new TowerBlock();
 	}
 	
     FormBuilder()
 	{
-		this.Coords=[[]]; //clear the form.
-		this.Coords[0] = [TableRows-1, this.PosX];   
-		this.Coords.push([TableRows-1, this.PosX+1]);
-		this.Coords.push([TableRows-1, this.PosX+2]);
-		this.Coords.push([TableRows-1, this.PosX+3]);
+		this.blocks = [];
+        
+        let elemName = getElementIdName(TableRows-1, this.PosX);
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+        
+        elemName = getElementIdName(TableRows-1, this.PosX + 1);
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+        
+        elemName = getElementIdName(TableRows-1, this.PosX + 2);
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+        
+        elemName = getElementIdName(TableRows-1, this.PosX + 3);
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
 	}
 	
     DrawPlatform()
 	{
-        let elemName = getElementIdName(this.Coords[0][0], this.Coords[0][1]);
-        document.getElementById(elemName).style.backgroundImage = platformTexture;
-        
-        elemName = getElementIdName(this.Coords[1][0], this.Coords[1][1]);
-        document.getElementById(elemName).style.backgroundImage = platformTexture;
-
-        elemName = getElementIdName(this.Coords[2][0], this.Coords[2][1]);        
-        document.getElementById(elemName).style.backgroundImage = platformTexture;
-        
-        elemName = getElementIdName(this.Coords[3][0], this.Coords[3][1]);   
-        document.getElementById(elemName).style.backgroundImage = platformTexture;
+        for(let index = 0; index < this.blocks.length; index++)
+        {
+            this.blocks[index].draw();
+        }
 	}
     
     bendBuildingLeft()
 	{
-		var offset = 1;
-		for(var i = TableRows - 1; i >= 0; i--)
-		{
-			for(var j = 0; j < TableCols; j++)
-			{
-                if (this.checkIfCoordsTakenByBlock(i,j) == false && this.checkIfCoordsTakenByBlock(i,j+offset) == false && block.dropping == false)
-                {
-                    if (j + offset < TableCols)
-                    {
-                        let leftElementName = getElementIdName(i, j);
-                        let rightElementName = getElementIdName(i, j + offset);
-                        
-                        let leftCell = document.getElementById(leftElementName);
-                        let rightCell = document.getElementById(rightElementName);
-                        console.log ("Rightcell " + rightElementName)
-                        console.log ("Leftcell " + leftElementName)
-                        leftCell.style.backgroundImage = rightCell.style.backgroundImage;
-                    }
-                    else
-                    {
-                        let elementName = getElementIdName(i, j);
-                        document.getElementById(elementName).style.backgroundImage = "";
-                    }
-                }
-			}
-		}
+        for(let elem of this.blocks)
+        {
+            elem.clear();
+            elem.moveLeft();
+        }
+        
+        //drawing the platform - only the blocks still on screen will be rendered
+        this.DrawPlatform();
 	}
     
     bendBuildingRight()
 	{
-		var offset = 1;
-		for(var i = TableRows - 1; i >= 0; i--)
-		{
-			for(var j = TableCols - 1; j >= 0; j--)
-			{
-                if (this.checkIfCoordsTakenByBlock(i,j) == false && this.checkIfCoordsTakenByBlock(i,j-offset) == false && block.dropping == false)
-                {
-                    if (j - offset >= 0)
-                    {
-                        let leftElementName = getElementIdName(i, j-offset);
-                        let rightElementName = getElementIdName(i, j);
-                        
-                        let leftCell = document.getElementById(leftElementName);
-                        let rightCell = document.getElementById(rightElementName);
-                        
-                        rightCell.style.backgroundImage = leftCell.style.backgroundImage;
-                    }
-                    else
-                    {
-                        let elementName = getElementIdName(i, j);
-                        document.getElementById(elementName).style.backgroundImage = "";
-                    }
-                }
-			}
-		}
+		for(let elem of this.blocks)
+        {
+            elem.clear();
+            elem.moveRight();
+        }
+        
+        //drawing the platform - only the blocks still on screen will be rendered
+        this.DrawPlatform();
 	}
     
-    checkIfCoordsTakenByBlock(row, column){
-        if ( (row == block.Coords[0][0] && column == block.Coords[0][1]) || (row == block.Coords[1][0] && column == block.Coords[1][1] ) ||
-             (row == block.Coords[2][0] && column == block.Coords[2][1]) || (row == block.Coords[3][0] && column == block.Coords[3][1] ) )
-         {
-             return true;
-         }
-         else
-         {
-             return false;
-         }
+    checkIfTowerBlockElement(cell)
+    {
+        if(cell)
+        {
+            if (cell == this.towerblock.upperLeftBlock.cell)
+            {
+                return true;
+            }
+            else if (cell == this.towerblock.upperRightBlock.cell)
+            {
+                return true;
+            }
+            else if (cell == this.towerblock.bottomLeftBlock.cell)
+            {
+                return true;
+            }
+            else if (cell == this.towerblock.bottomRightBlock.cell)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
     
     MoveBuildingLeftRight()
@@ -262,9 +488,9 @@ class Platform
         }
         if(this.bendValue > 0)
         {
-            if(this.bendDirection=="right")
+            if(this.bendDirection == "right")
             {
-                if (this.currentBend <= ((parseInt(TableCols/2)) + this.bendValue))
+                if (this.currentBend <= ((parseInt(TableCols / 2)) + this.bendValue))
                 {
                     this.bendBuildingRight();
                     this.currentBend++;
@@ -276,7 +502,7 @@ class Platform
             }
             else
             {
-                if (this.currentBend >= ((parseInt(TableCols/2)) - this.bendValue))
+                if (this.currentBend >= ((parseInt(TableCols / 2)) - this.bendValue))
                 {
                     this.bendBuildingLeft();
                     this.currentBend--;
@@ -288,250 +514,71 @@ class Platform
             }
         }
 	}
-}
-
-class TowerBlock
-{
-	constructor(name, x, y)
-	{
-		window.blockDone = false;
-		this.blockHeight = 15; // Height is reversed - 15 means the lowest row whereas 0 is the uppermost row.
-		this.reachedDown = false;
-		this.bend = "left";
-        this.dropping = false;
-		this.FormBuilder();
-	}
     
-    MoveBlockLeftRight()
-	{
-        if (this.dropping == false)
+    runGame()
+    {
+        this.towerblock.MoveBlockLeftRight();
+        
+        if (this.towerblock.reachedDown == true)
         {
-            if(this.bend == "left")
+            /*add the towerblock to the building*/
+            this.blocks.push(this.towerblock.bottomLeftBlock);
+            this.blocks.push(this.towerblock.bottomRightBlock);
+            this.blocks.push(this.towerblock.upperRightBlock);
+            this.blocks.push(this.towerblock.upperLeftBlock);
+            
+            //if the building reaches near the middle of the table
+            if(window.block_altitude < parseInt(TableRows / 2) + 1)
             {
-                this.MoveBlockLeft();
+                //Move the screen up with 2 rows
+                this.moveScreenUp();
+                this.moveScreenUp();
+            }
+            
+            //get a new toweblock
+            this.towerblock = new TowerBlock();
+            if (spareBlocks == 0)
+            {
+                    document.getElementById("gameStatus").classList.add("game_over");
+                    document.getElementById("gameStatus").innerHTML = "GAME OVER. No blocks to spare. You cannot finish the tower.";
+                    game_started = false;
+            }
+            updateBlocksClimbed();
+            updateSpareBlocks();
+        }
+    }
+    
+    moveScreenUp()
+    {
+        /*lower block_altitude means upper on the screen*/
+        window.block_altitude++;
+        
+        let index = 0; 
+        while(index < this.blocks.length)
+        {
+            this.blocks[index].clear();
+            this.blocks[index].moveDown();
+            
+            /*if the element is out of the screen*/
+            if(this.blocks[index].row >= TableRows)
+            {
+                //remove the element using splice
+                this.blocks.splice(index, 1);
+                
+                //next iteration shall continue with the same index
             }
             else
             {
-                this.MoveBlockRight();
+                /*the index should be increased only when the current element is NOT REMOVED*/
+                index++;
             }
         }
-        else
+        
+        for(let elem of this.blocks)
         {
-            this.dropBlock();
-        }
-		this.DrawBlock();
-	}
-    
-    dropBlock()
-    {
-        if(this.reachedDown == false)
-        {
-			this.dropping = true;
-            this.ClearShape(); // always clear before changing values.
-            this.Coords[0][0]++;
-            this.Coords[1][0]++;
-            this.Coords[2][0]++;
-            this.Coords[3][0]++;
-			if ( this.Coords[0][0] >= TableRows )
-			{
-				window.spareBlocks--;
-                comboMessage = ""
-                document.getElementById("ComboMessage").style.opacity = "0";
-                combo = initialCombo;
-				this.dropping = false;
-				this.reachedDown = true;
-				window.blockDone = true;
-			}
-            
+            elem.draw();
         }
     }
-    
-    MoveBlockRight()
-    {
-        if(this.Coords[1][1] + 1 < TableCols)
-        {
-            this.ClearShape(); // always clear before changing values.
-            this.Coords[0][1]++;
-            this.Coords[1][1]++;
-            this.Coords[2][1]++;
-            this.Coords[3][1]++;
-            
-        }
-        else
-        {
-            this.bend = "left";
-        }
-    }
-    
-    MoveBlockLeft()
-    {
-        if(this.Coords[2][1] - 1 >= 0) //check the left part to still be on the screen after moving.
-        {
-            this.ClearShape(); // always clear before changing values.
-            this.Coords[0][1]--;
-            this.Coords[1][1]--;
-            this.Coords[2][1]--;
-            this.Coords[3][1]--;
-        }
-        else
-        {
-            this.bend = "right";
-        }
-    }
-	
-    DrawBlock()
-	{
-        if (this.Coords[0][0] < TableRows && this.Coords[2][0] < TableRows)
-		{
-            let elemName = getElementIdName(this.Coords[0][0], this.Coords[0][1]);
-            document.getElementById(elemName).style.backgroundImage = blockSquareTexture;
-            
-            elemName = getElementIdName(this.Coords[1][0], this.Coords[1][1]);
-            document.getElementById(elemName).style.backgroundImage = blockSquareTexture;
-
-            elemName = getElementIdName(this.Coords[2][0], this.Coords[2][1]);		
-            document.getElementById(elemName).style.backgroundImage = blockSquareTexture;
-            
-            elemName = getElementIdName(this.Coords[3][0], this.Coords[3][1]);
-            document.getElementById(elemName).style.backgroundImage = blockSquareTexture;
-        }
-		else if (this.Coords[0][0] < TableRows)
-		{
-            let elemName = getElementIdName(this.Coords[0][0], this.Coords[0][1]);
-			document.getElementById(elemName).style.backgroundImage = blockSquareTexture;
-            
-            elemName = getElementIdName(this.Coords[1][0], this.Coords[1][1]);
-			document.getElementById(elemName).style.backgroundImage = blockSquareTexture;	
-		}
-		this.CheckOverlap()
-	}
-	
-    ClearShape()
-	{
-		if (window.blockDone == false)
-		{
-            if (this.Coords[0][0] < TableRows && this.Coords[2][0] < TableRows )
-			{
-                let elemName = getElementIdName(this.Coords[0][0], this.Coords[0][1]);
-                document.getElementById(elemName).style.backgroundImage = "";
-                
-                elemName = getElementIdName(this.Coords[1][0], this.Coords[1][1]);
-                document.getElementById(elemName).style.backgroundImage = "";
-
-                elemName = getElementIdName(this.Coords[2][0], this.Coords[2][1]);		
-                document.getElementById(elemName).style.backgroundImage = "";
-                
-                elemName = getElementIdName(this.Coords[3][0], this.Coords[3][1]);
-                document.getElementById(elemName).style.backgroundImage = "";
-            }
-			else if (this.Coords[0][0] < TableRows)
-			{
-                let elemName = getElementIdName(this.Coords[0][0], this.Coords[0][1]);
-                document.getElementById(elemName).style.backgroundImage = "";
-                
-                elemName = getElementIdName(this.Coords[1][0], this.Coords[1][1]);
-                document.getElementById(elemName).style.backgroundImage = "";	
-			}
-		}
-	}
-	
-    FormBuilder()
-	{
-		this.Coords=[[]]; //clear the form.
-		this.Coords[0] = [0,7];   //Upper part
-		this.Coords.push([0,8]); //Right part;
-		this.Coords.push([1,7]); //left part;
-		this.Coords.push([1,8]); //bottom part
-	}
-	
-    CheckOverlap()
-	{
-		if(this.reachedDown == false)
-		{
-			if (this.Coords[2][0] < TableRows - 1)
-			{
-                console.log(getElementIdName(this.Coords[3][0] + 1,  this.Coords[3][1]) );
-				if(  (document.getElementById( getElementIdName(this.Coords[3][0] + 1,  this.Coords[3][1]) ).style.backgroundImage != "") ||
-					 (document.getElementById( getElementIdName(this.Coords[2][0] + 1,  this.Coords[2][1] ) ).style.backgroundImage != "")  )
-				{
-                    //Calculating the earned points based on the quality of the drop
-                    if( (document.getElementById( getElementIdName(this.Coords[2][0], this.Coords[2][1] - 1) ) != null) && 
-                        (document.getElementById( getElementIdName(this.Coords[2][0], this.Coords[2][1] - 1) ).style.backgroundImage != "") )
-                    {
-                        //Bonus for perfect alignment with the blocks from the left
-                        window.score += combo;
-                        combo = combo + initialCombo;
-                        comboMessage = "Horizontal Alignment"
-                        document.getElementById("ComboMessage").style.color = "red";
-                    }
-                    else if( (document.getElementById(getElementIdName(this.Coords[1][0], this.Coords[1][1] + 1)) != null) && 
-                           ( document.getElementById(getElementIdName(this.Coords[1][0], this.Coords[1][1] + 1)).style.backgroundImage != "") )
-                    {
-                        //Bonus for perfect alignment with the blocks from the right
-                        window.score+=combo;
-                        combo = combo + initialCombo;
-                        comboMessage = "Horizontal Alignment"
-                        document.getElementById("ComboMessage").style.color = "red";
-                    }
-                    else if( (document.getElementById(getElementIdName(this.Coords[3][0] + 1, this.Coords[3][1])) != null) && 
-                             (document.getElementById(getElementIdName(this.Coords[2][0] + 1, this.Coords[2][1])) != null) && 
-                             (document.getElementById(getElementIdName(this.Coords[3][0] + 1, this.Coords[3][1])).style.backgroundImage != "") && 
-                             (document.getElementById(getElementIdName(this.Coords[2][0] + 1, this.Coords[2][1])).style.backgroundImage != "")
-                           )
-                    {
-                        //Bonus for perfect alignment with the blocks from below
-                        window.score+=combo;
-                        combo = combo + initialCombo;
-                        comboMessage = "Vertical Alignment"
-                        document.getElementById("ComboMessage").style.color = "blue";
-                    }
-                    else
-                    {
-                        //no allignment
-                        comboMessage = ""
-                        document.getElementById("ComboMessage").style.opacity = "0";
-                        combo = initialCombo;
-                        window.score++;
-                    }
-                    
-                    //Getting the game ready for the next iteration
-                    window.blocksClimbed++; // increase the global variable 
-					this.reachedDown = true;
-					this.dropping = false;
-					window.blockDone = true;
-					if (this.blockHeight > this.Coords[0][0])
-					{
-						this.blockHeight = this.Coords[0][0];
-						
-                        if (this.blockHeight < 8)
-						{
-							this.moveScreenUpper();
-							this.moveScreenUpper();
-						}
-					}
-				}
-			}
-		}
-	}
-	
-    moveScreenUpper()
-	{
-		var offset = 1;
-		this.blockHeight--;
-		for(var i = TableRows - 1; i > this.blockHeight; i--)
-		{
-			for(var j = 0; j < TableCols; j++)
-			{
-                var bottomElementName = getElementIdName(i-offset, j);
-                var upperElementName = getElementIdName(i, j);
-				
-                var upperCell = document.getElementById(upperElementName); 
-                var lowerCell = document.getElementById(bottomElementName);
-
-                upperCell.style.backgroundImage = lowerCell.style.backgroundImage;
-			}
-		}
-	}
 }
 
 function getElementIdName(y, x)
@@ -601,7 +648,6 @@ function createTable()
 
 function StartGame()
 {
-	window.block = new TowerBlock();
 	window.build_platform = new Platform();
     window.score = 0;
     window.combo = initialCombo;
@@ -622,20 +668,20 @@ function StartGame()
 
 document.onkeydown = function (e) //trigger event when key is pressed down
 {
-	if(game_started == true && block != null)
+	if(game_started == true && window.build_platform.towerblock != null)
 	{
 		if (e.key == " " || e.code == "Space" || e.keyCode == 32 ) //if the key pressed is SPACE KEY
 		{
-			block.dropBlock()
+			window.build_platform.towerblock.dropShape()
 		}
 	}
 }
 
-function DropBlock()
+function DropShape()
 {
-	if(game_started == true && block != null)
+	if(game_started == true && window.build_platform.towerblock != null)
 	{
-		block.dropBlock()
+		window.build_platform.towerblock.dropShape()
 	}
 }
 
@@ -696,20 +742,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 {
                      build_platform.MoveBuildingLeftRight();
                 }
-                block.MoveBlockLeftRight();
+                build_platform.runGame();
 
-                if (blockDone == true)
-                {
-                    block = new TowerBlock();
-                    if (spareBlocks == 0)
-                    {
-                            document.getElementById("gameStatus").classList.add("game_over");
-                            document.getElementById("gameStatus").innerHTML = "GAME OVER. No blocks to spare. You cannot finish the tower.";
-                            game_started = false;
-                    }
-                    updateBlocksClimbed();
-                    updateSpareBlocks();
-                }
+
             }
         }, recurrence);
     }

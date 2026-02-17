@@ -66,13 +66,14 @@
 #game_div table{
 	position: relative;
 
-    background-color: rgba(200,200,200,0.5);
+    /*background-color: rgba(100,215,255,0.8);*/
+    background-color: rgba(255,255,255,0.8);
     
     padding: auto;
     margin: auto;
     width: auto;
 
-    border: ridge 1px black;
+    border: ridge 0px black;
     border-radius: 1vw;
     opacity: 0.9;
     border-collapse: collapse;
@@ -86,7 +87,7 @@
     padding-top: 1.9vw;
     aspect-ratio: 1 / 1;
     
-    border: solid 1px black;
+    border: solid 0px black;
     
     background-repeat: no-repeat;
     background-position: center;
