@@ -1,8 +1,11 @@
 var blocksClimbed = 0;
 var score = 0;
 var game_started = false;
-const towerblockTexture = "url('toweblock_texture2.jpg')";
-const platformTexture = "url('platform.jpg')"
+//const towerblockTexture = "url('toweblock_texture2.jpg')";
+//const platformTexture = "url('platform.jpg')"
+const platformColor = "lightgreen";
+const blockColor = "orange";
+const emptyColor = "transparent";
 const TableRows = 15
 const TableCols = 15
 var spareBlocks = 3;
@@ -93,18 +96,14 @@ function Enter_FullScreen(e)
 
 class Block
 {
-	constructor(cell, texture, borders)
+	constructor(cell, color, borders)
 	{
         if(!cell)
         {
             alert("The expected cell element is invalid.");
         }
-        if( texture == "")
-        {
-            alert("The expected texture is empty");
-        }
         this.cell = cell;
-        this.texture = texture;
+        this.color = color;
         this.row = parseInt(this.cell.dataset.row);
         this.col = parseInt(this.cell.dataset.col);
         this.borders = borders;
@@ -133,6 +132,7 @@ class Block
                 this.cell.style.borderTopColor  = drawColor;
             }
             
+            this.cell.style.backgroundColor = this.color;
             this.cell.dataset.busy = "true";
         }
     }
@@ -142,6 +142,7 @@ class Block
         if(this.cell)
         {
             this.cell.style.borderColor = clearColor;
+            this.cell.style.backgroundColor = emptyColor;
             this.cell.dataset.busy = "false";
         }
     }
@@ -394,19 +395,19 @@ class TowerBlock
         
         let elemName = getElementIdName(0, middleOfTable);
         let cell = document.getElementById(elemName);
-        this.upperLeftBlock = new Block(cell, towerblockTexture, ["left", "top"]);
+        this.upperLeftBlock = new Block(cell, blockColor, ["left", "top"]);
         
         elemName = getElementIdName(0, middleOfTable + 1);
         cell = document.getElementById(elemName);
-        this.upperRightBlock = new Block(cell, towerblockTexture, ["right", "top"]);
+        this.upperRightBlock = new Block(cell, blockColor, ["right", "top"]);
 		        
         elemName = getElementIdName(1, middleOfTable);
         cell = document.getElementById(elemName);
-        this.bottomLeftBlock = new Block(cell, towerblockTexture, ["left", "bottom"]);
+        this.bottomLeftBlock = new Block(cell, blockColor, ["left", "bottom"]);
         
         elemName = getElementIdName(1, middleOfTable + 1);
         cell = document.getElementById(elemName);
-        this.bottomRightBlock = new Block(cell, towerblockTexture, ["right", "bottom"]);
+        this.bottomRightBlock = new Block(cell, blockColor, ["right", "bottom"]);
 	}
 	
     check_collision(block, neighbour_cell)
@@ -603,16 +604,16 @@ class Platform
 		this.blocks = [];
         
         let elemName = getElementIdName(TableRows-1, this.PosX);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["left", "top"]));
+		this.blocks.push(new Block(document.getElementById(elemName), platformColor, ["left", "top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 1);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["top"]));
+		this.blocks.push(new Block(document.getElementById(elemName), platformColor, ["top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 2);
-        this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["top"]));
+        this.blocks.push(new Block(document.getElementById(elemName), platformColor, ["top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 3);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["right", "top"]));
+		this.blocks.push(new Block(document.getElementById(elemName), platformColor, ["right", "top"]));
 	}
 	
     DrawPlatform()
@@ -903,6 +904,7 @@ function RestartGame()
             let elemName = getElementIdName(i, j);
 			document.getElementById(elemName).style.border = "solid 2px " + clearColor;
             document.getElementById(elemName).dataset.busy = "false";
+            document.getElementById(elemName).style.backgroundColor = emptyColor;
 		}
 	}
 	
@@ -949,13 +951,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.msCounter += window.recurrence;
                 if (window.msCounter % 400 == 0) // enter here every 400 ms
                 {
-                     build_platform.MoveBuildingLeftRight();
+                    //do not move the platform while the towerblock is falling
+                    if(build_platform.towerblock.isFalling == false)
+                    {
+                        build_platform.MoveBuildingLeftRight();
+                    }
                 }
                 build_platform.runGame();
             }
-            
-            //Unlocking the window.setInterval
-            gameTickRunning = false;
             
         }, recurrence);
     }
