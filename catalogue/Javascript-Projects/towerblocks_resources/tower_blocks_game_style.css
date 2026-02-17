@@ -256,7 +256,7 @@
     position: relative;
     display: block; /*helps centering with margin: auto*/
 	width: 100%;
-    
+    background-color: #ccc;
     text-align: center;
     font-family: Georgia;
     font-size: 15px; /* font-size in percent of the viewport size.*/
@@ -278,6 +278,19 @@
     margin: 20px auto;
     max-width: 250px;
     height: 40px;
+    background-color: orange;
+    color: black;
+}
+
+/* class that activates the animation */
+#drop_block.drop_block_effect {
+    animation: colorAnim 0.3s 1;
+}
+
+@keyframes colorAnim {
+    0%   { background-color: inherit }
+    40% { background-color: #ccc; }
+    100% { background-color: inherit; }
 }
 
 #restartgame, #fullscreen

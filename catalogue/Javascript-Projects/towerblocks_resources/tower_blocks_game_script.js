@@ -22,6 +22,7 @@ var block_altitude = TableRows - 1; //initialized with last row from the bottom
 var msCounter = 0;
 var recurrence = 100;
 var build_platform;
+const activeAnimations = new Set();
 
 const scoreAnimation = [
   {color: "black"},
@@ -875,12 +876,64 @@ function StartGame()
 	document.getElementById("drop_block").disabled = false;
 }
 
+function scheduleAnimation(element, className)
+{
+    element.classList.add(className);
+
+    let resolveFn;
+
+    const promise = new Promise(resolve => {
+        resolveFn = resolve;
+    });
+
+    const animObj = {
+        promise,
+        animation: className
+    };
+
+    activeAnimations.add(animObj);
+
+    function handler()
+    {
+        element.classList.remove(className);
+        element.removeEventListener("animationend", handler);
+
+        // delete ONLY this animation instance
+        activeAnimations.delete(animObj);
+
+        resolveFn();
+    }
+
+    element.addEventListener("animationend", handler);
+
+    return promise;
+}
+
+async function waitForAnimation(active_animation_name)
+{
+    var anim = null;
+    
+    activeAnimations.forEach(elem => {
+        
+        if (elem.animation === active_animation_name)
+        {
+            anim = elem;
+        }
+    });
+    
+    if (anim)
+    {
+        await anim.promise;
+    }
+}
+
 document.onkeydown = function (e) //trigger event when key is pressed down
 {
 	if(game_started == true && window.build_platform.towerblock != null)
 	{
 		if (e.key == " " || e.code == "Space" || e.keyCode == 32 ) //if the key pressed is SPACE KEY
 		{
+            scheduleAnimation(document.getElementById("drop_block"), "drop_block_effect");
 			window.build_platform.towerblock.dropShape()
 		}
 	}
@@ -890,6 +943,7 @@ function DropShape()
 {
 	if(game_started == true && window.build_platform.towerblock != null)
 	{
+        scheduleAnimation(document.getElementById("drop_block"), "drop_block_effect");
 		window.build_platform.towerblock.dropShape()
 	}
 }
