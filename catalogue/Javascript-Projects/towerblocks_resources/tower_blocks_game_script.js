@@ -10,6 +10,9 @@ const initialCombo = 3;
 var combo = initialCombo;
 var comboMessage = "";
 
+const clearColor = "transparent";
+const drawColor = "black";
+
 //Table height is reversed - 15 means the lowest row whereas 0 is the uppermost row.
 var block_altitude = TableRows - 1; //initialized with last row from the bottom
 
@@ -90,7 +93,7 @@ function Enter_FullScreen(e)
 
 class Block
 {
-	constructor(cell, texture)
+	constructor(cell, texture, borders)
 	{
         if(!cell)
         {
@@ -104,12 +107,33 @@ class Block
         this.texture = texture;
         this.row = parseInt(this.cell.dataset.row);
         this.col = parseInt(this.cell.dataset.col);
+        this.borders = borders;
 	}
+    
     draw()
     {
         if(this.cell)
         {
-            this.cell.style.backgroundImage = this.texture;
+            //this.cell.style.backgroundImage = this.texture;
+
+            if(this.borders.includes("left"))
+            {
+                this.cell.style.borderLeftColor = drawColor;
+            }
+            if(this.borders.includes("right"))
+            {
+                this.cell.style.borderRightColor  = drawColor;
+            }
+            if(this.borders.includes("bottom"))
+            {
+                this.cell.style.borderBottomColor  = drawColor;
+            }
+            if(this.borders.includes("top"))
+            {
+                this.cell.style.borderTopColor  = drawColor;
+            }
+            
+            this.cell.dataset.busy = "true";
         }
     }
     
@@ -117,7 +141,48 @@ class Block
     {
         if(this.cell)
         {
-            this.cell.style.backgroundImage = "";
+            this.cell.style.borderColor = clearColor;
+            this.cell.dataset.busy = "false";
+        }
+    }
+       
+    removeBorder(border)
+    {
+        /*find the specified border in the list of borders*/
+        const index = this.borders.indexOf(border);
+        
+        /*if border was found*/
+        if(index >= 0) 
+        {
+            //remove the border
+            this.borders.splice(index, 1);
+        }
+        
+        if(this.cell)
+        {
+            switch(border)
+            {
+                case "left":
+                {
+                    this.cell.style.borderLeftColor = clearColor;
+                    break;
+                }
+                case "right":
+                {
+                    this.cell.style.borderRightColor = clearColor;
+                    break;
+                }
+                case "top":
+                {
+                    this.cell.style.borderTopColor = clearColor;
+                    break;
+                }
+                case "bottom":
+                {
+                    this.cell.style.borderBottomColor = clearColor;
+                    break;
+                }
+            }
         }
     }
     
@@ -162,13 +227,45 @@ class Block
         let cell = document.getElementById(elemName);
         return cell
     }
+    
+    getTopNeighbourCell()
+    {
+        let elemName = getElementIdName(this.row - 1, this.col);
+        let cell = document.getElementById(elemName);
+        return cell
+    }
+
+    updateBlockBorders()
+    {
+        this.borders = [];
+        if(this.cell)
+        {
+            if(this.cell.style.borderLeftColor == drawColor)
+            {
+                this.borders.push("left");
+            }
+            if(this.cell.style.borderRightColor == drawColor)
+            {
+                this.borders.push("right");
+            }
+            if(this.cell.style.borderBottomColor == drawColor)
+            {
+                this.borders.push("bottom");
+            }
+            if(this.cell.style.borderTopColor == drawColor)
+            {
+                this.borders.push("top");
+            }
+        }
+    }
 }
 
 class TowerBlock
 {
     /*Towerblock is built on top of Block class*/
-	constructor()
+	constructor(platform)
 	{
+        this.platform = platform;
         this.reachedDown = false;
         
         //Pick a random bendDirection
@@ -230,6 +327,8 @@ class TowerBlock
 				this.isFalling = false;
 				this.reachedDown = true;
 			}
+            
+            this.Check_Overlapping();
         }
     }
     
@@ -276,8 +375,6 @@ class TowerBlock
         this.upperRightBlock.draw();
         this.bottomLeftBlock.draw();
         this.bottomRightBlock.draw();
-        
-		this.Check_Overlapping()
 	}
 	
     ClearShape()
@@ -297,66 +394,160 @@ class TowerBlock
         
         let elemName = getElementIdName(0, middleOfTable);
         let cell = document.getElementById(elemName);
-        this.upperLeftBlock = new Block(cell, towerblockTexture);
+        this.upperLeftBlock = new Block(cell, towerblockTexture, ["left", "top"]);
         
         elemName = getElementIdName(0, middleOfTable + 1);
         cell = document.getElementById(elemName);
-        this.upperRightBlock = new Block(cell, towerblockTexture);
+        this.upperRightBlock = new Block(cell, towerblockTexture, ["right", "top"]);
 		        
         elemName = getElementIdName(1, middleOfTable);
         cell = document.getElementById(elemName);
-        this.bottomLeftBlock = new Block(cell, towerblockTexture);
+        this.bottomLeftBlock = new Block(cell, towerblockTexture, ["left", "bottom"]);
         
         elemName = getElementIdName(1, middleOfTable + 1);
         cell = document.getElementById(elemName);
-        this.bottomRightBlock = new Block(cell, towerblockTexture);
+        this.bottomRightBlock = new Block(cell, towerblockTexture, ["right", "bottom"]);
 	}
 	
+    check_collision(block, neighbour_cell)
+    {
+        /*Clearing borders from current element and the element underneath it*/
+        if(neighbour_cell != null && neighbour_cell.dataset.busy == "true")
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    getBlockContainingCell(cell)
+    {
+        let neighbourBlock = this.platform.blocks.find(elem => elem.cell === cell);
+        
+        return neighbourBlock;
+    }
+    
+    collapse_bottomBorders(collision, block, neighbour_cell)
+    {
+        /*Clearing borders from current element and the element underneath it*/
+        if(collision)
+        {
+            let neighbour_block = this.getBlockContainingCell(neighbour_cell);
+            if(neighbour_block)
+            {
+                neighbour_block.removeBorder("top");
+                block.removeBorder("bottom");
+            }
+        }
+    }
+    
+    collapse_topBorders(collision, block, neighbour_cell)
+    {
+        /*Clearing borders from current element and the element underneath it*/
+        if(collision)
+        {
+            let neighbour_block = this.getBlockContainingCell(neighbour_cell);
+            if(neighbour_block)
+            {
+                neighbour_block.removeBorder("bottom");
+                block.removeBorder("top");
+            }
+        }
+    }
+    
+    collapse_leftBorders(collision, block, neighbour_cell)
+    {
+        /*Clearing borders from current element and the element around it*/
+        if(collision)
+        {
+            let neighbour_block = this.getBlockContainingCell(neighbour_cell);
+            if(neighbour_block)
+            {
+                neighbour_block.removeBorder("right");
+                block.removeBorder("left");
+            }
+        }
+    }
+    
+    collapse_rightBorders(collision, block, neighbour_cell)
+    {
+        /*Clearing borders from current element and the element around it*/
+        if(collision)
+        {
+            let neighbour_block = this.getBlockContainingCell(neighbour_cell);
+            if(neighbour_block)
+            {
+                neighbour_block.removeBorder("left");
+                block.removeBorder("right");
+            }
+        }
+    }
+    
     Check_Overlapping()
 	{
 		if(this.reachedDown == false)
 		{
+            let lastRow = TableRows - 1;
+            
             //if the block is completely on the screen
-			if (this.bottomRightBlock.row < TableRows - 1)
-			{
-                let left_neighbor_cell = this.bottomLeftBlock.getLeftNeighbourCell();
-                let right_neighbor_cell = this.bottomRightBlock.getRightNeighbourCell();
-                let left_bottom_neighbor_cell = this.bottomLeftBlock.getBottomNeighbourCell();
-                let right_bottom_neighbor_cell = this.bottomRightBlock.getBottomNeighbourCell();
+			if (this.bottomLeftBlock.row < lastRow || this.bottomRightBlock.row < lastRow)
+			{   
+                let bottom_left_neighbor_cell = this.bottomLeftBlock.getBottomNeighbourCell();
+                let bottom_right_neighbor_cell = this.bottomRightBlock.getBottomNeighbourCell();
                 
-				if(  (right_bottom_neighbor_cell.style.backgroundImage != "") ||
-					 (left_bottom_neighbor_cell.style.backgroundImage != "")  )
+                let isBottomLeftCollision = this.check_collision(this.bottomLeftBlock, bottom_left_neighbor_cell);
+                let isBottomRightCollision = this.check_collision(this.bottomRightBlock, bottom_right_neighbor_cell);
+                
+				if(isBottomLeftCollision || isBottomRightCollision)
 				{
+                    let lower_left_neighbor_cell = this.bottomLeftBlock.getLeftNeighbourCell();
+                    let lower_right_neighbor_cell = this.bottomRightBlock.getRightNeighbourCell();
+                    
+                    let upper_left_neighbor_cell = this.upperLeftBlock.getLeftNeighbourCell();
+                    let upper_right_neighbor_cell = this.upperRightBlock.getRightNeighbourCell();
+                    
+                    let top_left_neighbor_cell = this.upperLeftBlock.getTopNeighbourCell();
+                    let top_right_neighbor_cell = this.upperRightBlock.getTopNeighbourCell();
+                    
+                    
+                    let isLeftUpperCollision = this.check_collision(this.upperLeftBlock, upper_left_neighbor_cell);
+                    let isLeftBottomCollision = this.check_collision(this.bottomLeftBlock, lower_left_neighbor_cell);
+                    
+                    let isRightUpperCollision = this.check_collision(this.upperRightBlock, upper_right_neighbor_cell);
+                    let isRightBottomCollision = this.check_collision(this.bottomRightBlock, lower_right_neighbor_cell);
+                    
+                    let isRightTopCollision = this.check_collision(this.upperRightBlock, top_right_neighbor_cell);
+                    let isLeftTopCollision = this.check_collision(this.upperLeftBlock, top_left_neighbor_cell);
+                    
+                    
+                    let placement_bonus = 0;
+                    
+                    //===================================================================
                     //Calculating the earned points based on the quality of the drop
-                    if( ( left_neighbor_cell != null) && (left_neighbor_cell.style.backgroundImage != "") )
+                    
+                    //if horizontal allignment
+                    if( isLeftUpperCollision || isLeftBottomCollision  ||  isRightUpperCollision || isRightBottomCollision )
                     {
                         //Bonus for perfect alignment with the blocks from the left
                         window.score += combo;
                         combo = combo + initialCombo;
                         comboMessage = "Horizontal Alignment"
                         document.getElementById("ComboMessage").style.color = "red";
+                        placement_bonus = 1;
                     }
-                    else if( (right_neighbor_cell != null) && (right_neighbor_cell.style.backgroundImage != "") )
-                    {
-                        //Bonus for perfect alignment with the blocks from the right
-                        window.score += combo;
-                        combo = combo + initialCombo;
-                        comboMessage = "Horizontal Alignment"
-                        document.getElementById("ComboMessage").style.color = "red";
-                    }
-                    else if( (left_bottom_neighbor_cell != null) && 
-                             (right_bottom_neighbor_cell != null) && 
-                             (left_bottom_neighbor_cell.style.backgroundImage != "") && 
-                             (right_bottom_neighbor_cell.style.backgroundImage != "")
-                           )
+                    
+                    //if vertical allignment
+                    if( (isBottomLeftCollision && isBottomRightCollision) || (isRightTopCollision && isLeftTopCollision) )
                     {
                         //Bonus for perfect alignment with the blocks from below
                         window.score += combo;
                         combo = combo + initialCombo;
                         comboMessage = "Vertical Alignment"
                         document.getElementById("ComboMessage").style.color = "blue";
+                        placement_bonus = 1;
                     }
-                    else
+                    
+                    //if no allignment
+                    if(placement_bonus <= 0)
                     {
                         //no allignment
                         comboMessage = ""
@@ -365,6 +556,8 @@ class TowerBlock
                         window.score++;
                     }
                     
+                    //===================================================================
+                    
                     //Getting the game ready for the next iteration
                     window.blocksClimbed++; // increase the global variable 
 					this.reachedDown = true;
@@ -372,7 +565,20 @@ class TowerBlock
                     
                     window.block_altitude = this.upperLeftBlock.row;
                     
-				}
+                    /*updating borders based on the collisions*/
+                    this.collapse_bottomBorders(isBottomLeftCollision, this.bottomLeftBlock, bottom_left_neighbor_cell);
+                    this.collapse_bottomBorders(isBottomRightCollision, this.bottomRightBlock, bottom_right_neighbor_cell);
+                    
+                    this.collapse_leftBorders(isLeftUpperCollision, this.upperLeftBlock, upper_left_neighbor_cell);
+                    this.collapse_leftBorders(isLeftBottomCollision, this.bottomLeftBlock, lower_left_neighbor_cell);
+                    
+                    this.collapse_rightBorders(isRightUpperCollision, this.upperRightBlock, upper_right_neighbor_cell);
+                    this.collapse_rightBorders(isRightBottomCollision, this.bottomRightBlock, lower_right_neighbor_cell);
+				
+                    this.collapse_topBorders(isLeftTopCollision, this.upperLeftBlock, top_left_neighbor_cell);
+                    this.collapse_topBorders(isRightTopCollision, this.upperRightBlock, top_right_neighbor_cell);
+                    
+                }
 			}
 		}
 	}
@@ -389,7 +595,7 @@ class Platform
         this.bendValue = 0;
         this.currentBend = parseInt(TableCols / 2);
         
-        this.towerblock = new TowerBlock();
+        this.towerblock = new TowerBlock(this);
 	}
 	
     FormBuilder()
@@ -397,16 +603,16 @@ class Platform
 		this.blocks = [];
         
         let elemName = getElementIdName(TableRows-1, this.PosX);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["left", "top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 1);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 2);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+        this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["top"]));
         
         elemName = getElementIdName(TableRows-1, this.PosX + 3);
-		this.blocks.push(new Block(document.getElementById(elemName), platformTexture));
+		this.blocks.push(new Block(document.getElementById(elemName), platformTexture, ["right", "top"]));
 	}
 	
     DrawPlatform()
@@ -536,7 +742,7 @@ class Platform
             }
             
             //get a new toweblock
-            this.towerblock = new TowerBlock();
+            this.towerblock = new TowerBlock(this);
             if (spareBlocks == 0)
             {
                     document.getElementById("gameStatus").classList.add("game_over");
@@ -556,6 +762,7 @@ class Platform
         let index = 0; 
         while(index < this.blocks.length)
         {
+            /*Styles are stored - clearing can be triggered*/
             this.blocks[index].clear();
             this.blocks[index].moveDown();
             
@@ -629,6 +836,7 @@ function createTable()
                 cell.id = cell_id
                 cell.dataset.row = row;
                 cell.dataset.col = col;
+                cell.style.border = "solid 2px " + clearColor;
                 
                 table_row.appendChild(cell);
             }
@@ -693,7 +901,8 @@ function RestartGame()
 		for(var j = 0; j < TableCols; j++)
 		{
             let elemName = getElementIdName(i, j);
-			document.getElementById(elemName).style.backgroundImage = "";
+			document.getElementById(elemName).style.border = "solid 2px " + clearColor;
+            document.getElementById(elemName).dataset.busy = "false";
 		}
 	}
 	
@@ -743,9 +952,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                      build_platform.MoveBuildingLeftRight();
                 }
                 build_platform.runGame();
-
-
             }
+            
+            //Unlocking the window.setInterval
+            gameTickRunning = false;
+            
         }, recurrence);
     }
 });

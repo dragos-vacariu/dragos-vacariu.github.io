@@ -76,7 +76,7 @@
     border: ridge 0px black;
     border-radius: 1vw;
     opacity: 0.9;
-    border-collapse: collapse;
+    border-collapse: separate;
     border-spacing: 1px;
     table-layout: fixed;
 }
