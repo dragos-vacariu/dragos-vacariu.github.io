@@ -73,9 +73,9 @@
     padding-top: 1.9vw;
     aspect-ratio: 1 / 1;
     
-    border: groove 1px lightgreen;
+    border: groove 1px green;
     position: relative;
-    background-size: 120%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     margin:0%;

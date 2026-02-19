@@ -12,11 +12,26 @@ var gamePaused = false;
 
 const FruitTexture = "url('./textures/snake_game_fruit.png')";
 
-var snakeHeadTexture_LEFT = "url(./textures/snake_head_left.png)";
-var snakeHeadTexture_RIGHT = "url(./textures/snake_head_right.png)";
-var snakeHeadTexture_UP = "url(./textures/snake_head_up.png)";
-var snakeHeadTexture_DOWN = "url(./textures/snake_head_down.png)";
-var snakeBodyTexture = "url(./textures/snake_body.png)";
+const snakeHeadTexture_LEFT = "url(./textures/snake_head_left.png)";
+const snakeHeadTexture_RIGHT = "url(./textures/snake_head_right.png)";
+const snakeHeadTexture_UP = "url(./textures/snake_head_up.png)";
+const snakeHeadTexture_DOWN = "url(./textures/snake_head_down.png)";
+
+const snakeHeadEmptyTexture_LEFT = "url(./textures/snake_head_empty_left.png)";
+const snakeHeadEmptyTexture_RIGHT = "url(./textures/snake_head_empty_right.png)";
+const snakeHeadEmptyTexture_UP = "url(./textures/snake_head_empty_up.png)";
+const snakeHeadEmptyTexture_DOWN = "url(./textures/snake_head_empty_down.png)";
+
+const snakeBodyTexture = "url(./textures/snake_body_no_bend.png)";
+const snakeBodyBendTopRightTexture = "url(./textures/snake_body_bend_top_right.png)";
+const snakeBodyBendTopLeftTexture = "url(./textures/snake_body_bend_top_left.png)";
+const snakeBodyBendBottomLeftTexture = "url(./textures/snake_body_bend_bottom_left.png)";
+const snakeBodyBendBottomRightTexture = "url(./textures/snake_body_bend_bottom_right.png)";
+
+const snakeTailTexture_LEFT = "url(./textures/snake_tail_left.png)";
+const snakeTailTexture_RIGHT = "url(./textures/snake_tail_right.png)";
+const snakeTailTexture_UP = "url(./textures/snake_tail_up.png)";
+const snakeTailTexture_DOWN = "url(./textures/snake_tail_down.png)";
 
 //this will be the game rendering speed -> 200 ms = around 5FPS
 const gameRenderingSpeed = 10; 
@@ -141,6 +156,8 @@ function createTable()
                 cell.dataset.col = col;
                 cell.dataset.available = "true";
                 
+                window.CellBorder = window.getComputedStyle(cell);
+                
                 cell.onclick = function (){
                     SquareClicked(this);
                 }
@@ -197,7 +214,11 @@ function SquareClicked(cell)
     if(snake.length == 0)
     {
         snake.push(cell);
-        setTexture(cell, snakeHeadTexture_UP);
+        
+        let texture = getHeadTexture();
+        setTexture(cell, texture);
+        
+        gameStart();
     }
 }
 
@@ -365,10 +386,7 @@ async function moveSnake()
     {       
         //if the snake head
         if( i == 0)
-        {
-            //clear the texture
-            removeTexture(snake[i]);
-            
+        {   
             //get the head coordinates
             let snake_col = parseInt(snake[i].dataset.col);
             let snake_row = parseInt(snake[i].dataset.row);
@@ -390,8 +408,6 @@ async function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
-                //draw the texture
-                setTexture(snake[i], snakeHeadTexture_LEFT);
             }
             else if(SnakeDirMoving == "right")
             {
@@ -409,8 +425,6 @@ async function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
-                //draw the texture
-                setTexture(snake[i], snakeHeadTexture_RIGHT);
             }
             else if(SnakeDirMoving == "up")
             {
@@ -428,8 +442,6 @@ async function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
-                //draw the texture
-                setTexture(snake[i], snakeHeadTexture_UP);
             }
             else if(SnakeDirMoving == "down")
             {
@@ -447,9 +459,14 @@ async function moveSnake()
                     let cell = document.getElementById(elemName);
                     snake[i] = cell;
                 }
-                //draw the texture
-                setTexture(snake[i], snakeHeadTexture_DOWN);
             }
+            
+            //clear the texture
+            removeTexture(previousSnakeCell);
+        
+            //draw the texture
+            let texture = getHeadTexture();
+            setTexture(snake[i], texture);
             
             //check for gameover
             checkSnakeCollision();
@@ -467,7 +484,23 @@ async function moveSnake()
             previousSnakeCell = aux;
             
             //draw the texture
-            setTexture(snake[i], snakeBodyTexture);
+            
+            //if not the last snake segment
+            if(i < snake.length - 1)
+            {
+                //texture the snake body
+                let texture = getBodyTexture_BasedOnDirection(snake[i-1], snake[i], previousSnakeCell);
+                
+                setTexture(snake[i], texture);
+            }
+            else
+            {
+                //texture the snake tail
+                
+                let texture = getTailTextureFromNeighbors(snake[i], snake[i-1]);
+                setTexture(snake[i], texture);
+
+            }
         }
         /*Checking if anything went wrong while moving the snake / respawning the fruit*/
         if(!snake[i])
@@ -479,6 +512,191 @@ async function moveSnake()
     
     //check if fruit was eaten
     checkFruitEaten();
+}
+
+function getHeadTexture()
+{
+    switch (SnakeDirMoving)
+    {
+        case "up":
+        {
+            if(snake.length > 1)
+            {
+                return snakeHeadTexture_UP;
+            }
+            else
+            {
+                return snakeHeadEmptyTexture_UP;
+            }
+        }
+        case "down":
+        {
+            if(snake.length > 1)
+            {
+                return snakeHeadTexture_DOWN;
+            }
+            else
+            {
+                return snakeHeadEmptyTexture_DOWN;
+            }
+        }
+        case "left":
+        {
+            if(snake.length > 1)
+            {
+                return snakeHeadTexture_LEFT;
+            }
+            else
+            {
+                return snakeHeadEmptyTexture_LEFT;
+            }
+        }
+        case "right":
+        {
+            if(snake.length > 1)
+            {
+                return snakeHeadTexture_RIGHT;
+            }
+            else
+            {
+                return snakeHeadEmptyTexture_RIGHT;
+            }
+        }
+        default:
+        {
+            /*should enter here only if the direction is not set*/
+            return snakeHeadEmptyTexture_DOWN;
+        }
+    }
+}
+
+function getTailTextureFromNeighbors(tail, prev)
+{
+    let tail_col = parseInt(tail.dataset.col);
+    let tail_row = parseInt(tail.dataset.row);
+
+    let prev_col = parseInt(prev.dataset.col);
+    let prev_row = parseInt(prev.dataset.row);
+
+    // if prev is to the left - tail faces right
+    if (prev_col < tail_col)
+    {
+        return snakeTailTexture_RIGHT;
+    }
+    
+    // prev is to the right - tail faces left
+    if (prev_col > tail_col)
+    {
+        return snakeTailTexture_LEFT;
+    }
+    
+    // prev is above - tail faces down
+    if (prev_row < tail_row)
+    {
+        return snakeTailTexture_DOWN;
+    }
+    
+    // prev is below - tail faces up
+    if (prev_row > tail_row)
+    {
+        return snakeTailTexture_UP;
+    }
+}
+
+function getBodyTexture_BasedOnDirection(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    
+    if(ahead_col === behind_col)
+    {
+        /*Snake is going vertically - straight*/
+        return snakeBodyTexture;
+    }
+    else if(ahead_row === behind_row)
+    {
+        /*Snake is going horizontally straight*/
+        return snakeBodyTexture;
+    }
+    else
+    {
+        /*if the direction turns to horizontal movement*/
+        if(ahead_row === current_row)
+        {
+            /*Row 0 is at the top of the table*/
+            if(current_row < behind_row)
+            {
+                /*direction is up*/
+                if(ahead_col > current_col)
+                {
+                    /*direction is up-right*/
+                    return snakeBodyBendTopLeftTexture;
+                }
+                else
+                {
+                    /*direction is up-left*/
+                    
+                    return snakeBodyBendTopRightTexture;
+                }
+            }
+            else
+            {
+                /*direction is bottom*/
+                
+                if(ahead_col > current_col)
+                {
+                    /*direction is bottom-right*/
+                    return snakeBodyBendBottomLeftTexture;
+                }
+                else
+                {
+                    /*direction is bottom-left*/
+                    return snakeBodyBendBottomRightTexture;
+                }
+            }
+        }
+        /*else the direction turns to vertical movement*/
+        else
+        {
+            if(ahead_row < current_row)
+            {
+                /*direction is up*/
+                if(current_col > behind_col)
+                {
+                    /*direction is right-up*/
+                    return snakeBodyBendBottomRightTexture;
+                }
+                else
+                {
+                    /*direction is left-up*/
+                    
+                    return snakeBodyBendBottomLeftTexture;
+                }
+            }
+            else
+            {
+                /*direction is bottom*/
+                
+                if(current_col > behind_col)
+                {
+                    /*direction is right-bottom*/
+                    return snakeBodyBendTopRightTexture;
+                }
+                else
+                {
+                    /*direction is left-bottom*/
+                    return snakeBodyBendTopLeftTexture;
+                }
+            }
+        }
+    }
 }
 
 function setTexture(cell, texture)
@@ -561,8 +779,25 @@ function checkFruitEaten()
                 /*previousSnakeCell will have the last segment's previous position*/
                 if(previousSnakeCell != null)
                 {
+                    let previous_index = snake.length - 1;
                     snake.push(previousSnakeCell);
-                    setTexture(previousSnakeCell, snakeBodyTexture);
+                    
+                    /*if snake has a body*/
+                    if(previous_index > 0)
+                    {
+                        /*Replace texture from previous tail with snake body texture*/
+                        removeTexture(snake[previous_index]);
+                
+                        //texture the snake body
+                        let body_texture = getBodyTexture_BasedOnDirection(snake[previous_index-1], 
+                                                                    snake[previous_index], previousSnakeCell);
+                    
+                        setTexture(snake[previous_index], body_texture);
+                    }
+                    
+                    /*previousSnakeCell is now the tail*/
+                    let tail_texture = getTailTextureFromNeighbors(previousSnakeCell, snake[previous_index]);
+                    setTexture(snake[previous_index], tail_texture);
                     
                     scheduleAnimation(previousSnakeCell, "snakeGrowingEffect");
                 }
@@ -672,7 +907,6 @@ async function waitForAnimation(active_animation_name)
     
     if (anim)
     {
-        console.log("Here");
         await anim.promise;
     }
 }

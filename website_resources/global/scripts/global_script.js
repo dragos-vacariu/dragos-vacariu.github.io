@@ -104,20 +104,6 @@ const embedded_c_catalogue = [
 
 const javascript_games_catalogue = [
         {
-            name: "Knight Chess Game", 
-            value : "Javascript-Projects/knight_chess_resources/knight_chess_game.html",
-            thumbnail : "Javascript-Projects/knight_chess_resources/knight_chess_game.png",
-            description: "Knight Chess is a puzzle game where players move the Knight piece across every square \
-            on the chessboard, following its unique movement pattern. "
-        },
-        {
-            name: "Snake Game", 
-            value : "Javascript-Projects/snake_resources/snake_game.html",
-            thumbnail : "Javascript-Projects/snake_resources/snake_game.png",
-            description: "Classic Snake Game prototype - focuses on controlling the snake within a grid-based \
-            play area."
-        },
-        {
             name: "Tetris Game", 
             value : "Javascript-Projects/tetris_resources/tetris_game.html",
             thumbnail : "Javascript-Projects/tetris_resources/tetris_game.png",
@@ -130,6 +116,20 @@ const javascript_games_catalogue = [
             thumbnail : "Javascript-Projects/towerblocks_resources/tower_blocks_game.png",
             description: "TowerBlocks is a timing-based stacking game where the player must drop blocks one on top \
             of the other to build the tallest skyscraper possible."
+        },
+        {
+            name: "Knight Chess Game", 
+            value : "Javascript-Projects/knight_chess_resources/knight_chess_game.html",
+            thumbnail : "Javascript-Projects/knight_chess_resources/knight_chess_game.png",
+            description: "Knight Chess is a puzzle game where players move the Knight piece across every square \
+            on the chessboard, following its unique movement pattern. "
+        },
+        {
+            name: "Snake Game", 
+            value : "Javascript-Projects/snake_resources/snake_game.html",
+            thumbnail : "Javascript-Projects/snake_resources/snake_game.png",
+            description: "Classic Snake Game prototype - focuses on controlling the snake within a grid-based \
+            play area."
         },
         {
             name: "Canvas Snake", 
