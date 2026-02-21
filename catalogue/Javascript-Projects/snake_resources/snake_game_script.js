@@ -637,14 +637,14 @@ function checkFromUpToHorizontalMovement(cell_ahead, current_cell, cell_behind)
         /*if direction was UP or PASSING through the TOP wall*/
         if(current_row - behind_row == -1 || current_row - behind_row > 1)
         {
-            /*IF direction from UP turns RIGHT*/
-            if(ahead_col - current_col == 1)
+            /*IF direction from UP turns RIGHT even if PASSING through right wall*/
+            if(ahead_col - current_col == 1 || ahead_col - current_col < -1)
             {
                 /*direction turns from UP to RIGHT*/
                 return "up-to-right";
             }
-            /*IF direction turns from UP to LEFT*/
-            else if (ahead_col - current_col == -1)
+            /*IF direction turns from UP to LEFT even if PASSING through left wall*/
+            else if (ahead_col - current_col == -1 || ahead_col - current_col > 1)
             {
                 /*direction turns from UP to LEFT*/
                 return "up-to-left";
@@ -674,15 +674,15 @@ function checkFromDownToHorizontalMovement(cell_ahead, current_cell, cell_behind
         {
             /*direction is DOWN*/
             
-            /*if direction turns from DOWN to RIGHT*/
-            if(ahead_col - current_col == 1)
+            /*if direction turns from DOWN to RIGHT even if PASSING through right wall*/
+            if(ahead_col - current_col == 1 || ahead_col - current_col < -1)
             {
                 /*direction is bottom-right*/
                 return "down-to-right";
             }
             
-            /*if direction turns from DOWN to LEFT*/
-            else if (ahead_col - current_col == -1)
+            /*if direction turns from DOWN to LEFT even if PASSING through left wall*/
+            else if (ahead_col - current_col == -1 || ahead_col - current_col > 1)
             {
                 /*direction is bottom-left*/
                 return "down-to-left";
@@ -709,19 +709,20 @@ function checkFromHorizontalToUpMovement(cell_ahead, current_cell, cell_behind)
         /*if direction is UP or PASSING through TOP wall*/
         if(ahead_row - current_row == -1 || ahead_row - current_row > 1)
         {
-            /*if direction turns from RIGHT to UP whether PASSING or NOT through RIGHT wall*/
+            /*if direction turns from RIGHT to UP even if PASSING through RIGHT wall*/
             if(current_col - behind_col == 1 || current_col - behind_col < -1)
             {
                 /*direction is right-up*/
                 return "right-to-up";
             }
-            /*if direction turns from LEFT to UP whether PASSING or NOT through LEFT wall*/
+            /*if direction turns from LEFT to UP even if PASSING through LEFT wall*/
             else if(current_col - behind_col == -1 || current_col - behind_col > 1)
             {
                 /*direction is left-up*/
                 
                 return "left-to-up";
             }
+
         }
     }
     return null;
@@ -753,7 +754,7 @@ function checkFromHorizontalToDownMovement(cell_ahead, current_cell, cell_behind
                 return "right-to-down";
             }
             /*IF direction turns from LEFT to DOWN whether PASSING or NOT through LEFT wall*/
-            else(current_col - behind_col == -1 || current_col - behind_col > 1)
+            else if (current_col - behind_col == -1 || current_col - behind_col > 1)
             {
                 /*direction is left-bottom*/
                 return "left-to-down";
