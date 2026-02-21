@@ -39,7 +39,7 @@
                         </div>
                         <div id="gameHud">
                             <h6 id="score">Score: </h6> 
-                            <h6 id="result">Please select a square before hitting START.</h6>
+                            <h6 id="result"></h6>
                                 <!--The menu div will help styling the buttons inside as flex elements which 
                                     will allow them better responsiveness on extreme small viewports-->
                             <div id="menu_div">
@@ -52,14 +52,14 @@
                                 <!--The button container divs will help styling the buttons inside as flex elements which 
                                 will allow them better responsiveness on extreme small viewports-->
                                 <div class="button_container">
-                                    <input class = "game_button" type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input>
+                                    <input type="button" id="turnUp" disabled="true" onclick="setDirUp()" value="Up"></input>
                                 </div>
                                 <div class="button_container">
-                                    <input class = "game_button" type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
-                                    <input class = "game_button" type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input>
+                                    <input type="button" id="turnLeft" disabled="true" onclick="setDirLeft()" value="Left"></input>
+                                    <input type="button" id="turnRight" disabled="true" onclick="setDirRight()" value="Right"></input>
                                 </div>
                                 <div class="button_container">
-                                    <input class = "game_button" type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
+                                    <input type="button" id="turnDown" disabled="true" onclick="setDirDown()" value="Down"></input>
                                 </div>
                             </form>
                             <h6 id="author">Dragos Vacariu @ 2019</h6> 

@@ -160,17 +160,58 @@
     display: block;
 }
 
+/*styling inputs that are disabled*/
+#controls input:disabled
+{
+    opacity: 0.6;
+}
+
 #controls input{
-    width: 40%;
+    position: relative;
+    width: 45%;
     padding: 4px 2px;
     text-align: center;
-    
-    font-family: Calibri;
-    font-size: 18px;
-    font-weight: bold;
-    
+    border: ridge 1px #555;
+    opacity: 1.0;
+
+    height: 30px;
     background-color: white;
-    opacity: 0.7;
+    text-align: center;
+    font-family: Georgia;
+    font-weight: bold;
+    color: #555;
+    font-size: 15px; /* font-size in percent of the viewport size.*/
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/* class that activates the animation */
+.snakeIdle {
+    animation: snakeIdleAnim 3s infinite;
+}
+
+@keyframes snakeIdleAnim {
+    0%   { background-size: 100%; }
+    50%   { background-size: 95%; }
+    100% { background-size: 100%; }
+}
+
+/* class that activates the animation */
+#controls .activeInput {
+    background-color: green;
+    color: white;
+    animation: colorAnim 0.3s 1;
+}
+
+@keyframes colorAnim {
+    0%   { background-color: inherit }
+    40% { background-color: #ccc; }
+    100% { background-color: inherit; }
 }
 
 #turnUp, #turnDown{
@@ -181,8 +222,8 @@
 
 #turnLeft, #turnRight{
     position: relative;
-    left: 10%;
-    display:inline-block;
+    left: 2.5%;
+    display: inline-block;
 }
 
 #gameHud{
@@ -214,23 +255,34 @@ will allow them better responsiveness on extreme small viewports*/
 .button_container
 {
     display: block;
-    margin: 5px auto;
+    margin: 10px auto;
     border: none 1px blue;
 }
 
 .game_button
 {
-    position:relative;
-    border: solid 1px black;
+    position: relative;
+    display: block; /*helps centering with margin: auto*/
+	width: fit-content;
+    min-width: 80px;
+    margin: auto;
+    height: 25px;
+    background-color: #ccc;
     text-align: center;
-    
-    color: darkred;
-    
     font-family: Georgia;
+    font-size: 15px; /* font-size in percent of the viewport size.*/
+    border: ridge 1px #555;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
 .game_button:hover{
-    background-color: lightgray;
+    background-color: white;
     transition: background-color 0.5s ease;
 }
 
@@ -239,16 +291,13 @@ will allow them better responsiveness on extreme small viewports*/
     width: 100%;
     margin: 10px auto;
     display: flex;
+    gap: 0.5vw;
     flex-wrap: wrap;
     border: none 2px red;
 }
 
 #startgame, #pausegame, #restartgame, #fullscreen_button{
-    position: relative;
-    display: block;
-    width: 75px;
-    margin: 2px auto;
-    font-size: 13px; /* font-size in percent of the viewport size.*/
+    /*styles  are set from the game_button class*/
 }
 
 #fullscreen_button
@@ -286,7 +335,7 @@ will allow them better responsiveness on extreme small viewports*/
     line-height: 1.2rem; /*the line height is proportional to the font*/
     font-weight: normal;
     
-    color: white;
+    color: blue;
     text-align: center;
     
     border: none 2px red;
@@ -299,25 +348,51 @@ will allow them better responsiveness on extreme small viewports*/
 {
     position: relative;
     display: flex;
+    flex-direction: column;          /* stack messages vertically */
+    
+    background-color: rgba(0,0,100,0.3); /*background color set from javascript*/
     
     width: 100%;
-    background-color: transparent;
     color: white;
-    height: fit-content;
-    border: none 2px red;
+
+    max-height: 4.1rem;
+    min-height: 4.1rem;
+    overflow-y: auto;                /* enable vertical scrolling */
+    overflow-x: hidden;
     
-    justify-content: center;
-    text-align: center;
-    
-    font-family: Calibri;
-    font-size: 16px;
-    line-height: 1.2rem;
-    
-    min-height: 3lh;   /* always at least 3 lines tall */
-    
-    padding: 0px 5px;
-    
+    border: ridge 1px #888;
+    border-radius: 1rem;
+
+    justify-content: flex-start;     /* top align */
+    align-items: flex-start;         /* left align */
+    text-align: left;
+
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.1rem;
+
+    padding: 5px 8px;
     margin: 10px auto;
+}
+
+@media (max-width: 768px)
+{
+    #result
+    {
+        max-height: 10.3rem;              /* roughly 3 lines (1.2rem * 3) */
+        min-height: 10.3rem;              /* roughly 3 lines (1.2rem * 3) */
+    }
+}
+
+.newOutputInfo
+{
+    animation: outputAnimation 0.3s 1;
+}
+
+@keyframes outputAnimation {
+    0%   { font-size: 1px }
+    100% { font-size: inherit; }
 }
 
 @media (max-width: 768px)

@@ -3,6 +3,11 @@ var SnakeDirMoving = "";
 var snakeNextDirection = "";
 var Fruit = null;
 var score = 0;
+var fruitsEaten = 0;
+
+const positiveMessageColor = "rgba(200,255,200,1)";
+const negativeMessageColor = "rgba(255,200,200,1)";
+const neutralMessageColor = "rgba(220,220,255,1)";
 
 //this will be used to increase the score;
 var scoreFactor = 1;
@@ -12,12 +17,112 @@ var gamePaused = false;
 
 const FruitTexture = "url('./textures/fruit/snake_game_fruit.png')";
 
+const SnakeHeadAnimation = {
+    direction: "down", /*the default snake head orientation*/
+    frameIndex: 0,
+    frameStep: 1,      // 1 forward, -1 backward
+    frameDelay: 200,   /*time between frames*/
+};
+
+function updateSnakeHeadAnimation(deltaTime)
+{
+    if (!snake.length)
+    {
+        return;
+    }
+    
+    /*
+        snakeTextureMap.head is an object. 
+    
+        snakeTextureMap.head[SnakeHeadAnimation.direction] will return one of: 
+            snakeTextureMap.head.down
+            snakeTextureMap.head.up
+            snakeTextureMap.head.right
+            snakeTextureMap.head.left
+            ...
+        
+        or whatever value SnakeHeadAnimation.direction is that's a valid element within snakeTextureMap.head
+    */
+    
+    const frames = snakeTextureMap.head[SnakeHeadAnimation.direction];
+    
+    if (!Array.isArray(frames))
+    {
+        return;
+    }
+    
+    SnakeHeadAnimation.counter += deltaTime;
+    
+    /*if time between frames has no elapsed*/
+    if (SnakeHeadAnimation.counter < SnakeHeadAnimation.frameDelay)
+    {
+        return;
+    }
+    
+    /*time between frames has elapsed - its time to draw a new frame*/
+    SnakeHeadAnimation.counter = 0;
+
+    SnakeHeadAnimation.frameIndex += SnakeHeadAnimation.frameStep;
+
+    //if reached the last frame
+    if (SnakeHeadAnimation.frameIndex >= frames.length - 1)
+    {
+        SnakeHeadAnimation.frameIndex = frames.length - 1;
+        
+        /*change the direction - play the animation backwards*/
+        SnakeHeadAnimation.frameStep = -1;
+    }
+    /*if reached the first frame*/
+    else if (SnakeHeadAnimation.frameIndex <= 0)
+    {
+        SnakeHeadAnimation.frameIndex = 0;
+        
+        /*change the direction - play the animation forwards*/
+        SnakeHeadAnimation.frameStep = 1;
+    }
+    
+    /*Render the texture*/
+    setTexture(snake[0], frames[SnakeHeadAnimation.frameIndex])
+}
+
 const snakeTextureMap = {
     head: {
-        left: "url(./textures/head/snake_head_left.png)",
-        right: "url(./textures/head/snake_head_right.png)",
-        up: "url(./textures/head/snake_head_up.png)",
-        down: "url(./textures/head/snake_head_down.png)",
+        left: [
+            "url(./textures/head/head_left_anim/snake_head_left_0.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_1.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_2.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_3.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_4.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_5.png)",
+            "url(./textures/head/head_left_anim/snake_head_left_6.png)",
+        ],
+        right: [
+            "url(./textures/head/head_right_anim/snake_head_right_0.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_1.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_2.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_3.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_4.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_5.png)",
+            "url(./textures/head/head_right_anim/snake_head_right_6.png)",
+        ],
+        up: [
+            "url(./textures/head/head_up_anim/snake_head_up_0.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_1.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_2.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_3.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_4.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_5.png)",
+            "url(./textures/head/head_up_anim/snake_head_up_6.png)",
+        ],
+        down: [
+            "url(./textures/head/head_down_anim/snake_head_down_0.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_1.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_2.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_3.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_4.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_5.png)",
+            "url(./textures/head/head_down_anim/snake_head_down_6.png)",
+        ],
     },
     body: {
         vertical: "url(./textures/body/snake_body_vertical.png)",
@@ -93,6 +198,10 @@ function FullscreenMode(e)
             game_content.msRequestFullscreen();
             game_div.classList.add("game_div_fullscreen");
         }
+        
+        let resultElem = document.getElementById("result");
+        resultElem.style.maxHeight = "7.3rem"; 
+        resultElem.style.minHeight = "7.3rem"; 
     }
     else
     {
@@ -112,6 +221,10 @@ function FullscreenMode(e)
             document.msExitFullscreen();
             game_div.classList.remove("game_div_fullscreen");
         }
+        
+        let resultElem = document.getElementById("result");
+        resultElem.style.maxHeight = "4.1rem"; 
+        resultElem.style.minHeight = "4.1rem"; 
     }
 }
 
@@ -226,16 +339,99 @@ function getAvailableTableCells()
     return freeCells;
 }
 
+function getValidNeighborCell(cell)
+{
+    const col = parseInt(cell.dataset.col);
+    const row = parseInt(cell.dataset.row);
+
+    const directions = [
+        { dist_col: 0, dist_row: -1, direction: "up" }, // up
+        { dist_col: 0, dist_row: 1, direction: "down"  },  // down
+        { dist_col: -1, dist_row: 0, direction: "left"  }, // left
+        { dist_col: 1, dist_row: 0, direction: "right"  }   // right
+    ];
+
+    for (let item of directions)
+    {
+        const newCol = col + item.dist_col;
+        const newRow = row + item.dist_row;
+        
+        let elemName = getElementIdName(newRow, newCol)
+        
+        let neigh_cell = document.getElementById(elemName);
+
+        if (neigh_cell)
+        {
+            return {cell: neigh_cell, direction: item.direction};
+        }
+    }
+
+    return null; // should never happen unless board is 1x1
+}
+
 function SquareClicked(cell)
 {
     if(snake.length == 0)
     {
-        snake.push(cell);
-        
-        let texture = getHeadTexture();
-        setTexture(cell, texture);
+        let tail_cell_object = getValidNeighborCell(cell);
+
+        if (tail_cell_object)
+        {
+            snake.push(cell);
+            snake.push(tail_cell_object.cell);
+            
+            switch(tail_cell_object.direction)
+            {
+                /*the direction is from the perspective of the tail,
+                so the head is always facing the opposite direction*/
+                case "up":
+                {
+                    setDirDown();
+                    setTexture(cell, snakeTextureMap.head.down);
+                    setTexture(tail_cell_object.cell, snakeTextureMap.tail.up);
+                    break;
+                }
+                case "left":
+                {
+                    setDirRight();
+                    setTexture(cell, snakeTextureMap.head.right);
+                    setTexture(tail_cell_object.cell, snakeTextureMap.tail.left);
+                    break;
+                }
+                case "right":
+                {
+                    setDirLeft();
+                    setTexture(cell, snakeTextureMap.head.left);
+                    setTexture(tail_cell_object.cell, snakeTextureMap.tail.right);
+                    break;
+                }
+                case "down":
+                {
+                    setDirUp();
+                    setTexture(cell, snakeTextureMap.head.up);
+                    setTexture(tail_cell_object.cell, snakeTextureMap.tail.down);
+                    break;
+                }
+                default :
+                {
+                    //Should never come here
+                    setTexture(cell, snakeTextureMap.head.down);
+                    setTexture(tail_cell_object.cell, snakeTextureMap.tail.up);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            /*if no neighboring cell is available... draw only the head*/
+            snake.push(cell);
+            let texture = getHeadTexture();
+            setTexture(cell, texture);
+        }
         
         gameStart();
+        pauseGame();
+        document.getElementById("pausegame").value = "Start"; // Change the label from Resume to Start
     }
 }
 
@@ -243,15 +439,11 @@ function gameStart()
 {
     if(snake.length == 0)
     {
-        document.getElementById("result").innerHTML = "Please select a square before hitting START.";
-        document.getElementById("result").style.backgroundColor =  "rgba(255,0,0,0.4)";
+        writeResult("Please select a square before hitting START.", negativeMessageColor);
     }
     else
-    {
-        document.getElementById("result").style.backgroundColor =  "transparent";
-        document.getElementById("result").text = "";
-        
-        document.getElementById("result").innerHTML = "";
+    {        
+        writeResult("Game Started", positiveMessageColor);
         
         document.getElementById("startgame").id = "pausegame";
         document.getElementById("pausegame").value = "Pause";
@@ -285,11 +477,13 @@ function pauseGame()
     {
         gamePaused = false;
         document.getElementById("pausegame").value = "Pause";
+        writeResult("Game resumed.", positiveMessageColor);
     }
     else
     {
         gamePaused = true;
         document.getElementById("pausegame").value = "Resume";
+        writeResult("Game paused.", neutralMessageColor);
     }
 }
 
@@ -338,15 +532,22 @@ document.onkeydown = function (e) //trigger event when key is pressed down
     }
 }
 
+function clearInputActiveStyles()
+{
+    window.inputButtons.left.classList.remove("activeInput");
+    window.inputButtons.right.classList.remove("activeInput");
+    window.inputButtons.up.classList.remove("activeInput");
+    window.inputButtons.down.classList.remove("activeInput");
+}
+
 function setDirLeft()
 {
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving != "right" )
     {
-        document.getElementById("turnUp").style.opacity = "0.7";
-        document.getElementById("turnLeft").style.opacity = "1";
-        document.getElementById("turnRight").style.opacity = "0.7";
-        document.getElementById("turnDown").style.opacity = "0.7";
+        clearInputActiveStyles();
+        
+        window.inputButtons.left.classList.add("activeInput");
         
         /*queuing the next directional movement*/
         snakeNextDirection = "left";
@@ -358,10 +559,9 @@ function setDirRight()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving != "left" )
     {
-        document.getElementById("turnUp").style.opacity = "0.7";
-        document.getElementById("turnLeft").style.opacity = "0.7";
-        document.getElementById("turnRight").style.opacity = "1";
-        document.getElementById("turnDown").style.opacity = "0.7";
+        clearInputActiveStyles();
+        
+        window.inputButtons.right.classList.add("activeInput");
         
         /*queuing the next directional movement*/
         snakeNextDirection = "right";
@@ -373,10 +573,9 @@ function setDirUp()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving != "down" )
     {
-        document.getElementById("turnUp").style.opacity = "1";
-        document.getElementById("turnLeft").style.opacity = "0.7";
-        document.getElementById("turnRight").style.opacity = "0.7";
-        document.getElementById("turnDown").style.opacity = "0.7";
+        clearInputActiveStyles();
+        
+        window.inputButtons.up.classList.add("activeInput");
         
         /*queuing the next directional movement*/
         snakeNextDirection = "up";
@@ -388,10 +587,9 @@ function setDirDown()
     //do this check to avoid turning 180 degrees around.
     if(SnakeDirMoving != "up")
     {
-        document.getElementById("turnUp").style.opacity = "0.7";
-        document.getElementById("turnLeft").style.opacity = "0.7";
-        document.getElementById("turnRight").style.opacity = "0.7";
-        document.getElementById("turnDown").style.opacity = "1";
+        clearInputActiveStyles();
+        
+        window.inputButtons.down.classList.add("activeInput");
         
         /*queuing the next directional movement*/
         snakeNextDirection = "down";
@@ -522,7 +720,6 @@ async function moveSnake()
             {
                 //texture the snake tail
                 let direction = getDirectionalMovement(snake[i-1], snake[i], previousSnakeCell);
-                console.log("Elem: " + snake[i].id + " -- " + direction);
                 let texture = getTailTextureBasedOnDirectionalMovement(direction);
                 
                 setTexture(snake[i], texture);
@@ -540,30 +737,35 @@ async function moveSnake()
     checkFruitEaten();
 }
 
-function getHeadTexture()
+function getHeadTexture(direction = SnakeDirMoving)
 {
-    switch (SnakeDirMoving)
+    switch (direction)
     {
         case "up":
         {
-            return snakeTextureMap.head.up;
+            SnakeHeadAnimation.direction = "up";
+            return snakeTextureMap.head.up[SnakeHeadAnimation.frameIndex];
         }
         case "down":
         {
-            return snakeTextureMap.head.down;
+            SnakeHeadAnimation.direction = "down";
+            return snakeTextureMap.head.down[SnakeHeadAnimation.frameIndex];
         }
         case "left":
         {
-            return snakeTextureMap.head.left;
+            SnakeHeadAnimation.direction = "left";
+            return snakeTextureMap.head.left[SnakeHeadAnimation.frameIndex];
         }
         case "right":
         {
-            return snakeTextureMap.head.right;
+            SnakeHeadAnimation.direction = "right";
+            return snakeTextureMap.head.right[SnakeHeadAnimation.frameIndex];
         }
         default:
         {
             /*should enter here only if the direction is not set*/
-            return snakeTextureMap.head.down;
+            SnakeHeadAnimation.direction = "down";
+            return snakeTextureMap.head.down[SnakeHeadAnimation.frameIndex];
         }
     }
 }
@@ -962,6 +1164,8 @@ function removeTexture(cell)
 {
     cell.style.backgroundImage = "";
     cell.dataset.available = "true";
+    cell.classList.remove("fruitEffect");
+    cell.classList.remove("snakeIdle");
 }
 
 function checkGenerateFruit()
@@ -983,7 +1187,7 @@ function checkGenerateFruit()
         }
         else
         {
-            console.log("Could not find any available cell.");
+            console.warn("Could not find any available cell.");
         }
     }
 }
@@ -1026,6 +1230,9 @@ function checkFruitEaten()
               Else we will keep the snake at 25 this means we will always have at least 64-25 
               free square to move through
             */
+            
+            fruitsEaten ++;
+            let message = ""
             if(snake.length <= maximumSnakeSegments)
             {
                 /*previousSnakeCell will have the last segment's previous position*/
@@ -1035,7 +1242,16 @@ function checkFruitEaten()
                     snake.push(previousSnakeCell);
                 }
             }
+            else
+            {
+                message += "max length";
+            }
             checkGenerateFruit();
+            
+            message = "Fruits Eaten: " + fruitsEaten + " | Length: " + snake.length + " " + message +
+                      "Next Fruit at: " + Fruit.dataset.row + "x" + Fruit.dataset.col;
+            
+            writeResult(message, neutralMessageColor);
         }
     }
 }
@@ -1050,8 +1266,7 @@ function checkSnakeCollision()
             /*if snake_head collides with the snake_body*/
             if(snake[0].dataset.row == snake[j].dataset.row && snake[0].dataset.col == snake[j].dataset.col)
             {
-                document.getElementById("result").innerHTML = "Game Over!";
-                document.getElementById("result").style.backgroundColor = "rgba(255,0,0,0.4)";
+                writeResult("Game Over! You collided with yourself.", negativeMessageColor);
                 gameOver = true;
                 gameStarted = false;
             }
@@ -1072,8 +1287,7 @@ function gameRestart()
     gamePaused = false;
     SnakeSpeed = 400;
     
-    document.getElementById("result").innerHTML = "";
-    document.getElementById("result").style.backgroundColor = "transparent";
+    writeResult("");
 
     document.getElementById("restartgame").disabled = true;
     
@@ -1089,7 +1303,45 @@ function gameRestart()
             let elemName = getElementIdName(i, j)
             document.getElementById(elemName).style.backgroundImage = "";
             document.getElementById(elemName).dataset.available = "true";
+            document.getElementById(elemName).classList.remove("fruitEffect");
         }
+    }
+}
+
+function writeResult(result_text, color = positiveMessageColor)
+{
+    const resultHUD_Element = document.getElementById("result");
+
+    // Create message element
+    const message = document.createElement("div");
+    message.textContent = result_text;
+    message.style.color = color;
+    message.style.width = "100%";
+
+    //Add slight spacing between messages
+    message.style.margin = "1px";
+    
+    //Append message
+    resultHUD_Element.appendChild(message);
+
+    //Auto-scroll to latest message
+    resultHUD_Element.scrollTop = resultHUD_Element.scrollHeight;
+
+    //Animate newest message
+    scheduleAnimation(message, "newOutputInfo");
+    
+    //Add separator
+    if(resultHUD_Element.children.length > 1)
+    {
+        const lastChild = resultHUD_Element.lastElementChild;
+        lastChild.style.borderTop = "solid 1px " + color;
+    }
+    
+    // Limit total stored messages to 50)
+    const maxMessages = 50;
+    if (resultHUD_Element.children.length > maxMessages)
+    {
+        resultHUD_Element.removeChild(resultHUD_Element.firstChild);
     }
 }
 
@@ -1174,6 +1426,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     if( createTable() )
     {
+        /*Adding input buttons to this element*/
+        const inputButtons = {
+            up: document.getElementById("turnUp"),
+            left: document.getElementById("turnLeft"),
+            right: document.getElementById("turnRight"),
+            down: document.getElementById("turnDown"),
+        }
+        window.inputButtons = inputButtons;
+        
+        writeResult("Please select a square before hitting START.");
         relocateControls();
         
         //The main loop function:
@@ -1182,38 +1444,45 @@ document.addEventListener('DOMContentLoaded', async () => {
             //Creating a main loop;
             renderCounterInMs += gameRenderingSpeed;
             
-            //if game is started and its time to render the snake.
-            if( gameStarted == true && gameOver == false && (renderCounterInMs >= SnakeSpeed) && gamePaused == false)
+            // if game is started, not paused, and not gameOver
+            if ( gameStarted == true && gameOver == false && gamePaused == false)
             {
-                /*Block the execution of the function if another function instance is in await*/
-                if (gameTickRunning)
+                /*Animate the snake if the time between frames has elapsed*/
+                updateSnakeHeadAnimation(gameRenderingSpeed);
+    
+                //if time to move the snake.
+                if( renderCounterInMs >= SnakeSpeed )
                 {
-                    return;   // prevents setInterval function execution stacking
+                    /*Block the execution of the function if another function instance is in await*/
+                    if (gameTickRunning)
+                    {
+                        return;   // prevents setInterval function execution stacking
+                    }
+                    
+                    //Locking the window.setInterval from proceeding with the execution of this function
+                    //during the awaits
+                    gameTickRunning = true;
+                    
+                    renderCounterInMs = 0;
+                    
+                    // apply queued direction ONCE per move
+                    if ( SnakeDirMoving != snakeNextDirection)
+                    {
+                        SnakeDirMoving = snakeNextDirection;
+                    }
+                    
+                    /* if the snake is moving*/
+                    if ( (SnakeDirMoving === "left")  ||
+                         (SnakeDirMoving === "right") ||
+                         (SnakeDirMoving === "up")    ||
+                         (SnakeDirMoving === "down" ) )
+                    {
+                        await moveSnake();
+                    }
+                    
+                    //Unlocking the window.setInterval
+                    gameTickRunning = false;
                 }
-                
-                //Locking the window.setInterval from proceeding with the execution of this function
-                //during the awaits
-                gameTickRunning = true;
-                
-                renderCounterInMs = 0;
-                
-                // apply queued direction ONCE per move
-                if ( SnakeDirMoving != snakeNextDirection)
-                {
-                    SnakeDirMoving = snakeNextDirection;
-                }
-                
-                /* if the snake is moving*/
-                if ( (SnakeDirMoving === "left")  ||
-                     (SnakeDirMoving === "right") ||
-                     (SnakeDirMoving === "up")    ||
-                     (SnakeDirMoving === "down" ) )
-                {
-                    await moveSnake();
-                }
-                
-                //Unlocking the window.setInterval
-                gameTickRunning = false;
             }
         }, 
         gameRenderingSpeed); //this functions is executed every SnakeSpeed mili-seconds.
