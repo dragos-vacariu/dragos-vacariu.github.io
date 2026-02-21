@@ -12,33 +12,43 @@ var gamePaused = false;
 
 const FruitTexture = "url('./textures/fruit/snake_game_fruit.png')";
 
-const snakeHeadTexture_LEFT = "url(./textures/head/snake_head_left.png)";
-const snakeHeadTexture_RIGHT = "url(./textures/head/snake_head_right.png)";
-const snakeHeadTexture_UP = "url(./textures/head/snake_head_up.png)";
-const snakeHeadTexture_DOWN = "url(./textures/head/snake_head_down.png)";
-
-const snakeBodyTexture_VERTICAL = "url(./textures/body/snake_body_vertical.png)";
-const snakeBodyTexture_HORIZONTAL = "url(./textures/body/snake_body_horizontal.png)";
-
-const snakeBodyBendTopRightTexture = "url(./textures/body/snake_body_bend_top_right.png)";
-const snakeBodyBendTopLeftTexture = "url(./textures/body/snake_body_bend_top_left.png)";
-const snakeBodyBendBottomLeftTexture = "url(./textures/body/snake_body_bend_bottom_left.png)";
-const snakeBodyBendBottomRightTexture = "url(./textures/body/snake_body_bend_bottom_right.png)";
-
-const snakeTailTexture_LEFT = "url(./textures/tail/snake_tail_left.png)";
-const snakeTailTexture_RIGHT = "url(./textures/tail/snake_tail_right.png)";
-const snakeTailTexture_UP = "url(./textures/tail/snake_tail_up.png)";
-const snakeTailTexture_DOWN = "url(./textures/tail/snake_tail_down.png)";
-
-const snakeTailGoingUpRightTexture = "url(./textures/tail/snake_tail_going_up_right.png)";
-const snakeTailGoingUpLeftTexture = "url(./textures/tail/snake_tail_going_up_left.png)";
-const snakeTailGoingBottomRightTexture = "url(./textures/tail/snake_tail_going_bottom_right.png)";
-const snakeTailGoingBottomLeftTexture = "url(./textures/tail/snake_tail_going_bottom_left.png)";
-const snakeTailGoingRightUpTexture = "url(./textures/tail/snake_tail_going_right_up.png)";
-const snakeTailGoingLeftUpTexture = "url(./textures/tail/snake_tail_going_left_up.png)";
-const snakeTailGoingRightBottomTexture = "url(./textures/tail/snake_tail_going_right_bottom.png)";
-const snakeTailGoingLeftBottomTexture = "url(./textures/tail/snake_tail_going_left_bottom.png)";
-
+const snakeTextureMap = {
+    head: {
+        left: "url(./textures/head/snake_head_left.png)",
+        right: "url(./textures/head/snake_head_right.png)",
+        up: "url(./textures/head/snake_head_up.png)",
+        down: "url(./textures/head/snake_head_down.png)",
+    },
+    body: {
+        vertical: "url(./textures/body/snake_body_vertical.png)",
+        horizontal: "url(./textures/body/snake_body_horizontal.png)",
+    },
+    body_bend:
+    {
+        top_left: "url(./textures/body/snake_body_bend_top_left.png)",
+        top_right: "url(./textures/body/snake_body_bend_top_right.png)",
+        bottom_left: "url(./textures/body/snake_body_bend_bottom_left.png)",
+        bottom_right: "url(./textures/body/snake_body_bend_bottom_right.png)",
+    },
+    tail:
+    {
+        left: "url(./textures/tail/snake_tail_left.png)",
+        right: "url(./textures/tail/snake_tail_right.png)",
+        up: "url(./textures/tail/snake_tail_up.png)",
+        down: "url(./textures/tail/snake_tail_down.png)",
+    },
+    tail_bend:
+    {
+        going_from_up_to_right: "url(./textures/tail/snake_tail_going_up_right.png)",
+        going_from_up_to_left:  "url(./textures/tail/snake_tail_going_up_left.png)",
+        going_from_down_to_right:  "url(./textures/tail/snake_tail_going_bottom_right.png)",
+        going_from_down_to_left:  "url(./textures/tail/snake_tail_going_bottom_left.png)",
+        going_from_right_to_up:  "url(./textures/tail/snake_tail_going_right_up.png)",
+        going_from_right_to_down:  "url(./textures/tail/snake_tail_going_right_bottom.png)",
+        going_from_left_to_up:  "url(./textures/tail/snake_tail_going_left_up.png)",
+        going_from_left_to_down:  "url(./textures/tail/snake_tail_going_left_bottom.png)",
+    },
+}
 
 //this will be the game rendering speed -> 200 ms = around 5FPS
 const gameRenderingSpeed = 10; 
@@ -536,24 +546,24 @@ function getHeadTexture()
     {
         case "up":
         {
-            return snakeHeadTexture_UP;
+            return snakeTextureMap.head.up;
         }
         case "down":
         {
-            return snakeHeadTexture_DOWN;
+            return snakeTextureMap.head.down;
         }
         case "left":
         {
-            return snakeHeadTexture_LEFT;
+            return snakeTextureMap.head.left;
         }
         case "right":
         {
-            return snakeHeadTexture_RIGHT;
+            return snakeTextureMap.head.right;
         }
         default:
         {
             /*should enter here only if the direction is not set*/
-            return snakeHeadTexture_DOWN;
+            return snakeTextureMap.head.down;
         }
     }
 }
@@ -824,57 +834,55 @@ function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
 
 function getTailTextureBasedOnDirectionalMovement(direction)
 {
-        console.log("Direction: " + direction);
-    
     switch(direction)
     {
         case "down-to-up":
         {
-            return snakeTailTexture_UP;
+            return snakeTextureMap.tail.up;
         }
         case "up-to-down":
         {
-            return snakeTailTexture_DOWN;
+            return snakeTextureMap.tail.down;
         }
         case "left-to-right":
         {
-            return snakeTailTexture_LEFT;
+            return snakeTextureMap.tail.left;
         }
         case "right-to-left":
         {
-            return snakeTailTexture_RIGHT;
+            return snakeTextureMap.tail.right;
         }
         case "up-to-right":
         {
-            return snakeTailGoingUpRightTexture;
+            return snakeTextureMap.tail_bend.going_from_up_to_right;
         }
         case "up-to-left":
         {
-            return snakeTailGoingUpLeftTexture;
+            return snakeTextureMap.tail_bend.going_from_up_to_left;
         }
         case "down-to-right":
         {
-            return snakeTailGoingBottomRightTexture;
+            return snakeTextureMap.tail_bend.going_from_down_to_right;
         }
         case "down-to-left":
         {
-            return snakeTailGoingBottomLeftTexture;
+            return snakeTextureMap.tail_bend.going_from_down_to_left;
         }
         case "right-to-up":
         {
-            return snakeTailGoingRightUpTexture;
+            return snakeTextureMap.tail_bend.going_from_right_to_up;
         }
         case "right-to-down":
         {
-            return snakeTailGoingRightBottomTexture;
+            return snakeTextureMap.tail_bend.going_from_right_to_down;
         }
         case "left-to-up":
         {
-            return snakeTailGoingLeftUpTexture;
+            return snakeTextureMap.tail_bend.going_from_left_to_up;
         }
         case "left-to-down":
         {
-            return snakeTailGoingLeftBottomTexture;
+            return snakeTextureMap.tail_bend.going_from_left_to_bottom;
         }
         default:
         {
@@ -890,51 +898,51 @@ function getBodyTextureBasedOnDirectionalMovement(direction)
     {
         case "down-to-up":
         {
-            return snakeBodyTexture_VERTICAL;
+            return snakeTextureMap.body.vertical;
         }
         case "up-to-down":
         {
-            return snakeBodyTexture_VERTICAL;
+            return snakeTextureMap.body.vertical;
         }
         case "left-to-right":
         {
-            return snakeBodyTexture_HORIZONTAL;
+            return snakeTextureMap.body.horizontal;
         }
         case "right-to-left":
         {
-            return snakeBodyTexture_HORIZONTAL;
+            return snakeTextureMap.body.horizontal;
         }
         case "up-to-right":
         {
-            return snakeBodyBendTopRightTexture;
-        }
-        case "up-to-left":
-        {
-            return snakeBodyBendTopLeftTexture;
-        }
-        case "down-to-right":
-        {
-            return snakeBodyBendBottomRightTexture;
-        }
-        case "down-to-left":
-        {
-            return snakeBodyBendBottomLeftTexture;
-        }
-        case "right-to-up":
-        {
-            return snakeBodyBendBottomLeftTexture;
-        }
-        case "right-to-down":
-        {
-            return snakeBodyBendTopLeftTexture;
-        }
-        case "left-to-up":
-        {
-            return snakeBodyBendBottomRightTexture;
+            return snakeTextureMap.body_bend.top_right;
         }
         case "left-to-down":
         {
-            return snakeBodyBendTopRightTexture;
+            return snakeTextureMap.body_bend.top_right;
+        }
+        case "up-to-left":
+        {
+            return snakeTextureMap.body_bend.top_left;
+        }
+        case "right-to-down":
+        {
+            return snakeTextureMap.body_bend.top_left;
+        }
+        case "down-to-right":
+        {
+            return snakeTextureMap.body_bend.bottom_right;
+        }
+        case "left-to-up":
+        {
+            return snakeTextureMap.body_bend.bottom_right;
+        }
+        case "down-to-left":
+        {
+            return snakeTextureMap.body_bend.bottom_left;
+        }
+        case "right-to-up":
+        {
+            return snakeTextureMap.body_bend.bottom_left;
         }
         default:
         {
