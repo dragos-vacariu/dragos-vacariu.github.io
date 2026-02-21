@@ -504,7 +504,7 @@ async function moveSnake()
                 //texture the snake body
                 let direction = getDirectionalMovement(snake[i-1], snake[i], previousSnakeCell);
                 
-                let texture = getBodyTexture_BasedOnDirection(direction);
+                let texture = getBodyTextureBasedOnDirectionalMovement(direction);
                 
                 setTexture(snake[i], texture);
             }
@@ -513,13 +513,8 @@ async function moveSnake()
                 //texture the snake tail
                 let direction = getDirectionalMovement(snake[i-1], snake[i], previousSnakeCell);
                 console.log("Elem: " + snake[i].id + " -- " + direction);
-                let texture = getTailTextureFromNeighbors(direction);
-                if (horizontalWrap || verticalWrap)
-                {
-                    //alert("direction " + direction);
-                        verticalWrap = false;
-                    horizontalWrap = false;
-                }                    
+                let texture = getTailTextureBasedOnDirectionalMovement(direction);
+                
                 setTexture(snake[i], texture);
             }
         }
@@ -563,12 +558,8 @@ function getHeadTexture()
     }
 }
 
-    let verticalWrap = false;
-    let horizontalWrap = false;
-    
-function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
-{
-    
+function checkDirectionVerticallyStraight(cell_ahead, current_cell, cell_behind)
+{ 
     let ahead_col = parseInt(cell_ahead.dataset.col);
     let ahead_row = parseInt(cell_ahead.dataset.row);
     
@@ -578,35 +569,6 @@ function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
     let behind_col = parseInt(cell_behind.dataset.col);
     let behind_row = parseInt(cell_behind.dataset.row);
     
-    //=========================================================
-    //START: Handling passing through walls
-
-    // vertical wrap
-    if (ahead_row === 0 && behind_row === tableNumberOfRows - 1) {
-        behind_row = -1; // pretend it's just above top
-        verticalWrap = true;
-    } else if (ahead_row === tableNumberOfRows - 1 && behind_row === 0) {
-        behind_row = tableNumberOfRows; // pretend it's just below bottom
-        verticalWrap = true;
-    }
-
-    // horizontal wrap
-    if (ahead_col === 0 && behind_col === tableNumberOfCols - 1) {
-        behind_col = -1; // pretend it's just left of screen
-        horizontalWrap = true;
-    } else if (ahead_col === tableNumberOfCols - 1 && behind_col === 0) {
-        behind_col = tableNumberOfCols; // pretend it's just right of screen
-        horizontalWrap = true;
-    }
-
-    console.log("ahead:", ahead_row, ahead_col, 
-                "current:", current_row, current_col,
-                "behind (adjusted):", behind_row, behind_col);
-    //END: Handling passing through walls
-    //=========================================================
-    
-    //=========================================================
-    //START: Handling for all cases when not passing through walls
     if(ahead_col === behind_col)
     {
         /*Snake is going vertically - straight*/
@@ -614,12 +576,30 @@ function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
         {
             return "down-to-up";
         }
-        else
+        
+        else if(ahead_row < current_row)
         {
             return "up-to-down";
         }
+        
+        /*Edge cases - passing through wall - already handled above.*/
     }
-    else if(ahead_row === behind_row)
+    
+    return null;
+}
+
+function checkDirectionHorizontallyStraight(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    if(ahead_row === behind_row)
     {
         /*Snake is going horizontally straight*/
         
@@ -627,87 +607,221 @@ function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
         {
             return "left-to-right";
         }
-        else
+        
+        else if (ahead_col < current_col)
         {
             return "right-to-left";
         }
+        /*Edge cases - passing through wall - already handled above.*/
     }
-    else
-    {
-        /*if the direction turns to horizontal movement*/
-        if(ahead_row === current_row)
-        {
-            /*Row 0 is at the top of the table*/
-            if(current_row < behind_row)
-            {
-                /*direction is up*/
-                if(ahead_col > current_col)
-                {
-                    /*direction is up-right*/
-                    return "up-to-right";
-                }
-                else
-                {
-                    /*direction is up-left*/
-                    
-                    return "up-to-left";
-                }
-            }
-            else
-            {
-                /*direction is bottom*/
-                
-                if(ahead_col > current_col)
-                {
-                    /*direction is bottom-right*/
-                    return "down-to-right";
-                }
-                else
-                {
-                    /*direction is bottom-left*/
-                    return "down-to-left";
-                }
-            }
-        }
-        /*else the direction turns to vertical movement*/
-        else
-        {
-            if(ahead_row < current_row)
-            {
-                /*direction is up*/
-                if(current_col > behind_col)
-                {
-                    /*direction is right-up*/
-                    return "right-to-up";
-                }
-                else
-                {
-                    /*direction is left-up*/
-                    
-                    return "left-to-up";
-                }
-            }
-            else
-            {
-                /*direction is bottom*/
-                
-                if(current_col > behind_col)
-                {
-                    /*direction is right-bottom*/
-                    return "right-to-down";
-                }
-                else
-                {
-                    /*direction is left-bottom*/
-                    return "left-to-down";
-                }
-            }
-        }
-    }
-    //END: Handling for all cases when not passing through walls
+    
+    return null;
 }
 
-function getTailTextureFromNeighbors(direction)
+function checkFromUpToHorizontalMovement(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    /*if the direction turns to horizontal movement*/
+    if(ahead_row === current_row)
+    {
+        /*Row 0 is at the top of the table*/
+        
+        /*if direction was UP or PASSING through the TOP wall*/
+        if(current_row - behind_row == -1 || current_row - behind_row > 1)
+        {
+            /*IF direction from UP turns RIGHT*/
+            if(ahead_col - current_col == 1)
+            {
+                /*direction turns from UP to RIGHT*/
+                return "up-to-right";
+            }
+            /*IF direction turns from UP to LEFT*/
+            else if (ahead_col - current_col == -1)
+            {
+                /*direction turns from UP to LEFT*/
+                return "up-to-left";
+            }
+        }
+    }
+    return null;
+}
+
+function checkFromDownToHorizontalMovement(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    if(ahead_row === current_row)
+    {
+        /*Row 0 is at the top of the table*/
+        
+        /*if direction was DOWN or PASSING through the BOTTOM wall*/
+        if(current_row - behind_row == 1 || current_row - behind_row < -1)
+        {
+            /*direction is DOWN*/
+            
+            /*if direction turns from DOWN to RIGHT*/
+            if(ahead_col - current_col == 1)
+            {
+                /*direction is bottom-right*/
+                return "down-to-right";
+            }
+            
+            /*if direction turns from DOWN to LEFT*/
+            else if (ahead_col - current_col == -1)
+            {
+                /*direction is bottom-left*/
+                return "down-to-left";
+            }
+        }
+    }
+    return null;
+}
+
+function checkFromHorizontalToUpMovement(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    /*else the direction turns to vertical movement*/
+    if(ahead_row !== current_row)
+    {
+        /*if direction is UP or PASSING through TOP wall*/
+        if(ahead_row - current_row == -1 || ahead_row - current_row > 1)
+        {
+            /*if direction turns from RIGHT to UP whether PASSING or NOT through RIGHT wall*/
+            if(current_col - behind_col == 1 || current_col - behind_col < -1)
+            {
+                /*direction is right-up*/
+                return "right-to-up";
+            }
+            /*if direction turns from LEFT to UP whether PASSING or NOT through LEFT wall*/
+            else if(current_col - behind_col == -1 || current_col - behind_col > 1)
+            {
+                /*direction is left-up*/
+                
+                return "left-to-up";
+            }
+        }
+    }
+    return null;
+}
+
+function checkFromHorizontalToDownMovement(cell_ahead, current_cell, cell_behind)
+{
+    let ahead_col = parseInt(cell_ahead.dataset.col);
+    let ahead_row = parseInt(cell_ahead.dataset.row);
+    
+    let current_col = parseInt(current_cell.dataset.col);
+    let current_row = parseInt(current_cell.dataset.row);
+    
+    let behind_col = parseInt(cell_behind.dataset.col);
+    let behind_row = parseInt(cell_behind.dataset.row);
+    
+    /*else the direction turns to vertical movement*/
+    if(ahead_row !== current_row)
+    {
+        /*if direction is DOWN or PASSING through BOTTOM wall*/
+        if(ahead_row - current_row == 1 || ahead_row - current_row < -1)
+        {
+            /*direction is DOWN*/
+            
+            /*IF direction turns from RIGHT to DOWN whether PASSING or NOT through RIGHT wall*/
+            if(current_col - behind_col == 1 || current_col - behind_col < -1)
+            {
+                /*direction is right-bottom*/
+                return "right-to-down";
+            }
+            /*IF direction turns from LEFT to DOWN whether PASSING or NOT through LEFT wall*/
+            else(current_col - behind_col == -1 || current_col - behind_col > 1)
+            {
+                /*direction is left-bottom*/
+                return "left-to-down";
+            }
+        }
+    }
+    return null;
+}
+
+function getDirectionalMovement(cell_ahead, current_cell, cell_behind)
+{   
+    /*====================================================*/
+    /*START: Checking for straight movement directions*/
+    let direction = checkDirectionVerticallyStraight(cell_ahead, current_cell, cell_behind);
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    
+    direction = checkDirectionHorizontallyStraight(cell_ahead, current_cell, cell_behind);
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    /*END: Checking for straight movement directions*/
+    /*====================================================*/
+    
+
+    /*====================================================*/
+    /*START: Checking for turning from VERTICAL to HORIZONTAL movement directions*/
+    direction = checkFromUpToHorizontalMovement(cell_ahead, current_cell, cell_behind);
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    
+    direction = checkFromDownToHorizontalMovement(cell_ahead, current_cell, cell_behind);
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    /*END: Checking for turning from VERTICAL to HORIZONTAL movement directions*/
+    /*====================================================*/
+
+    /*====================================================*/
+    /*START: Checking for turning from HORIZONTAL to VERTICAL movement directions*/
+    direction = checkFromHorizontalToUpMovement(cell_ahead, current_cell, cell_behind)
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    
+    direction = checkFromHorizontalToDownMovement(cell_ahead, current_cell, cell_behind)
+    
+    if(direction != null)
+    {
+        return direction;
+    }
+    /*END: Checking for turning from HORIZONTAL to VERTICAL movement directions*/  
+    /*====================================================*/
+}
+
+function getTailTextureBasedOnDirectionalMovement(direction)
 {
         console.log("Direction: " + direction);
     
@@ -769,7 +883,7 @@ function getTailTextureFromNeighbors(direction)
     }
 }
 
-function getBodyTexture_BasedOnDirection(direction)
+function getBodyTextureBasedOnDirectionalMovement(direction)
 {
     switch(direction)
     {
