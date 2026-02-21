@@ -27,7 +27,7 @@
     height:auto;
     padding: 0%;
 
-    background-image: url(./textures/classic_chess_background.jpeg);
+    background-image: url(./textures/classic_chess_background2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -182,7 +182,7 @@
     width: auto;
     max-width: 150px;
     border: none 2px white;
-    color: pink;
+    color: black;
     font-size: 13px;
     font-weight: bold;
     /*background-color: rgba(255,255,255,0.6);*/
