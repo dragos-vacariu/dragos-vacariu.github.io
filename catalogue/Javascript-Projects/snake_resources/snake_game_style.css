@@ -191,17 +191,6 @@
 }
 
 /* class that activates the animation */
-.snakeIdle {
-    animation: snakeIdleAnim 3s infinite;
-}
-
-@keyframes snakeIdleAnim {
-    0%   { background-size: 100%; }
-    50%   { background-size: 95%; }
-    100% { background-size: 100%; }
-}
-
-/* class that activates the animation */
 #controls .activeInput {
     background-color: green;
     color: white;

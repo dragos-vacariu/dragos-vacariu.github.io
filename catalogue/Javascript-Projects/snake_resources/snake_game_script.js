@@ -21,7 +21,7 @@ const SnakeHeadAnimation = {
     direction: "down", /*the default snake head orientation*/
     frameIndex: 0,
     frameStep: 1,      // 1 forward, -1 backward
-    frameDelay: 200,   /*time between frames*/
+    frameDelay: 2000,   /*time between frames*/
 };
 
 function updateSnakeHeadAnimation(deltaTime)
@@ -1165,7 +1165,6 @@ function removeTexture(cell)
     cell.style.backgroundImage = "";
     cell.dataset.available = "true";
     cell.classList.remove("fruitEffect");
-    cell.classList.remove("snakeIdle");
 }
 
 function checkGenerateFruit()
