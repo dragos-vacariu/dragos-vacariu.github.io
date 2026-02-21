@@ -1,0 +1,218 @@
+/* Make all elements include padding/border in width */
+*,
+*::before,
+*::after {
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#page_block #game_content
+{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    
+    /*justify-content: center;*/
+    
+    gap: 3px; /* equal spacing between ALL children */
+    
+    width: 65%; /* the width of game_content is also influenced by width of game_div*/
+
+    float: left;
+    
+    height:auto;
+    padding: 0%;
+
+    background-image: url(./textures/classic_chess_background.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border: ridge 6px rgba(255,0,0, 1);
+    border-radius: 1vw;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#game_content #game_div
+{
+    position: relative;
+    display: block;
+    width: 60%;
+    height: auto;
+    
+    flex: 1;                 /* takes available space */
+    aspect-ratio: 1 / 1;     /* THIS keeps it square */
+    
+    margin: 1%;
+    padding: 0%;
+    border: solid 1px red;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+#game_div #game_canvas
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    border: solid 1px blue;
+    
+    margin: 0%;
+    padding: 0%;
+    opacity: 0.9;
+}
+
+#game_content #gameHud
+{
+    position: relative;
+    
+    /*justify-content: space-between;*/ /* THIS evenly distributes content vertically */
+    overflow: hidden;
+    width: 30%;
+    display:flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    height: auto; /* or just delete height entirely */
+    border: solid 3px white;
+    
+    /*The following will ensure that the width of the element will not grow with the added border-size.
+    So the border will be within the defined element width.
+    */
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+@media (max-width: 768px) {
+    #page_block #game_content
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #gameHud
+    {
+        width: 100% !important;
+    }
+
+    #game_div
+    {
+        width: 100% !important;
+    }
+}
+
+#result
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;          /* stack messages vertically */
+    
+    background-color: rgba(0,0,100,0.3); /*background color set from javascript*/
+    
+    width: 100%;
+    color: white;
+
+    max-height: 15.1rem;
+    min-height: 15.1rem;
+    overflow-y: auto;                /* enable vertical scrolling */
+    overflow-x: hidden;
+    
+    border: ridge 1px #888;
+    border-radius: 1rem;
+
+    justify-content: flex-start;     /* top align */
+    align-items: flex-start;         /* left align */
+    text-align: left;
+
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 1.1rem;
+
+    padding: 5px 8px;
+    margin: 10px auto;
+}
+
+@media (max-width: 768px)
+{
+    #result
+    {
+        max-height: 10.3rem;
+        min-height: 10.3rem;
+    }
+}
+
+@media (max-width: 480px) 
+{
+    #result{
+        max-height: 5.1rem;
+        min-height: 5.1rem;
+    }
+}
+
+.newOutputInfo
+{
+    animation: outputAnimation 0.3s 1;
+}
+
+@keyframes outputAnimation {
+    0%   { font-size: 1px }
+    100% { font-size: inherit; }
+}
+
+#author
+{
+    position: relative;
+    width: auto;
+    max-width: 150px;
+    border: none 2px white;
+    color: pink;
+    font-size: 13px;
+    font-weight: bold;
+    /*background-color: rgba(255,255,255,0.6);*/
+    text-align: center;
+    padding: 2%;
+    margin: 0px auto;
+    margin-top: auto;
+    border-radius: 10px;
+    line-height: 1.2rem; /*the line height is proportional to the font*/
+}
+
+.button_container{
+    border: solid 2px blue;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+@media (max-width: 768px)
+{
+    .button_container
+    {
+        flex-direction: column;
+    }
+}
+
+#fullscreen, #restart{
+    width: 85px;
+    margin: auto;
+    font-size: 15px;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Classic Chess Game</title>
+        
+        <meta charset = "UTF-8">
+        <!--For mobile viewport proper resizing-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Favicon -->
+        <link rel="icon" type="image/x-icon" href="../../../website_resources/global/images/favicon.ico">
+        
+        <!--Global resources-->
+        <link rel="stylesheet" href="../../../website_resources/global/css/global.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/game_page.css">
+        <link rel="stylesheet" href="../../../website_resources/global/css/catalogue_style.css">
+        <script src="../../../website_resources/global/scripts/video_page_script.js"></script>
+        
+        <!--Local resources-->
+        <link rel="stylesheet" href="./classic_chess_style.css">
+    
+    </head>
+    <body onkeypress = "Enter_FullScreen(event)">
+        <header id="page_header">
+            <!--The content will be added from javascript-->
+        </header>
+        <div id="page_block">
+            <div id="page_content">
+                <div id="navigation">
+                    <!-- Actual sidebar content -->
+                    <div id="sidebar">
+
+                    </div>
+                </div>
+                <div id = "block_content">
+                    <div id="game_content">
+                        <div id="game_div">
+                            <canvas id="game_canvas">
+                            </canvas>
+                        </div>
+
+                        <div id="gameHud">
+                            <h6 id="result"> 
+                            </h6>
+                            <div class="button_container">
+                                <input type="button" id="restart" value="Restart">
+                                <input type="button" id="fullscreen" value="Fullscreen">
+                            </div>
+                            <h6 id="author">Dragos Vacariu @ 2026</h6>
+                        </div>
+                    </div>
+                    Classic chess is a game in which the player has to guide the snake across the playfield to collect fruit. 
+                    Each fruit increases your score and extends the length of the snake, increasing the challenge as the game progresses.
+                    <br><br>
+                    Unlike the previous version, this build introduces stricter rules—colliding with either the wall or the snake’s 
+                    own tail ends the game, raising the stakes for careful control and strategic movement.
+                    <br><br>
+                    <b>Instructions:</b>
+                    <ul class="regular_ul">
+                        <li><b>Controls:</b> Use the specified keys to move the snake.</li>
+                        <li><b>Goal:</b> Eat the fruit to grow longer and earn points.</li>
+                        <li><b>Game Over:</b> The game ends if you collide with your own tail or hit the wall.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer id="page_footer">
+            <!--The content will be added from javascript-->
+        </footer> 
+    </body>
+    <!--This resource has to be added here because we need the elements in the HTML document to exist before 
+    running the script-->
+    <!--Global resources-->
+    <script src="../../../website_resources/global/scripts/global_script.js"></script>
+    <!--Local resources-->
+    <script src="./classic_chess_script.js"></script>
+</html>
