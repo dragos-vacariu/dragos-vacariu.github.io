@@ -27,8 +27,12 @@ const neutralMessageColor = "rgba(220,220,255,1)";
 const whitePlayerMessageColor = "rgba(255,255,255,1)";
 const blackPlayerMessageColor = "rgba(100,100,100,1)";
 
-const regularWhiteColor = "#f0d9b5";
-const regularBlackColor = "#b58863";
+//const regularWhiteColor = "#f0d9b5";
+//const regularBlackColor = "#b58863";
+
+const regularWhiteColor = "rgba(250,230,230,1)";
+const regularBlackColor = "rgba(160,100,100,1)";
+
 const selectionWhiteColor = "lightgreen";
 const selectionBlackColor = "darkgreen";
 
@@ -552,18 +556,39 @@ class AIPlayer extends Player
 {
     constructor(color)
     {
+        //calling the parent class constructor
         super(color);
     }
     
     requestMove(game)
     {
-        const move = this.calculateMove(game.board);
+        const move = this.calculateMove(game);
         //game.executeMove(move);
     }
-
-    calculateMove(board)
+    
+    calculateMove(game)
     {
-        // very basic random move for now
+        const allMoves = [];
+        for (let row of game.board.squares)
+        {
+            for (let square of row)
+            {
+                if (square.piece && square.piece.color === this.color)
+                {
+                    const moves = game.getFilteredLegalMoves(square);
+                    moves.forEach(toSquare => allMoves.push({from: square, to: toSquare}));
+                }
+            }
+        }
+
+        if(allMoves.length === 0)
+        {
+            return; // no moves possible (checkmate/stalemate)
+        }
+        
+        //pick a random move
+        const choice = allMoves[Math.floor(Math.random() * allMoves.length)];
+        game.move(choice.from, choice.to);
     }
 }
 
@@ -630,6 +655,97 @@ class Board
         }
     }
     
+    checkPawnPromotion(toSquare)
+    {
+        //if the piece that was moved is a pawn
+        if(toSquare != null && toSquare.piece != null && toSquare.piece.type.name == "pawn")
+        {
+            //if pawn is white
+            if(toSquare.piece.color === "white")
+            {
+                //if pawn travelled to the top row - is eligible for promotion
+                if(toSquare.row == 0)
+                {
+                    toSquare.piece = new ChessPiece(pieceTypes["queen"], "white", pieceTextures.white.queen);
+                    writeResult("White Pawn promoted to Queen.", positiveMessageColor);
+                }
+            }
+            else if(toSquare.piece.color === "black")
+            {
+                //if pawn travelled to the bottom row - is eligible for promotion
+                if(toSquare.row == 7)
+                {
+                    toSquare.piece = toSquare.piece = new ChessPiece(pieceTypes["queen"], "black", pieceTextures.black.queen);
+                    writeResult("Black Pawn promoted to Queen.", positiveMessageColor);
+                }
+            }
+        }
+    }
+    
+    checkCastlingMove(fromSquare, toSquare)
+    {
+        /*This function checks for castling moves on the king and commits the rook to it
+        - THIS SHOULD BE CALLED AFTER THE KING WAS ALREADY MOVED*/
+        
+        /*piece was in fromSquare and now is in toSquare*/
+        if (toSquare.piece)
+        {
+            if (toSquare.piece.type.name === "king")
+            {
+                let column_difference = fromSquare.col - toSquare.col;
+                
+                //if king moves more than 1 squares - its castling movement - 
+                //already validated from the game class and knightType class
+                if(column_difference < -1)
+                {   
+                    //king side castling
+                    let rookSquare = this.squares[toSquare.row][toSquare.col + 1];
+                    
+                    //designated position is next square at the left-side of the king
+                    let designatedPositionSquare = this.squares[toSquare.row][toSquare.col - 1];
+                    
+                    /*these were already validated by the knightType class when commiting the move
+                    - but to make sure we picked the correct squares above - we gonna recheck.
+                    */
+                    if(rookSquare != null && rookSquare.piece != null && rookSquare.piece.type.name == "rook")
+                    {
+                        if(designatedPositionSquare != null && designatedPositionSquare.piece == null)
+                        {
+                            //if piece was not moved before - now it is moved
+                            rookSquare.piece.hasMoved = true;
+                            designatedPositionSquare.piece = rookSquare.piece;
+                            rookSquare.piece = null;
+                            writeResult("King-side castling move complete.", positiveMessageColor);
+                        }
+                    }
+                }
+                else if(column_difference > 1)
+                {
+                    //queen side castling
+                    let rookSquare = this.squares[toSquare.row][toSquare.col - 2];
+                    
+                    //designated position is next square at the right-side of the king
+                    let designatedPositionSquare = this.squares[toSquare.row][toSquare.col + 1];
+                    
+                    /*these were already validated by the knightType class when commiting the move
+                    - but to make sure we picked the correct squares above - we gonna recheck.
+                    */
+                    if(rookSquare != null && rookSquare.piece != null && rookSquare.piece.type.name == "rook")
+                    {
+                        if(designatedPositionSquare != null && designatedPositionSquare.piece == null)
+                        {
+                            //if piece was not moved before - now it is moved
+                            rookSquare.piece.hasMoved = true;
+                            designatedPositionSquare.piece = rookSquare.piece;
+                            rookSquare.piece = null;
+                            writeResult("Queen-side castling move complete.", positiveMessageColor);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     checkUpdateBoardKingsPositions(square)
     {
         if (square.piece)
@@ -693,8 +809,15 @@ class Board
         
         toSquare.piece = fromSquare.piece;
         fromSquare.piece = null;
+        
         // Update king reference when moving
         this.checkUpdateBoardKingsPositions(toSquare);
+        
+        //Check for castling move and commit the rook to it.
+        this.checkCastlingMove(fromSquare, toSquare);
+        
+        //Check for pawn promotion move.
+        this.checkPawnPromotion(toSquare);
     }
 }
 
@@ -715,7 +838,7 @@ class Game
         this.moveCounter = 0;
         
         writeResult("Game Started.");
-        writeResult("Current Turn: " + this.currentTurn, whitePlayerMessageColor);
+        writeResult("Current Turn: " + this.currentTurn, neutralMessageColor);
     }
 
     move(fromSquare, toSquare)
@@ -764,10 +887,10 @@ class Game
         let message = capitalize(this.currentTurn) + "s:\n" + toSquare.piece.type.name + " - from " +
                       fromSquare.row + "x" + fromSquare.col + " to " + toSquare.row + "x" + toSquare.col;
         
-        writeResult(this.moveCounter + ". " + message, negativeMessageColor);
+        writeResult(this.moveCounter + ". " + message, this.getMessageColorForCurrentPlayer());
         
-        this.switchTurn();
         this.updateGameState();
+        this.switchTurn();
 
         return true;
     }
@@ -786,8 +909,7 @@ class Game
         this.currentTurn = this.currentPlayer.color;
         this.currentPlayer.requestMove(this);
         
-        let color = this.getMessageColorForCurrentPlayer();
-        writeResult("Current Turn: " + this.currentTurn, color);
+        writeResult("Current Turn: " + this.currentTurn, neutralMessageColor);
     }
       
     isKingInCheck(color)
@@ -931,7 +1053,7 @@ class Game
     
     getOpponentPlayerName()
     {
-        let player = this.currentPlayer === "white"
+        let player = this.currentTurn === "white"
                     ? "black"
                     : "white";
 
@@ -969,11 +1091,7 @@ class Game
             //Output the result
             let message_color = this.getMessageColorForCurrentPlayer();
             
-            //the turn has changed before calling this function... so if there is a checkmate...
-            //the opponent has won.
-            let oppositePlayer = this.getOpponentPlayerName();
-            
-            writeResult("Checkmate! The winner is: " + oppositePlayer + " player.", message_color);
+            writeResult("Checkmate! " + capitalize(this.currentTurn) + " player is the winner.", message_color);
         }
         //if the king is not in check and doesn't have any valid moves
         else if (!inCheck && !hasMove)
@@ -988,8 +1106,10 @@ class Game
         {
             this.state = "check";
             
+            let oppositePlayer = this.getOpponentPlayerName();
+            
             //Output the result
-            writeResult(capitalize(this.currentTurn) + "s - are in check!", negativeMessageColor);
+            writeResult(capitalize(oppositePlayer) + "s - are in check!", negativeMessageColor);
         }
         else
         {

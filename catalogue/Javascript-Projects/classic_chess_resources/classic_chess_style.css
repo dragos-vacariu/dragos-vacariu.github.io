@@ -25,13 +25,13 @@
     float: left;
     
     height:auto;
-    padding: 0%;
+    padding: 0px;
 
     background-image: url(./textures/classic_chess_background2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 
-    border: ridge 6px rgba(255,0,0, 1);
+    border: ridge 1px rgba(255,255,255, 1);
     border-radius: 1vw;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
@@ -54,7 +54,7 @@
     
     margin: 1%;
     padding: 0%;
-    border: solid 1px red;
+    border: none 1px #ccc;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -70,7 +70,7 @@
     height: 100%;
     display: block;
     
-    border: solid 1px blue;
+    border: none 1px blue;
     
     margin: 0%;
     padding: 0%;
@@ -86,10 +86,10 @@
     width: 30%;
     display:flex;
     flex-direction: column;
-    gap: 8px;
+    margin: 1%;
     
     height: auto; /* or just delete height entirely */
-    border: solid 3px white;
+    border: none 1px black;
     
     /*The following will ensure that the width of the element will not grow with the added border-size.
     So the border will be within the defined element width.
@@ -133,7 +133,7 @@
     overflow-y: auto;                /* enable vertical scrolling */
     overflow-x: hidden;
     
-    border: ridge 1px #888;
+    border: none 1px red;
     border-radius: 1rem;
 
     justify-content: flex-start;     /* top align */
@@ -145,8 +145,9 @@
     font-weight: normal;
     line-height: 1.1rem;
 
-    padding: 5px 8px;
-    margin: 10px auto;
+    padding: 5px;
+    margin: 0px auto;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 768px)
@@ -180,11 +181,11 @@
 {
     position: relative;
     width: auto;
-    max-width: 150px;
+    max-width: 200px;
     border: none 2px white;
-    color: black;
-    font-size: 13px;
-    font-weight: bold;
+    color: gray;
+    font-family: Arial;
+    font-size: 13px;    
     /*background-color: rgba(255,255,255,0.6);*/
     text-align: center;
     padding: 2%;
@@ -195,7 +196,7 @@
 }
 
 .button_container{
-    border: solid 2px blue;
+    border: none 1px blue;
     padding: 0px;
     margin: 0px;
     display: flex;
