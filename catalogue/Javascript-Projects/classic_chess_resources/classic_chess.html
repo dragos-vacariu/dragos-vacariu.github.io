@@ -48,18 +48,33 @@
                             <h6 id="author">Dragos Vacariu @ 2026</h6>
                         </div>
                     </div>
-                    Classic chess is a game in which the player has to guide the snake across the playfield to collect fruit. 
-                    Each fruit increases your score and extends the length of the snake, increasing the challenge as the game progresses.
+                    Classic Chess is a faithful recreation of the traditional chess game, built entirely in 
+                    JavaScript. Players compete against an AI opponent, following the official rules of chess — 
+                    including castling, pawn promotion, check, and checkmate.
                     <br><br>
-                    Unlike the previous version, this build introduces stricter rules—colliding with either the wall or the snake’s 
-                    own tail ends the game, raising the stakes for careful control and strategic movement.
+                    <b>Gameplay Features: </b>
+                    Human vs AI: The player always controls the white pieces, while the AI manages the black 
+                    pieces.
+                    Rule-complete: Includes all standard chess rules, such as castling, en passant, and pawn 
+                    promotion (automatic promotion to queen).
+                    Legal Move Highlighting: When a piece is selected, all valid moves are highlighted to 
+                    guide the player.
+                    Turn-based Play: Players select a piece, then choose a legal square to move, ending 
+                    their turn.
                     <br><br>
-                    <b>Instructions:</b>
+                    <b>How to Play:</b>
                     <ul class="regular_ul">
-                        <li><b>Controls:</b> Use the specified keys to move the snake.</li>
-                        <li><b>Goal:</b> Eat the fruit to grow longer and earn points.</li>
-                        <li><b>Game Over:</b> The game ends if you collide with your own tail or hit the wall.</li>
+                        <li>Click on a square containing your piece.</li>
+                        <li>Available legal moves for that piece will be highlighted.</li>
+                        <li>Click on your chosen square to move the piece and complete your turn.</li>
+                        <li>Continue alternating turns until one player captures the opponent’s king, 
+                        resulting in checkmate.</li>
                     </ul>
+                    <br>
+                    <b>Development Notes:</b>
+                    This project demonstrates full game logic, including piece movement, check/checkmate 
+                    detection, castling, and pawn promotion. The AI currently uses a basic move-selection 
+                    algorithm, providing a playable opponent for single-player mode.
                 </div>
             </div>
         </div>

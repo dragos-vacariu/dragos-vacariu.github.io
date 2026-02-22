@@ -104,6 +104,13 @@ const embedded_c_catalogue = [
 
 const javascript_games_catalogue = [
         {
+            name: "Classic Chess", 
+            value : "Javascript-Projects/classic_chess_resources/classic_chess.html",
+            thumbnail : "Javascript-Projects/classic_chess_resources/classic_chess.png",
+            description: "Classic Chess is a faithful recreation of the traditional chess game, built entirely in \
+            JavaScript. Players compete against an AI opponent, following the official rules of chess."
+        },
+        {
             name: "Tetris Game", 
             value : "Javascript-Projects/tetris_resources/tetris_game.html",
             thumbnail : "Javascript-Projects/tetris_resources/tetris_game.png",
