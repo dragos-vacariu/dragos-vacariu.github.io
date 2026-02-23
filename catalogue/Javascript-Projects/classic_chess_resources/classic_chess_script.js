@@ -20,12 +20,12 @@ So setting size = 640 ensures you have a fixed drawing grid of 640 × 640 pixels
 
 */
 
-//colors for the messages that will be displayed in the HTML result element
+//Colors for the messages that will be displayed in the HTML result element
 const positiveMessageColor = "rgba(200,255,200,1)";
 const negativeMessageColor = "rgba(255,200,200,1)";
 const neutralMessageColor = "rgba(220,220,255,1)";
 const whitePlayerMessageColor = "rgba(255,255,255,1)";
-const blackPlayerMessageColor = "rgba(100,100,100,1)";
+const blackPlayerMessageColor = "black";
 
 //const regularWhiteColor = "#f0d9b5";
 //const regularBlackColor = "#b58863";
@@ -432,19 +432,29 @@ class ChessPiece
 {
     constructor(type, color, texture)
     {
-        this.type = type;   // "pawn", "rook", etc.
-        this.color = color;    // "white" or "black"
+        this.type = type;       // instance of "PawnType", "RookType", etc.
+        this.color = color;     // "white" or "black"
         this.texture = texture; // Image object or canvas offscreen extraction
-        this.hasMoved = false; // useful for castling & pawn first move
+        this.hasMoved = false;  // useful for castling & pawn first move
     }
     
     getLegalMoves(game, square)
     {
+        /*Method that returns the pseudo-legal moves of each piece.type. 
+        
+        A pseudo-legal move is a move that is legal in chess but doesn't take under consideration the safety of 
+        its king.
+        */
+        
         return this.type.getLegalMoves(game, square.row, square.col, this);
     }
     
     getCastlingMoves(game, square)
     {
+        /*Method that checks if piece.type defines a method for castling and 
+        then return the output of that method, or null if such method is undefined.
+        */
+
         if(square.piece.type.getCastlingMoves != undefined)
         {
             return square.piece.type.getCastlingMoves(game, square.row, square.col, this);
@@ -452,9 +462,15 @@ class ChessPiece
         return [];
     }
     
-    // Helper for sliding pieces (rook, bishop, queen)
     getMultipleSlidingMoves(game, row, col, directions)
     {
+        /* Helper for calculating pseudo-legal moves for pieces with ability to travelled 
+        multiple squares per move such as: Rook, Bishop, Queen
+        
+        A pseudo-legal move is a move that is legal in chess but doesn't take under consideration the safety of 
+        its king.
+        */
+        
         const moves = [];
 
         for(let direction of directions)
@@ -495,9 +511,15 @@ class ChessPiece
         return moves;
     }
     
-    // Helper for sliding pieces (king, knight)
     getSingleSlidingMoves(game, row, col, directions)
     {
+        /*Helper for calculating pseudo-legal moves for pieces with ability to travelled 
+        1 single square per move such as: King, Knight
+        
+        A pseudo-legal move is a move that is legal in chess but doesn't take under consideration the safety of 
+        its king.
+        */
+        
         const moves = [];
         
         for(let direction of directions)
@@ -540,6 +562,7 @@ class Square
 
 class Player
 {
+    //Base class for any type of player
     constructor(color)
     {
         this.color = color;
@@ -563,19 +586,25 @@ class AIPlayer extends Player
     requestMove(game)
     {
         const move = this.calculateMove(game);
-        //game.executeMove(move);
     }
     
     calculateMove(game)
     {
         const allMoves = [];
+        
+        //Scan the chessboard
         for (let row of game.board.squares)
         {
             for (let square of row)
             {
+                //for any piece of the AIPlayer's color
                 if (square.piece && square.piece.color === this.color)
                 {
+                    //Get all valid legal moves.
                     const moves = game.getFilteredLegalMoves(square);
+                    
+                    //For each valid move, add the move to the allMoves list as part of an object storing 
+                    //the square where the piece is located and the square where the piece will be moved.
                     moves.forEach(toSquare => allMoves.push({from: square, to: toSquare}));
                 }
             }
@@ -586,9 +615,169 @@ class AIPlayer extends Player
             return; // no moves possible (checkmate/stalemate)
         }
         
-        //pick a random move
-        const choice = allMoves[Math.floor(Math.random() * allMoves.length)];
-        game.move(choice.from, choice.to);
+        //Evaluate each move that the AI has.
+        allMoves.forEach(move => move.score = this.evaluateMoveWithRisk(game, move));
+
+        //Sort moves in descending order by score
+        allMoves.sort((a, b) => b.score - a.score);
+
+        //Pick top 2–3 moves randomly
+        const topMoves = allMoves.slice(0, Math.min(3, allMoves.length));
+        const choice = topMoves[Math.floor(Math.random() * topMoves.length)];
+        
+        //Add a delay before commiting the move to the game... this way the AI will not move instantly.
+        setTimeout(() => {
+            
+            game.move(choice.from, choice.to);
+            
+            /*
+            HTML Canvas is immediate-mode rendering, not reactive.
+            Changing game state (e.g., moving a piece in memory) does not automatically update what is displayed. 
+            The canvas only updates when drawing functions (drawBoard(), drawImage(), etc.) are explicitly called.
+
+            In this project, the board is redrawn inside the click handler (squareClicked → drawBoard()). 
+            When the AI moved synchronously (without delay), its move executed before the click handler finished, 
+            so the final redraw included both the player and AI moves.
+
+            However, when setTimeout is introduced, the click handler completes and the board is redrawn before the 
+            AI move executes. The AI updates the game state later, but no redraw is triggered, so the visual board 
+            remains outdated until another click forces a redraw.
+            */
+            
+            game.drawBoard();
+            
+        }, 2000);
+        
+        
+    }
+    
+    evaluateMoveWithRisk(game, move)
+    {
+        const fromPiece = move.from.piece;
+        const captured = move.to.piece;
+
+        //Make the move temporarily
+        move.to.piece = fromPiece;  //each move is an object containing a 'to' and 'from' square object
+        move.from.piece = null;
+
+        let score = 0;
+
+        //Reward for captures
+        if (captured)
+        {
+            score += this.getPieceValue(captured);
+        }
+        
+        //Pawn bonuses (promotion potential, center control)
+        if (fromPiece.type === 'pawn')
+        {
+            const rowAdvance = this.color === 'white' ? move.to.row : 7 - move.to.row;
+            score += rowAdvance * 0.5;  //the further forward, the higher the bonus
+            const col = move.to.col;
+            
+            //Center controls - the further a pawn is from its origin the more valuable its capture becomes
+            if (col >= 2 && col <= 5)
+            {
+                score += 0.1;  //center columns get small bonus
+            }
+        }
+
+        //Scan the checkboard and apply penalty for leaving pieces exposed
+        for (let row of game.board.squares)
+        {
+            for (let square of row)
+            {
+                const piece = square.piece;
+                if (piece && piece.color === this.color)
+                {
+                    //Get squares where opponent can capture
+                    const attackers = this.getSquaresThreatening(game, square); 
+                    
+                    if (attackers.length > 0)
+                    {
+                        for(let attacker of attackers)
+                        {
+                            if (move.to === attacker)
+                            {
+                                //defend valuable pieces - treat threats with priority
+                                score += this.getPieceValue(threatenedPiece) * 0.8; 
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Undo move
+        move.from.piece = fromPiece;
+        move.to.piece = captured;
+
+        return score;
+    }
+        
+    getSquaresThreatening(game, targetSquare)
+    {
+        const threats = [];
+
+        //Scan the checkboard looking for threats
+        for (let row of game.board.squares)
+        {
+            for (let square of row)
+            {
+                const piece = square.piece;
+                
+                //if this is the opponent's piece
+                if (piece && piece.color !== this.color)
+                {
+                    //interogate legal moves of opponent's piece
+                    const moves = piece.getLegalMoves(game, square);
+                    
+                    //if opponent can capture targetSquare
+                    if (moves.includes(targetSquare))
+                    {
+                        //add to the list of threats
+                        threats.push(square);
+                    }
+                }
+            }
+        }
+
+        return threats; // array of squares from which this square is threatened
+    }
+
+    getPieceValue(piece)
+    {
+        /*Assign some imaginary values to each piece on the checkboard*/
+        switch(piece.type)
+        {
+            case 'pawn':
+            {
+                return 1;
+            }
+            case 'knight':
+            {
+                return 3;
+            }
+            case 'bishop':
+            {
+                return 3;
+            }
+            case 'rook':
+            {
+                return 5;
+            }
+            case 'queen':
+            {
+                return 9;
+            }
+            case 'king':
+            {
+                /*this will make the AI extremely aggressive towards the king
+                  and will lead towards the final objective which is checkmate - capturing the king.
+                */
+                return 1000;
+            }
+        }
     }
 }
 
@@ -596,6 +785,7 @@ class HumanPlayer extends Player
 {
     constructor(color)
     {
+        //Calling parent constructor
         super(color);
     }
     
@@ -611,12 +801,17 @@ class Board
     constructor()
     {
         this.size = 8;
-        this.squares = [];
+        this.squares = []; // this will be a 2d array / matrix
         this.selection = null
         this.whiteKingSquare = null;
         this.blackKingSquare = null;
         
-        //initialize the Board instance with squares
+        //Helps tracking the last move and apply visual styles to it
+        this.lastMoveFrom = null; 
+        this.lastMoveTo = null;
+        
+        
+        //Initialize the Board instance with squares
         for (let row = 0; row < 8; row++)
         {
             const currentRow = [];
@@ -657,6 +852,9 @@ class Board
     
     checkPawnPromotion(toSquare)
     {
+        /*This function is triggered by this.movePiece to check if the pawn was moved and if
+        the move made the pawn is eligible for promotion*/
+        
         //if the piece that was moved is a pawn
         if(toSquare != null && toSquare.piece != null && toSquare.piece.type.name == "pawn")
         {
@@ -684,6 +882,11 @@ class Board
     
     checkCastlingMove(fromSquare, toSquare)
     {
+        /*
+        This function is triggered by this.movePiece to check if the piece moved is the king, and if the move
+        is castling... then move the rook to the designated square.
+        */
+        
         /*This function checks for castling moves on the king and commits the rook to it
         - THIS SHOULD BE CALLED AFTER THE KING WAS ALREADY MOVED*/
         
@@ -748,6 +951,12 @@ class Board
     
     checkUpdateBoardKingsPositions(square)
     {
+        /*This method is triggered by this.movePiece and will check if the piece that was moved is the king
+        then update the kingPiece reference. 
+        
+        The king reference helps to determine the gameState: check, stalemate, checkmate.
+        */
+        
         if (square.piece)
         {
             if (square.piece.type.name === "king")
@@ -766,6 +975,9 @@ class Board
 
     getSquare(row, col)
     {
+        /*This function returns a square at the given row/col coordinate on the checkboard if available... 
+        else null*/
+        
         if(row >= 0 && row < this.squares.length && col >=0 && col < this.squares[row].length)
         {
             return this.squares[row][col];
@@ -775,16 +987,13 @@ class Board
             return null;
         }
     }
-    
-    getPiece(row, col)
-    {
-        let square = this.getSquare(row, col);
-        
-        return this.square.piece;
-    }
-    
+      
     clearSquareSelection()
     {
+        /*This function clears the board.selection ...  which is the reference of the square which was selected
+        by the player.
+        */
+        
         if(this.selection)
         {
             this.selection.isSelected = false;
@@ -794,23 +1003,42 @@ class Board
     
     selectSquare(row, col)
     {
+        /*This function is triggered from the game after receiving input to select a square on the checkboard.*/
         this.clearSquareSelection();
         
         this.selection = this.squares[row][col];
         this.selection.isSelected = true;
     }
    
+    updateLastMoveTrackers(fromSquare, toSquare)
+    {
+        /*
+        Function to update the last move trackers - which will help highlighting the last on the chessboard.
+        */
+        
+        //Update the last move trackers:
+        this.lastMoveFrom = fromSquare;
+        this.lastMoveTo = toSquare;
+    }
+    
     movePiece(fromSquare, toSquare)
-    {   
+    {
+        /*This function is triggered from game.move after all validations are passed... to initialite the
+        movement of a piece on the board.
+        */
+        
         this.clearSquareSelection();
         
-        //if piece was not moved before - now it is moved
+        //if piece was not moved before - now it is moved.
         fromSquare.piece.hasMoved = true;
         
         toSquare.piece = fromSquare.piece;
         fromSquare.piece = null;
         
-        // Update king reference when moving
+        //Update the last move trackers when moving any piece;
+        this.updateLastMoveTrackers(fromSquare, toSquare);
+        
+        //Update king reference when moving
         this.checkUpdateBoardKingsPositions(toSquare);
         
         //Check for castling move and commit the rook to it.
@@ -831,20 +1059,33 @@ class Game
             white: new HumanPlayer("white"),
             black: new AIPlayer("black"),
         };
+        
         this.currentPlayer = this.players.white;
         this.currentTurn = this.currentPlayer.color;
         
-        this.state = "playing"; // playing | check | checkmate | stalemate
         this.moveCounter = 0;
         
-        writeResult("Game Started.");
-        writeResult("Current Turn: " + this.currentTurn, neutralMessageColor);
+        //Setup of the chessboard parameters
+        this.board_margin = 0.04; //chessboard margins used for drawing the coordinates -> 4% used as margin
+        this.boardSize = gameCanvas.width; //board take the entires width of the canvas
+        this.coordMargin =  this.boardSize * this.board_margin; //coordinate margin is 4% of the boardsize
+        this.playableSize =  this.boardSize -  this.coordMargin;  //playable size is everything else that's not coordMargin
+        this.squareSize =  this.playableSize / 8;  //square size is playable size / number of squares per row.
+        
+        //Object to help assigning and tracking different gamestates the game could have.
+        this.gameStates = {checkmate: "checkmate", stalemate: "stalemate", running: "running", check: "check"};
+        this.state = this.gameStates.running;
+        
+        updateGameStatusLabel("Game is running!");
+        updatePlayerTurnLabel("Player Turn: " + this.currentTurn, this.currentTurn);
     }
 
     move(fromSquare, toSquare)
     {
+        /*This function will be triggered when the canvas received valid inputs to trigger a move.*/
+        
         // block moves if game is over
-        if (this.state === "checkmate" || this.state === "stalemate")
+        if (this.state === this.gameStates.checkmate || this.state === this.gameStates.stalemate)
         {
             return false;
         }
@@ -875,6 +1116,7 @@ class Game
             return false;
         }
         
+        //if piece will be captured following this move
         if(toSquare.piece != null)
         {
             this.players[this.currentTurn].capturedPieces.push(toSquare.piece);
@@ -884,11 +1126,14 @@ class Game
         
         this.moveCounter++;
         
-        let message = capitalize(this.currentTurn) + "s:\n" + toSquare.piece.type.name + " - from " +
-                      fromSquare.row + "x" + fromSquare.col + " to " + toSquare.row + "x" + toSquare.col;
+        //Output the move log
+        let message = this.currentTurn + " " + toSquare.piece.type.name + " from " +
+                      this.getRankNumber(fromSquare.row) + this.getFileLetter(fromSquare.col) + " to " + 
+                      this.getRankNumber(toSquare.row) + this.getFileLetter(toSquare.col);
         
         writeResult(this.moveCounter + ". " + message, this.getMessageColorForCurrentPlayer());
         
+        //Update the game state and switch the turn
         this.updateGameState();
         this.switchTurn();
 
@@ -896,24 +1141,32 @@ class Game
     }
 
     switchTurn()
-    {           
-        if(this.currentPlayer === this.players.white)
-        {
-            this.currentPlayer = this.players.black;
-        }
-        else
-        {
-            this.currentPlayer = this.players.white;
-        }
+    {
+        /*This function will switch the turn to the the opposite player after each move.*/
         
-        this.currentTurn = this.currentPlayer.color;
-        this.currentPlayer.requestMove(this);
-        
-        writeResult("Current Turn: " + this.currentTurn, neutralMessageColor);
+        if(this.state != this.gameStates.stalemate && this.state != this.gameStates.checkmate)
+        {
+            if(this.currentPlayer === this.players.white)
+            {
+                this.currentPlayer = this.players.black;
+            }
+            else
+            {
+                this.currentPlayer = this.players.white;
+            }
+            
+            this.currentTurn = this.currentPlayer.color;
+            
+            updatePlayerTurnLabel("Player Turn: " + this.currentTurn, this.currentTurn);
+            
+            this.currentPlayer.requestMove(this);
+        }
     }
       
     isKingInCheck(color)
     {
+        /*This function will check whether the king of a specified color is in check.*/
+        
         const kingSquare = 
             color === "white" 
             ? this.board.whiteKingSquare 
@@ -949,7 +1202,7 @@ class Game
 
         const capturedPiece = toSquare.piece;
 
-        // simulate the move
+        //Simulate the move
         toSquare.piece = piece;
         fromSquare.piece = null;
 
@@ -1053,6 +1306,8 @@ class Game
     
     getOpponentPlayerName()
     {
+        /*This function will return the color of the opposite player.*/
+        
         let player = this.currentTurn === "white"
                     ? "black"
                     : "white";
@@ -1062,6 +1317,7 @@ class Game
     
     getMessageColorForCurrentPlayer()
     {
+        //This function will return a color to be used for outputting messages based on the player's color.
         let color = this.currentTurn === "white"
                         ? whitePlayerMessageColor
                         : blackPlayerMessageColor;
@@ -1071,60 +1327,307 @@ class Game
     
     updateGameState()
     {
-        //This function will detect check, checkmate, stalemate
+        //This function will be triggered after each move and will detect check, checkmate, stalemate 
         
-        const color = this.currentTurn;
+        //get the color of the opposite player to check whether the move of the current player changed 
+        //the game state.
+        const color = this.getOpponentPlayerName();
         
         //Check if the king is in check
-        let prev_game_state = this.state;
         const inCheck = this.isKingInCheck(color);
         
-        console.log("Check: " + inCheck + " - " + color);
         //Check if the player has any legal moves left
         const hasMove = this.hasAnyLegalMove(color);
         
         //if king is in danger and doesn't have any valid moves
         if (inCheck && !hasMove)
         {
-            this.state = "checkmate";
+            this.state = this.gameStates.checkmate;
             
-            //Output the result
-            let message_color = this.getMessageColorForCurrentPlayer();
-            
-            writeResult("Checkmate! " + capitalize(this.currentTurn) + " player is the winner.", message_color);
+            updateGameStatusLabel("The game ended in checkmate! ");
+            updatePlayerTurnLabel(capitalize(this.currentTurn) + " is victorious!", this.currentTurn);
         }
         //if the king is not in check and doesn't have any valid moves
         else if (!inCheck && !hasMove)
         {
-            this.state = "stalemate";
+            this.state = this.gameStates.stalemate;
             
-            //Output the result
-            writeResult("The game ended in stalemate! No winner. ");
+            updateGameStatusLabel("The game ended in stalemate!");
+            updatePlayerTurnLabel("No Winner!");
         }
         //if the king is in check
         else if (inCheck)
         {
-            this.state = "check";
+            this.state = this.gameStates.check;
             
             let oppositePlayer = this.getOpponentPlayerName();
             
             //Output the result
-            writeResult(capitalize(oppositePlayer) + "s - are in check!", negativeMessageColor);
+            updateGameStatusLabel(capitalize(oppositePlayer) + " King is in check!");
         }
         else
         {
-            this.state = "playing";
+            this.state = this.gameStates.running;
             
-            if(prev_game_state == "check")
-            {
-                //Output the result
-                writeResult(capitalize(this.currentTurn) + "s - are released from check!", positiveMessageColor);
-            }
+            updateGameStatusLabel("Game is running!");
         }
     }
     
     drawBoard()
     {
+        /* This function will draw the chessboard within the canvas. 
+        Containing margins for chessboard coordinates.
+        */
+        
+        //Clear the canvas
+        gameContext.clearRect(0, 0, this.boardSize, this.boardSize);
+        
+        //variable used to store the legal moves of square.piece if there is any square.piece already selected
+        let board_selection_moves = [];
+        
+        //if there is any square.piece selected.
+        if (this.board.selection)
+        {
+            //grab the legal moves
+            board_selection_moves = this.getFilteredLegalMoves(this.board.selection);
+        }
+
+        // =======================================================
+        // 1. DRAW BOARD SQUARES
+        // =======================================================
+        for (let row = 0; row < 8; row++)
+        {
+            for (let col = 0; col < 8; col++)
+            {
+                //link the drawn square with the board square object
+                const square = this.board.getSquare(row, col);
+                
+                //Variable to determine whether the square we're iterating is white or black
+                const isLight = (row + col) % 2 === 0;
+                
+                //if the current square is a valid move for the selected square.piece
+                if (this.board.selection && board_selection_moves.includes(square))
+                {
+                    //use the selection color to color the square
+                    gameContext.fillStyle = isLight ? selectionWhiteColor : selectionBlackColor;
+                }
+                else
+                {
+                    //use the regular colors to draw the square
+                    gameContext.fillStyle = isLight ? regularWhiteColor : regularBlackColor;
+                }
+                
+                //calculate the coordinate taking under consideration the margins reserved to draw the chessboard coordinates
+                const x = this.coordMargin + col * this.squareSize;
+                const y = row * this.squareSize;
+                
+                //draw the square
+                gameContext.fillRect(x, y, this.squareSize, this.squareSize);
+                
+                //if the square object has a piece assigned to it
+                if (square.piece)
+                {
+                    //draw the piece texture
+                    gameContext.drawImage(
+                        square.piece.texture,
+                        x,
+                        y,
+                        this.squareSize,
+                        this.squareSize
+                    );
+                }
+            }
+        }
+
+        // =============================================================
+        // 2. DRAW SQUARE SELECTION BORDER - if there is any square.piece selected
+        // =============================================================
+        
+        if (this.board.selection)
+        {
+            const square = this.board.selection;
+
+            const x = this.coordMargin + square.col * this.squareSize;
+            const y = square.row * this.squareSize;
+
+            gameContext.strokeStyle = "red";
+            gameContext.lineWidth = 4;
+            
+            const lineEachSideSize = gameContext.lineWidth / 2;
+
+            gameContext.strokeRect(
+                x + lineEachSideSize,                      //x of the square starts after the border;
+                y + lineEachSideSize,                      //y of the square starts after the border; 
+                this.squareSize - gameContext.lineWidth,   //width of the square does not include the border;
+                this.squareSize - gameContext.lineWidth    //height of the square does not include the border;
+            );
+        }
+
+        // ============================================================================
+        // 3. DRAW LAST MOVE HIGHLIGHT - if there is any last move to be highlighted
+        // ============================================================================
+        if (this.board.lastMoveFrom && this.board.lastMoveTo)
+        {
+            const from_x = this.coordMargin + this.board.lastMoveFrom.col * this.squareSize;
+            const from_y = this.board.lastMoveFrom.row * this.squareSize;
+
+            const to_x = this.coordMargin + this.board.lastMoveTo.col * this.squareSize;
+            const to_y = this.board.lastMoveTo.row * this.squareSize;
+
+            gameContext.strokeStyle = "blue";
+            gameContext.lineWidth = 4;
+            const lineEachSideSize = gameContext.lineWidth / 2;
+
+            gameContext.strokeRect(
+                from_x + lineEachSideSize,               //x of the square starts after the border;
+                from_y + lineEachSideSize,               //y of the square starts after the border;    
+                this.squareSize - gameContext.lineWidth, //width of the square does not include the border;
+                this.squareSize - gameContext.lineWidth  //height of the square does not include the border;
+            );
+            
+            gameContext.strokeRect(
+                to_x + lineEachSideSize,                 //x of the square starts after the border;
+                to_y + lineEachSideSize,                 //y of the square starts after the border;
+                this.squareSize - gameContext.lineWidth, //width of the square does not include the border;
+                this.squareSize - gameContext.lineWidth, //height of the square does not include the border;
+            );
+        }
+
+        // ===================================
+        // 4. DRAW OUTER BORDER
+        // ===================================
+        gameContext.strokeStyle = "black";
+        gameContext.lineWidth = 3;
+        gameContext.strokeRect(
+            this.coordMargin + 0.5,
+            0.5,
+            this.playableSize - 1,
+            this.playableSize - 1
+        );
+
+        // =======================================================
+        // 5. DRAW COORDINATES - draw the chessboard coordinates
+        // =======================================================
+        gameContext.font = `${this.squareSize * 0.28}px Arial`;
+        gameContext.textAlign = "center";
+        gameContext.textBaseline = "middle";
+        gameContext.fillStyle = "black";
+
+        // Files (a-h) bottom
+        for (let col = 0; col < 8; col++)
+        {
+            const letter = this.getFileLetter(col);
+
+            const x = this.coordMargin + col * this.squareSize + this.squareSize / 2;
+            const y = this.playableSize + this.squareSize * 0.25;
+
+            gameContext.fillText(letter, x, y);
+        }
+
+        // Ranks (8-1) left
+        for (let row = 0; row < 8; row++)
+        {
+            const number = this.getRankNumber(row);
+
+            const x = this.coordMargin * 0.4;
+            const y = row * this.squareSize + this.squareSize / 2;
+
+            gameContext.fillText(number, x, y);
+        }
+    }
+    
+    squareClicked(event)
+    {
+        /*This function will be triggered whenever there is a click inside the canvas*/
+        
+        //this variable will store the color of the player which can have the input.
+        let playerControllerColor = "white";
+        //playerControllerColor = this.currentTurn; //with this assignment you can allow localMultiplayer
+        
+        
+        /*
+        getBoundingClientRect() returns the current displayed size of the canvas in pixels (CSS pixels) on the page.
+        rect.width might not equal canvas.width, because of CSS styling.
+        
+        scaleX / scaleY calculate how much the internal canvas coordinates are scaled relative to the displayed size.
+        
+        ====================================================
+        Example:
+        canvas.width = 640
+
+        CSS makes it 320px on screen → rect.width = 320
+
+        Then scaleX = 640 / 320 = 2
+        ====================================================
+        Conclusion: each pixel on the canvas can be scaled positively or negatively to match the css.
+        Canvas has its internal set of coordinates... which needs to be alligned with the css to process
+        the coordinates correctly.
+        */
+        
+        const rect = gameCanvas.getBoundingClientRect();
+        const scaleX = gameCanvas.width / rect.width;
+        const scaleY = gameCanvas.height / rect.height;
+        
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
+
+        // =================================================
+        // 1. Reject clicks in margin
+        // =================================================
+        if ( x < this.coordMargin || x > this.coordMargin + this.playableSize ||
+             y < 0 || y > this.playableSize )
+        {
+            // Clicked outside playable board
+            return;
+        }
+
+        // =================================================================================================
+        // 2. Adjust coordinate system so that we won't take under consideration clicks outside the playarea
+        // =================================================================================================
+        const col = Math.floor((x - this.coordMargin) / this.squareSize);
+        const row = Math.floor(y / this.squareSize);
+
+        let clickedSquare = this.board.getSquare(row, col);
+        
+        //if the square clicked is the square that was previously selected
+        if (clickedSquare == this.board.selection)
+        {
+            //deselect the square
+            this.board.clearSquareSelection();
+        }
+        //if the square clicked has a piece which is of color authorized to control its moves - 
+        //and there is no piece selected yet
+        else if( clickedSquare.piece && clickedSquare.piece.color == playerControllerColor && this.board.selection == null )
+        {
+            //select the square containing the piece
+            this.board.selectSquare(row, col);
+            this.board.selection = clickedSquare;
+        }
+        //if the a square was selected, attempt to move the piece - validation will be handled by game.move
+        else if (this.board.selection)
+        {
+            this.move(this.board.selection, clickedSquare);
+        }
+        
+        //console.log("Clicked:", row, col);
+        
+        //draw the board to make the updates on the checkerboard
+        this.drawBoard();
+    }
+    
+    getFileLetter(col)
+    {
+        return String.fromCharCode(97 + col); // a-h
+    }
+
+    getRankNumber(row)
+    {
+        return 8 - row; // 8-1
+    }
+    
+    drawBoard_OLD()
+    {
+        /* This function will draw the chessboard within the canvas. */
         const boardSize = gameCanvas.width;
         const squareSize = boardSize / 8;
         
@@ -1198,23 +1701,52 @@ class Game
                 squareSize - 4,
             );
         }
+        
+        //Add highlights for the last move - if any
+        if (this.board.lastMoveFrom != null && this.board.lastMoveTo != null)
+        {
+            const from_x = this.board.lastMoveFrom.col * squareSize;
+            const from_y = this.board.lastMoveFrom.row * squareSize;
+            
+            const to_x = this.board.lastMoveTo.col * squareSize;
+            const to_y = this.board.lastMoveTo.row * squareSize;
+
+            gameContext.strokeStyle = "blue";
+            gameContext.lineWidth = 4;
+
+            gameContext.strokeRect(
+                //border is 2px on each size
+                from_x + 2,
+                from_y + 2,
+                //square size shrinks to contain the border within
+                squareSize - 4,
+                squareSize - 4,
+            );
+            
+            gameContext.strokeRect(
+                //border is 2px on each size
+                to_x + 2,
+                to_y + 2,
+                //square size shrinks to contain the border within
+                squareSize - 4,
+                squareSize - 4,
+            );
+        }
 
         //Draw outer border last
         gameContext.strokeStyle = "black";
         gameContext.lineWidth = 3;
         gameContext.strokeRect(0.5, 0.5, boardSize - 1, boardSize - 1);
     }
-    
-    handleSquareClick(row, col)
+       
+    squareClicked_OLD(event)
     {
-        if (!(this.currentPlayer instanceof HumanPlayer))
-        {
-            return; // ignore input if AI turn
-        }
-    }
-    
-    squareClicked(event)
-    {
+        /*This function will be triggered whenever there is a click inside the canvas*/
+        
+        //this variable will store the color of the player which can have the input.
+        let playerControllerColor = "white";
+        //playerControllerColor = this.currentTurn; //with this assignment you can allow localMultiplayer
+        
         /*
         getBoundingClientRect() returns the current displayed size of the canvas in pixels (CSS pixels) on the page.
         rect.width might not equal canvas.width, because of CSS styling.
@@ -1252,7 +1784,7 @@ class Game
         {
             this.board.clearSquareSelection();
         }
-        else if(clickedSquare.piece && clickedSquare.piece.color == this.currentTurn && 
+        else if(clickedSquare.piece && clickedSquare.piece.color == playerControllerColor && 
                 this.board.selection == null)
         {
             this.board.selectSquare(row, col);
@@ -1271,6 +1803,8 @@ class Game
 
 async function extractPieceFromSpritesheet(col, row)
 {
+    /*This function will be used to extract sprites from the spritesheet*/
+    
     /*if the spritesheet has not finished loading*/
     if (!spriteSheet.complete)
     {
@@ -1307,6 +1841,10 @@ async function extractPieceFromSpritesheet(col, row)
 
 function getInitialPiece(color, col, pieceTextures)
 {
+    /*This function will return a piece based on the color, col-coordinate and pieceTextures.
+    This will be triggered in the board constructor when setting up the checkboard squares...
+    */
+    
     //the order of the main chess pieces on the chessboard
     const order = [
         "rook",
@@ -1331,6 +1869,8 @@ function getInitialPiece(color, col, pieceTextures)
 
 function FullscreenMode(e) 
 {
+    /*Function handling switches to/out of fullscreen*/
+    
     var game_content = document.getElementById("game_content");
     var fullscreen_button = document.getElementById("fullscreen");
     if (document.fullscreenElement == null)
@@ -1368,6 +1908,7 @@ function FullscreenMode(e)
 
 function Enter_FullScreen(e)
 {
+    /*Key shortcut for fullscreen*/
     if (e.key == "f")
     {
         FullscreenMode(); 
@@ -1376,7 +1917,9 @@ function Enter_FullScreen(e)
 
 function capitalize(str)
 {
-    // handle empty or undefined strings
+    /*Function to capitalize a string*/
+    
+    //handle empty or undefined strings
     if (!str)
     {
         return ''; 
@@ -1386,7 +1929,8 @@ function capitalize(str)
 
 function writeResult(result_text, color = neutralMessageColor)
 {
-    const resultHUD_Element = document.getElementById("result");
+    /*Function to write a message in the console.output*/
+    const resultHUD_Element = document.getElementById("result_log");
 
     // Create message element
     const message = document.createElement("div");
@@ -1407,11 +1951,11 @@ function writeResult(result_text, color = neutralMessageColor)
     scheduleAnimation(message, "newOutputInfo");
     
     //Add separator
-    if(resultHUD_Element.children.length > 1)
-    {
-        const lastChild = resultHUD_Element.lastElementChild;
-        lastChild.style.borderTop = "solid 1px " + color;
-    }
+    //if(resultHUD_Element.children.length > 1)
+    //{
+    //    const lastChild = resultHUD_Element.lastElementChild;
+    //    lastChild.style.borderTop = "solid 1px " + color;
+    //}
     
     // Limit total stored messages to 50)
     const maxMessages = 50;
@@ -1423,6 +1967,7 @@ function writeResult(result_text, color = neutralMessageColor)
 
 function scheduleAnimation(element, className)
 {
+    /*Function that can be used to schedule an animation*/
     element.classList.add(className);
 
     let resolveFn;
@@ -1454,8 +1999,41 @@ function scheduleAnimation(element, className)
     return promise;
 }
 
+function getColorFromMessage(message)
+{
+    let color = "white";
+    
+    if(message == "white")
+    {
+        color = regularWhiteColor;
+    }
+    
+    else if (message == "black")
+    {
+        color = "black";
+    }
+    
+    return color;
+}
+
+function updatePlayerTurnLabel(message, player_color)
+{
+    let color = getColorFromMessage(message);
+
+    const label = document.getElementById("current_turn");
+    
+    label.textContent = message;
+    label.style.color = color;
+}
+
+function updateGameStatusLabel(message)
+{
+    document.getElementById("game_status").textContent = message;
+}
+
 async function waitForAnimation(active_animation_name)
 {
+    /*Function that can be used to wait for an animation to complete.*/
     var anim = null;
     
     activeAnimations.forEach(elem => {
@@ -1474,7 +2052,8 @@ async function waitForAnimation(active_animation_name)
 
 function restartGame()
 {
-    document.getElementById("result").innerHTML = "";
+    /*Function that will restart the game.*/
+    document.getElementById("result_log").innerHTML = "";
     
     //Creating a checkerboard object
     game = new Game();
