@@ -53,6 +53,9 @@ const pieceTextures = {}
 /*This variable will store instances of the pieceTypes*/
 const pieceTypes = {};
 
+//This variable will count the moves on the checkboard
+let moveCounter = 0;
+
 class PawnType
 {
     constructor()
@@ -544,6 +547,37 @@ class ChessPiece
         
         return moves;
     }
+    
+    getPieceIcon()
+    {
+        const colIndex = pieceTextures[this.color][this.type.name].col;
+        const rowIndex = pieceTextures[this.color][this.type.name].row;
+        
+        const icon = document.createElement("div");
+
+        const iconSize = 30; // how big you want it displayed
+
+        icon.style.width = `${iconSize}px`;
+        icon.style.height = `${iconSize}px`;
+
+        icon.style.backgroundImage = `url(${spriteSheet.src})`;
+
+        // SCALE the whole sprite sheet down proportionally
+        icon.style.backgroundSize = `${6 * iconSize}px ${2 * iconSize}px`;
+
+        // Position based on scaled size
+        icon.style.backgroundPosition = `-${colIndex * iconSize}px -${rowIndex * iconSize}px`;
+
+        icon.style.backgroundRepeat = "no-repeat";
+
+        icon.style.display = "flex";
+        icon.style.border = "none 1px red";
+        icon.style.margin = "0px";
+        icon.style.padding = "0px";
+        icon.style.imageRendering = "pixelated";
+
+        return icon;
+    }
 }
 
 class Square
@@ -585,38 +619,176 @@ class AIPlayer extends Player
     
     requestMove(game)
     {
-        const move = this.calculateMove(game);
+        this.game_copy = this.cloneGame(game);
+        this.calculateMove(game);
     }
     
-    calculateMove(game)
+    cloneBoardOLD(board)
+    {
+        //[1,2,3].map(x => x * 2) // returns [2,4,6]
+        
+        //.map() does transform an array into a new array, based on the function you give it.
+        
+        /*
+        The original array (the board, which is an array of rows, each row an array of squares).
+        .map() creates a new “buffer” in memory — a brand new array with the same number of elements as the original.
+        
+        As it iterates through the original:
+        For each element (row or square), you decide what to put into the new array.
+        In this case, for each square: copy all its properties, but replace the piece property with a new object (or null).
+        The result: a completely separate board in memory, so changes to this new board don’t touch the original.
+        */
+        
+        
+        const newSquares = board.squares.map(row => row.map(square => (
+                {
+                    //keep each property of the square intact
+                    ...square, //...square - this creates a shallow copy of the square object.
+                    
+                    //“Shallow” means: it copies all the properties of the square itself, but does not copy nested objects.
+                    
+                    //keep each property of the piece intact
+                    //this needs to be done explicitly as piece is a nested object within the square
+                    piece: square.piece ? { ...square.piece } : null
+                }
+            ))
+        );
+        
+        return { squares: newSquares }; // return a board-like object
+    }
+    
+    cloneBoard(board)
+    {
+        const newSquares = board.squares.map(row =>
+            row.map(square => {
+                const newSquare = new Square(square.row, square.col);
+                newSquare.piece = this.clonePiece(square.piece);
+                return newSquare;
+            })
+        );
+
+        const newBoard = new Board();
+        newBoard.squares = newSquares;
+
+        return newBoard;
+    }
+    
+    clonePiece(piece)
+    {
+        if (!piece)
+        {
+            return null;
+        }
+        
+        const cloned = new piece.constructor(piece.color);
+
+        //copy the states if needed
+        cloned.hasMoved = piece.hasMoved;
+        cloned.type = piece.type;
+        cloned.texture = piece.texture;
+
+        return cloned;
+    }
+    
+    cloneGame(game)
+    {
+        //Create a new Game instance
+        const clonedGame = new Game();
+
+        //Deep clone the board
+        clonedGame.board = this.cloneBoard(game.board);
+
+        //Clone the players, preserving their type (HumanPlayer/AIPlayer)
+        clonedGame.players = {
+            white: new game.players.white.constructor("white"),
+            black: new game.players.black.constructor("black")
+        };
+
+        // Copy captured pieces arrays
+        clonedGame.players.white.capturedPieces = [...game.players.white.capturedPieces];
+        clonedGame.players.black.capturedPieces = [...game.players.black.capturedPieces];
+
+        //Set the current player
+        clonedGame.currentPlayer = game.currentPlayer.color === "white"
+            ? clonedGame.players.white
+            : clonedGame.players.black;
+
+        //Copy current turn and game state
+        clonedGame.currentTurn = game.currentTurn;
+        clonedGame.state = game.state;
+
+        //Copy other relevant properties if needed
+        clonedGame.gameStates = { ...game.gameStates };
+        clonedGame.board.whiteKingSquare = clonedGame.board.whiteKingSquare;
+        clonedGame.board.blackKingSquare = clonedGame.board.blackKingSquare;
+
+        return clonedGame;
+    }
+    
+    scanCheckboard(game, player_color)
     {
         const allMoves = [];
         
         //Scan the chessboard
         for (let row of game.board.squares)
-        {
+        {            
             for (let square of row)
             {
                 //for any piece of the AIPlayer's color
-                if (square.piece && square.piece.color === this.color)
+                if (square.piece && square.piece.color === player_color)
                 {
                     //Get all valid legal moves.
                     const moves = game.getFilteredLegalMoves(square);
                     
                     //For each valid move, add the move to the allMoves list as part of an object storing 
                     //the square where the piece is located and the square where the piece will be moved.
-                    moves.forEach(toSquare => allMoves.push({from: square, to: toSquare}));
+                    //moves.forEach(toSquare => allMoves.push({from: square, to: toSquare}));
+                    
+                    moves.forEach(toSquare => {
+                        allMoves.push({
+                            fromRow: square.row,
+                            fromCol: square.col,
+                            toRow: toSquare.row,
+                            toCol: toSquare.col
+                        });
+                    });
                 }
             }
         }
-
+        
+        return allMoves;
+    }
+      
+    calculateMove(game)
+    {
+        const allMoves = this.scanCheckboard(game, this.color);
+        
         if(allMoves.length === 0)
         {
             return; // no moves possible (checkmate/stalemate)
         }
         
         //Evaluate each move that the AI has.
-        allMoves.forEach(move => move.score = this.evaluateMoveWithRisk(game, move));
+        //allMoves.forEach(move => {
+        //    
+        //    const depth = 125; // or biggerNumber for stronger AI
+        //    move.score = this.evaluateMoveRecursively(this.game_copy, depth, this.color);
+        //
+        //});
+        
+        allMoves.forEach(move => {
+
+            const depth = 3; // not 125
+            const gameCopy = this.cloneGame(game);
+
+            this.simulateMoveOnBoard(gameCopy, move);
+
+            move.score = this.evaluateMoveRecursively(
+                gameCopy,
+                depth - 1,
+                this.getOpponentColor(this.color)
+            );
+        });
 
         //Sort moves in descending order by score
         allMoves.sort((a, b) => b.score - a.score);
@@ -628,8 +800,11 @@ class AIPlayer extends Player
         //Add a delay before commiting the move to the game... this way the AI will not move instantly.
         setTimeout(() => {
             
-            game.move(choice.from, choice.to);
-            
+            const from = game.board.squares[choice.fromRow][choice.fromCol];
+            const to   = game.board.squares[choice.toRow][choice.toCol];
+
+            game.move(from, to);
+                        
             /*
             HTML Canvas is immediate-mode rendering, not reactive.
             Changing game state (e.g., moving a piece in memory) does not automatically update what is displayed. 
@@ -649,6 +824,150 @@ class AIPlayer extends Player
         }, 2000);
         
         
+    }
+    
+    evaluateMoveRecursively(game, depth, maximizingPlayerColor)
+    {
+        /*
+        We keep simulating moves from both sides for as long as the depth specifies it.
+        
+        Depth is how further into the future we are allowed to see... how many recursions can we make...
+        or how many moves ahead we can plan, simulate and eventually evaluate.
+        
+        The score that will be returned by this function comes from the evaluateBoard() and is carried
+        from the innermost reccurent call up to the outermost call.
+        */
+        
+        if (depth === 0)
+        {
+            return this.evaluateBoard(game);
+        }
+
+        const moves = this.scanCheckboard(game, maximizingPlayerColor);
+        
+        //If its AI’s turn
+        if (maximizingPlayerColor === this.color)
+        {
+            //In JS, Infinity is a special numeric value representing a number larger than any other finite number.
+            let maxScore = -Infinity; //big negative value
+            
+            //For each of the AI's moves
+            for (let move of moves)
+            {
+                //Clone the game
+                const game_copy = this.cloneGame(game);
+                
+                //Simulate the move
+                this.simulateMoveOnBoard(game_copy, move);
+                
+                //Evaluate the move - and go recursively into more depth (within the future)
+                const score = this.evaluateMoveRecursively(game_copy, depth-1, this.getOpponentColor(maximizingPlayerColor));
+                
+                //get the maximum score across all moves
+                maxScore = Math.max(maxScore, score);
+                
+                /*
+                Every 'move' has a score representing how good the board is from AI’s perspective.
+                Positive score - good for AI
+                Negative score - bad for AI
+                
+                When it’s AI’s turn, it wants to maximize its advantage.
+                So we loop through all AI moves, recursively check - what happens next, and pick the move 
+                that leads to the highest final score.
+                
+                maxScore is the best outcome AI can force, assuming the opponent plays optimally.
+                if the opponent follow the script that the AI thought it through.
+                */
+            }
+            
+            //maxScore will come from the innermost ramification when (depth === 0)
+            //the score will be generated in the innermost recursion by the evaluateBoard()
+            return maxScore;
+        }
+        //Opponent’s turn
+        else
+        {
+            //In JS, Infinity is a special numeric value representing a number larger than any other finite number.
+            let minScore = Infinity; //big positive value
+            
+            //For each of the opponent's moves
+            for (let move of moves)
+            {
+                //Clone the game
+                const game_copy = this.cloneGame(game);
+                
+                //Simulate the move
+                this.simulateMoveOnBoard(game_copy, move);
+                
+                //Evaluate the move - and go recursively into more depth (within the future)
+                const score = this.evaluateMoveRecursively(game_copy, depth-1, this.getOpponentColor(maximizingPlayerColor));
+                
+                //Get the minimum score across all moves
+                minScore = Math.min(minScore, score);
+            }
+            
+            //minScore will come from the innermost ramification when (depth === 0)
+            //the score will be generated in the innermost recursion by the evaluateBoard()
+            return minScore;
+        }
+    }
+    
+    simulateMoveOnBoard(game, move)
+    {
+        const from = game.board.squares[move.fromRow][move.fromCol];
+        const to   = game.board.squares[move.toRow][move.toCol];
+
+        to.piece = from.piece;
+        from.piece = null;
+    }
+    
+    evaluateBoard(game)
+    {
+        /*
+        This function evaluates the board by generating a score based on the number of pieces and their 
+        value on the chessboard.
+        
+        The mechanism assumes that whoever has the most pieces left on the chessboard or the most valuable pieces
+        left on the chessboard will win the game.
+        */
+        let score = 0;
+        
+        //Scan the board
+        for (let row of game.board.squares)
+        {
+            for (let square of row)
+            {
+                //if the square has no piece on it - ignore the rest of the iteration
+                if (!square.piece)
+                {
+                    continue;
+                }
+                
+                //if there is a piece on the square then continue with the following statements
+                const piece = square.piece;
+                
+                //get the value of the current piece
+                let value = this.getPieceValue(piece);
+                
+                //if this is the piece of the AI
+                if (piece.color === this.color)
+                {
+                    //increase the score
+                    score += value;
+                }
+                else
+                {
+                    //decrease the score
+                    score -= value;
+                }
+            }
+        }
+        return score;
+    }
+            
+    getOpponentColor(color)
+    {
+        return color === "white" ? "black" : "white";
     }
     
     evaluateMoveWithRisk(game, move)
@@ -828,12 +1147,12 @@ class Board
                 // Row 1 → black pawns
                 else if (row === 1)
                 {
-                    square.piece = new ChessPiece(pieceTypes["pawn"], "black", pieceTextures.black.pawn);
+                    square.piece = new ChessPiece(pieceTypes["pawn"], "black", pieceTextures.black.pawn.bitmap);
                 }
                 // Row 6 → white pawns
                 else if (row === 6)
                 {
-                    square.piece = new ChessPiece(pieceTypes["pawn"], "white", pieceTextures.white.pawn);
+                    square.piece = new ChessPiece(pieceTypes["pawn"], "white", pieceTextures.white.pawn.bitmap);
                 }
                 // Row 7 → white main pieces
                 else if (row === 7)
@@ -864,8 +1183,14 @@ class Board
                 //if pawn travelled to the top row - is eligible for promotion
                 if(toSquare.row == 0)
                 {
-                    toSquare.piece = new ChessPiece(pieceTypes["queen"], "white", pieceTextures.white.queen);
-                    writeResult("White Pawn promoted to Queen.", positiveMessageColor);
+                    const pawnIcon = toSquare.piece.getPieceIcon();
+                    toSquare.piece = new ChessPiece(pieceTypes["queen"], "white", pieceTextures.white.queen.bitmap);
+                    
+                    const queenIcon = toSquare.piece.getPieceIcon();
+                    
+                    //Outputting the icons + text
+                    writeResult(" promoted to ", positiveMessageColor, pawnIcon, queenIcon);
+                    return true;
                 }
             }
             else if(toSquare.piece.color === "black")
@@ -873,11 +1198,18 @@ class Board
                 //if pawn travelled to the bottom row - is eligible for promotion
                 if(toSquare.row == 7)
                 {
-                    toSquare.piece = toSquare.piece = new ChessPiece(pieceTypes["queen"], "black", pieceTextures.black.queen);
-                    writeResult("Black Pawn promoted to Queen.", positiveMessageColor);
+                    const pawnIcon = toSquare.piece.getPieceIcon();
+                    toSquare.piece = toSquare.piece = new ChessPiece(pieceTypes["queen"], "black", pieceTextures.black.queen.bitmap);
+                    
+                    const queenIcon = toSquare.piece.getPieceIcon();
+                    
+                    //Outputting the icons + text
+                    writeResult(" promoted to ", positiveMessageColor, pawnIcon, queenIcon);
+                    return true;
                 }
             }
         }
+        return false;
     }
     
     checkCastlingMove(fromSquare, toSquare)
@@ -918,7 +1250,11 @@ class Board
                             rookSquare.piece.hasMoved = true;
                             designatedPositionSquare.piece = rookSquare.piece;
                             rookSquare.piece = null;
-                            writeResult("King-side castling move complete.", positiveMessageColor);
+                            
+                            let rookIcon = designatedPositionSquare.piece.getPieceIcon();
+                            let kingIcon = toSquare.piece.getPieceIcon();
+                            writeResult("king-side castling", positiveMessageColor, kingIcon, rookIcon);
+                            return true;
                         }
                     }
                 }
@@ -941,12 +1277,18 @@ class Board
                             rookSquare.piece.hasMoved = true;
                             designatedPositionSquare.piece = rookSquare.piece;
                             rookSquare.piece = null;
-                            writeResult("Queen-side castling move complete.", positiveMessageColor);
+                            
+                            let rookIcon = designatedPositionSquare.piece.getPieceIcon();
+                            let kingIcon = toSquare.piece.getPieceIcon();
+                            
+                            writeResult("queen-side castling", positiveMessageColor, kingIcon, rookIcon);
+                            return true;
                         }
                     }
                 }
             }
         }
+        return false;
     }
     
     checkUpdateBoardKingsPositions(square)
@@ -1029,11 +1371,19 @@ class Board
         
         this.clearSquareSelection();
         
+        let capturePiece = null;
+        //if piece will be captured following this move
+        if(toSquare.piece != null)
+        {
+            capturePiece = toSquare.piece;
+        }
+        
         //if piece was not moved before - now it is moved.
         fromSquare.piece.hasMoved = true;
         
         toSquare.piece = fromSquare.piece;
         fromSquare.piece = null;
+        moveCounter++;
         
         //Update the last move trackers when moving any piece;
         this.updateLastMoveTrackers(fromSquare, toSquare);
@@ -1042,10 +1392,41 @@ class Board
         this.checkUpdateBoardKingsPositions(toSquare);
         
         //Check for castling move and commit the rook to it.
-        this.checkCastlingMove(fromSquare, toSquare);
+        let wasCastling = this.checkCastlingMove(fromSquare, toSquare);
         
         //Check for pawn promotion move.
-        this.checkPawnPromotion(toSquare);
+        let wasPromotion = this.checkPawnPromotion(toSquare);
+        
+        //if not king castling or pawn promotion... output the move to Chessboard Log
+        if(wasCastling == false && wasPromotion == false)
+        {
+            //Output the move log
+            const icon = toSquare.piece.getPieceIcon();
+            let message = getRankNumber(fromSquare.row) + getFileLetter(fromSquare.col) + " to " + 
+                getRankNumber(toSquare.row) + getFileLetter(toSquare.col);
+            
+            if(capturePiece == null)
+            {
+                writeResult(message, this.getMessageColorBasedOnPieceColor(toSquare), icon);
+            }
+            else
+            {
+                const capture_icon = capturePiece.getPieceIcon();
+                message += " captures ";
+                writeResult(message, this.getMessageColorBasedOnPieceColor(toSquare), icon, capture_icon);
+            }
+        }
+        //else the outputting is already done by checkPawnPromotion and checkCastlingMove
+    }
+    
+    getMessageColorBasedOnPieceColor(toSquare)
+    {
+        //This function will return a color to be used for outputting messages based on the player's color.
+        let color = toSquare.piece.color === "white"
+                        ? whitePlayerMessageColor
+                        : blackPlayerMessageColor;
+        
+        return color;
     }
 }
 
@@ -1062,8 +1443,6 @@ class Game
         
         this.currentPlayer = this.players.white;
         this.currentTurn = this.currentPlayer.color;
-        
-        this.moveCounter = 0;
         
         //Setup of the chessboard parameters
         this.board_margin = 0.04; //chessboard margins used for drawing the coordinates -> 4% used as margin
@@ -1120,24 +1499,32 @@ class Game
         if(toSquare.piece != null)
         {
             this.players[this.currentTurn].capturedPieces.push(toSquare.piece);
+            //this.updateCapturesHUD(toSquare);
         }
         
         this.board.movePiece(fromSquare, toSquare);
-        
-        this.moveCounter++;
-        
-        //Output the move log
-        let message = this.currentTurn + " " + toSquare.piece.type.name + " from " +
-                      this.getRankNumber(fromSquare.row) + this.getFileLetter(fromSquare.col) + " to " + 
-                      this.getRankNumber(toSquare.row) + this.getFileLetter(toSquare.col);
-        
-        writeResult(this.moveCounter + ". " + message, this.getMessageColorForCurrentPlayer());
         
         //Update the game state and switch the turn
         this.updateGameState();
         this.switchTurn();
 
         return true;
+    }
+
+    updateCapturesHUD(toSquare)
+    {
+        const icon = toSquare.piece.getPieceIcon();
+            
+        if(this.currentTurn == "white")
+        {
+            const capturesHud = document.getElementById("white_captures");
+            capturesHud.append(icon);
+        }
+        else
+        {
+            const capturesHud = document.getElementById("black_captures");
+            capturesHud.append(icon);
+        }
     }
 
     switchTurn()
@@ -1313,16 +1700,6 @@ class Game
                     : "white";
 
         return player;
-    }
-    
-    getMessageColorForCurrentPlayer()
-    {
-        //This function will return a color to be used for outputting messages based on the player's color.
-        let color = this.currentTurn === "white"
-                        ? whitePlayerMessageColor
-                        : blackPlayerMessageColor;
-        
-        return color;
     }
     
     updateGameState()
@@ -1516,7 +1893,7 @@ class Game
         // Files (a-h) bottom
         for (let col = 0; col < 8; col++)
         {
-            const letter = this.getFileLetter(col);
+            const letter = getFileLetter(col);
 
             const x = this.coordMargin + col * this.squareSize + this.squareSize / 2;
             const y = this.playableSize + this.squareSize * 0.25;
@@ -1527,7 +1904,7 @@ class Game
         // Ranks (8-1) left
         for (let row = 0; row < 8; row++)
         {
-            const number = this.getRankNumber(row);
+            const number = getRankNumber(row);
 
             const x = this.coordMargin * 0.4;
             const y = row * this.squareSize + this.squareSize / 2;
@@ -1613,16 +1990,6 @@ class Game
         
         //draw the board to make the updates on the checkerboard
         this.drawBoard();
-    }
-    
-    getFileLetter(col)
-    {
-        return String.fromCharCode(97 + col); // a-h
-    }
-
-    getRankNumber(row)
-    {
-        return 8 - row; // 8-1
     }
     
     drawBoard_OLD()
@@ -1801,6 +2168,16 @@ class Game
     }
 }
 
+function getFileLetter(col)
+{
+    return String.fromCharCode(97 + col); // a-h
+}
+
+function getRankNumber(row)
+{
+    return 8 - row; // 8-1
+}
+
 async function extractPieceFromSpritesheet(col, row)
 {
     /*This function will be used to extract sprites from the spritesheet*/
@@ -1863,7 +2240,7 @@ function getInitialPiece(color, col, pieceTextures)
     return new ChessPiece(
         pieceTypes[name],                 // behavior object
         color,
-        pieceTextures[color][name]
+        pieceTextures[color][name].bitmap
     );
 }
 
@@ -1927,28 +2304,57 @@ function capitalize(str)
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
-function writeResult(result_text, color = neutralMessageColor)
+function writeResult(result_text, color = neutralMessageColor, primary_icon = null, secondary_icon = null)
 {
     /*Function to write a message in the console.output*/
+    
     const resultHUD_Element = document.getElementById("result_log");
 
-    // Create message element
+    //Create message element
     const message = document.createElement("div");
-    message.innerHTML = result_text.replace(/\n/g, '<br>');
     message.style.color = color;
     message.style.width = "100%";
-
+    message.style.borderBottom = "none 1px white";
+    
+    /*Allign all element within message div at the bottom*/
+    message.style.display = "flex";
+    message.style.alignItems = "flex-end";
+    message.style.lineHeight = "1";;
+    
+    /*Add this horizontal gap/space between, text nodes and the icons*/
+    message.style.gap = "2px";
+    
     //Add slight spacing between messages
     message.style.margin = "1px";
     
+    //Add the moveCounter
+    const moveCounterText = document.createTextNode(moveCounter + ".");
+    message.append(moveCounterText);
+
+    //If primary_icon provided, add it first
+    if (primary_icon)
+    {
+        message.appendChild(primary_icon);
+    }
+
+    //Add text node
+    const textNode = document.createTextNode(result_text);
+    message.appendChild(textNode);
+    
+    if (secondary_icon)
+    {
+        message.appendChild(secondary_icon);
+    }
+
     //Append message
     resultHUD_Element.appendChild(message);
 
     //Auto-scroll to latest message
     resultHUD_Element.scrollTop = resultHUD_Element.scrollHeight;
-
+    
     //Animate newest message
     scheduleAnimation(message, "newOutputInfo");
+
     
     //Add separator
     //if(resultHUD_Element.children.length > 1)
@@ -1957,7 +2363,8 @@ function writeResult(result_text, color = neutralMessageColor)
     //    lastChild.style.borderTop = "solid 1px " + color;
     //}
     
-    // Limit total stored messages to 50)
+    //Limit total stored messages to 50)
+
     const maxMessages = 50;
     if (resultHUD_Element.children.length > maxMessages)
     {
@@ -1999,16 +2406,16 @@ function scheduleAnimation(element, className)
     return promise;
 }
 
-function getColorFromMessage(message)
+function getColorFromMessage(player_color)
 {
     let color = "white";
     
-    if(message == "white")
+    if(player_color == "white")
     {
         color = regularWhiteColor;
     }
     
-    else if (message == "black")
+    else if (player_color == "black")
     {
         color = "black";
     }
@@ -2018,7 +2425,7 @@ function getColorFromMessage(message)
 
 function updatePlayerTurnLabel(message, player_color)
 {
-    let color = getColorFromMessage(message);
+    let color = getColorFromMessage(player_color);
 
     const label = document.getElementById("current_turn");
     
@@ -2071,23 +2478,24 @@ window.addEventListener("keydown", function(e) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     
-    /*Initializing the pieceTextures object with the proper texture images*/
+    /*Initializing the pieceTextures object with the proper texture images*/    
     pieceTextures.white = {
-        king:   await extractPieceFromSpritesheet(0, 0),
-        queen:  await extractPieceFromSpritesheet(1, 0),
-        bishop: await extractPieceFromSpritesheet(2, 0),
-        knight: await extractPieceFromSpritesheet(3, 0),
-        rook:   await extractPieceFromSpritesheet(4, 0),
-        pawn:   await extractPieceFromSpritesheet(5, 0),
+        king:   { bitmap: await extractPieceFromSpritesheet(0, 0), col: 0, row: 0 },
+        queen:  { bitmap: await extractPieceFromSpritesheet(1, 0), col: 1, row: 0 },
+        bishop: { bitmap: await extractPieceFromSpritesheet(2, 0), col: 2, row: 0 },
+        knight: { bitmap: await extractPieceFromSpritesheet(3, 0), col: 3, row: 0 },
+        rook:   { bitmap: await extractPieceFromSpritesheet(4, 0), col: 4, row: 0 },
+        pawn:   { bitmap: await extractPieceFromSpritesheet(5, 0), col: 5, row: 0 },
     };
     
     pieceTextures.black = {
-        king:   await extractPieceFromSpritesheet(0, 1),
-        queen:  await extractPieceFromSpritesheet(1, 1),
-        bishop: await extractPieceFromSpritesheet(2, 1),
-        knight: await extractPieceFromSpritesheet(3, 1),
-        rook:   await extractPieceFromSpritesheet(4, 1),
-        pawn:   await extractPieceFromSpritesheet(5, 1),
+        king:   { bitmap: await extractPieceFromSpritesheet(0, 1), col: 0, row: 1 },
+        queen:  { bitmap: await extractPieceFromSpritesheet(1, 1), col: 1, row: 1 },
+        bishop: { bitmap: await extractPieceFromSpritesheet(2, 1), col: 2, row: 1 },
+        knight: { bitmap: await extractPieceFromSpritesheet(3, 1), col: 3, row: 1 },
+        rook:   { bitmap: await extractPieceFromSpritesheet(4, 1), col: 4, row: 1 },
+        pawn:   { bitmap: await extractPieceFromSpritesheet(5, 1), col: 5, row: 1 },
+
     };
     
     //Initializing the pieceTypes with instances

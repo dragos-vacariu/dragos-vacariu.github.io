@@ -175,7 +175,7 @@
     border-bottom: solid 1px white;
     font-family: Calibri;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 17px;
     
     justify-content: flex-start;     /* top align */
     align-items: flex-start;         /* left align */
@@ -183,7 +183,50 @@
 
     padding: 5px;
     margin: 0px auto;
-    margin-bottom: 5px;
+}
+
+#captures
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    color: white;   /*default color - this property controlled from javascript*/                
+    
+    border: none 1px white;
+    border-bottom: solid 1px white;
+    font-family: Calibri;
+    font-weight: normal;
+    font-size: 12px;
+    
+    justify-content: flex-start;     /* top align */
+    align-items: flex-start;         /* left align */
+    text-align: left;
+
+    padding: 0px;
+    margin: 0px auto;
+}
+
+#white_captures, #black_captures
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    color: white;   /*default color - this property controlled from javascript*/                
+
+    max-height: 3.1rem;
+    min-height: 3.1rem;
+    
+    border: none 1px white;
+    font-family: Calibri;
+    font-weight: normal;
+    font-size: 12px;
+    
+    justify-content: flex-start;     /* top align */
+    align-items: flex-start;         /* left align */
+    text-align: left;
+
+    padding: 0px;
+    margin: 0px auto;
 }
 
 #current_turn, #game_status
@@ -211,12 +254,12 @@
 
 .newOutputInfo
 {
-    animation: outputAnimation 0.3s 1;
+    animation: outputAnimation 0.5s 1;
 }
 
 @keyframes outputAnimation {
-    0%   { font-size: 1px }
-    100% { font-size: inherit; }
+    0%   { opacity: 0.1 }
+    100% { opacity: 1; }
 }
 
 @media (max-width: 768px)
@@ -234,16 +277,6 @@
         max-height: 5.1rem;
         min-height: 5.1rem;
     }
-}
-
-.newOutputInfo
-{
-    animation: outputAnimation 0.3s 1;
-}
-
-@keyframes outputAnimation {
-    0%   { font-size: 1px }
-    100% { font-size: inherit; }
 }
 
 #author
